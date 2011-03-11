@@ -1,0 +1,19 @@
+Readme for the ouplayer (ouembed) project.
+
+OU player: Copyright 2010-2011 The Open University. All rights reserved.
+ * Not licensed as open-source (yet!)
+ * Contact: Nick Freear <n.d.freear+@+open.ac.uk>
+
+
+Based on codeigniter-reactor, changeset 2263:1b173956c908 (v2.0.0+) (6 mar.-10 days)
+ *  <http://bitbucket.org/ellislab/codeigniter-reactor/changeset/1b173956c908>
+
+CodeIgniter: Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * License: <http://codeigniter.com/user_guide/license.html>
+
+jquery-oembed: Copyright Richard Chamorro, Avanzis.
+ * MIT License: <http://opensource.org/licenses/mit-license.php>
+ * Code: <http://code.google.com/p/jquery-oembed/#r20>
+
+
+[End.]
