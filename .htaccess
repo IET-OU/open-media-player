@@ -1,0 +1,69 @@
+# Deny OR Allow Folder Indexes.
+# Since we disable access to PHP files you
+# can leave this on without worries.
+# OR better yet, create a .htaccess file in
+# the dir you want to allow browsing and
+# set it to +Indexes
+Options -Indexes
+
+Options +FollowSymLinks
+
+# Set the default file for indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    # mod_rewrite rules
+    RewriteEngine on
+
+    # The RewriteBase of the system (if you are using this sytem in a sub-folder).
+    # RewriteBase /CodeIgniter_1.6.3/
+
+    # This will make the site only accessible without the "www."
+    # (which will keep the subdomain-sensive config file happy)
+    # If you want the site to be accessed WITH the "www."
+    # comment-out the following two lines.
+    RewriteCond %{HTTP_HOST} ^www\.maltwiki\.org$ [NC]
+    RewriteRule ^(.*)$ http://maltwiki.org/$1 [L,R=301]
+
+    # If a controler can't be found - then issue a 404 error from PHP
+    # Error messages (via the "error" plugin)
+    # ErrorDocument 403 /index.php/403/
+    # ErrorDocument 404 /index.php/404/
+    # ErrorDocument 500 /index.php/500/
+
+    # Deny any people (or bots) from the following sites: (to stop spam comments)
+    # RewriteCond %{HTTP_REFERER} nienschanz\.ru [NC,OR]
+    # RewriteCond %{HTTP_REFERER} porn\.com
+    # RewriteRule .* - [F]
+    # Note: if you are having trouble from a certain URL just
+    # add it above to forbide all visitors from that site.
+
+    # You can also uncomment this if you know the IP:
+    # Deny from 192.168.1.1
+
+    # If the file is NOT the index.php file
+    RewriteCond %{REQUEST_FILENAME} !index.php
+    # Hide all PHP files so none can be accessed by HTTP
+    RewriteRule (.*)\.php$ index.php/$1
+
+#ou-specific. For images, styles, scripts, SWFs.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^assets/(.*)$ system/application/assets/$1 [QSA,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^scripts/(jquery.oembed.js)$ system/application/hooks/$1 [QSA,L]
+#ou-specific ends.
+
+    # If the file/dir is NOT real go to index
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [QSA,L]
+
+</IfModule>
+
+# If Mod_rewrite is NOT installed go to index.php
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 index.php
+</IfModule>
