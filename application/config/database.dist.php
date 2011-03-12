@@ -44,7 +44,7 @@ $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = '';
 $db['default']['password'] = '';
-$db['default']['database'] = '';
+$db['default']['database'] = 'ouplayer';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -56,6 +56,22 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
+
+
+// (OU) Podcast database.
+$db['podcast']['hostname'] = 'localhost';
+$db['podcast']['username'] = 'ouplayer';
+$db['podcast']['password'] = '';
+$db['podcast']['database'] = 'podcast';
+$db['podcast']['dbdriver'] = 'mysql';
+$db['podcast']['dbprefix'] = '';
+$db['podcast']['pconnect'] = TRUE;
+$db['podcast']['db_debug'] = TRUE;
+$db['podcast']['cache_on'] = FALSE;
+$db['podcast']['cachedir'] = '';
+$db['podcast']['char_set'] = 'utf8';
+$db['podcast']['dbcollat'] = 'utf8_unicode_ci';
+
 
 
 /* End of file database.php */
