@@ -138,7 +138,10 @@
         new OEmbedProvider("vimeo", "vimeo.com", "http://vimeo.com/api/oembed.json"),
         new OEmbedProvider("wikipedia", "wikipedia.org"),
         new OEmbedProvider("wordpress", "wordpress.com"),
-        new OEmbedProvider("youtube", "youtube.com"),
+//ou-specific
+/*__PROVIDERS__*/
+        //new OEmbedProvider("youtube", "youtube.com"),
+//ou-specific ends.
         new OEmbedProvider("vids.myspace.com", "vids.myspace.com", "http://vids.myspace.com/index.cfm?fuseaction=oembed"),
 		new OEmbedProvider("screenr", "screenr.com", "http://screenr.com/api/oembed.json")
     ];
