@@ -1,12 +1,15 @@
 <?php
 /** oEmbed controller. NDF 18 June 2010.
-*/
+ *
+ * @copyright Copyright 2011 The Open University.
+ */
 ini_set('display_errors', true);
 
-class Oembed extends Controller {
+class Oembed extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
+    #parent::Controller();
     @header("X-Powered-By:");
 
     $this->load->model('embed_cache_model');
@@ -14,81 +17,121 @@ class Oembed extends Controller {
 
   protected function _error($code, $message) {
     @header("HTTP/1.1 $code");
+    // For now, just output plain text.
     die("$code, $message");
   }
 
-  public function index() {
-    @header("Content-Type: text/plain; charset=UTF-8");
+  protected function _tracker() {
+    //TODO - UA-, URL. ($this->uri->site_url() ?)
+    $image_url = site_url()."track/i/UA-12345-1/example.org/path/to";
+    return <<<EOF
+<img class="wbug" alt="" src="$image_url" />
+EOF;
+  }
 
-    $url = $this->input->get('url');
-    if (!$url) {
+  public function index() {
+    @header('Content-Type: text/plain; charset=UTF-8');
+    header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
+
+    //Get 'width', 'height'.
+    $req = new StdClass;
+    $this->CI->oembed_request = $req;
+
+    $req->url = $this->input->get('url');
+    if (!$req->url) {
       $this->_error(400, "Error, the URL parameter 'url' is required.");
     }
 
-    $format = $this->input->get('format') ? $this->input->get('format') : 'json';
-    if ('json'!=$format && 'xml'!=$format) {
-      $this->_error("400.5", "Error, the output format '$format' is not recognised.");
+    $req->format = $this->input->get('format') ? $this->input->get('format') : 'json';
+    if ('json'!=$req->format && 'xml'!=$req->format) {
+      $this->_error("400.5", "Error, the output format '$req->format' is not recognised.");
     }
 
     // Security. Only allow eg. 'Object.func_CB_1234'
-    $json_callback = $this->input->get('callback', $xss_clean=TRUE);
-    if ($json_callback && !preg_match('/^[a-zA-Z][\w_\.]*$/', $json_callback)) {
-      $this->_error("400.6", "Error, 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'");
+    $req->callback = $this->input->get('callback', $xss_clean=TRUE);
+    if ($req->callback && !preg_match('/^[a-zA-Z][\w_\.]*$/', $req->callback)) {
+      $this->_error("400.6", "Error, the parameter 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'");
     }
 
-    //api.embed.ly/api/v1/services (json)
-    $providers = array(
-      'youtube.com' => array('name'=>'youtube', 'regex'=>'youtube.com/watch*', 
-          'regex_real'=>'youtube.com/watch\?.*v=([\w-_]*)&*.*'),
-      'youtu.be'    => array('name'=>'youtube', 'regex'=>'youtu.be/*'),
-      'cohere.ac.uk'=> array('name'=>'cohere', ),
-      'mathtran.org'=> array('name'=>'mathtran', ),
-      'scratch.mit.edu' => array('name'=>'scratch',
-          'regex' =>'scratch.mit.edu/projects/*/*'),
-      'prezi.com'   => array('name'=>'prezi',
-          'regex' =>'prezi.com/*/*/'), #IPR?
-    );
+    $this->config->load('providers');
+    $providers = $this->config->item('providers');
+#var_dump($providers); exit;
 
-    $p = parse_url($url);
-    $host = str_replace('www.', '', strtolower($p['host']));
+
+    $p = parse_url($req->url);
+    if (!isset($p['host'])) {
+      $this->_error(400, "Error, the parameter 'url' is invalid - missing host.");
+    }
+    $host = $req->host = str_replace('www.', '', strtolower($p['host']));
 
     if (!isset($providers[$host])) {
-      $this->_error(400, "Error, unsupported provider 'http://$host'.");
+      $this->_error(400, "Error, unsupported provider 'http://$req->host'.");
     }
 
     $name  = $providers[$host]['name'];
     $regex = $providers[$host]['regex'];
-    if (isset($providers[$host]['regex_real'])) {
-      $regex = $providers[$host]['regex_real'];
+    if (isset($providers[$host]['_regex_real'])) {
+      $regex = $providers[$host]['_regex_real'];
     } else {
       $regex = str_replace('*', '([\w_-]*?)', $regex); #([^\/]*?)
     }
-    if (! preg_match("@{$regex}$@", $url, $matches)) {
+    if (! preg_match("@{$regex}$@", $req->url, $matches)) {
       $this->_error(400, "Error, the format of the URL for provider '$host' is incorrect. Expecting '".$providers[$host]['regex']."'.");
     }
-//var_dump($matches);
+#var_dump($matches);
 
     if (!file_exists(APPPATH."views/oembed/$name.php")) {
       $this->_error(404.1, "Not found, view '$name'.");
     }
 
-    $meta = $this->embed_cache_model->get_embed($url);
+    $meta = $this->embed_cache_model->get_embed($req->url);
 
     //$meta = null;
-    if (!$meta && is_callable(array($this, "_meta_$name"))) {
-      $meta = $this->{"_meta_$name"}($url, $matches);
+    if (!$meta && file_exists(APPPATH."/libraries/{$name}_serv.php")) {
+#echo " load->lib->{$name}_serv.php ";
+      $this->load->library("{$name}_serv.php");
+      $meta = $this->{"{$name}_serv"}->call($req->url, $matches);
+    } elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
+echo " this->_meta_$name() ";
+      $meta = $this->{"_meta_$name"}($req->url, $matches);
+    } else {
+      #$meta = array();
     }
 
     $view_data = array(
-      'url'   => $url,
-      'format'=> $format,
-      'callback'=>$json_callback,
+      'url'   => $req->url,
+      'format'=> $req->format,
+      'callback'=>$req->callback,
       'matches' =>$matches,
       'meta'  => $meta,
+      'tracker'=>$this->_tracker(),
     );
 
     if (file_exists(APPPATH."views/oembed/$name.php")) {
-      $this->load->view("oembed/$name", $view_data);
+      $html = $this->load->view("oembed/$name", $view_data); #, TRUE);
+      /*$resp = array_merge(array(
+          #'version'=>'1.0',
+          'type'=>'rich',
+          'html'=>$html,
+        ),
+        $meta
+      );
+      $this->load->view('oembed/render', array(
+        'format'=>$format,
+        'callback'=>$json_callback,
+        'oembed'=>$resp,
+      ));
+      /*if ('json'==$format) {
+        $json = json_encode($resp);
+        $json = str_replace('",', '",'.PHP_EOL, $json);
+        if ($json_callback) {
+          $json = "$json_callback($json\n)";
+        }
+        echo $json;
+      } else {
+        $this->load->view('oembed/xml', $resp);
+      }*/
+
     } else {
       $this->_error(404, "Not found, view '$name'.");
     }
@@ -104,60 +147,15 @@ class Oembed extends Controller {
     return $result;
   }
 
-  protected function _meta_prezi($url, $matches=null) {
 
-    $meta = array(
-      'url'=>$url,
-      'provider_name'=>'prezi',
-      'provider_mid' =>$matches[1],
-      'title' => ucfirst(str_replace('-', ' ', $matches[2])),
-      'timestamp'=>null,
-    );
-//var_dump($meta);
-
-      /* */
-  #echo "GET $url";
-    $result = $this->_http_request_curl($url, $spoof=TRUE);
-    if (! $result->success) {
-      die("Error, _meta_prezi woops");
-      return FALSE; //Error.
-    }
-
-    preg_match('#(<head.*</head>)#ms', $result->data, $matches);
-    $head = $this->_safe_xml($matches[1]);
-    $xh = new SimpleXmlElement($head);
-
-    foreach ($xh->children() as $name => $value) {
-      $attr = $value->attributes();
-      if ('meta'==$name && isset($attr['name'])) {
-        if ('description'==$attr['name']) {
-          $desc = (string) $attr['content'];
-          if (preg_match('#(.*)presented by(.*)#', $desc, $m_desc)) {
-            //$meta['author']= trim($m_desc[2]);
-            $meta['timestamp'] = strtotime($m_desc[1]);
-          } else {
-            $meta['description'] = $desc;
-          }
-        } elseif ('title'==$attr['name']) {
-          $meta['title'] = (string) $attr['content'];
-        }
-      }
-      elseif ('link'==$name && 'image_src'==$attr['rel']) {
-        $meta['thumbnail_url'] = (string) $attr['href'];
-      }
-      elseif ('title'==$name
-        && preg_match('#by(.*)on Prezi#', (string) $value, $m_title)) {
-        $meta['author'] = trim($m_title[1]);
-      }
-    }
-    //$desc = $xh->xpath("//meta[@name='description']/@content");
-var_dump($meta);
-
-    $cache_id = $this->embed_cache_model->insert_embed($meta);
+  public function pod() {
+    $this->load->model('podcast_items_model');
     
-    return (object) $meta;
+    $q = $this->podcast_items_model->get_item();
+  var_dump($q);
   }
 
+  #protected function _meta_prezi(...)
 
   protected function _meta_scratch($url, $matches=null) {
 
@@ -231,27 +229,6 @@ var_dump($meta);
     return (object) $meta;
   }
 
-  protected function _http_request_curl($url, $spoof=TRUE) {
-    if (!function_exists('curl_init'))  die('Error, cURL is required.');
 
-    $ua = 'My client/0.1 (PHP/cURL)';
-    if ($spoof) {
-       $ua="Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-GB; rv:1.9.2.3) Gecko/20100401 Firefox/3.6.3";
-    }
-
-    $h_curl = curl_init($url);
-    curl_setopt($h_curl, CURLOPT_USERAGENT, $ua);
-    if (!$spoof) {
-      curl_setopt($h_curl, CURLOPT_REFERER,   'http://example.org');
-    }
-    curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
-    $result = array('data' => curl_exec($h_curl));
-    if ($errno = curl_errno($h_curl)) {
-      die("Error: cURL $errno, ".curl_error($h_curl)." GET $url");
-    }
-    $result['info'] = curl_getinfo($h_curl);
-    $result['success'] = ($result['info']['http_code'] < 300);
-    return (object) $result;
-  }
 
 }
