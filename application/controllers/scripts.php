@@ -20,23 +20,23 @@ class Scripts extends CI_Controller {
       $script = ob_get_clean();
 
       $oembed_url = base_url().'oembed';
-      $out='';
+      $script_prov ='';
       
       $this->config->load('providers');
       $providers = $this->config->item('providers');
       foreach ($providers as $domain => $provider) {
-         $out .= '    '
+         $script_prov .= '    '
            ."new OEmbedProvider('ouplayer', '$domain', '$oembed_url'),".PHP_EOL;
       }
-      $new = '/*auto-generated: '.date('c').' */'.PHP_EOL
-          .str_replace('/*__PROVIDERS__*/', $out, $script);
+      $out = '/*auto-generated: '.date('c').' */'.PHP_EOL
+          .str_replace('/*__PROVIDERS__*/', $script_prov, $script);
 
 $this->load->driver('cache', array('adapter'=>'file')); #, array('adapter' => 'apc', 'backup' => 'file'));
-$r = $this->cache->save('scripts/jquery.oembed.js', $new, 5*60);
-echo '//';var_dump($this->cache->get_metadata('scripts/jquery.oembed.js'));
+$r = $this->cache->save('scripts/jquery.oembed.js', $out, 5*60);
+$out .= PHP_EOL.'//'. var_export($this->cache->get_metadata('scripts/jquery.oembed.js'), true);
 
-      @header('Content-Length: '.strlen($new));
-      echo $new;
+      @header('Content-Length: '.strlen($out));
+      echo $out;
   }
 
   protected function _cache($minutes=10) {      
