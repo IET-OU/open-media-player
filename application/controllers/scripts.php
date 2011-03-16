@@ -6,12 +6,12 @@
 http://stackoverflow.com/questions/1971721/how-to-use-http-cache-headers-with-php#v3
 http://www.mnot.net/cache_docs/
  */
-//NDF, 4 March 2011 (was Javascript)
+//NDF, 4 March 2011 (was: class Javascript)
 
 class Scripts extends CI_Controller {
 
   public function jquery_oembed($cache_minutes=10) {
-      header('Content-Type: application/javascript; charset=utf-8');
+      header('Content-Type: application/x-javascript; charset=utf-8');
 
       #$this->_cache($cache_minutes);
 
@@ -32,8 +32,8 @@ class Scripts extends CI_Controller {
           .str_replace('/*__PROVIDERS__*/', $out, $script);
 
 $this->load->driver('cache', array('adapter'=>'file')); #, array('adapter' => 'apc', 'backup' => 'file'));
-$this->cache->save('scripts/jquery.oembed.js', $new, 5*60);
-var_dump($this->cache->get_metadata('scripts/jquery.oembed.js'));
+$r = $this->cache->save('scripts/jquery.oembed.js', $new, 5*60);
+echo '//';var_dump($this->cache->get_metadata('scripts/jquery.oembed.js'));
 
       @header('Content-Length: '.strlen($new));
       echo $new;

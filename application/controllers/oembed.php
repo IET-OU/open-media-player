@@ -92,6 +92,7 @@ EOF;
       $this->load->library("{$name}_serv.php");
       $meta = $this->{"{$name}_serv"}->call($req->url, $matches);
     } elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
+      // Legacy.
 echo " this->_meta_$name() ";
       $meta = $this->{"_meta_$name"}($req->url, $matches);
     } else {

@@ -24,7 +24,7 @@ TODO: scale the image.
     ob_start();
     ?>
 <style>
-@import url(<?=$base_url ?>application/assets/client/lams.css);
+@import url(<?=$base_url ?>assets/services/lams.css);
 .lams.oembed .seq object, .lams.oembed .seq img{width:<?=$img_width ?>px; height:<?=$img_height ?>px;}
 </style><div class='lams oembed' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#'><div class="head">
  <a class="logo" href="http://lamscommunity.org/"><img alt="LAMS community" title="LAMS community" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
