@@ -1,64 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8"/><title>*OU player/ OU embed - Demonstrations</title>
 
-<style type="text/css">
+<meta name="ROBOTS" content="noindex,nofollow" />
 
-body {
- background-color: #fff;
- margin: 40px;
- font-family: Lucida Grande, Verdana, Sans-serif;
- font-size: 14px;
- color: #4F5155;
-}
+<style>body{font:1em sans-serif;} .oembed{margin:1em 0; border:1px solid #ccc; border-radius:5px;} </style>
 
-a {
- color: #003399;
- background-color: transparent;
- font-weight: normal;
-}
-
-h1 {
- color: #444;
- background-color: transparent;
- border-bottom: 1px solid #D0D0D0;
- font-size: 16px;
- font-weight: bold;
- margin: 24px 0 2px 0;
- padding: 5px 0 6px 0;
-}
-
-code {
- font-family: Monaco, Verdana, Sans-serif;
- font-size: 12px;
- background-color: #f9f9f9;
- border: 1px solid #D0D0D0;
- color: #002166;
- display: block;
- margin: 14px 0 14px 0;
- padding: 12px 10px 12px 10px;
-}
-
-</style>
-</head>
-<body>
-
-<h1>Welcome to CodeIgniter!</h1>
-
-<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-<p>If you would like to edit this page you'll find it located at:</p>
-<code>application/views/welcome_message.php</code>
-
-<p>The corresponding controller for this page is found at:</p>
-<code>application/controllers/welcome.php</code>
-
-<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+<h1>OU player</h1> <h2>Demonstrations</h2>
 
 
-<p><br />Page rendered in {elapsed_time} seconds</p>
+<p><a class=embed
+href="http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d">Introduction: A Buerno Puerto, on OU podcast</a>
 
-</body>
+<p><a class=__embed href="http://podcast.open.ac.uk/pod/vc-message-to-staff#!746ee92293">VC message 01-02-2011, on OU podcast*</a>
+
+<p><a class=embed href="http://youtube.com/watch?v=NaBBk-kpmL4">Interview with Martin Bean, on YouTube (captions)</a>
+
+<p><a class=embed href="http://lamscommunity.org/lamscentral/sequence?seq_id=1007900">Crime fighting, on LAMS</a>
+
+<p><a class=embed href="http://spreadsheets.google.com/viewform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#height=1150">CLA form, on Google Docs</a>
+
+<p><a class=__embed href="http://prezi.com/zoidjousoeat/technology-for-the-classroom/">Technology, on Prezi</a>
+
+
+<script src=
+"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<!--<script src="scripts/jquery.oembed.js"></script>-->
+<script src="scripts/jquery_oembed"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("a.embed"      ).oembed(); //null, { embedMethod: "auto" });
+    $("[rel='embed']").oembed(); //Legacy.
+  });
+</script>
+
 </html>
