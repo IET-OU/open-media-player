@@ -14,6 +14,9 @@ Options +FollowSymLinks
 # Set the default file for indexes
 DirectoryIndex index.php
 
+#<Directory application/assets/>
+#    Allow from all
+#</Directory>
 
 <IfModule mod_rewrite.c>
     # mod_rewrite rules
@@ -51,13 +54,10 @@ DirectoryIndex index.php
     #RewriteRule (.*)\.php$ index.php/$1
 
 #ou-specific. For images, styles, scripts, SWFs.
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+
     RewriteRule ^(assets/.*)$ application/$1 [QSA,L]
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^scripts/jquery.oembed.js(.*) index.php/javascript/jquery_oembed$1 [QSA,L]
+    RewriteRule ^scripts/jquery.oembed.js(.*) index.php/scripts/jquery_oembed$1 [QSA,L]
     #RewriteRule ^scripts/(jquery.oembed.js)$ application/assets/client/$1 [QSA,L]
 #ou-specific ends.
 
