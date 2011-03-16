@@ -20,11 +20,12 @@ TODO: scale the image.
 #http://dolly.lamscommunity.org/lams/learning/mainflash.jsp?lessonID=6758&amp;portfolioEnabled=true&amp;presenceEnabledPatch=false&amp;presenceImEnabled=false&amp;presenceUrl=localhost&amp;createDateTime=2010-09-16%2006:08:39.0&amp;title=preview&amp;mode=preview
 
     // Note, use of RDFa, based on http://creativecommons.org/choose/
+    // Note, SVG-iframe is a problem in MSIE 7 (display) & Safari (scale).
     //$html =<<<EOF
     ob_start();
     ?>
-<style>
-@import url(<?=$base_url ?>assets/services/lams.css);
+<link rel="stylesheet" href="<?=$base_url ?>assets/services/lams.css" /><style>
+<?php /*MSIE 7: @import url(<?=$base_url ?>assets/services/lams.css);*/ ?>
 .lams.oembed .seq object, .lams.oembed .seq img{width:<?=$img_width ?>px; height:<?=$img_height ?>px;}
 </style><div class='lams oembed' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#'><div class="head">
  <a class="logo" href="http://lamscommunity.org/"><img alt="LAMS community" title="LAMS community" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
@@ -37,9 +38,9 @@ TODO: scale the image.
  href="http://creativecommons.org/licenses/by-nc-sa/2.0/"
  title="Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Unported License">Creative Commons Licence</a>
  </div>
- <p class="seq"><object type="image/svg+xml" data="<?=$meta->_svg_url ?>">
-  <img alt="The LAMS sequence." src="<?=$meta->thumbnail_url ?>" width="" />
- </object></p>
+ <p class="seq"><?php /*MSIE: <object type="image/svg+xml" data="<?=$meta->_svg_url ?>">*/ ?>
+  <img alt="The LAMS sequence." src="<?=$meta->thumbnail_url ?>" />
+ <?php /*</object>*/ ?></p>
  <a class="xp-popup zoom btn" data-xp-width="780" data-xp-height="298" target="lams-win" rel="dct:source"
  href="<?=$meta->thumbnail_url ?>"
  title="<?=t('Open in new window') ?>"><?=t('Zoom<s>, new window') ?></span><!--764+15, 241+55--></a>
