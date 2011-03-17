@@ -33,18 +33,21 @@ SQL;
         if ($transcript) {
             $this->db_pod->join('podcast_item_media', 'podcast_item_media.podcast_item=podcast_items.id');
         }
-        if (FALSE !== strpos($basename, '.m') && !$shortcode) {
-            $this->db_pod->where('podcast_items.filename', $basename);  #'l314audio1.mp3');
+        $this->db_pod->where('podcasts.custom_id', $basename);      #'l314-spanish');
+        if (FALSE !== strpos($shortcode, '.')) { #(FALSE !== strpos($basename, '.m') && !$shortcode) {
+            $this->db_pod->where('podcast_items.filename', $shortcode);  #'l314audio1.mp3');
         } else {
-            $this->db_pod->where('podcasts.custom_id', $basename);      #'l314-spanish');
             $this->db_pod->where('podcast_items.shortcode', $shortcode);#'fe481a4d1d');
         }
         $query = $this->db_pod->get('podcast_items'); #AS pi');
         
         #if $transcript - multiple results! - Post-process
-        
+
         $result = $query->result();
-        return $result[0];
+        if ($result) {
+          return $result[0];
+        }
+        return FALSE;
     }
 
 }
