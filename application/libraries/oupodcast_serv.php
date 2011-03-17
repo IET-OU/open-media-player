@@ -17,16 +17,18 @@ class Oupodcast_serv extends Base_service {
 
   public function call($url, $matches) {
       $pod_base = 'http://podcast.open.ac.uk';
-      
+
       $basename = str_replace(array('podcast-','pod-'), '', $matches[1]);
       $separator= $matches[2];
       $fragment = $matches[3];
       $is_file  = FALSE!==strpos($fragment, '.');
-  #var_dump($basename,$separator,$fragment, $is_file);
 
       // Query the podcast DB.
-      $result = $this->CI->podcast_items_model->get_item($basename, $fragment, $transcript=TRUE);
+      $result = $this->CI->podcast_items_model->get_item($basename, $fragment, $transcript=FALSE);
       #$result = $result_A[0];
+      if (!$result) {
+          die("404, Error, podcast item not found.");
+      }
 
       // TODO: Access control - SAMS cookie.
       $access = array(
@@ -54,21 +56,23 @@ class Oupodcast_serv extends Base_service {
         '_summary'   => $result->pod_summary,
         '_keywords'  => $result->keywords,
         'thumbnail_url'=>"$pod_base/feeds/$custom_id/".str_replace('.', '_thm.', $result->image), #75x75px.
-        '_poster_url' => "$pod_base/feeds/$custom_id/$result->image",   #Poster, 304x304px.
+        '_poster_url' => "$pod_base/feeds/$custom_id/$result->image",   #304x304px.
         '_media_url' => "$pod_base/feeds/$custom_id/$result->filename", #608x362px.
         '_duration'  => $result->duration, #Seconds.
-        '_feed_url'  => "$pod_base/feeds/$custom_id/rss2.xml",
-        '_transcript_url' => "$pod_base/feeds/$custom_id/transcript/".str_replace(array('.mp3', '.m4'), '.pdf', $result->filename), #TODO!
-        '_target_url'=> isset($result->link) ? $result->link : $result->target_url, #OR target_url (target_url_text/ link_text).
-        '_itunes_url'=> $result->itunes_u_url, 
+        '_aspect_ratio'=> $result->aspect_ratio,
+        '_feed_url'  => "$pod_base/feeds/$custom_id/rss2.xml", #Album.
+        '_transcript_url' => "$pod_base/feeds/$custom_id/transcript/".str_replace(array('.mp3', '.m4v'), '.pdf', $result->filename), #TODO!
+        '_related_url'=> isset($result->link) ? $result->link : $result->target_url,
+            #OR target_url (target_url_text/ link_text). #'_related_text'=>
+        '_itunes_url'=> $result->itunes_u_url, #Album.
         '_album_id'  => $custom_id,
         '_track_id'  => $shortcode,
         '_copyright' => $result->copyright,
-        #'_language'  => $result->language, ??
+        #'_language'  => $result->language, #Always 'en'??
         '_published' => $result->publication_date,
       );
 
-  var_dump($meta); #, $result);
+  #var_dump($meta); #, $result);
       
       return (object) $meta;
   }
