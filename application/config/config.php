@@ -2,6 +2,9 @@
 
 putenv('http_proxy=wwwcache.open.ac.uk:80');
 
+date_default_timezone_set('Europe/London');
+
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
