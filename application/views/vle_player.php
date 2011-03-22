@@ -11,14 +11,13 @@
 
   $inner=$poster='';
   if ($image_url) {
-    $poster =<<<EOF
-  <img alt="" src="$image_url"/>
+    $poster = "<img alt=\"\" src=\"$image_url\" />";
 EOF;
   }
   if ($html5 && 'video' == $media_type) {
     $inner =<<<EOF
   <video poster="$image_url" width="$width" height="$player_height" controls>
-    <src src="$media_url" type='video/mp4' />
+    <source src="$media_url" type="video/mp4; codecs=bogus" />
     $poster<div>Your browser does not support the 'video' element.</div>
   </video>
 EOF;
