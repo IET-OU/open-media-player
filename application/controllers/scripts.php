@@ -32,8 +32,8 @@ class Scripts extends CI_Controller {
           .str_replace('/*__PROVIDERS__*/', $script_prov, $script);
 
 $this->load->driver('cache', array('adapter'=>'file')); #, array('adapter' => 'apc', 'backup' => 'file'));
-$r = $this->cache->save('scripts/jquery.oembed.js', $out, 5*60);
-$out .= PHP_EOL.'//'. var_export($this->cache->get_metadata('scripts/jquery.oembed.js'), true);
+$r = $this->cache->save('scripts_jquery_oembed', $out, 10*60); #'scripts/jquery.oembed.js'
+$out .= PHP_EOL.'/*'. var_export($this->cache->get_metadata('scripts_jquery_oembed'), true).'*/';
 
       @header('Content-Length: '.strlen($out));
       echo $out;
