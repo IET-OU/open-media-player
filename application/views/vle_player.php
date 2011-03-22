@@ -1,5 +1,5 @@
 <?php
-/** OUVLE player iframe.
+/** OUVLE player iframe.  NDF, 22 March 2011.
  *
  * @copyright Copyright 2011 The Open University.
  */
@@ -22,7 +22,6 @@ EOF;
     $poster<div>Your browser does not support the 'video' element.</div>
   </video>
 EOF;
-  echo $inner; exit;
   }
   elseif ($html5 && 'audio' == $media_type) {
     $inner =<<<EOF
@@ -48,9 +47,6 @@ html,body{margin:0; padding:0;}
 <?=$inner ?>
 
 </object>
-
-<?=$inner ?>
-
 <div id="media-links" style="display:none">
   <a href="<?=$media_url ?>">Download <?=$title ?></a>
 </div>

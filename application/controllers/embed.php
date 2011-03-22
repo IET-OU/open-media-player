@@ -1,15 +1,18 @@
 <?php
 /**
- * Iframe embed controller.
+ * Iframe embed controller.  NDF, 22 March 2011.
  *
  * @copyright Copyright 2011 The Open University.
  */
 
 class Embed extends CI_Controller {
 
-
-  /** OUVLE player embed. */
+  /** OUVLE player embed.
+  */
   public function vle() {
+    header('Content-Type: text/html; charset=utf-8');
+
+    // Process the request.
     $req = (object) array(
     // Required.
       'media_url' => $this->input->get('media_url'),
@@ -37,12 +40,14 @@ class Embed extends CI_Controller {
     $req->image_url  = $this->_absolute($req->image_url, $base_url);
     $req->caption_url= $this->_absolute($req->caption_url, $base_url);
 
-#var_dump($req);
     $this->load->view('vle_player', $req);
   }
 
-  /** Handle errors. */
+
+  /** Handle errors.
+  */
   protected function _error($message, $code=500) {
+    @header("HTTP/1.1 $code");
     die("$code. Error, $message");
   }
 
