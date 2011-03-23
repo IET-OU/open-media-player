@@ -29,6 +29,7 @@ class Oembed extends CI_Controller {
 EOF;
   }
 
+
   public function index() {
     @header('Content-Type: text/plain; charset=UTF-8');
     header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
@@ -55,8 +56,6 @@ EOF;
 
     $this->config->load('providers');
     $providers = $this->config->item('providers');
-#var_dump($providers); exit;
-
 
     $p = parse_url($req->url);
     if (!isset($p['host'])) {
@@ -78,7 +77,6 @@ EOF;
     if (! preg_match("@{$regex}$@", $req->url, $matches)) {
       $this->_error(400, "Error, the format of the URL for provider '$host' is incorrect. Expecting '".$providers[$host]['regex']."'.");
     }
-#var_dump($matches);
 
     if (!file_exists(APPPATH."views/oembed/$name.php")) {
       $this->_error(404.1, "Not found, view '$name'.");
@@ -89,7 +87,6 @@ EOF;
     // Should we load the library for the service?
     if (($this->config->item('always_upstream') || !$meta)
         && file_exists(APPPATH."/libraries/{$name}_serv.php")) {
-#echo " load->lib->{$name}_serv.php ";
       $this->load->library("{$name}_serv.php");
       $meta = $this->{"{$name}_serv"}->call($req->url, $matches);
     } elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
@@ -149,13 +146,6 @@ echo " this->_meta_$name() ";
     return $result;
   }
 
-
-  public function pod() {
-    $this->load->model('podcast_items_model');
-    
-    $q = $this->podcast_items_model->get_item();
-  var_dump($q);
-  }
 
   #protected function _meta_prezi(...)
 
@@ -230,7 +220,5 @@ echo " this->_meta_$name() ";
     
     return (object) $meta;
   }
-
-
 
 }
