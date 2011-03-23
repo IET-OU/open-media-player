@@ -86,8 +86,9 @@ EOF;
 
     $meta = $this->embed_cache_model->get_embed($req->url);
 
-    //$meta = null;
-    if (!$meta && file_exists(APPPATH."/libraries/{$name}_serv.php")) {
+    // Should we load the library for the service?
+    if (($this->config->item('always_upstream') || !$meta)
+        && file_exists(APPPATH."/libraries/{$name}_serv.php")) {
 #echo " load->lib->{$name}_serv.php ";
       $this->load->library("{$name}_serv.php");
       $meta = $this->{"{$name}_serv"}->call($req->url, $matches);
