@@ -1,9 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-putenv('http_proxy=wwwcache.open.ac.uk:80');
-
-date_default_timezone_set('Europe/London');
-
 
 /*
 |--------------------------------------------------------------------------
