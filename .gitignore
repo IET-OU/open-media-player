@@ -3,7 +3,8 @@
 .project
 .settings
 application/config/database.php
+application/config/embed_config.php
 application/logs/log-*.php
 application/cache/*
 *.html
-*copy*
+* copy*
