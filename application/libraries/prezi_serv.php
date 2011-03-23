@@ -3,13 +3,13 @@
  *
  * @copyright Copyright 2011 The Open University.
  */
-//1, 23 March 2011.
+//NDF, 1, 23 March 2011.
 
 require_once 'base_service.php';
 
 class Prezi_serv extends Base_service {
 
-  /** Call the Embed.ly service.
+  /** Call the Embed.ly service (2011-03-23).
   */
   public function call($url, $matches) {
 
@@ -45,7 +45,7 @@ class Prezi_serv extends Base_service {
     return (object) $meta;
   }
 
-  /** Pre-Embed.ly screen scraper - broken!
+  /** Pre-Embed.ly screen scraper - broken by new HTML5!
   */
   protected function _call_screen_scrape($url, $matches) {
   //protected function _meta_prezi($url, $matches=null) {
@@ -57,13 +57,9 @@ class Prezi_serv extends Base_service {
       'title' => ucfirst(str_replace('-', ' ', $matches[2])),
       'timestamp'=>null,
     );
-#var_dump($meta);
 
-      /* */
-  #echo "GET $url";
     $result = $this->_http_request_curl($url, $spoof=TRUE);
     if (! $result->success) {
-  var_dump($result);
       die("Error, Prezi_serv woops");
       return FALSE; //Error.
     }
@@ -96,7 +92,6 @@ class Prezi_serv extends Base_service {
       }
     }
     //$desc = $xh->xpath("//meta[@name='description']/@content");
-#var_dump($meta);
 
     //$cache_id = $this->embed_cache_model->insert_embed($meta);
     
