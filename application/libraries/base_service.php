@@ -15,6 +15,12 @@ interface iService {
 
 abstract class Base_service implements iService {
 
+  protected $CI;
+
+  public function __construct() {
+    $this->CI =& get_instance();
+  }
+
   protected function _http_request_curl($url, $spoof=TRUE) {
     if (!function_exists('curl_init'))  die('Error, cURL is required.');
 
