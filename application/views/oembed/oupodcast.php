@@ -17,7 +17,7 @@ NDF, 17 March 2011.
 //(file=http://podcast.open.ac.uk/feeds/l314-spanish/rss2.xml&javascriptid=flashplayer&enablejs=true)
   $html =<<<EOF
 <div class="ou podcast oembed">
-<object tabindex="0" aria-label="Media player" type="application/x-shockwave-flash" height="$height" width="$width"
+<object tabindex="0" id="pod_$meta->_track_id" aria-label="Media player" type="application/x-shockwave-flash" height="$height" width="$width"
 data="$pod_base/flash_media_player/mediaplayer.swf" >
 <param name="movie" value="$pod_base/flash_media_player/mediaplayer.swf" />
 <param name="allowscriptaccess" value="always" />
