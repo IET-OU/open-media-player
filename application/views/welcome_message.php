@@ -42,12 +42,13 @@ Video - Flash falls back to HTML5.
 <p>&copy;2011 The Open University.</p>
 
 <script src=
-"http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <!--<script src="scripts/jquery.oembed.js"></script>-->
 <script src="<?=site_url('scripts/jquery_oembed') ?>"></script>
 <script type="text/javascript">
   $(document).ready(function() {
-    $("a.embed"      ).oembed(null, { embedMethod: "replace" });
+    $("a.embed"      ).oembed();<?php /*null, { embedMethod: "replace" });*/ ?>
+
     $("[rel='embed']").oembed(); //Legacy.
   });
 </script>
