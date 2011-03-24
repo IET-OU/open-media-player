@@ -21,7 +21,7 @@ $config['providers'] = array(
         'regex'  => 'podcast.open.ac.uk/*/*', //array()?
         'subdomains'=>array(),
         'type'   => 'audio|video', #Or 'audio'!!
-        '_regex_real'=>'podcast.open.ac.uk.*\/([\w-]+)([\/#]\!?)(\w{10}|\w+\.m\w{2})$',
+        '_regex_real'=>'podcast.open.ac.uk.*/([\w-]+)([/#!]+)(\w{10}|\w+\.m\w{2})$',
     #'_regex_real'=>'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
     #/oembed?url=http%3A//podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish%23!fe481a4d1d
     #/oembed?url=http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3
@@ -58,7 +58,7 @@ $config['providers'] = array(
     'scratch.mit.edu' => array('name'=>'scratch',
         'regex' =>'scratch.mit.edu/projects/*/*'),
     'prezi.com'   => array('name'=>'prezi',
-        'regex' =>'prezi.com/*/*/', //Hmm, trailing slash?
+        'regex' =>'prezi.com/*/*/?', // Optional trailing slash.
         '_google_analytics'=>'UA-12345-3'), #IPR?
 
     'spreadsheets.google.com'=>array(
