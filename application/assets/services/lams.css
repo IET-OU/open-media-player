@@ -1,5 +1,5 @@
 @charset "utf-8";
-/* LAMS styles. */
+/* LAMS embed styles. */
 .lams.oembed {font:.9em Verdana,Arial,sans-serif; width:560px;}
 .lams.oembed img{border:none;} .lams.oembed abbr{border-bottom:1px dotted gray;}
 .lams.oembed h3 {margin:.4em 0; font-size:1em;}
@@ -15,5 +15,5 @@
  background:#eee url(btn-yel.png) repeat-x; padding:3px 1.5em/*1.7em*/ 2px;
  border:1px solid #aaa; -moz-border-radius:4px; border-radius:4px;}
 .lams.oembed .button:hover, .lams.oembed .button:focus{border:1px solid #448;}
-.lams.oembed a span{position:absolute; top:-999em;}
+.lams.oembed a span{display:inline-block; width:0; height:0; overflow:hidden; /*position:absolute; top:-999em;*/}
 .lams.oembed .cc-by-nc-sa{background:url(cc-by-nc-sa.png)no-repeat left; padding-left:51px; letter-spacing:-0.05em;}
