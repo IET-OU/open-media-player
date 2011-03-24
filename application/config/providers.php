@@ -27,9 +27,14 @@ $config['providers'] = array(
     #/oembed?url=http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3
     #/oembed?url=http%3A//podcast.open.ac.uk/pod/vc-message-to-staff%23!746ee92293
         '_examples'=>array(
-            'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
+          'Introduction: A Buen Puerto/Spanish (audio)' => 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
             'http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3',
-            'http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d'),
+            'http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d',
+          'Invisible Boundaries..: Entrepreneurial Lives (audio)' => 'http://podcast.open.ac.uk/pod/entrepreneurial-lives/#!cb127010cf',
+          'Motion...: All the Fun of the Fair (video)' => 'http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334',
+          'http://podcast.open.ac.uk/pod/vc-message-to-staff#!746ee92293', #Private/staff: VC message 01-02-2011.
+          'http://podcast.open.ac.uk/pod/new-to-ou-study/a9e72b75ff' #Hidden: Tips.
+          ),
         '_google_analytics'=>'UA-12345-1',
     ),
 
@@ -51,7 +56,10 @@ $config['providers'] = array(
     ),
 
     'youtube.com' => array('name'=>'youtube', 'regex'=>'youtube.com/watch*', 
-        '_regex_real'=>'youtube.com/watch\?.*v=([\w-_]*)&*.*'),
+        '_regex_real'=>'youtube.com/watch\?.*v=([\w-_]*)&*.*',
+        '_examples'=>array(
+          'Interview with Martin Bean (captions)' => 'http://youtube.com/watch?v=NaBBk-kpmL4'),
+        ),
     'youtu.be'    => array('name'=>'youtube', 'regex'=>'youtu.be/*'),
     'cohere.ac.uk'=> array('name'=>'cohere', ),
     'mathtran.org'=> array('name'=>'mathtran', ),
@@ -59,6 +67,10 @@ $config['providers'] = array(
         'regex' =>'scratch.mit.edu/projects/*/*'),
     'prezi.com'   => array('name'=>'prezi',
         'regex' =>'prezi.com/*/*/?', // Optional trailing slash.
+        '_examples' => array(
+          'Dig. Schol. by M.Weller' => 'http://prezi.com/izeqbfy2z5w-/digital-scholarship',
+          'http://prezi.com/zoidjousoeat/technology-for-the-classroom',
+        ),
         '_google_analytics'=>'UA-12345-3'), #IPR?
 
     'spreadsheets.google.com'=>array(
@@ -70,8 +82,10 @@ $config['providers'] = array(
         'regex'  => 'spreadsheets.google.com/*?*key=*',
         'type'   => 'rich',
     '_regex_real'=>'spreadsheets.google.com\/\w+(ccc|form)\?(form)?key=(\w+)(#height=(\d+))?',
-    '_examples'=>array('http://spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#height=1150',
-    'https://spreadsheets.google.com/viewform?hl=en_GB&formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#gid=0',
+    '_examples'=>array(
+      'OU Player notifications' => 'http://spreadsheets.google.com/viewform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
+      'CloudEngine CLA' => 'http://spreadsheets.google.com/viewform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#height=1160',
+    'https://spreadsheets.google.com/embeddedformform?hl=en_GB&formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#gid=0',
     #'https://spreadsheets.google.com/gform?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB&gridId=0#edit'
     'https://spreadsheets.google.com/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0'),
     ),
