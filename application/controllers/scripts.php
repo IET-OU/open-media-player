@@ -10,10 +10,16 @@ http://www.mnot.net/cache_docs/
 
 class Scripts extends CI_Controller {
 
+  public function __construct() {
+      parent::__construct();
+
+  }
+
   public function jquery_oembed($cache_minutes=10) {
       header('Content-Type: application/x-javascript; charset=utf-8');
 
-      #$this->_cache($cache_minutes);
+      $cache_key = 'scripts_jquery.oembed.js';
+      $this->_cache_init($cache_key);
 
       ob_start();
       require_once APPPATH.'assets/client/jquery.oembed.js';
@@ -31,37 +37,54 @@ class Scripts extends CI_Controller {
       $out = '/*auto-generated: '.date('c').' */'.PHP_EOL
           .str_replace('/*__PROVIDERS__*/', $script_prov, $script);
 
-$this->load->driver('cache', array('adapter'=>'file')); #, array('adapter' => 'apc', 'backup' => 'file'));
-$r = $this->cache->save('scripts_jquery_oembed', $out, 10*60); #'scripts/jquery.oembed.js'
-$out .= PHP_EOL.'/*'. var_export($this->cache->get_metadata('scripts_jquery_oembed'), true).'*/';
+      $this->_cache_save($cache_key, $out);
+
+      //$out .= PHP_EOL.'/*'. var_export($this->cache->get_metadata($cache_key), true).'*/';
 
       @header('Content-Length: '.strlen($out));
       echo $out;
   }
 
-  protected function _cache($minutes=10) {      
+
+  protected function _cache_save($key, $payload) {
+      $minutes = $this->config->item('cache_minutes'); /*FALSE===$this->config->item('cache_minutes')
+                  ? 2 : $this->config->item('cache_minutes');*/
+      if (!$minutes) return;
+
+      $this->cache->save($key, $payload, $minutes*60); #'scripts/jquery.oembed.js'
+  }
+
+  protected function _cache_init($key) {
       // Start with a low value for caching. (No, set expires headers in .htaccess/ httpd.conf)
-      if ('-1'==$minutes) {
-        //Don't cache.
-        /*echo '/*';
-        var_dump($_SERVER);
-        echo '*-/';*/
+      $cache = $this->input->get('cache');
+      $minutes = $this->config->item('cache_minutes');
+      if (!$minutes) return;
+
+      $this->load->driver('cache', array('adapter'=>'file')); #,array('adapter'=>'apc', 'backup'=>'file'));
+
+      if ('-1'==$cache) {
+        // Delete the server cache, and bypass the 304 response
+        @header('X-Cache-0: clear');
+        $this->cache->delete($key);
+
       } elseif ($minutes) {
+
+        $stat = $this->cache->get_metadata($key);
 
         # http://stackoverflow.com/questions/1971721/how-to-use-http-cache-headers-
     	# .. License: CC-by-sa
-        $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) : false;
-		//$if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] : false;
+        $if_modified_since = $this->input->server('HTTP_IF_MODIFIED_SINCE');
+        //$if_none_match = $this->input->server('HTTP_IF_NONE_MATCH');
 
 		if (//(($if_none_match && $if_none_match == $etag) || (!$if_none_match)) &&
 		    //($if_modified_since && $if_modified_since == $tsstring))
-		    $if_modified_since && $if_modified_since < time() + $minutes*60) //-?
+		    $if_modified_since && $if_modified_since < ($stat['mtime'] + $minutes*60)) //Check.
 		{
     		header('HTTP/1.1 304 Not Modified');
     		exit();
         }
 
-        @header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
+        header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
         @header('Expires: '.gmdate('D, d M Y H:i:s', time()+$minutes*60).' GMT');#r.
         @header('Cache-Control: max-age='.($minutes*60).', must-revalidate');
       }
