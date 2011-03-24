@@ -17,6 +17,7 @@ class Scripts extends CI_Controller {
 
   public function jquery_oembed($cache_minutes=10) {
       header('Content-Type: application/x-javascript; charset=utf-8');
+      @header('Content-Disposition: inline; filename=jquery.oembed.js');
 
       $cache_key = 'scripts_jquery.oembed.js';
       $this->_cache_init($cache_key);
