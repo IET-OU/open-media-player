@@ -21,10 +21,10 @@ EOF;
 <param name="allowscriptaccess" value="always"/>
 <param name="bgcolor" value="#ffffff"/>
 <param name="flashvars" value=
-"prezi_id=$meta->provider_mid&amp;lock_to_path=1&amp;color=ffffff&amp;autoplay=no"/>
+"prezi_id=$meta->provider_mid&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no"/>
 <p>Your browser needs Flash enabled to view this presentation.</p>
 <img alt="" src="$meta->thumbnail_url"/></object><div><img alt="" src="http://prezi.com/favicon.ico" />
-<a href="$url">$meta->title</a> by $meta->author on <a href="http://prezi.com/">Prezi</a>.</div>$tracker_img</div>
+<a href="$url">$meta->title</a> by $meta->author on <a href="http://prezi.com/">Prezi</a>.</small></div>$tracker_img</div>
 EOF;
 
   $oembed = array(
