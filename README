@@ -16,4 +16,14 @@ jquery-oembed: Copyright Richard Chamorro, Avanzis.
  * Code: <http://code.google.com/p/jquery-oembed/#r20>
 
 
+TODOs:
+ * Add INSERTs to *_serv.php
+ * Add Google Analytics.
+ * Use $config[providers]..examples in the Demo controller.
+ * Error handling - use exceptions.
+ * Add $thumbnail_width to embed_cache Database.
+ * services.json, like Embed.ly.
+ * Use $this->CI->oembed_request, etc.
+
+
 [End.]
