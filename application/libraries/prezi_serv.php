@@ -28,12 +28,17 @@ class Prezi_serv extends Base_service {
       return FALSE; //Error.
     }
 
+    // Older Prezis only?
     if (preg_match('/^(.*) presented by (.*)$/', $result->json->description, $m_desc)) {
       $meta['timestamp'] = strtotime($m_desc[1]);
-      $meta['author'] = $m_desc[2];
+      #$meta['author'] = $m_desc[2];
+    } else {
+      // Newer ones, eg. M.Weller's?
+      $meta['description'] = $result->json->description;
     }
-    if (preg_match('/^(.*) by/', $result->json->title, $m_title)) {
+    if (preg_match('/^(.*) by (.*) on Prezi/', $result->json->title, $m_title)) {
       $meta['title'] = $m_title[1];
+      $meta['author']= $m_title[2];
     }
 
     $meta['thumbnail_url']  = $result->json->thumbnail_url;
