@@ -69,7 +69,7 @@ class Oupodcast_serv extends Base_service {
         '_track_id'  => $shortcode,
         '_copyright' => $result->copyright,
         #'_language'  => $result->language, #Always 'en'??
-        '_published' => $result->publication_date,
+        'timestamp' => $result->publication_date,
       );
 
   #var_dump($meta); #, $result);

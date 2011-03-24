@@ -41,8 +41,11 @@ EOF;
         'height' => $height,
         'html'   => $html, #'embed_type'=> 'application/x-shockwave-flash',
         'thumbnail_url'=> $meta->_poster_url, #thumbnail or poster.
+        '__duration'=>$meta->_duration,
+        //'dc:extent'=>"$meta->_duration s",
         #'__meta' => $meta,
-        'copyright'=>$meta->_copyright,
+        'dc:copyright'=>$meta->_copyright,
+        'dc:date'=> $meta->timestamp, //date('c', $meta->timestamp),
         //'license_url'  => null,
   );
 
