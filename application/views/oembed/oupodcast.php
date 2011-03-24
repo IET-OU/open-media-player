@@ -6,6 +6,7 @@ NDF, 17 March 2011.
   $width = 608;
   $height= 362;
   $pod_base = 'http://podcast.open.ac.uk';
+  $base = base_url();
 
 // Need to fork for video and audio.
 
@@ -18,15 +19,15 @@ NDF, 17 March 2011.
 <div class="ou podcast oembed">
 <object tabindex="0" aria-label="Media player" type="application/x-shockwave-flash" height="$height" width="$width"
 data="$pod_base/flash_media_player/mediaplayer.swf" >
-<param name="movie" value="data="$pod_base/flash_media_player/mediaplayer.swf" />
+<param name="movie" value="$pod_base/flash_media_player/mediaplayer.swf" />
 <param name="allowscriptaccess" value="always" />
 <param name="allowfullscreen" value="true" />
 <param name="flashvars" value=
 "displaywidth=$width&amp;width=$width&amp;height=$height&amp;linkfromdisplay=false&amp;__showdownload=false&amp;overstretch=false&amp;image=$meta->_poster_url&amp;file=$meta->_media_url&amp;backcolor=0x000000&amp;frontcolor=0xFFFFFF&amp;lightcolor=0xdbedff&amp;screencolor=0x000000&amp;autostart=false" />
 <p>Your browser needs Flash enabled to view this $meta->type.</p>
 <img alt="" src="$meta->_poster_url"/>
-</object><div><img alt="" src="http://www.open.ac.uk/favicon.ico" />
-<a href="$meta->url">$meta->title</a> on <a href="http://podcast.open.ac.uk/">OU Podcast</a>.</div>
+</object><div><small><img alt="" src="$base/assets/services/oupodcast.png" style="padding:2px;" />
+<a href="$meta->url">$meta->title</a> on <a href="http://podcast.open.ac.uk/">OU Podcast</a>.</small></div>
 </div>
 EOF;
 
