@@ -7,6 +7,11 @@ $oembed['version'] = "1.0";
 if ('json'==$format):
   //application/json+oembed
 
+  // I'm not sure that PHP json_decode likes newlines(?)
+  if (isset($oembed['html'])) {
+      $oembed['html'] = str_replace(array('  ', "\r", "\n"), array(' ', ''), $oembed['html']);
+  }
+
   $json = json_encode($oembed);
   $json = str_replace('dc:', 'dc$', $json); //XML namespaces - check Gdata.
   $json = str_replace(',"',  ','.PHP_EOL.'"', $json);
