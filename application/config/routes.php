@@ -41,6 +41,7 @@
 $route['default_controller'] = "demo"; #"welcome"
 $route['404_override'] = '';
 
+$route['uptime.txt'] = 'uptime';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
