@@ -1,5 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+// Prevent warnings!
+date_default_timezone_set('Europe/London');
 
 /*
 |--------------------------------------------------------------------------
