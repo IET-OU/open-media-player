@@ -29,6 +29,11 @@ class Embed_cache_model extends CI_Model {
       return $embed;
   }
 
+  public function count() {
+      $this->db->from('embed_cache');
+	  return $this->db->count_all_results();
+  }
+
   public function insert_embed($embed) {
       if (isset($embed['date'])) unset($embed['date']);
       $embed['url_md5'] = md5($embed['url']);

@@ -50,4 +50,9 @@ SQL;
         return FALSE;
     }
 
+    public function count() {
+        $this->db_pod->from('podcast_items');
+	    return $this->db_pod->count_all_results();
+    }
+
 }
