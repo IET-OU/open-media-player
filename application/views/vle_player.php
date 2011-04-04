@@ -7,7 +7,8 @@
 # Media: 512 x 288.
 # Player:512 x 318;
   $player_height = $height; #+ 30.
-  $media_height = $height - 30;
+  $media_height = $height - 60;
+  $legacy_height = $height - 30;
 
   $inner=$poster='';
   if ($image_url) {
@@ -17,7 +18,7 @@ EOF;
   if ($html5 && 'video' == $media_type) {
     $inner =<<<EOF
   <video poster="$image_url" width="$width" height="$player_height" controls>
-    <source src="$media_url" type="video/mp4; codecs=bogus" />
+    <source src="$media_url" type='video/mp4; codecs="bogus"' /><!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
     $poster<div>Your browser does not support the 'video' element.</div>
   </video>
 EOF;
@@ -31,18 +32,19 @@ EOF;
 ?>
 <!DOCTYPE html><html lang="en" role="application"><meta charset="utf-8" /><title><?=$title ?> | OUVLE player</title>
 <style>
-html,body{margin:0; padding:0;}
+html,body{margin:0; padding:0; background:#ccc;}
 ._object{display:block; width:100%; height:100%;}
 </style>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
+
 <object tabindex="0" aria-label="Media player" type="application/x-shockwave-flash"
- width="<?=$width ?>" height="<?=$player_height ?>"
+ width="<?=$width ?>" height="<?=$legacy_height ?>"
  data="http://learn.open.ac.uk/local/mediaplayer.swf">
  <param name="movie" value="http://learn.open.ac.uk/local/mediaplayer.swf" />
  <param name="allowfullscreen" value="true" />
  <param name="flashvars" value=
-"file=<?=$media_url ?>&amp;width=<?=$width ?>&amp;height=<?=$player_height ?>&amp;captions=<?=$caption_url ?>" />
+"file=<?=$media_url ?>&amp;width=<?=$width ?>&amp;height=<?=$legacy_height ?>&amp;captions=<?=$caption_url ?>" />
 <?=$inner ?>
 
 </object>
