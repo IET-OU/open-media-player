@@ -42,7 +42,10 @@ class Embed extends CI_Controller {
     $request->image_url  = $this->_absolute($request->image_url, $base_url);
     $request->caption_url= $this->_absolute($request->caption_url, $base_url);
 
-    $this->load->view('vle_player', $request);
+    $view_data = array(
+        'meta' => $request,
+    );
+    $this->load->view('vle_player', $view_data); #$request);
   }
 
 

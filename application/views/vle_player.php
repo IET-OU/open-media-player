@@ -6,31 +6,31 @@
 
 # Media: 512 x 288.
 # Player:512 x 318;
-  $player_height = $height; #+ 30.
-  $media_height = $height - 60;
-  $legacy_height = $height - 30;
+  $player_height = $meta->height; #+ 30.
+  $media_height = $meta->height - 60;
+  $legacy_height = $meta->height - 30;
 
   $inner=$poster='';
-  if ($image_url) {
-    $poster = "<img alt=\"\" src=\"$image_url\" />";
+  if ($meta->image_url) {
+    $poster = "<img alt=\"\" src=\"$meta->image_url\" />";
 EOF;
   }
-  if ($html5 && 'video' == $media_type) {
+  if ($meta->html5 && 'video' == $meta->media_type) {
     $inner =<<<EOF
-  <video poster="$image_url" width="$width" height="$player_height" controls>
-    <source src="$media_url" type='video/mp4; codecs="bogus"' /><!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
+  <video poster="$meta->image_url" width="$meta->width" height="$player_height" controls>
+    <source src="$meta->media_url" type='video/mp4; codecs="bogus"' /><!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
     $poster<div>Your browser does not support the 'video' element.</div>
   </video>
 EOF;
   }
-  elseif ($html5 && 'audio' == $media_type) {
+  elseif ($meta->html5 && 'audio' == $meta->media_type) {
     $inner =<<<EOF
   $poster
-  <audio src="$media_url" style="width:{$width}px; height:{$player_height}px;" controls>Your browser does not support the 'audio' element.</audio>
+  <audio src="$meta->media_url" style="width:{$meta->width}px; height:{$player_height}px;" controls>Your browser does not support the 'audio' element.</audio>
 EOF;
   }
 ?>
-<!DOCTYPE html><html lang="en" role="application"><meta charset="utf-8" /><title><?=$title ?> | OUVLE player</title>
+<!DOCTYPE html><html lang="en" role="application"><meta charset="utf-8" /><title><?=$meta->title ?> | OUVLE player</title>
 <style>
 html,body{margin:0; padding:0; background:#ccc;}
 ._object{display:block; width:100%; height:100%;}
@@ -39,16 +39,16 @@ html,body{margin:0; padding:0; background:#ccc;}
 
 
 <object tabindex="0" aria-label="Media player" type="application/x-shockwave-flash"
- width="<?=$width ?>" height="<?=$legacy_height ?>"
+ width="<?=$meta->width ?>" height="<?=$legacy_height ?>"
  data="http://learn.open.ac.uk/local/mediaplayer.swf">
  <param name="movie" value="http://learn.open.ac.uk/local/mediaplayer.swf" />
  <param name="allowfullscreen" value="true" />
  <param name="flashvars" value=
-"file=<?=$media_url ?>&amp;width=<?=$width ?>&amp;height=<?=$legacy_height ?>&amp;captions=<?=$caption_url ?>" />
+"file=<?=$meta->media_url ?>&amp;width=<?=$meta->width ?>&amp;height=<?=$legacy_height ?>&amp;captions=<?=$meta->caption_url ?>" />
 <?=$inner ?>
 
 </object>
 <div id="media-links" style="display:none">
-  <a href="<?=$media_url ?>">Download <?=$title ?></a>
+  <a href="<?=$meta->media_url ?>">Download <?=$meta->title ?></a>
 </div>
 </html>
