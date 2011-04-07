@@ -4,46 +4,70 @@
  *
  * @copyright Copyright 2011 The Open University.
  */
+require_once APPPATH.'libraries/ouplayer_lib.php';
+
 
 class Embed extends CI_Controller {
+
+  /** OU-podcast player embed.
+  */
+  public function pod($custom_id, $shortcode) {
+	$width = $this->_required('width');
+	$height= $this->_required('height');
+	$audio_poster= $this->input->get('poster'); #Only for audio!
+
+	$this->load->library('Oupodcast_serv');
+
+	$player = $this->oupodcast_serv->_inner_call($custom_id, $shortcode);
+
+	$player->calc_size($width, $height, $audio_poster);
+
+	$view_data = array(
+        'meta' => $player,
+    );
+    // For now load vle_player - but, SWF is SAMS-protected!
+    $this->load->view('vle_player', $view_data);
+  }
 
   /** OUVLE player embed.
   */
   public function vle() {
     header('Content-Type: text/html; charset=utf-8');
 
-    // Security: nNo access control required?
+    // Security: No access control required?
 
-    // Process the request.
-    $request = (object) array(
+    // Process GET parameters in the request URL.
+    $player = new Vle_player; #$request = (object) array(
     // Required.
-      'media_url' => $this->input->get('media_url'),
-      'title'     => $this->_required('title'),
-      'width'     => $this->_required('width'),  # is_numeric. Required?
-      'height'    => $this->_required('height'), # Play height, not media(?)
+    $player->media_url = $this->input->get('media_url');
+    $player->title     = $this->_required('title');
+    $player->width     = $this->_required('width');  # is_numeric. Required?
+    $player->height    = $this->_required('height'); # Play height, not media(?)
     // Optional.
-      'image_url' => $this->input->get('image_url'),
-      'caption_url'=>$this->input->get('caption_url'),
-      'lang' => $this->input->get('lang'), #Just a reminder!
-    );
+    $player->poster_url = $this->input->get('image_url');
+    $player->caption_url= $this->input->get('caption_url');
+    $player->language   = $this->input->get('lang'); #Just a reminder!
+    #);
 
-    if (preg_match('/learn.open.ac.uk.*\.(mp4|flv|mp3)$/', $request->media_url, $ext)) {
+    if (preg_match('/learn.open.ac.uk.*\.(mp4|flv|mp3)$/', $player->media_url, $ext)) {
       // Codecs? http://wiki.whatwg.org/wiki/Video_type_parameters
       $opts = array('mp4'=>'video', 'flv'=>'video', 'mp3'=>'audio');
-      $request->media_type = $opts[$ext[1]];
-      $request->html5 = 'flv'!=$ext[1];
+      $player->media_type = $opts[$ext[1]];
+      $player->media_html5= 'flv'!=$ext[1];
     } else {
       $this->_error("'media_url' is a required parameter. (Accepts URLs ending mp4, flv and mp3.)", 400);
     }
-    if ($request->caption_url && !preg_match('/\.(srt|xml|ttml)$/', $request->caption_url)) {
+    if ($player->caption_url && !preg_match('/\.(srt|xml|ttml)$/', $player->caption_url)) {
       $this->_error("'caption_url' accepts URLs ending srt, xml and ttml.", 400);
     }
-    $base_url = dirname($request->media_url);
-    $request->image_url  = $this->_absolute($request->image_url, $base_url);
-    $request->caption_url= $this->_absolute($request->caption_url, $base_url);
+    $base_url = dirname($player->media_url);
+    $player->poster_url = $this->_absolute($player->poster_url, $base_url);
+    $player->caption_url= $this->_absolute($player->caption_url, $base_url);
+
+	$player->calc_size($player->width, $player->height, (bool)$player->poster_url);
 
     $view_data = array(
-        'meta' => $request,
+        'meta' => $player,
     );
     $this->load->view('vle_player', $view_data); #$request);
   }
