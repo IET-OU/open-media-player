@@ -1,4 +1,8 @@
 <?php
+/** A model to get item meta-data from the podcast DB.
+ *
+ * @copyright Copyright 2011 The Open University.
+ */
 //2 March 2011.
 
 class Podcast_items_model extends CI_Model {
@@ -24,6 +28,7 @@ class Podcast_items_model extends CI_Model {
       WHERE p.custom_id LIKE '%l314-spanish'
       AND (pi.shortcode='fe481a4d1d' OR pi.filename='l314audio1.mp3');
 SQL;
+
         $select = 'podcasts.title AS pod_title, podcasts.summary AS pod_summary, podcasts.*,podcast_items.*';
         if ($transcript) {
             $select .= ', podcast_item_media.filename AS pim_filename';
@@ -40,7 +45,9 @@ SQL;
             $this->db_pod->where('podcast_items.shortcode', $shortcode);#'fe481a4d1d');
         }
         $query = $this->db_pod->get('podcast_items'); #AS pi');
-        
+
+        #echo $this->db_pod->last_query()."\n<br>\n";
+
         #if $transcript - multiple results! - Post-process
 
         $result = $query->result();
