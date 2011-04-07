@@ -23,17 +23,17 @@ data="$pod_base/flash_media_player/mediaplayer.swf" >
 <param name="allowscriptaccess" value="always" />
 <param name="allowfullscreen" value="true" />
 <param name="flashvars" value=
-"displaywidth=$width&amp;width=$width&amp;height=$height&amp;linkfromdisplay=false&amp;__showdownload=false&amp;overstretch=false&amp;image=$meta->_poster_url&amp;file=$meta->_media_url&amp;backcolor=0x000000&amp;frontcolor=0xFFFFFF&amp;lightcolor=0xdbedff&amp;screencolor=0x000000&amp;autostart=false" />
-<p>Your browser needs Flash enabled to view this $meta->type.</p>
-<img alt="" src="$meta->_poster_url"/>
+"displaywidth=$width&amp;width=$width&amp;height=$height&amp;linkfromdisplay=false&amp;__showdownload=false&amp;overstretch=false&amp;image=$meta->poster_url&amp;file=$meta->media_url&amp;backcolor=0x000000&amp;frontcolor=0xFFFFFF&amp;lightcolor=0xdbedff&amp;screencolor=0x000000&amp;autostart=false" />
+<p>Your browser needs Flash enabled to view this $meta->media_type.</p>
+<img alt="" src="$meta->poster_url"/>
 </object><div><small><img alt="" src="$base/assets/services/oupodcast.png" style="padding:2px;" />
-<a href="$meta->url">$meta->title</a> on <a href="http://podcast.open.ac.uk/">OU Podcast</a>.</small></div>
+<a href="$meta->url">$meta->title</a> on <a href="$pod_base">OU Podcast</a>.</small></div>
 </div>
 EOF;
 
   $oembed = array(
         'version'=> '1.0',
-        'type'   => $meta->type,
+        'type'   => $meta->media_type,
         'provider_name'=> 'OU Podcast',
         'provider_url' => $pod_base,
         'title'  => $meta->title,
@@ -41,8 +41,8 @@ EOF;
         'width'  => $width,
         'height' => $height,
         'html'   => $html, #'embed_type'=> 'application/x-shockwave-flash',
-        'thumbnail_url'=> $meta->_poster_url, #thumbnail or poster.
-        '__duration'=>$meta->_duration,
+        'thumbnail_url'=> $meta->poster_url, #thumbnail or poster.
+        '__duration'=>$meta->duration,
         //'dc:extent'=>"$meta->_duration s",
         #'__meta' => $meta,
         'dc:copyright'=>$meta->_copyright,
