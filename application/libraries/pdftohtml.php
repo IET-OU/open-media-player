@@ -17,8 +17,8 @@
 #$config['pdftohtml_path'] = './pdftohtml';
 
 
-#$pdf = '_test/l314audio2.pdf'; #Ok.
-$pdf = '_test/oupod-entrep-invisable_transcript_00775_7600.pdf'; #Errors :(.
+$pdf = '/var/www/_ouplayer_data/transcripts/l314audio2.pdf'; #Ok.
+#$pdf = '_test/oupod-entrep-invisable_transcript_00775_7600.pdf'; #Errors :(.
 $xml = str_replace('.pdf', '.xml', $pdf);  //tmp file?
 $ofile = str_replace('.pdf', '_transcript.html', $pdf);
 
@@ -34,8 +34,15 @@ $ofile = str_replace('.pdf', '_transcript.html', $pdf);
 
 class Pdftohtml {
 
-  protected static $cmd_path = './pdftohtml';
+  protected static $cmd_path = '/usr/bin/pdftohtml'; #Redhat 6.
 
+  public function __construct() {
+    $path = config_item('pdftohtml_path');
+	if ($path) {
+	  $this->cmd_path = $path;
+	}
+  }
+  
   /** Parse the PDF and return the clean HTML snippet.
    * @return string
    */
