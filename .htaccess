@@ -18,6 +18,12 @@ DirectoryIndex index.php
 #    Allow from all
 #</Directory>
 
+<IfModule sapi_apache2.c>
+    #php_value magic_quotes_gpc       0
+    #php_value register_globals       0
+    php_value  arg_separator.input  ";&"
+</IfModule>
+
 <IfModule mod_rewrite.c>
     # mod_rewrite rules
     RewriteEngine on
@@ -56,6 +62,9 @@ DirectoryIndex index.php
 #ou-specific. For images, styles, scripts, SWFs.
 
     RewriteRule ^(assets/.*)$ application/$1 [QSA,L]
+    RewriteRule ^swf/(.*)$  application/assets/flowplayer/$1 [QSA,L]
+
+	##RewriteRule (crossdomain.xml)  application/assets/$1 [QSA,L]
 
     RewriteRule ^scripts/jquery.oembed.js(.*) index.php/scripts/jquery_oembed$1 [QSA,L]
     #RewriteRule ^scripts/(jquery.oembed.js)$ application/assets/client/$1 [QSA,L]
