@@ -1,4 +1,8 @@
 /**
+ * OU player controls, modified 2011-04-08 by NDF.
+ * Modifications, Copyright 2011 The Open University.
+*/
+/**
  * flowplayer.controls 3.0.2. Flowplayer JavaScript plugin.
  * 
  * This file is part of Flowplayer, http://flowplayer.org
@@ -11,7 +15,7 @@
  * 
  * Date: 2008-11-25 11:29:03 -0500 (Tue, 25 Nov 2008)
  * Revision: 1424 
- */ 
+ */
 $f.addPlugin("controls", function(wrap, options) {
 	
 		
@@ -154,8 +158,15 @@ $f.addPlugin("controls", function(wrap, options) {
 		timeClass: 'time',
 		muteClass: 'mute',
 		unmuteClass: 'unmute',
-		duration: 0,		
-		
+		duration: 0,
+//ou-specific
+		stopClass:  'stop',
+		repeatClass:'repeat',
+		louderClass:'louder',
+		quieterClass:'quieter',
+		volumeChange:10,
+//ou-specific ends.
+
 		template: '<a class="play">play</a>' + 
 					 '<div class="track">' +
 					 	'<div class="buffer"></div>' +
@@ -224,6 +235,35 @@ $f.addPlugin("controls", function(wrap, options) {
 			self.mute();	
 		}
 	};
+
+//ou-specific begins
+  var pause= byClass(opts.pauseClass);
+  var stop = byClass(opts.stopClass);
+  var repeat=byClass(opts.repeatClass);
+  var louder=byClass(opts.louderClass);
+  var quieter=byClass(opts.quieterClass);
+
+  pause.onclick= function() { self.pause(); }
+  stop.onclick = function() { self.stop();  }
+  repeat.onclick = function() {
+    if (self.isLoaded()) {
+      self.stop();
+      self.play();
+    }
+  }
+  louder.onclick = function() {
+    var v = self.getVolume();
+    if (v <= (100-opts.volumeChange)) {
+      self.setVolume(v + opts.volumeChange);
+    }
+  }
+  quieter.onclick= function() {
+    var v = self.getVolume();
+    if (v > (0+opts.volumeChange)) {
+      self.setVolume(v - opts.volumeChange);
+    }
+  };
+//ou-specific ends.
 
 	// setup timer
 	var timer = null;
