@@ -11,7 +11,8 @@ var OUP = OUP || {};
 * Visit http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 
-var tipwidth='150px', //default tooltip width
+var tooltip_id='oup-tooltips',
+    tipwidth='150px', //default tooltip width
     tipbgcolor='lightyellow',  //tooltip bgcolor
     disappeardelay=250,  //tooltip disappear speed onMouseout (in miliseconds)
     vertical_offset="-47px", //"0px"; //horizontal offset of tooltip from anchor link
@@ -84,9 +85,9 @@ function clearbrowseredge(obj, whichedge){
 //Public methods.
 OUP.fixedtooltip=function(menucontents, obj, e, tipwidth){
   if (window.event) event.cancelBubble=true;
-  else if (e.stopPropagation) e.stopPropagation();
+  else if (e && e.stopPropagation) e.stopPropagation();
   clearhidetip();
-  dropmenuobj=document.getElementById? document.getElementById("fixedtipdiv") : fixedtipdiv;
+  dropmenuobj=document.getElementById? document.getElementById(tooltip_id) : fixedtipdiv;
   dropmenuobj.innerHTML=menucontents;
   if (ie4||ns6){
     showhide(dropmenuobj.style, e, "visible", "hidden", tipwidth);

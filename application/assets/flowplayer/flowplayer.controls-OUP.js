@@ -162,6 +162,8 @@ $f.addPlugin("controls", function(wrap, options) {
 //ou-specific
 		stopClass:  'stop',
 		repeatClass:'repeat',
+		backClass:  'back',
+		forwardClass:'forward',
 		louderClass:'louder',
 		quieterClass:'quieter',
 		volumeChange:10,
@@ -243,14 +245,17 @@ $f.addPlugin("controls", function(wrap, options) {
   var louder=byClass(opts.louderClass);
   var quieter=byClass(opts.quieterClass);
 
-  pause.onclick= function() { self.pause(); }
+  var back   =byClass(opts.backClass);
+  var forward=byClass(opts.forwardClass);
+
+  /*pause.onclick= function() { self.pause(); }
   stop.onclick = function() { self.stop();  }
   repeat.onclick = function() {
     if (self.isLoaded()) {
       self.stop();
       self.play();
     }
-  }
+  }*/
   louder.onclick = function() {
     var v = self.getVolume();
     if (v <= (100-opts.volumeChange)) {
@@ -263,6 +268,19 @@ $f.addPlugin("controls", function(wrap, options) {
       self.setVolume(v - opts.volumeChange);
     }
   };
+
+  back.onclick = function() {
+    var status = self.getStatus();
+	var to = status.time - 10;
+	if (to < 0) to = 0;
+	self.seek(to);
+  }
+  forward.onclick = function() {
+    var status = self.getStatus();
+	var to = status.time + 10;
+	if (to > status.duration) to = status.duration;
+	self.seek(to);
+  }
 //ou-specific ends.
 
 	// setup timer
@@ -279,16 +297,20 @@ $f.addPlugin("controls", function(wrap, options) {
 
 		// clear previous timer		
 		clearInterval(timer);
-		 
+
 		// begin timer		
 		timer = setInterval(function()  {			
 			
 			var status = self.getStatus();			
 
 			// time display
-			if (status.time)  {				
-				time.innerHTML = getTime(status.time, clip.duration);	
-			} 
+			if (status.time) {
+				if (typeof time.value=='string') {//TODO.
+					time.value = getTime(status.time, clip.duration);
+				} else {
+				time.innerHTML = getTime(status.time, clip.duration);
+				}
+			}
 			
 			if (status.time === undefined) {
 				clearInterval(timer);
