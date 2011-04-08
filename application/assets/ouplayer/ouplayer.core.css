@@ -1,0 +1,37 @@
+@charset "utf-8";
+/** OU player core styles. Copyright 2011 The Open University.
+*/
+html,body{margin:0; padding:0; background:#ccc; color:#222; font:1em Arial,sans-serif;}
+object,img,audio,video{display:block;}
+
+/* Hide initially.*/
+#ouplayer-div, #oup-controls{display:none;}
+
+#oup-tooltips, #fixedtipdiv{
+  position:absolute;
+  padding: 2px;
+  border:1px solid #aaa;
+  border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;
+  background:lightyellow; color:#222;
+  line-height:18px;
+  z-index:100;
+  visibility:hidden;
+}
+
+#X--ouplayer-div{z-index:50;}
+
+/* Play Icon */
+.-oup-play-control{width:44px; height:48px;}
+.-oup-play-control span { display: block; font-size: 1em; line-height: 0; }
+.-oup-paused .play span {
+  width: 0; height: 0; margin: 0.8em 0 0 0.8em;
+  /* Drawing the play triangle with borders - http://www.infimum.dk/HTML/slantinfo.html */
+  border-left: 1em solid #fff; /* Width & Color of play icon */
+  /* Height of play icon is total top & bottom border widths. Color is transparent. */
+  border-top: 0.5em solid rgba(0,0,0,0); border-bottom: 0.5em solid rgba(0,0,0,0);
+}
+.-oup-playing .play span {
+  width: 0.3em; height: 1em; margin: 0.8em auto 0;
+  /* Drawing the pause bars with borders */
+  border-top: 0px; border-left: 0.3em solid #fff; border-bottom: 0px; border-right: 0.3em solid #fff;
+}
