@@ -14,6 +14,7 @@ class Embed extends CI_Controller {
   public function pod($custom_id, $shortcode) {
 	$width = $this->_required('width');
 	$height= $this->_required('height');
+	$edge  = $this->input->get('edge');
 	$audio_poster= $this->input->get('poster'); #Only for audio!
 
 	$this->load->library('Oupodcast_serv');
@@ -25,8 +26,13 @@ class Embed extends CI_Controller {
 	$view_data = array(
         'meta' => $player,
     );
-    // For now load vle_player - but, SWF is SAMS-protected!
-    $this->load->view('vle_player', $view_data);
+
+    if ($edge) {
+        $this->load->view('ouplayer/ouplayer', $view_data);
+    } else {
+        // For now load vle_player - but, SWF is SAMS-protected!
+        $this->load->view('vle_player', $view_data);
+	}
   }
 
   /** OUVLE player embed.

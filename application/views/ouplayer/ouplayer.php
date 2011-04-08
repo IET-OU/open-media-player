@@ -89,9 +89,15 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <button class="forward" aria-label="Seek forward">&gt;</button>
 <span class="time"></span>
 <input class="x-time" style="display:none" />
+
 <button class="mute" aria-label="Mute">mute</button>
 <button class="louder"  aria-label="Louder">+</button>
 <button class="quieter" aria-label="Quieter">&ndash;</button>
+
+<button class="script" aria-label="Show/hide transcript">T</button>
+<a href="#" target="_blank" class="popout" aria-label="New window: pop out player">pop</a>
+<a href="<?=$meta->_related_url ?>" target="_blank" class="related" aria-label="New window: related link...">rel</a>
+<button class="more" aria-label="More...">more</button>
 </div>
 
 <div id="media-links" style="display:none">
@@ -142,7 +148,7 @@ flashembed.domReady(function(){
       btn.onfocus    =function(){OUP.fixedtooltip(this.getAttribute('aria-label'), this, {type:"focus"});}
       btn.onblur     =function(){ OUP.delayhidetip(); }
 	}
-	var controls = ("play,back,forward,quieter,louder,mute").split(',');
+	var controls = ("play,back,forward,quieter,louder,mute,script,popout,related,more").split(',');
     for (var i=0; i < controls.length; i++){
     	attachTooltip(controls[i]);
 	}
