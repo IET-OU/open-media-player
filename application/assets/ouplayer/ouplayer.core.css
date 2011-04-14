@@ -1,11 +1,12 @@
 @charset "utf-8";
 /** OU player core styles. Copyright 2011 The Open University.
 */
-html,body{margin:0; padding:0; background:#ccc; color:#222; font:1em Arial,sans-serif;}
+html,body{margin:0; padding:0; background:#ddd; color:#222; font:1em Arial,sans-serif;}
 object,img,audio,video{display:block;}
 
-/* Hide initially.*/
+/* Hide initially, including transcript panel.*/
 #ouplayer-div, #oup-controls{display:none;}
+#ouplayer, .ouplayer{cursor: wait;}
 
 #oup-tooltips, #fixedtipdiv{
   position:absolute;
@@ -18,7 +19,73 @@ object,img,audio,video{display:block;}
   visibility:hidden;
 }
 
-#X--ouplayer-div{z-index:50;}
+#X-ouplayer-div{z-index:50;}
+
+.oup.hide-script  #ouplayer-panel{display:none;}
+.oup.show-script  #ouplayer-panel{display:block;}
+#ouplayer-panel{width:211px; float:right; height:410px; overflow-y:scroll; border-left:1px solid #aaa; padding-left:3px;}
+
+.oup.show-script #ouplayer-div{width:425px;}
+
+#oup-controls{background:#222; color:#eee; width:640px;}
+.oupc-r1, .oupc-r2{position:relative; top:-48px; left:50px; }
+.oupc-r2{}
+
+#oup-controls button, #oup-controls a{height:28px;}
+#oup-controls a{display:inline-block; -moz-appearance:button; -webkit-appearance:button; /*neat!*/}
+.X-button:-moz-focusring{outline: 4px dotted yellow;}
+#oup-controls .play, .pause{height:48px; width:40px; /*position:relative; top:0;*/}
+
+.__button.back{-moz-appearance:scrollbarbutton-left;}
+
+
+
+/*#oup-controls .sl{height:20px; border:1px solid #777; cursor:pointer; }
+#oup-controls .track{width:285px; }
+#oup-controls .playhead{width:3px;}
+.track .progress, .track .buffer{width:0;
+ filter: alpha(opacity=10);
+ opacity:0.1;}
+.track .sl{display:inline-block;}
+*/
+/* the timeline (or "scrubber")  */
+.track *{display:block;}
+.hulu .sl{position:absolute;}
+.hulu .track {
+border:1px dotted #666;
+
+	left:47px;
+	--position:absolute;
+	cursor:pointer;
+	width:285px;
+	border-left:1px solid #999;
+	height:40px;	
+}
+/* the draggable playhead */
+.hulu .playhead {
+	--position:absolute;
+	cursor:pointer; 
+	background-color:#4ff;
+	opacity:0.3;
+	filter: alpha(opacity=30);	
+	width:3px;
+	height:40px;
+	border-right:1px solid #444;
+}
+/* buffer- and progress bars. upon runtime the width of these elements grows */
+.hulu .progress, .hulu .buffer {
+	--position:absolute;
+	background-color:#4ff;
+	filter: alpha(opacity=10);
+	opacity:0.1;
+	width:0px;
+	height:40px;
+}
+.hulu .buffer {
+	background-color:#fff;
+	opacity:0.1;
+	filter: alpha(opacity=10);
+}
 
 /* Play Icon */
 .-oup-play-control{width:44px; height:48px;}
