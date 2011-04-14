@@ -98,20 +98,20 @@ class Oupodcast_serv extends Base_service {
       return $player;
   }
 
-  /** Get the PDF transcript (from remote site), then convert to HTML snippet.
+  /** Either get PDF transcript (from remote site) and convert to HTML snippet, or return existing snippet.
   * Note, an intermediate XML file is saved.
   */
   public function get_transcript($player) {
 
     $res = $pdf = $html = false;
 
-    if ($player->transcript_url) {
-	  // Maybe a sub-directory?
+	// Maybe a sub-directory?
 	  $trans_pdf = $this->CI->config->item('data_dir').'oupodcast/'.basename($player->transcript_url);
 	  $trans_file_xml = str_replace('.pdf', '.xml', $trans_pdf);
-	  $trans_file_htm = str_replace('.pdf', '_trans.html',$trans_pdf);
+	  $trans_file_html= str_replace('.pdf', '_trans.html',$trans_pdf);
 
-	  if (!file_exists($trans_pdf)) { #$file_htm)) {
+    if ($player->transcript_url) {
+	  if (!file_exists($trans_pdf)) { #$trans_file_html)) {
 	    $res = $this->_http_request_curl($player->transcript_url);
 		if (!$res->success) {
 		  // Log error.
@@ -124,7 +124,7 @@ class Oupodcast_serv extends Base_service {
 	  $pdf = file_put_contents($trans_pdf, $res->data);
 	}
 
-	if ($pdf || !file_exists($trans_file_htm)) {
+	if ($pdf || !file_exists($trans_file_html)) {
 	  $this->CI->load->library('Pdftohtml');
 
 	  try {
@@ -136,8 +136,12 @@ class Oupodcast_serv extends Base_service {
 	  }
 	}
 	if ($html) {
-	  $b2 = file_put_contents($trans_file_htm, $html);
+	  $b2 = file_put_contents($trans_file_html, $html);
 	  $player->transcript_html = $html;
+	}
+	elseif (file_exists($trans_file_html)) {
+	  // OR get an existing HTML snippet.
+	  $player->transcript_html = file_get_contents($trans_file_html);
 	}
 
     return $player;
