@@ -16,13 +16,13 @@
 */
 #$config['pdftohtml_path'] = './pdftohtml';
 
-
+/*
 $pdf = '/var/www/_ouplayer_data/transcripts/l314audio2.pdf'; #Ok.
 #$pdf = '_test/oupod-entrep-invisable_transcript_00775_7600.pdf'; #Errors :(.
 $xml = str_replace('.pdf', '.xml', $pdf);  //tmp file?
 $ofile = str_replace('.pdf', '_transcript.html', $pdf);
 
-/*try {
+try {
   $parser = new Pdftohtml();
   $out = $parser->parse($pdf, $xml);
   $by = file_put_contents($ofile, $out);
@@ -35,14 +35,18 @@ $ofile = str_replace('.pdf', '_transcript.html', $pdf);
 class Pdftohtml {
 
   protected static $cmd_path = '/usr/bin/pdftohtml'; #Redhat 6.
+  protected $CI;
 
   public function __construct() {
-    $path = config_item('pdftohtml_path');
+    $this->CI =& get_instance();
+	$path = $this->CI->config->item('pdftohtml_path');
+
 	if ($path) {
-	  $this->cmd_path = $path;
+	  self::$cmd_path = $path;
 	}
+	log_message('debug', __CLASS__." Class Initialized | ".self::$cmd_path);
   }
-  
+
   /** Parse the PDF and return the clean HTML snippet.
    * @return string
    */
@@ -89,24 +93,24 @@ class Pdftohtml {
   /** pdftoxml
   * @return object A SimpleXML object.
   */
-  protected function pdftoxml($pdf, $xml) {
+  protected function pdftoxml($pdf_file, $xml_file) {
     if (!file_exists(self::$cmd_path)) {
       //Error.
-      throw new Exception('Error finding pdftohtml binary.');
+      throw new Exception('Error finding pdftohtml binary | '.self::$cmd_path);
     }
 
-    $pdftoxml = self::$cmd_path." -xml -enc UTF-8 $pdf  2>&1";
+    $pdftoxml = self::$cmd_path." -xml -enc UTF-8 $pdf_file 2>&1"; #$xml_file
     $last = exec($pdftoxml, $output_r, $status);
 
     if (0===strpos($last, 'Error:')) {
       //Error. (Success: 'Page-4..')
-      throw new Exception("Error reading PDF | $pdf | ".$output_r[0]." $last");
+      throw new Exception("Error reading PDF | $pdf_file | ".$output_r[0]." $last");
     }
 
-    $xo = @simplexml_load_file($xml);
+    $xo = @simplexml_load_file($xml_file);
     if (!$xo) {
       //Error.
-      throw new Exception("Error reading XML | $xml");
+      throw new Exception("Error reading XML | $xml_file");
     }
     return $xo;
   }
