@@ -60,11 +60,12 @@ $config['providers'] = array(
         '_examples'=>array(
           'Interview with Martin Bean (captions)' => 'http://youtube.com/watch?v=NaBBk-kpmL4'),
         ),
-    'youtu.be'    => array('name'=>'youtube', 'regex'=>'youtu.be/*'),
+    /*'youtu.be'    => array('name'=>'youtube', 'regex'=>'youtu.be/*'),
     'cohere.ac.uk'=> array('name'=>'cohere', ),
-    'mathtran.org'=> array('name'=>'mathtran', ),
+    #'mathtran.org'=> array('name'=>'mathtran', ),
     'scratch.mit.edu' => array('name'=>'scratch',
-        'regex' =>'scratch.mit.edu/projects/*/*'),
+        'regex' =>'scratch.mit.edu/projects/*-/*'),
+    */
     'prezi.com'   => array('name'=>'prezi',
         'regex' =>'prezi.com/*/*/?', // Optional trailing slash.
         '_examples' => array(
@@ -90,3 +91,35 @@ $config['providers'] = array(
     'https://spreadsheets.google.com/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0'),
     ),
 );
+
+// Other providers.
+// IF (!endpoint) endpoint=embedly;
+$config['providers_other'] = array(
+    // See, http://maltwiki.org/scripts/jquery.oembed.js
+    'youtu.be'=> array('name' => 'youtube'),
+	'nfb.ca'  => array('name' => 'NFB'),
+	'blip.tv' => array('name' => 'blip'),
+	//See, http://cloudworks.ac.uk/_scripts/jquery.oembed.js
+	'last.fm' => array('name' => 'last.fm'),
+	'dotsub.com' => array('name'=>'dotSUB'),
+	'twitter.com'=> array('name'=>'twitter'),
+	'scribd.com' => array('name'=>'Scribd'),
+
+	// See, http://api.embed.ly
+	#'status.net' => array('name'=>'StatusNet'),
+	'xtranormal.com' => array('name'=>'xtranormal'),
+	'timetoast.com'  => array('name'=>'Timetoast'),
+	#'teachertube.com'=> array('name'=>'Teachertube'),
+	#'schooltube.com' => array('name'=>'Schooltube'),
+	#'ted.com', 'polldaddy.com',
+	#'crocodoc.com'=>array('name'=>'crocodoc'),
+	#'freemusicarchive.org',
+	#'huffduffer.com'=>array('name'=>'Huffduffer', '__endpoint'=>'http://huffduffer.com/oembed'),
+	'gist.github.com' => array('name'=>'GitHub'),
+	'cacoo.com' => array('name'=>'Cacoo',  'endpoint' => 'http://cacoo.com/oembed.json'),
+
+	// OLnet - roll into OU embed.
+	'cohere.open.ac.uk'=> array('name'=>'olnet', 'endpoint' => 'http://olnet.org/oembed'),
+	'mathtran.org'     => array('name'=>'olnet', 'endpoint' => 'http://olnet.org/oembed'),
+);
+
