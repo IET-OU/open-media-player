@@ -59,6 +59,8 @@ class Podcast_player extends Base_player {
   public $_related_url;
   public $thumbnail_url;
 
+  public $transcript_html;
+
   public $provider_name = 'oupodcast';
   public $provider_mid;
   public $_access; #Access control.
