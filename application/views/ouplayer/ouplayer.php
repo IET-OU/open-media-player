@@ -52,12 +52,23 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 
-<body role="application" id="ouplayer oup-paused">
+<!--
+<script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
+        </script>
+-->
+<body role="application" id="ouplayer" class="oup oup-paused <?=$meta->media_type ?> w<?=$meta->width ?> hide-script">
 
 <?=$audio_poster ?>
 <div id="ouplayer-div" style="width:<?=$meta->width ?>px; height:<?=$meta->object_height ?>px;">
 <?=$inner ?>
 
+</div>
+
+<div id="ouplayer-panel" >
+<button class="t-close" aria-label="Close">X</button>
+<div class="transcript">
+<?= $meta->transcript_html ?>
+</div>
 </div>
 
 <noscript>
@@ -68,7 +79,7 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 ?>
 </noscript>
 
-<div id="oup-controls" role="toolbar">
+<div id="oup-controls" role="toolbar" class="hulu">
 <!-- These events will be attached unobtrusively!! -->
 <button
   class="play oup-play-control"
@@ -80,24 +91,27 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
   data-play-label="Play video"
   data-pause-label="Pause video"
   ><span>P</span></button>
-<button class="back" aria-label="Seek back">&lt;</button>
-<div class="track">
-  <div class="buffer"></div>
-  <div class="progress"></div>
-  <div class="playhead"></div>
+<div class="oupc-r1">
+ <button class="back" aria-label="Seek back">&lt;</button>
+ <div class="sl track">
+  <span class="sl buffer"></span>
+  <span class="sl progress"></span>
+  <span class="sl playhead"></span>
+ </div>
+ <button class="forward" aria-label="Seek forward">&gt;</button>
+ <span class="time"></span>
+ <input class="x-time" style="display:none" />
 </div>
-<button class="forward" aria-label="Seek forward">&gt;</button>
-<span class="time"></span>
-<input class="x-time" style="display:none" />
+<div class="oupc-r2">
+ <button class="mute" aria-label="Mute">mute</button>
+ <button class="louder"  aria-label="Louder">+</button>
+ <button class="quieter" aria-label="Quieter">&ndash;</button>
 
-<button class="mute" aria-label="Mute">mute</button>
-<button class="louder"  aria-label="Louder">+</button>
-<button class="quieter" aria-label="Quieter">&ndash;</button>
-
-<button class="script" aria-label="Show/hide transcript">T</button>
-<a href="#" target="_blank" class="popout" aria-label="New window: pop out player">pop</a>
-<a href="<?=$meta->_related_url ?>" target="_blank" class="related" aria-label="New window: related link...">rel</a>
-<button class="more" aria-label="More...">more</button>
+ <button class="script" aria-label="Show/hide transcript">T</button>
+ <a href="#" target="_blank" class="popout" aria-label="New window: pop out player">pop</a>
+ <a href="<?=$meta->_related_url ?>" target="_blank" class="related" aria-label="New window: related link...">rel</a>
+ <button class="more" aria-label="More...">more</button>
+</div>
 </div>
 
 <div id="media-links" style="display:none">
@@ -106,17 +120,27 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 
 <script>
 flashembed.domReady(function(){
+  var ply=document.getElementById("ouplayer");
   var div=document.getElementById("ouplayer-div");
   var controls=document.getElementById("oup-controls");
   div.style.display="block";
   controls.style.display="block";
 
+  setTimeout("document.getElementById('ouplayer').style.cursor='default';", 2000);
+
   //var f=$f("ouplayer-div");
 
   $f("ouplayer-div", "<?=$base_url ?>swf/flowplayer-3.2.7.swf", {
 
+    clip:{
+	  //url: "<?=$meta->media_url ?>",
+	  scaling: 'fit',
+	  autoPlay:false,
+	  autoBuffering:true
+	},
+  
     "playlist":[
-      {"url":"<?=$meta->poster_url ?>"},
+      {"url":"<?=$meta->poster_url ?>", duration:1},
       {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true}
     ],
 
@@ -128,6 +152,7 @@ flashembed.domReady(function(){
   }).controls("oup-controls", {duration: 25});
 
   	function byClass(name) {
+		var wrap = wrap ? wrap : document;
 		var els = wrap.getElementsByTagName("*");		
 		var re = new RegExp("(^|\\s)" + name + "(\\s|$)");
 		for (var i = 0; i < els.length; i++) {
@@ -136,6 +161,23 @@ flashembed.domReady(function(){
 			}
 		}
 	}
+
+//http://snipplr.com/view/3561/addclass-removeclass-hasclass/
+function hasClass(ele,cls) {
+  return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+
+function addClass(ele,cls) {
+  if (!this.hasClass(ele,cls)) ele.className += " "+cls;
+  ele.className.replace(/ +/g,' '); //+
+}
+
+function removeClass(ele,cls) {
+  if (hasClass(ele,cls)) {
+    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+    ele.className=ele.className.replace(reg,''); //+-
+  }
+}
 
 	var wrap = controls; //document.getElementById('oup-controls');
 
@@ -146,11 +188,23 @@ flashembed.domReady(function(){
 	  btn.onmouseout =function(){ OUP.delayhidetip(); }
 	  //Hmm, spoofing an event?! {type:"X"}
       btn.onfocus    =function(){OUP.fixedtooltip(this.getAttribute('aria-label'), this, {type:"focus"});}
-      btn.onblur     =function(){ OUP.delayhidetip(); }
+      btn.onblur     =function(){OUP.delayhidetip();}
 	}
 	var controls = ("play,back,forward,quieter,louder,mute,script,popout,related,more").split(',');
     for (var i=0; i < controls.length; i++){
     	attachTooltip(controls[i]);
+	}
+
+	//Transcript button.
+	byClass('script').onclick = function() {
+	  var panel = document.getElementById('ouplayer-panel');
+	  if (hasClass(ply, 'hide-script')) {
+	    removeClass(ply, 'hide-script');
+		addClass(ply, 'show-script');
+	  } else {
+	    removeClass(ply, 'show-script');
+		addClass(ply, 'hide-script');
+      }
 	}
 });
 </script>
