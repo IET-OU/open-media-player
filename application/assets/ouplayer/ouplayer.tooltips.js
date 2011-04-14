@@ -15,7 +15,7 @@ var tooltip_id='oup-tooltips',
     tipwidth='150px', //default tooltip width
     tipbgcolor='lightyellow',  //tooltip bgcolor
     disappeardelay=250,  //tooltip disappear speed onMouseout (in miliseconds)
-    vertical_offset="-47px", //"0px"; //horizontal offset of tooltip from anchor link
+    vertical_offset="-47px", //"0px"; //-28; //vertical offset of tooltip from anchor link
     horizontal_offset="0px"; //"-3px"; //horizontal offset of tooltip from anchor link
 
 /////No further editting needed
@@ -83,18 +83,19 @@ function clearbrowseredge(obj, whichedge){
   return edgeoffset
 }
 //Public methods.
-OUP.fixedtooltip=function(menucontents, obj, e, tipwidth){
+//TODO: voffset
+OUP.fixedtooltip=function(menucontents, obj, e, voffset, tipwidth){
   if (window.event) event.cancelBubble=true;
   else if (e && e.stopPropagation) e.stopPropagation();
   clearhidetip();
   dropmenuobj=document.getElementById? document.getElementById(tooltip_id) : fixedtipdiv;
   dropmenuobj.innerHTML=menucontents;
   if (ie4||ns6){
-    showhide(dropmenuobj.style, e, "visible", "hidden", tipwidth);
+    showhide(dropmenuobj.style, e, "visible", "hidden", voffset, tipwidth);
     dropmenuobj.x=getposOffset(obj, "left");
     dropmenuobj.y=getposOffset(obj, "top");
     dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px";
-    dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px";
+    dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+/*obj.offsetTop+"px";*/obj.offsetHeight+"px";
   }
 }
 
