@@ -20,6 +20,7 @@ class Embed extends CI_Controller {
 	$this->load->library('Oupodcast_serv');
 
 	$player = $this->oupodcast_serv->_inner_call($custom_id, $shortcode);
+	$player = $this->oupodcast_serv->get_transcript($player);
 
 	$player->calc_size($width, $height, $audio_poster);
 
