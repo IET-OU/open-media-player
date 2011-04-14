@@ -15,6 +15,8 @@ class Scripts extends CI_Controller {
 
   }
 
+  /** oEmbed jQuery plugin.
+  */
   public function jquery_oembed($cache_minutes=10) {
       header('Content-Type: application/x-javascript; charset=utf-8');
       @header('Content-Disposition: inline; filename=jquery.oembed.js');
@@ -28,13 +30,27 @@ class Scripts extends CI_Controller {
 
       $oembed_url = base_url().'oembed';
       $script_prov ='';
-      
+
       $this->config->load('providers');
-      $providers = $this->config->item('providers');
+      // Other providers.
+	  $others = $this->config->item('providers_other');
+	  foreach ($others as $domain => $provider) {
+	    $name = $provider['name'];
+		$oembed_other = null;
+		if (isset($provider['endpoint'])) {
+		    $oembed_other = ", '{$provider['endpoint']}'";
+		}
+		$script_prov .= '    '."new OEmbedProvider('$name', '$domain'$oembed_other),".PHP_EOL;
+	  }
+	  // OU embed providers.
+	  $providers = $this->config->item('providers');
       foreach ($providers as $domain => $provider) {
          $script_prov .= '    '
            ."new OEmbedProvider('ouplayer', '$domain', '$oembed_url'),".PHP_EOL;
       }
+
+	  // http://code.google.com/p/oohembed/issues/detail?id=14
+	  $script = str_replace(': "http://oohembed.com/oohembed/"', ': "http://api.embed.ly/v1/api/oembed"', $script);
       $out = '/*auto-generated: '.date('c').' */'.PHP_EOL
           .str_replace('/*__PROVIDERS__*/', $script_prov, $script);
 
