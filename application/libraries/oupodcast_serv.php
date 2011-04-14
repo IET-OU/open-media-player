@@ -94,7 +94,53 @@ class Oupodcast_serv extends Base_service {
         '_feed_url'  => "$pod_base/feeds/$custom_id/rss2.xml", #Album.
 		'_itunes_url'=> $result->itunes_u_url, #Album.
 	  );
-      
+
       return $player;
   }
+
+  /** Get the PDF transcript (from remote site), then convert to HTML snippet.
+  * Note, an intermediate XML file is saved.
+  */
+  public function get_transcript($player) {
+
+    $res = $pdf = $html = false;
+
+    if ($player->transcript_url) {
+	  // Maybe a sub-directory?
+	  $trans_pdf = $this->CI->config->item('data_dir').'oupodcast/'.basename($player->transcript_url);
+	  $trans_file_xml = str_replace('.pdf', '.xml', $trans_pdf);
+	  $trans_file_htm = str_replace('.pdf', '_trans.html',$trans_pdf);
+
+	  if (!file_exists($trans_pdf)) { #$file_htm)) {
+	    $res = $this->_http_request_curl($player->transcript_url);
+		if (!$res->success) {
+		  // Log error.
+		  log_message('error', __CLASS__.". Error getting transcript, $player->transcript_url | ".$res->info['http_code']);
+		}
+	  }
+	}
+
+    if ($res && $res->success && $res->data) {
+	  $pdf = file_put_contents($trans_pdf, $res->data);
+	}
+
+	if ($pdf || !file_exists($trans_file_htm)) {
+	  $this->CI->load->library('Pdftohtml');
+
+	  try {
+	    $html = $this->CI->pdftohtml->parse($trans_pdf, $trans_file_xml);
+	  } catch (Exception $e) {
+	    // Log error.
+        log_message('error', __CLASS__.". Error parsing PDF transcript | ".$e->getMessage());
+
+	  }
+	}
+	if ($html) {
+	  $b2 = file_put_contents($trans_file_htm, $html);
+	  $player->transcript_html = $html;
+	}
+
+    return $player;
+  }
+
 }
