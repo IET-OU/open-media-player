@@ -119,6 +119,13 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </div>
 
 <script>
+var OUP=OUP || {};
+
+OUP.log=function(o) {
+  window.console && console.log
+    && console.log("OUP: "+o);
+}
+
 flashembed.domReady(function(){
   var ply=document.getElementById("ouplayer");
   var div=document.getElementById("ouplayer-div");
@@ -168,7 +175,7 @@ function hasClass(ele,cls) {
 }
 
 function addClass(ele,cls) {
-  if (!this.hasClass(ele,cls)) ele.className += " "+cls;
+  if (!hasClass(ele,cls)) ele.className += " "+cls;
   ele.className.replace(/ +/g,' '); //+
 }
 
@@ -201,9 +208,11 @@ function removeClass(ele,cls) {
 	  if (hasClass(ply, 'hide-script')) {
 	    removeClass(ply, 'hide-script');
 		addClass(ply, 'show-script');
+		OUP.log('show');
 	  } else {
 	    removeClass(ply, 'show-script');
 		addClass(ply, 'hide-script');
+		OUP.log('hide');
       }
 	}
 });
