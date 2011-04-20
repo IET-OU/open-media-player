@@ -11,7 +11,7 @@
 
 class Uptime extends CI_Controller {
 
-  /** The uptime page.
+  /** Uptime page, for both podcast and OU-embed databases.
   */
   public function index() {
     $this->load->model('embed_cache_model');
@@ -25,6 +25,22 @@ class Uptime extends CI_Controller {
 
 	@header('Content-Type: text/plain; charset=UTF-8');
 	if (!$embed_count || !$podcasts_count) {
+	    @header('HTTP/1.1 503 Service Unavailable'); #Actually, CI never reaches this point!
+		die('A Database Error Occurred'.PHP_EOL);
+	}
+
+	echo 'success'.PHP_EOL;
+  }
+
+  /** Uptime page for just the podcast DB.
+  */
+  public function podcast() {
+    $this->load->model('podcast_items_model');
+	$podcasts_count = $this->podcast_items_model->count();
+	@header('X-Count-Podcast-Items: '.$podcasts_count);
+
+	@header('Content-Type: text/plain; charset=UTF-8');
+	if (!$podcasts_count) {
 	    @header('HTTP/1.1 503 Service Unavailable'); #Actually, CI never reaches this point!
 		die('A Database Error Occurred'.PHP_EOL);
 	}
