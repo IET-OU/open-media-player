@@ -7,6 +7,7 @@
 
 // Set a HTTP proxy.
 putenv('http_proxy=wwwcache.open.ac.uk:80');
+$config['http_proxy'] = 'wwwcache.open.ac.uk:80';
 
 // Prevent date/ timezone warnings.
 date_default_timezone_set('Europe/London');

@@ -34,6 +34,10 @@ abstract class Base_service implements iService {
     if (!$spoof) {
       curl_setopt($h_curl, CURLOPT_REFERER,   'http://example.org');
     }
+	$http_proxy = $this->CI->config->item('http_proxy');
+	if ($http_proxy) {
+	  curl_setopt($h_curl, CURLOPT_PROXY, $http_proxy);
+	}
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
     $result = array('data' => curl_exec($h_curl));
     if ($errno = curl_errno($h_curl)) {
@@ -59,6 +63,26 @@ abstract class Base_service implements iService {
     $result = preg_replace('@&[^#]\w+?;@', '', $result);
     $result = str_replace($place, $safe, $result);
     return $result;
+  }
+
+  /**Safely, recursively create directories.
+   * Status: not working fully, on Windows.
+   * Source: https://github.com/nfreear/moodle-filter_simplespeak/blob/master/simplespeaklib.php
+   */
+  function _mkdir_safe($base, $path, $perm=0777) { #Or 0664.
+    $parts = explode('/', trim($path, '/'));
+    $dir = $base;
+    $success = true;
+    foreach ($parts as $p) {
+      $dir .= "/$p";
+      if (is_dir($dir)) {
+	    break;
+      } elseif (file_exists($dir)) {
+        #error("File exists '$p'.");
+      }
+      $success = mkdir($dir, $perm);
+    }
+    return $success;
   }
 }
 
