@@ -4,9 +4,16 @@
 html,body{margin:0; padding:0; background:#ddd; color:#222; font:1em Arial,sans-serif;}
 object,img,audio,video{display:block;}
 
+/*Debug: simples! */
+body.debug:after{content:attr(class); color:red;}
+
 /* Hide initially, including transcript panel.*/
 #ouplayer-div, #oup-controls{display:none;}
 #ouplayer, .ouplayer{cursor: wait;}
+
+#ouplayer.w640{width:640px;}
+/*Note, if player-div needs to float, it should always float. Else it breaks Flash! */
+.oup #ouplayer-div, .oup #oup-controls{float:left;}
 
 #oup-tooltips, #fixedtipdiv{
   position:absolute;
@@ -21,11 +28,6 @@ object,img,audio,video{display:block;}
 
 #X-ouplayer-div{z-index:50;}
 
-.oup.hide-script  #ouplayer-panel{display:none;}
-.oup.show-script  #ouplayer-panel{display:block;}
-#ouplayer-panel{width:211px; float:right; height:410px; overflow-y:scroll; border-left:1px solid #aaa; padding-left:3px;}
-
-.oup.show-script #ouplayer-div{width:425px;}
 
 #oup-controls{background:#222; color:#eee; width:640px;}
 .oupc-r1, .oupc-r2{position:relative; top:-48px; left:50px; }
@@ -38,6 +40,15 @@ object,img,audio,video{display:block;}
 
 .__button.back{-moz-appearance:scrollbarbutton-left;}
 
+/* Show/hide transcript pane. */
+.oup.hide-script  #ouplayer-panel{display:none;}
+.oup.show-script  #ouplayer-panel{display:block;}
+
+.oup.show-script #ouplayer-panel{width:215px; float:right; height:/*410*/440px; overflow-y:scroll; border-left:1px solid #aaa; padding-left:3px; background:#fff;
+  position:relative; top:-380px; /* WTF? */}
+.oup.show-script #ouplayer-div, .oup.show-script #oup-controls{width:420px;}
+.oup.show-script #ouplayer-div object, .show-script #ouplayer-div video{width:420px !important;}
+.oup.show-script #ouplayer-div .__object{width:100%;}
 
 
 /*#oup-controls .sl{height:20px; border:1px solid #777; cursor:pointer; }
