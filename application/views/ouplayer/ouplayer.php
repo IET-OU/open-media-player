@@ -22,21 +22,24 @@ Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&po
     $poster = "<img class=\"poster\" alt=\"\" src=\"$meta->poster_url\" />";
   }
   if ($meta->media_html5 && 'video' == $meta->media_type) {
-    $inner =<<<EOF
+    $support_text = t('Your browser does not support the "video" element.');
+	$inner =<<<EOF
   <video poster="$meta->poster_url" width="$meta->width" height="$player_height" controls>
     <source src="$meta->media_url" type='video/mp4; codecs="bogus"' /><!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
-    $poster<div>Your browser does not support the 'video' element.</div>
+    $poster<div>$support_text</div>
   </video>
 EOF;
   }
   elseif ($meta->media_html5 && 'audio' == $meta->media_type) {
 	$audio_poster = $poster;
+	$support_text = t('Your browser does not support the "audio" element.');
 	$inner =<<<EOF
-  <audio src="$meta->media_url" style="width:{$meta->width}px; height:{$meta->object_height}px;" controls>Your browser does not support the 'audio' element.</audio>
+  <audio src="$meta->media_url" style="width:{$meta->width}px; height:{$meta->object_height}px;" controls
+   >$suppport_text</audio>
 EOF;
   }
 ?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | OUVLE player</title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 <!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
 
@@ -62,7 +65,7 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </div>
 
 <div id="ouplayer-panel" >
-<button class="t-close" aria-label="Close">X</button>
+<button class="t-close" aria-label="<?=('Close')?>">X</button>
 <div class="transcript">
 <?= $meta->transcript_html ?>
 </div>
@@ -76,43 +79,47 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 ?>
 </noscript>
 
-<div id="oup-controls" role="toolbar" class="hulu">
+<div id="oup-controls" role="toolbar" aria-label="<?=t('Player controls')?>" class="hulu">
 <!-- These events will be attached unobtrusively!! -->
 <button
-  class="play oup-play-control"
-  <?php /*onmouseover="OUP.fixedtooltip(this.getAttribute('aria-label'), this, event)"
+  class="play oup-play-control" <?php /*onmouseover="OUP.fixedtooltip(this.getAttribute('aria-label'), this, event)"
   onmouseout="OUP.delayhidetip()"
   onfocus="OUP.fixedtooltip(this.getAttribute('aria-label'), this, event)"
-  onblur="OUP.delayhidetip()" */ ?>
-  aria-label="Play video"
-  data-play-label="Play video"
-  data-pause-label="Pause video"
-  ><span>P</span></button>
+  onblur="OUP.delayhidetip()" */
+  //Play video ?  ?>
+  aria-label="<?=t('Play')?>"
+  data-play-text="<?=t('Play')?>" data-pause-text="<?=t('Pause')?>"><span>P</span></button>
 <div class="oupc-r1">
- <button class="back" aria-label="Seek back">&lt;</button>
+ <button class="back" aria-label="<?=t('Rewind')?>">&lt;</button>
  <div class="sl track">
   <span class="sl buffer"></span>
   <span class="sl progress"></span>
   <span class="sl playhead"></span>
  </div>
- <button class="forward" aria-label="Seek forward">&gt;</button>
- <span class="time"></span>
- <input class="x-time" style="display:none" />
+ <button class="forward" aria-label="<?=t('Fast forward')?>">&gt;</button>
+ <span class="time" aria-label="<?=t('Progress')?>"></span>
+ <input class="x-time" readonly style="display:none" />
 </div>
 <div class="oupc-r2">
- <button class="mute" aria-label="Mute">mute</button>
- <button class="louder"  aria-label="Louder">+</button>
- <button class="quieter" aria-label="Quieter">&ndash;</button>
+ <button class="mute" aria-label="<?=t('Mute')?>"
+  data-mute-text="<?=t('Mute')?>" data-unmute-text="<?=t('Unmute')?>">mute</button>
+ <button class="louder"  aria-label="<?=t('Louder')?>">+</button>
+ <button class="quieter" aria-label="<?=t('Quieter')?>">&ndash;</button>
+ <input class="x-volume" readonly aria-label="<?=t('Volume')?>" style="display:none" />
 
- <button class="script" aria-label="Show/hide transcript">T</button>
- <a href="#" target="_blank" class="popout" aria-label="New window: pop out player">pop</a>
- <a href="<?=$meta->_related_url ?>" target="_blank" class="related" aria-label="New window: related link...">rel</a>
- <button class="more" aria-label="More...">more</button>
+ <button class="captn" aria-label="<?=t('Captions')?>">CC</button>
+ <button class="script" aria-label="<?=t('Show script')?>"
+  data-show-text="<?=t('Show script')?>" data-hide-text="<?=t('Hide script')?>">T</button>
+
+ <a href="<?=$meta->_related_url ?>" target="_blank" class="related" aria-label="<?=t('New window: related link…')?>">rel</a>
+ <a href="#" target="_blank" class="popout" aria-label="<?=t('New window: pop out player')?>">pop</a>
+ <button class="fulls" aria-label="<?=t('Full screen')?>">F</button>
+ <button class="more" aria-label="<?=t('More&hellip;')?>">more</button>
 </div>
 </div>
 
 <div id="media-links" style="display:none">
-  <a href="<?=$meta->media_url ?>">Download <?=$meta->title ?></a>
+  <a href="<?=$meta->media_url ?>"><?=t('Download')." $meta->title" ?></a>
 </div>
 
 <div id="oup-tooltips"></div>
@@ -144,7 +151,7 @@ flashembed.domReady(function(){
     //plugins: {controls:{autohide:false}}
 
   // install HTML controls inside element whose id is "hulu"
-  }).controls("oup-controls", {duration: 25});
+  }).controls("oup-controls", {duration: <?=$meta->duration ?>});
 
   OUP.initialize();
 });
