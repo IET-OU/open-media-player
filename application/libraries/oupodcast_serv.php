@@ -64,7 +64,12 @@ class Oupodcast_serv extends Base_service {
 	  $player->media_html5 = TRUE;
 	  $player->media_type = strtolower($result->source_media);
 	  $player->media_url = "$pod_base/feeds/$custom_id/$result->filename"; #608x362px.
-	  $player->poster_url= "$pod_base/feeds/$custom_id/$result->image";    #304x304px.
+	  if ($result->image) {
+		$player->poster_url= "$pod_base/feeds/$custom_id/$result->image";    #304x304px.
+	  } else {
+	    // Unpublished?
+	    $player->poster_url= "$pod_base/feeds/$custom_id/$result->image_filename.jpg";
+	  }
 	  $player->thumbnail_url = "$pod_base/feeds/$custom_id/".str_replace('.', '_thm.', $result->image); #75x75px.
 	  $player->duration = $result->duration; #Seconds.
 	  $player->width = $width;
@@ -75,6 +80,7 @@ class Oupodcast_serv extends Base_service {
 
 	  $player->_related_url = isset($result->link) ? $result->link : $result->target_url;
             #OR target_url (target_url_text/ link_text). #'_related_text'=>
+	  $player->_podcast_id = $result->podcast_id;
 	  $player->_album_id = $custom_id;
 	  $player->_track_id = $shortcode;
 	  $player->_access   = $access;
