@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //NDF, 2011-04-08.
 /** OU player iframe.
  *
