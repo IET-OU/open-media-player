@@ -142,7 +142,7 @@ flashembed.domReady(function(){
 	},
 
     playlist:[
-      {"url":"<?=$meta->poster_url ?>", duration:1},
+      {"url":"<?=$meta->poster_url ?>"}, //duration:1},
       {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true}
     ],
 
