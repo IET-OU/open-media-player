@@ -4,11 +4,10 @@
  * @copyright Copyright 2011 The Open University.
  */
 //NDF, extracted from oembed controller, 24 Feb. 2011.
-//Should this be an abstract class?
 
 interface iService {
   /** call.
-  * @return object Return a $meta object, as inserted in DB.
+  * @return object Return a $meta meta-data object, as inserted in DB.
   */
   public function call($url, $regex_matches);
 }
@@ -86,11 +85,13 @@ abstract class Base_service implements iService {
   }
 }
 
-/* Internationalization.
-*/
+
+/* 'translate text' placeholder - Internationalization/ Localization.
+ * See: cloudengine/libs./MY_Language; Drupal.
+ */
 function t($s) {
   $s = str_replace(array('<s>', '</s>'), array('<span>', '</span>'), $s);
-  return '^'.$s;
+  return /*Debug: '^'.*/$s;
 }
 if (!function_exists('_')) {
   function _($s) { return $s; }
