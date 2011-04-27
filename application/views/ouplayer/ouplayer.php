@@ -45,17 +45,14 @@ var e = ("abbr,audio,figure,time,video").split(',');
 for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </script>
 <![endif]-->
-<script src="<?=$base_url ?>swf/flowplayer-3.2.6.min.js"></script>
-<script src="<?=$base_url ?>swf/flowplayer.controls-OUP.js"></script>
-<script src="<?=$base_url ?>assets/ouplayer/ouplayer.tooltips.js"></script>
 
 <link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 
-<!--
+<?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
         </script>
--->
+*/ ?>
 <body role="application" id="ouplayer" class="oup oup-paused <?=$meta->media_type ?> w<?=$meta->width ?> hide-script">
 
 <?=$audio_poster ?>
@@ -118,23 +115,14 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
   <a href="<?=$meta->media_url ?>">Download <?=$meta->title ?></a>
 </div>
 
+<div id="oup-tooltips"></div>
+
+<script src="<?=$base_url ?>swf/flowplayer-3.2.6.min.js"></script>
+<script src="<?=$base_url ?>swf/flowplayer.controls-OUP.js"></script>
+<script src="<?=$base_url ?>assets/ouplayer/ouplayer.tooltips.js"></script>
+<script src="<?=$base_url ?>assets/ouplayer/ouplayer.behaviors.js"></script>
 <script>
-var OUP=OUP || {};
-
-OUP.log=function(o) {
-  window.console && console.log
-    && console.log("OUP: "+o);
-}
-
 flashembed.domReady(function(){
-  var ply=document.getElementById("ouplayer");
-  var div=document.getElementById("ouplayer-div");
-  var controls=document.getElementById("oup-controls");
-  div.style.display="block";
-  controls.style.display="block";
-
-  setTimeout("document.getElementById('ouplayer').style.cursor='default';", 2000);
-
   //var f=$f("ouplayer-div");
 
   $f("ouplayer-div", "<?=$base_url ?>swf/flowplayer-3.2.7.swf", {
@@ -145,78 +133,21 @@ flashembed.domReady(function(){
 	  autoPlay:false,
 	  autoBuffering:true
 	},
-  
-    "playlist":[
+
+    playlist:[
       {"url":"<?=$meta->poster_url ?>", duration:1},
       {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true}
     ],
 
-	// disable default controls
-	//plugins: {controls: null}
-	plugins: {controls:{autohide:false}}
+    // disable default controls
+    plugins: {controls: null}
+    //plugins: {controls:{autohide:false}}
 
   // install HTML controls inside element whose id is "hulu"
   }).controls("oup-controls", {duration: 25});
 
-  	function byClass(name) {
-		var wrap = wrap ? wrap : document;
-		var els = wrap.getElementsByTagName("*");		
-		var re = new RegExp("(^|\\s)" + name + "(\\s|$)");
-		for (var i = 0; i < els.length; i++) {
-			if (re.test(els[i].className)) {
-				return els[i];
-			}
-		}
-	}
-
-//http://snipplr.com/view/3561/addclass-removeclass-hasclass/
-function hasClass(ele,cls) {
-  return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-}
-
-function addClass(ele,cls) {
-  if (!hasClass(ele,cls)) ele.className += " "+cls;
-  ele.className.replace(/ +/g,' '); //+
-}
-
-function removeClass(ele,cls) {
-  if (hasClass(ele,cls)) {
-    var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-    ele.className=ele.className.replace(reg,''); //+-
-  }
-}
-
-	var wrap = controls; //document.getElementById('oup-controls');
-
-	function attachTooltip(name) {
-	  var btn = byClass(name);
-	  var tip = btn.getAttribute('aria-label');
-	  btn.onmouseover=function(){ OUP.fixedtooltip(tip, btn, {type:"mouseover"}); }
-	  btn.onmouseout =function(){ OUP.delayhidetip(); }
-	  //Hmm, spoofing an event?! {type:"X"}
-      btn.onfocus    =function(){OUP.fixedtooltip(this.getAttribute('aria-label'), this, {type:"focus"});}
-      btn.onblur     =function(){OUP.delayhidetip();}
-	}
-	var controls = ("play,back,forward,quieter,louder,mute,script,popout,related,more").split(',');
-    for (var i=0; i < controls.length; i++){
-    	attachTooltip(controls[i]);
-	}
-
-	//Transcript button.
-	byClass('script').onclick = function() {
-	  var panel = document.getElementById('ouplayer-panel');
-	  if (hasClass(ply, 'hide-script')) {
-	    removeClass(ply, 'hide-script');
-		addClass(ply, 'show-script');
-		OUP.log('show');
-	  } else {
-	    removeClass(ply, 'show-script');
-		addClass(ply, 'hide-script');
-		OUP.log('hide');
-      }
-	}
+  OUP.initialize();
 });
 </script>
 
-<div id="oup-tooltips"></div>
 </body></html>
