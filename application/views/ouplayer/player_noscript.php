@@ -23,7 +23,12 @@ if ($standalone):
  <param name="allowfullscreen" value="true" />
  <param name="allowscriptaccess" value="always" />
  <?php /*<param name="wmode" value="opaque" /><!--Important: wmode=opaque is not accessible, w/o Javascript controls!-->*/ ?>
-<param name="flashvars" value='config={"playlist":[
+<param name="flashvars" value='config={
+<?php if ($this->config->item('debug')): ?>
+"log": {"level":"debug", "filter":"org.flowplayer.captions.*"},
+"debug":true,
+<?php endif; ?>
+"playlist":[
 {"url":"<?=$meta->poster_url ?>"},
 {"url":"<?=$meta->media_url ?>", "autoPlay":false, "autoBuffering":true <?php if ($meta->caption_url): ?>
 ,
