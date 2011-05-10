@@ -12,6 +12,9 @@ $config['http_proxy'] = 'wwwcache.open.ac.uk:80';
 // Prevent date/ timezone warnings.
 date_default_timezone_set('Europe/London');
 
+// Debugging.
+$config['debug'] = false;
+
 // Debugging: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
@@ -22,6 +25,15 @@ $config['data_dir'] = '/var/www/_ouplayer_data/';
 // Optionally, set the path to a pdftohtml binary executable (not req. on Redhat 6).
 #$config['pdftohtml_path'] = $config['data_dir'].'pdftohtml-0.39/pdftohtml.exe';
 
+// Captions pre-DB solution - Mental health (S.D.Price@open), http://podcast.open.ac.uk/podcast_items.php?id=1135
+$config['captions'][1135] = array(
+  '734418f016' => 'difficult-to-manage-symptoms.xml',
+  '15f2d28221' => 'how-much-support-should-you-provide.xml',
+  'cb8d04e320' => 'memory-concentration-and-organisation.xml',
+  '6587f3126c' => 'recognising-barriers.xml',
+  '42b612d044' => 'social-difficulties-and-peer-support.xml',
+  'ee86f9b7fb' => 'what-support-is-available.xml',
+);
 
 
 /* File: config.php
