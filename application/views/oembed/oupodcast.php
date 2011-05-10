@@ -43,6 +43,9 @@ EOF;
         'html'   => $html, #'embed_type'=> 'application/x-shockwave-flash',
         'thumbnail_url'=> $meta->poster_url, #thumbnail or poster.
         '__duration'=>$meta->duration,
+        '__podcast_id'=>$meta->_podcast_id,
+        '__album_id'  =>$meta->_album_id, #(DB: custom_id)
+        '__track_md5' =>$meta->_track_md5,
         //'dc:extent'=>"$meta->_duration s",
         #'__meta' => $meta,
         'dc:copyright'=>$meta->_copyright,
