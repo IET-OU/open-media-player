@@ -65,9 +65,9 @@ class Podcast_player extends Base_player {
   public $provider_mid;
   public $_access; #Access control.
   public $_copyright;
-  public $_track_id;
-  public $_podcast_id;
-  public $_album_id;
+  public $_track_md5;  #Was, _track_id (DB: shortcode)
+  public $_podcast_id; #Numeric
+  public $_album_id;   #Alpha-numeric (DB: custom_id)
 
   public $timestamp;
 }

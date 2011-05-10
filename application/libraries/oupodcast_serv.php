@@ -82,7 +82,7 @@ class Oupodcast_serv extends Base_service {
             #OR target_url (target_url_text/ link_text). #'_related_text'=>
 	  $player->_podcast_id = $result->podcast_id;
 	  $player->_album_id = $custom_id;
-	  $player->_track_id = $shortcode;
+	  $player->_track_md5= $shortcode;
 	  $player->_access   = $access;
 	  $player->url = "$pod_base/$result->preferred_url/podcast-$custom_id#!$shortcode";
 	  $player->_short_url = "$pod_base/pod/$custom_id#!$shortcode"; #Track permalink.
@@ -111,8 +111,8 @@ class Oupodcast_serv extends Base_service {
   */
   protected function _get_captions($player) {
     $captions = $this->CI->config->item('captions');
-	if (isset($captions[$player->_podcast_id]) && isset($captions[$player->_podcast_id][$player->_track_id])) {
-	    $player->caption_url = site_url("timedtext/pod_captions/$player->_album_id/$player->_track_id/en.xml");
+	if (isset($captions[$player->_podcast_id]) && isset($captions[$player->_podcast_id][$player->_track_md5])) {
+	    $player->caption_url = site_url("timedtext/pod_captions/$player->_album_id/$player->_track_md5/en.xml");
 	}
 
 	return $player;
