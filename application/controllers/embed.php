@@ -26,13 +26,16 @@ class Embed extends CI_Controller {
 
 	$view_data = array(
         'meta' => $player,
+        'standalone' => false,
     );
 
     if ($edge) {
         $this->load->view('ouplayer/ouplayer', $view_data);
     } else {
+        $view_data['standalone'] = true;
+        $this->load->view('ouplayer/player_noscript', $view_data);
         // For now load vle_player - but, SWF is SAMS-protected!
-        $this->load->view('vle_player', $view_data);
+        #$this->load->view('vle_player', $view_data);
 	}
   }
 
