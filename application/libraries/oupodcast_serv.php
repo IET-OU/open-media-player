@@ -33,6 +33,8 @@ class Oupodcast_serv extends Base_service {
   public function _inner_call($basename, $fragment, $transcript=FALSE) {
       $pod_base = 'http://podcast.open.ac.uk';
 
+	  $edge  = $this->CI->input->get('edge');
+	  $audio_poster= $this->CI->input->get('poster'); #Only for audio!
 
 	  // Query the podcast DB.
       $result = $this->CI->podcast_items_model->get_item($basename, $fragment, $transcript=FALSE);
@@ -101,6 +103,7 @@ class Oupodcast_serv extends Base_service {
 		'_itunes_url'=> $result->itunes_u_url, #Album.
 	  );
 
+	  $player->calc_size($width, $height, $audio_poster);
 	  $player = $this->_get_captions($player);
 
       return $player;
