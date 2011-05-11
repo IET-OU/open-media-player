@@ -64,7 +64,8 @@ class Oupodcast_serv extends Base_service {
 
 	  $player->title = $result->pod_title.': '.$result->title;
 	  $player->media_html5 = TRUE;
-	  $player->media_type = strtolower($result->source_media);
+	  // Default type: 'video' ??
+	  $player->media_type = $result->source_media ? strtolower($result->source_media) : 'video';
 	  $player->media_url = "$pod_base/feeds/$custom_id/$result->filename"; #608x362px.
 	  if ($result->image) {
 		$player->poster_url= "$pod_base/feeds/$custom_id/$result->image";    #304x304px.
