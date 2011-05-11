@@ -11,13 +11,19 @@ NDF, 17 March 2011.
 // Need to fork for video and audio.
 
 
+  $html =<<<EOF
+<iframe class='ou podcast oembed' id='pod_$meta->_track_md5' aria-label='Media player' width='$meta->width' height='$meta->height' frameborder='0' scrolling='0' style='overflow:hidden;'
+ src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'></iframe>
+EOF;
+  //style='border:none; overflow:hidden;'
+
+
 // Get something rolling, using the existing jwPlayer!
 
-
 //(file=http://podcast.open.ac.uk/feeds/l314-spanish/rss2.xml&javascriptid=flashplayer&enablejs=true)
-  $html =<<<EOF
+  $html_00 =<<<EOF
 <div class="ou podcast oembed">
-<object tabindex="0" id="pod_$meta->_track_id" aria-label="Media player" type="application/x-shockwave-flash" height="$height" width="$width"
+<object tabindex="0" id="pod_$meta->_track_md5" aria-label="Media player" type="application/x-shockwave-flash" height="$height" width="$width"
 data="$pod_base/flash_media_player/mediaplayer.swf" >
 <param name="movie" value="$pod_base/flash_media_player/mediaplayer.swf" />
 <param name="allowscriptaccess" value="always" />

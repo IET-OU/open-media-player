@@ -29,7 +29,9 @@ if ($standalone):
 "debug":true,
 <?php endif; ?>
 "playlist":[
+<?php if ('video'==$meta->media_type): ?>
 {"url":"<?=$meta->poster_url ?>"},
+<?php endif; ?>
 {"url":"<?=$meta->media_url ?>", "autoPlay":false, "autoBuffering":true <?php if ($meta->caption_url): ?>
 ,
  "captionUrl":"<?=$meta->caption_url ?>"<?php endif;?>}]
