@@ -1,38 +1,57 @@
-<div id="oup-controls" role="toolbar" aria-label="<?=t('Player controls')?>" class="hulu">
-<!-- These events will be attached unobtrusively!! -->
-<button
-  class="play oup-play-control" <?php /*onmouseover="OUP.fixedtooltip(this.getAttribute('aria-label'), this, event)"
-  onmouseout="OUP.delayhidetip()"
-  onfocus="OUP.fixedtooltip(this.getAttribute('aria-label'), this, event)"
-  onblur="OUP.delayhidetip()" */
-  //Play video ?  ?>
-  aria-label="<?=t('Play')?>"
-  data-play-text="<?=t('Play')?>" data-pause-text="<?=t('Pause')?>"><span>P</span></button>
-<div class="oupc-r1">
- <button class="back" aria-label="<?=t('Rewind')?>">&lt;</button>
- <div class="sl track">
-  <span class="sl buffer"></span>
-  <span class="sl progress"></span>
-  <span class="sl playhead"></span>
- </div>
- <button class="forward" aria-label="<?=t('Fast forward')?>">&gt;</button>
- <span class="time" aria-label="<?=t('Progress')?>"></span>
- <input class="x-time" readonly style="display:none" />
-</div>
-<div class="oupc-r2">
- <button class="mute" aria-label="<?=t('Mute')?>"
-  data-mute-text="<?=t('Mute')?>" data-unmute-text="<?=t('Unmute')?>">mute</button>
- <button class="louder"  aria-label="<?=t('Louder')?>">+</button>
- <button class="quieter" aria-label="<?=t('Quieter')?>">&ndash;</button>
- <input class="x-volume" readonly aria-label="<?=t('Volume')?>" style="display:none" />
+<?php
 
- <button class="captn" aria-label="<?=t('Captions')?>">CC</button>
- <button class="script" aria-label="<?=t('Show script')?>"
-  data-show-text="<?=t('Show script')?>" data-hide-text="<?=t('Hide script')?>">T</button>
+function _oupc_label($className, $text) {
+  return "class=\"$className\" aria-label=\"$text\"";
+}
 
- <a href="<?=$meta->_related_url ?>" target="_blank" class="related" aria-label="<?=t('New window: related link…')?>">rel</a>
- <a href="#" target="_blank" class="popout" aria-label="<?=t('New window: pop out player')?>">pop</a>
- <button class="fulls" aria-label="<?=t('Full screen')?>">F</button>
- <button class="more" aria-label="<?=t('More&hellip;')?>">more</button>
+?>
+
+<div role="toolbar" id="controls" <?=_oupc_label('oup-controls', t('Player controls')) ?>>
+  <div class="row-1">
+    <button <?=_oupc_label('oup-play-control play', t('Play')) /*oup-play-control play-pause*/
+      ?> data-play-text="<?=t('Play')?>" data-pause-text="<?=t('Pause')?>"><span>&#x25BA;</span></button>
+
+    <div class="group-L">
+      <button <?=_oupc_label('back', t('Rewind')) ?>><span>&larr;</span></button>
+      <button <?=_oupc_label('forward', t('Fast forward')) ?>><span>&rarr;</span></button>
+
+      <input role="timer" <?=_oupc_label('time time-out', t('Current time')) ?> readonly value="00:00 / 00:00" />
+      <?php/*<output role="timer" <?=_oupc_label('x-time time-out offscreen', t('Progress')) ?> style="display:none;">00:00 / 00:00</output>*/?>
+    </div>
+
+    <div class="track seek-bar bar" title="Progress bar">
+      <span role="progressbar" aria-value-min="0" aria-value-max="100" <?=_oupc_label('buffer', t('Loading…')) ?> data-loaded-text="<?=t('Loaded') ?>"></span>
+      <span role="slider" aria-value-min="0" aria-value-max="<?=$meta->duration ?>" <?=_oupc_label('progress', t('Seek bar')) ?>></span>
+      <div class="playhead head" title="Drag - playhead">D</div>
+    </div>
+	<div class="group-R">
+	  <input role="timer" <?=_oupc_label('time-total', t('Total time'))?> readonly value="00:00" />
+	</div>
+  </div>
+
+  <div class="row-2">
+    <div class="group-2L">
+      <button <?=_oupc_label('mute', t('Mute'))?> data-mute-text="<?=t('Mute')?>" data-unmute-text="<?=t('Unmute')?>"><span>M</span></button>
+      <input  <?=_oupc_label('volume-out --offscreen', t('Volume'))?> title="<?=t('Volume')?>" value="50%" readonly />
+
+      <button <?=_oupc_label('louder', t('Louder')) ?>><span>+</span></button>
+      <button <?=_oupc_label('quieter', t('Quieter')) ?>><span>-</span></button>
+    </div>
+
+    <div class="volume-bar bar" title="Volume bar">
+      <span role="slider" class="volumehead head" title="Drag - volume">D</span>
+    </div>
+
+    <div class="group-2R">
+      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('related', t('New window: related link…')) ?>><span>L</span></a>
+      <button <?=_oupc_label('captn', t('Captions'))?> data-show-text="<?=
+		t('Show captions') ?>" data-hide-text="<?=t('Hide captions') ?>"><span>CC</span></button>
+      <button <?=_oupc_label('script', t('Show script'))?> data-show-text="<?=
+	    t('Show script') ?>" data-hide-text="<?=t('Hide script') ?>"><span>T</span></button>
+      <a target="_blank" href="#podcast/popout/UniQuEiD" <?=_oupc_label('popout', t('New window: pop out player')) ?>>PO</a>
+      <button <?=_oupc_label('fulls', t('Full screen')) ?>><span>F</span></button>
+      <button <?=_oupc_label('more', t('More…')) ?>><span>S</span></button>
+	</div>
+  </div>
 </div>
-</div>
+
