@@ -44,7 +44,7 @@ EOF;
 <!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
 
 <script>
-var e = ("abbr,audio,figure,time,video").split(',');
+var e = ("abbr,audio,figure,output,time,video").split(',');
 for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </script>
 <![endif]-->
@@ -57,6 +57,8 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
         </script>
 */ ?>
 <body role="application" id="ouplayer" class="oup oup-paused <?=$meta->media_type ?> w<?=$meta->width ?> hide-script">
+
+<div id="ouplayer-outer">
 
 <?=$audio_poster ?>
 <div id="ouplayer-div" style="width:<?=$meta->width ?>px; height:<?=$meta->object_height ?>px;">
@@ -79,6 +81,8 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 ?>
 </noscript>
 
+</div>
+
 <?php $this->load->view('ouplayer/oup_controls.php'); ?>
 
 <div id="media-links" style="display:none">
@@ -95,7 +99,11 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 flashembed.domReady(function(){
   //var f=$f("ouplayer-div");
 
-  $f("ouplayer-div", "<?=$base_url ?>swf/flowplayer-3.2.7.swf", {
+  OUP.player = $f("ouplayer-div", "<?=$base_url ?>swf/flowplayer-3.2.7.swf", {
+
+    onError: function(code, message){
+      OUP.log('onError: '+code+', '+message);
+    },
 
     clip:{
 	  //url: "<?=$meta->media_url ?>",
@@ -114,7 +122,7 @@ flashembed.domReady(function(){
     //plugins: {controls:{autohide:false}}
 
   // install HTML controls inside element whose id is "hulu"
-  }).controls("oup-controls", {duration: <?=$meta->duration ?>});
+  }).controls("controls", {duration: <?=$meta->duration ?>});
 
   OUP.initialize();
 });
