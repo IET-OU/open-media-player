@@ -51,7 +51,8 @@ $f.addPlugin("controls", function(wrap, options) {
 			// must be withing [min, max]
 			if (x > max) { return false; }
 			if (x < min) { return false; } 
-			o.style.left = x + "px";	
+			o.style.left = x + "px";
+			OUP.log('Draggable.move: '+x); //NDF.
 			return true;
 		}
 		
@@ -141,7 +142,14 @@ $f.addPlugin("controls", function(wrap, options) {
 	function getTime(time, duration) {
 		return "<span>" + toTime(time) + "</span> <strong>" + toTime(duration) + "</strong>";	
 	}
-	
+//ou-specific
+	function plainTime(time, duration, rich) {
+		if (typeof rich!='undefined') {
+			return getTime(time, duration);
+		}
+		return toTime(time) + " / " + toTime(duration);
+	}
+//ou-specific ends.
 //}}}
 	
 	
@@ -160,6 +168,7 @@ $f.addPlugin("controls", function(wrap, options) {
 		unmuteClass: 'unmute',
 		duration: 0,
 //ou-specific
+		totalClass: 'time-total',
 		stopClass:  'stop',
 		repeatClass:'repeat',
 		backClass:  'back',
@@ -199,11 +208,19 @@ $f.addPlugin("controls", function(wrap, options) {
 	var track = byClass(opts.trackClass);
 	var time = byClass(opts.timeClass);
 	var mute = byClass(opts.muteClass);
-	
-	
+
+//ou-specific
+	var total= byClass(opts.totalClass);
+	if (typeof time.value=='string') {
+		if (total) {
+			total.value = toTime(opts.duration);
+		}
+		time.value = plainTime(0, opts.duration);
+	}else{
+//ou-specific ends.
 	// initial time
 	time.innerHTML = getTime(0, opts.duration);
-	
+	}
 	// get dimensions 
 	var trackWidth = w(track);
 	var ballWidth = w(ball); 
@@ -305,9 +322,11 @@ $f.addPlugin("controls", function(wrap, options) {
 
 			// time display
 			if (status.time) {
-				if (typeof time.value=='string') {//TODO.
-					time.value = getTime(status.time, clip.duration);
+//ou-specific
+				if (typeof time.value=='string') {
+					time.value = plainTime(status.time, clip.duration);
 				} else {
+//ou-specific ends.
 				time.innerHTML = getTime(status.time, clip.duration);
 				}
 			}
@@ -327,7 +346,12 @@ $f.addPlugin("controls", function(wrap, options) {
 			// progress width
 			if (!self.isPaused() && !head.isDragging()) {
 				x = getMax(status.time, duration);
-				progressBar.style.width = x + "px";
+//ou-specific
+				//progressBar.style.width = x + "px";
+				progressBar.style.width = (100*status.time/duration) + "%";//parseInt.
+				progressBar.title = status.time+'s';
+				OUP.log('progress: '+status.time+'s; ball: '+ballWidth+', '+x+', '+ball.title);
+//ou-specific ends.
 				ball.style.left = (x -ballWidth / 2) + "px";
 			}
 			
