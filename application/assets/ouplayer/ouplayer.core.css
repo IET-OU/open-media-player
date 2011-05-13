@@ -1,14 +1,16 @@
 @charset "utf-8";
 /** OU player core styles. Copyright 2011 The Open University.
 */
-html,body{margin:0; padding:0; background:#ddd; color:#222; font:1em Arial,sans-serif;}
+body{margin:0; padding:0; min-width:460px; background:#eee; font:.9em Verdana,sans-serif;}
 object,img,audio,video{display:block;}
 
 /*Debug: simples! */
 body.debug:after{content:attr(class); color:red;}
 
+.offscreen{ position:absolute; top:-999px; }
+
 /* Hide initially, including transcript panel.*/
-#ouplayer-div, #oup-controls{display:none;}
+#ouplayer-div, .XX--oup-controls{display:none;}
 #ouplayer, .ouplayer{cursor: wait;}
 
 #ouplayer.w640{width:640px;}
@@ -28,75 +30,190 @@ body.debug:after{content:attr(class); color:red;}
 
 #X-ouplayer-div{z-index:50;}
 
+#ouplayer-outer{
+  position: fixed;
+  background: #ccc;
+  --text-align: center;
+  width: 100%;
+  top: 0;
+  bottom: 62px;
+}
 
-#oup-controls{background:#222; color:#eee; width:640px;}
-.oupc-r1, .oupc-r2{position:relative; top:-48px; left:50px; }
-.oupc-r2{}
-
-#oup-controls button, #oup-controls a{height:28px;}
-#oup-controls a{display:inline-block; -moz-appearance:button; -webkit-appearance:button; /*neat!*/}
-.X-button:-moz-focusring{outline: 4px dotted yellow;}
-#oup-controls .play, .pause{height:48px; width:40px; /*position:relative; top:0;*/}
-
-.__button.back{-moz-appearance:scrollbarbutton-left;}
 
 /* Show/hide transcript pane. */
 .oup.hide-script  #ouplayer-panel{display:none;}
 .oup.show-script  #ouplayer-panel{display:block;}
 
-.oup.show-script #ouplayer-panel{width:215px; float:right; height:/*410*/440px; overflow-y:scroll; border-left:1px solid #aaa; padding-left:3px; background:#fff;
+.oup.show-script #ouplayer-panel{width:215px; float:right; height:/*410*-/440px;*/100%; overflow-y:scroll; border-left:1px solid #999; padding-left:3px; background:#fcfcfc;
   position:relative; top:-380px; /* WTF? */}
 .oup.show-script #ouplayer-div, .oup.show-script #oup-controls{width:420px;}
 .oup.show-script #ouplayer-div object, .show-script #ouplayer-div video{width:420px !important;}
 .oup.show-script #ouplayer-div .__object{width:100%;}
 
 
-/*#oup-controls .sl{height:20px; border:1px solid #777; cursor:pointer; }
-#oup-controls .track{width:285px; }
-#oup-controls .playhead{width:3px;}
-.track .progress, .track .buffer{width:0;
- filter: alpha(opacity=10);
- opacity:0.1;}
-.track .sl{display:inline-block;}
+/** Controls.
 */
-/* the timeline (or "scrubber")  */
-.track *{display:block;}
-.hulu .sl{position:absolute;}
-.hulu .track {
-border:1px dotted #666;
+.oup-controls{
+  background: green;
 
-	left:47px;
-	--position:absolute;
-	cursor:pointer;
-	width:285px;
-	border-left:1px solid #999;
-	height:40px;	
+  min-width: 460px;
+  /*-x-position: absolute;*/
+  position: fixed;
+
+  height: 60px;
+  bottom: 0;
+  width:100%;
 }
-/* the draggable playhead */
-.hulu .playhead {
-	--position:absolute;
-	cursor:pointer; 
-	background-color:#4ff;
-	opacity:0.3;
-	filter: alpha(opacity=30);	
-	width:3px;
-	height:40px;
-	border-right:1px solid #444;
+.oup.audio  .fulls, .oup.audio  .captn {
+  display: none;
 }
-/* buffer- and progress bars. upon runtime the width of these elements grows */
-.hulu .progress, .hulu .buffer {
-	--position:absolute;
-	background-color:#4ff;
-	filter: alpha(opacity=10);
-	opacity:0.1;
-	width:0px;
-	height:40px;
+/*.oup-controls*/ button, .oup-controls a{
+  width:44px;
+  height: 29px;
+  cursor:pointer;
+  font-size:.9em;
+  background:#eee;
+  border-radius: 4px;
+
+  /*-x-margin:1px;*/
 }
-.hulu .buffer {
-	background-color:#fff;
-	opacity:0.1;
-	filter: alpha(opacity=10);
+.oup-controls a {
+  position: relative;
+  top: -2px;
+
+  display: inline-block;
+  text-align: center;
+  padding: 5px 0 0;
+  margin-bottom: 2px;
+  height: 22px;
+  /*border: 1px solid #ccc;*/
 }
+
+.oup-controls button:focus, .oup-controls a:focus { outline:2px solid yellow; -moz-outline-radius:3px; }
+.oup-controls button:hover, .oup-controls a:hover{background:#bbb;}
+
+.bar {-moz-border-radius:6px; border-radius: 6px; height: 20px; }
+.bar * /*span*/{display:block; height: 20px; width:2px;}
+
+.X-oup-controls input{padding-bottom:2px;}
+
+/*.play-pause*/ .oup-controls .play, .oup-controls .pause{
+  position: relative;
+  width: 44px;
+  height: 58px;
+  top: 59px;
+  margin: 1px;
+}
+.row-1, .row-2{
+  height: 30px;
+  /*x-overflow:show;
+
+  --position: relative;
+  --top: -56px;
+  --left: 40px;*/
+}
+.row-1{
+  position: relative;
+  top: -59px;
+}
+.row-1 .group-L{
+  position: relative;
+  left: 48px;
+}
+.time-out{
+  width: 76px;
+}
+.time-total{
+  width: 36px;
+}
+.row-1 .group-R{
+  position: fixed;
+  right: 50px;
+  bottom: 34px;
+}
+
+.seek-bar{
+  background: blue;
+  /*x-border:1px solid red;*/
+
+  position: fixed;
+  bottom: 34px;
+  /*x-top: -30px;*/
+  left: 240px;
+  right: 96px;/*48px*/
+
+  min-width: 150px;
+}
+.seek-bar .buffer{
+  background: #47f;
+  cursor:pointer;
+}
+.seek-bar .progress{
+  background: gray;
+  cursor:pointer;
+
+  position: relative;
+  top: -20px;
+  width: 1em;
+}
+.bar .head{
+  cursor:pointer;
+  background: black;
+  color: white;
+  width: .7em;
+}
+.seek-bar .playhead{
+  position: relative;
+  top: -40px;
+}
+.row-2{
+  border-top: 1px dashed black;
+  position: relative;
+  left: 48px;
+  x-top: -28px;
+}
+.group-2L {}
+.row-2 .volume-bar{
+  background: yellow;
+
+  position: fixed;
+  bottom: 4px;
+  left: 96px;
+  right: 310px;
+
+  min-width: 100px;
+  max-width: 400px;
+}
+.volume-out/*:focus*/{
+  background: #ff9;
+  z-index: 1000;
+
+  position: fixed;
+  right: 294px;
+  top: auto;
+  bottom: 4px;
+  width: 2.4em;
+}
+.louder:focus, .quieter:focus{
+  position:static;
+  /*--top: 0;*/
+  z-index: 1000; /* ?? */
+}
+
+.group-2R{
+  position: absolute;
+  bottom: 0px;
+  right: 49px;
+}
+
+/* CSS3 media-query. */
+@media (max-width: 620px) {
+
+  .oup-controls button.script{ display:none; }
+
+}
+
+
 
 /* Play Icon */
 .-oup-play-control{width:44px; height:48px;}
