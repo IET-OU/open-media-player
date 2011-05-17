@@ -5,7 +5,7 @@
  */
 //NDF, 2011-04-07.
 
-/* Ouplayer class - Hold meta-data for the player.
+/* Ouplayer class - Holds meta-data for the player.
    Consistency between OU and OUVLE variants.
 */
 abstract class Base_player {
@@ -35,7 +35,16 @@ abstract class Base_player {
   /** calc_size: needs more work.
   */
   public function calc_size($width, $height, $audio_poster=false) {
-    //Validate width/height..?!
+	$CI =& get_instance();
+	// Need to move 'maxwidth'/maxheight calls into the oEmbed controller.
+	$max_width = $CI->input->get('maxwidth');
+	$max_height= $CI->input->get('maxheight');
+	$resizable = $CI->input->get('_resizable');
+
+	$rev_sizes = array(720=>460, 640=>410, 620=>400, 560=>340, 480=>360, 460=>350);
+	#$sizes = array(460=>350, 480=>360, 560=>340, 620=>400, 640=>410, 720=>460);
+
+	//Validate width/height..?!
 	if ('audio'==$this->media_type) {
       $this->width = 400;
 	  $this->object_height = 60;
@@ -45,9 +54,20 @@ abstract class Base_player {
 	    $this->height= $this->object_height;
 	  }
 	} else { #'video'
-	  //Need to use oembed-maxwidth/maxheight.
-      $this->object_height = $this->height - 30;
-	}
+	  if ($max_width) {
+	    // Count down through the potential sizes.
+	    foreach ($rev_sizes as $width => $height) {
+		  if ($max_width >= $width) {
+		    $this->width = $width;
+			$this->height= $height;
+			break;
+		  }
+		}
+	  }
+	  $this->object_height = $this->height - 30;
+
+	  #var_dump($this->width, $this->height, $this->object_height);
+    }
   }
 }
 
