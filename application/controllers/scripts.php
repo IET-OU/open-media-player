@@ -36,21 +36,29 @@ class Scripts extends CI_Controller {
 	  $others = $this->config->item('providers_other');
 	  foreach ($others as $domain => $provider) {
 	    $name = $provider['name'];
+		$type = $provider['type'];
+		$regex = '"'.str_replace('.', '\.', $domain).'"';
 		$oembed_other = null;
 		if (isset($provider['endpoint'])) {
 		    $oembed_other = ", '{$provider['endpoint']}'";
 		}
-		$script_prov .= '    '."new OEmbedProvider('$name', '$domain'$oembed_other),".PHP_EOL;
+		//$script_prov .= '    '."new OEmbedProvider('$name', '$domain'$oembed_other),".PHP_EOL; #plugin.r20.
+		$script_prov .= "\t\t"."new \$.fn.oembed.OEmbedProvider('$name', '$type', [$regex]$oembed_other),".PHP_EOL; #plugin.r23.
 	  }
 	  // OU embed providers.
 	  $providers = $this->config->item('providers');
       foreach ($providers as $domain => $provider) {
-         $script_prov .= '    '
-           ."new OEmbedProvider('ouplayer', '$domain', '$oembed_url'),".PHP_EOL;
+		$name = $provider['name'];
+		$type = $provider['type'];
+		$regex = '"'.str_replace('.', '\.', $domain).'"';
+		$script_prov .= "\t\t"
+        //   ."new OEmbedProvider('ouplayer', '$domain', '$oembed_url'),".PHP_EOL;
+             ."new \$.fn.oembed.OEmbedProvider('$name', '$type', [$regex], '$oembed_url'),".PHP_EOL;
       }
 
 	  // http://code.google.com/p/oohembed/issues/detail?id=14
-	  $script = str_replace(': "http://oohembed.com/oohembed/"', ': "http://api.embed.ly/v1/api/oembed"', $script);
+	  #$script = str_replace(': "http://oohembed.com/oohembed/"', ': "http://api.embed.ly/v1/api/oembed"', $script);
+	  $script = str_replace(': "oohembed"', ': "embed.ly"', $script);
       $out = '/*auto-generated: '.date('c').' */'.PHP_EOL
           .str_replace('/*__PROVIDERS__*/', $script_prov, $script);
 
