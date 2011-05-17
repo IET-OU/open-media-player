@@ -10,14 +10,14 @@ if ($standalone):
 ?>
 <!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
-<style>body{margin:0; background:#bbb;} #oup-fallback_links{display:none;}</style>
+<style>body{margin:0; background:#bbb;} object{position:fixed; top:0; bottom:0; width:100%;} #oup-fallback_links{display:none;}</style>
 
 <?php else: ?>
 
 <div id="oup-fallback-div">
 <?php endif; ?>
 <object id="oup-fallback-obj" tabindex="0" aria-label="Video player" type="application/x-shockwave-flash"
- width="<?=$meta->width ?>" height="<?=$meta->object_height ?>"
+ width="<?=$meta->width ?>" data-X-height="<?=$meta->object_height ?>"
  data="<?=$base_url ?>swf/flowplayer-3.2.7.swf">
  <param name="movie" value="<?=$base_url ?>swf/flowplayer-3.2.7.swf" />
  <param name="allowfullscreen" value="true" />
@@ -42,7 +42,7 @@ if ($standalone):
 "captions":{"url":"flowplayer.captions-3.2.3.swf", "captionTarget":"content"},
 "content": {
   "url":"flowplayer.content-3.2.0.swf",
-  "width":<?=($meta->width - 60) ?>,
+<?php /*"width":"90%"<-?=($meta->width - 60) //Percent fails - why? */ ?>
   "bottom":30,
   "backgroundColor":"#000",
   "style": {
