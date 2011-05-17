@@ -50,13 +50,16 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <![endif]-->
 
 <link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
+<link rel="X--stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-dark/ouice-dark.css" />
+<link rel="X--stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-bold/ouice-bold.css" />
+
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 
 <?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
         </script>
 */ ?>
-<body role="application" id="ouplayer" class="oup oup-paused <?=$meta->media_type ?> w<?=$meta->width ?> hide-script">
+<body role="application" id="ouplayer" class="oup oup-paused <?=$meta->media_type ?> w<?=$meta->width ?> hide-script  --hulu">
 
 <div id="ouplayer-outer">
 

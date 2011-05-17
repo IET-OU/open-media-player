@@ -16,7 +16,7 @@ function _oupc_label($className, $text) {
       <button <?=_oupc_label('forward', t('Fast forward')) ?>><span>&rarr;</span></button>
 
       <input role="timer" <?=_oupc_label('time time-out', t('Current time')) ?> readonly value="00:00 / 00:00" />
-      <?php/*<output role="timer" <?=_oupc_label('x-time time-out offscreen', t('Progress')) ?> style="display:none;">00:00 / 00:00</output>*/?>
+      <?php /*<output role="timer" <-?=_oupc_label('x-time time-out offscreen', t('Progress')) ?-> style="display:none;">00:00 / 00:00</output>*/ ?>
     </div>
 
     <div class="track seek-bar bar" title="Progress bar">
