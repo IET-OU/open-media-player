@@ -6,7 +6,8 @@
  * 
  * Author: Richard Chamorro 
  */
- 
+//Revision #23 on Google Code (was #20).
+
 (function ($) {
     $.fn.oembed = function (url, options, embedAction) {
 
@@ -331,7 +332,10 @@
 
     /* Native & common providers */
     $.fn.oembed.providers = [
-		new $.fn.oembed.OEmbedProvider("youtube", "video", ["youtube\\.com/watch.+v=[\\w-]+&?"]), // "http://www.youtube.com/oembed"	(no jsonp)
+//ou-specific
+/*__PROVIDERS__*/
+		//new $.fn.oembed.OEmbedProvider("youtube", "video", ["youtube\\.com/watch.+v=[\\w-]+&?"]), // "http://www.youtube.com/oembed"	(no jsonp)
+//ou-specific ends.
 		new $.fn.oembed.OEmbedProvider("flickr", "photo", ["flickr\\.com/photos/[-.\\w@]+/\\d+/?"], "http://flickr.com/services/oembed", "jsoncallback"),
 		new $.fn.oembed.OEmbedProvider("viddler", "video", ["viddler\.com"]), // "http://lab.viddler.com/services/oembed/" (no jsonp)
 		new $.fn.oembed.OEmbedProvider("blip", "video", ["blip\\.tv/.+"], "http://blip.tv/oembed/"),
