@@ -20,7 +20,8 @@ $config['providers'] = array(
         'name'   => 'oupodcast',
         'regex'  => 'podcast.open.ac.uk/*/*', //array()?
         'subdomains'=>array(),
-        'type'   => 'audio|video', #Or 'audio'!!
+        'type'   => 'video',
+        'type_x' => 'video|audio', #Or 'audio'!!
         '_regex_real'=>'podcast.open.ac.uk.*/([\w-]+)([/#]+!?)(\w{10}|\w+\.m\w{2})$',
     #'_regex_real'=>'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
     #/oembed?url=http%3A//podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish%23!fe481a4d1d
@@ -55,7 +56,7 @@ $config['providers'] = array(
         '_google_analytics'=>'UA-12345-2',
     ),
 
-    'youtube.com' => array('name'=>'youtube', 'regex'=>'youtube.com/watch*', 
+    'youtube.com' => array('name'=>'youtube', 'type'=>'video', 'regex'=>'youtube.com/watch*', 
         '_regex_real'=>'youtube.com/watch\?.*v=([\w-_]*)&*.*',
         '_examples'=>array(
           'Interview with Martin Bean (captions)' => 'http://youtube.com/watch?v=NaBBk-kpmL4'),
@@ -68,6 +69,7 @@ $config['providers'] = array(
     */
     'prezi.com'   => array('name'=>'prezi',
         'regex' =>'prezi.com/*/*/?', // Optional trailing slash.
+        'type'  =>'rich',
         '_examples' => array(
           'Dig. Schol. by M.Weller' => 'http://prezi.com/izeqbfy2z5w-/digital-scholarship',
           'http://prezi.com/zoidjousoeat/technology-for-the-classroom',
@@ -96,30 +98,30 @@ $config['providers'] = array(
 // IF (!endpoint) endpoint=embedly;
 $config['providers_other'] = array(
     // See, http://maltwiki.org/scripts/jquery.oembed.js
-    'youtu.be'=> array('name' => 'youtube'),
-	'nfb.ca'  => array('name' => 'NFB'),
-	'blip.tv' => array('name' => 'blip'),
+	'youtu.be'=> array('name' => 'youtube', 'type'=>'video'),
+	'nfb.ca'  => array('name' => 'NFB', 'type'=>'video'),
+	//'blip.tv' => array('name' => 'blip', 'type'=>'video'),
 	//See, http://cloudworks.ac.uk/_scripts/jquery.oembed.js
-	'last.fm' => array('name' => 'last.fm'),
-	'dotsub.com' => array('name'=>'dotSUB'),
-	'twitter.com'=> array('name'=>'twitter'),
-	'scribd.com' => array('name'=>'Scribd'),
+	'last.fm' => array('name' => 'last.fm', 'type'=>'audio'),
+	'dotsub.com' => array('name'=>'dotSUB', 'type'=>'video'),
+	'twitter.com'=> array('name'=>'twitter', 'type'=>'rich'),
+	//'scribd.com' => array('name'=>'Scribd', 'type'=>'rich'),
 
 	// See, http://api.embed.ly
 	#'status.net' => array('name'=>'StatusNet'),
-	'xtranormal.com' => array('name'=>'xtranormal'),
-	'timetoast.com'  => array('name'=>'Timetoast'),
-	#'teachertube.com'=> array('name'=>'Teachertube'),
+	'xtranormal.com' => array('name'=>'xtranormal', 'type'=>'video'),
+	'timetoast.com'  => array('name'=>'Timetoast',  'type'=>'rich'),
+	#'teachertube.com'=> array('name'=>'Teachertube', 'type'=>'video'),
 	#'schooltube.com' => array('name'=>'Schooltube'),
 	#'ted.com', 'polldaddy.com',
 	#'crocodoc.com'=>array('name'=>'crocodoc'),
 	#'freemusicarchive.org',
-	#'huffduffer.com'=>array('name'=>'Huffduffer', '__endpoint'=>'http://huffduffer.com/oembed'),
-	'gist.github.com' => array('name'=>'GitHub'),
-	'cacoo.com' => array('name'=>'Cacoo',  'endpoint' => 'http://cacoo.com/oembed.json'),
+	#'huffduffer.com'=>array('name'=>'Huffduffer', 'type'=>'audio', '__endpoint'=>'http://huffduffer.com/oembed'),
+	'gist.github.com' => array('name'=>'GitHub', 'type'=>'rich'),
+	'cacoo.com' => array('name'=>'Cacoo', 'type'=>'rich', 'endpoint' => 'http://cacoo.com/oembed.json'),
 
 	// OLnet - roll into OU embed.
-	'cohere.open.ac.uk'=> array('name'=>'olnet', 'endpoint' => 'http://olnet.org/oembed'),
-	'mathtran.org'     => array('name'=>'olnet', 'endpoint' => 'http://olnet.org/oembed'),
+	'cohere.open.ac.uk'=> array('name'=>'olnet', 'type'=>'rich', 'endpoint'=>'http://olnet.org/oembed'),
+	'mathtran.org'     => array('name'=>'olnet', 'type'=>'rich', 'endpoint'=>'http://olnet.org/oembed'),
 );
 
