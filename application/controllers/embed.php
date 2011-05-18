@@ -59,7 +59,8 @@ class Embed extends CI_Controller {
     $player->language   = $this->input->get('lang'); #Just a reminder!
     #);
 
-    if (preg_match('/learn.open.ac.uk.*\.(mp4|flv|mp3)$/', $player->media_url, $ext)) {
+	//TODO: Need to tighten back up for production (Was: '/learn.open.ac.uk../')
+    if (preg_match('/.open.ac.uk\/.*\.(mp4|flv|mp3)$/', $player->media_url, $ext)) { 
       // Codecs? http://wiki.whatwg.org/wiki/Video_type_parameters
       $opts = array('mp4'=>'video', 'flv'=>'video', 'mp3'=>'audio');
       $player->media_type = $opts[$ext[1]];
@@ -78,8 +79,10 @@ class Embed extends CI_Controller {
 
     $view_data = array(
         'meta' => $player,
+		'standalone' => true
     );
-    $this->load->view('vle_player', $view_data); #$request);
+	$this->load->view('ouplayer/player_noscript', $view_data);
+    #$this->load->view('vle_player', $view_data); #$request);
   }
 
 
