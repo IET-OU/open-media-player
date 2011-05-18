@@ -85,14 +85,3 @@ abstract class Base_service implements iService {
   }
 }
 
-
-/* 'translate text' placeholder - Internationalization/ Localization.
- * See: cloudengine/libs./MY_Language; Drupal.
- */
-function t($s) {
-  $s = str_replace(array('<s>', '</s>'), array('<span>', '</span>'), $s);
-  return /*Debug: '^'.*/$s;
-}
-if (!function_exists('_')) {
-  function _($s) { return $s; }
-}
