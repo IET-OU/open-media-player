@@ -2,7 +2,7 @@
 /** OU player core styles. Copyright 2011 The Open University.
 */
 body{margin:0; padding:0; min-width:460px; background:#eee; font:.9em Verdana,sans-serif;}
-object,img,audio,video{display:block;}
+object,img,audio,video{display:block; width:100%; height:100%;/*position:fixed; top:0; bottom:62px;*/}
 
 /*Debug: simples! */
 body.debug:after{content:attr(class); color:red;}
@@ -10,12 +10,21 @@ body.debug:after{content:attr(class); color:red;}
 .offscreen{ position:absolute; top:-999px; }
 
 /* Hide initially, including transcript panel.*/
-#ouplayer-div, .XX--oup-controls{display:none;}
+#ouplayer-div, .oup-html5-media, .XX--oup-controls{display:none;}
 #ouplayer, .ouplayer{cursor: wait;}
 
-#ouplayer.w640{width:640px;}
-/*Note, if player-div needs to float, it should always float. Else it breaks Flash! */
-.oup #ouplayer-div, .oup #oup-controls{float:left;}
+#ouplayer-div{position:fixed; top:0; bottom:60px; left:0; right:0;}
+
+/*#ouplayer.w640{width:640px;}
+/*Note, if player-div needs to float, it should always float. Else it breaks Flash! *-/
+.oup #ouplayer-div, .oup #oup-controls{float:left;}*/
+
+/* Hide unused controls. */
+.oup.no-debug.type-audio button.fulls{display:none}
+.oup.no-debug.no-captions button.captn{display:none}
+.oup.no-debug.no-tscript button.script{display:none}
+.oup.no-debug.no-rel-link a.related, .oup.no-debug.is-private a.related{display:none}
+
 
 #oup-tooltips, #fixedtipdiv{
   position:absolute;
@@ -28,27 +37,25 @@ body.debug:after{content:attr(class); color:red;}
   visibility:hidden;
 }
 
-#X-ouplayer-div{z-index:50;}
-
-#ouplayer-outer{
+/*#ouplayer-outer{
   position: fixed;
   background: #ccc;
   --text-align: center;
   width: 100%;
   top: 0;
   bottom: 62px;
-}
-
+}*/
 
 /* Show/hide transcript pane. */
-.oup.hide-script  #ouplayer-panel{display:none;}
-.oup.show-script  #ouplayer-panel{display:block;}
+.oup.hide-tscript  #oup-tscript-panel{display:none;}
+.oup.show-tscript  #oup-tscript-panel{display:block;}
 
-.oup.show-script #ouplayer-panel{width:215px; float:right; height:/*410*-/440px;*/100%; overflow-y:scroll; border-left:1px solid #999; padding-left:3px; background:#fcfcfc;
-  position:relative; top:-380px; /* WTF? */}
-.oup.show-script #ouplayer-div, .oup.show-script #oup-controls{width:420px;}
-.oup.show-script #ouplayer-div object, .show-script #ouplayer-div video{width:420px !important;}
-.oup.show-script #ouplayer-div .__object{width:100%;}
+.oup.show-tscript #oup-tscript-panel{width:215px; position:fixed; top:0; /*left:215px;*/ right:0; height:/*410*-/440px;*/100%; overflow-y:scroll; border-left:1px solid #999; padding-left:3px; background:#fcfcfc;
+  }
+/*.oup.show-tscript #ouplayer-div, .oup.show-script #oup-controls{width:420px;}
+.oup.show-tscript #ouplayer-div object, .show-script #ouplayer-div video{width:420px !important;}*/
+.oup.show-tscript #ouplayer-div{right: 215px;}
+.oup.show-tscript #ouplayer-div .__object{width:100%;}
 
 
 /** Controls.
