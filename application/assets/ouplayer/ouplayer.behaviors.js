@@ -12,15 +12,16 @@ var OUP = OUP || {};
       div_id   = 'ouplayer-div',
       script_btn = 'tscript',
       controls_id= 'controls',
-      controls_class= ("play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(',');
+      controls_class= ("play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(','),
+	  wrap;
 
   //Utilities.
-  OUP.log=function(o){ window.console&&console.log && console.log('OUP: '+o); };
-  OUP.dir=function(o){ window.console&&console.dir && console.dir(o); };
+  OUP.log=function(o){ if(window.console&&console.log){console.log('OUP: '+o);} };
+  OUP.dir=function(o){ if(window.console&&console.dir){console.dir(o);} };
 
   function byClass(name) {
-    var wrap = wrap ? wrap : document;
-    var els = wrap.getElementsByTagName("*");
+    var par = wrap ? wrap : document;
+    var els = par.getElementsByTagName("*");
     var re = new RegExp("(^|\\s)" + name + "(\\s|$)");
     for (var i = 0; i < els.length; i++) {
       if (re.test(els[i].className)) {
@@ -90,6 +91,7 @@ var OUP = OUP || {};
     div.style.display='block';
     controls_div.style.display='block';
 
+    //TODO: Explicitly add/remove wait-cursor/ spinner.
     setTimeout("document.getElementById('ouplayer').style.cursor='default';", 2000);
 
     var wrap = controls_div; //document.getElementById('oup-controls');
@@ -103,12 +105,12 @@ var OUP = OUP || {};
 	  //var panel = document.getElementById('ouplayer-panel');
 	  if (hasClass(ply, 'hide-tscript')) {
 	    removeClass(ply, 'hide-tscript');
-		addClass(ply, 'show-tscript');
-		self.log('toggleScript: show');
+        addClass(ply, 'show-tscript');
+        self.log('toggleScript: show');
 	  } else {
 	    removeClass(ply, 'show-tscript');
-		addClass(ply, 'hide-tscript');
-		self.log('toggleScript: hide');
+        addClass(ply, 'hide-tscript');
+        self.log('toggleScript: hide');
       }
 	};
 	byClass(script_btn).onclick = toggleScript;
