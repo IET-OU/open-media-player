@@ -1,13 +1,22 @@
 <?php
-//NDF, 2011-04-08.
 /** OU player iframe.
  *
  * @copyright Copyright 2011 The Open University.
- 
+
 Test, video:  /ouplayer/embed/pod/mst209-fun-of-the-fair/a67918b334?width=640&height=420
 Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&poster=0
  */
+//NDF, 2011-04-08/-05-19.
   $base_url = base_url();
+
+  // Add switches to body-class (no 'hulu').
+  $body_classes = "oup oup-paused type-$meta->media_type width-$meta->width theme-{$theme} hide-tscript ";
+  $body_classes.= $debug ? 'debug ':'no-debug ';
+  $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
+  $body_classes.= $meta->caption_url ? 'has-captions ':'no-captions ';
+  $body_classes.= $meta->transcript_html? 'has-tscript ':'no-tscript '; //Was 'hide-script'
+  $body_classes.= $meta->_related_url? 'has-rel-link ':'no-rel-link ';
+  $body_classes.= 'Y'==$meta->_access['private'] ? 'is-private ':'not-private ';
 
 # Media: 512 x 288.
 # Player:512 x 318;
@@ -19,14 +28,15 @@ Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&po
 
   $inner=$poster='';
   if ($meta->poster_url) {
-    $poster = "<img class=\"poster\" alt=\"\" src=\"$meta->poster_url\" />";
+    $poster = "<img class=\"oup-poster\" alt=\"\" src=\"$meta->poster_url\" />";
   }
   if ($meta->media_html5 && 'video' == $meta->media_type) {
     $support_text = t('Your browser does not support the "video" element.');
 	$inner =<<<EOF
-  <video poster="$meta->poster_url" width="$meta->width" height="$player_height" controls>
+  $poster
+  <video class="oup-html5-media" poster="$meta->poster_url" width="$meta->width" height="$player_height" controls>
     <source src="$meta->media_url" type='video/mp4; codecs="bogus"' /><!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
-    $poster<div>$support_text</div>
+    <div id="no-support">$support_text</div>
   </video>
 EOF;
   }
@@ -34,8 +44,9 @@ EOF;
 	$audio_poster = $poster;
 	$support_text = t('Your browser does not support the "audio" element.');
 	$inner =<<<EOF
-  <audio src="$meta->media_url" style="width:{$meta->width}px; height:{$meta->object_height}px;" controls
-   >$suppport_text</audio>
+  $poster
+  <audio class="oup-html5-media" src="$meta->media_url" style="width:{$meta->width}px; height:{$meta->object_height}px;" controls
+   ><div id="no-support">$suppport_text</div></audio>
 EOF;
   }
 ?>
@@ -50,31 +61,35 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <![endif]-->
 
 <link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
-<link rel="X--stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-dark/ouice-dark.css" />
-<link rel="X--stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-bold/ouice-bold.css" />
-
+<?php if('ouice-dark'==$theme): ?>
+<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-dark/ouice-dark.css" />
+<?php elseif('ouice-bold'==$theme): ?>
+<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-bold/ouice-bold.css" />
+<?php endif; ?>
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 
 <?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
         </script>
 */ ?>
-<body role="application" id="ouplayer" class="oup oup-paused <?=$meta->media_type ?> w<?=$meta->width ?> hide-script  --hulu">
+<body role="application" id="ouplayer" class="<?=$body_classes ?>">
 
-<div id="ouplayer-outer">
+<div id="XX-ouplayer-outer">
 
-<?=$audio_poster ?>
-<div id="ouplayer-div" style="width:<?=$meta->width ?>px; height:<?=$meta->object_height ?>px;">
+<?php //=$audio_poster ?>
+<div id="ouplayer-div" data-XX-style="width:<?=$meta->width ?>px; height:<?=$meta->object_height ?>px;">
 <?=$inner ?>
 
 </div>
 
-<div id="ouplayer-panel" >
-<button class="t-close" aria-label="<?=('Close')?>">X</button>
+<?php if($meta->transcript_html || $debug): ?>
+<div id="oup-tscript-panel" >
+<button class="tscript-close" aria-label="<?=('Close')?>">X</button>
 <div class="transcript">
-<?= $meta->transcript_html ?>
+<?= $meta->transcript_html ? $meta->transcript_html : '[No transcript - debug]'; ?>
 </div>
 </div>
+<?php endif; ?>
 
 <noscript>
 <?php
@@ -94,7 +109,12 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 
 <div id="oup-tooltips"></div>
 
+
 <script src="<?=$base_url ?>swf/flowplayer-3.2.6.min.js"></script>
+<!--
+<script src="<?=$base_url ?>swf/flowplayer-src-r652.js"></script>
+<script src="<?=$base_url ?>swf/flashembed.min.js"></script>
+-->
 <script src="<?=$base_url ?>swf/flowplayer.controls-OUP.js"></script>
 <script src="<?=$base_url ?>assets/ouplayer/ouplayer.tooltips.js"></script>
 <script src="<?=$base_url ?>assets/ouplayer/ouplayer.behaviors.js"></script>
@@ -102,6 +122,11 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 flashembed.domReady(function(){
   //var f=$f("ouplayer-div");
 
+//OUP.dir(flashembed);
+OUP.log('domReady');
+
+//TODO: check minimum Flash requirement!
+if (flashembed.isSupported([6,0,65])) {
   OUP.player = $f("ouplayer-div", "<?=$base_url ?>swf/flowplayer-3.2.7.swf", {
 
     onError: function(code, message){
@@ -116,9 +141,11 @@ flashembed.domReady(function(){
 	},
 
     playlist:[
-      {"url":"<?=$meta->poster_url ?>"}, //duration:1},
+      //{"url":"<?=$meta->poster_url ?>"}, //duration:1},
       {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true}
     ],
+
+//TODO: captions!
 
     // disable default controls
     plugins: {controls: null}
@@ -128,6 +155,12 @@ flashembed.domReady(function(){
   }).controls("controls", {duration: <?=$meta->duration ?>});
 
   OUP.initialize();
+}
+else{
+  OUP.html5_fallback('<?=$meta->media_type ?>');
+
+  OUP.log('fallback');
+}
 });
 </script>
 

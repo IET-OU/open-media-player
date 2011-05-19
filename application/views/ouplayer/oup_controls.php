@@ -46,7 +46,7 @@ function _oupc_label($className, $text) {
       <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('related', t('New window: related link…')) ?>><span>L</span></a>
       <button <?=_oupc_label('captn', t('Captions'))?> data-show-text="<?=
 		t('Show captions') ?>" data-hide-text="<?=t('Hide captions') ?>"><span>CC</span></button>
-      <button <?=_oupc_label('script', t('Show script'))?> data-show-text="<?=
+      <button <?=_oupc_label('tscript', t('Show script'))?> data-show-text="<?=
 	    t('Show script') ?>" data-hide-text="<?=t('Hide script') ?>"><span>T</span></button>
       <a target="_blank" href="#podcast/popout/UniQuEiD" <?=_oupc_label('popout', t('New window: pop out player')) ?>>PO</a>
       <button <?=_oupc_label('fulls', t('Full screen')) ?>><span>F</span></button>
