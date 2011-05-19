@@ -10,9 +10,9 @@ var OUP = OUP || {};
 
   var player_id= 'ouplayer',
       div_id   = 'ouplayer-div',
-      script_btn = 'script',
+      script_btn = 'tscript',
       controls_id= 'controls',
-      controls_class= ("play,back,forward,quieter,louder,mute,script,popout,related,more,captn,fulls").split(',');
+      controls_class= ("play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(',');
 
   //Utilities.
   OUP.log=function(o){ window.console&&console.log && console.log('OUP: '+o); };
@@ -46,6 +46,29 @@ var OUP = OUP || {};
     }
   }
 
+  //Geoffrey Summerhayes|http://bytes.com/topic/javascript/answers/640929-obtain-function-name
+  function fnName(fn){
+    var name=/\W*function\s+([\w\$]+)\(/.exec(fn);
+    if(!name)return 'No name';
+    return name[1];
+  };
+
+  //Scott Andrew|http://dustindiaz.com/top-ten-javascript
+  function addEvent(elm, evType, fn, useCapture) {
+	if (!elm || !evType){
+      OUP.log('Warning, addEvent el:'+elm+', '+evType+', '+fnName(fn));
+    } else if(elm.addEventListener){
+      OUP.log('OK, addEvent el:'+elm+', '+evType+', '+fnName(fn));
+	  elm.addEventListener(evType, fn, useCapture);
+      return true;
+    } else if(elm.attachEvent){
+      var r = elm.attachEvent('on' + evType, fn);
+      return r;
+    } else{
+      elm['on' + evType] = fn;
+    }
+  };
+
   function attachTooltip(name) {
 	  var btn = byClass(name);
 	  if(!btn)return;
@@ -76,20 +99,21 @@ var OUP = OUP || {};
     }
 
 	//Transcript button.
-	toggleScript = function() {
+	function toggleScript() {
 	  //var panel = document.getElementById('ouplayer-panel');
-	  if (hasClass(ply, 'hide-script')) {
-	    removeClass(ply, 'hide-script');
-		addClass(ply, 'show-script');
-		self.log('onScript: show');
+	  if (hasClass(ply, 'hide-tscript')) {
+	    removeClass(ply, 'hide-tscript');
+		addClass(ply, 'show-tscript');
+		self.log('toggleScript: show');
 	  } else {
-	    removeClass(ply, 'show-script');
-		addClass(ply, 'hide-script');
-		self.log('onScript: hide');
+	    removeClass(ply, 'show-tscript');
+		addClass(ply, 'hide-tscript');
+		self.log('toggleScript: hide');
       }
 	};
 	byClass(script_btn).onclick = toggleScript;
-	byClass('t-close').onclick = toggleScript;
+	addEvent(byClass('tscript-close'), 'click', toggleScript);
+	//byClass('t-close').onclick = toggleScript;
 
 	byClass('fulls').onclick = function(){
 	  self.log('fullscreen');
@@ -108,8 +132,9 @@ var OUP = OUP || {};
       self.log('onStart: clip '+clip.index);
     });
 
-  };//OUP.initialize;
+  };//OUP.initialize
 
+  //M.Pilgrim|http://diveintohtml5.org/everything.html#video
   function supports_video(){
     return !!document.createElement('video').canPlayType;
   };
@@ -135,7 +160,6 @@ var OUP = OUP || {};
 	  html5_media.style.display = 'block';
 	  poster.style.display = 'none';
 	  ctrl.style.display = 'none';
-
 	} else {
 	  OUP.log('Error, unexpected type value: '+type);
 	}
