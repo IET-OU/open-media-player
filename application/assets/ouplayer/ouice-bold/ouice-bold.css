@@ -1,13 +1,32 @@
-* {
+/** OUICE-bold theme for OU player.
+* @copyright 2011 The Open University.
+* @author A.McEvoy (CSS, visuals)
+*/
+.oup-controls .more, .oup-controls .time-total {
+  display:none;
+}
+
+.row-1 .group-L{
+  left: 76px;
+}
+
+/*Accessibility: hide offscreen.*/
+.oup-controls .volume-out {
+  position: absolute;
+  top: -999px;
+}
+
+/* * {
 font-family: verdana;
 }
-#ouplayer.w640 {
+#XX--ouplayer.w640 {
     margin: 0 auto;
-	}
+	}*/
 .titletoolbar {
 display: block;
 background: #f1f2f2 url(img/titlebg.jpg) repeat-x left bottom;
 -moz-border-radius: 5px;
+border-radius: 5px;
 width: 616px;
 position: absolute;
 padding: 6px;
@@ -70,34 +89,36 @@ font-weight: bold;
     margin-right: 3px;
     vertical-align: top;
 }
-#oup-controls {
+.oup-controls {
 background: #58595b;
 padding: 6px;
-width: 618px;
+/*width: 618px;*/
 -moz-border-radius: 5px;
-bottom: 37px;
+border-radius: 5px;
+/*bottom: 37px;
 left: 5px;
-position: relative;
+position: relative;*/
 height: 50px;
 }
-#oup-controls button, #oup-controls a {
+.oup-controls button, .oup-controls a {
 background: #2e2e2e;
 border: 0;
 -moz-border-radius: 3px;
+border-radius: 3px;
 vertical-align: middle;
 height: auto;
 }
-#oup-controls .play, #oup-controls .pause{
+.oup-controls .play, .oup-controls .pause{
 width: 70px;
 height: 50px;
 }
-#oup-controls .play {
+.oup-controls .play {
 background: #2e2e2e url(img/playbtn.jpg) no-repeat center;
 }
-#oup-controls .pause {
+.oup-controls .pause {
 background: #2e2e2e url(img/pausebtn.jpg) no-repeat center;
 }
-#oup-controls .play span, #oup-controls .pause span {
+.oup-controls .play span, .oup-controls .pause span {
 display: none;
 }
 .oupc-r1, .oupc-r2 {
@@ -125,19 +146,21 @@ font-weight: bold
 .oupc-r2 a {
 text-decoration: none;
 }
-#oup-controls button.back, #oup-controls button.forward {
+.oup-controls button.back, .oup-controls button.forward {
 width: 25px;
 height: 20px;
 }
-#oup-controls button.back {
+.oup-controls button.back {
 -moz-border-radius: 5px 0 0 5px;
+border-radius: 5px 0 0 5px;
 background: #2e2e2e url(img/rewindbtn.jpg) no-repeat center;
 }
-#oup-controls button.forward {
+.oup-controls button.forward {
 -moz-border-radius: 0 5px 5px 0;
+border-radius: 5px 0 0 5px;
 background: #2e2e2e url(img/forwardbtn.jpg) no-repeat center;
 }
-#oup-controls button.back span, #oup-controls button.forward span {
+.oup-controls button.back span, .oup-controls button.forward span {
 display: none;
 }
 span.time {
@@ -166,6 +189,7 @@ vertical-align: middle;
 height: 18px;
 left: -6px;
 -moz-border-radius: 0 9px 9px 0;
+border-radius: 0 9px 9px 0;
 }
 .hulu .playhead {
 height: 18px;
@@ -188,6 +212,7 @@ margin: 0 5px 0 0;
 .volume {
 width: 60px;
 -moz-border-radius: 20px;
+border-radius: 20px;
 height: 11px;
 margin-top: 2px;
 cursor: pointer;
@@ -198,7 +223,8 @@ width: 30px;
 height: 11px;
 position: absolute;
 display:inline;
--moz-border-radius: 20px 0 0 20px;;
+-moz-border-radius: 20px 0 0 20px;
+border-radius: 20px 0 0 20px;
 }
 .currenthead{
 background: url(img/volumehead.png) no-repeat center;
@@ -209,7 +235,7 @@ position: absolute;
 margin: -3px 0 0 20px;
 }
 
-.oup.show-script #ouplayer-div, .oup.show-script #oup-controls {
+.oup.show-script #ouplayer-div, .oup.show-script .XX--oup-controls {
     width: 398px;
 }
 .oup.show-script #ouplayer-panel {
@@ -220,29 +246,33 @@ margin: -3px 0 0 20px;
 }
 
 /*icons*/
-#oup-controls a.related, #oup-controls button.captn, #oup-controls button.script, #oup-controls a.popout, #oup-controls button.fulls {
+.oup-controls a.related, .oup-controls button.captn, .oup-controls button.script, .oup-controls a.popout, .oup-controls button.fulls {
 height: 20px;
 width: 24px;
 }
-#oup-controls a.related{
+.oup-controls button.mute{
+background: url(img/speakericon.png) no-repeat center;
+}
+
+.oup-controls a.related{
 background: url(img/relativeicon.png) no-repeat center;
 }
-#oup-controls button.captn {
+.oup-controls button.captn {
 background: url(img/captionsicon.png) no-repeat center;
 }
-#oup-controls button.script {
+.oup-controls button.script {
 background: url(img/texticon.png) no-repeat center;
 }
-#oup-controls a.popout {
+.oup-controls a.popout {
 background: url(img/popouticon.png) no-repeat center;
 }
-#oup-controls button.fulls {
+.oup-controls button.fulls {
 background: url(img/maximiseicon.png) no-repeat center;
 }
-#oup-controls a.related span, #oup-controls button.captn span, #oup-controls button.script span, #oup-controls a.popout span, #oup-controls button.fulls span{
+.oup-controls a.related span, .oup-controls button.captn span, .oup-controls button.script span, .oup-controls a.popout span, .oup-controls button.fulls span{
 display: none;
 }
 
-#oup-controls button.mute, #oup-controls button.louder, #oup-controls button.quieter {
+.oup-controls button.mute, .oup-controls button.louder, .oup-controls button.quieter {
 display: none;
 }
