@@ -1,22 +1,22 @@
 /**
- * OU player javascript. (NDF, 2011-04-08/-04-27)
+ * OU player javascript. (NDF, 2011-04-08/-04-27/-05-18)
  * Copyright 2011 The Open University.
  */
 //The OU player object.
 var OUP = OUP || {};
 (function(){
 
+  OUP.player=null;
+
   var player_id= 'ouplayer',
       div_id   = 'ouplayer-div',
-	  script_btn = 'script',
-      controls_id= 'oup-controls',
-      controls_class= ("BOB,play,back,forward,quieter,louder,mute,script,popout,related,more,captn,fulls").split(',');
+      script_btn = 'script',
+      controls_id= 'controls',
+      controls_class= ("play,back,forward,quieter,louder,mute,script,popout,related,more,captn,fulls").split(',');
 
   //Utilities.
-  OUP.log=function(o) {
-    window.console && console.log
-      && console.log("OUP: "+o);
-  }
+  OUP.log=function(o){ window.console&&console.log && console.log('OUP: '+o); };
+  OUP.dir=function(o){ window.console&&console.dir && console.dir(o); };
 
   function byClass(name) {
     var wrap = wrap ? wrap : document;
@@ -58,6 +58,8 @@ var OUP = OUP || {};
   }
 
   OUP.initialize=function() {
+    var self= this;
+
     var ply = document.getElementById(player_id);
     var div = document.getElementById(div_id);
     var controls_div = document.getElementById(controls_id);
@@ -74,19 +76,69 @@ var OUP = OUP || {};
     }
 
 	//Transcript button.
-	byClass(script_btn).onclick = function() {
+	toggleScript = function() {
 	  //var panel = document.getElementById('ouplayer-panel');
 	  if (hasClass(ply, 'hide-script')) {
 	    removeClass(ply, 'hide-script');
 		addClass(ply, 'show-script');
-		OUP.log('show');
+		self.log('onScript: show');
 	  } else {
 	    removeClass(ply, 'show-script');
 		addClass(ply, 'hide-script');
-		OUP.log('hide');
+		self.log('onScript: hide');
       }
-	}
+	};
+	byClass(script_btn).onclick = toggleScript;
+	byClass('t-close').onclick = toggleScript;
 
-  }//OUP.init;
+	byClass('fulls').onclick = function(){
+	  self.log('fullscreen');
+	  self.player.toggleFullscreen();
+	};
+
+	self.player.onVolume(function(vol){
+		byClass('volume-out').value = parseInt(vol)+'%';
+		self.log('onVolume: '+parseInt(vol)+'%');
+	});
+
+    /*self.player.onError(function(code, message){
+      self.log('onError '+code+', '+message);
+    });*/
+    self.player.onStart(function(clip){
+      self.log('onStart: clip '+clip.index);
+    });
+
+  };//OUP.initialize;
+
+  function supports_video(){
+    return !!document.createElement('video').canPlayType;
+  };
+
+  OUP.supports_h264_baseline_video = function() {
+    var v = document.createElement('video');
+    return !!(v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, ''));
+  };
+
+  OUP.supports_mp3_audio = function(){
+    var a = document.createElement('audio');
+    return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
+  };
+
+  OUP.html5_fallback = function(type){
+    var html5_media = byClass('oup-html5-media');
+	var poster = byClass('oup-poster');
+	var ctrl = byClass('oup-controls');
+
+	if (('video'===type && OUP.supports_h264_baseline_video())
+	 || ('audio'===type && OUP.supports_mp3_audio())) {
+
+	  html5_media.style.display = 'block';
+	  poster.style.display = 'none';
+	  ctrl.style.display = 'none';
+
+	} else {
+	  OUP.log('Error, unexpected type value: '+type);
+	}
+  };
 
 })();
