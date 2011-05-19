@@ -1,0 +1,248 @@
+* {
+font-family: verdana;
+}
+#ouplayer.w640 {
+    margin: 0 auto;
+	}
+.titletoolbar {
+display: block;
+background: #f1f2f2 url(img/titlebg.jpg) repeat-x left bottom;
+-moz-border-radius: 5px;
+width: 616px;
+position: absolute;
+padding: 6px;
+margin: 6px;
+}
+.titletoolbar img.logo{
+top: 0;
+display: inline-block;
+vertical-align: top;
+}
+ul.mediatitle {
+display: inline-block;
+list-style: none;
+text-shadow: #fff 0px 1px 1px;
+vertical-align: top;
+padding: 0 0 0 10px;
+/*width: 182px;*/
+/*overflow: hidden;*/
+}
+.titletoolbar h1 {
+font-size: 16px;
+margin: 0;
+line-height: 1.3em;
+clear: right;
+}
+.titletoolbar h2{
+font-size: 13px;
+margin: 0;
+}
+.titletoolbar .optionalnav{
+/*display: inline-block;
+float: right;*/
+}
+.titletoolbar .optionalnav .col1, .titletoolbar .optionalnav .col2, .titletoolbar .optionalnav .col3{
+/*display: inline-block;
+width: auto;*/
+display: inline;
+}
+.titletoolbar .optionalnav button{
+background: #e1e2e3;
+border: 0;
+font-size: 13px;
+margin: 1px;
+padding: 0 2px;
+/*width: 100%;
+display: block;*/
+}
+.titletoolbar .optionalnav button span{
+
+}
+.titletoolbar .optionalnav button:hover{
+background: #6dcff6;
+}
+
+.optionalnav button.decreasesize, .optionalnav button.increasesize {
+font-weight: bold;
+}
+.optionalnav button.styleoption img {
+    display: inline;
+    margin-right: 3px;
+    vertical-align: top;
+}
+#oup-controls {
+background: #58595b;
+padding: 6px;
+width: 618px;
+-moz-border-radius: 5px;
+bottom: 37px;
+left: 5px;
+position: relative;
+height: 50px;
+}
+#oup-controls button, #oup-controls a {
+background: #2e2e2e;
+border: 0;
+-moz-border-radius: 3px;
+vertical-align: middle;
+height: auto;
+}
+#oup-controls .play, #oup-controls .pause{
+width: 70px;
+height: 50px;
+}
+#oup-controls .play {
+background: #2e2e2e url(img/playbtn.jpg) no-repeat center;
+}
+#oup-controls .pause {
+background: #2e2e2e url(img/pausebtn.jpg) no-repeat center;
+}
+#oup-controls .play span, #oup-controls .pause span {
+display: none;
+}
+.oupc-r1, .oupc-r2 {
+/*display: inline-block;
+clear: both;*/
+top: 0;
+left: 0;
+}
+.oupc-r1{
+/*left: 0;
+top: -10px;*/
+display: inline-block;
+vertical-align: middle;
+}
+.oupc-r2 {
+/*left: -176px;
+top: 20px;*/
+text-align: right;
+margin-top: 9px;
+}
+.oupc-r2 button, .oupc-r2 a {
+color: #6dcff6;
+font-weight: bold
+}
+.oupc-r2 a {
+text-decoration: none;
+}
+#oup-controls button.back, #oup-controls button.forward {
+width: 25px;
+height: 20px;
+}
+#oup-controls button.back {
+-moz-border-radius: 5px 0 0 5px;
+background: #2e2e2e url(img/rewindbtn.jpg) no-repeat center;
+}
+#oup-controls button.forward {
+-moz-border-radius: 0 5px 5px 0;
+background: #2e2e2e url(img/forwardbtn.jpg) no-repeat center;
+}
+#oup-controls button.back span, #oup-controls button.forward span {
+display: none;
+}
+span.time {
+background: #414042;
+-moz-border-radius: 9px 0 0 9px;
+padding: 2px 5px;
+font-size: 12px;
+border-top: 2px solid #2c2b2c;
+vertical-align: middle;
+}
+span.time span, span.time strong{
+padding: 2px;
+}
+.track * {
+    display: inline;
+}
+.hulu .track, .volume {
+background-color: #7c7d7f;
+border: 0;
+border-top: 2px solid rgba(0,0,0,0.4);
+display: inline-block;
+position: relative;
+vertical-align: middle;
+}
+.hulu .track {
+height: 18px;
+left: -6px;
+-moz-border-radius: 0 9px 9px 0;
+}
+.hulu .playhead {
+height: 18px;
+}
+.hulu .progress, .hulu .buffer {
+height: 18px;
+opacity: 1;
+}
+.hulu .progress {
+background-color: #6dcff6;
+}
+.hulu .buffer {
+background: #a7a9ac url(img/pattern1.jpg) repeat bottom left;;
+}
+.speakericon{
+display: inline-block;
+vertical-align: middle;
+margin: 0 5px 0 0;
+}
+.volume {
+width: 60px;
+-moz-border-radius: 20px;
+height: 11px;
+margin-top: 2px;
+cursor: pointer;
+}
+.current{
+background-color: #6dcff6;
+width: 30px;
+height: 11px;
+position: absolute;
+display:inline;
+-moz-border-radius: 20px 0 0 20px;;
+}
+.currenthead{
+background: url(img/volumehead.png) no-repeat center;
+height: 16px;
+width: 16px;
+cursor: pointer;
+position: absolute;
+margin: -3px 0 0 20px;
+}
+
+.oup.show-script #ouplayer-div, .oup.show-script #oup-controls {
+    width: 398px;
+}
+.oup.show-script #ouplayer-panel {
+    -moz-border-radius: 0 5px 5px 0;
+    height: 394px;
+    top: -374px;
+	background: #f1f2f2;
+}
+
+/*icons*/
+#oup-controls a.related, #oup-controls button.captn, #oup-controls button.script, #oup-controls a.popout, #oup-controls button.fulls {
+height: 20px;
+width: 24px;
+}
+#oup-controls a.related{
+background: url(img/relativeicon.png) no-repeat center;
+}
+#oup-controls button.captn {
+background: url(img/captionsicon.png) no-repeat center;
+}
+#oup-controls button.script {
+background: url(img/texticon.png) no-repeat center;
+}
+#oup-controls a.popout {
+background: url(img/popouticon.png) no-repeat center;
+}
+#oup-controls button.fulls {
+background: url(img/maximiseicon.png) no-repeat center;
+}
+#oup-controls a.related span, #oup-controls button.captn span, #oup-controls button.script span, #oup-controls a.popout span, #oup-controls button.fulls span{
+display: none;
+}
+
+#oup-controls button.mute, #oup-controls button.louder, #oup-controls button.quieter {
+display: none;
+}
