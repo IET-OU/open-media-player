@@ -10,21 +10,32 @@
 .oup-controls  .volume-bar, .oup.no-debug .mute{
   display: none;
 }
-.oup-controls button span, .oup-controls a span{
+.oup-controls button span, .oup-controls a span, .oupc .head span{
   display: none;
 }
 
-/*Accessibility: hide offscreen.*/
+/*Accessibility: hide volume-out offscreen.*/
 .oup-controls .volume-out{
   position:absolute;
   top:-999px;
 }
 
 .oup-controls .time-out, .oup-controls .time-total{
-  border:2px solid #333;
+  border:1px solid #111;
+  padding:0 8px;
   border-radius:3px;
-  background:#222;
+  background:#333;
   color:#eee;
+  width:35px;
+  height:13px;
+  overflow:hidden;
+}
+.oup-controls .seek.group{
+  padding-top:3px;
+}
+.oup-controls .time-out{
+  position:relative;
+  top:3px;
 }
 
 .oup-controls button, .oup-controls a{
@@ -36,6 +47,12 @@
   background-repeat: no-repeat;
   background-position:top left;
   background-image:url(sprite/640x60_default.png);
+}
+.oup-controls  a{
+  position:relative;
+  top:12px;
+  padding:0;
+  display:inline-block;
 }
 .oup-controls button:hover, .oup-controls a:hover, .oup-controls button:focus, .oup-controls a:focus{
   background-image:url(sprite/640x60_hover.png);
@@ -55,9 +72,9 @@
 .oup-controls .forward,.oupc .forward:hover{background-position:-83px -10px; width:18px; height:14px; margin:4px 4px 0 0; }*/
 
 /*volume-group*/
-.oup-controls .mute, .oupc .mute:hover{background-image:none;}
+.oup-controls .mute, .oupc .mute:hover, .oupc .mute:focus{background-image:none;}
 .oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
-.oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; padding-left:-4px;}
+.oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
 /*.oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px}*/
 
@@ -77,12 +94,12 @@
 .oup-controls .more, .oupc .more:hover{background-position:-593px -32px}*/
 
 /*seek-bar.*/
-.oup-controls .seek-bar *{display:block;}
+.oup-controls .X-seek-bar *{display:block;}
 
 .oup-controls .seek-bar{background:url(timeline/timeline_grey_main.png)repeat-x center;}
 .oup-controls .buffer   {background:url(timeline/timeline_hatch_main.png)repeat-x center;}
 .oup-controls .progress{background:url(timeline/timeline_bluebar_main.png)repeat-x center;}
-.oup-controls .playhead{background:transparent url(timeline/timeline_slider.png)no-repeat center; width:11px; height:14px;}
+.oup-controls .playhead{background:transparent url(timeline/timeline_slider.png)no-repeat 0 3px; width:11px; height:14px;}
 
 /*.oup-controls .seek-bar, .oupc .buffer, .oupc .progress, .oupc .playhead{
   border:1px solid transparent;
