@@ -68,6 +68,16 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <?php endif; ?>
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 
+<!--[if lt IE 9]>
+<style>
+.oup-controls a{
+  display:inline-block;
+  position:relative;
+  top:3px;
+}
+</style>
+<![endif]-->
+
 <?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
         </script>
