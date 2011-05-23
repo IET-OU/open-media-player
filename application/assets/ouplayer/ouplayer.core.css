@@ -50,10 +50,10 @@ body.X-debug:after{content:attr(class); color:red;}
 }*/
 
 /* Show/hide transcript pane. */
-.oup.hide-tscript  #oup-tscript-panel{display:none;}
-.oup.show-tscript  #oup-tscript-panel{display:block;}
+.oup.hide-tscript  .oup-tscript-panel{display:none;}
+.oup.show-tscript  .oup-tscript-panel{display:block;}
 
-.oup.show-tscript #oup-tscript-panel{width:215px; position:fixed; top:0; /*left:215px;*/ right:0; height:/*410*-/440px;*/100%; overflow-y:scroll; border-left:1px solid #999; padding-left:3px; background:#fcfcfc;
+.oup.show-tscript .oup-tscript-panel{width:215px; position:fixed; top:0; /*left:215px;*/ right:0; height:/*410*-/440px;*/100%; overflow-y:scroll; border-left:1px solid #999; padding-left:3px; background:#fcfcfc;
   }
 /*.oup.show-tscript #ouplayer-div, .oup.show-script #oup-controls{width:420px;}
 .oup.show-tscript #ouplayer-div object, .show-script #ouplayer-div video{width:420px !important;}*/
