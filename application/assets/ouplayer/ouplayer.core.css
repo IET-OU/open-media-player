@@ -192,7 +192,8 @@ body.X-debug:after{content:attr(class); color:red;}
   min-width: 100px;
   max-width: 400px;
 }
-.oupc .volume-out/*:focus*/{
+/*Accessibility: typically, volume-out will be hidden off-screen. NOT display:none !! */
+.oup-controls .volume-out/*:focus*/{
   background: #ff9;
   z-index: 1000;
 
@@ -200,7 +201,9 @@ body.X-debug:after{content:attr(class); color:red;}
   right: 294px;
   top: auto;
   bottom: 4px;
-  width: 2.4em;
+  width: 2.5em;
+  height:1.2em;
+  /*overflow:hidden;*/
 }
 .oupc .louder:focus, .oupc .quieter:focus{
   position:static;
@@ -214,7 +217,7 @@ body.X-debug:after{content:attr(class); color:red;}
   right: 49px;
 }
 
-/* CSS3 media-query. */
+/* CSS3 media-query: (620-2)px */
 @media (max-width: 618px) {
 
   .no-debug  .oup-controls button.tscript{ display:none; }
