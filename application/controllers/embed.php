@@ -7,7 +7,7 @@
 require_once APPPATH.'libraries/ouplayer_lib.php';
 
 
-class Embed extends CI_Controller {
+class Embed extends MY_Controller {
 
   protected $_theme;
   protected $_debug;
@@ -28,7 +28,10 @@ class Embed extends CI_Controller {
 
   /** OU-podcast player embed.
   */
-  public function pod($custom_id, $shortcode) {
+  public function pod($custom_id=null, $shortcode=null) {
+    if (!$custom_id || !$shortcode){
+	  $this->_error("an album ID and track MD5 hash are required in the URL", 400);
+	}
 	$width = 0; #$this->_required('width');
 	$height= 0; #$this->_required('height');
 	$edge  = $this->input->get('edge');  #Deprecated.
@@ -107,28 +110,4 @@ class Embed extends CI_Controller {
     #$this->load->view('vle_player', $view_data); #$request);
   }
 
-
-  /** Handle errors.
-  */
-  protected function _error($message, $code=500) {
-    @header("HTTP/1.1 $code");
-    die("$code. Error, $message");
-  }
-
-  /** Handle required GET parameters. */
-  protected function _required($param) {
-    $value = $this->input->get($param);
-    if (!$value) {
-      $this->_error("'$param' is a required URL parameter.", 400);
-    }
-    return $value;
-  }
-
-  /** Make relative URLs absolute. */
-  protected function _absolute($url, $base_url) {
-    if ($url && !parse_url($url, PHP_URL_SCHEME)) {
-      return $base_url.'/'.$url;
-    }
-    return $url;
-  }
 }

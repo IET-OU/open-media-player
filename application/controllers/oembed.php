@@ -5,7 +5,7 @@
  */
 ini_set('display_errors', true);
 
-class Oembed extends CI_Controller {
+class Oembed extends MY_Controller {
 
   public function __construct() {
     parent::__construct();
@@ -13,12 +13,6 @@ class Oembed extends CI_Controller {
     @header("X-Powered-By:");
 
     $this->load->model('embed_cache_model');
-  }
-
-  protected function _error($code, $message) {
-    @header("HTTP/1.1 $code");
-    // For now, just output plain text.
-    die("$code, $message");
   }
 
   protected function _tracker() {
@@ -40,18 +34,18 @@ EOF;
 
     $req->url = $this->input->get('url');
     if (!$req->url) {
-      $this->_error(400, "Error, the URL parameter 'url' is required.");
+      $this->_error("the URL parameter 'url' is required.", 400);
     }
 
     $req->format = $this->input->get('format') ? $this->input->get('format') : 'json';
     if ('json'!=$req->format && 'xml'!=$req->format) {
-      $this->_error("400.5", "Error, the output format '$req->format' is not recognised.");
+      $this->_error("the output format '$req->format' is not recognised.", "400.5");
     }
 
     // Security. Only allow eg. 'Object.func_CB_1234'
     $req->callback = $this->input->get('callback', $xss_clean=TRUE);
     if ($req->callback && !preg_match('/^[a-zA-Z][\w_\.]*$/', $req->callback)) {
-      $this->_error("400.6", "Error, the parameter 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'");
+      $this->_error("the parameter 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'", "400.6");
     }
 
     $this->config->load('providers');
@@ -59,12 +53,12 @@ EOF;
 
     $p = parse_url($req->url);
     if (!isset($p['host'])) {
-      $this->_error(400, "Error, the parameter 'url' is invalid - missing host.");
+      $this->_error("the parameter 'url' is invalid - missing host.", 400);
     }
     $host = $req->host = str_replace('www.', '', strtolower($p['host']));
 
     if (!isset($providers[$host])) {
-      $this->_error(400, "Error, unsupported provider 'http://$req->host'.");
+      $this->_error("unsupported provider 'http://$req->host'.", 400);
     }
 
     $name  = $providers[$host]['name'];
@@ -75,11 +69,11 @@ EOF;
       $regex = str_replace('*', '([\w_-]*?)', $regex); #([^\/]*?)
     }
     if (! preg_match("@{$regex}$@", $req->url, $matches)) {
-      $this->_error(400, "Error, the format of the URL for provider '$host' is incorrect. Expecting '".$providers[$host]['regex']."'.");
+      $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '".$providers[$host]['regex']."'.", 400);
     }
 
     if (!file_exists(APPPATH."views/oembed/$name.php")) {
-      $this->_error(404.1, "Not found, view '$name'.");
+      $this->_error("not found, view '$name'.", 404.1);
     }
 
     $meta = $this->embed_cache_model->get_embed($req->url);
@@ -132,7 +126,7 @@ echo " this->_meta_$name() ";
       }*/
 
     } else {
-      $this->_error(404, "Not found, view '$name'.");
+      $this->_error("not found, view '$name'.", 404);
     }
   }
 
