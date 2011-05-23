@@ -46,6 +46,8 @@ class Embed extends CI_Controller {
         'theme'=> $this->_theme,
         'debug'=> $this->_debug,
         'standalone' => false,
+        'mode' => 'embed',
+        'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5?_theme=$this->_theme"),
     );
 
     if ('basic'!=$this->_theme || $edge) {
@@ -98,7 +100,8 @@ class Embed extends CI_Controller {
 
     $view_data = array(
         'meta' => $player,
-		'standalone' => true
+		'standalone' => true,
+		'mode' => 'embed',
     );
 	$this->load->view('ouplayer/player_noscript', $view_data);
     #$this->load->view('vle_player', $view_data); #$request);
