@@ -10,7 +10,8 @@ Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&po
   $base_url = base_url();
 
   // Add switches to body-class (no 'hulu').
-  $body_classes = "oup oup-paused type-$meta->media_type width-$meta->width theme-{$theme} hide-tscript ";
+  $body_classes = "oup oup-paused mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript ";
+  $body_classes.= "mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
   $body_classes.= $meta->caption_url ? 'has-captions ':'no-captions ';
@@ -93,7 +94,7 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </div>
 
 <?php if($meta->transcript_html || $debug): ?>
-<div id="oup-tscript-panel" >
+<div id="transcript" class="oup-tscript-panel" >
 <button class="tscript-close" aria-label="<?=('Close')?>">X</button>
 <div class="transcript">
 <?= $meta->transcript_html ? $meta->transcript_html : '[No transcript - debug]'; ?>
