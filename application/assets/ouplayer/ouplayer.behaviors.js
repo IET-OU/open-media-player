@@ -96,8 +96,10 @@ var OUP = OUP || {};
 
     var wrap = controls_div; //document.getElementById('oup-controls');
 
-    for (var ctl in controls_class) {
-	  attachTooltip(controls_class[ctl]);
+    if (OUP.fixedtooltip && OUP.delayhidetip) {
+      for (var ctl in controls_class) {
+        attachTooltip(controls_class[ctl]);
+      }
     }
 
 	//Transcript button.

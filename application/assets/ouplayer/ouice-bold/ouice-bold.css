@@ -280,16 +280,16 @@ background: url(img/speakericon.png) no-repeat center;
 .oup-controls a.related{
 background: url(img/relativeicon.png) no-repeat center;
 }
-.oup-controls button.captn {
+.oup-controls a.captn {
 background: url(img/captionsicon.png) no-repeat center;
 }
-.oup-controls button.tscript {
+.oup-controls a.tscript {
 background: url(img/texticon.png) no-repeat center;
 }
 .oup-controls a.popout {
 background: url(img/popouticon.png) no-repeat center;
 }
-.oup-controls button.fulls {
+.oup-controls a.fulls {
 background: url(img/maximiseicon.png) no-repeat center;
 }
 /*.oup-controls a.related span, .oup-controls button.captn span, .oup-controls button.script span, .oup-controls a.popout span, .oup-controls button.fulls span{
