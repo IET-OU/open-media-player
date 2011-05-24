@@ -77,6 +77,8 @@
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
 /*.oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px}*/
+.oup-controls .volume.group button{background-color:transparent;}
+.XX-oup-controls .volume.group{ background:url(background/vol_bg.png);}
 
 /*tools-group*/
 .oup-controls .related,.oupc .related:hover{background-position:-141px -30px}
@@ -96,10 +98,10 @@
 /*seek-bar.*/
 .oup-controls .X-seek-bar *{display:block;}
 
-.oup-controls .seek-bar{background:url(timeline/timeline_grey_main.png)repeat-x center;}
-.oup-controls .buffer   {background:url(timeline/timeline_hatch_main.png)repeat-x center;}
-.oup-controls .progress{background:url(timeline/timeline_bluebar_main.png)repeat-x center;}
-.oup-controls .playhead{background:transparent url(timeline/timeline_slider.png)no-repeat 0 3px; width:11px; height:14px;}
+.oup-controls .seek-bar{background:url(timeline/timeline_grey_main.png) repeat-x center;}
+.oup-controls .buffer   {background:url(timeline/timeline_hatch_main.png) repeat-x center;}
+.oup-controls .progress{background:url(timeline/timeline_bluebar_main.png) repeat-x center;}
+.oup-controls .playhead{background:url(timeline/timeline_slider.png) no-repeat 0 3px; width:11px; height:14px;}
 
 /*.oup-controls .seek-bar, .oupc .buffer, .oupc .progress, .oupc .playhead{
   border:1px solid transparent;
