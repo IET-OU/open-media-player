@@ -33,7 +33,7 @@ if ($standalone):
 "debug":true,
 <?php endif; ?>
 "playlist":[
-<?php if ('video'==$meta->media_type): ?>
+<?php if ('video'==$meta->media_type && $meta->poster_url): ?>
 {"url":"<?=$meta->poster_url ?>"},
 <?php endif; ?>
 {"url":"<?=$meta->media_url ?>", "autoPlay":false, "autoBuffering":false <?php if ($meta->caption_url): ?>
