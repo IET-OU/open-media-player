@@ -7,8 +7,8 @@
 <h1>OU player</h1> <h2>Prototype demonstrations</h2>
 
 <p>These are early prototypes for the <abbr title="The Open University">OU</abbr> player/<abbr title=
-"Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects. Here's an <a href=
-"http://freear.org.uk/content/ou-media-player-project">introductory blog post</a>.</p>
+"Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects. Here are <a href=
+"http://freear.org.uk/content/ou-media-player-project">introductory blog</a>  <a href="http://freear.org.uk/content/ou-embed-proposal">posts</a>.</p>
 <p>NOTE:  the OU player is not yet accessible!!</p>
 
 
@@ -42,7 +42,7 @@ Video - Flash falls back to HTML5.
 <p>&copy;2011 The Open University.</p>
 
 <script src=
-"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+"http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <!--<script src="scripts/jquery.oembed.js"></script>-->
 <script src="<?=site_url('scripts/jquery_oembed') ?>"></script>
 <script type="text/javascript">

@@ -8,9 +8,9 @@ Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&po
  */
 //NDF, 2011-04-08/-05-19.
   $base_url = base_url();
-
+  
   // Add switches to body-class (no 'hulu').
-  $body_classes = "oup oup-paused mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript ";
+  $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript hide-settings oup-paused ";
   $body_classes.= "mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
@@ -47,7 +47,7 @@ EOF;
 	$inner =<<<EOF
   $poster
   <audio class="oup-html5-media" src="$meta->media_url" style="width:{$meta->width}px; height:{$meta->object_height}px;" controls
-   ><div id="no-support">$suppport_text</div></audio>
+   ><div id="no-support">$support_text</div></audio>
 EOF;
   }
 ?>
@@ -112,7 +112,11 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 
 </div>
 
-<?php $this->load->view('ouplayer/oup_controls.php'); ?>
+<?php
+  $this->load->view('ouplayer/oup_settings.php');
+
+  $this->load->view('ouplayer/oup_controls.php');
+?>
 
 <div id="media-links" style="display:none">
   <a href="<?=$meta->media_url ?>"><?=t('Download')." $meta->title" ?></a>
@@ -138,7 +142,7 @@ OUP.log('domReady');
 
 //TODO: check minimum Flash requirement!
 if (flashembed.isSupported([6,0,65])) {
-  OUP.player = $f("ouplayer-div", "<?=$base_url ?>swf/flowplayer-3.2.7.swf", {
+  OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?>swf/flowplayer-3.2.7.swf", wmode:'opaque'}, {
 
     onError: function(code, message){
       OUP.log('onError: '+code+', '+message);

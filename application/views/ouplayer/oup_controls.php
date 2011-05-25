@@ -8,7 +8,7 @@ function _oupc_label($className, $text) {
 
 <div role="toolbar" id="controls" <?=_oupc_label('oup-controls oupc', t('Player controls')) ?>>
   <div class="row-1">
-    <button <?=_oupc_label('oup-play-control play', t('Play')) /*oup-play-control play-pause*/
+    <button id="oup-play-control" title="<?=t('Play') ?>" <?=_oupc_label('play', t('Play')) /*oup-play-control play-pause*/
       ?> data-play-text="<?=t('Play')?>" data-pause-text="<?=t('Pause')?>"><span>&#x25BA;</span></button>
 
     <div class="seek group">
@@ -36,6 +36,7 @@ function _oupc_label($className, $text) {
 
       <button <?=_oupc_label('quieter', t('Quieter')) ?>><span>-</span></button>
       <button <?=_oupc_label('louder', t('Louder')) ?>><span>+</span></button>
+	  <span class="volume-bg"></span>
     </div>
 
     <div class="volume-bar bar" title="Volume bar">
@@ -44,7 +45,7 @@ function _oupc_label($className, $text) {
 
 <?php /*Semantically a mix of buttons and a few links. But for ease of styling, we use <a>, with role=button. */ ?>
     <div class="tools group">
-      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('related', t('New window: related link…')) ?>><span>L</span></a>
+      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('related', t('New window: ').$meta->_related_text) ?>><span>L</span></a>
       <a role="button" href="#" <?=_oupc_label('captn', t('Captions'))?> data-show-text="<?=
 		t('Show captions') ?>" data-hide-text="<?=t('Hide captions') ?>"><span>CC</span></a>
       <a role="button" href="#transcript" <?=_oupc_label('tscript', t('Show script'))?> data-show-text="<?=
@@ -53,7 +54,7 @@ function _oupc_label($className, $text) {
 	  <a target="_blank" href="<?=$popup_url ?>" <?=_oupc_label('popout', t('New window: pop out player')) ?>><span>PO</span></a>
     <?php endif; ?>
 	  <a role="button" href="#" <?=_oupc_label('fulls', t('Full screen')) ?>><span>F</span></a>
-      <a role="button" href="#" <?=_oupc_label('more', t('More…')) ?>><span>S</span></a>
+      <a role="button" href="#more" <?=_oupc_label('more', t('More…')) ?>><span>S</span></a>
 	</div>
   </div>
 </div>
