@@ -41,7 +41,8 @@ abstract class Base_player {
 	$max_height= $CI->input->get('maxheight');
 	$resizable = $CI->input->get('_resizable');
 
-	$rev_sizes = array(720=>460, 640=>410, 620=>400, 560=>340, 480=>360, 460=>350);
+	// These sizes are NOT final! Need to check...
+	$rev_sizes = array(720=>460, 640=>410, 620=>400, 560=>350 /*340*/, 480=>360, 460=>350);
 	#$sizes = array(460=>350, 480=>360, 560=>340, 620=>400, 640=>410, 720=>460);
 
 	//Validate width/height..?!
@@ -77,8 +78,10 @@ class Podcast_player extends Base_player {
   public $url;
   public $_short_url;
   public $_related_url;
+  public $_related_text;
   public $thumbnail_url;
 
+  public $summary;
   public $transcript_html;
 
   public $provider_name = 'oupodcast';

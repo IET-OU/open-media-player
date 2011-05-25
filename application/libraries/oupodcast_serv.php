@@ -63,6 +63,7 @@ class Oupodcast_serv extends Base_service {
 	  $player = new Podcast_player;
 
 	  $player->title = $result->pod_title.': '.$result->title;
+	  $player->summary = $result->pod_summary;
 	  $player->media_html5 = TRUE;
 	  // Default type: 'video' ??
 	  $player->media_type = $result->source_media ? strtolower($result->source_media) : 'video';
@@ -81,8 +82,6 @@ class Oupodcast_serv extends Base_service {
 	  // Our <iframe> embed!!
 	  $player->iframe_url = site_url()."embed/pod/$custom_id/$shortcode?width=$width&amp;height=$height";
 
-	  $player->_related_url = isset($result->link) ? $result->link : $result->target_url;
-            #OR target_url (target_url_text/ link_text). #'_related_text'=>
 	  $player->_podcast_id = $result->podcast_id;
 	  $player->_album_id = $custom_id;
 	  $player->_track_md5= $shortcode;
@@ -105,8 +104,21 @@ class Oupodcast_serv extends Base_service {
 	  );
 
 	  $player->calc_size($width, $height, $audio_poster);
+	  $player = $this->_get_related_link($player, $result);
 	  $player = $this->_get_captions($player);
 
+      return $player;
+  }
+
+  /** Get the related link, and especially associated text. */
+  protected function _get_related_link($player, $result) {
+      $rel_url = $player->_related_url = isset($result->link) ? $result->link : $result->target_url;
+            #OR target_url (target_url_text/ link_text). #'_related_text'=>
+      $rel_text= isset($result->link_text) ? $result->link_text : $result->target_url_text;
+      if (false!==strpos($rel_url, 'open.ac.uk/course')) {
+        $rel_text .= t(', in study at The Open University');
+      }
+      $player->_related_text = t('Related link: ').$rel_text;
       return $player;
   }
 
