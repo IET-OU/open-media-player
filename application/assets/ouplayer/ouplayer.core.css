@@ -5,6 +5,7 @@
 
 body{margin:0; padding:0; min-width:460px; background:#eee; font:.8em Verdana,sans-serif;}
 object,img,audio,video{display:block; width:100%; height:100%;/*position:fixed; top:0; bottom:62px;*/}
+a img{border:none;}
 
 /*Debug: simples! */
 body.X-debug:after{content:attr(class); color:red;}
@@ -61,7 +62,7 @@ body.X-debug:after{content:attr(class); color:red;}
 .oup.show-tscript #ouplayer-div .__object{width:100%;}
 
 
-/** Controls.
+/** Controls toolbar.
 */
 .oup-controls{
   background: green;
@@ -99,7 +100,10 @@ body.X-debug:after{content:attr(class); color:red;}
   /*border: 1px solid #ccc;*/
 }
 
-.oup-controls button:focus, .oup-controls a:focus { outline:2px solid yellow; -moz-outline-radius:4px; }
+/*Accessibility: make it easy to see most buttons/links on keyboard access. */
+.oup-controls button:focus, .oup  a:focus, .oup-settings.panel textarea:focus{
+  outline:2px solid yellow; -moz-outline-radius:4px; }
+.oup  a.ou-home:focus{outline:none;}
 .oup-controls button:hover, .oup-controls a:hover{background:#bbb;}
 
 .bar {-moz-border-radius:6px; border-radius: 6px; height: 20px; }
@@ -177,10 +181,8 @@ body.X-debug:after{content:attr(class); color:red;}
   left: 48px;
   x-top: -28px;
 }
-.oupc  .volume.group .louder{
-  position:relative;
-  left:-6px;
-}
+.oupc  .volume.group button{position:relative;}
+.oupc  .volume.group .louder{left:-6px;}
 .oupc .volume-bar{
   background: yellow;
 
@@ -208,7 +210,7 @@ body.X-debug:after{content:attr(class); color:red;}
 .oupc .louder:focus, .oupc .quieter:focus{
   position:static;
   /*--top: 0;*/
-  z-index: 1000; /* ?? */
+  /*z-index: 1000; /* ?? */
 }
 
 .oup-controls .tools.group{
@@ -224,7 +226,55 @@ body.X-debug:after{content:attr(class); color:red;}
 
 }
 
+/*.hide-settings*/ .oup-settings.panel{
+  display:none;
+  position:fixed;
+  bottom: 32px;
+  padding: 0;
+  right: 3px;
+  width: 180px;
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  background: #f8f8f8;
+}
+.show-settings .oup-settings.panel {
+  display:block;
+  z-index:1000;
+}
+.oup-settings.panel a, .oup-settings.panel label{
+  display: block;
+  border-radius:2px;
+  padding: 3px 6px;
+}
+.oup-settings.panel textarea{
+  width:99%;
+  font-size:.8em;
+  overflow:hidden;
+  border:none;
+  border-top:1px solid #999;
+  border-bottom:1px solid #999;
+}
 
+/*.oup-playing*/ .oup-title.panel{
+  display:none;
+  position: absolute;
+  top: 5px;
+  background:#f8f8f8;
+  color:#111;
+  border-radius: 5px;
+  min-width: 400px;
+  max-width: 640px;/*616px*/
+  width: 85%;
+  max-height: 160px;
+  overflow-y:scroll;
+  padding: 6px;
+  margin: 6px;
+}
+.oup-paused .oup-title.panel{display: block;}
+.oup-title.panel h1{margin-top:0;}
+.oup-title.panel .ou-home{display:block; width:32px; height:/*1px;*/38px; background:url(oulogo-39.png) no-repeat top left;}
+.oup-title.panel ul{list-style:none; padding:0; margin:0;}
+.oup-title.panel .optionalnav{}
 
 /* Play Icon */
 .X-oup-play-control{width:44px; height:48px;}
