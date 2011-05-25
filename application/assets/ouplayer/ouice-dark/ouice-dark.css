@@ -54,7 +54,7 @@
   padding:0;
   display:inline-block;
 }
-.oup-controls button:hover, .oup-controls a:hover, .oup-controls button:focus, .oup-controls a:focus{
+.oup-controls button:hover, .oup-controls a:hover /*,.oup-controls button:focus, .oup-controls a:focus*/{
   background-image:url(sprite/640x60_hover.png);
 }
 .oup-controls button:active, .oup-controls a:active{
@@ -77,8 +77,13 @@
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
 /*.oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px}*/
-.oup-controls .volume.group button{background-color:transparent;}
-.XX-oup-controls .volume.group{ background:url(background/vol_bg.png);}
+.oup-controls .volume.group  button{background-color:transparent; z-index:1000;}
+.oup-controls .volume-bg{
+/*Volume feedback: width will vary! */
+  display:block; position:absolute; left:28px; bottom:3px;
+  background:/*#8af*/ url(background/vol_bg2.png) repeat-x bottom left;
+  width:29px; height:27px;
+}
 
 /*tools-group*/
 .oup-controls .related,.oupc .related:hover{background-position:-141px -30px}
@@ -107,3 +112,33 @@
   border:1px solid transparent;
   border-radius:4px;  
 }*/
+
+.oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
+  background:#333;
+  color:#fafafa;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; /*First!*/
+  filter:alpha(opacity=90);
+  opacity:0.9;
+}
+.oup-settings.panel a{
+  color:#fafafa;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+.oup-settings.panel a:hover{
+  background:#111;
+  border-bottom:1px solid #ccc;
+}
+.oup-title.panel{
+  border:2px solid #999; overflow:hidden; height:auto;
+  position:fixed;
+  bottom:60px;
+  top:auto;
+  width:auto;
+  height:42px;
+}
+.oup-title.panel a{color:#eee;}
+.oup-title.panel h1{text-shadow:#000 0 2px 2px;}
+.oup-title.panel .mediatitle{position:relative; top:-41px; left:37px; margin-right:42px;}
+.oup-title.panel .optionalnav{display:none;}
+/*.mtype-audio*/ .oup-title .summary{display:none;}
