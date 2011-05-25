@@ -10,10 +10,11 @@ var OUP = OUP || {};
 
   var player_id= 'ouplayer',
       div_id   = 'ouplayer-div',
+      play_btn_id= 'oup-play-control',
       script_btn = 'tscript',
       controls_id= 'controls',
-      controls_class= ("play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(','),
-	  wrap;
+      controls_class=("X-play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(','),
+      wrap;
 
   //Utilities.
   OUP.log=function(o){ if(window.console&&console.log){console.log('OUP: '+o);} };
@@ -84,9 +85,10 @@ var OUP = OUP || {};
   OUP.initialize=function() {
     var self= this;
 
-    var ply = document.getElementById(player_id);
-    var div = document.getElementById(div_id);
-    var controls_div = document.getElementById(controls_id);
+    var ply = document.getElementById(player_id),
+        div = document.getElementById(div_id),
+        controls_div = document.getElementById(controls_id),
+        play_btn = document.getElementById(play_btn_id);
 
     div.style.display='block';
     controls_div.style.display='block';
@@ -119,6 +121,21 @@ var OUP = OUP || {};
 	addEvent(byClass('tscript-close'), 'click', toggleScript);
 	//byClass('t-close').onclick = toggleScript;
 
+	//More/settings button.
+	function toggleSettings() {
+	  //var panel = document.getElementById('ouplayer-panel');
+	  if (hasClass(ply, 'hide-settings')) {
+	    removeClass(ply, 'hide-settings');
+	    addClass(ply, 'show-settings');
+	    self.log('toggleSettings: show');
+	  } else {
+	    removeClass(ply, 'show-settings');
+	    addClass(ply, 'hide-settings');
+	    self.log('toggleSettings: hide');
+	  }
+	};
+	addEvent(byClass('more'), 'click', toggleSettings);
+
 	byClass('fulls').onclick = function(){
 	  self.log('fullscreen');
 	  self.player.toggleFullscreen();
@@ -132,8 +149,26 @@ var OUP = OUP || {};
     /*self.player.onError(function(code, message){
       self.log('onError '+code+', '+message);
     });*/
-    self.player.onStart(function(clip){
-      self.log('onStart: clip '+clip.index);
+	self.player.onStart(function(clip){
+	  self.log('onStart: clip '+clip.index);
+    });
+
+    self.player.onResume(function(clip){
+	  var tx=play_btn.getAttribute('data-pause-text');
+	  play_btn.setAttribute('aria-label', tx);
+	  play_btn.title=tx;
+	  removeClass(ply, 'oup-paused');
+	  addClass(ply, 'oup-playing');
+	  self.log('onResume: clip '+clip.index+'; text '+tx);
+    });
+
+	self.player.onPause(function(clip){
+	  var tx=play_btn.getAttribute('data-play-text');
+	  play_btn.setAttribute('aria-label', tx);
+	  play_btn.title=tx;
+	  removeClass(ply, 'oup-playing');
+	  addClass(ply, 'oup-paused');
+	  self.log('onPause: clip '+clip.index+'; text '+tx);
     });
 
   };//OUP.initialize
