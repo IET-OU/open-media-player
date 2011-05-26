@@ -11,7 +11,7 @@
  * @copyright 2009, 2010 The Open University. See CREDITS.txt
  */
 /*
-http://translate.google.com/#en|fr|Player%20controls.%20Play.%20Pause.%20Rewind.%20Fast%20forward.%20Current%20time.%20Loading.%20Loaded.%20Loading.%20Seek%20bar.%20Total%20time.%20Mute.%20Un-mute.%20Volume.%20Quieter.%20Louder.%20New%20window.%20Captions.
+http://translate.google.com/#en|fr|Player+controls.+Play.+Pause.+Rewind.+Fast+forward.+Current+time.+Loading.+Loaded.+Seek+bar.+Total+time.+Mute.+Un-mute.+Volume.+Quieter.+Louder.+New+window.+Captions.
 */
 if('cli'!=php_sapi_name()) die(basename(__FILE__).": Must run as cli."); #Security.
 
@@ -69,7 +69,7 @@ EOF;
   if ('win' != $OS) {
     # The Windows builds don't have these options :(
     $command .= <<<EOF
- --copyright-holder="Copyright 2011 The Open University."
+ --copyright-holder="2011 The Open University. All rights reserved."
  --package-name=ouplayer-$domain
  --package-version="1.0"
  --msgid-bugs-address="N.D.Freear@open.ac.uk"
