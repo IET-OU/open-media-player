@@ -7,5 +7,7 @@ application/config/database.php
 application/config/embed_config.php
 application/logs/log-*.php
 application/cache/*
+*.diff
+*.patch
 *.html
 * copy*

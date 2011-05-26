@@ -15,6 +15,7 @@ class MY_Controller extends CI_Controller {
   */
   protected function _error($message, $code=500) {
     @header("HTTP/1.1 $code");
+    // For now, just output plain text.
     die("$code. Error, $message");
   }
 
