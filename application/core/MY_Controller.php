@@ -14,10 +14,21 @@ class MY_Controller extends CI_Controller {
 
   /** Handle errors.
   */
-  protected function _error($message, $code=500) {
+  protected function _error($message, $code=500, $from) {
+    $this->_log('error', "$from: $code, $message");
     @header("HTTP/1.1 $code");
     // For now, just output plain text.
     die("$code. Error, $message");
+  }
+
+  protected function _log($level='error', $message, $php_error=FALSE) {
+    $_CI = $this;
+	$_CI->load->library('user_agent');
+    $ip = $_SERVER['SERVER_ADDR'];
+    $ref= $_CI->agent->referrer();    #['HTTP_REFERER']
+    $ua = $_CI->agent->agent_string();#['HTTP_USER_AGENT']
+    $request = $_CI->uri->uri_string().'?'.$_SERVER['QUERY_STRING'];
+	log_message($level, "$message, $request -- $ip, $ref, $ua"); #, $php_error);
   }
 
   /** Handle required GET parameters. */
