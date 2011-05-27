@@ -24,7 +24,7 @@ class MY_Controller extends CI_Controller {
   protected function _log($level='error', $message, $php_error=FALSE) {
     $_CI = $this;
 	$_CI->load->library('user_agent');
-    $ip = $_SERVER['SERVER_ADDR'];
+    $ip = $_SERVER['REMOTE_ADDR'];
     $ref= $_CI->agent->referrer();    #['HTTP_REFERER']
     $ua = $_CI->agent->agent_string();#['HTTP_USER_AGENT']
     $request = $_CI->uri->uri_string().'?'.$_SERVER['QUERY_STRING'];
