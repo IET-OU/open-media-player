@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * jquery oembed plugin
  *
  * Copyright (c) 2009 Richard Chamorro
