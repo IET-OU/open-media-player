@@ -10,7 +10,7 @@ class Oembed extends MY_Controller {
   public function __construct() {
     parent::__construct();
     #parent::Controller();
-    @header("X-Powered-By:");
+    #@header("X-Powered-By:");
 
     $this->load->model('embed_cache_model');
   }
@@ -23,10 +23,13 @@ class Oembed extends MY_Controller {
 EOF;
   }
 
+  protected function _error($message, $code=500) {
+    return parent::_error($message, $code, __CLASS__);
+  }
 
   public function index() {
     @header('Content-Type: text/plain; charset=UTF-8');
-    header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
+    #header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
 
     //Get 'width', 'height'.
     $req = new StdClass;
@@ -128,6 +131,7 @@ echo " this->_meta_$name() ";
     } else {
       $this->_error("not found, view '$name'.", 404);
     }
+    $this->_log('debug', __CLASS__.": Success");
   }
 
 

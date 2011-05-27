@@ -29,10 +29,12 @@ class Popup extends MY_Controller { //CI_Controller {
 
   /** OU-podcast player popup.
   */
-  public function pod($custom_id, $shortcode) {
+  public function pod($custom_id=null, $shortcode=null) {
+    if (!$custom_id || !$shortcode){
+	  $this->_error("an album ID and track MD5 hash are required in the URL.", 400);
+	}
 	$width = 0; #$this->_required('width');
 	$height= 0; #$this->_required('height');
-	$edge  = $this->input->get('edge');  #Deprecated.
 	$audio_poster= $this->input->get('poster'); #Only for audio!
 
 	$this->load->library('Oupodcast_serv');
