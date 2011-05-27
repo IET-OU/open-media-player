@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** OU player library.
  *
  * @copyright Copyright 2011 The Open University.
