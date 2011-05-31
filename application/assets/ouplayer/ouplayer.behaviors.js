@@ -82,6 +82,14 @@ var OUP = OUP || {};
       btn.onblur     =function(){OUP.delayhidetip();}
   }
 
+  function setFocus(el){
+    if (el){
+      el.focus();
+      OUP.log('setFocus: '+el);
+    }
+    return false;//Stop event propagation (needs more work!)
+  };
+
   OUP.initialize=function() {
     var self= this;
 
@@ -96,7 +104,7 @@ var OUP = OUP || {};
     //TODO: Explicitly add/remove wait-cursor/ spinner.
     setTimeout("document.getElementById('ouplayer').style.cursor='default';", 2000);
 
-    var wrap = controls_div; //document.getElementById('oup-controls');
+    //var wrap = controls_div; //document.getElementById('oup-controls');
 
     if (OUP.fixedtooltip && OUP.delayhidetip) {
       for (var ctl in controls_class) {
@@ -128,13 +136,16 @@ var OUP = OUP || {};
 	    removeClass(ply, 'hide-settings');
 	    addClass(ply, 'show-settings');
 	    self.log('toggleSettings: show');
+	    return setFocus(byClass('more-close'));
 	  } else {
 	    removeClass(ply, 'show-settings');
 	    addClass(ply, 'hide-settings');
 	    self.log('toggleSettings: hide');
+	    return setFocus(byClass('more'));
 	  }
 	};
 	addEvent(byClass('more'), 'click', toggleSettings);
+	addEvent(byClass('more-close'), 'click', toggleSettings);
 
 	byClass('fulls').onclick = function(){
 	  self.log('fullscreen');
