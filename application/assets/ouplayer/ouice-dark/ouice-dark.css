@@ -5,7 +5,7 @@
 * @author N.D.Freear (CSS)
 */
 .oup-controls{
-  background:gray url(background/640x60_bg.png) repeat-x center;
+  background:gray url(background/2000x60_bg.png) no-repeat center left;/*was:64x60_bg.png*/
 }
 .oup-controls  .volume-bar, .oup.no-debug .mute{
   display: none;
@@ -13,6 +13,7 @@
 .oup-controls button span, .oup-controls a span, .oupc .head span{
   display: none;
 }
+.oupc .row-2{border:none;}
 
 /*Accessibility: hide volume-out offscreen.*/
 .oup-controls .volume-out{
@@ -113,6 +114,15 @@
   border-radius:4px;  
 }*/
 
+.oup  .tscript-close, .oup .more-close{
+  background:url(transcript_close.png) no-repeat center; border:1px solid transparent; width:34px; height:34px; float:right;
+}
+.oup .tscript-close:focus{background-color:#bbb;}
+.oup .tscript-close:hover{background-color:#eee; border:1px solid #ddd;}
+.oup .tscript-close span, .oup .more-close span{display:none;}
+.oup .more-close{width:16px; height:18px;}
+
+
 .oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
   background:#333;
   color:#fafafa;
@@ -132,10 +142,10 @@
 .oup-title.panel{
   border:2px solid #999; overflow:hidden; height:auto;
   position:fixed;
-  bottom:60px;
+  bottom:59px;
   top:auto;
   width:auto;
-  height:42px;
+  height:46px;
 }
 .oup-title.panel a{color:#eee;}
 .oup-title.panel h1{text-shadow:#000 0 2px 2px;}
