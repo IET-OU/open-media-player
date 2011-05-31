@@ -40,7 +40,9 @@ abstract class Base_service implements iService {
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
     $result = array('data' => curl_exec($h_curl));
     if ($errno = curl_errno($h_curl)) {
-      die("Error: cURL $errno, ".curl_error($h_curl)." GET $url");
+      //Error. Quietly log?
+      $this->CI->_log('error', "cURL $errno, ".curl_error($h_curl)." GET $url");
+      #$this->CI->firephp->fb("cURL $errno", "cURL error", "ERROR");
     }
     $result['info'] = curl_getinfo($h_curl);
     $result['success'] = ($result['info']['http_code'] < 300);

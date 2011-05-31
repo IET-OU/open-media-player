@@ -167,12 +167,13 @@ class Oupodcast_serv extends Base_service {
 	    $html = $this->CI->pdftohtml->parse($trans_pdf, $trans_file_xml);
 	  } catch (Exception $e) {
 	    // Log error.
-        log_message('error', __CLASS__.". Error parsing PDF transcript | ".$e->getMessage());
+        $this->CI->_log('error', __CLASS__.". Error parsing PDF transcript | ".$e->getMessage());
 
 	  }
 	}
 	if ($html) {
 	  $b2 = file_put_contents($trans_file_html, $html);
+	  $this->CI->_log('debug', "Transcript file written, $b2 bytes, $trans_file_html");
 	  $player->transcript_html = $html;
 	}
 	elseif (file_exists($trans_file_html)) {
