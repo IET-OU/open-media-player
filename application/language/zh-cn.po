@@ -1,0 +1,204 @@
+# Simplified Chinese language pack.
+# lang: cmn-hans / zh_CN.
+# Copyright (C) YEAR 2011 The Open University. All rights reserved.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ouplayer-application 1.0\n"
+"Report-Msgid-Bugs-To: N.D.Freear@open.ac.uk\n"
+"POT-Creation-Date: 2011-05-26 10:37+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libraries/oupodcast_serv.php:119
+msgid ", in study at The Open University"
+msgstr ""
+
+#: libraries/oupodcast_serv.php:121
+msgid "Related link: "
+msgstr ""
+
+#: views/oembed/lams.php:36 views/oembed/lams.php:46 views/oembed/lams.php:49
+#: views/oembed/lams.php:50 views/oembed/lams.php:55
+msgid "Open in new window"
+msgstr ""
+
+#: views/oembed/lams.php:46
+msgid "Zoom<s>, new window"
+msgstr ""
+
+#: views/oembed/lams.php:49
+msgid "Preview<s>, new window"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:9
+msgid "Player controls"
+msgstr "播放器控制键"
+
+#: views/ouplayer/oup_controls.php:11 views/ouplayer/oup_controls.php:12
+msgid "Play"
+msgstr "播放视频"
+
+#: views/ouplayer/oup_controls.php:12
+msgid "Pause"
+msgstr "暂停"
+
+#: views/ouplayer/oup_controls.php:15
+msgid "Rewind"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:16
+msgid "Fast forward"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:18
+msgid "Current time"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:23
+msgid "Loaded"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:23
+msgid "Loading…"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:24
+msgid "Seek bar"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:28
+msgid "Total time"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:34
+msgid "Mute"
+msgstr "静音"
+
+#: views/ouplayer/oup_controls.php:34
+msgid "Unmute"
+msgstr "取消静音"
+
+#: views/ouplayer/oup_controls.php:35
+msgid "Volume"
+msgstr "声量"
+
+#: views/ouplayer/oup_controls.php:37
+msgid "Quieter"
+msgstr "降低音量"
+
+#: views/ouplayer/oup_controls.php:38
+msgid "Louder"
+msgstr "提高音量"
+
+#: views/ouplayer/oup_controls.php:48
+msgid "New window: "
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:49
+msgid "Captions"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:50
+msgid "Hide captions"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:50
+msgid "Show captions"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:51 views/ouplayer/oup_controls.php:52
+msgid "Show script"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:52
+msgid "Hide script"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:54
+msgid "New window: pop out player"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:56
+msgid "Full screen"
+msgstr ""
+
+#: views/ouplayer/oup_controls.php:57
+msgid "More…"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:11 views/ouplayer/oup_settings.php:49
+#: views/ouplayer/oup_settings.php:50 views/ouplayer/oup_settings.php:54
+msgid "New window"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:16
+msgid "Decrease text size"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:17
+msgid "Increase text size"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:18
+msgid "Theme"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:49
+msgid "Help"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:50
+msgid "About the player"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:51
+msgid "Embed code"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:53
+msgid "More embed options"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:54
+msgid "Download media"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:55
+msgid "Download transcript"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:55
+msgid "New window: PDF"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:56
+msgid "New window: perma-link"
+msgstr ""
+
+#: views/ouplayer/oup_settings.php:56
+msgid "View on podcast site"
+msgstr ""
+
+#: views/ouplayer/ouplayer.php:35
+msgid "Your browser does not support the \"video\" element."
+msgstr ""
+
+#: views/ouplayer/ouplayer.php:46
+msgid "Your browser does not support the \"audio\" element."
+msgstr ""
+
+#: views/ouplayer/ouplayer.php:54 views/ouplayer/player_noscript.php:11
+msgid "OU player"
+msgstr ""
+
+#: views/ouplayer/ouplayer.php:122
+msgid "Download"
+msgstr ""
