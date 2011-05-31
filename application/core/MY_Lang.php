@@ -12,6 +12,7 @@ class My_Lang extends CI_Lang {
   protected $_lang_ui;
   protected $_meta;
   protected $_list;
+  protected $_locales;
 
   public function __construct() {
     parent::__construct();
@@ -25,9 +26,13 @@ class My_Lang extends CI_Lang {
   public function initialize() {
     $CI =& get_instance();
     $lang = $CI->input->get('lang');
-    $this->_lang_ui = $lang ? $lang : 'en';
+    $lang = preg_match('/^[a-z]{2,3}([-_][a-zA-Z]{2,4})?$/', $lang) ? $lang : 'en';
+    $lang = str_replace('_', '-', $lang);
+    $this->_lang_ui = $lang;
 
-    $path = APPPATH."language/$lang/application.po";
+    $this->_locales = $CI->config->item('locales');
+
+    $path = APPPATH."language/$lang.po";  #$lang/application.po;
 
     if (file_exists($path)) {
 

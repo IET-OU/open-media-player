@@ -44,4 +44,22 @@ $config['cache_path'] = '/var/www/_ouplayer_data/cache/';
 
 */
 
+// Localization/ internationalization.
+$config['locales'] = array(
+    'es'   => array('name'=>'Español - España/Internacional'),
+    'es-ar'=> 'es',
+    'es-es'=> 'es',
+    'es-mx'=> 'es',
+
+    'fr'   => array('name'=>'Français/ French'),
+    'fr-ca'=> 'fr',
+
+    'zh-cn'=> array('name'=>'简体中文/ Chinese (Simplified)'),
+    'cmn-hans'=>'zh-cn',
+
+    'en'   => array('name'=>'English/ En anglais/ Inglés'),
+    'en-gb'=> 'en',
+    'en-us'=> 'en',
+);
+
 #End.
