@@ -39,7 +39,8 @@ EOF;
 
   $oembed = array(
         'version'=> '1.0',
-        'type'   => $meta->media_type,
+        // 'audio' is a non-standard type!!
+        'type'   => 'video'==$meta->media_type ? 'video' : 'rich',
         'provider_name'=> 'OU Podcast',
         'provider_url' => $pod_base,
         'title'  => $meta->title,
