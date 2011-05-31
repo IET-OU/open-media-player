@@ -9,21 +9,22 @@ class MY_Controller extends CI_Controller {
   public function __construct() {
     parent::__construct();
 
-	$this->lang->initialize();
+    $this->lang->initialize();
   }
 
-  /** Handle errors.
+  /** Handle fatal errors.
   */
-  protected function _error($message, $code=500, $from) {
+  public function _error($message, $code=500, $from=null) { #Was: protected.
+    #$this->firephp->fb("$code: $message", $from, 'ERROR');
     $this->_log('error', "$from: $code, $message");
     @header("HTTP/1.1 $code");
     // For now, just output plain text.
     die("$code. Error, $message");
   }
 
-  protected function _log($level='error', $message, $php_error=FALSE) {
+  public function _log($level='error', $message, $php_error=FALSE) {
     $_CI = $this;
-	$_CI->load->library('user_agent');
+    $_CI->load->library('user_agent');
     $ip = $_SERVER['REMOTE_ADDR'];
     $ref= $_CI->agent->referrer();    #['HTTP_REFERER']
     $ua = $_CI->agent->agent_string();#['HTTP_USER_AGENT']
