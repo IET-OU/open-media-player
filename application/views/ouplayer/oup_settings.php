@@ -1,13 +1,17 @@
 <?php
-/* Settings and title/toolbar panels.
-*/
+/** Settings and title/toolbar panels.
+ *
+ * @author Anthony McEvoy.
+ * @author Nick Freear.
+ */
 ?>
 
 <div id="title" class="oup-title panel titletoolbar">
-  <a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" /></a>
+  <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
+  <img class="ou-home logo" alt="Open University logo" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
-  <li><h1><?=$meta->title ?></h1></li>
-  <li><span class="summary"><?=$meta->summary ?></span>
+  <li><h1><?=$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
+  <li><?php if($meta->summary): ?><span class="summary"><?=substr_replace($meta->summary, '…', 100) ?></span><?php endif; ?>
   <?php if($meta->_related_url)echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window'))); ?></li>
   </li></ul>
 
@@ -31,7 +35,8 @@
 </div>
 
 <?php
-  $em_title = substr_replace($meta->title, '…', 30);
+  // Embed code - uses jQuery-oEmbed plugin.
+  $em_title = substr_replace($meta->title, '…', 36);
   $jq_oembed=<<<EOF
 <a class="embed" href="$meta->_short_url">$em_title</a>
 
@@ -45,8 +50,9 @@ $(document).ready(function(){
 EOF;
 ?>
 
-<div id="more" class="oup-settings panel">
-  <a class="help"  href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Help') ?></span></a>
+<div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('More settings') ?>">
+  <button class="more-close" title="<?=t('Close settings') ?>"><span>X</span></button>
+  <a class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
   <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="embed-code"><span><?=t('Embed code') ?></span></label></a>
   <textarea id="embed-code" readonly title="Javascript-based embed (oEmbed)"><?=str_replace('<','&lt;', $jq_oembed) ?></textarea>

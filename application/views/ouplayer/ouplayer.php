@@ -8,7 +8,7 @@ Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&po
  */
 //NDF, 2011-04-08/-05-19.
   $base_url = base_url();
-  
+
   // Add switches to body-class (no 'hulu').
   $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript hide-settings oup-paused ";
   $body_classes.= "mode-$mode "; #(embed|popup).
@@ -71,7 +71,7 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 
 <!--[if lt IE 9]>
 <style>
-.oup-controls a{
+.X-oup-controls a{
   display:inline-block;
   position:relative;
   top:3px;
@@ -94,8 +94,8 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </div>
 
 <?php if($meta->transcript_html || $debug): ?>
-<div id="transcript" class="oup-tscript-panel" >
-<button class="tscript-close" aria-label="<?=('Close')?>">X</button>
+<div role="document" id="transcript" class="oup-tscript-panel" >
+<button class="tscript-close" aria-label="<?=('Close')?>" title="<?=t('Close script') ?>"><span>X</span></button>
 <div class="transcript">
 <?= $meta->transcript_html ? $meta->transcript_html : '[No transcript - debug]'; ?>
 </div>
@@ -122,7 +122,7 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
   <a href="<?=$meta->media_url ?>"><?=t('Download')." $meta->title" ?></a>
 </div>
 
-<div id="oup-tooltips"></div>
+<div role="tooltip" id="oup-tooltips"></div>
 
 
 <script src="<?=$base_url ?>swf/flowplayer-3.2.6.min.js"></script>

@@ -4,6 +4,7 @@ function _oupc_label($className, $text) {
   return "class=\"$className\" aria-label=\"$text\"";
 }
 
+///Translators: Multimedia (audio/video) player controls.
 ?>
 
 <div role="toolbar" id="controls" <?=_oupc_label('oup-controls oupc', t('Player controls')) ?>>
