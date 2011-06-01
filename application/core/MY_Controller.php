@@ -9,6 +9,18 @@ class MY_Controller extends CI_Controller {
   public function __construct() {
     parent::__construct();
 
+    $this->load->library('FirePHPCore/Firephp');
+    if ($this->config->item('debug') && $this->input->get('_debug')) {
+        #$this->load->library('FirePHPCore/FirephpEx', null, 'firephp');
+    } else {
+        $this->firephp->setEnabled(false);
+        #$this->load->library('firephp_fake', null, 'firephp');
+        #$this->firephp =& $this->firephp_fake;
+    }
+    $this->firephp->fb(__METHOD__, 'OUP', 'INFO');
+    $this->firephp->log('test');
+
+
     $this->lang->initialize();
   }
 
@@ -29,7 +41,13 @@ class MY_Controller extends CI_Controller {
     $ref= $_CI->agent->referrer();    #['HTTP_REFERER']
     $ua = $_CI->agent->agent_string();#['HTTP_USER_AGENT']
     $request = $_CI->uri->uri_string().'?'.$_SERVER['QUERY_STRING'];
-	log_message($level, "$message, $request -- $ip, $ref, $ua"); #, $php_error);
+    $msg = "$message, $request -- $ip, $ref, $ua";
+    log_message($level, $msg);  #, $php_error);
+
+
+    $fp_level = 'error'==$level ? 'ERROR' : 'INFO';
+    $fp_label = 'error'==$level ? 'Error log' : 'Log';
+    $this->firephp->fb($msg, $fp_label, $fp_level);
   }
 
   /** Handle required GET parameters. */
