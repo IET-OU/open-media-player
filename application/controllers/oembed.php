@@ -23,7 +23,7 @@ class Oembed extends MY_Controller {
 EOF;
   }
 
-  protected function _error($message, $code=500) {
+  public function _error($message, $code=500) {
     return parent::_error($message, $code, __CLASS__);
   }
 
