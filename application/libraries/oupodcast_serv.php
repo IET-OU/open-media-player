@@ -10,6 +10,8 @@ require_once 'ouplayer_lib.php';
 
 class Oupodcast_serv extends Base_service {
 
+  const POD_BASE = 'http://podcast.open.ac.uk';
+
   protected $CI;
 
   public function __construct() {
@@ -31,16 +33,16 @@ class Oupodcast_serv extends Base_service {
   /** Used directly by embed controller.
   */
   public function _inner_call($basename, $fragment, $transcript=FALSE) {
-      $pod_base = 'http://podcast.open.ac.uk';
+      $pod_base = self::POD_BASE;
 
 	  $edge  = $this->CI->input->get('edge');
 	  $audio_poster= $this->CI->input->get('poster'); #Only for audio!
 
 	  // Query the podcast DB.
-      $result = $this->CI->podcast_items_model->get_item($basename, $fragment, $transcript=FALSE);
+      $result = $this->CI->podcast_items_model->get_item($basename, $fragment, $captions=TRUE);
       #$result = $result_A[0];
       if (!$result) {
-          die("404, Error, podcast item not found.");
+	      $this->CI->_error('podcast item not found.', 404, __CLASS__);
       }
 
       // TODO: Access control - SAMS cookie.
@@ -65,8 +67,8 @@ class Oupodcast_serv extends Base_service {
 	  $player->title = $result->pod_title.': '.$result->title;
 	  $player->summary = $result->pod_summary;
 	  $player->media_html5 = TRUE;
-	  // Default type: 'video' ??
-	  $player->media_type = $result->source_media ? strtolower($result->source_media) : 'video';
+	  // The oEmbed type, not the PIM.media_type in the podcast DB.
+	  $player->media_type = 'audio'==$result->source_media ? 'audio' : 'video';
 	  $player->media_url = "$pod_base/feeds/$custom_id/$result->filename"; #608x362px.
 	  if ($result->image) {
 		$player->poster_url= "$pod_base/feeds/$custom_id/$result->image";    #304x304px.
@@ -105,7 +107,7 @@ class Oupodcast_serv extends Base_service {
 
 	  $player->calc_size($width, $height, $audio_poster);
 	  $player = $this->_get_related_link($player, $result);
-	  $player = $this->_get_captions($player);
+	  $player = $this->_get_caption_url($player, $result);
 
       return $player;
   }
@@ -123,14 +125,19 @@ class Oupodcast_serv extends Base_service {
   }
 
   /**
-  http://pcie663.open.ac.uk/ouplayer/embed/pod/mst209-fun-of-the-fair/a67918b334?width=640&height=420
+    http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b
+    http://embed.open.ac.uk/embed/pod/1135/734418f016 - Mental health.
   */
-  protected function _get_captions($player) {
-    $captions = $this->CI->config->item('captions');
-	if (isset($captions[$player->_podcast_id]) && isset($captions[$player->_podcast_id][$player->_track_md5])) {
+  protected function _get_caption_url($player, $result) {
+    // First, try to use captions hosted via podcast DB.
+	if (isset($result->pim_type) && 'cc-dfxp'==$result->pim_type) {
+		$player->caption_url = self::POD_BASE."/feeds/$player->_album_id/closed-captions/$result->pim_filename";
+	}
+	// Then, override with locally hosted captions if applicable.
+	$captions = $this->CI->config->item('captions');
+	if (isset($captions[$player->_album_id]/*Was: _podcast_id*/) && isset($captions[$player->_album_id][$player->_track_md5])) {
 	    $player->caption_url = site_url("timedtext/pod_captions/$player->_album_id/$player->_track_md5/en.xml");
 	}
-
 	return $player;
   }
 
