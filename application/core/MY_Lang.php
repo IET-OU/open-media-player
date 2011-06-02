@@ -1,5 +1,6 @@
 <?php
-/** Internationalization.
+/** Internationalization/ Localization library.
+*   Based on GNU Gettext.
 *
 * @copyright Copyright 2011 The Open University.
 */
@@ -69,14 +70,24 @@ class My_Lang extends CI_Lang {
 }
 
 
-/* 'translate text' placeholder - Internationalization/ Localization.
+/* Translate text function, uses sprintf/vsprintf.
  * See: cloudengine/libs./MY_Language; Drupal.
+ *
+ * @param $msgid string Text to translate, with optional printf-style placeholders, eg. %s.
+ * @param $args  mixed  Optional. A value or array of values to substitute.
+ * @return string
  */
 //if (!function_exists('t')) {
-  function t($s) {
+  function t($msgid, $args=null) {
     $CI =& get_instance();
-    $s = $CI->lang->gettext($s);
+    $s = $CI->lang->gettext($msgid);
     $s = str_replace(array('<s>', '</s>'), array('<span>', '</span>'), $s);
+    if (is_array($args)) {
+      $s = vsprintf($s, $args);
+    }
+    elseif ($args) { #is_string() #func_num_args() > 1){
+      $s = sprintf($s, $args); #array_shift(func_get_args()));
+    }
     return /*Debug: '^'.*/$s;
   }
 //}
