@@ -61,6 +61,9 @@ body.X-debug:after{content:attr(class); color:red;}
 .oup.show-tscript #ouplayer-div{right:195px;}
 .oup.show-tscript #ouplayer-div .__object{width:100%;}
 
+/*Pop-up player transcript - wider. */
+.oup.mode-popup.show-tscript .oup-tscript-panel{width:29em; /*300px*/ padding:0 9px;}
+.oup.mode-popup.show-tscript #ouplayer-div{right:29em;}
 
 /** Controls toolbar.
 */
