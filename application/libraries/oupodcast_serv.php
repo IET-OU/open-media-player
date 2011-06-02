@@ -117,10 +117,14 @@ class Oupodcast_serv extends Base_service {
       $rel_url = $player->_related_url = isset($result->link) ? $result->link : $result->target_url;
             #OR target_url (target_url_text/ link_text). #'_related_text'=>
       $rel_text= isset($result->link_text) ? $result->link_text : $result->target_url_text;
-      if (false!==strpos($rel_url, 'open.ac.uk/course')) {
-        $rel_text .= t(', in study at The Open University');
+      if (false!==strpos($rel_url, 'open.ac.uk/course')
+       || false!==strpos($rel_url, 'open.ac.uk/study')) {
+        $rel_text = t('%s, in Study at The Open University', $rel_text);
       }
-      $player->_related_text = t('Related link: ').$rel_text;
+	  elseif (false!==strpos($rel_url, 'open.ac.uk/')) {
+        $rel_text = t('%s, at The Open University', $rel_text);
+      }
+      $player->_related_text = t('Related link: %s', $rel_text);
       return $player;
   }
 
