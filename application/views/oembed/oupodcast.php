@@ -1,29 +1,30 @@
 <?php
-/** oEmbed OU podcast view.
-
-NDF, 17 March 2011.
+/** oEmbed OU podcast view - iframe-based.
+*
+* @copyright Copyright 2011 The Open University.
+*
+* NDF, 17 March 2011.
 */
   $width = 608;
   $height= 362;
-  $pod_base = 'http://podcast.open.ac.uk';
+  $pod_base = Oupodcast_serv::POD_BASE;
   $base = base_url();
-
-// Need to fork for video and audio.
-
+  $label= t('OU player');
 
   $html =<<<EOF
-<iframe class='ou podcast oembed' id='pod_$meta->_track_md5' aria-label='Media player' width='$meta->width' height='$meta->height' frameborder='0' scrolling='0' style='overflow:hidden;'
- src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'></iframe>
+<iframe class='ou podcast oembed $meta->media_type' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+ width='$meta->width' height='$meta->height' frameborder='0' scrolling='0' style='overflow:hidden;'
+ src='$meta->iframe_url'></iframe>
 EOF;
+  //src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'
   //style='border:none; overflow:hidden;'
 
 
-// Get something rolling, using the existing jwPlayer!
-
+// Legacy OU podcast player, using the existing jwPlayer!
 //(file=http://podcast.open.ac.uk/feeds/l314-spanish/rss2.xml&javascriptid=flashplayer&enablejs=true)
-  $html_00 =<<<EOF
+  $html_ORIG =<<<EOF
 <div class="ou podcast oembed">
-<object tabindex="0" id="pod_$meta->_track_md5" aria-label="Media player" type="application/x-shockwave-flash" height="$height" width="$width"
+<object tabindex="0" id="pod-$meta->_track_md5" aria-label="$label" type="application/x-shockwave-flash" height="$height" width="$width"
 data="$pod_base/flash_media_player/mediaplayer.swf" >
 <param name="movie" value="$pod_base/flash_media_player/mediaplayer.swf" />
 <param name="allowscriptaccess" value="always" />
@@ -41,7 +42,7 @@ EOF;
         'version'=> '1.0',
         // 'audio' is a non-standard type!!
         'type'   => 'video'==$meta->media_type ? 'video' : 'rich',
-        'provider_name'=> 'OU Podcast',
+        'provider_name'=> t('Podcasts - The Open University'), #Was: 'OU Podcast'
         'provider_url' => $pod_base,
         'title'  => $meta->title,
         //'author_name'=>$meta->author, 'author_url' =>null,
