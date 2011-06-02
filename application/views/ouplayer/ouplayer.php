@@ -142,6 +142,7 @@ OUP.log('domReady');
 
 //TODO: check minimum Flash requirement!
 if (flashembed.isSupported([6,0,65])) {
+  //Accessibility: wmode=opaque would be bad if we relied on Flash controls.
   OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?>swf/flowplayer-3.2.7.swf", wmode:'opaque'}, {
 
     onError: function(code, message){
@@ -149,24 +150,60 @@ if (flashembed.isSupported([6,0,65])) {
     },
 
     clip:{
-	  //url: "<?=$meta->media_url ?>",
+<?php /*url: "<?=$meta->media_url ?->",*/ ?>
 	  scaling: 'fit',
 	  autoPlay:false,
 	  autoBuffering:true
 	},
 
     playlist:[
-      //{"url":"<?=$meta->poster_url ?>"}, //duration:1},
-      {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true}
+<?php /*{"url":"<?=$meta->poster_url ?->"}, //duration:1},*/ ?>
+      {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true <?php if ($meta->caption_url): ?>
+      ,
+      "captionUrl":"<?=$meta->caption_url ?>"<?php endif; ?>}
     ],
 
-//TODO: captions!
-
-    // disable default controls
-    plugins: {controls: null}
+    plugins: {
+<?php if ($meta->caption_url): ?>
+"captions":{"url":"flowplayer.captions-3.2.3.swf", "captionTarget":"content"},
+"content": {
+  "url":"flowplayer.content-3.2.0.swf",
+  "bottom":5, //30,
+<?php /*"width":"90%"<-?=($meta->width - 60) //Percent fails - why? */
+  $captions_background = true;
+  if ($captions_background): ?>
+  "backgroundColor":"#000000",
+  "backgroundGradient":"low",
+  "borderRadius":8,
+<?php else: ?>
+  backgroundColor:'transparent',
+  backgroundGradient:'none',
+  border:0,
+  textDecoration:'outline',
+<?php endif; ?>
+  "style": { //Note, TTML can override.
+    "body":{
+      "fontSize":15,
+      "textAlign":"center",
+      "color":"#e8e8e8"
+    }
+  }
+  <?php /*"width": "87%",
+  "height":55,
+  "opacity": 50,
+  "style":{
+    "body":{
+    "fontFamily":"Arial",
+	"fontWeight":"bold",
+    }
+  }*/ ?>
+},
+<?php endif; ?>
+	  controls: null //Disable default controls.
+	}
     //plugins: {controls:{autohide:false}}
 
-  // install HTML controls inside element whose id is "hulu"
+  // install HTML controls inside element whose id is "X".
   }).controls("controls", {duration: <?=$meta->duration ?>});
 
   OUP.initialize();
