@@ -10,7 +10,7 @@ Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&po
   $base_url = base_url();
 
   // Add switches to body-class (no 'hulu').
-  $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript hide-settings oup-paused ";
+  $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript hide-captions hide-settings oup-paused ";
   $body_classes.= "mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
@@ -154,6 +154,7 @@ if (flashembed.isSupported([6,0,65])) {
 	  scaling: 'fit',
 	  autoPlay:false,
 	  autoBuffering:true
+	  //showCaptions:false //Initially hide.
 	},
 
     playlist:[
@@ -165,16 +166,18 @@ if (flashembed.isSupported([6,0,65])) {
 
     plugins: {
 <?php if ($meta->caption_url): ?>
-"captions":{"url":"flowplayer.captions-3.2.3.swf", "captionTarget":"content"},
+"captions":{"url":"flowplayer.captions-3.2.3.swf", "captionTarget":"content", "button":null},
 "content": {
   "url":"flowplayer.content-3.2.0.swf",
+  "display":"none",
   "bottom":5, //30,
 <?php /*"width":"90%"<-?=($meta->width - 60) //Percent fails - why? */
   $captions_background = true;
   if ($captions_background): ?>
-  "backgroundColor":"#000000",
-  "backgroundGradient":"low",
+  "backgroundColor":"#222222",
+  "backgroundGradient":"none",
   "borderRadius":8,
+  "opacity":0.95,
 <?php else: ?>
   backgroundColor:'transparent',
   backgroundGradient:'none',

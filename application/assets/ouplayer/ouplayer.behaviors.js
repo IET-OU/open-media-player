@@ -147,6 +147,24 @@ var OUP = OUP || {};
 	addEvent(byClass('more'), 'click', toggleSettings);
 	addEvent(byClass('more-close'), 'click', toggleSettings);
 
+	//Captions button.
+	function toggleCaptions() {
+	  if (hasClass(ply, 'hide-captions')) {
+	    removeClass(ply, 'hide-captions');
+        addClass(ply, 'show-captions');
+		//self.player.getClip().update({'showCaptions':true});
+		self.player.getPlugin('content').css({"display":"block"}); //show();//enable(true);
+        self.log('toggleCaptions: show');
+	  } else {
+	    removeClass(ply, 'show-captions');
+        addClass(ply, 'hide-captions');
+		//self.player.getClip().update({'showCaptions':false});
+		self.player.getPlugin('content').css({"display":"none"}); //hide();//enable(false);
+        self.log('toggleCaptions: hide');
+      }
+	};
+	addEvent(byClass('captn'), 'click', toggleCaptions);
+
 	byClass('fulls').onclick = function(){
 	  self.log('fullscreen');
 	  self.player.toggleFullscreen();
