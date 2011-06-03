@@ -22,10 +22,12 @@ body.X-debug:after{content:attr(class); color:red;}
 /*Note, if player-div needs to float, it should always float. Else it breaks Flash! *-/
 .oup #ouplayer-div, .oup #oup-controls{float:left;}*/
 
-/* Hide unused controls. */
-.oup.no-debug.type-audio button.fulls{display:none}
-.oup.no-debug.no-captions button.captn{display:none}
-.oup.no-debug.no-tscript button.script{display:none}
+/* Hide unused controls - audio. */
+.oup.mtype-audio a.captn, .oup-XX.mtype-audio a.tscript, .oup.mtype-audio a.fulls{display:none}
+
+/* Hide unused controls - general. */
+.oup.no-debug.no-captions a.captn{display:none}
+.oup.no-debug.no-tscript a.tscript{display:none}
 /*Dev: show related links for 'private' media, for now.*/
 .oup.no-debug.no-rel-link a.related, .oup.no-debug.is-X-X-private a.related{display:none}
 
@@ -78,8 +80,8 @@ body.X-debug:after{content:attr(class); color:red;}
   bottom: 0;
   width:100%;
 }
-.oup.audio  .fulls, .oup.audio  .captn {
-  display: none;
+.oup.mtype-audio .oup-controls{
+  min-width: 380px;
 }
 /*.oup-controls*/ button, .oup-controls a{
   width:44px;
@@ -222,11 +224,16 @@ body.X-debug:after{content:attr(class); color:red;}
   right: 50px;
 }
 
-/* CSS3 media-query: hide t-script button (620-2)px */
+/* CSS3 media-query: hide video-player t-script button (620-2)px */
 @media (max-width: 618px) {
 
-  .no-debug  .oup-controls button.tscript{ display:none; }
+  .oup.mtype-video/*.no-debug*/ .oup-controls a.tscript{ display:none; }
+}
+/*CSS3: hide poster image for small audio player. */
+@media (max-height: 200px) {
+  /*.oup.mtype-audio*/ .oup-poster{ display:none; }
 
+  .oup-controls a.tscript{ display:none; }
 }
 
 .oup button.tscript-close{margin:2px;}
