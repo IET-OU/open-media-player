@@ -142,12 +142,20 @@ OUP.log('domReady');
 
 //TODO: check minimum Flash requirement!
 if (flashembed.isSupported([6,0,65])) {
-  //Accessibility: wmode=opaque would be bad if we relied on Flash controls.
-  OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?>swf/flowplayer-3.2.7.swf", wmode:'opaque'}, {
+<?php
+  $flow_key = config_item('flowplayer_key');
+  $flow_commercial= $flow_key ? '.commercial' : '';
+  $flow_version = config_item('flowplayer_version');
+  if(!$flow_version || !$flow_key){$flow_version='3.2.7';}
+?>
+  //Accessibility: wmode=opaque would be inaccessible if we relied on Flash controls.
+  OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?>swf/flowplayer<?=$flow_commercial ?>-<?=$flow_version ?>.swf", wmode:'opaque'}, {
 
     onError: function(code, message){
       OUP.log('onError: '+code+', '+message);
     },
+
+<?php if ($flow_key){ echo "key:'$flow_key',"; } ?>
 
     clip:{
 <?php /*url: "<?=$meta->media_url ?->",*/ ?>
