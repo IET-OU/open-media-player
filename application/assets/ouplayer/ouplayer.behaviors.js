@@ -90,6 +90,7 @@ var OUP = OUP || {};
     return false;//Stop event propagation (needs more work!)
   };
 
+
   OUP.initialize=function() {
     var self= this;
 
@@ -165,10 +166,10 @@ var OUP = OUP || {};
 	};
 	addEvent(byClass('captn'), 'click', toggleCaptions);
 
-	byClass('fulls').onclick = function(){
+	addEvent(byClass('fulls'), 'click',(function toggleFullScreen(){
 	  self.log('fullscreen');
 	  self.player.toggleFullscreen();
-	};
+	}));
 
 	self.player.onVolume(function(vol){
 		byClass('volume-out').value = parseInt(vol)+'%';
