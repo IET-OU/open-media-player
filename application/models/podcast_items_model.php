@@ -56,6 +56,7 @@ SQL;
         $this->db_pod->select($select);
         $this->db_pod->join('podcasts', 'podcasts.id=podcast_items.podcast_id');
         if ($captions) {
+            // Important: a LEFT JOIN.
             $this->db_pod->join('podcast_item_media', 'podcast_item_media.podcast_item=podcast_items.id', 'left');
             $this->db_pod->order_by('pim_type', 'desc');
         }
@@ -69,7 +70,7 @@ SQL;
 
         //$query = $this->db_pod->query($sql_cc);
 
-        #echo $this->db_pod->last_query()."\n<br>\n";
+        #$this->firephp->fb($this->db_pod->last_query(), 'Podcast model', 'LOG');
 
         $result = $query->result();
 
