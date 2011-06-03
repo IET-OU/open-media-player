@@ -68,7 +68,7 @@ class Oupodcast_serv extends Base_service {
 	  $player->summary = $result->pod_summary;
 	  $player->media_html5 = TRUE;
 	  // The oEmbed type, not the PIM.media_type in the podcast DB.
-	  $player->media_type = 'audio'==$result->source_media ? 'audio' : 'video';
+	  $player->media_type = 'audio'==strtolower($result->source_media) ? 'audio' : 'video';
 	  $player->media_url = "$pod_base/feeds/$custom_id/$result->filename"; #608x362px.
 	  if ($result->image) {
 		$player->poster_url= "$pod_base/feeds/$custom_id/$result->image";    #304x304px.
@@ -108,6 +108,8 @@ class Oupodcast_serv extends Base_service {
 	  $player->calc_size($width, $height, $audio_poster);
 	  $player = $this->_get_related_link($player, $result);
 	  $player = $this->_get_caption_url($player, $result);
+
+	  $this->CI->firephp->fb($player, 'player', 'LOG');
 
       return $player;
   }
