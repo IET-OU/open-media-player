@@ -39,6 +39,8 @@ margin: 6px;
 top: 0;
 display: inline-block;
 vertical-align: top;
+background: url(img/ou-logo.jpg);
+width: 32px; height: 38px;
 }
 ul.mediatitle {
 display: inline-block;
