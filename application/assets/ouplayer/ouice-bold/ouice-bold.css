@@ -10,19 +10,31 @@ body, * {
 font-family: Verdana, Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;
 }
 
-/*Accessibility: hide volume-out offscreen. */
-/*  For now, should we hide the buttons offscreen too? */
-.oup-controls .volume-out, .oupc  .quieter, .oupc .louder {
-  position: absolute;
-  top: -999px;
-}
-
-.oup-controls  .more, .oup-controls .time-total, .oup-controls .mute{
+.oup-controls  .more, .oup-controls .time-total, .oupc .volume-bg{
   display: none;
 }
 .oup-controls button span, .oup-controls a span, .oupc .head span{
-  display: none;
+  display: none; color: #e8e8e8;
 }
+.oupc .row-2{border-top: none;}
+
+
+/*Accessibility: hide volume-out offscreen. */
+/*  For now, should we hide the buttons offscreen too? */
+.oup-controls .volume-out, .oupc .quieter, .oupc .louder {
+  position: absolute;
+  top: -999px;
+  width:1px; height:1px;
+  overflow:hidden;
+}
+.oupc .quieter:focus, .oupc .louder:focus{
+  top:auto;
+  left:130px !important; /*Why important? */
+  bottom:5px;
+  width:25px; height:25px;
+}
+.oupc .quieter span, .oupc .louder span{display:inline; font-weight:bold;}
+
 
 /*.titletoolbar {
 background: #f1f2f2 url(img/titlebg.jpg) repeat-x left bottom;
@@ -52,24 +64,43 @@ overflow-y:hidden;
 font-weight: bold;
 }
 
-.optionalnav button.styleoption span {
+.optionalnav .themeoption span {
 	background:url(img/styleicon.jpg) no-repeat top left;
 	padding-left:1.5em;
 }
 
-.titletoolbar .optionalnav button {
+.oup-title.panel button, .oup-title .optionalnav a, .oup-title label{
+cursor:pointer;
+display:inline-block;
 background: none repeat scroll 0 0 #E1E2E3;
-border: 0 none;
-font-size: 13px;
-margin: 1px;
-padding: 0 2px;
-width:auto;
+color:#111;
+text-decoration:none;
+text-align:center;
+border: 1px solid #d5d5d5;
+border-radius:4px;
+font-size: .98em;
+margin: 0 1px;
+padding:3px;
+width:auto; height:2.6em;
+max-width:5.5em;
+vertical-align:bottom;
+}
+.oup-title.panel .short-url{}
+.oup-title.panel textarea, .oup-title.panel select{
+position:fixed; top:-999px; width:1px; height:1px;
+}
+.oup-title textarea:focus, .oup-title select:focus{
+top:124px; left:228px; width:10em; height:3em;
+}
+.oup-title select:focus{left:150px; height:2em;}
+.oup-title button:hover, .oup-title .optionalnav a:hover, .oup-title label:hover{
+background:#d4d4d4; border:1px solid #999;
 }
 
-.optionalnav {
-margin:0.5em 0;
+.oup-title .optionalnav {
+margin:1.1em 0 .5em;
 }
-.mediatitle li {
+.oup-title .mediatitle li {
 margin-left:3em;
 }
 .titletoolbar .optionalnav .col1,
@@ -83,48 +114,42 @@ float:left;
 background: url(img/ou-logo.jpg) no-repeat;
 width: 32px; height: 38px;
 }
-/*End: S.D.Price */
+/*End: oup-title panel. */
 
 
 .oup-controls {
 background: #58595b;
-color: #fff;
+/*color: #fff;*/
 padding: 6px;
-/*width: 618px;*/
 -moz-border-radius: 5px;
 border-radius: 5px;
-/*bottom: 37px;
-left: 5px;
-position: relative;*/
 height: 50px;
+color: #6dcff6;
+font-weight: bold;
 }
-.oup-controls button, .oup-controls a {
-background: #2e2e2e;
+.oup-controls button, .oup-controls a, .oupc button:hover {
+background-color: #2e2e2e;
+background-repeat:no-repeat;
+background-position:center;
 border: 0;
 -moz-border-radius: 3px;
 border-radius: 3px;
 vertical-align: middle;
 height: auto;
 }
-.oup-controls .play, .oup-controls .pause{
+.oup-controls a {
+text-decoration: none;
+}
+.oup-controls .play, .oup-controls .pause, .oupc .play:hover, .oupc .pause:hover{
 width: 70px;
 height: 50px;
 }
 .oup-controls .play, .oupc .play:hover {
-background: #2e2e2e url(img/playbtn.jpg) no-repeat center;
+background-image: url(img/playbtn.jpg);
 }
 .oup-controls .pause, .oupc .pause:hover {
-background: #2e2e2e url(img/pausebtn.jpg) no-repeat center;
+background-image: url(img/pausebtn.jpg);
 }
-/*.oup-controls .play span, .oup-controls .pause span {
-display: none;
-}
-.oupc  .row-1, .oupc  .row-2 {
-display: inline-block;
-clear: both;
-top: 0;
-left: 0;
-}*/
 .X-oupc .row-1{
 left: 0;
 top: -10px;
@@ -137,28 +162,21 @@ top: 20px;*/
 text-align: right;
 margin-top: 9px;
 }
-.oup-controls /*.row-2*/ button, .oup-controls  a {
-color: #6dcff6;
-font-weight: bold
-}
-.oup-controls a {
-text-decoration: none;
-}
-.oup-controls .back, .oup-controls .forward {
+.oup-controls .back, .oup-controls .forward, .oupc .back:hover, .oupc .forward:hover{
 width: 25px;
 height: 20px;
 }
-.oup-controls .back {
+.oup-controls .back, .oupc .back:hover{
 -moz-border-radius: 5px 0 0 5px;
 border-radius: 5px 0 0 5px;
-background: #2e2e2e url(img/rewindbtn.jpg) no-repeat center;
+background-image: url(img/rewindbtn.jpg);
 }
-.oup-controls .forward {
+.oup-controls .forward, .oupc .forward:hover{
 -moz-border-radius: 0 5px 5px 0;
-border-radius: 5px 0 0 5px;
-background: #2e2e2e url(img/forwardbtn.jpg) no-repeat center;
+border-radius: 0 5px 5px 0;
+background-image: url(img/forwardbtn.jpg);
 }
-.oup-controls  .seek.group{
+.oup-controls .seek.group{
   top: 10px;
   left: 76px;
 }
@@ -167,29 +185,22 @@ background: #414042;
 color:#eee;
 border: 1px solid #333;
 -moz-border-radius: 9px 0 0 9px;
+border-radius: 9px 0 0 9px;
 padding: 2px 5px;
 font-size: 12px;
 border-top: 2px solid #2c2b2c;
 vertical-align: middle;
+width:90px;
 }
-/*span.time span, span.time strong{
-padding: 2px;
-}
-.X-track * {
-    display: inline;
-}*/
-.oup-controls .track, .volume {
+.oupc .seek-bar, .XX-volume {
 background-color: #7c7d7f;
 border: 0;
 border-top: 2px solid rgba(0,0,0,0.4);
-display: inline-block;
-position: relative;
+x-display: inline-block;
 vertical-align: middle;
-}
-.oup-controls .track {
   position: fixed;
   bottom: 32px;
-  left: 224px;
+  left: 240px;
 height: 18px;
 /*left: -6px;*/
 -moz-border-radius: 0 9px 9px 0;
@@ -197,6 +208,8 @@ border-radius: 0 9px 9px 0;
 }
 .oup-controls .playhead {
 height: 18px;
+width: 3px;
+x-border:1px solid red;
 }
 .oup-controls .progress, .oup-controls .buffer {
 height: 18px;
@@ -206,22 +219,26 @@ opacity: 1;
 background-color: #6dcff6;
 }
 .oup-controls .buffer {
-background: #a7a9ac url(img/pattern1.jpg) repeat bottom left;;
+background: #a7a9ac url(img/pattern1.jpg) repeat bottom left;
 }
-/*.speakericon{
-display: inline-block;
-vertical-align: middle;
-margin: 0 5px 0 0;
-}*/
-.volume-bar {
+.volume.group{
+position:fixed;
+left:80px;
+}
+.oupc .volume-bar{
+position:fixed;
+left:110px;
+bottom:8px;
 width: 60px;
 -moz-border-radius: 20px;
 border-radius: 20px;
 height: 11px;
 margin-top: 2px;
 cursor: pointer;
+
+background-color: #ddd /*#6dcff6*/ !important;
 }
-.volume-something, .current{
+.XX-volume-something, .current{
 background-color: #6dcff6;
 width: 30px;
 height: 11px;
@@ -239,7 +256,7 @@ position: absolute;
 margin: -3px 0 0 20px;
 }
 
-/*.oup.show-script #ouplayer-div, .oup.show-script .XX--oup-controls {
+/*.oup.show-script #ouplayer-div, .oup.show-script {
     width: 398px;
 }
 .oup.show-script #ouplayer-panel {
@@ -256,18 +273,19 @@ bottom:10px;
 right: 64px;
 }
 /*.oup-controls a.related, .oup-controls button.captn, .oup-controls button.script, .oup-controls a.popout, .oup-controls button.fulls*/
-.oup-controls .tools.group  button, .oup-controls .tools.group a {
+.oup-controls .tools.group button, .oup-controls .tools.group a {
 height: 20px;
 width: 24px;
 }
-.oup-controls  a{
+.oup-controls a{
   position:relative;
   top:0;
   padding:0;
   display:inline-block;
 }
-.oup-controls button.mute{
-background: url(img/speakericon.png) no-repeat center;
+.oup-controls .mute, .oupc .mute:hover{
+background: url(img/speakericon.jpg) no-repeat center;
+width:25px; height:25px;
 }
 
 .oup-controls a.related{
@@ -285,7 +303,4 @@ background: url(img/popouticon.png) no-repeat center;
 .oup-controls a.fulls {
 background: url(img/maximiseicon.png) no-repeat center;
 }
-/*.oup-controls a.related span, .oup-controls button.captn span, .oup-controls button.script span, .oup-controls a.popout span, .oup-controls button.fulls span{
-display: none;
-}*/
 
