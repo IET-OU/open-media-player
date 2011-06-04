@@ -22,10 +22,10 @@
 }
 
 .oup-controls .time-out, .oup-controls .time-total{
-  border:1px solid #111;
+  border:1px solid #222;
   padding:0 7px;
   border-radius:3px;
-  background:#333;
+  background:#373737;
   color:#eee;
   width:38px;
   height:13px;
@@ -124,12 +124,13 @@
 
 
 .oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
-  background:#444;
+  background:#535353; /*#444*/
   color:#fdfdfd;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=88)"; /*First!*/
   filter:alpha(opacity=88);
   opacity:0.88;
 }
+.XX-oup.mtype-audio .oup-title.panel{background:#555;}
 .oup-settings.panel a{
   color:#fafafa;
   text-decoration:none;
@@ -141,6 +142,7 @@
 }
 .oup-title.panel{
   margin:0;
+  padding-bottom:3px;
   border-radius:0; x-border:2px solid #999;
   overflow:hidden;
   position:fixed;
@@ -148,6 +150,7 @@
   max-width:none; width:100%; height:41px;
 }
 .oup-title.panel a{color:#eee;}
+.oup-title.panel a.rel-2{white-space:nowrap; /*audio-player*/}
 .oup-title.panel h1{text-shadow:#000 0 2px 2px;}
 .oup-title.panel .mediatitle{position:relative; top:-41px; left:37px; margin-right:42px;}
 .oup-title.panel .optionalnav{display:none;}

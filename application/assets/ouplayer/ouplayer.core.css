@@ -3,8 +3,9 @@
 */
 * {font-size:1em;}
 
-body{margin:0; padding:0; min-width:460px; background:#eee; font:.8em Verdana,sans-serif;}
-object,img,audio,video{display:block; width:100%; height:100%;/*position:fixed; top:0; bottom:62px;*/}
+body{margin:0; padding:0; min-width:460px; background:#eee;
+  font:.8em Verdana, Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;}
+object,img,audio,video{display:block; width:100%; height:100%;}
 a img{border:none;}
 
 /*Debug: simples! */
@@ -90,8 +91,6 @@ body.X-debug:after{content:attr(class); color:red;}
   font-size:.9em;
   background:#eee;
   border-radius: 4px;
-
-  /*-x-margin:1px;*/
 }
 .oup-controls  a {
   /*position: relative;
@@ -143,16 +142,14 @@ body.X-debug:after{content:attr(class); color:red;}
 .oupc  .time-right.group{
   position: fixed;
   right: 50px;
-  bottom: 34px;
+  bottom:36px;
 }
 
 .oupc .seek-bar{
   background: blue;
-  /*x-border:1px solid red;*/
 
   position: fixed;
   bottom: 34px;
-  /*x-top: -30px;*/
   left: 155px;
   right: 104px;/*48px*/
 
@@ -183,7 +180,7 @@ body.X-debug:after{content:attr(class); color:red;}
 .oupc .row-2{
   border-top: 1px dashed black;
   position: relative;
-  left: 48px;
+  left: 50px;
   x-top: -28px;
 }
 .oupc  .volume.group button{position:relative; top:1px;}
@@ -221,7 +218,7 @@ body.X-debug:after{content:attr(class); color:red;}
 .oupc .tools.group{
   position: absolute;
   bottom: -2px; /*was:1px*/
-  right: 50px;
+  right: 52px;
 }
 
 /* CSS3 media-query: hide video-player t-script button (620-2)px */
@@ -270,7 +267,7 @@ body.X-debug:after{content:attr(class); color:red;}
   display:none;
   position: absolute;
   top: 5px;
-  background:#f8f8f8;
+  background:#eee;/*#f8f8f8*/
   color:#111;
   border-radius: 5px;
   min-width: 400px;
@@ -281,10 +278,14 @@ body.X-debug:after{content:attr(class); color:red;}
   padding: 6px;
   margin: 6px;
 }
+.oup.mtype-audio .oup-title.panel{display:block;}
+/*@media (min-height: 200px){
+  .oup-title.panel{ display:none; }
+}*/
 /*State change. */
-.oup-paused .oup-title.panel{display: block; z-index:100;}
+.oup.mtype-video.oup-paused .oup-title.panel{display: block; z-index:100;}
 
-.oup-title.panel h1{margin:0 0 6px;}
+.oup-title.panel h1{margin:0 0 6px; white-space:nowrap;}
 .oup-title.panel .ou-home{display:block; width:32px; height:/*1px;*/38px; background:url(oulogo-39.png) no-repeat top left;}
 .oup-title.panel ul{list-style:none; padding:0; margin:0;}
 .oup-title.panel .optionalnav{}
