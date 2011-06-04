@@ -1,6 +1,8 @@
+@charset "utf-8";
 /** OUICE-bold theme for OU player.
 * @copyright 2011 The Open University.
 * @author A.McEvoy (CSS, visuals)
+* @author S.D.Price
 */
 /*Note, in general, the theme CSS should probably not deal with the media or transcript areas. */
 
@@ -25,6 +27,7 @@ font-family: verdana;
   display: none;
 }
 
+/*
 .titletoolbar {
 display: block;
 background: #f1f2f2 url(img/titlebg.jpg) repeat-x left bottom;
@@ -49,7 +52,7 @@ text-shadow: #fff 0px 1px 1px;
 vertical-align: top;
 padding: 0 0 0 10px;
 /*width: 182px;*/
-/*overflow: hidden;*/
+/*overflow: hidden;*-/
 }
 .titletoolbar h1 {
 font-size: 16px;
@@ -63,11 +66,11 @@ margin: 0;
 }
 .titletoolbar .optionalnav{
 /*display: inline-block;
-float: right;*/
+float: right;*-/
 }
 .titletoolbar .optionalnav .col1, .titletoolbar .optionalnav .col2, .titletoolbar .optionalnav .col3{
 /*display: inline-block;
-width: auto;*/
+width: auto;*-/
 display: inline;
 }
 .titletoolbar .optionalnav button{
@@ -77,7 +80,7 @@ font-size: 13px;
 margin: 1px;
 padding: 0 2px;
 /*width: 100%;
-display: block;*/
+display: block;*-/
 }
 .titletoolbar .optionalnav button span{
 
@@ -93,7 +96,68 @@ font-weight: bold;
     display: inline;
     margin-right: 3px;
     vertical-align: top;
+}*/
+
+/**
+ * @author S.D.Price, 3 June.
+ */
+body {
+font-family:Tahoma,"Lucida Grande", Arial, Helvetica, sans-serif;
 }
+
+.oup-title.panel {
+opacity:0.8;
+max-width:auto;
+margin:0.5em;
+width:auto;
+top:0;
+border-radius:5px;
+overflow-y:hidden;	
+}
+
+.optionalnav button.decreasesize, 
+.optionalnav button.increasesize {
+font-weight: bold;
+}
+
+.optionalnav button.styleoption span {
+	background:url(styleicon.jpg) no-repeat top left;
+	padding-left:1.5em;
+	
+	
+}
+
+.titletoolbar .optionalnav button {
+background: none repeat scroll 0 0 #E1E2E3;
+border: 0 none;
+font-size: 13px;
+margin: 1px;
+padding: 0 2px;
+width:auto;
+}
+
+.optionalnav {
+margin:0.5em 0;	
+}
+
+.mediatitle li {
+margin-left:3em;
+}
+
+.titletoolbar .optionalnav .col1, 
+.titletoolbar .optionalnav .col2,
+.titletoolbar .optionalnav .col3 {
+display: inline;
+}
+
+
+.oup-title.panel .ou-home {
+float:left;
+
+	
+}
+/*End: S.D.Price */
+
 
 .oup-controls {
 background: #58595b;
