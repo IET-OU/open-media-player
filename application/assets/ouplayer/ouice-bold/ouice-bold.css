@@ -6,12 +6,9 @@
 */
 /*Note, in general, the theme CSS should probably not deal with the media or transcript areas. */
 
-* {
-font-family: verdana;
+body, * {
+font-family: Verdana, Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;
 }
-/*#XX--ouplayer.w640 {
-    margin: 0 auto;
-	}*/
 
 /*Accessibility: hide volume-out offscreen. */
 /*  For now, should we hide the buttons offscreen too? */
@@ -27,104 +24,37 @@ font-family: verdana;
   display: none;
 }
 
-/*
-.titletoolbar {
-display: block;
+/*.titletoolbar {
 background: #f1f2f2 url(img/titlebg.jpg) repeat-x left bottom;
--moz-border-radius: 5px;
 border-radius: 5px;
 width: 616px;
-position: absolute;
 padding: 6px;
 margin: 6px;
-}
-.titletoolbar img.logo{
-top: 0;
-display: inline-block;
-vertical-align: top;
-background: url(img/ou-logo.jpg);
-width: 32px; height: 38px;
-}
-ul.mediatitle {
-display: inline-block;
-list-style: none;
-text-shadow: #fff 0px 1px 1px;
-vertical-align: top;
-padding: 0 0 0 10px;
-/*width: 182px;*/
-/*overflow: hidden;*-/
-}
-.titletoolbar h1 {
-font-size: 16px;
-margin: 0;
-line-height: 1.3em;
-clear: right;
-}
-.titletoolbar h2{
-font-size: 13px;
-margin: 0;
-}
-.titletoolbar .optionalnav{
-/*display: inline-block;
-float: right;*-/
-}
-.titletoolbar .optionalnav .col1, .titletoolbar .optionalnav .col2, .titletoolbar .optionalnav .col3{
-/*display: inline-block;
-width: auto;*-/
-display: inline;
-}
-.titletoolbar .optionalnav button{
-background: #e1e2e3;
-border: 0;
-font-size: 13px;
-margin: 1px;
-padding: 0 2px;
-/*width: 100%;
-display: block;*-/
-}
-.titletoolbar .optionalnav button span{
-
-}
-.titletoolbar .optionalnav button:hover{
-background: #6dcff6;
-}
-
-.optionalnav button.decreasesize, .optionalnav button.increasesize {
-font-weight: bold;
-}
-.optionalnav button.styleoption img {
-    display: inline;
-    margin-right: 3px;
-    vertical-align: top;
 }*/
 
-/**
- * @author S.D.Price, 3 June.
- */
-body {
-font-family:Tahoma,"Lucida Grande", Arial, Helvetica, sans-serif;
-}
 
+/*@author S.D.Price, 3 June. */
 .oup-title.panel {
-opacity:0.8;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=87)"; /*First!*/
+filter:alpha(opacity=87);
+opacity:0.87;
 max-width:auto;
 margin:0.5em;
 width:auto;
 top:0;
+-moz-border-radius:5px;
 border-radius:5px;
 overflow-y:hidden;	
 }
 
-.optionalnav button.decreasesize, 
+.optionalnav button.decreasesize,
 .optionalnav button.increasesize {
 font-weight: bold;
 }
 
 .optionalnav button.styleoption span {
-	background:url(styleicon.jpg) no-repeat top left;
+	background:url(img/styleicon.jpg) no-repeat top left;
 	padding-left:1.5em;
-	
-	
 }
 
 .titletoolbar .optionalnav button {
@@ -137,24 +67,21 @@ width:auto;
 }
 
 .optionalnav {
-margin:0.5em 0;	
+margin:0.5em 0;
 }
-
 .mediatitle li {
 margin-left:3em;
 }
-
-.titletoolbar .optionalnav .col1, 
+.titletoolbar .optionalnav .col1,
 .titletoolbar .optionalnav .col2,
 .titletoolbar .optionalnav .col3 {
 display: inline;
 }
 
-
 .oup-title.panel .ou-home {
 float:left;
-
-	
+background: url(img/ou-logo.jpg) no-repeat;
+width: 32px; height: 38px;
 }
 /*End: S.D.Price */
 
