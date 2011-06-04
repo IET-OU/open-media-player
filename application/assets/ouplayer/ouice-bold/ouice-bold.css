@@ -90,7 +90,7 @@ vertical-align:bottom;
 position:fixed; top:-999px; width:1px; height:1px;
 }
 .oup-title textarea:focus, .oup-title select:focus{
-top:124px; left:228px; width:10em; height:3em;
+top:130px; left:228px; width:10em; height:3em;
 }
 .oup-title select:focus{left:150px; height:2em;}
 .oup-title button:hover, .oup-title .optionalnav a:hover, .oup-title label:hover{
@@ -139,6 +139,10 @@ height: auto;
 }
 .oup-controls a {
 text-decoration: none;
+  position:relative;
+  top:0;
+  padding:0;
+  display:inline-block;
 }
 .oup-controls .play, .oup-controls .pause, .oupc .play:hover, .oupc .pause:hover{
 width: 70px;
@@ -157,8 +161,6 @@ display: inline-block;
 vertical-align: middle;
 }
 .X-oupc .row-2 {
-/*left: -176px;
-top: 20px;*/
 text-align: right;
 margin-top: 9px;
 }
@@ -196,20 +198,17 @@ width:90px;
 background-color: #7c7d7f;
 border: 0;
 border-top: 2px solid rgba(0,0,0,0.4);
-x-display: inline-block;
 vertical-align: middle;
   position: fixed;
   bottom: 32px;
   left: 240px;
 height: 18px;
-/*left: -6px;*/
 -moz-border-radius: 0 9px 9px 0;
 border-radius: 0 9px 9px 0;
 }
 .oup-controls .playhead {
 height: 18px;
 width: 3px;
-x-border:1px solid red;
 }
 .oup-controls .progress, .oup-controls .buffer {
 height: 18px;
@@ -221,7 +220,7 @@ background-color: #6dcff6;
 .oup-controls .buffer {
 background: #a7a9ac url(img/pattern1.jpg) repeat bottom left;
 }
-.volume.group{
+.oupc .volume.group{
 position:fixed;
 left:80px;
 }
@@ -236,9 +235,11 @@ height: 11px;
 margin-top: 2px;
 cursor: pointer;
 
-background-color: #ddd /*#6dcff6*/ !important;
+border: 0;
+border-top: 2px solid rgba(0,0,0,0.4);
+background-color: #8c8d8f /*#6dcff6*/ !important;
 }
-.XX-volume-something, .current{
+.XX-volume-something, .XX-current{
 background-color: #6dcff6;
 width: 30px;
 height: 11px;
@@ -247,7 +248,7 @@ display:inline;
 -moz-border-radius: 20px 0 0 20px;
 border-radius: 20px 0 0 20px;
 }
-.volumehead{
+.oupc .volumehead{
 background: url(img/volumehead.png) no-repeat center;
 height: 16px;
 width: 16px;
@@ -256,10 +257,7 @@ position: absolute;
 margin: -3px 0 0 20px;
 }
 
-/*.oup.show-script #ouplayer-div, .oup.show-script {
-    width: 398px;
-}
-.oup.show-script #ouplayer-panel {
+/*.oup.show-script #ouplayer-panel {
     -moz-border-radius: 0 5px 5px 0;
     height: 394px;
     top: -374px;
@@ -270,19 +268,13 @@ margin: -3px 0 0 20px;
 .oup-controls .tools.group{
 position:absolute;
 bottom:10px;
-right: 64px;
+right: 66px;
 }
-/*.oup-controls a.related, .oup-controls button.captn, .oup-controls button.script, .oup-controls a.popout, .oup-controls button.fulls*/
 .oup-controls .tools.group button, .oup-controls .tools.group a {
 height: 20px;
 width: 24px;
 }
-.oup-controls a{
-  position:relative;
-  top:0;
-  padding:0;
-  display:inline-block;
-}
+
 .oup-controls .mute, .oupc .mute:hover{
 background: url(img/speakericon.jpg) no-repeat center;
 width:25px; height:25px;
