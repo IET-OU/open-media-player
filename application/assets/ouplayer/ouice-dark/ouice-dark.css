@@ -67,17 +67,11 @@
 .oup-controls .pause,.oupc .pause:hover{background-position:-200px -1px}
 .oup-controls .back,   .oupc .back:hover{background-position:-58px -8px; width:18px; height:14px; margin:4px 0 0 4px;}
 .oup-controls .forward,.oupc .forward:hover{background-position:-81px -8px; width:18px; height:14px; margin:4px 4px 0 0;}
-/*.oup-controls .play, .oupc .play:hover{ background-position:-4px -3px}
-.oup-controls .pause,.oupc .pause:hover{background-position:-200px -1px}
-.oup-controls .back,   .oupc .back:hover{background-position:-60px -10px; width:18px; height:14px; margin:4px 0 0 4px; }
-.oup-controls .forward,.oupc .forward:hover{background-position:-83px -10px; width:18px; height:14px; margin:4px 4px 0 0; }*/
 
 /*volume-group*/
 .oup-controls .mute, .oupc .mute:hover, .oupc .mute:focus{background-image:none;}
 .oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
-/*.oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
-.oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px}*/
 .oup-controls .volume.group  button{background-color:transparent; z-index:1000;}
 .oup-controls .volume-bg{
 /*Volume feedback: width will vary! */
@@ -93,13 +87,6 @@
 .oup-controls .popout, .oupc .popout:hover{background-position:-542px -30px}
 .oup-controls .fulls, .oupc .fulls:hover {background-position:-395px -30px}
 .oup-controls .more, .oupc .more:hover{background-position:-591px -30px}
-
-/*.oup-controls .related,.oupc .related:hover{background-position:-141px -30px}
-.oup-controls .captn ,  .oupc .captn:hover {background-position:-446px -32px}
-.oup-controls .tscript,.oupc .tscript:hover{background-position:-495px -32px}
-.oup-controls .popout, .oupc .popout:hover{background-position:-542px -30px}
-.oup-controls .fulls, .oupc .fulls:hover {background-position:-397px -32px}
-.oup-controls .more, .oupc .more:hover{background-position:-593px -32px}*/
 
 /*seek-bar.*/
 .oup-controls .X-seek-bar *{display:block;}
