@@ -15,24 +15,6 @@
   <?php if($meta->_related_url)echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window'))); ?></li>
   </li></ul>
 
-  <div class="optionalnav">
-  <div class="col1">
-  <button class="decreasesize" aria-label="<?=t('Decrease text size') ?>"><span>-A</span></button>
-  <button class="increasesize" aria-label="<?=t('Increase text size') ?>"><span>A+</span></button>
-  <button class="styleoption" aria-label="Style changer"><span><?=t('Theme') ?><?php /*<img class="styleicon" alt="Style icon" src="a6../styleicon.jpg" height="16" width="16">Style*/ ?></span></button>
-  </div>
-  <div class="col2">
-  <button class=""><span>Option</span></button>
-  <button class=""><span>Text</span></button>
-  <button class=""><span>Subs</span></button>
-  </div>
-  <div class="col3">
-  <button class=""><span>Option</span></button>
-  <button class=""><span>Option</span></button>
-  <button class=""><span>Option</span></button>
-  </div>
-  </div>
-</div>
 
 <?php
   // Embed code - uses jQuery-oEmbed plugin.
@@ -44,13 +26,43 @@
 <script src="http://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
 <script>
 $(document).ready(function(){
-  $("a.embed").oembed(null,{oupodcast:{_theme:"ouice-dark"}});
+  $("a.embed").oembed(null,{oupodcast:{_theme:"$theme"}});
 });
 </script>
 EOF;
 ?>
 
-<div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('More settings') ?>">
+<div role="menu" class="optionalnav" aria-label="<?=t('Player options') ?>">
+  <div class="col1">
+  <a class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
+  <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About') ?></span></a>
+<?php /*<button class="decreasesize" aria-label="<?=t('Decrease text size') ?>"><span>-A</span></button>
+  <button class="increasesize" aria-label="<?=t('Increase text size') ?>"><span>A+</span></button>*/ ?>
+  <label role="button" class="themeoption" for="theme-menu" aria-label="Style changer"><span><?=t('Theme') ?><?php /*<img class="styleicon" alt="Style icon" src="a6../styleicon.jpg" height="16" width="16">Style*/ ?></span></label>
+  <select id="theme-menu" name="_theme">
+    <option value="ouice-dark">OUICE Dark</option>
+    <option value="ouice-bold" selected>OUICE Bold</option>
+  </select>
+  </div>
+  <div class="col2">
+  <label role="button" class="embed" for="embed-code"><span><?=t('Embed code') ?></span></label></a>
+  <textarea id="embed-code" readonly title="Javascript-based embed (oEmbed)"><?=str_replace('<','&lt;', $jq_oembed) ?></textarea>
+  <a class="embed-opt" href="#embed/TODO" title="<?=t('New window') ?>"><span><?=t('More embeds…') ?></span></a>
+<?php /*<button class=""><span>Option</span></button>
+  <button class=""><span>Text</span></button>
+  <button class=""><span>Subs</span></button>*/ ?>
+  </div>
+  <div class="col3">
+  <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
+  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: PDF') ?>"><span><?=t('Download transcript') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: perma-link') ?>"><span><?=t('View on Podcasts') ?></span></a>
+  </div>
+  </div>
+</div>
+
+
+
+<div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('Player options') ?>">
   <button class="more-close" title="<?=t('Close settings') ?>"><span>X</span></button>
   <a class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
   <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
@@ -59,9 +71,7 @@ EOF;
   <a class="embed-opt" href="#embed/TODO"><span><?=t('More embed options') ?></span></a>
   <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
   <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: PDF') ?>"><span><?=t('Download transcript') ?></span></a>
-  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: perma-link') ?>"><span><?=t('View on podcast site') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: perma-link') ?>"><span><?=t('View on OU podcasts') ?></span></a>
 </div>
-
-
 
 
