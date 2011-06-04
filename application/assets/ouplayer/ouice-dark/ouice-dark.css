@@ -1,11 +1,11 @@
-/**
-* OUICE-dark theme for OU player.
+@charset "utf-8";
+/** OUICE-dark theme for OU player.
 * @copyright 2011 The Open University.
 * @author D.J.Winter (visuals)
 * @author N.D.Freear (CSS)
 */
 .oup-controls{
-  background:gray url(background/2000x60_bg.png) no-repeat center left;/*was:64x60_bg.png*/
+  background:#555 url(background/2000x60_bg.png) no-repeat center left; /*was:64x60_bg.png*/
 }
 .oup-controls  .volume-bar, .oup.no-debug .mute{
   display: none;
@@ -23,11 +23,11 @@
 
 .oup-controls .time-out, .oup-controls .time-total{
   border:1px solid #111;
-  padding:0 8px;
+  padding:0 7px;
   border-radius:3px;
   background:#333;
   color:#eee;
-  width:35px;
+  width:38px;
   height:13px;
   overflow:hidden;
 }
@@ -104,17 +104,17 @@
 /*seek-bar.*/
 .oup-controls .X-seek-bar *{display:block;}
 
-.oup-controls .seek-bar{background:url(timeline/timeline_grey_main.png) repeat-x center;}
-.oup-controls .buffer   {background:url(timeline/timeline_hatch_main.png) repeat-x center;}
-.oup-controls .progress{background:url(timeline/timeline_bluebar_main.png) repeat-x center;}
-.oup-controls .playhead{background:url(timeline/timeline_slider.png) no-repeat 0 3px; width:11px; height:14px;}
+.oupc .seek-bar{background:url(timeline/timeline_grey_main.png) repeat-x center;}
+.oupc .buffer{background:url(timeline/timeline_hatch_main.png) repeat-x center;}
+.oupc .progress{background:url(timeline/timeline_bluebar_main.png) repeat-x center;}
+.oupc .playhead{background:url(timeline/timeline_slider.png) no-repeat 0 3px; width:11px; height:14px;}
 
 /*.oup-controls .seek-bar, .oupc .buffer, .oupc .progress, .oupc .playhead{
   border:1px solid transparent;
   border-radius:4px;  
 }*/
 
-.oup  .tscript-close, .oup .more-close{
+.oup .tscript-close, .oup .more-close{
   background:url(transcript_close.png) no-repeat center; border:1px solid transparent; width:34px; height:34px; float:right;
 }
 .oup .tscript-close:focus{background-color:#bbb;}
@@ -124,11 +124,11 @@
 
 
 .oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
-  background:#333;
-  color:#fafafa;
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)"; /*First!*/
-  filter:alpha(opacity=90);
-  opacity:0.9;
+  background:#444;
+  color:#fdfdfd;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=88)"; /*First!*/
+  filter:alpha(opacity=88);
+  opacity:0.88;
 }
 .oup-settings.panel a{
   color:#fafafa;
@@ -140,12 +140,12 @@
   border-bottom:1px solid #ccc;
 }
 .oup-title.panel{
-  border:2px solid #999; overflow:hidden; height:auto;
+  margin:0;
+  border-radius:0; x-border:2px solid #999;
+  overflow:hidden;
   position:fixed;
-  bottom:59px;
-  top:auto;
-  width:auto;
-  height:46px;
+  bottom:60px; top:auto;
+  max-width:none; width:100%; height:41px;
 }
 .oup-title.panel a{color:#eee;}
 .oup-title.panel h1{text-shadow:#000 0 2px 2px;}
