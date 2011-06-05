@@ -178,10 +178,11 @@ var OUP = OUP || {};
 	};
 	addEvent(byClass('captn'), 'click', toggleCaptions);
 
-	addEvent(byClass('fulls'), 'click',(function toggleFullScreen(){
-	  self.log('fullscreen');
+	function toggleFullScreen(){
 	  self.player.toggleFullscreen();
-	}));
+	  self.log('fullscreen');
+	}
+	addEvent(byClass('fulls'), 'click', toggleFullScreen);
 
 	self.player.onVolume(function(vol){
 		byClass('volume-out').value = parseInt(vol)+'%';
@@ -216,16 +217,15 @@ var OUP = OUP || {};
   };//OUP.initialize
 
   //M.Pilgrim|http://diveintohtml5.org/everything.html#video
-  function supports_video(){
+  /*function supports_video(){
     return !!document.createElement('video').canPlayType;
-  };
+  }*/
 
-  OUP.supports_h264_baseline_video = function() {
+  function supports_h264_baseline_video(){
     var v = document.createElement('video');
     return !!(v.canPlayType && v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"').replace(/no/, ''));
   };
-
-  OUP.supports_mp3_audio = function(){
+  function supports_mp3_audio(){
     var a = document.createElement('audio');
     return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
   };
@@ -235,8 +235,8 @@ var OUP = OUP || {};
 	    poster = byClass('oup-poster'),
 	    ctrl = byClass('oup-controls');
 
-	if (('video'===type && OUP.supports_h264_baseline_video())
-	 || ('audio'===type && OUP.supports_mp3_audio())) {
+	if (('video'===type && supports_h264_baseline_video())
+	 || ('audio'===type && supports_mp3_audio())) {
 
 	  html5_media.style.display = 'block';
 	  poster.style.display = 'none';
