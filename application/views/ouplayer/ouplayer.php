@@ -3,14 +3,19 @@
  *
  * @copyright Copyright 2011 The Open University.
 
-Test, video:  /ouplayer/embed/pod/mst209-fun-of-the-fair/a67918b334?width=640&height=420
-Test, audio:  /ouplayer/embed/pod/l314-spanish/fe481a4d1d?width=400&height=60&poster=0
+Test, video: /embed/pod/mst209-fun-of-the-fair/a67918b334?
+Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
  */
 //NDF, 2011-04-08/-05-19.
   $base_url = base_url();
 
   // Add switches to body-class (no 'hulu').
   $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript hide-captions hide-settings oup-paused ";
+
+  //Experimental.
+  if ($req->hide_controls /*&& 'video'==$meta->media_type*/) {
+    $body_classes.= "ctl-overlay ";
+  }
   $body_classes.= "mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
