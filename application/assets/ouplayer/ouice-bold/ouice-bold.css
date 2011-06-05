@@ -63,7 +63,6 @@ overflow-y:hidden;
 .optionalnav button.increasesize {
 font-weight: bold;
 }
-
 .optionalnav .themeoption span {
 	background:url(img/styleicon.jpg) no-repeat top left;
 	padding-left:1.5em;
@@ -79,20 +78,19 @@ text-align:center;
 border: 1px solid #d5d5d5;
 border-radius:4px;
 font-size: .98em;
-margin: 0 1px;
-padding:3px;
+margin: 1px;
+padding:2px;
 width:auto; height:2.6em;
 max-width:5.5em;
 vertical-align:bottom;
 }
-.oup-title.panel .short-url{}
 .oup-title.panel textarea, .oup-title.panel select{
 position:fixed; top:-999px; width:1px; height:1px;
 }
-.oup-title textarea:focus, .oup-title select:focus{
-top:130px; left:228px; width:10em; height:3em;
+.oup-title #embed-code:focus, .oup-title #theme-menu:focus{
+top:130px; left:225px; width:10em; height:3em;
 }
-.oup-title select:focus{left:150px; height:2em;}
+.oup-title #theme-menu:focus{left:145px; height:2em;}
 .oup-title button:hover, .oup-title .optionalnav a:hover, .oup-title label:hover{
 background:#d4d4d4; border:1px solid #999;
 }
@@ -164,7 +162,7 @@ vertical-align: middle;
 text-align: right;
 margin-top: 9px;
 }
-.oup-controls .back, .oup-controls .forward, .oupc .back:hover, .oupc .forward:hover{
+.oup-controls .back, .oupc .forward, .oupc .back:hover, .oupc .forward:hover{
 width: 25px;
 height: 20px;
 }
@@ -188,11 +186,11 @@ color:#eee;
 border: 1px solid #333;
 -moz-border-radius: 9px 0 0 9px;
 border-radius: 9px 0 0 9px;
-padding: 2px 5px;
-font-size: 12px;
+padding: 1px 5px;
+font-size: .98em; /*12px*/
 border-top: 2px solid #2c2b2c;
 vertical-align: middle;
-width:90px;
+width:94px;
 }
 .oupc .seek-bar, .XX-volume {
 background-color: #7c7d7f;
@@ -201,7 +199,7 @@ border-top: 2px solid rgba(0,0,0,0.4);
 vertical-align: middle;
   position: fixed;
   bottom: 32px;
-  left: 240px;
+  left: 245px;
 height: 18px;
 -moz-border-radius: 0 9px 9px 0;
 border-radius: 0 9px 9px 0;
@@ -228,7 +226,7 @@ left:80px;
 position:fixed;
 left:110px;
 bottom:8px;
-width: 60px;
+width: 65px;
 -moz-border-radius: 20px;
 border-radius: 20px;
 height: 11px;
