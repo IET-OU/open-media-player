@@ -160,6 +160,20 @@ var OUP = OUP || {};
 	addEvent(byClass('emcode-opt'), 'focus', embedCode);
 	addEvent(byClass('emcode-more'), 'focus', embedCode);
 
+    function toggleCtlFocus(){
+      if (hasClass(ply, 'ctl-focus')) {
+	    removeClass(ply, 'ctl-focus');
+	    addClass(ply, 'ctl-blur');
+	    self.log('toggleCtl: blur');
+	  } else {
+	    removeClass(ply, 'ctl-blur');
+	    addClass(ply, 'ctl-focus');
+	    self.log('toggleCtl: focus');
+	  }
+    };
+    addEvent(byClass('oup-controls'), 'focus', toggleCtlFocus, true);
+    addEvent(byClass('oup-controls'), 'blur', toggleCtlFocus, true);
+
 	//Captions button.
 	function toggleCaptions() {
 	  if (hasClass(ply, 'hide-captions')) {
