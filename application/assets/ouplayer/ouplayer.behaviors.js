@@ -1,7 +1,9 @@
-/**
- * OU player javascript. (NDF, 2011-04-08/-04-27/-05-18)
+/*!
+ * OU Player behaviours.
  * Copyright 2011 The Open University.
+ * http://embed.open.ac.uk
  */
+//(NDF, 2011-04-08/-04-27/-05-18)
 //The OU player object.
 var OUP = OUP || {};
 (function(){
@@ -20,11 +22,15 @@ var OUP = OUP || {};
   OUP.log=function(o){ if(window.console&&console.log){console.log('OUP: '+o);} };
   OUP.dir=function(o){ if(window.console&&console.dir){console.dir(o);} };
 
+  function byId(id){
+    return document.getElementById(id);
+  }
   function byClass(name) {
-    var par = wrap ? wrap : document;
-    var els = par.getElementsByTagName("*");
-    var re = new RegExp("(^|\\s)" + name + "(\\s|$)");
-    for (var i = 0; i < els.length; i++) {
+    var par = wrap ? wrap : document,
+        els = par.getElementsByTagName("*");
+        re = new RegExp("(^|\\s)" + name + "(\\s|$)"),
+        i=0;
+    for (i in els) {
       if (re.test(els[i].className)) {
         return els[i];
 	  }
@@ -64,17 +70,17 @@ var OUP = OUP || {};
 	  elm.addEventListener(evType, fn, useCapture);
       return true;
     } else if(elm.attachEvent){
-      var r = elm.attachEvent('on' + evType, fn);
-      return r;
+      return elm.attachEvent('on' + evType, fn);
     } else{
       elm['on' + evType] = fn;
     }
   };
 
   function attachTooltip(name) {
-	  var btn = byClass(name);
+	  var tip,
+	      btn = byClass(name);
 	  if(!btn)return;
-	  var tip = btn.getAttribute('aria-label');
+	  tip = btn.getAttribute('aria-label');
 	  btn.onmouseover=function(){ OUP.fixedtooltip(tip, btn, {type:'mouseover'}); }
 	  btn.onmouseout =function(){ OUP.delayhidetip(); }
 	  //Hmm, spoofing an event?! {type:"X"}
@@ -92,23 +98,23 @@ var OUP = OUP || {};
 
 
   OUP.initialize=function() {
-    var self= this;
-
-    var ply = document.getElementById(player_id),
-        div = document.getElementById(div_id),
-        controls_div = document.getElementById(controls_id),
-        play_btn = document.getElementById(play_btn_id);
+    var self = this,
+        ply = byId(player_id),
+        div = byId(div_id),
+        controls_div = byId(controls_id),
+        play_btn = byId(play_btn_id),
+        ctl;
 
     div.style.display='block';
     controls_div.style.display='block';
 
     //TODO: Explicitly add/remove wait-cursor/ spinner.
-    setTimeout("document.getElementById('ouplayer').style.cursor='default';", 2000);
+    setTimeout(function(){ply.style.cursor='default';}, 4000);
 
     //var wrap = controls_div; //document.getElementById('oup-controls');
 
     if (OUP.fixedtooltip && OUP.delayhidetip) {
-      for (var ctl in controls_class) {
+      for (ctl in controls_class) {
         attachTooltip(controls_class[ctl]);
       }
     }
@@ -225,9 +231,9 @@ var OUP = OUP || {};
   };
 
   OUP.html5_fallback = function(type){
-    var html5_media = byClass('oup-html5-media');
-	var poster = byClass('oup-poster');
-	var ctrl = byClass('oup-controls');
+	var html5_media = byClass('oup-html5-media'),
+	    poster = byClass('oup-poster'),
+	    ctrl = byClass('oup-controls');
 
 	if (('video'===type && OUP.supports_h264_baseline_video())
 	 || ('audio'===type && OUP.supports_mp3_audio())) {
