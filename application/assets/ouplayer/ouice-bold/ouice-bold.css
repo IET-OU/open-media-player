@@ -135,6 +135,7 @@ border-radius: 3px;
 vertical-align: middle;
 height: auto;
 }
+.X-oupc button:hover{background-color:#2b2b2b;}
 .oup-controls a {
 text-decoration: none;
   position:relative;
@@ -292,5 +293,21 @@ background: url(img/popouticon.png) no-repeat center;
 }
 .oup-controls a.fulls {
 background: url(img/maximiseicon.png) no-repeat center;
+}
+
+
+/*Show/hide controls option.
+*/
+.oup.ctl-overlay #ouplayer-div{bottom:0;}
+.oup.mtype-video.ctl-overlay/*.oup-playing - ??*/ .oup-controls{
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";/*First!*/
+filter:alpha(opacity=25);
+opacity:0.25;
+}
+.oup.ctl-overlay:hover,
+.oup.ctl-overlay .oup-controls:hover, /*.ctl-overlay .oupc:focus,*/ .ctl-overlay .oupc:active, .ctl-overlay.ctl-focus .oupc{
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+filter:alpha(opacity=100);
+opacity:1;
 }
 
