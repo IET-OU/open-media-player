@@ -50,6 +50,7 @@ class Embed extends MY_Controller {
         'debug'=> $this->_debug,
         'standalone' => false,
         'mode' => 'embed',
+        'req'  => $this->_request,
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5?_theme=$this->_theme"),
     );
 

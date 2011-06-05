@@ -12,18 +12,19 @@ define('OUP_PARAM_LANG', 'lang');
 class MY_Controller extends CI_Controller {
 
   public $firephp;
-  public $request;
+  protected $_request;
 
   public function __construct() {
     parent::__construct();
 
-    $this->request = (object) array(
+    $this->_request = (object) array(
       'debug' =>(bool)$this->input->get(OUP_PARAM_DEBUG),
       'theme' => $this->input->get(OUP_PARAM_THEME),
+      'hide_controls'=>(bool)$this->input->get('_hide_controls'),
     );
 
     $this->load->library('FirePHPCore/Firephp');
-    if ($this->config->item('debug') && $this->request->debug) {
+    if ($this->config->item('debug') && $this->_request->debug) {
         #$this->load->library('FirePHPCore/FirephpEx', null, 'firephp');
     } else {
         $this->firephp->setEnabled(false);
