@@ -3,10 +3,15 @@
 */
 * {font-size:1em;}
 
-body{margin:0; padding:0; min-width:460px; background:#eee;
+body{margin:0; padding:0; background:#eee;
   font:.8em Verdana, Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;}
 object,img,audio,video{display:block; width:100%; height:100%;}
 a img{border:none;}
+
+body.oup, .oup .oup-controls{ min-width:460px; }
+body.oup.mtype-audio, .oup.mtype-audio .oup-controls{
+  min-width:330px;
+}
 
 /*Debug: simples! */
 body.X-debug:after{content:attr(class); color:red;}
@@ -72,17 +77,11 @@ body.X-debug:after{content:attr(class); color:red;}
 */
 .oup-controls{
   background: green;
-
-  min-width: 460px;
   /*-x-position: absolute;*/
   position: fixed;
-
   height: 60px;
   bottom: 0;
   width:100%;
-}
-.oup.mtype-audio .oup-controls{
-  min-width: 380px;
 }
 /*.oup-controls*/ button, .oup-controls a{
   width:44px;
@@ -227,10 +226,11 @@ body.X-debug:after{content:attr(class); color:red;}
   .oup.mtype-video/*.no-debug*/ .oup-controls a.tscript{ display:none; }
 }
 /*CSS3: hide poster image for small audio player. */
-@media (max-height: 200px) {
+@media (max-height: 190px) {
   /*.oup.mtype-audio*/ .oup-poster{ display:none; }
-
-  .oup-controls a.tscript{ display:none; }
+}
+@media (max-height: 230px) {
+  .oup-controls a.tscript, .oupc a.more{ display:none; }
 }
 
 .oup button.tscript-close{margin:2px;}
@@ -269,12 +269,10 @@ body.X-debug:after{content:attr(class); color:red;}
   top: 5px;
   background:#eee;/*#f8f8f8*/
   color:#111;
-  border-radius: 5px;
-  min-width: 400px;
-  max-width: 640px;/*616px*/
+  x-min-width: 360px;
+  max-width: 650px;/*616px*/
   width: 85%;
   max-height: 160px;
-  overflow-y:scroll;
   padding: 6px;
   margin: 6px;
 }
@@ -285,8 +283,9 @@ body.X-debug:after{content:attr(class); color:red;}
 /*State change. */
 .oup.mtype-video.oup-paused .oup-title.panel{display: block; z-index:100;}
 
-.oup-title.panel h1{margin:0 0 6px; white-space:nowrap;}
+.oup-title.panel h1{margin:0 0 5px; white-space:nowrap;}
 .oup-title.panel .ou-home{display:block; width:32px; height:/*1px;*/38px; background:url(oulogo-39.png) no-repeat top left;}
+.oup-title.panel .rel-2{font-size:.94em;}
 .oup-title.panel ul{list-style:none; padding:0; margin:0;}
 .oup-title.panel .optionalnav{}
 
