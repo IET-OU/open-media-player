@@ -3,14 +3,27 @@
  *
  * @copyright Copyright 2011 The Open University.
  */
+//Common parameter names, shared by oEmbed/ embed/ popup controllers.
+define('OUP_PARAM_DEBUG', '_debug');
+define('OUP_PARAM_THEME', '_theme');
+define('OUP_PARAM_LANG', 'lang');
+
 
 class MY_Controller extends CI_Controller {
+
+  public $firephp;
+  public $request;
 
   public function __construct() {
     parent::__construct();
 
+    $this->request = (object) array(
+      'debug' =>(bool)$this->input->get(OUP_PARAM_DEBUG),
+      'theme' => $this->input->get(OUP_PARAM_THEME),
+    );
+
     $this->load->library('FirePHPCore/Firephp');
-    if ($this->config->item('debug') && $this->input->get('_debug')) {
+    if ($this->config->item('debug') && $this->request->debug) {
         #$this->load->library('FirePHPCore/FirephpEx', null, 'firephp');
     } else {
         $this->firephp->setEnabled(false);
@@ -19,7 +32,6 @@ class MY_Controller extends CI_Controller {
     }
     $this->firephp->fb(__METHOD__, 'OUP', 'INFO');
     $this->firephp->log('test');
-
 
     $this->lang->initialize();
   }
