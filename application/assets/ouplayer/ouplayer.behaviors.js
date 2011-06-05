@@ -148,6 +148,12 @@ var OUP = OUP || {};
 	addEvent(byClass('more'), 'click', toggleSettings);
 	addEvent(byClass('more-close'), 'click', toggleSettings);
 
+	function embedCode(){
+	  this.select(); self.log('embedSelect');
+	};
+	addEvent(byClass('emcode-opt'), 'focus', embedCode);
+	addEvent(byClass('emcode-more'), 'focus', embedCode);
+
 	//Captions button.
 	function toggleCaptions() {
 	  if (hasClass(ply, 'hide-captions')) {
