@@ -206,29 +206,48 @@ var OUP = OUP || {};
 		self.log('onVolume: '+parseInt(vol)+'%');
 	});
 
+	function plPlay(clip){
+	  var tx=play_btn.getAttribute('data-pause-text');
+	  play_btn.setAttribute('aria-label', tx);
+	  play_btn.title=tx;
+	  removeClass(ply, 'oup-paused');
+	  addClass(ply, 'oup-playing');
+	  self.log('plPlay: clip '+clip.index+'; text '+tx);
+	}
+	function plPause(clip){
+	  var tx=play_btn.getAttribute('data-play-text');
+	  play_btn.setAttribute('aria-label', tx);
+	  play_btn.title=tx;
+	  removeClass(ply, 'oup-playing');
+	  addClass(ply, 'oup-paused');
+	  self.log('plPause: clip '+clip.index+'; text '+tx);
+	}
+
     /*self.player.onError(function(code, message){
       self.log('onError '+code+', '+message);
     });*/
 	self.player.onStart(function(clip){
 	  self.log('onStart: clip '+clip.index);
     });
-
+	self.player.onBegin(function(clip){
+	  plPlay(clip);
+	  self.log('onBegin: clip '+clip.index);
+	});
     self.player.onResume(function(clip){
-	  var tx=play_btn.getAttribute('data-pause-text');
-	  play_btn.setAttribute('aria-label', tx);
-	  play_btn.title=tx;
-	  removeClass(ply, 'oup-paused');
-	  addClass(ply, 'oup-playing');
-	  self.log('onResume: clip '+clip.index+'; text '+tx);
+	  plPlay(clip);
     });
 
 	self.player.onPause(function(clip){
-	  var tx=play_btn.getAttribute('data-play-text');
-	  play_btn.setAttribute('aria-label', tx);
-	  play_btn.title=tx;
-	  removeClass(ply, 'oup-playing');
-	  addClass(ply, 'oup-paused');
-	  self.log('onPause: clip '+clip.index+'; text '+tx);
+	  plPause(clip);
+    });
+	self.player.onStop(function(clip){
+	  plPause(clip);
+	  self.log('onStop: clip '+clip.index);
+    });
+	//onLastSecond?
+	self.player.onFinish(function(clip){
+	  plPause(clip);
+	  self.log('onFinish: clip '+clip.index);
     });
 
   };//OUP.initialize
