@@ -55,9 +55,14 @@ EOF;
    ><div id="no-support">$support_text</div></audio>
 EOF;
   }
+
+  //<meta> below - tqry to ensure the most recent MSIE rendering engine
+  //@header('X-UA-Compatible: IE=edge');
 ?>
 <!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
+<meta http-equiv="X-UA-Compatible" content"IE=edge" />
 <meta name="copyright" value="&copy; 2011 The Open University" />
+
 <!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
 
 <script>
