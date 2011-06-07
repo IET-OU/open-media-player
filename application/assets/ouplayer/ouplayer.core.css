@@ -3,7 +3,7 @@
 */
 * {font-size:1em;}
 
-body{margin:0; padding:0; background:#eee;
+body{margin:0; padding:0; background:#ccc;
   font:.8em Verdana, Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;}
 object,img,audio,video{display:block; width:100%; height:100%;}
 a img{border:none;}
@@ -221,7 +221,7 @@ body.X-debug:after{content:attr(class); color:red;}
 }
 
 /* CSS3 media-query: hide video-player t-script button (620-2)px */
-@media (max-width: 618px) {
+@media _X-DISABLE_ and (max-width: 585px/*618px*/) {
 
   .oup.mtype-video/*.no-debug*/ .oup-controls a.tscript{ display:none; }
 }
