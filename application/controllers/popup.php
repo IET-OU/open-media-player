@@ -49,7 +49,8 @@ class Popup extends MY_Controller { //CI_Controller {
         'theme'=> $this->_theme,
         'debug'=> $this->_debug,
         'standalone' => false,
-		'mode' => 'popup',
+        'mode' => 'popup',
+        'req'  => $this->_request,
     );
 
     if ('basic'!=$this->_theme || $edge) {
