@@ -154,11 +154,14 @@ var OUP = OUP || {};
 	addEvent(byClass('more'), 'click', toggleSettings);
 	addEvent(byClass('more-close'), 'click', toggleSettings);
 
-	function embedCode(){
-	  this.select(); self.log('embedSelect');
+	function embedCode(cn){
+	  //this.select();
+	  var el=byClass(cn);
+	  if(el)el.select();
+	  self.log('embedCode: '+cn);
 	};
-	addEvent(byClass('emcode-opt'), 'focus', embedCode);
-	addEvent(byClass('emcode-more'), 'focus', embedCode);
+	addEvent(byClass('emcode-opt'), 'focus',(function(){embedCode('emcode-opt');}) );
+	addEvent(byClass('emcode-more'), 'focus',(function(){embedCode('emcode-more');}) );
 
     function toggleCtlFocus(){
       if (hasClass(ply, 'ctl-focus')) {
