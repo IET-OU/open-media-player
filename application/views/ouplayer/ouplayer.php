@@ -81,6 +81,14 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 
 <!--[if lt IE 9]>
 <style>
+/*MSIE hack - border is required?! */
+.oup.mode-embed.mtype-audio .oup-title .rel-2{
+  position:relative;
+  top:-16px;
+
+  border:1px solid transparent;
+}
+
 .X-oup-controls a{
   display:inline-block;
   position:relative;
