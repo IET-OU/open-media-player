@@ -18,7 +18,7 @@ if('cli'!=php_sapi_name()) die(basename(__FILE__).": Must run as cli."); #Securi
 $xgettext = array(
     'mac' => "/Applications/Poedit.app/Contents/MacOS/xgettext",
     'win' => "C:/apps/GnuWin32/bin/xgettext.exe",   
-    #'win' => "C:/Program Files/Poedit/bin/xgettext.exe",
+    'win' => "C:/Program Files/Poedit/bin/xgettext.exe",
 );
 $OS = NULL;
 foreach ($xgettext as $label => $path) {
@@ -42,8 +42,7 @@ foreach ($domains as $path) {
   $domain = basename($path);
   $directory = win_dir("$sys_dir/$path");
 
-  // No longer exclude the 'admin' section.
-  $exclude = ".|..|.svn|.po|.DS_Store|cli|about|config|Zend|phpmailer|index.html";
+  $exclude = ".|..|.svn|.po|.DS_Store|cli|about|config|Zend|phpmailer|index.html|- Copy.";
   $files = file_array($directory, $directory, $exclude);
   $bytes = file_put_contents($files_from, $files); #implode(PHP_EOL, $files));
 
