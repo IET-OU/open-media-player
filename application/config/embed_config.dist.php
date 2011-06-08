@@ -18,6 +18,14 @@ $config['debug'] = false;
 // Debugging: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
+// Flowplayer commercial license key.
+$config['flowplayer_key'] = '#$0...5';
+$config['flowplayer_version'] = '3.2.7';
+
+/*$config['flowplayer_key'] = '#$a...c';
+$config['flowplayer_version'] = '3.1.5';*/
+
+
 // Set the data directory.
 $config['data_dir'] = '/var/www/_ouplayer_data/';
 #$config['data_dir'] = 'C:/Users/ndf42/workspace/_ouplayer_data/';
