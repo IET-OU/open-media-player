@@ -111,7 +111,7 @@
 
 
 .oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
-  background:#535353; /*#444*/
+  background:#353535; /*#444*/
   color:#fdfdfd;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=88)"; /*First!*/
   filter:alpha(opacity=88);
@@ -128,6 +128,7 @@
   border-bottom:1px solid #ccc;
 }
 .oup-title.panel{
+  background:#535353;
   margin:0;
   padding-bottom:2px;
   overflow:hidden;
