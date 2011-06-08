@@ -102,7 +102,7 @@ OUP.fixedtooltip=function(menucontents, obj, e, voffset, tipwidth){
 OUP.hidetip=function(e){
   if (typeof dropmenuobj!="undefined"){
     if (ie4||ns6){
-      dropmenuobj.style.visibility="hidden";
+      if(dropmenuobj.style)dropmenuobj.style.visibility="hidden";
     }
   }
 }
