@@ -84,13 +84,13 @@ width:auto; height:2.6em;
 max-width:5.5em;
 vertical-align:bottom;
 }
-.oup-title.panel textarea, .oup-title.panel select{
+.oup-title.panel textarea, .oup-title #embed-code, .oup-title.panel select{
 position:fixed; top:-999px; width:1px; height:1px;
 }
-.oup-title #embed-code:focus, .oup-title #theme-menu:focus{
-top:130px; left:225px; width:10em; height:3em;
+.oup-title #embed-code:focus, .oup-title #embed-code:active, .oup-title #theme-menu:focus{
+top:95px;/*130px*/; left:220px; width:10em; height:3em;
 }
-.oup-title #theme-menu:focus{left:145px; height:2em;}
+.oup-title #theme-menu:focus{left:140px; height:2em;}
 .oup-title button:hover, .oup-title .optionalnav a:hover, .oup-title label:hover{
 background:#d4d4d4; border:1px solid #999;
 }
