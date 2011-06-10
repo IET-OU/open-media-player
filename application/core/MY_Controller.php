@@ -37,6 +37,25 @@ class MY_Controller extends CI_Controller {
     $this->lang->initialize();
   }
 
+  /** Get optional parameters for iframe URL (http_build_query)
+  */
+  public function options_build_query() {
+    $params = '?';
+	if ($this->_request->theme) {
+	  $params .= '&'. OUP_PARAM_THEME .'='.$this->_request->theme;
+	}
+	if ($this->_request->debug) {
+	  $params .= '&'. OUP_PARAM_DEBUG .'='.$this->_request->debug;
+	}
+	/*if ($this->_request->lang) {
+	  $params .= '&'. OUP_PARAM_LANG .'='.$this->_request->lang;
+	}*/
+	if ($this->_request->hide_controls) {
+	  $params .= '&'. '_hide_controls' .'='.$this->_request->hide_controls;
+	}
+	return $params;
+  }
+
   /** Handle fatal errors.
   */
   public function _error($message, $code=500, $from=null) { #Was: protected.

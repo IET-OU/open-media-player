@@ -82,7 +82,7 @@ class Oupodcast_serv extends Base_service {
 	  $player->height= $height;
 	  $player->transcript_url = "$pod_base/feeds/$custom_id/transcript/".str_replace(array('.mp3', '.m4v'), '.pdf', $result->filename); #TODO!
 	  // Our <iframe> embed!!
-	  $player->iframe_url = site_url()."embed/pod/$custom_id/$shortcode?width=$width&amp;height=$height";
+	  $player->iframe_url = site_url("embed/pod/$custom_id/$shortcode").$this->CI->options_build_query(); #?width=$width&amp;height=$height";
 
 	  $player->_podcast_id = $result->podcast_id;
 	  $player->_album_id = $custom_id;
