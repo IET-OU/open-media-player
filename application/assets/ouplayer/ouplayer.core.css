@@ -8,9 +8,14 @@ body{margin:0; padding:0; background:#ccc;
 object,img,audio,video{display:block; width:100%; height:100%;}
 a img{border:none;}
 
-body.oup, .oup .oup-controls{ min-width:460px; }
+body.oup, .oup .oup-controls{ min-width:340px; } /*Was: 460px*/
 body.oup.mtype-audio, .oup.mtype-audio .oup-controls{
-  min-width:330px;
+  min-width:320px; /*Was: 330px*/
+}
+
+/*Development ideas only! */
+@media (max-width: 400px) {
+  .oup.no-debug .oupc .related, .oup.no-debug .oupc .fulls{display:none;}
 }
 
 /*Debug: simples! */
