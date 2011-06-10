@@ -89,6 +89,14 @@ class Pdftohtml {
     return $out;
   }
 
+  /** Remove DOCTYPE and other stuff that is present in transcripts stored in HTML form.
+  */
+  public function filter($html) {
+    $out = $html;
+	$out = str_ireplace(array('<!DOCTYPE html>', '<meta charset="utf-8"/>'), '', $out);
+	$out = preg_replace('/<style>[^<]*<\/style>/', '', $out);
+	return $out;
+  }
 
   /** pdftoxml
   * @return object A SimpleXML object.

@@ -173,9 +173,9 @@ class Oupodcast_serv extends Base_service {
 	  $pdf = file_put_contents($trans_pdf, $res->data);
 	}
 
-	if ($pdf || !file_exists($trans_file_html)) {
-	  $this->CI->load->library('Pdftohtml');
+	$this->CI->load->library('Pdftohtml');
 
+	if ($pdf || !file_exists($trans_file_html)) {
 	  try {
 	    $html = $this->CI->pdftohtml->parse($trans_pdf, $trans_file_xml);
 	  } catch (Exception $e) {
@@ -187,11 +187,11 @@ class Oupodcast_serv extends Base_service {
 	if ($html) {
 	  $b2 = file_put_contents($trans_file_html, $html);
 	  $this->CI->_log('debug', "Transcript file written, $b2 bytes, $trans_file_html");
-	  $player->transcript_html = $html;
+	  $player->transcript_html = $this->CI->pdftohtml->filter($html);
 	}
 	elseif (file_exists($trans_file_html)) {
 	  // OR get an existing HTML snippet.
-	  $player->transcript_html = file_get_contents($trans_file_html);
+	  $player->transcript_html = $this->CI->pdftohtml->filter(file_get_contents($trans_file_html));
 	}
 
     return $player;
