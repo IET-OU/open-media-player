@@ -33,6 +33,14 @@ $config['data_dir'] = '/var/www/_ouplayer_data/';
 // Optionally, set the path to a pdftohtml binary executable (not req. on Redhat 6).
 #$config['pdftohtml_path'] = $config['data_dir'].'pdftohtml-0.39/pdftohtml.exe';
 
+// OU Player themes.
+$config['player_themes'] = array(
+  'basic' => array('styles'=>null, 'view'=>'ouplayer/player_noscript'),
+  'core'  => array('styles'=>null),
+  'ouice-dark'=>array('title'=>'OUICE Dark', 'styles'=>'ouplayer/ouice-dark/ouice-dark.css'),
+  'ouice-bold'=>array('title'=>'OUICE Bold', 'styles'=>'ouplayer/ouice-bold/ouice-bold.css'),
+);
+
 // Captions pre-DB solution - Mental health (S.D.Price@open), http://podcast.open.ac.uk/podcast_items.php?id=1135
 $config['captions'][1135] = array(
   '734418f016' => 'difficult-to-manage-symptoms.xml',
@@ -52,7 +60,7 @@ $config['cache_path'] = '/var/www/_ouplayer_data/cache/';
 
 */
 
-// Localization/ internationalization.
+// Localization/ internationalization, including aliases.
 $config['locales'] = array(
     'es'   => array('name'=>'Español - España/Internacional'),
     'es-ar'=> 'es',
