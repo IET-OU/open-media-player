@@ -9,21 +9,16 @@ require_once APPPATH.'libraries/ouplayer_lib.php';
 
 class Embed extends MY_Controller {
 
-  protected $_theme;
+
   protected $_debug;
 
   public function __construct() {
     parent::__construct();
 
-	$this->_theme = $this->input->get('_theme') ? $this->input->get('_theme') :'basic'; #(basic|core|ouice-dark|ouice-bold)
-	$this->_debug = $this->input->get('_debug');
+	#$this->_theme = $this->_request->theme ? $this->_request->theme :'basic'; #(basic|core|ouice-dark|ouice-bold)
+	$this->_player_init();
 
-	// For MSIE <= 6.5, downgrade the theme to 'basic' aka 'noscript'!
-	$this->load->library('user_agent');
-	if ($this->agent->is_browser('Internet Explorer') && $this->agent->version() < 7) {
-		header("X-OUP-Requested-Theme: $this->_theme");
-		$this->_theme = 'basic';
-	}
+	$this->_debug = $this->input->get('_debug');
   }
 
   /** OU-podcast player embed.
@@ -51,10 +46,10 @@ class Embed extends MY_Controller {
         'standalone' => false,
         'mode' => 'embed',
         'req'  => $this->_request,
-        'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5?_theme=$this->_theme"),
+        'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
     );
 
-    if ('basic'!=$this->_theme || $edge) {
+    if ('basic'!=$this->_theme->name || $edge) {
         $this->load->view('ouplayer/ouplayer', $view_data);
     } else {
         $view_data['standalone'] = true;
