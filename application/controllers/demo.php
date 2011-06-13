@@ -5,7 +5,7 @@
  * @copyright Copyright 2011 The Open University.
  */
 
-class Demo extends CI_Controller {
+class Demo extends MY_Controller {
 
     public function __construct() {
       parent::__construct();
@@ -29,7 +29,10 @@ class Demo extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$view_data = array(
+			'req' => $this->_request,
+		);
+		$this->load->view('welcome_message', $view_data);
 	}
 
     /** OUVLE demonstrations.
@@ -37,7 +40,10 @@ class Demo extends CI_Controller {
 	public function vle() {
 	  $this->_sams_check();
 
-	  $this->load->view('vle_demo');
+	  $view_data = array(
+	    'req' => $this->_request,
+	  );
+	  $this->load->view('vle_demo', $view_data);
 	}
 
     /** Basic OU-SAMS cookie check and redirect.
