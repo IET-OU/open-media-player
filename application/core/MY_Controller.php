@@ -5,7 +5,7 @@
  */
 //Common parameter names, shared by oEmbed/ embed/ popup controllers.
 define('OUP_PARAM_DEBUG', '_debug');
-define('OUP_PARAM_THEME', '_theme');
+define('OUP_PARAM_THEME', 'theme'); #Was: _theme
 define('OUP_PARAM_LANG', 'lang');
 
 
@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller {
 
   public $firephp;
   protected $_request;
+  protected $_theme;
 
   public function __construct() {
     parent::__construct();
@@ -35,6 +36,31 @@ class MY_Controller extends CI_Controller {
     $this->firephp->log('test');
 
     $this->lang->initialize();
+  }
+
+  /** Initialize the player, including the theme (Embed and Popup controllers).
+  */
+  protected function _player_init() {
+	$themes = $this->config->item('player_themes');
+	if ($this->_request->theme && isset($themes[$this->_request->theme])) {
+		$this->_theme = (object) $themes[$this->_request->theme];
+		$this->_theme->name = $this->_request->theme;
+	}
+	elseif ($this->_request->theme && !isset($themes[$this->_request->theme])) {
+		$this->firephp->fb('Unrecognised theme!', __METHOD__, 'ERROR');
+	}
+	if (!$this->_theme) {
+		$this->_theme = (object) $themes['basic'];
+		$this->_theme->name = 'basic';
+	}
+
+	// For MSIE <= 6.5, downgrade the theme to 'basic' aka 'noscript'!
+	$this->load->library('user_agent');
+	if ($this->agent->is_browser('Internet Explorer') && $this->agent->version() < 7) {
+		header("X-OUP-Requested-Theme: $this->_theme");
+		$this->_theme = (object) $themes['basic'];
+		$this->_theme->name = 'basic';
+	}
   }
 
   /** Get optional parameters for iframe URL (http_build_query)
