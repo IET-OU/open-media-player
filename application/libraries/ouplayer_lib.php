@@ -47,8 +47,8 @@ abstract class Base_player {
 
 	//Validate width/height..?!
 	if ('audio'==$this->media_type) {
-      $this->width = 400;
-	  $this->object_height = 60;
+	  $this->width = 380; #Was: 400;
+	  $this->object_height = 108; #60;
 	  if ($audio_poster) { #$this->poster_url) {
 	    $this->height = 304+$this->object_height;
 	  } else {
