@@ -16,7 +16,7 @@
     #$rel_text = 'video'==$meta->media_type ? $meta->_related_text : substr_replace($meta->_related_text, '…', 55);
     echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window')));
   } ?></li>
-  </li></ul>
+  </ul>
 
 
 <?php
@@ -38,7 +38,7 @@ EOF;
 
 <div role="menu" class="optionalnav" aria-label="<?=t('Player options') ?>">
   <div class="col1">
-  <a class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
+  <a rel="help" class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
   <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About') ?></span></a>
 <?php /*<button class="decreasesize" aria-label="<?=t('Decrease text size') ?>"><span>-A</span></button>
   <button class="increasesize" aria-label="<?=t('Increase text size') ?>"><span>A+</span></button>*/ ?>
@@ -69,7 +69,7 @@ EOF;
 
 <div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('Player options') ?>">
   <button class="more-close" title="<?=t('Close settings') ?>"><span>X</span></button>
-  <a class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
+  <a rel="help" class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
   <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?=t('Embed code') ?></span></label></a>
   <textarea id="emcode-more" class="emcode-more" readonly title="Javascript-based embed (oEmbed)"><?=str_replace('<','&lt;', $jq_oembed) ?></textarea>

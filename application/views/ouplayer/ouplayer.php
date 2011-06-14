@@ -56,11 +56,11 @@ EOF;
 EOF;
   }
 
-  //<meta> below - tqry to ensure the most recent MSIE rendering engine
+  //<meta> below - try to ensure the most recent MSIE rendering engine
   //@header('X-UA-Compatible: IE=edge');
 ?>
 <!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
-<meta http-equiv="X-UA-Compatible" content"IE=edge" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
 <!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
@@ -184,8 +184,8 @@ if (flashembed.isSupported([6,0,65])) {
 	},
 
     playlist:[
-<?php /*{"url":"<?=$meta->poster_url ?->"}, //duration:1},*/ ?>
-      {"url":"<?=$meta->media_url ?>", "autoPlay":false,"autoBuffering":true <?php if ($meta->caption_url): ?>
+      {"url":"<?=$meta->media_url ?>" <?php if ('audio'==$meta->media_type): ?>
+, coverImage:{"url":"<?=$meta->poster_url ?>"}<?php endif; ?><?php if ($meta->caption_url): ?>
       ,
       "captionUrl":"<?=$meta->caption_url ?>"<?php endif; ?>}
     ],
