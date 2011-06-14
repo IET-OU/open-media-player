@@ -10,7 +10,7 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   $base_url = base_url();
 
   // Add switches to body-class (no 'hulu').
-  $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme} hide-tscript hide-captions hide-settings oup-paused ";
+  $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme->name} hide-tscript hide-captions hide-settings oup-paused ";
 
   //Experimental.
   if ($req->hide_controls /*&& 'video'==$meta->media_type*/) {
@@ -72,10 +72,8 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <![endif]-->
 
 <link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
-<?php if('ouice-dark'==$theme): ?>
-<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-dark/ouice-dark.css" />
-<?php elseif('ouice-bold'==$theme): ?>
-<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouice-bold/ouice-bold.css" />
+<?php if (isset($theme->styles)): ?>
+<link rel="stylesheet" href="<?=$base_url ?>assets/<?=$theme->styles ?>" />
 <?php endif; ?>
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 

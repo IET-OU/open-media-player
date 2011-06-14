@@ -30,7 +30,7 @@
 <script src="http://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
 <script>
 $(document).ready(function(){
-$("a.embed").oembed(null,{oupodcast:{{$param_theme}:"$theme"}});
+$("a.embed").oembed(null,{oupodcast:{{$param_theme}:"$theme->name"}});
 });
 </script>
 EOF;
