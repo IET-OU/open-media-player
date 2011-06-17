@@ -46,6 +46,7 @@ class Embed extends MY_Controller {
         'standalone' => false,
         'mode' => 'embed',
         'req'  => $this->_request,
+        'google_analytics'=>$this->_get_analytics_id('podcast.open.ac.uk'),
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
     );
 

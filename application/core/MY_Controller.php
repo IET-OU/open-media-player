@@ -63,6 +63,14 @@ class MY_Controller extends CI_Controller {
 	}
   }
 
+  /** Return the analytics ID for a domain, eg. podcast.open.ac.uk
+  */
+  protected function _get_analytics_id($domain) {
+    $this->config->load('providers');
+    $providers = $this->config->item('providers');
+	return $providers[$domain]['_google_analytics'];
+  }
+
   /** Get optional parameters for iframe URL (http_build_query)
   */
   public function options_build_query() {
