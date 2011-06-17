@@ -59,6 +59,8 @@ class Lams_serv extends Base_service {
       $image_height= $image_m[2];
 
       $meta = array(
+          'provider_name'=>'lams',
+          'provider_mid' =>$seq_id,
           'title' => $result->json->title,
           'author'=> $author_name,
           'author_url' => $author_url,

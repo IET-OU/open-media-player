@@ -7,11 +7,11 @@
   $width = 550;
   $height= 400;
 
-  $tracker_url = site_url().'track/i/UA-12345-1/prezi.com/prezi'.
+  /*$tracker_url = site_url().'track/i/UA-12345-1/prezi.com/prezi'.
       parse_url($url, PHP_URL_PATH).'?title='.$meta->title;
   $tracker_img =<<<EOF
 <img alt="" class="wb" src="$tracker_url" />
-EOF;
+EOF;*/
 
   //classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
   $html =<<<EOF
@@ -24,7 +24,7 @@ EOF;
 "prezi_id=$meta->provider_mid&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no"/>
 <p>Your browser needs Flash enabled to view this presentation.</p>
 <img alt="" src="$meta->thumbnail_url"/></object><div><img alt="" src="http://prezi.com/favicon.ico" />
-<a href="$url">$meta->title</a> by $meta->author on <a href="http://prezi.com/">Prezi</a>.</small></div>$tracker_img</div>
+<a href="$url">$meta->title</a> by $meta->author on <a href="http://prezi.com/">Prezi</a>.</small></div>$tracker</div>
 EOF;
 
   $oembed = array(

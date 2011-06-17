@@ -15,18 +15,25 @@ class Oembed extends MY_Controller {
     $this->load->model('embed_cache_model');
   }
 
-  protected function _tracker() {
+  protected function _tracker($provider, $host, $meta) {
     //TODO - UA-, URL. ($this->uri->site_url() ?)
-    $image_url = site_url()."track/i/UA-12345-1/example.org/path/to";
-    return <<<EOF
-<img class="wbug" alt="" src="$image_url" />
+	if (isset($provider['_google_analytics'])) {
+	  $id = $provider['_google_analytics'];
+	  $path = isset($meta->provider_mid) ? $meta->provider_mid : 'p';
+      $image_url = site_url()."track/i/$id/$host/$path/".str_replace(' ','-',$meta->title).'?title='.urlencode($meta->title);
+      return <<<EOF
+<img class="oup-b" alt="" src="$image_url" />
 EOF;
+    }
+	return null;
   }
 
   public function _error($message, $code=500) {
     return parent::_error($message, $code, __CLASS__);
   }
 
+  public function p($params){var_dump("Params: $params");exit;}
+  
   public function index() {
     @header('Content-Type: text/plain; charset=UTF-8');
     #header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
@@ -64,6 +71,7 @@ EOF;
       $this->_error("unsupported provider 'http://$req->host'.", 400);
     }
 
+	$provider = $providers[$host];
     $name  = $providers[$host]['name'];
     $regex = $providers[$host]['regex'];
     if (isset($providers[$host]['_regex_real'])) {
@@ -100,7 +108,7 @@ echo " this->_meta_$name() ";
       'callback'=>$req->callback,
       'matches' =>$matches,
       'meta'  => $meta,
-      'tracker'=>$this->_tracker(),
+      'tracker'=>$this->_tracker($provider, $host, $meta),
     );
 
     if (file_exists(APPPATH."views/oembed/$name.php")) {
