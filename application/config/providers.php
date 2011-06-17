@@ -36,7 +36,7 @@ $config['providers'] = array(
           'http://podcast.open.ac.uk/pod/vc-message-to-staff#!746ee92293', #Private/staff: VC message 01-02-2011.
           'http://podcast.open.ac.uk/pod/new-to-ou-study/a9e72b75ff' #Hidden: Tips.
           ),
-        '_google_analytics'=>'UA-12345-1',
+        '_google_analytics'=>'UA-24005173-2',
     ),
 
     'lamscommunity.org' => array(
@@ -53,7 +53,7 @@ $config['providers'] = array(
         '_examples'=>array(
           'Crime fighting'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1007900',
           'Γενετικά Τροποποιημένα Τρόφιμα 1 [el]'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1074994'),
-        '_google_analytics'=>'UA-12345-2',
+        '_google_analytics'=>'UA-24005173-3',
     ),
 
     'youtube.com' => array('name'=>'youtube', 'type'=>'video', 'regex'=>'youtube.com/watch*', 
@@ -74,7 +74,7 @@ $config['providers'] = array(
           'Dig. Schol. by M.Weller' => 'http://prezi.com/izeqbfy2z5w-/digital-scholarship',
           'http://prezi.com/zoidjousoeat/technology-for-the-classroom',
         ),
-        '_google_analytics'=>'UA-12345-3'), #IPR?
+        '_google_analytics'=>'UA-24005173-4'), #IPR?
 
     'spreadsheets.google.com'=>array(
         'about'  => '',
