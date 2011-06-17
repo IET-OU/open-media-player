@@ -46,6 +46,7 @@ class Popup extends MY_Controller { //CI_Controller {
         'standalone' => false,
         'mode' => 'popup',
         'req'  => $this->_request,
+		'google_analytics'=>$this->_get_analytics_id('podcast.open.ac.uk'),
     );
 
     if ('basic'!=$this->_theme || $edge) {
