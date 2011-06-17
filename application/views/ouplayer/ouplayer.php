@@ -8,6 +8,7 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
  */
 //NDF, 2011-04-08/-05-19.
   $base_url = base_url();
+  //$base_url = str_replace('http://', '//', $base_url);
 
   // Add switches to body-class (no 'hulu').
   $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme->name} hide-tscript hide-captions hide-settings oup-paused ";
@@ -16,7 +17,9 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   if ($req->hide_controls /*&& 'video'==$meta->media_type*/) {
     $body_classes.= "ctl-overlay ";
   }
-  $body_classes.= "mode-$mode "; #(embed|popup).
+#var_dump($meta); exit;
+  $body_classes.= "ctx-".get_class($meta);
+  $body_classes.= " mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
   $body_classes.= $meta->caption_url ? 'has-captions ':'no-captions ';
@@ -98,7 +101,9 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
         </script>
-*/ ?>
+*/ 
+$this->load->view('ouplayer/oup_analytics');
+?>
 <body role="application" id="ouplayer" class="<?=$body_classes ?>">
 
 <div id="XX-ouplayer-outer">
@@ -177,7 +182,8 @@ if (flashembed.isSupported([6,0,65])) {
 <?php /*url: "<?=$meta->media_url ?->",*/ ?>
 	  scaling: 'fit',
 	  autoPlay:false,
-	  autoBuffering:true
+	  autoBuffering:true,
+	  eventCategory: 'ouplayer'
 	  //showCaptions:false //Initially hide.
 	},
 
@@ -226,6 +232,19 @@ if (flashembed.isSupported([6,0,65])) {
   }*/ ?>
 },
 <?php endif; ?>
+
+<?php if(isset($google_analytics) && $google_analytics): ?>
+    gatracker: {
+      url:"flowplayer.analytics-3.2.2.swf",
+
+<?php // track all possible events. By default only Start and Stop 
+      // are tracked with their corresponding playhead time. ?>
+      events:{ all:true, finish:'Finish' },
+      //debug: true,
+      accountId: "<?=$google_analytics ?>" // your Google Analytics id here
+	},
+<?php endif; ?>
+
 	  controls: null //Disable default controls.
 	}
     //plugins: {controls:{autohide:false}}
