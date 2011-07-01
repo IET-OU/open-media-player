@@ -2,7 +2,7 @@
 
 <meta name="ROBOTS" content="noindex,nofollow" />
 
-<style>body{font:1em sans-serif;} abbr{cursor:pointer;} .oembed{margin:1em 0; border:1px solid #ccc; border-radius:5px;} </style>
+<style>body{font:1em sans-serif; margin:2em; background:#fbfbfb; color:#222;} abbr{cursor:pointer;} .oembed{margin:1em 0; border:1px solid #ccc; border-radius:5px;} </style>
 
 <h1>OU player</h1> <h2>Prototype demonstrations</h2>
 
