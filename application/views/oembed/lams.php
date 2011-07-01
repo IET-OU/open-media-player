@@ -23,6 +23,8 @@ TODO: scale the image.
     // Note, SVG-iframe is a problem in MSIE 7 (display) & Safari (scale).
     //$html =<<<EOF
     ob_start();
+
+    ///Translators: LAMS, Learning Activity Management System.
     ?>
 <link rel="stylesheet" href="<?=$base_url ?>assets/services/lams.css" /><style>
 <?php /*MSIE 7: @import url(<?=$base_url ?>assets/services/lams.css);*/ ?>

@@ -15,7 +15,7 @@ EOF;*/
 
   //classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
   $html =<<<EOF
-<div class="prezi"><object type="application/x-shockwave-flash" width="$width" height="$height" data="http://prezi.com/bin/preziloader.swf">
+<div class='prezi oembed'><object type='application/x-shockwave-flash' width='$width' height='$height' data='http://prezi.com/bin/preziloader.swf'>
 <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>
 <param name="allowfullscreen" value="true"/>
 <param name="allowscriptaccess" value="always"/>
