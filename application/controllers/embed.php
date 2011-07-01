@@ -55,8 +55,6 @@ class Embed extends MY_Controller {
     } else {
         $view_data['standalone'] = true;
         $this->load->view('ouplayer/player_noscript', $view_data);
-        // For now load vle_player - but, SWF is SAMS-protected!
-        #$this->load->view('vle_player', $view_data);
 	}
   }
 
@@ -100,11 +98,23 @@ class Embed extends MY_Controller {
 
     $view_data = array(
         'meta' => $player,
-		'standalone' => true,
-		'mode' => 'embed',
+        'theme'=> $this->_theme,
+        'debug'=> $this->_debug,
+        'standalone' => false,
+        'mode' => 'embed',
+        'req'  => $this->_request,
+      //TODO: needs more work!
+        'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
     );
-	$this->load->view('ouplayer/player_noscript', $view_data);
-    #$this->load->view('vle_player', $view_data); #$request);
+
+	if ('basic'!=$this->_theme->name) {
+        $this->load->view('ouplayer/ouplayer', $view_data);
+    } else {
+        $view_data['standalone'] = true;
+        $this->load->view('ouplayer/player_noscript', $view_data);
+        // For now load vle_player - but, SWF is SAMS-protected!
+        #$this->load->view('vle_player', $view_data);
+	}
   }
 
 }
