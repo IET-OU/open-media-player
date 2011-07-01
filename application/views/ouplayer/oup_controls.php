@@ -21,7 +21,7 @@ function _oupc_label($className, $text) {
     </div>
 
     <div class="track seek-bar bar" title="Progress bar">
-      <span role="progressbar" aria-value-min="0" aria-value-max="100" <?=_oupc_label('buffer', t('Loading…')) ?> data-loaded-text="<?=t('Loaded') ?>"></span>
+      <span role="progressbar" aria-value-min="0" aria-value-max="100" <?=_oupc_label('buffer', t('Loading, please wait')) ?> data-loaded-text="<?=t('Loaded') ?>"></span>
       <span role="slider" aria-value-min="0" aria-value-max="<?=$meta->duration ?>" <?=_oupc_label('progress', t('Seek bar')) ?>></span>
       <div class="playhead head" title="Drag - playhead"><span>D</span></div>
     </div>
@@ -46,20 +46,22 @@ function _oupc_label($className, $text) {
 
 <?php /*Semantically a mix of buttons and a few links. But for ease of styling, we use <a>, with role=button. */ ?>
     <div class="tools group">
-      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('related', t('New window: ').$meta->_related_text) ?>><span>L</span></a>
+      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('tr related', t('New window: ').$meta->_related_text) ?>><span>L</span></a>
     <?php if('video'==$meta->media_type): ?>
-      <a role="button" href="#" <?=_oupc_label('captn', t('Captions'))?> data-show-text="<?=
+	<?php ///Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English). ?>
+      <a role="button" href="#" <?=_oupc_label('tr captn', t('Captions'))?> data-show-text="<?=
 	    t('Show captions') ?>" data-hide-text="<?=t('Hide captions') ?>"><span>CC</span></a>
     <?php endif; /*Use CSS/javascript to show/hide transcript button. */ ?>
-      <a role="button" href="#transcript" <?=_oupc_label('tscript', t('Show script'))?> data-show-text="<?=
+      <a role="button" href="#transcript" <?=_oupc_label('tr tscript', t('Show script'))?> data-show-text="<?=
 	    t('Show script') ?>" data-hide-text="<?=t('Hide script') ?>"><span>T</span></a>
     <?php if('embed'==$mode): ?>
-	  <a target="_blank" href="<?=$popup_url ?>" <?=_oupc_label('popout', t('New window: pop out player')) ?>><span>PO</span></a>
+	  <a target="_blank" href="<?=$popup_url ?>" <?=_oupc_label('tr popout', t('New window: pop out player')) ?>><span>PO</span></a>
     <?php endif; ?>
     <?php if('video'==$meta->media_type): ?>
-	  <a role="button" href="#" <?=_oupc_label('fulls', t('Full screen')) ?>><span>F</span></a>
+	  <a role="button" href="#" <?=_oupc_label('tr fulls', t('Full screen')) ?>><span>F</span></a>
     <?php endif; ?>
-      <a role="button" href="#more" <?=_oupc_label('more', t('More…')) ?>><span>S</span></a>
+	<?php ///Translators: More options - that is, help, embed code, downloads. ?>
+      <a role="button" href="#more" <?=_oupc_label('tr more', t('More options…')) ?>><span>S</span></a>
 	</div>
   </div>
 </div>
