@@ -33,7 +33,8 @@ class MY_Controller extends CI_Controller {
         #$this->firephp =& $this->firephp_fake;
     }
     $this->firephp->fb(__METHOD__, 'OUP', 'INFO');
-    $this->firephp->log('test');
+    #$this->firephp->fb($_SERVER, 'OUP', 'INFO');
+    #$this->firephp->log('test');
 
     $this->lang->initialize();
   }
@@ -96,6 +97,7 @@ class MY_Controller extends CI_Controller {
     #$this->firephp->fb("$code: $message", $from, 'ERROR');
     $this->_log('error', "$from: $code, $message");
     @header("HTTP/1.1 $code");
+    @header('Content-Type: text/plain; charset=utf-8');
     // For now, just output plain text.
     die("$code. Error, $message");
   }
