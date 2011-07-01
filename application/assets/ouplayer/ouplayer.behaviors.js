@@ -132,8 +132,9 @@ var OUP = OUP || {};
         self.log('toggleScript: hide');
       }
 	};
-	byClass(script_btn).onclick = toggleScript;
+	addEvent(byClass(script_btn), 'click', toggleScript);
 	addEvent(byClass('tscript-close'), 'click', toggleScript);
+	addEvent(byClass('tscript-close-end'), 'click', toggleScript);
 	//byClass('t-close').onclick = toggleScript;
 
 	//More/settings button.
