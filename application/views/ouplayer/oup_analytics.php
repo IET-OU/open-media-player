@@ -1,6 +1,10 @@
 <?php
 /** Analytics / tracking view.
-*/ ?>
+*/
+
+//VLE/ OpenLearn player??
+if ('Podcast_player'==get_class($meta)):
+?>
 
 <?php // ComScore/ StreamSense/ Nedstat.
 
@@ -53,5 +57,7 @@ if (isset($google_analytics) && $google_analytics): //'Podcast_player'==get_clas
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+<?php endif; ?>
+
 <?php endif; ?>
 

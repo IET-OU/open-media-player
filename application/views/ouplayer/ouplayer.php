@@ -23,9 +23,9 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
   $body_classes.= $meta->caption_url ? 'has-captions ':'no-captions ';
-  $body_classes.= $meta->transcript_html? 'has-tscript ':'no-tscript '; //Was 'hide-script'
-  $body_classes.= $meta->_related_url? 'has-rel-link ':'no-rel-link ';
-  $body_classes.= 'Y'==$meta->_access['private'] ? 'is-private ':'not-private ';
+  $body_classes.= isset($meta->transcript_html)&&$meta->transcript_html ? 'has-tscript ':'no-tscript '; //Was 'hide-script'
+  $body_classes.= isset($meta->_related_url)&&$meta->_related_url ? 'has-rel-link ':'no-rel-link ';
+  $body_classes.= isset($meta->_access)&&'Y'==$meta->_access['private'] ? 'is-private ':'not-private ';
 
 # Media: 512 x 288.
 # Player:512 x 318;
@@ -114,7 +114,7 @@ $this->load->view('ouplayer/oup_analytics');
 
 </div>
 
-<?php if($meta->transcript_html || $debug): ?>
+<?php if(isset($meta->transcript_html) && ($meta->transcript_html || $debug)): ?>
 <div role="document" id="transcript" class="oup-tscript-panel" >
 <a class="pdf icon" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: PDF') ?>"><span><?=t('Download transcript') ?></span></a>
 <button class="tscript-close" aria-label="<?=('Close')?>" title="<?=t('Close script') ?>"><span>X</span></button>
@@ -190,7 +190,7 @@ if (flashembed.isSupported([6,0,65])) {
 	},
 
     playlist:[
-      {"url":"<?=$meta->media_url ?>" <?php if ('audio'==$meta->media_type): ?>
+      {"url":"<?=$meta->media_url ?>" <?php if ('audio'==$meta->media_type && $meta->poster_url): ?>
 , coverImage:{"url":"<?=$meta->poster_url ?>"}<?php endif; ?><?php if ($meta->caption_url): ?>
       ,
       "captionUrl":"<?=$meta->caption_url ?>"<?php endif; ?>}
@@ -252,7 +252,7 @@ if (flashembed.isSupported([6,0,65])) {
     //plugins: {controls:{autohide:false}}
 
   // install HTML controls inside element whose id is "X".
-  }).controls("controls", {duration: <?=$meta->duration ?>});
+  }).controls("controls", {duration: <?=$meta->duration ? $meta->duration : 0 ?>});
 
   OUP.initialize();
 }
