@@ -64,10 +64,10 @@ endif;
   <div class="col3">
   <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: PDF') ?>"><span><?=t('Download transcript') ?></span></a>
+  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php ///Translators: 'View on OU Podcasts web site' ?>
-  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: perma-link') ?>"><span><?=t('View on Podcasts') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts') ?></span></a>
   </div>
   </div>
 </div>
@@ -85,10 +85,10 @@ endif;
 <?php endif; ?>
   <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: PDF') ?>"><span><?=t('Download transcript') ?></span></a>
+  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
-  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: perma-link') ?>"><span><?=t('View on Podcasts site') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 </div>
 

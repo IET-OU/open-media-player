@@ -24,13 +24,13 @@ TODO: scale the image.
     //$html =<<<EOF
     ob_start();
 
-    ///Translators: LAMS, Learning Activity Management System.
     ?>
 <link rel="stylesheet" href="<?=$base_url ?>assets/services/lams.css" /><style>
 <?php /*MSIE 7: @import url(<?=$base_url ?>assets/services/lams.css);*/ ?>
 .lams.oembed .seq object, .lams.oembed .seq img{width:<?=$img_width ?>px; height:<?=$img_height ?>px;}
 </style><div class='lams oembed' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#'><div class="head">
- <a class="logo" href="http://lamscommunity.org/"><img alt="LAMS community" title="LAMS community" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
+<?php ///Translators: LAMS, Learning Activity Management System. ?>
+ <a class="logo" href="http://lamscommunity.org/"><img alt="<?=t('LAMS community') ?>" title="<?=t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
  <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?=$meta->title ?></h3>
  By: <a class="xp-popup" property="cc:attributionName" rel="cc:attributionURL"
  data-xp-width="1124" data-xp-height="700"
@@ -38,10 +38,10 @@ TODO: scale the image.
  title="<?=t('Open in new window') ?>"><?=$meta->author ?><?php /*<span>, <-?=t('Open in new window') ?-></span>*/ ?></a> &nbsp;
  License: <a rel="license" class="cc-by-nc-sa"
  href="http://creativecommons.org/licenses/by-nc-sa/2.0/"
- title="Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Unported License">Creative Commons Licence</a>
+ title="Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Unported License"><?=t('Creative Commons License') ?></a>
  </div>
  <p class="seq"><?php /*MSIE: <object type="image/svg+xml" data="<?=$meta->_svg_url ?>">*/ ?>
-  <img alt="The LAMS sequence." src="<?=$meta->thumbnail_url ?>" />
+  <img alt="<?=t('The LAMS sequence.') ?>" src="<?=$meta->thumbnail_url ?>" />
  <?php /*</object>*/ ?></p>
  <a class="xp-popup zoom btn" data-xp-width="780" data-xp-height="298" target="lams-win" rel="dct:source"
  href="<?=$meta->thumbnail_url ?>"
@@ -50,13 +50,13 @@ TODO: scale the image.
 | <a class="xp-popup button" href=
 "http://lamscommunity.org/lamscentral/preview?ld_id=<?=$meta->_preview_id ?>" title="<?=t('Open in new window') ?>"><?=t('Preview<s>, new window') ?></span></a>
 | <a class="xp-popup button" href="http://lessonlams.com/lams/cloud/import.do?sequenceLocation=http://lamscommunity.org/seqs/<?=$meta->_seq_id ?>.zip" title="<?=t('Open in new window') ?>"
- >Open in Lesson LAMS<span>, new window</span></a>
+ ><?=t('Open in Lesson LAMS<s>, new window') ?></span></a>
 | <a class="xp-popup button" rel="dc:source details"
  data-xp-width-0="1124" data-xp-height="700" data-xp-resizable=1 data-xp-scrollbars=1 
  href="http://lamscommunity.org/lamscentral/sequence?seq_id=<?=$meta->_seq_id ?>"
  target="_blank" title="<?=t('Open in new window') ?>"
- >Full Info<span>, new window</span></a>
-|  <a class="svg button" href="<?=$meta->_svg_url ?>"><abbr title="Scalable Vector Graphic">SVG</abbr></a>
+ ><?=t('Full Info<s>, new window') ?></span></a>
+|  <a class="svg button" href="<?=$meta->_svg_url ?>"><abbr title="<?=t('Scalable Vector Graphic') ?>">SVG</abbr></a>
 |</p>
 <?=$tracker ?></div>
 <?php

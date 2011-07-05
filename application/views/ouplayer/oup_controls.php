@@ -47,7 +47,7 @@ function _oupc_label($className, $text) {
 <?php /*Semantically a mix of buttons and a few links. But for ease of styling, we use <a>, with role=button. */ ?>
     <div class="tools group">
 	<?php if (isset($meta->_related_url)): ?>
-      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('tr related', t('New window: ').$meta->_related_text) ?>><span>L</span></a>
+      <a target="_blank" href="<?=$meta->_related_url ?>" <?=_oupc_label('tr related', t('New window: %s', $meta->_related_text)) ?>><span>L</span></a>
 	<?php endif; ?>
     <?php if('video'==$meta->media_type): ?>
 	<?php ///Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English). ?>
@@ -55,11 +55,13 @@ function _oupc_label($className, $text) {
 	    t('Show captions') ?>" data-hide-text="<?=t('Hide captions') ?>"><span>CC</span></a>
     <?php endif; /*Use CSS/javascript to show/hide transcript button. */ ?>
 	<?php if (isset($meta->transcript_url)): ?>
+	<?php ///Translators: Script or text transcript. ?>
       <a role="button" href="#transcript" <?=_oupc_label('tr tscript', t('Show script'))?> data-show-text="<?=
 	    t('Show script') ?>" data-hide-text="<?=t('Hide script') ?>"><span>T</span></a>
 	<?php endif; ?>
     <?php if('embed'==$mode): ?>
-	  <a target="_blank" href="<?=$popup_url ?>" <?=_oupc_label('tr popout', t('New window: pop out player')) ?>><span>PO</span></a>
+	  <a target="_blank" href="<?=$popup_url ?>" <?=_oupc_label('tr popout', t('New window: %s', t('pop out player'))) ?>
+	    data-with-script="<?=t('New window: %s', t('pop out player with script')) ?>"><span>PO</span></a>
     <?php endif; ?>
     <?php if('video'==$meta->media_type): ?>
 	  <a role="button" href="#" <?=_oupc_label('tr fulls', t('Full screen')) ?>><span>F</span></a>

@@ -116,7 +116,7 @@ $this->load->view('ouplayer/oup_analytics');
 
 <?php if(isset($meta->transcript_html) && ($meta->transcript_html || $debug)): ?>
 <div role="document" id="transcript" class="oup-tscript-panel" >
-<a class="pdf icon" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: PDF') ?>"><span><?=t('Download transcript') ?></span></a>
+<a class="pdf icon" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
 <button class="tscript-close" aria-label="<?=('Close')?>" title="<?=t('Close script') ?>"><span>X</span></button>
 <div class="transcript">
 <?= $meta->transcript_html ? $meta->transcript_html : '[No transcript - debug]'; ?>
@@ -142,7 +142,7 @@ $this->load->view('ouplayer/oup_analytics');
 ?>
 
 <div id="media-links" style="display:none">
-  <a href="<?=$meta->media_url ?>"><?=t('Download')." $meta->title" ?></a>
+  <a href="<?=$meta->media_url ?>"><?=t('Download %s', $meta->title) ?></a>
 </div>
 
 <div role="tooltip" id="oup-tooltips"></div>
