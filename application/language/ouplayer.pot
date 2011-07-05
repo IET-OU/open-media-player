@@ -1,0 +1,285 @@
+# OU player/ OU embed language template.
+# Lang: en
+# Copyright (C) 2011 The Open University. All rights reserved.
+# This file is distributed under the same license as the ouplayer package.
+# Nick Freear <N.D.Freear+@+open.ac.uk>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ouplayer-application 1.0\n"
+"Report-Msgid-Bugs-To: N.D.Freear+@+open.ac.uk\n"
+"POT-Creation-Date: 2011-07-05 17:14+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libraries\oupodcast_serv.php:124
+#, possible-php-format
+msgid "%s, in Study at The Open University"
+msgstr ""
+
+#: libraries\oupodcast_serv.php:127
+#, possible-php-format
+msgid "%s, at The Open University"
+msgstr ""
+
+#: libraries\oupodcast_serv.php:129
+#, possible-php-format
+msgid "Related link: %s"
+msgstr ""
+
+#. /Translators: LAMS, Learning Activity Management System.
+#: views\oembed\lams.php:33
+msgid "LAMS community"
+msgstr ""
+
+#: views\oembed\lams.php:38 views\oembed\lams.php:48 views\oembed\lams.php:51
+#: views\oembed\lams.php:52 views\oembed\lams.php:57
+msgid "Open in new window"
+msgstr ""
+
+#: views\oembed\lams.php:41
+msgid "Creative Commons License"
+msgstr ""
+
+#: views\oembed\lams.php:44
+msgid "The LAMS sequence."
+msgstr ""
+
+#: views\oembed\lams.php:48
+msgid "Zoom<s>, new window"
+msgstr ""
+
+#: views\oembed\lams.php:51
+msgid "Preview<s>, new window"
+msgstr ""
+
+#: views\oembed\lams.php:53
+msgid "Open in Lesson LAMS<s>, new window"
+msgstr ""
+
+#: views\oembed\lams.php:58
+msgid "Full Info<s>, new window"
+msgstr ""
+
+#: views\oembed\lams.php:59
+msgid "Scalable Vector Graphic"
+msgstr ""
+
+#: views\oembed\oupodcast.php:12 views\ouplayer\ouplayer.php:65
+#: views\ouplayer\player_noscript.php:11
+msgid "OU player"
+msgstr ""
+
+#: views\oembed\oupodcast.php:45
+msgid "Podcasts - The Open University"
+msgstr ""
+
+#. /Translators: Multimedia (audio/video) player controls.
+#: views\ouplayer\oup_controls.php:10
+msgid "Player controls"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:12 views\ouplayer\oup_controls.php:13
+msgid "Play"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:13
+msgid "Pause"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:16
+msgid "Rewind"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:17
+msgid "Fast forward"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:19
+msgid "Current time"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:24
+msgid "Loaded"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:24
+msgid "Loading, please wait"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:25
+msgid "Seek bar"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:29
+msgid "Total time"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:35
+msgid "Mute"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:35
+msgid "Unmute"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:36
+msgid "Volume"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:38
+msgid "Quieter"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:39
+msgid "Louder"
+msgstr ""
+
+#. /Translators: 'View on OU Podcasts web site'
+#: views\ouplayer\oup_controls.php:50 views\ouplayer\oup_controls.php:63
+#: views\ouplayer\oup_controls.php:64 views\ouplayer\oup_settings.php:67
+#: views\ouplayer\oup_settings.php:70 views\ouplayer\oup_settings.php:88
+#: views\ouplayer\oup_settings.php:91 views\ouplayer\ouplayer.php:119
+#, possible-php-format
+msgid "New window: %s"
+msgstr ""
+
+#. /Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English).
+#: views\ouplayer\oup_controls.php:54
+msgid "Captions"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:55
+msgid "Hide captions"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:55
+msgid "Show captions"
+msgstr ""
+
+#. /Translators: Script or text transcript.
+#: views\ouplayer\oup_controls.php:59 views\ouplayer\oup_controls.php:60
+msgid "Show script"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:60
+msgid "Hide script"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:63
+msgid "pop out player"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:64
+msgid "pop out player with script"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:67
+msgid "Full screen"
+msgstr ""
+
+#. /Translators: More options - that is, help, embed code, downloads.
+#: views\ouplayer\oup_controls.php:70
+msgid "More options…"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:17 views\ouplayer\oup_settings.php:44
+#: views\ouplayer\oup_settings.php:45 views\ouplayer\oup_settings.php:58
+#: views\ouplayer\oup_settings.php:65 views\ouplayer\oup_settings.php:79
+#: views\ouplayer\oup_settings.php:80 views\ouplayer\oup_settings.php:84
+#: views\ouplayer\oup_settings.php:86
+msgid "New window"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:42 views\ouplayer\oup_settings.php:77
+msgid "Player options"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:44 views\ouplayer\oup_settings.php:79
+msgid "Player help"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:45
+msgid "About"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:48
+msgid "Choose the theme"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:48
+msgid "Theme"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:56 views\ouplayer\oup_settings.php:82
+msgid "Embed code"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:56
+msgid "Embed on other sites"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:58
+msgid "More embeds…"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:65 views\ouplayer\oup_settings.php:86
+msgid "Download media"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:67 views\ouplayer\oup_settings.php:88
+#: views\ouplayer\ouplayer.php:119
+msgid "Download transcript"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:67 views\ouplayer\oup_settings.php:88
+#: views\ouplayer\ouplayer.php:119
+msgid "PDF"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:70
+msgid "View on Podcasts"
+msgstr ""
+
+#. /Translators: 'View on OU Podcasts web site'
+#: views\ouplayer\oup_settings.php:70 views\ouplayer\oup_settings.php:91
+msgid "perma-link"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:78
+msgid "Close settings"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:80
+msgid "About the player"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:84
+msgid "More embed options"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:91
+msgid "View on Podcasts site"
+msgstr ""
+
+#: views\ouplayer\ouplayer.php:43
+msgid "Your browser does not support the \"video\" element."
+msgstr ""
+
+#: views\ouplayer\ouplayer.php:54
+msgid "Your browser does not support the \"audio\" element."
+msgstr ""
+
+#: views\ouplayer\ouplayer.php:120 views\ouplayer\ouplayer.php:124
+msgid "Close script"
+msgstr ""
+
+#: views\ouplayer\ouplayer.php:145
+#, possible-php-format
+msgid "Download %s"
+msgstr ""
