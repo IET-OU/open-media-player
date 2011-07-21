@@ -1,0 +1,162 @@
+@charset "utf-8";
+/** OUICE-light theme for OU player.
+* @copyright 2011 The Open University.
+* @author D.J.Winter (visuals)
+* @author N.D.Freear (CSS, 2011-07-20)
+*/
+
+/*Text-inset throughout? */
+body,input{text-shadow:1px 1px 0 #fff;}
+
+.oup-controls{
+  background:#d8d8d8 url(background/bg_h60px.png) repeat-x center;
+}
+.oup-controls  .volume-bar, .oup.no-debug .mute{
+  display: none;
+}
+.oup-controls button span, .oup-controls a span, .oupc .head span{
+  display: none;
+}
+.oupc .row-2{border:none;}
+
+
+/*Accessibility: make it easy to see most buttons/links on keyboard access. */
+.oup button:focus, .oup  a:focus, .oup-settings.panel textarea:focus{ outline:2px solid #50BBDE; }
+
+/* TODO ? */
+#oup-tooltips, #fixedtipdiv{ }
+
+/*Accessibility: hide volume-out offscreen.*/
+.oup-controls .volume-out{
+  position:absolute;
+  top:-999px;
+}
+
+.oup-controls .time-out, .oup-controls .time-total{
+  border:1px solid #888;
+  padding:0 7px;
+  border-radius:3px;
+  background:#dcdcdc;
+  color:#183843; /*#222*/
+  font-weight:bold;
+  width:38px;
+  height:13px;
+  overflow:hidden;
+}
+.oup-controls .seek.group{
+  padding-top:3px;
+}
+.oup-controls .time-out{
+  position:relative;
+  top:3px;
+}
+
+.oup-controls button, .oup-controls a{
+  width:44px;
+  height: 29px;
+  border:none;
+  /*border: 2px solid #555;*/
+  background-color: #555;
+  background-repeat: no-repeat;
+  background-position:top left;
+  background-image:url(sprite/640x60_default.png);
+}
+.oup-controls  a{
+  position:relative;
+  top:2px;
+  padding:0;
+  display:inline-block;
+}
+.oup-controls button:hover, .oup-controls a:hover /*,.oup-controls button:focus, .oup-controls a:focus*/{
+  background-image:url(sprite/640x60_hover.png);
+}
+.oup-controls button:active, .oup-controls a:active{
+  background-image:url(sprite/640x60_down.png);
+}
+
+/*TODO: add :active and :focus ?*/
+.oup-controls .play, .oupc .play:hover{ background-position:-2px -1px}
+.oup-controls .pause,.oupc .pause:hover{background-position:-200px -1px}
+.oup-controls .back,   .oupc .back:hover{background-position:-51px -2px; width:20px; height:20px; margin:0 0 0 2px;}
+.oup-controls .forward,.oupc .forward:hover{background-position:-74px -2px; width:20px; height:20px; margin:0 2px 0 0;}
+
+/*volume-group*/
+.oup-controls .mute, .oupc .mute:hover, .oupc .mute:focus{background-image:none;}
+.oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
+.oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
+.oup-controls .volume.group  button{background-color:transparent; z-index:1000;}
+.oup-controls .volume-bg{
+/*TODO: Volume feedback: width will vary! */
+  display:block; position:absolute; left:28px; bottom:3px;
+  background:/*#8af*/ url(background/vol_bg2.png) repeat-x bottom left;
+  width:29px; height:27px;
+}
+
+/*tools-group*/
+.oup-controls .related,.oupc .related:hover{background-position:-141px -30px}
+.oup-controls .captn ,  .oupc .captn:hover {background-position:-444px -30px}
+.oup-controls .tscript,.oupc .tscript:hover{background-position:-493px -30px}
+.oup-controls .popout, .oupc .popout:hover{background-position:-542px -30px}
+.oup-controls .fulls, .oupc .fulls:hover {background-position:-395px -30px}
+.oup-controls .more, .oupc .more:hover{background-position:-591px -30px}
+
+/*Usability: default is US/Internat. English - "CC"; for British English - "S" (subtitles). */
+.oup.lang-en-gb  .oupc .captn{background-position:-346px -30px;}
+
+/*seek-bar.*/
+.oup-controls .X-seek-bar *{display:block;}
+
+.oupc .seek-bar{background:url(timeline/timeline_grey_main.png) repeat-x center;}
+.oupc .buffer{background:url(timeline/timeline_hatch_main.png) repeat-x center;}
+.oupc .progress{background:url(timeline/timeline_bluebar_main.png) repeat-x center;}
+.oupc .playhead{background:url(timeline/timeline_slider.png) no-repeat 0 3px; width:11px; height:14px;}
+
+/*.oup-controls .seek-bar, .oupc .buffer, .oupc .progress, .oupc .playhead{
+  border:1px solid transparent;
+  border-radius:4px;  
+}*/
+
+.oup .tscript-close, .oup .more-close{
+  background:url(pix/transcript_close.png) no-repeat center; border:1px solid transparent; width:34px; height:34px; float:right;
+}
+.oup .tscript-close:focus{background-color:#bbb;}
+.oup .tscript-close:hover{background-color:#eee; border:1px solid #ddd;}
+.oup .tscript-close span, .oup .more-close span{display:none;}
+.oup .more-close{width:16px; height:18px;}
+
+
+.oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
+  background:#e4e4e4; /*#d8d8d8;*/
+  color:#183843; /*#181818*/
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; /*First!*/
+  filter:alpha(opacity=85);
+  opacity:0.85;
+}
+.XX-oup.mtype-audio .oup-title.panel{background:#555;}
+.oup-settings.panel a{
+  color:#183843;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+.oup-settings.panel a:hover{
+  background:#fbfbfb;
+  color:#072732;
+  border-bottom:1px solid #888;
+}
+.oup-title.panel{
+  background:#d4d4d4;
+  margin:0;
+  padding-bottom:2px;
+  overflow:hidden;
+  position:fixed;
+  bottom:60px; top:auto;
+  max-width:none; width:100%; height:41px;
+}
+.oup-title.panel a{color:#183843;/*#111*/}
+.oup-title.panel a.rel-2{white-space:nowrap; /*audio-player*/}
+.oup-title.panel h1{text-shadow:1px 1px 0 #fff;}
+.oup-title.panel .mediatitle li{margin-left:38px;}
+.oup-title.panel .ou-home{float:left; background:url(pix/logo_black_32x38px.png) no-repeat center;}
+.oup-title.panel .optionalnav{display:none;}
+/*.mtype-audio*/ .oup-title .summary{display:none;}
+
