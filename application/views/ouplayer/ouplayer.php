@@ -10,6 +10,9 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   $base_url = base_url();
   //$base_url = str_replace('http://', '//', $base_url);
 
+
+  //TODO: move $body_classes to controller function?
+
   // Add switches to body-class (no 'hulu').
   $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme->name} hide-tscript hide-captions hide-settings oup-paused ";
 
@@ -17,8 +20,10 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   if ($req->hide_controls /*&& 'video'==$meta->media_type*/) {
     $body_classes.= "ctl-overlay ";
   }
-#var_dump($meta); exit;
-  $body_classes.= "ctx-".get_class($meta);
+
+  // Language/locale, 'context' (ctx-), 'mode' etc.
+  $body_classes.= ' lang-'.$this->lang->lang_code();
+  $body_classes.= ' ctx-'.get_class($meta);
   $body_classes.= " mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
   $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';

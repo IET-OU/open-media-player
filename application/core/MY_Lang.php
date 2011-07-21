@@ -74,7 +74,7 @@ class My_Lang extends CI_Lang {
 		                ." | ".$CI->agent->agent_string()." | "
 		                ." | ".$_SERVER['REMOTE_ADDR']); #$this->accept_lang()
 
-	$this->lang_ui = $_lang;
+	$this->_lang_ui = $_lang;
 	$this->_load_gettext($_lang);
   }
 
@@ -112,6 +112,14 @@ class My_Lang extends CI_Lang {
       return $msgid;
     }
     return $this->_list[$msgid]['msgstr'];
+  }
+
+  /**
+   * Get the ISO language code.
+   * @return string A language string, eg. "el-GR"
+   */
+  public function lang_code() {
+    return $this->_lang_ui;
   }
 }
 
