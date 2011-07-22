@@ -32,11 +32,11 @@ TODO: scale the image.
 <?php ///Translators: LAMS, Learning Activity Management System. ?>
  <a class="logo" href="http://lamscommunity.org/"><img alt="<?=t('LAMS community') ?>" title="<?=t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
  <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?=$meta->title ?></h3>
- By: <a class="xp-popup" property="cc:attributionName" rel="cc:attributionURL"
+ <?=t('By: %s', '')?><a class="xp-popup" property="cc:attributionName" rel="cc:attributionURL"
  data-xp-width="1124" data-xp-height="700"
  href="<?=$meta->author_url ?>" target="lams-win"
  title="<?=t('Open in new window') ?>"><?=$meta->author ?><?php /*<span>, <-?=t('Open in new window') ?-></span>*/ ?></a> &nbsp;
- License: <a rel="license" class="cc-by-nc-sa"
+ <?=t('License: %s', '')?><a rel="license" class="cc-by-nc-sa"
  href="http://creativecommons.org/licenses/by-nc-sa/2.0/"
  title="Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Unported License"><?=t('Creative Commons License') ?></a>
  </div>
