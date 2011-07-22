@@ -11,7 +11,7 @@ body,input{text-shadow:1px 1px 0 #fff;}
 .oup-controls{
   background:#d8d8d8 url(background/bg_h60px.png) repeat-x center;
 }
-.oup-controls  .volume-bar, .oup.no-debug .mute{
+.oup-controls  .volume-bar, .oupc .mute, .oup.no-debug .related{
   display: none;
 }
 .oup-controls button span, .oup-controls a span, .oupc .head span{
@@ -23,8 +23,8 @@ body,input{text-shadow:1px 1px 0 #fff;}
 /*Accessibility: make it easy to see most buttons/links on keyboard access. */
 .oup button:focus, .oup  a:focus, .oup-settings.panel textarea:focus{ outline:2px solid #50BBDE; }
 
-/* TODO ? */
-#oup-tooltips, #fixedtipdiv{ }
+/* TODO - ok? */
+#oup-tooltips, #fixedtipdiv{ background:#183440; color:#eee; text-shadow:none; }
 
 /*Accessibility: hide volume-out offscreen.*/
 .oup-controls .volume-out{
@@ -117,34 +117,37 @@ body,input{text-shadow:1px 1px 0 #fff;}
 }*/
 
 .oup .tscript-close, .oup .more-close{
-  background:url(pix/transcript_close.png) no-repeat center; border:1px solid transparent; width:34px; height:34px; float:right;
+  background:url(pix/transcript_close.png) no-repeat center;
 }
-.oup .tscript-close:focus{background-color:#bbb;}
-.oup .tscript-close:hover{background-color:#eee; border:1px solid #ddd;}
+.oup .tscript-close, .oup .more-close, .oup-tscript-panel  a.pdf.icon {
+  display:block; border:1px solid transparent; border-radius:3px; width:30px; height:32px; padding:0; float:right;
+}
+.oup-tscript-panel  a.pdf.icon{margin-right:2px;}
+.oup .tscript-close:focus, .oup-tscript-panel  a.pdf.icon:focus{background-color:#bbb;}
+.oup .tscript-close:hover, .oup-tscript-panel  a.pdf.icon:hover{background-color:#eaeaea; border:1px solid #bbb; box-shadow:0 1px 1px #ccc;}
 .oup .tscript-close span, .oup .more-close span{display:none;}
-.oup .more-close{width:16px; height:18px;}
+.oup .more-close{width:16px; height:18px; margin-right:1px;}
 
 
 .oup-settings.panel, .oup-settings.panel textarea, .oup-title.panel{
-  background:#e4e4e4; /*#d8d8d8;*/
-  color:#183843; /*#181818*/
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)"; /*First!*/
-  filter:alpha(opacity=85);
-  opacity:0.85;
+  background:#e8e8e8; /*#d8d8d8;*/
+  color:#072732; /*#183843; #181818*/
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=88)"; /*First!*/
+  filter:alpha(opacity=88);
+  opacity:0.88;
 }
-.XX-oup.mtype-audio .oup-title.panel{background:#555;}
 .oup-settings.panel a{
-  color:#183843;
+  color:#072732;
   text-decoration:none;
   border-bottom:1px solid transparent;
 }
 .oup-settings.panel a:hover{
   background:#fbfbfb;
-  color:#072732;
+  color:#183843;
   border-bottom:1px solid #888;
 }
 .oup-title.panel{
-  background:#d4d4d4;
+  background:#d6d6d6;
   margin:0;
   padding-bottom:2px;
   overflow:hidden;
@@ -152,8 +155,11 @@ body,input{text-shadow:1px 1px 0 #fff;}
   bottom:60px; top:auto;
   max-width:none; width:100%; height:41px;
 }
+.oup.mtype-audio.mode-embed .oup-title.panel{background:#eaeaea; color:#183843;}
+
 .oup-title.panel a{color:#183843;/*#111*/}
 .oup-title.panel a.rel-2{white-space:nowrap; /*audio-player*/}
+.oup-XX-title.panel a.rel-2:hover{background:url(pix/related_link.png) no-repeat center right; padding-right:22px;}
 .oup-title.panel h1{text-shadow:1px 1px 0 #fff;}
 .oup-title.panel .mediatitle li{margin-left:38px;}
 .oup-title.panel .ou-home{float:left; background:url(pix/logo_black_32x38px.png) no-repeat center;}
