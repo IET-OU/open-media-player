@@ -10,6 +10,9 @@ OUICE-Dark theme: Copyright 2011 The Open University. All rights reserved.
 OUICE-Bold theme: Copyright 2011 The Open University. All rights reserved.
  * Author: Anthony McEvoy <a.mcevoy+@+open.ac.uk>
 
+OUICE-Light theme: Copyright 2011 The Open University. All rights reserved.
+ * Author: David Winter <d.j.winter+@+open.ac.uk>
+
 Based on codeigniter-reactor, changeset 2263:1b173956c908 (v2.0.0+) (6 mar.-10 days)
  *  <http://bitbucket.org/ellislab/codeigniter-reactor/changeset/1b173956c908>
 
@@ -32,6 +35,9 @@ php-po-parser: Copyright (C) 2008, Iulian Ilea (http://iulian.net), all rights r
  * License: <http://gnu.org/licenses/gpl.html> GNU GPL v3 onwards (code), or GNU Lesser GPL (project page)
  * Code: <http://code.google.com/p/php-po-parser/>
 
+Fire PHP: Copyright (c) 2006-2009, Christoph Dorn.
+ * License: <> New BSD
+ * Code: <http://www.firephp.org/>
 
 TODOs:
  * Add INSERTs to *_serv.php
