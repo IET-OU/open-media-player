@@ -3,7 +3,7 @@
 */
 * {font-size:1em;}
 
-body{margin:0; padding:0; background:#ccc;
+body{margin:0; padding:0; background:#f8f8f8; color:#222;
   font:.8em Verdana, Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;}
 object,img,audio,video{display:block; width:100%; height:100%;}
 a img{border:none;}
@@ -45,7 +45,7 @@ body.X-debug:after{content:attr(class); color:red;}
 
 #oup-tooltips, #fixedtipdiv{
   position:absolute;
-  padding: 2px;
+  padding:2px 4px;
   border:1px solid #aaa;
   border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;
   background:lightyellow; color:#222;
@@ -68,18 +68,21 @@ body.X-debug:after{content:attr(class); color:red;}
 .oup.show-tscript  .oup-tscript-panel{display:block;}
 
 .oup.show-tscript .oup-tscript-panel{width:195px;/*215px;*/ position:fixed; top:0; /*left:215px;*/ right:0; bottom:60px;/*height:410; 440px; 100%;*/
-  overflow-y:scroll; border-left:1px solid #999; padding-left:4px; background:#f8f8f8; color:#222; }
+  overflow-y:scroll; border-left:1px solid #999; padding-left:4px; background:#f8f8f8; /*color:#222;*/ }
 /*.oup.show-tscript #ouplayer-div, .oup.show-script #oup-controls{width:420px;}
 .oup.show-tscript #ouplayer-div object, .show-script #ouplayer-div video{width:420px !important;}*/
 .oup.show-tscript #ouplayer-div{right:195px;}
 .oup.show-tscript #ouplayer-div .__object{width:100%;}
 
 /*Pop-up player transcript - wider. */
-.oup.mode-popup.show-tscript .oup-tscript-panel{width:29em; /*300px*/ padding:0 9px;}
+.oup.mode-popup.show-tscript .oup-tscript-panel{width:29em; /*300px*/ padding:0 10px; font-size:1.1em; line-height:1.6em;}
 .oup.mode-popup.show-tscript #ouplayer-div{right:29em;}
 
 .oup.mtype-audio.show-tscript .oup-tscript-panel{width:auto; left:0; padding:2px 15px;}
 .oup.mtype-audio .transcript{max-width:35em; min-width:210px; margin:0 auto;}
+
+.oup-tscript-panel  .pdf.icon{background:url(pix/06pdf16.gif) no-repeat center; padding-left:16px;}
+.oup-tscript-panel  .pdf.icon span{display:none;}
 
 /** Controls toolbar.
 */
