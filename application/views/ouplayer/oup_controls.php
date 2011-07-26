@@ -16,8 +16,9 @@ function _oupc_label($className, $text) {
       <button <?=_oupc_label('back', t('Rewind')) ?>><span>&larr;</span></button>
       <button <?=_oupc_label('forward', t('Fast forward')) ?>><span>&rarr;</span></button>
 
-      <input role="timer" <?=_oupc_label('time time-out', t('Current time')) ?> readonly value="00:00 / 00:00" />
-      <?php /*<output role="timer" <-?=_oupc_label('x-time time-out offscreen', t('Progress')) ?-> style="display:none;">00:00 / 00:00</output>*/ ?>
+      <input role="timer" <?=_oupc_label('time time-out', t('Current time')) ?> readonly value="00:00 / 00:00" x-style="display:none"/>
+      <?php /*<span role="timer" <-?=_oupc_label('time time-out', t('Progress')) ?-> >00:00 / 00:00</span>
+      <-?php /*<output role="timer" <-?=_oupc_label('x-time time-out offscreen', t('Progress')) ?-> style="display:none;">00:00 / 00:00</output>*/ ?>
     </div>
 
     <div class="track seek-bar bar" title="Progress bar">
@@ -26,7 +27,8 @@ function _oupc_label($className, $text) {
       <div class="playhead head" title="Drag - playhead"><span>D</span></div>
     </div>
 	<div class="time-right group">
-	  <input role="timer" <?=_oupc_label('time-total', t('Total time'))?> readonly value="00:00" />
+	  <input role="timer" <?=_oupc_label('time-total', t('Total time'))?> readonly value="00:00" x-style="display:none"/>
+	  <?php /*<span role="timer" <-?=_oupc_label('time-total', t('Progress')) ?-> >00:00</span>*/ ?>
 	</div>
   </div>
 
@@ -35,9 +37,11 @@ function _oupc_label($className, $text) {
       <button <?=_oupc_label('mute', t('Mute'))?> data-mute-text="<?=t('Mute')?>" data-unmute-text="<?=t('Unmute')?>"><span>M</span></button>
       <input  <?=_oupc_label('volume-out --offscreen', t('Volume'))?> title="<?=t('Volume')?>" value="50%" readonly />
 
-      <button <?=_oupc_label('quieter', t('Quieter')) ?>><span>-</span></button>
-      <button <?=_oupc_label('louder', t('Louder')) ?>><span>+</span></button>
-	  <span class="volume-bg"></span>
+      <span class="volume-inner" tabindex="-1">
+        <button <?=_oupc_label('quieter', t('Quieter')) ?>><span>-</span></button>
+        <button <?=_oupc_label('louder', t('Louder')) ?>><span>+</span></button> 
+        <span class="volume-bg" title="*Volume - work-in-progress"></span><span class="volume-bg bg2"></span>
+      </span>
     </div>
 
     <div class="volume-bar bar" title="Volume bar">

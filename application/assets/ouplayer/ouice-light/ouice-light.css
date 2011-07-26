@@ -44,7 +44,7 @@ body,input{text-shadow:1px 1px 0 #fff;}
   overflow:hidden;
 }
 .oup-controls .seek.group{
-  padding-top:3px;
+  padding-top:0;
 }
 .oup-controls .time-out{
   position:relative;
@@ -84,13 +84,20 @@ body,input{text-shadow:1px 1px 0 #fff;}
 .oup-controls .mute, .oupc .mute:hover, .oupc .mute:focus{background-image:none;}
 .oup-controls .quieter,.oupc .quieter:hover{background-position:-51px -30px}
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
-.oup-controls .volume.group  button{background-color:transparent; z-index:1000;}
+.oup-controls .volume.group  button{background-color:transparent;}
 .oup-controls .volume-bg{
 /*TODO: Volume feedback: width will vary! */
-  display:block; position:absolute; left:28px; bottom:3px;
-  background:/*#8af*/ url(background/vol_bg2.png) repeat-x bottom left;
-  width:29px; height:27px;
+  display:none; position:absolute;
+  left:89px; bottom:0;
+  background:transparent url(pix/volume_bars.png) no-repeat left;
+  width:31px;
+  height:28px;
+  x-border-left:30px solid transparent;
+  x-border-bottom:27px solid black;
+  z-index:100;
 }
+.oupc .volume-bg.bg2{width:15px; background:#50bbde; z-index:0;}
+.oup.vol-focus .volume-bg, .oupc .volume-inner:hover .volume-bg{display:block;}
 
 /*tools-group*/
 .oup-controls .related,.oupc .related:hover{background-position:-141px -30px}
@@ -156,6 +163,7 @@ body,input{text-shadow:1px 1px 0 #fff;}
   max-width:none; width:100%; height:41px;
 }
 .oup.mtype-audio.mode-embed .oup-title.panel{background:#eaeaea; color:#183843;}
+.oup.html5-fallback .oup-title.panel{bottom:0;}
 
 .oup-title.panel a{color:#183843;/*#111*/}
 .oup-title.panel a.rel-2{white-space:nowrap; /*audio-player*/}
