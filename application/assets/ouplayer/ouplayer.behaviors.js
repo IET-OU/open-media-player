@@ -265,6 +265,7 @@ var OUP = OUP || {};
 	  self.log('onFinish: clip '+clip.index);
     });
 
+    addClass(ply, 'use-flash js');
   };//OUP.initialize
 
   //M.Pilgrim|http://diveintohtml5.org/everything.html#video
@@ -284,14 +285,23 @@ var OUP = OUP || {};
   OUP.html5_fallback = function(type){
 	var html5_media = byClass('oup-html5-media'),
 	    poster = byClass('oup-poster'),
-	    ctrl = byClass('oup-controls');
+	    ctrl = byClass('oup-controls'),
+	    //ttl = byClass('oup-title panel'),
+	    ply = byId(player_id),
+	    div = byId(div_id);
+
+	div.style.display='block';
 
 	if (('video'===type && supports_h264_baseline_video())
 	 || ('audio'===type && supports_mp3_audio())) {
 
+	  OUP.log(html5_media);
+	  addClass(ply, 'html5-fallback use-html5-media js');
+
 	  html5_media.style.display = 'block';
 	  poster.style.display = 'none';
 	  ctrl.style.display = 'none';
+	  //ttl.style.display='none';
 	} else {
 	  OUP.log('Error, unexpected type value: '+type);
 	}
