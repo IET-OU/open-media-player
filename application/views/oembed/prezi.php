@@ -14,18 +14,25 @@
 EOF;*/
 
   //classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-  $html =<<<EOF
-<div class='prezi oembed'><object type='application/x-shockwave-flash' width='$width' height='$height' data='http://prezi.com/bin/preziloader.swf'>
+  //$html =<<<EOF
+  ob_start();
+
+  ?>
+<div class='prezi oembed'><object aria-label='<?=t('Prezi presentation') ?>' type='application/x-shockwave-flash' width='<?=$width ?>' height='<?=$height ?>' data='http://prezi.com/bin/preziloader.swf'>
 <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>
 <param name="allowfullscreen" value="true"/>
 <param name="allowscriptaccess" value="always"/>
 <param name="bgcolor" value="#ffffff"/>
 <param name="flashvars" value=
-"prezi_id=$meta->provider_mid&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no"/>
-<p>Your browser needs Flash enabled to view this presentation.</p>
-<img alt="" src="$meta->thumbnail_url"/></object><div><img alt="" src="http://prezi.com/favicon.ico" />
-<a href="$url">$meta->title</a> by $meta->author on <a href="http://prezi.com/">Prezi</a>.</small></div>$tracker</div>
-EOF;
+"prezi_id=<?=$meta->provider_mid ?>&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no"/>
+<p><?=t('Your browser needs Flash enabled to view this presentation.') ?></p>
+<img alt="" src="<?=$meta->thumbnail_url ?>"/></object><div><img alt="" src="http://prezi.com/favicon.ico" />
+<?php ///Translators: 'title by author on web-site' ?>
+<a href="<?=$url ?>"><?=$meta->title ?></a><?=t('%s by %s on %s', array('', $meta->author, '')) ?><a href="http://prezi.com/">Prezi</a>.</small></div><?=$tracker ?></div>
+<?php
+
+  $html = ob_get_clean();
+//EOF;
 
   $oembed = array(
         'version'=> '1.0',
