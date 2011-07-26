@@ -178,6 +178,20 @@ var OUP = OUP || {};
     addEvent(byClass('oup-controls'), 'focus', toggleCtlFocus, true);
     addEvent(byClass('oup-controls'), 'blur', toggleCtlFocus, true);
 
+    function toggleVolFocus(){
+      if (hasClass(ply, 'vol-focus')) {
+	    removeClass(ply, 'vol-focus');
+	    addClass(ply, 'vol-blur');
+	    self.log('toggleVol: blur');
+	  } else {
+	    removeClass(ply, 'vol-blur');
+	    addClass(ply, 'vol-focus');
+	    self.log('toggleVol: focus');
+	  }
+    };
+    addEvent(byClass('volume-inner'), 'focus', toggleVolFocus, true);
+    addEvent(byClass('volume-inner'), 'blur', toggleVolFocus, true);
+
 	//Captions button.
 	function toggleCaptions() {
 	  if (hasClass(ply, 'hide-captions')) {
