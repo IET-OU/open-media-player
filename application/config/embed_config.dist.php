@@ -25,6 +25,8 @@ $config['flowplayer_version'] = '3.2.7';
 /*$config['flowplayer_key'] = '#$a...c';
 $config['flowplayer_version'] = '3.1.5';*/
 
+// HTML5 audio/video fallback, see http://wiki.whatwg.org/wiki/Video_type_parameters
+//$config['ouplayer_video_codec'] = 'avc1.42E01E, mp4a.40.2';
 
 // Set the data directory.
 $config['data_dir'] = '/var/www/_ouplayer_data/';
@@ -33,12 +35,18 @@ $config['data_dir'] = '/var/www/_ouplayer_data/';
 // Optionally, set the path to a pdftohtml binary executable (not req. on Redhat 6).
 #$config['pdftohtml_path'] = $config['data_dir'].'pdftohtml-0.39/pdftohtml.exe';
 
+// Which embed providers are live on this server?
+$config['providers_local'] = array(
+  'podcast.open.ac.uk'
+);
+
 // OU Player themes.
 $config['player_themes'] = array(
   'basic' => array('styles'=>null, 'view'=>'ouplayer/player_noscript'),
   'core'  => array('styles'=>null),
   'ouice-dark'=>array('title'=>'OUICE Dark', 'styles'=>'ouplayer/ouice-dark/ouice-dark.css'),
   'ouice-bold'=>array('title'=>'OUICE Bold', 'styles'=>'ouplayer/ouice-bold/ouice-bold.css'),
+  'ouice-light'=>array('title'=>'OUICE Light', 'styles'=>'ouplayer/ouice-light/ouice-light.css'),
 );
 
 // Captions pre-DB solution - Mental health (S.D.Price@open), http://podcast.open.ac.uk/podcast_items.php?id=1135

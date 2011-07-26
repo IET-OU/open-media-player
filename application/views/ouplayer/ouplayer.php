@@ -46,10 +46,12 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   }
   if ($meta->media_html5 && 'video' == $meta->media_type) {
     $support_text = t('Your browser does not support the "video" element.');
-	$inner =<<<EOF
+    $codec = config_item('ouplayer_video_codec');
+    $codec = $codec ? $codec : 'avc1.42E01E, mp4a.40.2'; //<!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
+    $inner =<<<EOF
   $poster
   <video class="oup-html5-media" poster="$meta->poster_url" width="$meta->width" height="$player_height" controls>
-    <source src="$meta->media_url" type='video/mp4; codecs="bogus"' /><!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
+    <source src="$meta->media_url" type='video/mp4; codecs="$codec"' />
     <div id="no-support">$support_text</div>
   </video>
 EOF;
