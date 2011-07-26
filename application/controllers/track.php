@@ -28,7 +28,7 @@
   # If mod_rewrite is NOT installed go to index.php
   ErrorDocument 404 index.php
   </IfModule>
- 
+
 */
 // Substitute your local Piwik here.
 #define('PIWIK_TRACKER', "http://localhost/my_piwik/piwik.php");
@@ -119,22 +119,36 @@ class Track extends CI_Controller {
   }
 
 
-  /* Based on http://nojsstats.blogspot.com/ */
+  /* Based on,
+	http://nojsstats.blogspot.com/
+	http://code.google.com/apis/analytics/docs/tracking/gaTrackingTroubleshooting.html#GIFVars
+	http://www.google.com/support/forum/p/Google%20Analytics/thread?tid=5f11a529100f1d47&hl=en
+  */
   protected function _google_analytics_bug_url($matches, $title=NULL, $referer=NULL) {
     $request = array('utmwv'=>1, 'utmsr'=>'-', 'utmsc'=>'-', 'utmul'=>'-',
          'utmje'=>'0', 'utmfl'=>'-', 'utmjv'=>'-'); //'hid' Another number?
 
     $request['utmac'] = $matches[1];
+	# Cookies - is this safe/secure?
+	$ga_cookies = $this->input->cookie('__utma') ? '__utma='.$this->input->cookie('__utma').';' : '';
+	$ga_cookies.= $this->input->cookie('__utmz') ?'+__utmz='.$this->input->cookie('__utma').';' : '';
+	$request['utmcc'] = $ga_cookies ? $ga_cookies : '-'; # Cookies: __utma=STRING;+__utmz=STRING;
 
     $p = parse_url('http://'.$matches[3]);
     $request['utmhn'] = $p['host'];
     $request['utmp' ] = $p['path']. (isset($p['query']) ? '?'.$p['query'] : '');
 
     $request['utmdt'] = $title;
-    $request['utmr' ] = $referer;
+    $request['utmr' ] = $referer ? $referer : '-';
 
-    # utmn - Random number?
+	$request['utmcs'] = '-'; # Charset/ encoding, eg. 'UTF-8'
+	$request['utmcn'] = 1; # Start a new campaign.
+	#$request['utmul'] = LANG //Eg. 'en-gb'
+	#$request['utme'] = EXTENSIBLE/ Event
+
+    # utmn - Unique ID - Random number.
     $request['utmn' ] = mt_rand(0, mt_getrandmax());
+	$request['utmhid' ] = mt_rand(0, mt_getrandmax());
 
     return GOOGLE_TRACKER .'?'. http_build_query($request);
   }
