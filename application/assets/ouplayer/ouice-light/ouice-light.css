@@ -48,7 +48,7 @@ body,input{text-shadow:1px 1px 0 #fff;}
 }
 .oup-controls .time-out{
   position:relative;
-  top:3px;
+  top:6px;
 }
 
 .oup-controls button, .oup-controls a{
@@ -97,7 +97,7 @@ body,input{text-shadow:1px 1px 0 #fff;}
   z-index:100;
 }
 .oupc .volume-bg.bg2{width:15px; background:#50bbde; z-index:0;}
-.oup.vol-focus .volume-bg, .oupc .volume-inner:hover .volume-bg{display:block;}
+.oup.vol-focus .volume-bg, .oupc .volume-:hover .volume-bg{display:block;}
 
 /*tools-group*/
 .oup-controls .related,.oupc .related:hover{background-position:-141px -30px}

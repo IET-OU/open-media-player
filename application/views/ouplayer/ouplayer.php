@@ -92,8 +92,10 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 
 <!--[if lt IE 9]>
 <style>
-/*MSIE hack - border is required?! */
-.oup.mode-embed.mtype-audio .oup-title .rel-2{
+.oupc .time-out{top:-3px;}
+
+/*MSIE hack - border is required?! No longer needed? */
+.X-oup.mode-embed.mtype-audio .oup-title .rel-2{
   position:relative;
   top:-16px;
 
