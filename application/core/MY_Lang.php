@@ -139,7 +139,8 @@ class My_Lang extends CI_Lang {
     if (is_array($args)) {
       $s = vsprintf($s, $args);
     }
-    elseif ($args) { #is_string() #func_num_args() > 1){
+	// Important: accept empty string!
+    elseif ($args || ''==$args) { #is_string() #func_num_args() > 1){
       $s = sprintf($s, $args); #array_shift(func_get_args()));
     }
     return /*Debug: '^'.*/$s;
