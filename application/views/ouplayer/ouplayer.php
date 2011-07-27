@@ -46,14 +46,17 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   }
   if ($meta->media_html5 && 'video' == $meta->media_type) {
     $support_text = t('Your browser does not support the "video" element.');
-    $codec = config_item('ouplayer_video_codec');
-    $codec = $codec ? $codec : 'avc1.42E01E, mp4a.40.2'; //<!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
+    // HTML5 video type/codec, see http://wiki.whatwg.org/wiki/Video_type_parameters
+    $type = config_item('ouplayer_video_type'); //Was: '_codec'.
+    $type = $type ? $type : 'type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' '; //<!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
+    $html5_media_url = str_replace('podcast.', 'media-podcast.', $meta->media_url);
     $inner =<<<EOF
   $poster
   <video class="oup-html5-media" poster="$meta->poster_url" width="$meta->width" height="$player_height" controls>
-    <source src="$meta->media_url" type='video/mp4; codecs="$codec"' />
+    <source src="$meta->media_url" $type/>
     <div id="no-support">$support_text</div>
   </video>
+  <a href="$meta->media_url" class="html5-dload" style="display:block; float:right">[Download]</a>
 EOF;
   }
   elseif ($meta->media_html5 && 'audio' == $meta->media_type) {
@@ -162,7 +165,7 @@ $this->load->view('ouplayer/oup_analytics');
 -->
 <script src="<?=$base_url ?>swf/flowplayer.controls-OUP.js"></script>
 <script src="<?=$base_url ?>assets/ouplayer/ouplayer.tooltips.js"></script>
-<script src="<?=$base_url ?>assets/ouplayer/ouplayer.behaviors.js"></script>
+<script src="<?=$base_url ?>assets/ouplayer/ouplayer.behaviors.js?r=<?=rand() ?>"></script>
 <script>
 flashembed.domReady(function(){
   //var f=$f("ouplayer-div");
