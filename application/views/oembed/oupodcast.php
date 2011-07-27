@@ -10,11 +10,13 @@
   $pod_base = Oupodcast_serv::POD_BASE;
   $base = base_url();
   $label= t('OU player');
+  $noframes = t('Your browser does not support frames.');
 
+  //scrolling='no' - ?
   $html =<<<EOF
 <iframe class='ou podcast oembed $meta->media_type' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
- width='$meta->width' height='$meta->height' frameborder='0' scrolling='0' style='overflow:hidden;'
- src='$meta->iframe_url'></iframe>
+ width='$meta->width' height='$meta->height' frameborder='0' style='overflow:hidden;'
+ src='$meta->iframe_url'>$noframes</iframe>
 EOF;
   //src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'
   //style='border:none; overflow:hidden;'
