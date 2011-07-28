@@ -11,7 +11,7 @@
   <img class="ou-home logo" alt="Open University logo" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
   <li><h1><?=$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
-  <?php if ('Y'==$meta->_access['intranet_only']): ?>
+  <?php if (isset($meta->_access['intranet_only']) && 'Y'==$meta->_access['intranet_only']): ?>
   <li class="restrict-text"><?=t('Staff/student access only') ?></li>
   <?php endif; ?>
   <li><?php /*if($meta->summary): ?><span class="summary"><?=substr_replace($meta->summary, '…', 95) ?></span><?php endif;*/ ?>
@@ -23,22 +23,35 @@
 
 
 <?php
-// Embed code - uses jQuery-oEmbed plugin.
-$jq_oembed=null;
-if ('Podcast_player'==get_class($meta)): #('podcast'==$context)
+// Embed code - uses jQuery-oEmbed plugin or Iframe.
+$embed_code=null;
+if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
   $em_title = substr_replace($meta->title, '…', 36);
-  $param_theme = OUP_PARAM_THEME;
-  $jq_oembed=<<<EOF
+  if (isset($meta->_short_url)) {
+    $param_theme = OUP_PARAM_THEME;
+    $jq_plugin_url = site_url('scripts/jquery.oembed.js');
+    $embed_method = 'Javascript-based embed (oEmbed)';
+	$embed_code = <<<EOF
 <!--Copy and paste--><a class="embed" href="$meta->_short_url">$em_title</a>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script src="http://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
+<script src="$jq_plugin_url"></script>
 <script>
 $(document).ready(function(){
 $("a.embed").oembed(null,{oupodcast:{{$param_theme}:"$theme->name"}});
 });
 </script>
 EOF;
+  } else {
+    $embed_method = 'Iframe-based embed';
+    $embed_url = current_url().'?'.$this->input->server('QUERY_STRING');
+    $embed_url = str_replace('/popup/', '/embed/', $embed_url);
+    $embed_code = <<<EOF
+<!--Copy and paste--><iframe class="ouplayer $meta->media_type" width=640 height=410 src=
+"$embed_url"
+></iframe>
+EOF;
+  }
 endif;
 ?>
 
@@ -64,9 +77,9 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
   </select>
   </div>
   <div class="col2">
-<?php if ($jq_oembed): ?>
+<?php if ($embed_code): ?>
   <label role="button" class="embed" for="embed-code" title="<?=t('Embed on other sites') ?>"><span><?=t('Embed code') ?></span></label></a>
-  <textarea id="embed-code" class="emcode-opt" readonly title="Javascript-based embed (oEmbed)"><?=str_replace('<','&lt;', $jq_oembed) ?></textarea>
+  <textarea id="embed-code" class="emcode-opt" readonly title="<?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
   <a class="embed-opt" href="#embed/TODO" title="<?=t('New window') ?>"><span><?=t('More embeds…') ?></span></a>
 <?php endif; ?>
 <?php /*<button class=""><span>Option</span></button>
@@ -78,8 +91,10 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
 <?php if (isset($meta->transcript_url)): ?>
   <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
 <?php endif; ?>
+<?php if (isset($meta->_short_url)): ?>
 <?php ///Translators: 'View on OU Podcasts web site' ?>
   <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts') ?></span></a>
+<?php endif; ?>
   </div>
   </div>
 </div>
@@ -89,9 +104,9 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
   <button class="more-close" title="<?=t('Close settings') ?>"><span>X</span></button>
   <a rel="help" class="help" href="<?=$help_url ?>" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
   <a class="about" href="<?=$about_url ?>" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
-<?php if ($jq_oembed): ?>
+<?php if ($embed_code): ?>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?=t('Embed code') ?></span></label></a>
-  <textarea id="emcode-more" class="emcode-more" readonly title="Javascript-based embed (oEmbed)"><?=str_replace('<','&lt;', $jq_oembed) ?></textarea>
+  <textarea id="emcode-more" class="emcode-more" readonly title="<?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
   <a class="embed-opt" href="<?=$embedopts_url ?>" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
 <?php endif; ?>
   <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>

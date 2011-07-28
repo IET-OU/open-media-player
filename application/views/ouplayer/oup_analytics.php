@@ -44,7 +44,7 @@ sitestat("//ouan.open.ac.uk/ou/<?=$ns_sitename ?>/s?name=<?=$ns_counter ?>&ou_su
 <?php // Google analytics.
 
 if (isset($google_analytics) && $google_analytics): //'Podcast_player'==get_class($meta)):
-  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5/".str_replace(' ','-', $meta->title);
+  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5/".str_replace(array(' ', '\''), array('-', "\'"), $meta->title);
   ?>
 <script>
   var _gaq = _gaq || [];

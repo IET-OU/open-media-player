@@ -4,6 +4,7 @@
  * @copyright Copyright 2011 The Open University.
  */
 
+///Translators: access control.
 $restrict_text = t('Public access');
 $restrict_class= 'public';
 
@@ -63,7 +64,7 @@ $this->load->view('ouplayer/oup_analytics');
   <?php endif; ?>
 
   <li><a target="_blank" href="https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL=<?=/*urlencode*/($popup_url) ?>"
-	class="login popout" ><?=t('Log in and launch player in new window') ?></a></li>
+	class="login popout" ><?=t('Log in and launch the player in a new window') ?></a></li>
 
   <li>  <?php if(isset($meta->_related_url) && $meta->_related_url){
     echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window')));
