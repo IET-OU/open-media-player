@@ -29,6 +29,10 @@ body.X-debug:after{content:attr(class); color:red;}
 
 #ouplayer-div{position:fixed; top:0; bottom:60px; left:0; right:0;}
 
+/*Access control. */
+#ouplayer.mode-embed.restrict{cursor:default;}
+.oup.mode-embed.restrict #ouplayer-div{display:block;}
+
 /*#ouplayer.w640{width:640px;}
 /*Note, if player-div needs to float, it should always float. Else it breaks Flash! *-/
 .oup #ouplayer-div, .oup #oup-controls{float:left;}*/
@@ -287,7 +291,7 @@ body.X-debug:after{content:attr(class); color:red;}
   padding: 6px;
   margin: 6px;
 }
-.oup.mtype-audio .oup-title.panel{display:block;}
+.oup.mtype-audio .oup-title.panel, .oup.restrict .oup-title.panel{display:block;}
 /*@media (min-height: 200px){
   .oup-title.panel{ display:none; }
 }*/
@@ -297,6 +301,8 @@ body.X-debug:after{content:attr(class); color:red;}
 
 .oup-title.panel h1{margin:0 0 5px; white-space:nowrap; overflow:hidden;}
 .oup-title.panel .ou-home{display:block; width:32px; height:/*1px;*/38px; background:url(oulogo-39.png) no-repeat top left;}
+.oup-title.panel .restrict-text{color:#d00;}
+.oup.mode-popup .restrict-text{font-size:.7em; line-height:.7em;}
 .oup-title.panel .rel-2{font-size:.94em;}
 .oup-title.panel ul{list-style:none; padding:0; margin:0;}
 .oup-title.panel .optionalnav{}
