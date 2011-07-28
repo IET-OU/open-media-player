@@ -11,6 +11,9 @@
   <img class="ou-home logo" alt="Open University logo" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
   <li><h1><?=$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
+  <?php if ('Y'==$meta->_access['intranet_only']): ?>
+  <li class="restrict-text"><?=t('Staff/student access only') ?></li>
+  <?php endif; ?>
   <li><?php /*if($meta->summary): ?><span class="summary"><?=substr_replace($meta->summary, '…', 95) ?></span><?php endif;*/ ?>
   <?php if(isset($meta->_related_url) && $meta->_related_url){
     #$rel_text = 'video'==$meta->media_type ? $meta->_related_text : substr_replace($meta->_related_text, '…', 55);

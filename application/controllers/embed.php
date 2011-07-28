@@ -50,9 +50,15 @@ class Embed extends MY_Controller {
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
     );
 
-    if ('basic'!=$this->_theme->name || $edge) {
+    // Access control - start simple!
+    if ('Y'==$player->_access['intranet_only']) {
+        $this->load->view('ouplayer/oup_restricted', $view_data);
+    }
+    elseif ('basic'!=$this->_theme->name || $edge) {
+        // The themed player.
         $this->load->view('ouplayer/ouplayer', $view_data);
     } else {
+        // Basic/ un-themed ('no-script') player.
         $view_data['standalone'] = true;
         $this->load->view('ouplayer/player_noscript', $view_data);
 	}
