@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ouplayer-application 1.0\n"
 "Report-Msgid-Bugs-To: N.D.Freear+@+open.ac.uk\n"
-"POT-Creation-Date: 2011-07-05 17:14+0100\n"
+"POT-Creation-Date: 2011-07-28 12:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,14 +32,41 @@ msgstr ""
 msgid "Related link: %s"
 msgstr ""
 
+#: views\oembed\gglspread.php:5
+msgid "Google Docs form"
+msgstr ""
+
+#: views\oembed\gglspread.php:6 views\oembed\oupodcast.php:13
+#: views\oembed\youtube.php:18
+msgid "Your browser does not support frames."
+msgstr ""
+
+#: views\oembed\gglspread.php:7
+msgid "Access the form on Google"
+msgstr ""
+
+#: views\oembed\gglspread.php:8
+msgid "Access the document on Google"
+msgstr ""
+
 #. /Translators: LAMS, Learning Activity Management System.
 #: views\oembed\lams.php:33
 msgid "LAMS community"
 msgstr ""
 
+#: views\oembed\lams.php:35
+#, possible-php-format
+msgid "By: %s"
+msgstr ""
+
 #: views\oembed\lams.php:38 views\oembed\lams.php:48 views\oembed\lams.php:51
 #: views\oembed\lams.php:52 views\oembed\lams.php:57
 msgid "Open in new window"
+msgstr ""
+
+#: views\oembed\lams.php:39
+#, possible-php-format
+msgid "License: %s"
 msgstr ""
 
 #: views\oembed\lams.php:41
@@ -70,13 +97,43 @@ msgstr ""
 msgid "Scalable Vector Graphic"
 msgstr ""
 
-#: views\oembed\oupodcast.php:12 views\ouplayer\ouplayer.php:65
-#: views\ouplayer\player_noscript.php:11
+#: views\oembed\oupodcast.php:12 views\ouplayer\oup_restricted.php:36
+#: views\ouplayer\ouplayer.php:75 views\ouplayer\player_noscript.php:11
 msgid "OU player"
 msgstr ""
 
-#: views\oembed\oupodcast.php:45
+#: views\oembed\oupodcast.php:47
 msgid "Podcasts - The Open University"
+msgstr ""
+
+#: views\oembed\prezi.php:21
+msgid "Prezi presentation"
+msgstr ""
+
+#: views\oembed\prezi.php:28
+msgid "Your browser needs Flash enabled to view this presentation."
+msgstr ""
+
+#. /Translators: 'title by author on web-site'
+#: views\oembed\prezi.php:31
+#, possible-php-format
+msgid "%s by %s on %s"
+msgstr ""
+
+#: views\oembed\youtube.php:17
+msgid "YouTube video player"
+msgstr ""
+
+#: views\oembed\youtube.php:19
+msgid "Watch video on YouTube"
+msgstr ""
+
+#: views\oembed\youtube.php:20
+msgid "Join YouTube's HTML5 trial"
+msgstr ""
+
+#: views\oembed\youtube.php:20
+msgid "Opt-in to HTML5"
 msgstr ""
 
 #. /Translators: Multimedia (audio/video) player controls.
@@ -104,182 +161,209 @@ msgstr ""
 msgid "Current time"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:24
+#: views\ouplayer\oup_controls.php:25
 msgid "Loaded"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:24
+#: views\ouplayer\oup_controls.php:25
 msgid "Loading, please wait"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:25
+#: views\ouplayer\oup_controls.php:26
 msgid "Seek bar"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:29
+#: views\ouplayer\oup_controls.php:30
 msgid "Total time"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:35
+#: views\ouplayer\oup_controls.php:37
 msgid "Mute"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:35
+#: views\ouplayer\oup_controls.php:37
 msgid "Unmute"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:36
+#: views\ouplayer\oup_controls.php:38
 msgid "Volume"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:38
+#: views\ouplayer\oup_controls.php:41
 msgid "Quieter"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:39
+#: views\ouplayer\oup_controls.php:42
 msgid "Louder"
 msgstr ""
 
 #. /Translators: 'View on OU Podcasts web site'
-#: views\ouplayer\oup_controls.php:50 views\ouplayer\oup_controls.php:63
-#: views\ouplayer\oup_controls.php:64 views\ouplayer\oup_settings.php:67
-#: views\ouplayer\oup_settings.php:70 views\ouplayer\oup_settings.php:88
-#: views\ouplayer\oup_settings.php:91 views\ouplayer\ouplayer.php:119
+#: views\ouplayer\oup_controls.php:54 views\ouplayer\oup_controls.php:67
+#: views\ouplayer\oup_controls.php:68 views\ouplayer\oup_settings.php:79
+#: views\ouplayer\oup_settings.php:82 views\ouplayer\oup_settings.php:99
+#: views\ouplayer\oup_settings.php:102 views\ouplayer\ouplayer.php:132
 #, possible-php-format
 msgid "New window: %s"
 msgstr ""
 
 #. /Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English).
-#: views\ouplayer\oup_controls.php:54
+#: views\ouplayer\oup_controls.php:58
 msgid "Captions"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:55
+#: views\ouplayer\oup_controls.php:59
 msgid "Hide captions"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:55
+#: views\ouplayer\oup_controls.php:59
 msgid "Show captions"
 msgstr ""
 
 #. /Translators: Script or text transcript.
-#: views\ouplayer\oup_controls.php:59 views\ouplayer\oup_controls.php:60
+#: views\ouplayer\oup_controls.php:63 views\ouplayer\oup_controls.php:64
 msgid "Show script"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:60
+#: views\ouplayer\oup_controls.php:64
 msgid "Hide script"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:63
+#: views\ouplayer\oup_controls.php:67
 msgid "pop out player"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:64
+#: views\ouplayer\oup_controls.php:68
 msgid "pop out player with script"
 msgstr ""
 
-#: views\ouplayer\oup_controls.php:67
+#: views\ouplayer\oup_controls.php:71
 msgid "Full screen"
 msgstr ""
 
 #. /Translators: More options - that is, help, embed code, downloads.
-#: views\ouplayer\oup_controls.php:70
+#: views\ouplayer\oup_controls.php:74
 msgid "More options…"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:17 views\ouplayer\oup_settings.php:44
-#: views\ouplayer\oup_settings.php:45 views\ouplayer\oup_settings.php:58
-#: views\ouplayer\oup_settings.php:65 views\ouplayer\oup_settings.php:79
-#: views\ouplayer\oup_settings.php:80 views\ouplayer\oup_settings.php:84
-#: views\ouplayer\oup_settings.php:86
+#. /Translators: access control.
+#: views\ouplayer\oup_restricted.php:7
+msgid "Public access"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:11
+msgid "Deleted"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:15
+msgid "Private access only"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:19 views\ouplayer\oup_restricted.php:62
+#: views\ouplayer\oup_settings.php:15
+msgid "Staff/student access only"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:23
+msgid "Unpublished"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:66
+msgid "Log in and launch the player in a new window"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:69 views\ouplayer\oup_restricted.php:71
+#: views\ouplayer\oup_settings.php:20 views\ouplayer\oup_settings.php:56
+#: views\ouplayer\oup_settings.php:57 views\ouplayer\oup_settings.php:70
+#: views\ouplayer\oup_settings.php:77 views\ouplayer\oup_settings.php:90
+#: views\ouplayer\oup_settings.php:91 views\ouplayer\oup_settings.php:95
+#: views\ouplayer\oup_settings.php:97
 msgid "New window"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:42 views\ouplayer\oup_settings.php:77
+#: views\ouplayer\oup_restricted.php:71 views\ouplayer\oup_settings.php:91
+msgid "About the player"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:54 views\ouplayer\oup_settings.php:88
 msgid "Player options"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:44 views\ouplayer\oup_settings.php:79
+#: views\ouplayer\oup_settings.php:56 views\ouplayer\oup_settings.php:90
 msgid "Player help"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:45
+#: views\ouplayer\oup_settings.php:57
 msgid "About"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:48
+#: views\ouplayer\oup_settings.php:60
 msgid "Choose the theme"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:48
+#: views\ouplayer\oup_settings.php:60
 msgid "Theme"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:56 views\ouplayer\oup_settings.php:82
+#: views\ouplayer\oup_settings.php:68 views\ouplayer\oup_settings.php:93
 msgid "Embed code"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:56
+#: views\ouplayer\oup_settings.php:68
 msgid "Embed on other sites"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:58
+#: views\ouplayer\oup_settings.php:70
 msgid "More embeds…"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:65 views\ouplayer\oup_settings.php:86
+#: views\ouplayer\oup_settings.php:77 views\ouplayer\oup_settings.php:97
 msgid "Download media"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:67 views\ouplayer\oup_settings.php:88
-#: views\ouplayer\ouplayer.php:119
+#: views\ouplayer\oup_settings.php:79 views\ouplayer\oup_settings.php:99
+#: views\ouplayer\ouplayer.php:132
 msgid "Download transcript"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:67 views\ouplayer\oup_settings.php:88
-#: views\ouplayer\ouplayer.php:119
+#: views\ouplayer\oup_settings.php:79 views\ouplayer\oup_settings.php:99
+#: views\ouplayer\ouplayer.php:132
 msgid "PDF"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:70
+#: views\ouplayer\oup_settings.php:82
 msgid "View on Podcasts"
 msgstr ""
 
 #. /Translators: 'View on OU Podcasts web site'
-#: views\ouplayer\oup_settings.php:70 views\ouplayer\oup_settings.php:91
+#: views\ouplayer\oup_settings.php:82 views\ouplayer\oup_settings.php:102
 msgid "perma-link"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:78
+#: views\ouplayer\oup_settings.php:89
 msgid "Close settings"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:80
-msgid "About the player"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:84
+#: views\ouplayer\oup_settings.php:95
 msgid "More embed options"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:91
+#: views\ouplayer\oup_settings.php:102
 msgid "View on Podcasts site"
 msgstr ""
 
-#: views\ouplayer\ouplayer.php:43
+#: views\ouplayer\ouplayer.php:48
 msgid "Your browser does not support the \"video\" element."
 msgstr ""
 
-#: views\ouplayer\ouplayer.php:54
+#: views\ouplayer\ouplayer.php:64
 msgid "Your browser does not support the \"audio\" element."
 msgstr ""
 
-#: views\ouplayer\ouplayer.php:120 views\ouplayer\ouplayer.php:124
+#: views\ouplayer\ouplayer.php:131 views\ouplayer\ouplayer.php:136
 msgid "Close script"
 msgstr ""
 
-#: views\ouplayer\ouplayer.php:145
+#: views\ouplayer\ouplayer.php:157
 #, possible-php-format
 msgid "Download %s"
 msgstr ""
