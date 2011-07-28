@@ -1,5 +1,5 @@
 <?php
-/** LAMS service provider.
+/** LAMS/ Learning Activity Management System service provider.
  *
  * Get oEmbed response from upstream Lamscommunity.org server.
  * Options: cache the SVG, screen-scrape the Lamscentral page (for extended meta-data).

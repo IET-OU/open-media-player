@@ -24,7 +24,7 @@ class Prezi_serv extends Base_service {
     $json_url = "http://api.embed.ly/1/oembed?format=json&url=$url";
     $result = $this->_http_request_json($json_url, $spoof=TRUE);
     if (! $result->success) {
-      die("Error, Prezi_serv woops");
+      die("Error, Prezi_serv woops, $json_url");
       return FALSE; //Error.
     }
 
