@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ouplayer-application 1.0\n"
 "Report-Msgid-Bugs-To: N.D.Freear+@+open.ac.uk\n"
-"POT-Creation-Date: 2011-07-28 12:38+0100\n"
+"POT-Creation-Date: 2011-07-28 17:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,8 +97,9 @@ msgstr ""
 msgid "Scalable Vector Graphic"
 msgstr ""
 
-#: views\oembed\oupodcast.php:12 views\ouplayer\oup_restricted.php:36
-#: views\ouplayer\ouplayer.php:75 views\ouplayer\player_noscript.php:11
+#: views\oembed\oupodcast.php:12 views\ouplayer\oup_restricted.php:37
+#: views\ouplayer\oup_settings.php:48 views\ouplayer\ouplayer.php:75
+#: views\ouplayer\player_noscript.php:11
 msgid "OU player"
 msgstr ""
 
@@ -199,9 +200,9 @@ msgstr ""
 
 #. /Translators: 'View on OU Podcasts web site'
 #: views\ouplayer\oup_controls.php:54 views\ouplayer\oup_controls.php:67
-#: views\ouplayer\oup_controls.php:68 views\ouplayer\oup_settings.php:79
-#: views\ouplayer\oup_settings.php:82 views\ouplayer\oup_settings.php:99
-#: views\ouplayer\oup_settings.php:102 views\ouplayer\ouplayer.php:132
+#: views\ouplayer\oup_controls.php:68 views\ouplayer\oup_settings.php:94
+#: views\ouplayer\oup_settings.php:98 views\ouplayer\oup_settings.php:116
+#: views\ouplayer\oup_settings.php:119 views\ouplayer\ouplayer.php:132
 #, possible-php-format
 msgid "New window: %s"
 msgstr ""
@@ -246,108 +247,120 @@ msgid "More options…"
 msgstr ""
 
 #. /Translators: access control.
-#: views\ouplayer\oup_restricted.php:7
+#: views\ouplayer\oup_restricted.php:8
 msgid "Public access"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:11
+#: views\ouplayer\oup_restricted.php:12
 msgid "Deleted"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:15
+#: views\ouplayer\oup_restricted.php:16
 msgid "Private access only"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:19 views\ouplayer\oup_restricted.php:62
+#: views\ouplayer\oup_restricted.php:20 views\ouplayer\oup_restricted.php:63
 #: views\ouplayer\oup_settings.php:15
 msgid "Staff/student access only"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:23
+#: views\ouplayer\oup_restricted.php:24
 msgid "Unpublished"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:66
+#: views\ouplayer\oup_restricted.php:67
 msgid "Log in and launch the player in a new window"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:69 views\ouplayer\oup_restricted.php:71
-#: views\ouplayer\oup_settings.php:20 views\ouplayer\oup_settings.php:56
-#: views\ouplayer\oup_settings.php:57 views\ouplayer\oup_settings.php:70
-#: views\ouplayer\oup_settings.php:77 views\ouplayer\oup_settings.php:90
-#: views\ouplayer\oup_settings.php:91 views\ouplayer\oup_settings.php:95
-#: views\ouplayer\oup_settings.php:97
+#: views\ouplayer\oup_restricted.php:70 views\ouplayer\oup_restricted.php:72
+#: views\ouplayer\oup_settings.php:20 views\ouplayer\oup_settings.php:71
+#: views\ouplayer\oup_settings.php:72 views\ouplayer\oup_settings.php:85
+#: views\ouplayer\oup_settings.php:92 views\ouplayer\oup_settings.php:107
+#: views\ouplayer\oup_settings.php:108 views\ouplayer\oup_settings.php:112
+#: views\ouplayer\oup_settings.php:114
 msgid "New window"
 msgstr ""
 
-#: views\ouplayer\oup_restricted.php:71 views\ouplayer\oup_settings.php:91
+#: views\ouplayer\oup_restricted.php:72 views\ouplayer\oup_settings.php:108
 msgid "About the player"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:54 views\ouplayer\oup_settings.php:88
+#: views\ouplayer\oup_settings.php:30
+msgid "Copy and paste"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:34
+msgid "Javascript-based embed (oEmbed)"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:47
+msgid "Iframe-based embed"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:69 views\ouplayer\oup_settings.php:105
 msgid "Player options"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:56 views\ouplayer\oup_settings.php:90
+#: views\ouplayer\oup_settings.php:71 views\ouplayer\oup_settings.php:107
 msgid "Player help"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:57
+#: views\ouplayer\oup_settings.php:72
 msgid "About"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:60
+#: views\ouplayer\oup_settings.php:75
 msgid "Choose the theme"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:60
+#: views\ouplayer\oup_settings.php:75
 msgid "Theme"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:68 views\ouplayer\oup_settings.php:93
+#: views\ouplayer\oup_settings.php:83 views\ouplayer\oup_settings.php:110
 msgid "Embed code"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:68
+#: views\ouplayer\oup_settings.php:83
 msgid "Embed on other sites"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:70
+#: views\ouplayer\oup_settings.php:85
 msgid "More embeds…"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:77 views\ouplayer\oup_settings.php:97
+#: views\ouplayer\oup_settings.php:92 views\ouplayer\oup_settings.php:114
 msgid "Download media"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:79 views\ouplayer\oup_settings.php:99
+#: views\ouplayer\oup_settings.php:94 views\ouplayer\oup_settings.php:116
 #: views\ouplayer\ouplayer.php:132
 msgid "Download transcript"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:79 views\ouplayer\oup_settings.php:99
+#: views\ouplayer\oup_settings.php:94 views\ouplayer\oup_settings.php:116
 #: views\ouplayer\ouplayer.php:132
 msgid "PDF"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:82
+#: views\ouplayer\oup_settings.php:98
 msgid "View on Podcasts"
 msgstr ""
 
 #. /Translators: 'View on OU Podcasts web site'
-#: views\ouplayer\oup_settings.php:82 views\ouplayer\oup_settings.php:102
+#: views\ouplayer\oup_settings.php:98 views\ouplayer\oup_settings.php:119
 msgid "perma-link"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:89
+#: views\ouplayer\oup_settings.php:106
 msgid "Close settings"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:95
+#: views\ouplayer\oup_settings.php:112
 msgid "More embed options"
 msgstr ""
 
-#: views\ouplayer\oup_settings.php:102
+#: views\ouplayer\oup_settings.php:119
 msgid "View on Podcasts site"
 msgstr ""
 

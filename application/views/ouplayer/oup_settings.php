@@ -27,12 +27,13 @@
 $embed_code=null;
 if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
   $em_title = substr_replace($meta->title, '…', 36);
+  $copy_text = t('Copy and paste');
   if (isset($meta->_short_url)) {
     $param_theme = OUP_PARAM_THEME;
     $jq_plugin_url = site_url('scripts/jquery.oembed.js');
-    $embed_method = 'Javascript-based embed (oEmbed)';
-	$embed_code = <<<EOF
-<!--Copy and paste--><a class="embed" href="$meta->_short_url">$em_title</a>
+    $embed_method = t('Javascript-based embed (oEmbed)');
+    $embed_code = <<<EOF
+<!--$copy_text--><a class="embed" href="$meta->_short_url">$em_title</a>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="$jq_plugin_url"></script>
@@ -43,11 +44,12 @@ $("a.embed").oembed(null,{oupodcast:{{$param_theme}:"$theme->name"}});
 </script>
 EOF;
   } else {
-    $embed_method = 'Iframe-based embed';
+    $embed_method = t('Iframe-based embed');
+	$embed_label = t('OU player');
     $embed_url = current_url().'?'.$this->input->server('QUERY_STRING');
     $embed_url = str_replace('/popup/', '/embed/', $embed_url);
     $embed_code = <<<EOF
-<!--Copy and paste--><iframe class="ouplayer $meta->media_type" width=640 height=410 src=
+<!--$copy_text--><iframe class="ouplayer $meta->media_type" title="$embed_label" width=640 height=410 src=
 "$embed_url"
 ></iframe>
 EOF;
