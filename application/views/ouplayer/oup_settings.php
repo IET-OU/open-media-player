@@ -39,6 +39,15 @@ EOF;
 endif;
 ?>
 
+<?php
+// Help/ about links.
+$docs = $this->config->item('player_docs');
+$help_url = isset($docs['help']) ? $docs['help'] : '#help/TODO';
+$about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
+$embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
+?>
+
+
 <div role="menu" class="optionalnav" aria-label="<?=t('Player options') ?>">
   <div class="col1">
   <a rel="help" class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
@@ -73,15 +82,14 @@ endif;
 </div>
 
 
-
 <div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('Player options') ?>">
   <button class="more-close" title="<?=t('Close settings') ?>"><span>X</span></button>
-  <a rel="help" class="help" href="#help/TODO" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
-  <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
+  <a rel="help" class="help" href="<?=$help_url ?>" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
+  <a class="about" href="<?=$about_url ?>" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
 <?php if ($jq_oembed): ?>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?=t('Embed code') ?></span></label></a>
   <textarea id="emcode-more" class="emcode-more" readonly title="Javascript-based embed (oEmbed)"><?=str_replace('<','&lt;', $jq_oembed) ?></textarea>
-  <a class="embed-opt" href="#embed/TODO" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
+  <a class="embed-opt" href="<?=$embedopts_url ?>" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
 <?php endif; ?>
   <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>

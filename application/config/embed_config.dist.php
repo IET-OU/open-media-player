@@ -26,18 +26,26 @@ $config['flowplayer_version'] = '3.2.7';
 $config['flowplayer_version'] = '3.1.5';*/
 
 // HTML5 audio/video fallback, see http://wiki.whatwg.org/wiki/Video_type_parameters
-//$config['ouplayer_video_codec'] = 'avc1.42E01E, mp4a.40.2';
+//Was: $config['ouplayer_video_codec'] = 'avc1.42E01E, mp4a.40.2';
+//$config['ouplayer_video_type'] = 'type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\'';
 
 // Set the data directory.
 $config['data_dir'] = '/var/www/_ouplayer_data/';
 #$config['data_dir'] = 'C:/Users/ndf42/workspace/_ouplayer_data/';
 
-// Optionally, set the path to a pdftohtml binary executable (not req. on Redhat 6).
+// Optionally, set the path to a pdftohtml binary executable (not required on Redhat 6).
 #$config['pdftohtml_path'] = $config['data_dir'].'pdftohtml-0.39/pdftohtml.exe';
 
 // Which embed providers are live on this server?
 $config['providers_local'] = array(
   'podcast.open.ac.uk'
+);
+
+$player_docs_google = 'https://docs.google.com/document/pub?id=1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc';
+$config['player_docs'] = array(
+  'help' => "$player_docs_google#id.j2um0zpktyo1",
+  'about'=> "$player_docs_google#id.mi4tst6i0wac",
+  'embed'=> "$player_docs_google#id.9xoj8o7ev1d5",
 );
 
 // OU Player themes.
