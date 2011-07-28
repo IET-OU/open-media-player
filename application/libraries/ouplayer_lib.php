@@ -74,15 +74,21 @@ abstract class Base_player {
 
 class Vle_player extends Base_player {}
 
-class Podcast_player extends Base_player {
-  public $url;
-  public $_short_url;
+/** Player for OpenLearn-learningspace.
+*/
+class Openlearn_player extends Base_player {
   public $_related_url;
   public $_related_text;
+
+  public $transcript_html;
+}
+
+class Podcast_player extends Openlearn_player {
+  public $url;
+  public $_short_url;
   public $thumbnail_url;
 
   public $summary;
-  public $transcript_html;
 
   public $provider_name = 'oupodcast';
   public $provider_mid;
@@ -94,3 +100,5 @@ class Podcast_player extends Base_player {
 
   public $timestamp;
 }
+
+

@@ -67,12 +67,22 @@ class Embed extends MY_Controller {
   /** OUVLE player embed.
   */
   public function vle() {
+    $options = array('width', 'height', 'image_url', 'caption_url', 'lang', 'theme', 'debug');
+	return $this->_player('Vle_player', $options);
+  }
+
+  public function openlearn() {
+    $options = array('width', 'height', 'image_url', 'caption_url', 'lang', 'theme', 'debug', 'transcript_url', 'related_url');
+	return $this->_player('Openlearn_player', $options);
+  }
+
+  protected function _player($class, $options) {
     header('Content-Type: text/html; charset=utf-8');
 
     // Security: No access control required?
 
     // Process GET parameters in the request URL.
-    $player = new Vle_player; #$request = (object) array(
+    $player = new $class;
     // Required.
     $player->media_url = $this->input->get('media_url');
     $player->title     = $this->_required('title');
@@ -85,9 +95,9 @@ class Embed extends MY_Controller {
     #);
 
 	//TODO: Need to tighten back up for production (Was: '/learn.open.ac.uk../')
-    if (preg_match('/.open.ac.uk\/.*\.(mp4|flv|mp3)$/', $player->media_url, $ext)) { 
+    if (preg_match('/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/', $player->media_url, $ext)) { 
       // Codecs? http://wiki.whatwg.org/wiki/Video_type_parameters
-      $opts = array('mp4'=>'video', 'flv'=>'video', 'mp3'=>'audio');
+      $opts = array('mp4'=>'video', 'm4v'=>'video', 'flv'=>'video', 'mp3'=>'audio');
       $player->media_type = $opts[$ext[1]];
       $player->media_html5= 'flv'!=$ext[1];
     } else {
@@ -112,6 +122,8 @@ class Embed extends MY_Controller {
       //TODO: needs more work!
         'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
     );
+	//Hack.
+	$view_data['popup_url'] = str_replace('&?', '&', $view_data['popup_url']);
 
 	if ('basic'!=$this->_theme->name) {
         $this->load->view('ouplayer/ouplayer', $view_data);
