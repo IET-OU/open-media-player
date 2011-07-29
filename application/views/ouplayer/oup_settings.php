@@ -8,7 +8,7 @@
 
 <div id="title" class="oup-title panel titletoolbar">
   <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
-  <img class="ou-home logo" alt="Open University logo" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
+  <img class="ou-home logo" alt="<?=t('The Open University') ?>" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
   <li><h1><?=$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
   <?php if (isset($meta->_access['intranet_only']) && 'Y'==$meta->_access['intranet_only']): ?>
@@ -27,6 +27,7 @@
 $embed_code=null;
 if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
   $em_title = substr_replace($meta->title, '…', 36);
+  ///Translators: Player options (settings) menus or panels.
   $copy_text = t('Copy and paste');
   if (isset($meta->_short_url)) {
     $param_theme = OUP_PARAM_THEME;
@@ -79,7 +80,7 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
   </select>
   </div>
   <div class="col2">
-<?php if ($embed_code): ?>
+<?php if ($embed_code): ///Translators: software/programming/HTML code to allow further embedding of this player. ?>
   <label role="button" class="embed" for="embed-code" title="<?=t('Embed on other sites') ?>"><span><?=t('Embed code') ?></span></label></a>
   <textarea id="embed-code" class="emcode-opt" readonly title="<?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
   <a class="embed-opt" href="#embed/TODO" title="<?=t('New window') ?>"><span><?=t('More embeds…') ?></span></a>
@@ -94,7 +95,7 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
   <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
-<?php ///Translators: 'View on OU Podcasts web site' ?>
+<?php ///Translators: 'Permanent link' - view on OU Podcasts web site. ?>
   <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts') ?></span></a>
 <?php endif; ?>
   </div>
@@ -103,13 +104,13 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
 
 
 <div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('Player options') ?>">
-  <button class="more-close" title="<?=t('Close settings') ?>"><span>X</span></button>
-  <a rel="help" class="help" href="<?=$help_url ?>" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
-  <a class="about" href="<?=$about_url ?>" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
+  <button class="more-close" title="<?=t('Close options menu') ?>"><span>X</span></button>
+  <a rel="help" class="help" href="<?=$help_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
+  <a class="about" href="<?=$about_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
 <?php if ($embed_code): ?>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?=t('Embed code') ?></span></label></a>
   <textarea id="emcode-more" class="emcode-more" readonly title="<?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
-  <a class="embed-opt" href="<?=$embedopts_url ?>" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
+  <a class="embed-opt" href="<?=$embedopts_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
 <?php endif; ?>
   <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
