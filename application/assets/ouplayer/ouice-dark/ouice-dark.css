@@ -136,11 +136,16 @@
   bottom:60px; top:auto;
   max-width:none; width:100%; height:41px;
 }
+/*Move to core styles? */
+.oup.restrict .oup-title.panel{bottom:0; height:7em;}
+.oup.html5-fallback .oup-title.panel{bottom:0;}
+
 .oup-title.panel a{color:#eee;}
 .oup-title.panel a.rel-2{white-space:nowrap; /*audio-player*/}
 .oup-title.panel h1{text-shadow:#000 0 2px 2px; font-weight:normal;}
 .oup-title.panel .mediatitle li{margin-left:38px;}
-.oup-title.panel .ou-home{float:left;}
+.oup-title.panel .ou-home{float:left; background:url(pix/oulogo_white_32x38px.png) no-repeat;}
+.oup-title.panel .restrict-text{color:yellow;}
 .oup-title.panel .optionalnav{display:none;}
 /*.mtype-audio*/ .oup-title .summary{display:none;}
 
