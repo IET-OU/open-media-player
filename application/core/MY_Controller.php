@@ -4,7 +4,7 @@
  * @copyright Copyright 2011 The Open University.
  */
 //Common parameter names, shared by oEmbed/ embed/ popup controllers.
-define('OUP_PARAM_DEBUG', '_debug');
+define('OUP_PARAM_DEBUG', 'debug'); #Was: _debug
 define('OUP_PARAM_THEME', 'theme'); #Was: _theme
 define('OUP_PARAM_LANG', 'lang');
 
@@ -51,8 +51,14 @@ class MY_Controller extends CI_Controller {
 		$this->firephp->fb('Unrecognised theme!', __METHOD__, 'ERROR');
 	}
 	if (!$this->_theme) {
-		$this->_theme = (object) $themes['basic'];
-		$this->_theme->name = 'basic';
+		$def_theme = $this->config->item('player_default_theme');
+		if ($def_theme && isset($themes[$def_theme])) {
+			$this->_theme = (object) $themes[$def_theme];
+			$this->_theme->name = $def_theme;
+		} else {
+			$this->_theme = (object) $themes['basic'];
+			$this->_theme->name = 'basic';
+		}
 	}
 
 	// For MSIE <= 6.5, downgrade the theme to 'basic' aka 'noscript'!

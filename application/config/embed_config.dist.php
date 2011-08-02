@@ -41,6 +41,7 @@ $config['providers_local'] = array(
   'podcast.open.ac.uk'
 );
 
+// OU Player user documentation.
 $player_docs_google = 'https://docs.google.com/document/pub?id=1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc';
 $config['player_docs'] = array(
   'help' => "$player_docs_google#id.j2um0zpktyo1",
@@ -49,6 +50,8 @@ $config['player_docs'] = array(
 );
 
 // OU Player themes.
+$config['player_default_theme'] = 'ouice-light';
+
 $config['player_themes'] = array(
   'basic' => array('styles'=>null, 'view'=>'ouplayer/player_noscript'),
   'core'  => array('styles'=>null),
