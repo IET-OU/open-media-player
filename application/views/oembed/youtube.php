@@ -15,10 +15,10 @@
 
   ?>
 <div class='youtube oembed'><iframe role='application' title='<?=t('YouTube video player') ?>' type='text/html' width='<?=$width ?>' height='<?=$height ?>'
-src='http://www.youtube.com/embed/<?=$video_id ?>?origin=example.com' frameborder='0'><?=t('Your browser does not support frames.') ?>
-<a href='http://youtu.be/<?=$video_id ?>'><?=t('Watch video on YouTube') ?></a></iframe><div style="font-size:small"><img alt='' src='http://www.youtube.com/favicon.ico'/>
+src='http://www.youtube.com/embed/<?=$video_id ?>?origin=<?=$this->input->server('HTTP_HOST'); ?>' frameborder='0'><?=t('Your browser does not support frames.') ?>
+</iframe><div style="font-size:small"><img alt='' src='http://www.youtube.com/favicon.ico' style='padding-top:3px'/>
 <?php /*<img src='/ouplayer/assets/services/html5-favicon.ico'/>*/ ?> <a href='http://youtube.com/html5' title="<?=t("Join YouTube's HTML5 trial") ?>"><?=t('Opt-in to HTML5') ?></a>
-<?=$tracker ?></div></div>
+ <a href='http://youtu.be/<?=$video_id ?>?hd=1' title='<?=t('High definition') ?>' style='padding-left:20px; margin-left:8px; background:url(<?=base_url() ?>assets/services/hd.png) no-repeat left;'><?=t('Watch on YouTube') ?></a><?=$tracker ?></div></div>
 <?php
 
   $html = ob_get_clean();
