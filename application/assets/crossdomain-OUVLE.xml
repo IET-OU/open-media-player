@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <!--
-  Flash cross-domain policy for OUVLE / VLEDEV - fairly restrictive, initially for development!
+  Flash cross-domain policy for OUVLE / OpenLearn / VLEDEV - fairly restrictive, initially for development!
+
+  Deploy on live, test and dev servers:
+        http://learn.open.ac.uk/crossdomain.xml
+		http://learn-acct.open.ac.uk/crossdomain.xml
+		http://openlearn.open.ac.uk/crossdomain.xml
+		...
 
   See:  http://podcast.open.ac.uk/crossdomain.xml
         http://i1.ytimg.com/crossdomain.xml
@@ -10,20 +16,23 @@
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
     <site-control permitted-cross-domain-policies="all"/>
-    <allow-access-from domain="*.open.ac.uk" secure="false" />
-</cross-domain-policy>
+<!--
+  Less restrictive:
+	<allow-access-from domain="*.open.ac.uk" secure="false" />
+-->
 <!--
   A more restrictive policy.
 
   Live servers:
-
+-->
     <allow-access-from domain="embed.open.ac.uk" secure="false" />
 	<allow-access-from domain="player.open.ac.uk" secure="false" />
 	<allow-access-from domain="podcast.open.ac.uk" secure="false" />
     <allow-access-from domain="podcast-api.open.ac.uk" secure="false" />
-
-  Development servers - Nick Freear's and the VLE team's:  
-	
+<!--
+  Development servers - Podcast's, Nick Freear's and the VLE team's:
+-->
+    <allow-access-from domain="media-podcast-dev.open.ac.uk" secure="false"/>
     <allow-access-from domain="pcie663.open.ac.uk" secure="false" />
     <allow-access-from domain="*.vledev2.open.ac.uk" secure="false" />
--->
+</cross-domain-policy>
