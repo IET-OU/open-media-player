@@ -91,8 +91,8 @@ EOF;
 
     // Should we load the library for the service?
     if (($this->config->item('always_upstream') || !$meta)
-        && file_exists(APPPATH."/libraries/{$name}_serv.php")) {
-      $this->load->library("{$name}_serv.php");
+        && file_exists(APPPATH."/libraries/providers/{$name}_serv.php")) {
+      $this->load->library("providers/{$name}_serv.php");
       $meta = $this->{"{$name}_serv"}->call($req->url, $matches);
     } elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
       // Legacy.

@@ -32,7 +32,7 @@ class Embed extends MY_Controller {
 	$edge  = $this->input->get('edge');  #Deprecated.
 	$audio_poster= $this->input->get('poster'); #Only for audio!
 
-	$this->load->library('Oupodcast_serv');
+	$this->load->library('providers/Oupodcast_serv');
 
 	$player = $this->oupodcast_serv->_inner_call($custom_id, $shortcode);
 	$player = $this->oupodcast_serv->get_transcript($player);

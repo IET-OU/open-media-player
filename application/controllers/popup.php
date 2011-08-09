@@ -32,7 +32,7 @@ class Popup extends MY_Controller { //CI_Controller {
 	$height= 0; #$this->_required('height');
 	$audio_poster= $this->input->get('poster'); #Only for audio!
 
-	$this->load->library('Oupodcast_serv');
+	$this->load->library('providers/Oupodcast_serv');
 
 	$player = $this->oupodcast_serv->_inner_call($custom_id, $shortcode);
 	$player = $this->oupodcast_serv->get_transcript($player);
