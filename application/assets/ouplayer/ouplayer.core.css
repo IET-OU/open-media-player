@@ -14,9 +14,12 @@ body.oup.mtype-audio, .oup.mtype-audio .oup-controls{
 }
 
 /*Development ideas only! */
-@media (max-width: 400px) {
+/*@media (max-width: 400px) {*/
   .oup.no-debug .oupc .related, .oup.no-debug .oupc .fulls{display:none;}
-}
+/*}*/
+
+.oup.ctx-Vle_player.mode-embed  .oup-title.panel{display:none !important;}
+.oup.ctx-Vle_player  .oup-settings.panel .media-url{display:none;}
 
 /*Debug: simples! */
 body.X-debug:after{content:attr(class); color:red;}
@@ -301,7 +304,7 @@ body.X-debug:after{content:attr(class); color:red;}
 
 .oup-title.panel h1{margin:0 0 5px; white-space:nowrap; overflow:hidden;}
 .oup-title.panel .ou-home{display:block; width:32px; height:/*1px;*/38px; background:url(oulogo-39.png) no-repeat top left;}
-.oup-title.panel .restrict-text{color:#d00;}
+.oup-title.panel .restrict-text{color:#c00;}
 .oup.mode-popup .restrict-text{font-size:.7em; line-height:.7em;}
 .oup-title.panel .rel-2{font-size:.94em;}
 .oup-title.panel ul{list-style:none; padding:0; margin:0;}
