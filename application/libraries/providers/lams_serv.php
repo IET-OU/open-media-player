@@ -8,7 +8,8 @@
  * @copyright Copyright 2011 The Open University.
  */
 //24/2, 1/3/2011.
-require_once 'base_service.php';
+require_once APPPATH.'libraries/base_service.php';
+
 
 class Lams_serv extends Base_service {
 

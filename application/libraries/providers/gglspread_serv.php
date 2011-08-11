@@ -5,7 +5,8 @@
  */
 #NDF, 4/3/2011.
 #/oembed?url=http%3A//spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ%23height=1160
-require_once 'base_service.php';
+require_once APPPATH.'libraries/base_service.php';
+
 
 class Gglspread_serv extends Base_service {
 

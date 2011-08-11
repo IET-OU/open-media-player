@@ -5,7 +5,8 @@
  */
 //NDF, 1, 23 March 2011.
 
-require_once 'base_service.php';
+require_once APPPATH.'libraries/base_service.php';
+
 
 class Prezi_serv extends Base_service {
 

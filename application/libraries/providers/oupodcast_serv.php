@@ -4,8 +4,8 @@
  * @copyright Copyright 2011 The Open University.
  */
 //NDF, 3/3/2011.
-require_once 'base_service.php';
-require_once 'ouplayer_lib.php';
+require_once APPPATH.'libraries/base_service.php';
+require_once APPPATH.'libraries/ouplayer_lib.php';
 
 
 class Oupodcast_serv extends Base_service {
