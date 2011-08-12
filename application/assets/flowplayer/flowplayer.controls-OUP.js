@@ -1,5 +1,5 @@
 /**
- * OU player controls, modified 2011-04-08 by NDF.
+ * OU player controls, modified 2011-04-08 by N.D.Freear.
  * Modifications, Copyright 2011 The Open University.
 */
 /**
@@ -309,8 +309,8 @@ $f.addPlugin("controls", function(wrap, options) {
 	}
 	
 	self.onStart(function(clip) {
-		
-		var duration = clip.duration || 0;
+		qOUP.log('clip.duration: '+clip.duration);
+		var duration = var duration = clip.duration || opts.duration || 0;
 
 		// clear previous timer		
 		clearInterval(timer);
@@ -324,10 +324,10 @@ $f.addPlugin("controls", function(wrap, options) {
 			if (status.time) {
 //ou-specific
 				if (typeof time.value=='string') {
-					time.value = plainTime(status.time, clip.duration);
+					time.value = plainTime(status.time, duration);
 				} else {
 //ou-specific ends.
-				time.innerHTML = getTime(status.time, clip.duration);
+				time.innerHTML = getTime(status.time, getTime(status.time, duration); //Was:clip.duration;
 				}
 			}
 			
@@ -350,7 +350,7 @@ $f.addPlugin("controls", function(wrap, options) {
 				//progressBar.style.width = x + "px";
 				progressBar.style.width = (100*status.time/duration) + "%";//parseInt.
 				progressBar.title = status.time+'s';
-				OUP.log('progress: '+status.time+'s; ball: '+ballWidth+', '+x+', '+ball.title);
+				OUP.log('progress: '+status.time+'s; ball: '+ballWidth+', '+x+', '+duration+', '+ball.title);
 //ou-specific ends.
 				ball.style.left = (x -ballWidth / 2) + "px";
 			}
