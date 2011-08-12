@@ -56,7 +56,7 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
     <source src="$meta->media_url" $type/>
     <div id="no-support">$support_text</div>
   </video>
-  <a href="$meta->media_url" class="html5-dload" style="display:block; float:right">[Download]</a>
+  <a href="$meta->media_url" class="html5-dload">[Download]</a>
 EOF;
   }
   elseif ($meta->media_html5 && 'audio' == $meta->media_type) {
@@ -178,13 +178,33 @@ OUP.log('domReady');
 //TODO: check minimum Flash requirement!
 if (flashembed.isSupported([6,0,65])) {
 <?php
+  define('FLOWPLAYER_DEV', TRUE); #FALSE);
+  #$flowplayer_dev = false; #true;
   $flow_key = config_item('flowplayer_key');
-  $flow_commercial= $flow_key ? '.commercial' : '';
-  $flow_version = config_item('flowplayer_version');
-  if(!$flow_version || !$flow_key){$flow_version='3.2.7';}
+
+  function _flowplayer_flash() {
+    $flowplayer_dev = FLOWPLAYER_DEV;
+    $flow_key = config_item('flowplayer_key');
+    $flow_commercial= $flow_key ? '.commercial' : '';
+    $flow_version = config_item('flowplayer_version');
+    if(!$flow_version || !$flow_key){$flow_version='3.2.7';}
+
+	if ($flowplayer_dev) {
+	  return "assets/flowplayer_dev/flowplayer$flow_commercial.swf";
+	}
+	return "swf/flowplayer$flow_commercial-$flow_version.swf";
+  }
+
+  function _flowplayer_plugin($name, $version) {
+    $flowplayer_dev = FLOWPLAYER_DEV;
+	if ($flowplayer_dev) {
+	  return "flowplayer.$name.swf";
+	}
+	return "flowplayer.$name-$version.swf";
+  }
 ?>
   //Accessibility: wmode=opaque would be inaccessible if we relied on Flash controls.
-  OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?>swf/flowplayer<?=$flow_commercial ?>-<?=$flow_version ?>.swf", wmode:'opaque'}, {
+  OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?><?=_flowplayer_flash() ?>", wmode:'opaque'}, {
 
     onError: function(code, message){
       OUP.log('onError: '+code+', '+message);
@@ -210,9 +230,9 @@ if (flashembed.isSupported([6,0,65])) {
 
     plugins: {
 <?php if ($meta->caption_url): ?>
-"captions":{"url":"flowplayer.captions-3.2.3.swf", "captionTarget":"content", "button":null},
+"captions":{"url":"<?=_flowplayer_plugin('captions', '3.2.3') ?>", "captionTarget":"content", "button":null},
 "content": {
-  "url":"flowplayer.content-3.2.0.swf",
+  "url":"<?=_flowplayer_plugin('content', '3.2.0') ?>",
   "display":"none",
   "bottom":5, //30,
 <?php /*"width":"90%"<-?=($meta->width - 60) //Percent fails - why? */
@@ -249,7 +269,7 @@ if (flashembed.isSupported([6,0,65])) {
 
 <?php if(isset($google_analytics) && $google_analytics): ?>
     gatracker: {
-      url:"flowplayer.analytics-3.2.2.swf",
+      url:"<?=_flowplayer_plugin('analytics', '3.2.2') ?>",
 
 <?php // track all possible events. By default only Start and Stop 
       // are tracked with their corresponding playhead time. ?>
