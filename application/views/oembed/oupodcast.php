@@ -14,7 +14,7 @@
 
   //scrolling='no' - ?
   $html =<<<EOF
-<iframe class='ou podcast oembed $meta->media_type' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+<iframe class='ou player podcast oembed $meta->media_type' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  width='$meta->width' height='$meta->height' frameborder='0' style='overflow:hidden;'
  src='$meta->iframe_url'>$noframes</iframe>
 EOF;
@@ -56,6 +56,7 @@ EOF;
         '__podcast_id'=>$meta->_podcast_id,
         '__album_id'  =>$meta->_album_id, #(DB: custom_id)
         '__track_md5' =>$meta->_track_md5,
+		'__access' => $meta->_access,
         //'dc:extent'=>"$meta->_duration s",
         #'__meta' => $meta,
         'dc:copyright'=>$meta->_copyright,

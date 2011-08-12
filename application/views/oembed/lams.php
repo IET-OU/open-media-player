@@ -25,10 +25,10 @@ TODO: scale the image.
     ob_start();
 
     ?>
-<link rel="stylesheet" href="<?=$base_url ?>assets/services/lams.css" /><style>
+<link class='LAMS-css' rel='stylesheet' href='<?=$base_url ?>assets/services/lams.css' /><style>
 <?php /*MSIE 7: @import url(<?=$base_url ?>assets/services/lams.css);*/ ?>
 .lams.oembed .seq object, .lams.oembed .seq img{width:<?=$img_width ?>px; height:<?=$img_height ?>px;}
-</style><div class='lams oembed' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#'><div class="head">
+</style><div class='lams oembed' about='<?=$url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#'><div class="head">
 <?php ///Translators: LAMS, Learning Activity Management System. ?>
  <a class="logo" href="http://lamscommunity.org/"><img alt="<?=t('LAMS community') ?>" title="<?=t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
  <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?=$meta->title ?></h3>
