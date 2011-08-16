@@ -2,6 +2,9 @@
  * OU player controls, modified 2011-04-08 by N.D.Freear.
  * Modifications, Copyright 2011 The Open University.
 */
+
+/*global window: false, document: false, $f: false, OUP: false */
+
 /**
  * flowplayer.controls 3.0.2. Flowplayer JavaScript plugin.
  * 
@@ -144,7 +147,7 @@ $f.addPlugin("controls", function(wrap, options) {
 	}
 //ou-specific
 	function plainTime(time, duration, rich) {
-		if (typeof rich!='undefined') {
+		if (typeof rich !== 'undefined') {
 			return getTime(time, duration);
 		}
 		return toTime(time) + " / " + toTime(duration);
@@ -256,14 +259,14 @@ $f.addPlugin("controls", function(wrap, options) {
 	};
 
 //ou-specific begins
-  var pause= byClass(opts.pauseClass);
-  var stop = byClass(opts.stopClass);
-  var repeat=byClass(opts.repeatClass);
-  var louder=byClass(opts.louderClass);
-  var quieter=byClass(opts.quieterClass);
+  var pause= byClass(opts.pauseClass),
+	  stop = byClass(opts.stopClass),
+	  repeat=byClass(opts.repeatClass),
+	  louder=byClass(opts.louderClass),
+	  quieter=byClass(opts.quieterClass),
 
-  var back   =byClass(opts.backClass);
-  var forward=byClass(opts.forwardClass);
+	  back   =byClass(opts.backClass),
+	  forward=byClass(opts.forwardClass);
 
   /*pause.onclick= function() { self.pause(); }
   stop.onclick = function() { self.stop();  }
@@ -287,14 +290,14 @@ $f.addPlugin("controls", function(wrap, options) {
   };
 
   back.onclick = function() {
-    var status = self.getStatus();
-	var to = status.time - 10;
+    var status = self.getStatus(),
+		to = status.time - 10;
 	if (to < 0) to = 0;
 	self.seek(to);
   }
   forward.onclick = function() {
-    var status = self.getStatus();
-	var to = status.time + 10;
+    var status = self.getStatus(),
+		to = status.time + 10;
 	if (to > status.duration) to = status.duration;
 	self.seek(to);
   }
@@ -309,7 +312,7 @@ $f.addPlugin("controls", function(wrap, options) {
 	}
 	
 	self.onStart(function(clip) {
-		OUP.log('clip.duration: '+clip.duration);
+		OUP.log('clip.duration: ' + clip.duration);
 		var duration = clip.duration || opts.duration || 0;
 
 		// clear previous timer		
@@ -323,7 +326,7 @@ $f.addPlugin("controls", function(wrap, options) {
 			// time display
 			if (status.time) {
 //ou-specific
-				if (typeof time.value=='string') {
+				if (typeof time.value === 'string') {
 					time.value = plainTime(status.time, duration);
 				} else {
 //ou-specific ends.
@@ -348,7 +351,7 @@ $f.addPlugin("controls", function(wrap, options) {
 				x = getMax(status.time, duration);
 //ou-specific
 				//progressBar.style.width = x + "px";
-				progressBar.style.width = (100*status.time/duration) + "%";//parseInt.
+				progressBar.style.width = (100 * status.time / duration) + "%"; //parseInt.
 				progressBar.title = status.time+'s';
 				OUP.log('progress: '+status.time+'s; ball: '+ballWidth+', '+x+', '+duration+', '+ball.title);
 //ou-specific ends.
