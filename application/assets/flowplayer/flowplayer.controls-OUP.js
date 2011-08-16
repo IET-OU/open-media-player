@@ -309,8 +309,8 @@ $f.addPlugin("controls", function(wrap, options) {
 	}
 	
 	self.onStart(function(clip) {
-		qOUP.log('clip.duration: '+clip.duration);
-		var duration = var duration = clip.duration || opts.duration || 0;
+		OUP.log('clip.duration: '+clip.duration);
+		var duration = clip.duration || opts.duration || 0;
 
 		// clear previous timer		
 		clearInterval(timer);
@@ -327,7 +327,7 @@ $f.addPlugin("controls", function(wrap, options) {
 					time.value = plainTime(status.time, duration);
 				} else {
 //ou-specific ends.
-				time.innerHTML = getTime(status.time, getTime(status.time, duration); //Was:clip.duration;
+				time.innerHTML = getTime(status.time, duration); //Was:clip.duration;
 				}
 			}
 			
