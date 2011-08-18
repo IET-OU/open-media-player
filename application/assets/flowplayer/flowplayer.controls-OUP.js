@@ -1,11 +1,4 @@
-/**
- * OU player controls, modified 2011-04-08 by N.D.Freear.
- * Modifications, Copyright 2011 The Open University.
-*/
-
-/*global window: false, document: false, $f: false, OUP: false */
-
-/**
+/*!
  * flowplayer.controls 3.0.2. Flowplayer JavaScript plugin.
  * 
  * This file is part of Flowplayer, http://flowplayer.org
@@ -19,6 +12,13 @@
  * Date: 2008-11-25 11:29:03 -0500 (Tue, 25 Nov 2008)
  * Revision: 1424 
  */
+/*!
+ * Modifications, ©2011 The Open University.
+ */
+//OU player controls, modified 2011-04-08 by N.D.Freear
+
+/*global window: false, document: false, $f: false, OUP: false */
+
 $f.addPlugin("controls", function(wrap, options) {
 	
 		
