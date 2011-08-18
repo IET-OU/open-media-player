@@ -23,6 +23,7 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
 
   // Language/locale, 'context' (ctx-), 'mode' etc.
   $body_classes.= ' lang-'.$this->lang->lang_code();
+  $body_classes.= ' -'.$this->agent->browser_code();
   $body_classes.= ' ctx-'.get_class($meta);
   $body_classes.= " mode-$mode "; #(embed|popup).
   $body_classes.= $debug ? 'debug ':'no-debug ';
