@@ -1,8 +1,9 @@
-/**
- * Tooltips for OU player. (NDF, 2011-04-08)
- * Modifications, Copyright 2011 The Open University.
+/*!
+ * OU player 'Fixed ToolTip script'.
+ * ©Dynamic Drive (www.dynamicdrive.com)
+ * Modifications, ©2011 The Open University.
  */
-//The OU player object.
+//The OU player object. (N.D.Freear, 2011-04-08)
 var OUP = OUP || {};
 (function(){
 /***********************************************

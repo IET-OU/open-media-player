@@ -1,11 +1,10 @@
 /*!
  * OU Player behaviours.
- * Copyright 2011 The Open University.
- * http://embed.open.ac.uk
+ * ©2011 The Open University.
  */
-//(NDF, 2011-04-08/-04-27/-05-18)
+//(N.D.Freear, 2011-04-08/-04-27/-05-18)
 //The OU player object.
-var OUP = OUP || {};
+//var OUP = OUP || {};
 (function(){
 
   OUP.player=null;
