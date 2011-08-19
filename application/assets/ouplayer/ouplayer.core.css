@@ -18,8 +18,10 @@ body.oup.mtype-audio, .oup.mtype-audio .oup-controls{
   .oup.no-debug .oupc .related, .oup.no-debug .oupc .fulls{display:none;}
 /*}*/
 
+.html5-dload{display:block; float:right;}
+
 .oup.ctx-Vle_player.mode-embed  .oup-title.panel{display:none !important;}
-.oup.ctx-Vle_player  .oup-settings.panel .media-url{display:none;}
+.oup.ctx-Vle_player  .oup-settings.panel .media-url, .oup.ctx-Vle_player .html5-dload{display:none;}
 
 /*Debug: simples! */
 body.X-debug:after{content:attr(class); color:red;}
@@ -166,7 +168,7 @@ body.X-debug:after{content:attr(class); color:red;}
   background: blue;
 
   position: fixed;
-  bottom: 34px;
+  bottom: 35px;
   left: 155px;
   right: 104px;/*48px*/
 
