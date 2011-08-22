@@ -1,6 +1,7 @@
 <?php
-/** For now, dynamically create the oEmbed jQuery Javascript.
- * scripts/jquery.oembed.js
+/** Dynamically create Javascripts, for delivery and caching.
+ *
+ * @copyright Copyright 2011 The Open University.
  *
  * Caching: 
 http://stackoverflow.com/questions/1971721/how-to-use-http-cache-headers-with-php#v3
@@ -15,7 +16,7 @@ class Scripts extends CI_Controller {
 
   }
 
-  /** oEmbed jQuery plugin.
+  /** oEmbed jQuery plugin, scripts/jquery.oembed.js
   */
   public function jquery_oembed($cache_minutes=10) {
       header('Content-Type: application/x-javascript; charset=utf-8');
@@ -70,6 +71,58 @@ class Scripts extends CI_Controller {
       echo $out;
   }
 
+  /**Get/generate minified/concatenated Javascript for embedded/popup OU player.
+   *   jsbin/embed-ouplayer.{mtime}.js
+   */
+  public function embed_ouplayer_js($mtime=null) {
+    header('Content-Type: application/x-javascript; charset=utf-8');
+
+    $cache_key = 'scripts_embed_ouplayer.min.js';
+    $this->_cache_init($cache_key);
+
+    $assets = array(
+      #http://ouan.open.ac.uk/sitestat.js
+      'flowplayer/flowplayer-3.2.6.min.js',
+      'flowplayer/flowplayer.controls-OUP.js',
+      'ouplayer/ouplayer.tooltips.js',
+      'ouplayer/ouplayer.behaviors.js',
+    );
+    $out = '/* Woops! */';
+    if (!cache_exists($cache_key)) {
+        $out = $this->_join_yuicompress($assets);
+    }
+    $this->_cache_save($cache_key, $out);
+
+    echo $out;
+  }
+
+  /** Run YUI Compressor and concatenate arbitrary Javascripts.
+  * @return string
+  */
+  protected function _join_yuicompress($assets, $ctype='application/x-javascript') {
+    #@header("Content-Type: $ctype; charset=utf-8");
+    $out = array();
+    foreach ($assets as $file) {
+      $input = APPPATH."assets/$file";
+      $out[] = PHP_EOL."/*:$file*/";
+      if (preg_match('#\.min\.#', $file)) {
+        // Already compressed.
+        $out[] = file_get_contents($input);
+      } else {
+        //java -jar yuicompressor-x.y.z.jar [options] [input file]
+        $jar_path = APPPATH."libraries/yuicompressor/yuicompressor-2.4.6.jar";
+        $cmd = "java -jar $jar_path --charset utf-8 $input";
+        $res = exec($cmd, $out, $ret);
+        if (0!=$ret) {
+          // Error. (Can we get the error-output?)
+          $out[] = "/* Error. YUI Compressor returned: $ret ($file) */";
+        }
+      }
+    }
+    $out = implode(PHP_EOL, $out);
+
+    return $out;
+  }
 
   protected function _cache_save($key, $payload) {
       $minutes = $this->config->item('cache_minutes'); /*FALSE===$this->config->item('cache_minutes')
@@ -109,7 +162,7 @@ class Scripts extends CI_Controller {
     		exit();
         }
 
-        header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT');
+        header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); //$stat['mtime']
         @header('Expires: '.gmdate('D, d M Y H:i:s', time()+$minutes*60).' GMT');#r.
         @header('Cache-Control: max-age='.($minutes*60).', must-revalidate');
       }
