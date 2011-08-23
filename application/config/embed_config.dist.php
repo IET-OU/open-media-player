@@ -18,6 +18,15 @@ $config['debug'] = false;
 // Debugging: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
+// Experimental.
+$config['cache_minutes'] = false; //10;
+
+// Experimental.
+$config['player_scripts_compress'] = false;
+
+// Experimental.
+$config['flowplayer_dev'] = false;
+
 // Flowplayer commercial license key.
 $config['flowplayer_key'] = '#$0...5';
 $config['flowplayer_version'] = '3.2.7';
