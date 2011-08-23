@@ -161,14 +161,9 @@ $this->load->view('ouplayer/oup_analytics');
 <div role="tooltip" id="oup-tooltips"></div>
 
 
-<script src="<?=$base_url ?>swf/flowplayer-3.2.6.min.js"></script>
-<!--
-<script src="<?=$base_url ?>swf/flowplayer-src-r652.js"></script>
-<script src="<?=$base_url ?>swf/flashembed.min.js"></script>
--->
-<script src="<?=$base_url ?>swf/flowplayer.controls-OUP.js"></script>
-<script src="<?=$base_url ?>assets/ouplayer/ouplayer.tooltips.js"></script>
-<script src="<?=$base_url ?>assets/ouplayer/ouplayer.behaviors.js?r=<?=rand() ?>"></script>
+<?php
+  $this->load->view('ouplayer/oup_scripts');
+?>
 <script>
 flashembed.domReady(function(){
   //var f=$f("ouplayer-div");
@@ -179,15 +174,14 @@ OUP.log('domReady');
 //TODO: check minimum Flash requirement!
 if (flashembed.isSupported([6,0,65])) {
 <?php
-  define('FLOWPLAYER_DEV', TRUE); #FALSE);
-  #$flowplayer_dev = false; #true;
   $flow_key = config_item('flowplayer_key');
 
   function _flowplayer_flash() {
-    $flowplayer_dev = FLOWPLAYER_DEV;
-    $flow_key = config_item('flowplayer_key');
+    $CI =& get_instance();
+    $flowplayer_dev= $CI->config->item('flowplayer_dev');
+    $flow_key      = $CI->config->item('flowplayer_key');
     $flow_commercial= $flow_key ? '.commercial' : '';
-    $flow_version = config_item('flowplayer_version');
+    $flow_version  = $CI->config->item('flowplayer_version');
     if(!$flow_version || !$flow_key){$flow_version='3.2.7';}
 
 	if ($flowplayer_dev) {
@@ -197,7 +191,7 @@ if (flashembed.isSupported([6,0,65])) {
   }
 
   function _flowplayer_plugin($name, $version) {
-    $flowplayer_dev = FLOWPLAYER_DEV;
+    $flowplayer_dev = config_item('flowplayer_dev');
 	if ($flowplayer_dev) {
 	  return "flowplayer.$name.swf";
 	}
