@@ -175,28 +175,6 @@ OUP.log('domReady');
 if (flashembed.isSupported([6,0,65])) {
 <?php
   $flow_key = config_item('flowplayer_key');
-
-  function _flowplayer_flash() {
-    $CI =& get_instance();
-    $flowplayer_dev= $CI->config->item('flowplayer_dev');
-    $flow_key      = $CI->config->item('flowplayer_key');
-    $flow_commercial= $flow_key ? '.commercial' : '';
-    $flow_version  = $CI->config->item('flowplayer_version');
-    if(!$flow_version || !$flow_key){$flow_version='3.2.7';}
-
-	if ($flowplayer_dev) {
-	  return "assets/flowplayer_dev/flowplayer$flow_commercial.swf";
-	}
-	return "swf/flowplayer$flow_commercial-$flow_version.swf";
-  }
-
-  function _flowplayer_plugin($name, $version) {
-    $flowplayer_dev = config_item('flowplayer_dev');
-	if ($flowplayer_dev) {
-	  return "flowplayer.$name.swf";
-	}
-	return "flowplayer.$name-$version.swf";
-  }
 ?>
   //Accessibility: wmode=opaque would be inaccessible if we relied on Flash controls.
   OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?><?=_flowplayer_flash() ?>", wmode:'opaque'}, {

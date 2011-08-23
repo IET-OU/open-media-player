@@ -1,9 +1,4 @@
 <?php
-
-function _oupc_label($className, $text) {
-  return "class=\"$className\" aria-label=\"$text\"";
-}
-
 ///Translators: Multimedia (audio/video) player controls.
 ?>
 
