@@ -171,8 +171,7 @@ body.X-debug:after{content:attr(class); color:red;}
   bottom: 35px;
   left: 155px;
   right: 104px;/*48px*/
-
-  min-width: 150px;
+  min-width: 110px;
 }
 .seek-bar .buffer{
   background: #47f;

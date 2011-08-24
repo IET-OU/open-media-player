@@ -128,8 +128,8 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
 
 .oupc .seek-bar{background:url(timeline/timeline_grey_main.png) repeat-x center;}
 .oupc .buffer{background:url(timeline/timeline_hatch_main.png) repeat-x center;}
-.oupc .progress{background:url(timeline/timeline_bluebar_main.png) repeat-x center;}
-.oupc .playhead{background:url(timeline/timeline_slider.png) no-repeat 0 3px; width:11px; height:14px;}
+.oupc .progress{background:url(timeline/timeline_bluebar_main.png) repeat-x center; width:2px;}
+.oupc .playhead{background:url(timeline/timeline_slider.png) no-repeat right; width:9px; height:14px; top:-36px;}
 
 /*.oup-controls .seek-bar, .oupc .buffer, .oupc .progress, .oupc .playhead{
   border:1px solid transparent;

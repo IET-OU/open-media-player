@@ -341,21 +341,27 @@ $f.addPlugin("controls", function(wrap, options) {
 			
 			// buffer width
 			var x = getMax(status.bufferEnd, duration);
-			bufferBar.style.width = x + "px";
+//ou-specific
+			//bufferBar.style.width = x + "px";
+			bufferBar.style.width = (100 * status.bufferEnd / duration) + "%";
+//ou-specific ends.
 			head.setMax(x);	
 		
 			
 			
 			// progress width
 			if (!self.isPaused() && !head.isDragging()) {
-				x = getMax(status.time, duration);
 //ou-specific
+				//x = getMax(status.time, duration);
 				//progressBar.style.width = x + "px";
-				progressBar.style.width = (100 * status.time / duration) + "%"; //parseInt.
+				var pwidth = (100 * status.time / duration) + "%"; //parseInt.
+				progressBar.style.width = pwidth;
 				progressBar.title = status.time+'s';
 				OUP.log('progress: '+status.time+'s; ball: '+ballWidth+', '+x+', '+duration+', '+ball.title);
+
+				//ball.style.left = (x -ballWidth / 2) + "px";
+				ball.style.width = pwidth;
 //ou-specific ends.
-				ball.style.left = (x -ballWidth / 2) + "px";
 			}
 			
 		}, 500);
