@@ -35,7 +35,7 @@
       <span class="volume-inner" tabindex="-1">
         <button <?=_oupc_label('quieter', t('Quieter')) ?>><span>-</span></button>
         <button <?=_oupc_label('louder', t('Louder')) ?>><span>+</span></button> 
-        <span class="volume-bg" title="*Volume - work-in-progress"></span><span class="volume-bg bg2"></span>
+        <span class="volume-fg"></span><span class="volume-bg"><span class="vol-bg-inner"></span></span>
       </span>
     </div>
 

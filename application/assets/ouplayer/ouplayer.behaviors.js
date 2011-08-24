@@ -215,9 +215,12 @@
 	}
 	addEvent(byClass('fulls'), 'click', toggleFullScreen);
 
-	self.player.onVolume(function(vol){
-		byClass('volume-out').value = parseInt(vol)+'%';
-		self.log('onVolume: '+parseInt(vol)+'%');
+	self.player.onVolume(plVolume = function(vol){
+		var v=parseInt(vol);
+		byClass('volume-out').value = v+'%';
+		byClass('vol-bg-inner').style.width = v+'%';
+		byClass('volume-fg').title = v+'%';
+		self.log('onVolume: '+v+'%');
 	});
 
 	function plPlay(clip){
@@ -241,6 +244,7 @@
       self.log('onError '+code+', '+message);
     });*/
 	self.player.onStart(function(clip){
+	  plVolume(self.player.getVolume());
 	  self.log('onStart: clip '+clip.index);
     });
 	self.player.onBegin(function(clip){

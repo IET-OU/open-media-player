@@ -74,10 +74,14 @@
 .oup-controls .louder, .oupc .louder:hover{background-position:-94px -30px; X-padding-left:-4px;}
 .oup-controls .volume.group  button{background-color:transparent; z-index:1000;}
 .oup-controls .volume-bg{
-/*Volume feedback: width will vary! */
   display:block; position:absolute; left:28px; bottom:3px;
+  width:29px; height:24px;
+  background:#aaa;
+}
+.oup-controls .vol-bg-inner{
+/*Volume feedback: width will vary! */
+  display:block; height:100%; width:50%;
   background:/*#8af*/ url(background/vol_bg2.png) repeat-x bottom left;
-  width:29px; height:27px;
 }
 
 /*tools-group*/
