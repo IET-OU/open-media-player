@@ -154,14 +154,23 @@
 	addEvent(byClass('more'), 'click', toggleSettings);
 	addEvent(byClass('more-close'), 'click', toggleSettings);
 
-	function embedCode(cn){
-	  //this.select();
-	  var el=byClass(cn);
-	  if(el)el.select();
-	  self.log('embedCode: '+cn);
-	};
-	addEvent(byClass('emcode-opt'), 'focus',(function(){embedCode('emcode-opt');}) );
-	addEvent(byClass('emcode-more'), 'focus',(function(){embedCode('emcode-more');}) );
+	function handleEmbedCode(cn){
+	  var events=['focus','click'],
+	      elem=byClass(cn),
+		  ev;
+	  for (ev in events){
+	    addEvent(elem, events[ev], function em(e){
+		  if(elem){ elem.select() }
+	      self.log('embedCode: '+cn+', '+e.type);
+	    });
+	  }
+	  //preventDefault: https://bugs.webkit.org/show_bug.cgi?id=22691
+	  addEvent(elem, 'mouseup', function(e){
+	    if(typeof e.preventDefault!=='undefined'){ e.preventDefault() }
+	  });
+	}
+	handleEmbedCode('emcode-opt');
+	handleEmbedCode('emcode-more');
 
     function toggleCtlFocus(){
       if (hasClass(ply, 'ctl-focus')) {

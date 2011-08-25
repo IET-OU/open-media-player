@@ -260,7 +260,7 @@ body.X-debug:after{content:attr(class); color:red;}
   bottom: 32px;
   padding: 0;
   right: 3px;
-  width: 180px;
+  width: 210px;
   border: 2px solid #aaa;
   border-radius: 4px;
   background: #f8f8f8;
@@ -275,7 +275,8 @@ body.X-debug:after{content:attr(class); color:red;}
 }
 .oup-settings.panel textarea{
   width:99%;
-  font-size:.9em;
+  height:5em;
+  font-size:.95em;
   overflow:hidden;
   border:none;
   border-top:1px solid #999;

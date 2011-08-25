@@ -161,8 +161,8 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
   text-decoration:none;
   border-bottom:1px solid transparent;
 }
-.oup-settings.panel a:hover{
-  background:#fbfbfb;
+.oup-settings.panel a:hover, .oup-settings.panel textarea:hover, .oup-settings.panel :focus{
+  background-color:#fbfbfb;
   color:#183843;
   border-bottom:1px solid #888;
 }
