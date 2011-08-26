@@ -199,6 +199,14 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
 .oup.-ie7 .time-out{position:relative; top:1px; left:2px;}
 .oup.-ie7  .volume.group .louder{left:39px;}
 
+/*MSIE hack - border is required! */
+.oup.-ie7.mode-embed.mtype-audio .oup-title a.rel-2{
+  position:relative;
+  top:-14px;
+
+  border:1px solid transparent;
+}
+
 .X-oup.-ie7 .oupc{border:2px solid red;}
 .X-oup.-ie8 .oupc{border:2px solid green;}
 .X-oup.-ie9 .oupc{border:2px solid blue;}

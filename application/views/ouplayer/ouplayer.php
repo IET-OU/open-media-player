@@ -91,26 +91,6 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 <?php endif; ?>
 <link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
 
-<!--[if lt IE 9]>
-<style>
-.oupc .time-out{top:-3px;}
-
-/*MSIE hack - border is required?! No longer needed? */
-.X-oup.mode-embed.mtype-audio .oup-title .rel-2{
-  position:relative;
-  top:-16px;
-
-  border:1px solid transparent;
-}
-
-.X-oup-controls a{
-  display:inline-block;
-  position:relative;
-  top:3px;
-}
-</style>
-<![endif]-->
-
 <?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
         </script>
