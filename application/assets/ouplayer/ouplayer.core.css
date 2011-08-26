@@ -161,7 +161,7 @@ body.X-debug:after{content:attr(class); color:red;}
 .oupc  .time-right.group{
   position: fixed;
   right: 50px;
-  bottom:36px;
+  bottom:37px;
 }
 
 .oupc .seek-bar{
