@@ -28,9 +28,9 @@ TODO: scale the image.
 <link class='LAMS-css' rel='stylesheet' href='<?=$base_url ?>assets/services/lams.css' /><style>
 <?php /*MSIE 7: @import url(<?=$base_url ?>assets/services/lams.css);*/ ?>
 .lams.oembed .seq object, .lams.oembed .seq img{width:<?=$img_width ?>px; height:<?=$img_height ?>px;}
-</style><div class='lams oembed' about='<?=$url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#'><div class="head">
+</style><div class='lams oembed' about='<?=$url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#' xmlns:bz='http://digitalbazaar.com/media/'><div class="head">
 <?php ///Translators: LAMS, Learning Activity Management System. ?>
- <a class="logo" href="http://lamscommunity.org/"><img alt="<?=t('LAMS community') ?>" title="<?=t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
+ <a class="logo" href="http://lamscommunity.org/" rel='dct:publisher' property='dct:publisher' content='LAMS'><img alt="<?=t('LAMS community') ?>" title="<?=t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
  <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?=$meta->title ?></h3>
  <?=t('By: %s', '')?><a class="xp-popup" property="cc:attributionName" rel="cc:attributionURL"
  data-xp-width="1124" data-xp-height="700"
@@ -43,7 +43,7 @@ TODO: scale the image.
  <p class="seq"><?php /*MSIE: <object type="image/svg+xml" data="<?=$meta->_svg_url ?>">*/ ?>
   <img alt="<?=t('The LAMS sequence.') ?>" src="<?=$meta->thumbnail_url ?>" />
  <?php /*</object>*/ ?></p>
- <a class="xp-popup zoom btn" data-xp-width="780" data-xp-height="298" target="lams-win" rel="dct:source"
+ <a class="xp-popup zoom btn" data-xp-width="780" data-xp-height="298" target="lams-win" rel="bz:download"
  href="<?=$meta->thumbnail_url ?>"
  title="<?=t('Open in new window') ?>"><?=t('Zoom<s>, new window') ?></span><!--764+15, 241+55--></a>
  <p class="foot">
@@ -51,12 +51,12 @@ TODO: scale the image.
 "http://lamscommunity.org/lamscentral/preview?ld_id=<?=$meta->_preview_id ?>" title="<?=t('Open in new window') ?>"><?=t('Preview<s>, new window') ?></span></a>
 | <a class="xp-popup button" href="http://lessonlams.com/lams/cloud/import.do?sequenceLocation=http://lamscommunity.org/seqs/<?=$meta->_seq_id ?>.zip" title="<?=t('Open in new window') ?>"
  ><?=t('Open in Lesson LAMS<s>, new window') ?></span></a>
-| <a class="xp-popup button" rel="dc:source details"
+| <a class="xp-popup button" rel="dct:source details"
  data-xp-width-0="1124" data-xp-height="700" data-xp-resizable=1 data-xp-scrollbars=1 
  href="http://lamscommunity.org/lamscentral/sequence?seq_id=<?=$meta->_seq_id ?>"
  target="_blank" title="<?=t('Open in new window') ?>"
  ><?=t('Full Info<s>, new window') ?></span></a>
-|  <a class="svg button" href="<?=$meta->_svg_url ?>"><abbr title="<?=t('Scalable Vector Graphic') ?>">SVG</abbr></a>
+|  <a class="svg button" href="<?=$meta->_svg_url ?>" rel='bz:download'><abbr title="<?=t('Scalable Vector Graphic') ?>">SVG</abbr></a>
 |</p>
 <?=$tracker ?></div>
 <?php
