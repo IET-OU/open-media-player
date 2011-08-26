@@ -64,7 +64,7 @@ class MY_Controller extends CI_Controller {
 	// For MSIE <= 6.5, downgrade the theme to 'basic' aka 'noscript'!
 	$this->load->library('user_agent');
 	if ($this->agent->is_browser('Internet Explorer') && $this->agent->version() < 7) {
-		header("X-OUP-Requested-Theme: $this->_theme");
+		header('X-OUP-Requested-Theme: '.$this->_theme->name);
 		$this->_theme = (object) $themes['basic'];
 		$this->_theme->name = 'basic';
 	}
