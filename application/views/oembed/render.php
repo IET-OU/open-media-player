@@ -13,7 +13,7 @@ if ('json'==$format):
   }
 
   $json = json_encode($oembed);
-  $json = str_replace('dc:', 'dc$', $json); //XML namespaces - check Gdata.
+  $json = str_replace('"dc:', '"dc$', $json); //XML namespaces - check Gdata.
   $json = str_replace(',"',  ','.PHP_EOL.'"', $json);
   //Pretty-print?
   if ($callback) {

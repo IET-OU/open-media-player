@@ -51,7 +51,7 @@ TODO: scale the image.
 "http://lamscommunity.org/lamscentral/preview?ld_id=<?=$meta->_preview_id ?>" title="<?=t('Open in new window') ?>"><?=t('Preview<s>, new window') ?></span></a>
 | <a class="xp-popup button" href="http://lessonlams.com/lams/cloud/import.do?sequenceLocation=http://lamscommunity.org/seqs/<?=$meta->_seq_id ?>.zip" title="<?=t('Open in new window') ?>"
  ><?=t('Open in Lesson LAMS<s>, new window') ?></span></a>
-| <a class="xp-popup button" rel="dct:source details"
+| <a class="xp-popup button details" rel="dct:source"
  data-xp-width-0="1124" data-xp-height="700" data-xp-resizable=1 data-xp-scrollbars=1 
  href="http://lamscommunity.org/lamscentral/sequence?seq_id=<?=$meta->_seq_id ?>"
  target="_blank" title="<?=t('Open in new window') ?>"
