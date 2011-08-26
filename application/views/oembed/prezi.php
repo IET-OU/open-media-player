@@ -18,7 +18,7 @@ EOF;*/
   ob_start();
 
   ?>
-<div class='prezi oembed'><object aria-label='<?=t('Prezi presentation') ?>' type='application/x-shockwave-flash' width='<?=$width ?>' height='<?=$height ?>' data='http://prezi.com/bin/preziloader.swf'>
+<div class='prezi oembed' about='<?=$url ?>' xmlns:dct='http://purl.org/dc/terms/'><object aria-label='<?=t('Prezi presentation') ?>' type='application/x-shockwave-flash' width='<?=$width ?>' height='<?=$height ?>' data='http://prezi.com/bin/preziloader.swf'>
 <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>
 <param name="allowfullscreen" value="true"/>
 <param name="allowscriptaccess" value="always"/>
@@ -28,7 +28,7 @@ EOF;*/
 <p><?=t('Your browser needs Flash enabled to view this presentation.') ?></p>
 <img alt="" src="<?=$meta->thumbnail_url ?>"/></object><div><img alt="" src="http://prezi.com/favicon.ico" />
 <?php ///Translators: 'title by author on web-site' ?>
-<a href="<?=$url ?>"><?=$meta->title ?></a><?=t('%s by %s on %s', array('', $meta->author, '')) ?><a href="http://prezi.com/">Prezi</a>.</small></div><?=$tracker ?></div>
+<a href="<?=$url ?>" property='dct:title'><?=$meta->title ?></a><?=t('%s by %s on %s', array('', $meta->author, '')) ?><a href="http://prezi.com/" rel='dct:publisher' property='dct:publisher'>Prezi</a>.</small></div><?=$tracker ?></div>
 <?php
 
   $html = ob_get_clean();

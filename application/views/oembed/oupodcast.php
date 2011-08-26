@@ -15,6 +15,7 @@
   //scrolling='no' - ?
   $html =<<<EOF
 <iframe class='ou player podcast oembed $meta->media_type' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+ about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
  width='$meta->width' height='$meta->height' frameborder='0' style='overflow:hidden;'
  src='$meta->iframe_url'>$noframes</iframe>
 EOF;
