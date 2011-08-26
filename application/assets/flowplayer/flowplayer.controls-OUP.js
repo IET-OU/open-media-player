@@ -146,11 +146,12 @@ $f.addPlugin("controls", function(wrap, options) {
 		return "<span>" + toTime(time) + "</span> <strong>" + toTime(duration) + "</strong>";	
 	}
 //ou-specific
-	function plainTime(time, duration, rich) {
-		if (typeof rich !== 'undefined') {
-			return getTime(time, duration);
+	function plainTime(time, duration, plusTotal) {
+		if (typeof plusTotal!=='undefined') {
+			//return getTime(time, duration);
+			toTime(time) + " / " + toTime(duration);
 		}
-		return toTime(time) + " / " + toTime(duration);
+		return toTime(time);
 	}
 //ou-specific ends.
 //}}}
@@ -326,6 +327,7 @@ $f.addPlugin("controls", function(wrap, options) {
 			// time display
 			if (status.time) {
 //ou-specific
+				// test, is 'time' a form-control?
 				if (typeof time.value === 'string') {
 					time.value = plainTime(status.time, duration);
 				} else {
@@ -342,8 +344,9 @@ $f.addPlugin("controls", function(wrap, options) {
 			// buffer width
 			var x = getMax(status.bufferEnd, duration);
 //ou-specific
-			//bufferBar.style.width = x + "px";
+			// make buffer and progress bars proportional.
 			bufferBar.style.width = (100 * status.bufferEnd / duration) + "%";
+			//bufferBar.style.width = x + "px";
 //ou-specific ends.
 			head.setMax(x);	
 		
