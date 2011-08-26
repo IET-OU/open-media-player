@@ -10,10 +10,10 @@ if ($standalone):
 ?>
 <!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
-<style>body{margin:0; background:#bbb; min-width:300px; min-height:200px;} object{position:fixed; top:0; bottom:0; width:100%;} #oup-fallback_links{display:none;}</style>
+<style>body{margin:0; background:#eee; color:#222; min-width:300px; min-height:200px;} object{position:fixed; top:0; bottom:0; width:100%; height:100%} #oup-fallback_links{display:none;}</style>
 
 <!--[if IE]>
-<style>object{height:<?=$meta->object_height ?>px;}</style>
+<style>._object{height:<?=$meta->object_height ?>px;}</style>
 <![endif]-->
 
 <?php else: ?>
@@ -52,6 +52,7 @@ if ($standalone):
   "style": {
     "body":{
       "fontSize":15,
+	  "textAlign":"center",
       "color":"#ffffff"
     }
   }
