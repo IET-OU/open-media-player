@@ -26,7 +26,7 @@
   }
   function byClass(name) {
     var par = wrap ? wrap : document,
-        els = par.getElementsByTagName("*");
+        els = par.getElementsByTagName("*"),
         re = new RegExp("(^|\\s)" + name + "(\\s|$)"),
         i=0;
     for (i in els) {
@@ -155,7 +155,7 @@
 	addEvent(byClass('more-close'), 'click', toggleSettings);
 
 	function handleEmbedCode(cn){
-	  var events=['focus','click'],
+	  var events=['focus','click'/*,'dblclick','select','keypress'*/],
 	      elem=byClass(cn),
 		  ev;
 	  for (ev in events){
