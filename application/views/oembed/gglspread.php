@@ -8,7 +8,7 @@
   $_ = t('Access the document on Google');
 
   $html =<<<EOF
-<iframe class='gglspread oembed' role='document' title='$label' width='$meta->width' height='$meta->height'
+<iframe class='ggl docs $meta->_ccc oembed' role='document' title='$label' width='$meta->width' height='$meta->height'
 src='$meta->embed_url' frameborder='0'>$noframes
 <a href='$meta->embed_url'>$alttext</a>
 </iframe>$tracker
