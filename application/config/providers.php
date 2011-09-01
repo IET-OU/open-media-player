@@ -76,21 +76,29 @@ $config['providers'] = array(
         ),
         '_google_analytics'=>'UA-24005173-4'), #IPR?
 
-    'spreadsheets.google.com'=>array(
+	/*
+	SS:  https://docs.google.com/spreadsheet/ccc?key=0AlpQljt8DLyXdHE0dzVLVXkyeXdBYXk5UzdQbFJ4OFE&hl=en_US#gid=0
+	     https://docs.google.com/spreadsheet/pub?key=0AonYZs4MzlZbcmVCWWVuZnJKSElSZDR2b1pmaVNtdXc#gid=0
+	Form:https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA
+	Doc: https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit?hl=en_GB
+	*/
+    'docs.google.com' => array(
         'about'  => '',
         'displayname'=>'Google Docs spreadsheets/forms',
         'domain' => 'spreadsheets.google.com',
         'favicon'=> 'http://spreadsheets.google.com/favicon.ico',
         'name'   => 'gglspread',
-        'regex'  => 'spreadsheets.google.com/*?*key=*',
+        'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
+        //'regex'  => 'spreadsheets.google.com/*?*key=*',
         'type'   => 'rich',
-    '_regex_real'=>'spreadsheets.google.com\/\w+(ccc|form)\?(form)?key=(\w+)(#height=(\d+))?',
+    '_regex_real'=> 'docs.google.com\/spreadsheet\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
+    //'_regex_real'=>'spreadsheets.google.com\/\w+(ccc|form)\?(form)?key=(\w+)(#height=(\d+))?',
     '_examples'=>array(
-      'OU Player notifications' => 'http://spreadsheets.google.com/viewform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
-      'CloudEngine CLA' => 'http://spreadsheets.google.com/viewform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#height=1160',
-    'https://spreadsheets.google.com/embeddedformform?hl=en_GB&formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ#gid=0',
-    #'https://spreadsheets.google.com/gform?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB&gridId=0#edit'
-    'https://spreadsheets.google.com/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0'),
+      'OU Player notif.' => 'https://docs.google.com/spreadsheet/viewform?hl=en_&formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
+      'Student satis./ Ouseful' => 'http://docs.google.com/spreadsheet/ccc?key=reBYenfrJHIRd4voZfiSmuw',
+    'https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#gid=0',
+    #NO: https://docs.google.com/spreadsheet/gform?key=0AgJMkdi3MO4HdFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE&hl=en_GB&gridId=0#edit
+    'https://docs.google.com/spreadsheet/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0'),
     ),
 );
 
