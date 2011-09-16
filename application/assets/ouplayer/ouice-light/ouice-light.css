@@ -190,11 +190,18 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
 /*.mtype-audio*/ .oup-title .summary{display:none;}
 
 
+/*#oup-tooltips*/
+.tt-play{ top:auto !important; bottom:60px; background:navy;} /*style=visibility:hidden; left:1px; top:318px;*/
+.oup.mtype-audio.mode-embed.ctx-Vle_player/*.no-poster*/ .tt-play{bottom:34px; left:45px !important;}
+.oup.mtype-audio.mode-embed.ctx-Vle_player .tt-back{top:auto !important; bottom:34px; left:71px !important;}
+.oup.mtype-audio.mode-embed.ctx-Vle_player .tt-forward{top:auto !important; bottom:34px; left:96px !important;}
+
+
 /*Browser hacks. */
 .oup.-o .time-out{ X-top:-4px; bottom:38px;}
 .oup.-webkit .time-out, .oup.-webkit .time-total{padding-bottom:2px; height:13px;}
 .oup.-webkit .seek-bar, .oup.-ie7 .seek-bar{bottom:36px;}
-.oup.-ie7 .time-out, .oup.-ie7 .time-total, .oup.-ie8 .time-out, .oup.-ie8 .time-total{height:13px; padding-bottom:2px;}
+.oup.-ie7 .time-out, .oup.-ie7 .time-total, .oup.-ie8 .time-out, .oup.-ie8 .time-total{height:10px; padding-bottom:2px; font-size:.9em;}
 .oup.-ie8 .time-out{position:relative; top:-4px; left:-3px;}
 .oup.-ie7 .time-out{position:relative; top:1px; left:2px;}
 .oup.-ie7  .volume.group .louder{left:39px;}
