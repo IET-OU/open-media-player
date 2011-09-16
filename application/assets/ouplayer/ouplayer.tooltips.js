@@ -13,6 +13,7 @@ var OUP = OUP || {};
 ***********************************************/
 
 var tooltip_id='oup-tooltips',
+    tip_attr='aria-label',
     tipwidth='150px', //default tooltip width
     tipbgcolor='lightyellow',  //tooltip bgcolor
     disappeardelay=250,  //tooltip disappear speed onMouseout (in miliseconds)
@@ -85,12 +86,17 @@ function clearbrowseredge(obj, whichedge){
 }
 //Public methods.
 //TODO: voffset
-OUP.fixedtooltip=function(menucontents, obj, e, voffset, tipwidth){
+OUP.fixedtooltip=function(menucontents, obj, e, voffset, tipwidth, className){
   if (window.event) event.cancelBubble=true;
   else if (e && e.stopPropagation) e.stopPropagation();
   clearhidetip();
   dropmenuobj=document.getElementById? document.getElementById(tooltip_id) : fixedtipdiv;
-  dropmenuobj.innerHTML=menucontents;
+  var tip=obj.getAttribute(tip_attr);
+  dropmenuobj.innerHTML = tip ? tip : menucontents;
+  OUP.log('tt-'+className);
+  if (typeof className==='string'){
+    dropmenuobj.className='tt-'+className;
+  }
   if (ie4||ns6){
     showhide(dropmenuobj.style, e, "visible", "hidden", voffset, tipwidth);
     dropmenuobj.x=getposOffset(obj, "left");
