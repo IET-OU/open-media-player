@@ -14,7 +14,7 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
   background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#f0f0f0),to(#c7c7c7));
   background-image:-webkit-linear-gradient(top, #f0f0f0, #c7c7c7);
   background-image:-moz-linear-gradient(top, #f0f0f0, #c7c7c7);
-  background-image: -ms-linear-gradient(top, #2F2727, #1a82f7);/*IE10*/
+  background-image: -ms-linear-gradient(top, #f0f0f0, #c7c7c7);/*IE10*/
   background-image:  -o-linear-gradient(top, #f0f0f0, #c7c7c7);
   /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#c7c7c7');*/
 }
