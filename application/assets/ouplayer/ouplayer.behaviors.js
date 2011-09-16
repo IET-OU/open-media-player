@@ -14,7 +14,7 @@
       play_btn_id= 'oup-play-control',
       script_btn = 'tscript',
       controls_id= 'controls',
-      controls_class=("X-play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(','),
+      controls_class=("play,back,forward,quieter,louder,mute,tscript,popout,related,more,captn,fulls").split(','),
       wrap;
 
   //Utilities.
@@ -76,14 +76,13 @@
   };
 
   function attachTooltip(name) {
-	  var tip,
-	      btn = byClass(name);
+	  var btn = byClass(name);
 	  if(!btn)return;
-	  tip = btn.getAttribute('aria-label');
-	  btn.onmouseover=function(){ OUP.fixedtooltip(tip, btn, {type:'mouseover'}); }
+	  //var tip = btn.getAttribute('aria-label');
+	  btn.onmouseover=function(){ OUP.fixedtooltip(false, btn, {type:'mouseover'}, false,false, name); }
 	  btn.onmouseout =function(){ OUP.delayhidetip(); }
 	  //Hmm, spoofing an event?! {type:"X"}
-      btn.onfocus    =function(){OUP.fixedtooltip(tip, btn, {type:'focus'});} //this?
+	  btn.onfocus    =function(){OUP.fixedtooltip(false, btn, {type:'focus'}, false,false, name);} //this?
       btn.onblur     =function(){OUP.delayhidetip();}
   }
 
