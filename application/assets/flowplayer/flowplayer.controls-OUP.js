@@ -316,6 +316,16 @@ $f.addPlugin("controls", function(wrap, options) {
 		OUP.log('clip.duration: ' + clip.duration);
 		var duration = clip.duration || opts.duration || 0;
 
+//ou-specific
+		if (total) {
+			if (typeof total.value=='string') {
+				total.value = toTime(duration);
+			} else {
+				total.innerHTML = toTime(duration);
+			}
+		}
+//ou-specific ends.
+
 		// clear previous timer		
 		clearInterval(timer);
 
@@ -344,8 +354,12 @@ $f.addPlugin("controls", function(wrap, options) {
 			// buffer width
 			var x = getMax(status.bufferEnd, duration);
 //ou-specific
+			try {
 			// make buffer and progress bars proportional.
-			bufferBar.style.width = (100 * status.bufferEnd / duration) + "%";
+				bufferBar.style.width = (100 * status.bufferEnd / duration) + "%";
+			} catch(e) {
+				OUP.log('Error: progressbar duration.');
+			}
 			//bufferBar.style.width = x + "px";
 //ou-specific ends.
 			head.setMax(x);	
@@ -355,6 +369,7 @@ $f.addPlugin("controls", function(wrap, options) {
 			// progress width
 			if (!self.isPaused() && !head.isDragging()) {
 //ou-specific
+				try {
 				//x = getMax(status.time, duration);
 				//progressBar.style.width = x + "px";
 				var pwidth = (100 * status.time / duration) + "%"; //parseInt.
@@ -364,6 +379,7 @@ $f.addPlugin("controls", function(wrap, options) {
 
 				//ball.style.left = (x -ballWidth / 2) + "px";
 				ball.style.width = pwidth;
+				} catch(e){}
 //ou-specific ends.
 			}
 			
