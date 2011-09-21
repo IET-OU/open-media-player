@@ -26,7 +26,9 @@ EOF;*/
 <param name="flashvars" value=
 "prezi_id=<?=$meta->provider_mid ?>&amp;lock_to_path=0&amp;color=ffffff&amp;autoplay=no"/>
 <p><?=t('Your browser needs Flash enabled to view this presentation.') ?></p>
-<p><a href='<?=$meta->_ipad_open_url ?>' title='Log in'>View Prezi</a> in the <a href='<?=$meta->_itunes_app_url ?>' style='background:url(http://www.apple.com/favicon.ico)no-repeat right; padding-right:19px;'>Prezi iPad app</a> | <a href='http://prezi.com/ipad/'>More on Prezi for iPad</a>.</p>
+<p><a href='<?=$meta->_ipad_open_url ?>' title='<?=t('Log in') ?>'>Open Prezi</a> in the <a href='<?=$meta->_itunes_app_url ?>'
+ style='background:url(http://www.apple.com/favicon.ico)no-repeat right; padding-right:19px;'>Prezi iPad Viewer</a><?php /*TODO*/_('<a>Open Prezi</a> in the <a>Prezi iPad Viewer</a>') ?>
+ | <a href='http://prezi.com/ipad/'><?=t('More on Prezi for iPad')?></a>.</p>
 <img alt="" src="<?=$meta->thumbnail_url ?>"/></object><div><img alt="" src="http://prezi.com/favicon.ico" />
 <?php ///Translators: 'title by author on web-site' ?>
 <a href="<?=$url ?>" property='dct:title'><?=$meta->title ?></a><?=t('%s by %s on %s', array('', $meta->author, '')) ?><a href="http://prezi.com/" rel='dct:publisher' property='dct:publisher'>Prezi</a>.</small></div><?=$tracker ?></div>
