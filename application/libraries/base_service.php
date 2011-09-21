@@ -85,5 +85,19 @@ abstract class Base_service implements iService {
     }
     return $success;
   }
+
+  /** Get an Embed.ly API key (Pass. Gorilla: iet-embed@ou)
+  * @return string
+  */
+  protected function _embedly_api_key() {
+    return $this->CI->config->item('embedly_api_key'); //'04..07';
+  }
+
+  /** Get an Embed.ly oEmbed URL / JSON format.
+  * @return string
+  */
+  protected function _embedly_oembed_url($url) {
+    return "http://api.embed.ly/1/oembed?format=json&url=$url&key=".$this->_embedly_api_key();
+  }
 }
 

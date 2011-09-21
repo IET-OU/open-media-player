@@ -39,7 +39,7 @@ class Prezi_serv extends Base_service {
       '_ipad_open_url' => $this->_ipad_open_url($matches[1]),
     );
 
-    $json_url = "http://api.embed.ly/1/oembed?format=json&url=$url";
+    $json_url = $this->_embedly_oembed_url($url);
     $result = $this->_http_request_json($json_url, $spoof=TRUE);
     if (! $result->success) {
 	  //403: Forbidden - Embedly has blocked your client ip. Sign up for an API key at http://embed.ly.
