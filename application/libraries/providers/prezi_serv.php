@@ -10,7 +10,22 @@ require_once APPPATH.'libraries/base_service.php';
 
 class Prezi_serv extends Base_service {
 
+  /** Short URL for the Prezi iPad app (protocol: itms)
+  * http://itunes.apple.com/us/app/prezi/id407759942
+  * Tested, OK in iPad-Safari and iPad-Opera Mini.
+  */
+  const ITUNES_APP_URL = 'itms://itunes.com/apps/prezi';
+
+  /** Get the URL to open a Prezi in the iPad app (protocol: prezi)
+  * Tested, OK in iPad-Safari and iPad-Opera Mini.
+  * @return string
+  */
+  protected function _ipad_open_url($prezi_id) {
+    return 'prezi://open?oid='.$prezi_id;
+  }
+
   /** Call the Embed.ly service (2011-03-23).
+  * @return object
   */
   public function call($url, $matches) {
 
@@ -20,12 +35,19 @@ class Prezi_serv extends Base_service {
       'provider_mid' =>$matches[1],
       'title' => ucfirst(str_replace('-', ' ', $matches[2])),
       'timestamp'=>null,
+      '_itunes_app_url'=> self::ITUNES_APP_URL,
+      '_ipad_open_url' => $this->_ipad_open_url($matches[1]),
     );
 
     $json_url = "http://api.embed.ly/1/oembed?format=json&url=$url";
     $result = $this->_http_request_json($json_url, $spoof=TRUE);
     if (! $result->success) {
+	  //403: Forbidden - Embedly has blocked your client ip. Sign up for an API key at http://embed.ly.
       die("Error, Prezi_serv woops, $json_url");
+      return FALSE; //Error.
+    }
+    if (! $result->json) {
+      die("Error, Prezi_serv JSON, $json_url");
       return FALSE; //Error.
     }
 
