@@ -11,28 +11,6 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
   //$base_url = str_replace('http://', '//', $base_url);
 
 
-  //TODO: move $body_classes to controller function?
-
-  // Add switches to body-class (no 'hulu').
-  $body_classes = "oup mtype-$meta->media_type width-$meta->width theme-{$theme->name} hide-tscript hide-captions hide-settings oup-paused ";
-
-  //Experimental.
-  if ($req->hide_controls /*&& 'video'==$meta->media_type*/) {
-    $body_classes.= "ctl-overlay ";
-  }
-
-  // Language/locale, 'context' (ctx-), 'mode' etc.
-  $body_classes.= ' lang-'.$this->lang->lang_code();
-  $body_classes.= ' -'.$this->agent->browser_code();
-  $body_classes.= ' ctx-'.get_class($meta);
-  $body_classes.= " mode-$mode "; #(embed|popup).
-  $body_classes.= $debug ? 'debug ':'no-debug ';
-  $body_classes.= $meta->poster_url  ? 'has-poster ':'no-poster ';
-  $body_classes.= $meta->caption_url ? 'has-captions ':'no-captions ';
-  $body_classes.= isset($meta->transcript_html)&&$meta->transcript_html ? 'has-tscript ':'no-tscript '; //Was 'hide-script'
-  $body_classes.= isset($meta->_related_url)&&$meta->_related_url ? 'has-rel-link ':'no-rel-link ';
-  $body_classes.= isset($meta->_access)&&'Y'==$meta->_access['private'] ? 'is-private ':'not-private ';
-
 # Media: 512 x 288.
 # Player:512 x 318;
   $player_height = $meta->height; #+ 30.
@@ -70,48 +48,11 @@ EOF;
 EOF;
   }
 
-  //<meta> below - try to ensure the most recent MSIE rendering engine
-  //@header('X-UA-Compatible: IE=edge');
-?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="copyright" value="&copy; 2011 The Open University" />
 
-<!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
-
-<script>
-var e = ("abbr,audio,figure,output,time,video").split(',');
-for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
-</script>
-<![endif]-->
-
-<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
-<?php
-if (isset($theme->styles)):
-  $n_themes=0;
-  foreach (config_item('player_themes') as $tname => $theme_r):
-    if (!$theme_r['styles'] || !isset($theme_r['switch'])) continue;
-    $trel = 'alternate ';
-    if ($tname == $theme->name) {
-      $trel = '';
-    }
-    $n_themes++;
-?>
-<link rel="<?=$trel ?>stylesheet" href="<?=$base_url ?>assets/<?=$theme_r['styles'] ?>" title="OU player: <?=$theme_r['title'] ?>" />
-<?php
-  endforeach;
-  if (!$n_themes): ?>
-<link rel="stylesheet" href="<?=$base_url ?>assets/<?=$theme->styles ?>" />
-<?php
-  endif;
-endif; ?>
-<link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
-
-<?php /*
-<script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
-        </script>
-*/ 
+$this->load->view('ouplayer/oup_head');
 $this->load->view('ouplayer/oup_analytics');
+
+$body_classes = $this->load->view('ouplayer/oup_bodyclass', '', true);
 ?>
 <body role="application" id="ouplayer" class="<?=$body_classes ?>">
 
