@@ -1,5 +1,6 @@
 <!DOCTYPE html><html lang="en"><meta charset="utf-8"/><title>*OU player/ OU embed - Beta Demonstrations</title>
 
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <meta name="ROBOTS" content="noindex,nofollow" />
 
 <style>body{font:1em sans-serif; margin:2em; background:#fbfbfb; color:#222;} abbr{cursor:pointer;} .oembed{margin:1em 0; border:1px solid #ccc; border-radius:5px;} </style>
@@ -32,7 +33,8 @@ Audio - Flash falls back to HTML5.
 
 
 <h3>OU/OULDI embed</h3>
-<p><a class=embed href="http://youtube.com/watch?v=NaBBk-kpmL4">Interview with Martin Bean, on YouTube (captions)</a>
+
+<a class=embed href="http://youtu.be/NaBBk-kpmL4" data-href-2="http://youtube.com/watch?v=NaBBk-kpmL4">Interview with Martin Bean, on YouTube (captions)</a>
 
 <p><a class=embed  href=
 "http://lamscommunity.org/lamscentral/sequence?seq_id=1007900">Crime fighting, on LAMS</a>

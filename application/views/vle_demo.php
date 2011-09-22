@@ -2,7 +2,8 @@
     $embed_url = site_url('embed/vle');
 ?>
 <!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title>OUVLE player demo</title>
-<link rel="icon" href="<?=base_url() ?>assets/favicon.ico" />
+
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <style>body{font:1em sans-serif;} iframe{display:block; border:1px solid #bbb; border-radius:4px;}</style>
 
 <h1>OUVLE player</h1> <h2>Prototypes</h2>
@@ -45,11 +46,11 @@ Learn.open.ac.uk
 </p>
 
 <p class="audio  learn">
-<iframe tabindex="0" title="Audio player: Music" width="400" height="60" frameborder="0"<?php /*scrolling="no"*/ ?> style="overflow:hidden;" src=
+<iframe tabindex="0" title="Audio player: Music" width="360" height="60" frameborder="0"<?php /*scrolling="no"*/ ?> style="overflow:hidden;" src=
 "<?=$embed_url;
 ?>?title=Music+&copy;Rehab&amp;media_url=http%3A//learn.open.ac.uk/file.php/5195/!via/oucontent/course/137628/20070330_rehab-after.mp3&amp;width=400&amp;height=60"
 ></iframe>
-<small>Audio player: 400 × 60 pixels (fixed size without image_url).</small>
+<small>Audio player: 360 × 60 pixels (fixed size without image_url).</small>
 </p>
 
 
