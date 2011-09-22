@@ -4,7 +4,7 @@
 
 <div role="toolbar" id="controls" <?=_oupc_label('oup-controls oupc', t('Player controls')) ?>>
   <div class="row-1">
-    <button id="oup-play-control" title="<?=t('Play') ?>" <?=_oupc_label('play', t('Play')) /*oup-play-control play-pause*/
+    <button id="oup-play-control" <?=_oupc_label('play', t('Play')) /*oup-play-control play-pause*/
       ?> data-play-text="<?=t('Play')?>" data-pause-text="<?=t('Pause')?>"><span>&#x25BA;</span></button>
 
     <div class="seek group">
