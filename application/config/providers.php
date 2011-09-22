@@ -107,7 +107,6 @@ $config['providers'] = array(
 // IF (!endpoint) endpoint=embedly;
 $config['providers_other'] = array(
     // See, http://maltwiki.org/scripts/jquery.oembed.js
-	'youtu.be'=> array('name' => 'youtube', 'type'=>'video'),
 	'nfb.ca'  => array('name' => 'NFB', 'type'=>'video'),
 	//'blip.tv' => array('name' => 'blip', 'type'=>'video'),
 	//See, http://cloudworks.ac.uk/_scripts/jquery.oembed.js
