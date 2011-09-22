@@ -191,7 +191,7 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
 
 
 /*#oup-tooltips*/
-.tt-play{ top:auto !important; bottom:60px; background:navy;} /*style=visibility:hidden; left:1px; top:318px;*/
+.tt-play{top:auto !important; bottom:60px;} /*style=visibility:hidden; left:1px; top:318px;*/
 .oup.mtype-audio.mode-embed.ctx-Vle_player/*.no-poster*/ .tt-play{bottom:34px; left:45px !important;}
 .oup.mtype-audio.mode-embed.ctx-Vle_player .tt-back{top:auto !important; bottom:34px; left:71px !important;}
 .oup.mtype-audio.mode-embed.ctx-Vle_player .tt-forward{top:auto !important; bottom:34px; left:96px !important;}

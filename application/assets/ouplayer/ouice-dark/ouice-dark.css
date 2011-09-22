@@ -153,6 +153,11 @@
 .oup-title.panel .optionalnav{display:none;}
 /*.mtype-audio*/ .oup-title .summary{display:none;}
 
+/*#oup-tooltips*/
+.tt-play{top:auto !important; bottom:60px;}
+.oup.mtype-audio.mode-embed.ctx-Vle_player/*.no-poster*/ .tt-play{bottom:34px; left:46px !important;}
+.oup.mtype-audio.mode-embed.ctx-Vle_player .tt-back{top:auto !important; bottom:34px; left:72px !important;}
+.oup.mtype-audio.mode-embed.ctx-Vle_player .tt-forward{top:auto !important; bottom:34px; left:95px !important;}
 
 /*Browser hacks. */
 .oup.-o .time-out{ X-top:-4px; bottom:38px;}
