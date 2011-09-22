@@ -26,8 +26,8 @@ if (isset($theme->styles)):
     $trel = 'alternate ';
     if ($tname == $theme->name) {
       $trel = '';
+      $n_themes++;
     }
-    $n_themes++;
 ?>
 <link rel="<?=$trel ?>stylesheet" href="<?=$base_url ?>assets/<?=$theme_r['styles'] ?>" title="<?=t('OU player') ?>: <?=t($theme_r['title']) ?>" />
 <?php
