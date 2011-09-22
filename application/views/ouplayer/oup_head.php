@@ -22,14 +22,14 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 if (isset($theme->styles)):
   $n_themes=0;
   foreach (config_item('player_themes') as $tname => $theme_r):
-    if (!$theme_r['styles'] || !isset($theme_r['switch'])) continue;
+    if (!$theme_r['styles'] || !isset($theme_r['menu'])) continue;
     $trel = 'alternate ';
     if ($tname == $theme->name) {
       $trel = '';
     }
     $n_themes++;
 ?>
-<link rel="<?=$trel ?>stylesheet" href="<?=$base_url ?>assets/<?=$theme_r['styles'] ?>" title="OU player: <?=$theme_r['title'] ?>" />
+<link rel="<?=$trel ?>stylesheet" href="<?=$base_url ?>assets/<?=$theme_r['styles'] ?>" title="<?=t('OU player') ?>: <?=t($theme_r['title']) ?>" />
 <?php
   endforeach;
   if (!$n_themes): ?>
