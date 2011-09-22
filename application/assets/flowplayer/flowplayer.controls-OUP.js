@@ -54,8 +54,11 @@ $f.addPlugin("controls", function(wrap, options) {
 			// must be withing [min, max]
 			if (x > max) { return false; }
 			if (x < min) { return false; } 
-			o.style.left = x + "px";
-			OUP.log('Draggable.move: '+x); //NDF.
+//ou-specific
+			//o.style.left = x + "px";
+			o.style.width = x + "px";
+			OUP.log('Draggable.move-width: '+x);
+//ou-specific ends.
 			return true;
 		}
 		
