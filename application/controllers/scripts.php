@@ -9,7 +9,7 @@ http://www.mnot.net/cache_docs/
  */
 //NDF, 4 March 2011 (was: class Javascript)
 
-class Scripts extends CI_Controller {
+class Scripts extends MY_Controller {
 
   public function __construct() {
       parent::__construct();
@@ -36,7 +36,7 @@ class Scripts extends CI_Controller {
       // Other providers.
 	  $others = $this->config->item('providers_other');
 	  foreach ($others as $domain => $provider) {
-	    $name = $provider['name'];
+	    $name = strtolower($provider['name']);
 		$type = $provider['type'];
 		$regex = '"'.str_replace('.', '\.', $domain).'"';
 		$oembed_other = null;
@@ -49,7 +49,7 @@ class Scripts extends CI_Controller {
 	  // OU embed providers.
 	  $providers = $this->config->item('providers');
       foreach ($providers as $domain => $provider) {
-		$name = $provider['name'];
+		$name = strtolower($provider['name']);
 		$type = $provider['type'];
 		$regex = '"'.str_replace('.', '\.', $domain).'"';
 		$script_prov .= "\t\t"
