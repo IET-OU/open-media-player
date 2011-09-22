@@ -123,8 +123,24 @@ class Oupodcast_serv extends Base_service {
        || false!==strpos($rel_url, 'open.ac.uk/study')) {
         $rel_text = t('%s, in Study at The Open University', $rel_text);
       }
-	  elseif (false!==strpos($rel_url, 'open.ac.uk/')) {
-        $rel_text = t('%s, at The Open University', $rel_text);
+	  elseif (false!==strpos($rel_url, 'openlearn.open.ac.uk')) {
+	    $rel_text = t('OpenLearn at The Open University');
+	  }
+	  elseif (false!==strpos($rel_url, '/podcast.open.ac.uk')) {
+	    $rel_text = t('Open University Podcasts');
+	  }
+	  elseif (false!==strpos($rel_url, 'cloudworks.ac.uk')) {
+	    $rel_text = t('Cloudworks, hosted at The Open University');
+	  }
+	  elseif (false!==strpos($rel_url, '/jime.open.ac.uk')) {
+	    $rel_text = t('Journal of Interactive Media in Education (JIME)');
+	  }
+	  elseif (false!==strpos($rel_url, 'open.ac.uk')) {
+        if ($rel_text) {
+          $rel_text = t('%s, at The Open University', $rel_text);
+        } else {
+          $rel_text = t('The Open University');
+        }
       }
       $player->_related_text = t('Related link: %s', $rel_text);
       return $player;
