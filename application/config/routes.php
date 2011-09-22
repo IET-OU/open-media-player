@@ -42,7 +42,16 @@ $route['default_controller'] = "demo"; #"welcome"
 $route['404_override'] = '';
 
 $route['uptime.txt'] = 'uptime';
+$route['translate'] = 'localize'; #/template';
+$route['translate/po/(:any)'] = 'localize/po/$1';
+
+// Client/plugin Javascript routing.
 $route['scripts/jquery.oembed.js'] = 'scripts/jquery_oembed';
+#$route['scripts/jquery.oembed.min.js'] = 'scripts/jquery_oembed'; #_jsmin'; #Todo.
+
+// Player Javascript routing.
+$route['jsbin/ouplayer.min.js'] = 'scripts/embed_ouplayer_js';
+$route['jsbin/ouplayer.min.js/(:any)'] = 'scripts/embed_ouplayer_js/$1';
 
 
 /* End of file routes.php */
