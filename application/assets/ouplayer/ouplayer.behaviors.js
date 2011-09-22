@@ -109,6 +109,14 @@
     //TODO: Explicitly add/remove wait-cursor/ spinner.
     setTimeout(function(){ply.style.cursor='default';}, 4000);
 
+    //Beware: MSIE 8 sniffing!
+    if (typeof document.documentMode!=='undefined') {
+      ply.className += ' -docmode'+document.documentMode;
+    }
+    /*if (typeof document.compatMode!=='undefined') {
+      ply.className += ' -cmode'+document.compatMode;
+    }*/
+
     //var wrap = controls_div; //document.getElementById('oup-controls');
 
     if (OUP.fixedtooltip && OUP.delayhidetip) {
