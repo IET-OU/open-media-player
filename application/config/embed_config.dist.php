@@ -24,6 +24,9 @@ $config['cache_minutes'] = false; //10;
 // Experimental.
 $config['player_scripts_compress'] = false;
 
+// Key for Embed.ly API (free for oEmbed/ Pass. Gorilla: iet-embed@ou)
+$config['embedly_api_key'] = false; //'04..7';
+
 // Experimental.
 $config['flowplayer_dev'] = false;
 
@@ -62,11 +65,12 @@ $config['player_docs'] = array(
 $config['player_default_theme'] = 'ouice-light';
 
 $config['player_themes'] = array(
+  // Experimental: 'switch' flag - make themes appear in Opera/Firefox 'View' > Style menu.
   'basic' => array('styles'=>null, 'view'=>'ouplayer/player_noscript'),
   'core'  => array('styles'=>null),
-  'ouice-dark'=>array('title'=>'OUICE Dark', 'styles'=>'ouplayer/ouice-dark/ouice-dark.css'),
+  'ouice-dark'=>array('title'=>'OUICE Dark', 'styles'=>'ouplayer/ouice-dark/ouice-dark.css', '--switch'=>1),
   'ouice-bold'=>array('title'=>'OUICE Bold', 'styles'=>'ouplayer/ouice-bold/ouice-bold.css'),
-  'ouice-light'=>array('title'=>'OUICE Light', 'styles'=>'ouplayer/ouice-light/ouice-light.css'),
+  'ouice-light'=>array('title'=>'OUICE Light', 'styles'=>'ouplayer/ouice-light/ouice-light.css', '--switch'=>1),
 );
 
 // Captions pre-DB solution - Mental health (S.D.Price@open), http://podcast.open.ac.uk/podcast_items.php?id=1135
