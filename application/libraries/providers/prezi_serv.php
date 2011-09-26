@@ -31,9 +31,10 @@ class Prezi_serv extends Base_service {
 
     $meta = array(
       'url'=>$url,
-      'provider_name'=>'prezi',
+      'provider_name'=>'Prezi',
       'provider_mid' =>$matches[1],
       'title' => ucfirst(str_replace('-', ' ', $matches[2])),
+      'author'=>null,
       'timestamp'=>null,
       '_itunes_app_url'=> self::ITUNES_APP_URL,
       '_ipad_open_url' => $this->_ipad_open_url($matches[1]),
@@ -59,10 +60,15 @@ class Prezi_serv extends Base_service {
       // Newer ones, eg. M.Weller's?
       $meta['description'] = $result->json->description;
     }
-    if (preg_match('/^(.*) by (.*) on Prezi/', $result->json->title, $m_title)) {
+	// No longer works (26 Sep 2011) :(.
+    if (preg_match('/^(.*) by (.*)? on Prezi/', $result->json->title, $m_title)) {
       $meta['title'] = $m_title[1];
       $meta['author']= $m_title[2];
     }
+    elseif (preg_match('/^(.*?) on/', $result->json->description, $m_author)) {
+      $meta['author']= $m_author[1];
+    }
+    $meta['title'] = $result->json->title;
 
     $meta['thumbnail_url']  = $result->json->thumbnail_url;
     $meta['thumbnail_width']= $result->json->thumbnail_width;
