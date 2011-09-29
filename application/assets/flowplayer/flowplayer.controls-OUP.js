@@ -152,7 +152,7 @@ $f.addPlugin("controls", function(wrap, options) {
 	function plainTime(time, duration, plusTotal) {
 		if (typeof plusTotal!=='undefined') {
 			//return getTime(time, duration);
-			toTime(time) + " / " + toTime(duration);
+			return toTime(time) + " / " + toTime(duration);
 		}
 		return toTime(time);
 	}
