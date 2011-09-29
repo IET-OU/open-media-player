@@ -208,7 +208,7 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
 
 
 /*MSIE hack - border is required! */
-.oup.-ie7.mode-embed.mtype-audio .oup-title a.rel-2{
+.oup.-ie7.-no-docmode.mode-embed.mtype-audio .oup-title a.rel-2{
   position:relative;
   top:-14px;
 

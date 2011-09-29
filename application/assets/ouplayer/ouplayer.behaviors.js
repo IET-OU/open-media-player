@@ -112,6 +112,8 @@
     //Beware: MSIE 8 sniffing!
     if (typeof document.documentMode!=='undefined') {
       ply.className += ' -docmode'+document.documentMode;
+    } else {
+      ply.className += ' -no-docmode';
     }
     /*if (typeof document.compatMode!=='undefined') {
       ply.className += ' -cmode'+document.compatMode;
