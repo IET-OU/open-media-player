@@ -29,9 +29,10 @@ Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
     $type = config_item('ouplayer_video_type'); //Was: '_codec'.
     $type = $type ? $type : 'type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' '; //<!--Was: codecs="bogus", avc1.4D401E, mp4a.40.2 -->
     $html5_media_url = str_replace('podcast.', 'media-podcast.', $meta->media_url);
+    // Android: onclick=this.play() is required (Video only???)
     $inner =<<<EOF
   $poster
-  <video class="oup-html5-media" poster="$meta->poster_url" width="$meta->width" height="$player_height" controls>
+  <video class="oup-html5-media" poster="$meta->poster_url" width="$meta->width" height="$player_height" controls onclick="this.play();">
     <source src="$meta->media_url" $type/>
     <div id="no-support">$support_text</div>
   </video>
@@ -103,13 +104,10 @@ $body_classes = $this->load->view('ouplayer/oup_bodyclass', '', true);
 ?>
 <script>
 flashembed.domReady(function(){
-  //var f=$f("ouplayer-div");
 
-//OUP.dir(flashembed);
 OUP.log('domReady');
 
-//TODO: check minimum Flash requirement!
-if (flashembed.isSupported([6,0,65])) {
+if (OUP.supports_flash()) {
 <?php
   $flow_key = config_item('flowplayer_key');
 ?>
@@ -189,19 +187,17 @@ if (flashembed.isSupported([6,0,65])) {
 	},
 <?php endif; ?>
 
-	  controls: null //Disable default controls.
+	  controls: null<?php //Disable default controls. ?>
 	}
-    //plugins: {controls:{autohide:false}}
+<?php    //plugins: {controls:{autohide:false}}
 
-  // install HTML controls inside element whose id is "X".
+  // install HTML controls inside element whose id is "X". ?>
   }).controls("controls", {duration: <?=$meta->duration ? $meta->duration : 0 ?>});
 
   OUP.initialize();
 }
 else{
   OUP.html5_fallback('<?=$meta->media_type ?>');
-
-  OUP.log('fallback');
 }
 });
 </script>

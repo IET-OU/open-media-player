@@ -18,7 +18,7 @@
       wrap;
 
   //Utilities.
-  OUP.log=function(o){ if(window.console&&console.log){console.log('OUP: '+o);} };
+  OUP.log=function(o){ if(window.console&&console.log){console.log('OUP: '+o);} };//{ typeof window.console=='object' && typeof console.log!='undefined' && console.log('OUP: '+o); };
   OUP.dir=function(o){ if(window.console&&console.dir){console.dir(o);} };
 
   function byId(id){
@@ -302,6 +302,15 @@
     var a = document.createElement('audio');
     return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
   };
+  OUP.supports_flash = function() {
+    var ua=navigator.userAgent;
+    if (ua.indexOf('Android') !== -1) {
+      OUP.log('Android');
+      //alert('Android');
+    }
+	//TODO: check minimum Flash requirement!
+	return (flashembed.isSupported([6,0,65]) && ua.indexOf('Android')===-1/* && ua.indexOf('WebKit')!==-1*/);
+  };
 
   OUP.html5_fallback = function(type){
 	var html5_media = byClass('oup-html5-media'),
@@ -323,6 +332,7 @@
 	  poster.style.display = 'none';
 	  ctrl.style.display = 'none';
 	  //ttl.style.display='none';
+      OUP.log('html5 fallback');
 	} else {
 	  OUP.log('Error, unexpected type value: '+type);
 	}
