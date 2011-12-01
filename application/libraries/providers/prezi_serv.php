@@ -67,8 +67,8 @@ class Prezi_serv extends Base_service {
     }
     elseif (preg_match('/^(.*?) on/', $result->json->description, $m_author)) {
       $meta['author']= $m_author[1];
+      $meta['title'] = $result->json->title;
     }
-    $meta['title'] = $result->json->title;
 
     $meta['thumbnail_url']  = $result->json->thumbnail_url;
     $meta['thumbnail_width']= $result->json->thumbnail_width;

@@ -11,9 +11,10 @@ require_once APPPATH.'libraries/base_service.php';
 class Gglspread_serv extends Base_service {
 
   public function call($url, $matches) {
-      $which = $matches[1]; #form|pub|ccc.
-      $key   = $matches[3];
-      $height= isset($matches[5]) ? $matches[5] : 700;
+      # +1
+	  $which = $matches[2]; #form|pub|ccc.
+      $key   = $matches[4];
+      $height= isset($matches[6]) ? $matches[6] : 700;
       $ccc_base = 'https://docs.google.com/spreadsheet'; //'https://spreadsheets.google.com';
   #var_dump($matches);
 

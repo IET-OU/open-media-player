@@ -81,19 +81,22 @@ $config['providers'] = array(
 	SS:  https://docs.google.com/spreadsheet/ccc?key=0AlpQljt8DLyXdHE0dzVLVXkyeXdBYXk5UzdQbFJ4OFE&hl=en_US#gid=0
 	     https://docs.google.com/spreadsheet/pub?key=0AonYZs4MzlZbcmVCWWVuZnJKSElSZDR2b1pmaVNtdXc#gid=0
 	Form:https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA
-	Doc: https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit?hl=en_GB
+	Doc/ OU player help: https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit?hl=en_GB
+	https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y&hl=en_GB
 	*/
     'docs.google.com' => array(
         'about'  => '',
-        'displayname'=>'Google Docs spreadsheets/forms',
-        'domain' => 'spreadsheets.google.com',
-        'favicon'=> 'http://spreadsheets.google.com/favicon.ico',
+        'displayname'=>'Google Docs spreadsheets/forms/presentations',
+        'domain' => 'docs.google.com',
+        'favicon'=> 'http://docs.google.com/favicon.ico',
         'name'   => 'gglspread',
         'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
-        //'regex'  => 'spreadsheets.google.com/*?*key=*',
+        //'regex'  => 'docs.google.com/(spreadsheet|document|present)/*',
         'type'   => 'rich',
-    '_regex_real'=> 'docs.google.com\/spreadsheet\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
-    //'_regex_real'=>'spreadsheets.google.com\/\w+(ccc|form)\?(form)?key=(\w+)(#height=(\d+))?',
+    '_regex_real'=> 'docs.google.com\/(spreadsheet)\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
+    
+	// Bug #1271 - a work-in-progress!!
+	//'_regex_real'=>'docs.google.com\/(spreadsheet|document|present)\/\w*(ccc|form|d|edit)(\?\w+?\=|\/)(\w+)(#height=(\d+))?',
     '_examples'=>array(
       'OU Player notif.' => 'https://docs.google.com/spreadsheet/viewform?hl=en_&formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
       'Student satis./ Ouseful' => 'http://docs.google.com/spreadsheet/ccc?key=reBYenfrJHIRd4voZfiSmuw',
