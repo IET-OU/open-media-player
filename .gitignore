@@ -13,3 +13,6 @@ app*/language/ouplayer_*.pot
 *.patch
 *.html
 * copy*
+*.zip
+*.log
+*min.js
