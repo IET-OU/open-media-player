@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ouplayer-application 1.0\n"
 "Report-Msgid-Bugs-To: N.D.Freear+@+open.ac.uk\n"
 "POT-Creation-Date: 2011-07-29 14:06+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2011-12-02 10:30+0000\n"
 "Last-Translator: Guangyu Yang <g.yang+@+open.ac.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #: libraries\oupodcast_serv.php:129
 #, php-format
 msgid "Related link: %s"
-msgstr ""
+msgstr "有关链接: %s"
 
 #: views\oembed\gglspread.php:5
 msgid "Google Docs form"
@@ -59,10 +59,11 @@ msgstr ""
 msgid "By: %s"
 msgstr ""
 
+# Needs work? Currently "New window"
 #: views\oembed\lams.php:38 views\oembed\lams.php:48 views\oembed\lams.php:51
 #: views\oembed\lams.php:52 views\oembed\lams.php:57
 msgid "Open in new window"
-msgstr ""
+msgstr "新视窗"
 
 #: views\oembed\lams.php:39
 #, php-format
@@ -152,11 +153,11 @@ msgstr "暂停"
 
 #: views\ouplayer\oup_controls.php:16
 msgid "Rewind"
-msgstr ""
+msgstr "快倒"
 
 #: views\ouplayer\oup_controls.php:17
 msgid "Fast forward"
-msgstr ""
+msgstr "快进"
 
 #: views\ouplayer\oup_controls.php:19
 msgid "Current time"
@@ -205,7 +206,7 @@ msgstr "提高音量"
 #: views\ouplayer\oup_settings.php:120 views\ouplayer\ouplayer.php:132
 #, php-format
 msgid "New window: %s"
-msgstr ""
+msgstr "新视窗: %s"
 
 #. /Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English).
 #: views\ouplayer\oup_controls.php:58
@@ -221,9 +222,10 @@ msgid "Show captions"
 msgstr ""
 
 #. /Translators: Script or text transcript.
+# "script" "字幕"
 #: views\ouplayer\oup_controls.php:63 views\ouplayer\oup_controls.php:64
 msgid "Show script"
-msgstr ""
+msgstr "显示字幕"
 
 #: views\ouplayer\oup_controls.php:64
 msgid "Hide script"
@@ -231,7 +233,7 @@ msgstr ""
 
 #: views\ouplayer\oup_controls.php:67
 msgid "pop out player"
-msgstr ""
+msgstr "弹出播放器"
 
 #: views\ouplayer\oup_controls.php:68
 msgid "pop out player with script"
@@ -279,7 +281,7 @@ msgstr ""
 #: views\ouplayer\oup_settings.php:109 views\ouplayer\oup_settings.php:113
 #: views\ouplayer\oup_settings.php:115
 msgid "New window"
-msgstr ""
+msgstr "新视窗"
 
 #: views\ouplayer\oup_restricted.php:72 views\ouplayer\oup_settings.php:109
 msgid "About the player"
