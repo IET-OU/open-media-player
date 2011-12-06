@@ -8,7 +8,7 @@
 require_once APPPATH.'libraries/base_service.php';
 
 
-class Gglspread_serv extends Base_service {
+class Googledoc_serv extends Base_service {
 
   public function call($url, $matches) {
 
