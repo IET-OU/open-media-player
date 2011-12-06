@@ -89,7 +89,8 @@ $config['providers'] = array(
         'displayname'=>'Google Docs spreadsheets/forms/presentations',
         'domain' => 'docs.google.com',
         'favicon'=> 'http://docs.google.com/favicon.ico',
-        'name'   => 'gglspread',
+        //'name'   => 'gglspread',
+        'name'     => 'googledoc',
         //'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
         'regex'  => 'docs.google.com/(spreadsheet|document|present[ation])/*',
         'type'   => 'rich',
@@ -100,6 +101,7 @@ $config['providers'] = array(
 
     '_examples'=>array(
       'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
+	  'Rhodri\'s talk' => 'https://docs.google.com/presentation/d/1ODWAPH9pXgVo-IImJeUDCHrh5owh33OXkvHfWlJyOqo/edit#slide=id.g14429bf_1_14',
       'OU Player help/ about' => 'https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit#id.j2um0zpktyo1',
 
       'OU Player notif.' => 'https://docs.google.com/spreadsheet/viewform?hl=en_&formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
