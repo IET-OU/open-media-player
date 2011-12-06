@@ -16,7 +16,7 @@ class Gglspread_serv extends Base_service {
       # +1
       $which = $matches[2]; #ccc|form|pub|d|view|edit.
       $key   = $matches[4];
-      $fragment = isset($matches[7]) ? '#'.$matches[7] : null;
+      $fragment = isset($matches[6]) ? '#'.$matches[6] : null;
       $height= isset($matches[8]) ? $matches[8] : 700;
       $docs_base = 'https://docs.google.com';
 
@@ -31,8 +31,13 @@ class Gglspread_serv extends Base_service {
         break;
         case 'present':
           $embed_url = "$docs_base/present/view?id=$key";
-          $which = $what;
-          $height= 465;
+          $which = 'present';
+          $height= 490;
+        break;
+        case 'presentation': # Scheme 2, eg. Rhodri.
+          $embed_url = "$docs_base/presentation/d/$key/embed$fragment"; #edit,view,present,htmlpresent,embed.
+          $which = 'present s2';
+          $height= 490;
         break;
         case 'document':
           $embed_url = "$docs_base/document/pub?id=$key$fragment";
@@ -54,6 +59,7 @@ class Gglspread_serv extends Base_service {
           'embed_url'=>$embed_url,
           '_ccc'  => $which,
           '_key'  => $key,
+          #'_m' => var_export($matches, $ret=true),
       );
       return (object) $meta;
   }

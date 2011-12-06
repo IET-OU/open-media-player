@@ -91,12 +91,12 @@ $config['providers'] = array(
         'favicon'=> 'http://docs.google.com/favicon.ico',
         'name'   => 'gglspread',
         //'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
-		'regex'  => 'docs.google.com/(spreadsheet|document|present)/*',
+        'regex'  => 'docs.google.com/(spreadsheet|document|present[ation])/*',
         'type'   => 'rich',
     //'_regex_real'=> 'docs.google.com\/(spreadsheet)\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
 
 	// Bug #1271 - a work-in-progress!!
-	'_regex_real'=>'docs.google.com\/(spreadsheet|present|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?(#(.*)height=(\d+))?',
+	'_regex_real'=>'docs.google.com\/(spreadsheet|present|presentation|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?#?(.*?)(height=(\d+))?',
 
     '_examples'=>array(
       'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
