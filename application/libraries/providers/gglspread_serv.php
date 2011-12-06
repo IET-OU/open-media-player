@@ -11,26 +11,45 @@ require_once APPPATH.'libraries/base_service.php';
 class Gglspread_serv extends Base_service {
 
   public function call($url, $matches) {
-      # +1
-	  $which = $matches[2]; #form|pub|ccc.
-      $key   = $matches[4];
-      $height= isset($matches[6]) ? $matches[6] : 700;
-      $ccc_base = 'https://docs.google.com/spreadsheet'; //'https://spreadsheets.google.com';
-  #var_dump($matches);
 
-      if ('form'==$which) {
-          $embed_url = "$ccc_base/embeddedform?formkey=$key";
-      } else {
-          $which = 'ccc';
-          $embed_url = "$ccc_base/pub?key=$key&amp;output=html";
-          //die("400.10, Google Docs spreadsheets not yet implemented.");
+      $what  = $matches[1]; #spreadsheet|present|document.
+      # +1
+      $which = $matches[2]; #ccc|form|pub|d|view|edit.
+      $key   = $matches[4];
+      $fragment = isset($matches[7]) ? '#'.$matches[7] : null;
+      $height= isset($matches[8]) ? $matches[8] : 700;
+      $docs_base = 'https://docs.google.com';
+
+      switch ($what) {
+        case 'spreadsheet':
+          if ('form'==$which) {
+            $embed_url = "$docs_base/spreadsheet/embeddedform?formkey=$key";
+        } else {
+            $which = 'ccc';
+            $embed_url = "$docs_base/spreadsheet/pub?key=$key&amp;output=html";
+        }
+        break;
+        case 'present':
+          $embed_url = "$docs_base/present/view?id=$key";
+          $which = $what;
+          $height= 465;
+        break;
+        case 'document':
+          $embed_url = "$docs_base/document/pub?id=$key$fragment";
+          $which = 'doc';
+        break;
+        default:
+          die("400.11, Invalid or unsupported path-segment '$what' for Google Docs.");
+        break;
       }
+
+      //die("400.10, Google Docs spreadsheets not yet implemented.");
 
       // HTTP request - get the title...?
 
       $meta = array(
           #'title'=> '',
-          'width' => 640, #720, #760,
+          'width' => 640, #720,
           'height'=> $height,
           'embed_url'=>$embed_url,
           '_ccc'  => $which,

@@ -90,14 +90,18 @@ $config['providers'] = array(
         'domain' => 'docs.google.com',
         'favicon'=> 'http://docs.google.com/favicon.ico',
         'name'   => 'gglspread',
-        'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
-        //'regex'  => 'docs.google.com/(spreadsheet|document|present)/*',
+        //'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
+		'regex'  => 'docs.google.com/(spreadsheet|document|present)/*',
         'type'   => 'rich',
-    '_regex_real'=> 'docs.google.com\/(spreadsheet)\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
-    
+    //'_regex_real'=> 'docs.google.com\/(spreadsheet)\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
+
 	// Bug #1271 - a work-in-progress!!
-	//'_regex_real'=>'docs.google.com\/(spreadsheet|document|present)\/\w*(ccc|form|d|edit)(\?\w+?\=|\/)(\w+)(#height=(\d+))?',
+	'_regex_real'=>'docs.google.com\/(spreadsheet|present|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?(#(.*)height=(\d+))?',
+
     '_examples'=>array(
+      'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
+      'OU Player help/ about' => 'https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit#id.j2um0zpktyo1',
+
       'OU Player notif.' => 'https://docs.google.com/spreadsheet/viewform?hl=en_&formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
       'Student satis./ Ouseful' => 'http://docs.google.com/spreadsheet/ccc?key=reBYenfrJHIRd4voZfiSmuw',
     'https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#gid=0',
