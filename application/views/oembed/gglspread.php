@@ -1,14 +1,14 @@
 <?php
-/** Google Docs spreadsheet/form oEmbed view.
+/** Google Docs spreadsheet/form/presentation/document oEmbed view.
 */
 
-  $label   = t('Google Docs form');
+  $label   = t('Google Docs embed');
   $noframes= t('Your browser does not support frames.');
-  $alttext = t('Access the form on Google');
-  $_ = t('Access the document on Google');
+  $_ = t('Access the form on Google');
+  $alttext = t('Access the document on Google');
 
   $html =<<<EOF
-<iframe class='ggl docs $meta->_ccc oembed' role='document' title='$label' width='$meta->width' height='$meta->height'
+<iframe class='ggl-docs $meta->_ccc oembed' role='document' title='$label' width='$meta->width' height='$meta->height'
 src='$meta->embed_url' frameborder='0'>$noframes
 <a href='$meta->embed_url'>$alttext</a>
 </iframe>$tracker
