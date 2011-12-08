@@ -78,7 +78,10 @@ class My_Lang extends CI_Lang {
 	$this->_load_gettext($_lang);
   }
 
-  protected function _load_gettext($lang) {
+  /** Load the gettext/ PO language pack (was: protected).
+  * @param string $lang An ISO 639-1 language code.
+  */
+  public function _load_gettext($lang) {
     $path = APPPATH."language/$lang.po";  #$lang/application.po;
 
     if (file_exists($path)) {
@@ -112,6 +115,20 @@ class My_Lang extends CI_Lang {
       return $msgid;
     }
     return $this->_list[$msgid]['msgstr'];
+  }
+
+  /** Get the current dictionary of language strings.
+  * @return array An array, keyed by $msgid.
+  */
+  public function get_list() {
+    return $this->_list;
+  }
+
+  /** Get meta-data for the current dictionary.
+  * @return array
+  */
+  public function get_meta() {
+    return $this->_meta;
   }
 
   /**
