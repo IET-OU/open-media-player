@@ -58,4 +58,35 @@ class Localize extends MY_Controller {
 		$this->_error("Language template not found: $name", 404);
 	}
   }
+
+  /** Render the language pack as (M)HTML for easy opening in MS Word.
+  * Security: http://technet.microsoft.com/en-us/security/bulletin/ms11-026
+  */
+  public function html($lang='x', $download=false) {
+    $lang = $langx = strtolower($lang);
+
+    if ('en'==$lang) {
+      $langx = $name = self::TEMPLATE;
+    } else {
+      $name = "$lang.po";
+    }
+    $fname= "ouplayer-$lang.word.mhtml";
+	$path = APPPATH ."/language/$name";
+
+	if ($download) {
+	    header('Content-Type: multipart/related; charset=utf-8');
+	    #@header("Content-Disposition: attachment; filename=$fname");
+	} else {
+	    header('Content-Type: text/html; charset=utf-8');
+	}
+	if (file_exists($path)) {
+		@header("Content-Disposition: inline; filename=$fname");
+
+		$this->lang->_load_gettext($langx);
+		$this->load->view('localize/word_html',
+		    array('lang'=>$lang, 'strings'=>$this->lang->get_list()) );
+	} else {
+		$this->_error("Language pack not found: $lang ($name)", 404);
+	}
+  }
 }
