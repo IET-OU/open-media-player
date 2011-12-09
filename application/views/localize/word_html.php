@@ -29,6 +29,8 @@ body{margin:1.7cm; font:12pt Arial,sans-serif;}
 table{border-color:#ddd; margin:12pt 0;}
 p, li{margin:4pt 0;}
 #meta li{margin:1pt 0; font-size:11pt; color:#444;}
+#strings a{font-size:small; color:#555;}
+#strings a:hover{color:blue;}
 td{width:25%; padding:3pt;}
 th tt{font-size:small; font-weight:normal;}
 p.-MsoNormal, li.MsoNormal, div.MsoNormal
@@ -118,13 +120,14 @@ style='font-size:10.0pt;font-family:"Heiti TC Light";mso-bidi-font-family:"Heiti
   $idx=0;
   foreach ($strings as $msgid => $o):
     $idx++;
-    $hid = "s-$idx";
+    $hid = "s$idx";
+    $link= "<a href='#$hid'>$idx</a> ";
     $sid = htmlspecialchars($msgid);
     $str = htmlspecialchars($o['msgstr']);
     $ref = $o['references'][0];
     $com = isset($o['extracted-comments']) ? $o['extracted-comments'] :'';
 ?>
-  <tr id=<?=$hid ?>><td class=i><?=$sid ?></td><td class=s><?=$str ?></td>
+  <tr id=<?=$hid ?>><td class=i><?=$link.$sid ?></td><td class=s><?=$str ?></td>
     <td class=r><?=$ref ?></td><td class=c><?=$com ?></td></tr>
 <?php endforeach; ?>
 </table>
