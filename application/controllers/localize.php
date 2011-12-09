@@ -45,7 +45,7 @@ class Localize extends MY_Controller {
 
   public function template($download=false) {
     $name = self::TEMPLATE;
-	$path = APPPATH ."/language/$name";
+	$path = APPPATH ."/language/$name.po";
 	if ($download) {
 	    header('Content-Type: text/x-po; charset=utf-8');
 	} else {
@@ -66,7 +66,8 @@ class Localize extends MY_Controller {
     $lang = $langx = strtolower($lang);
 
     if ('en'==$lang) {
-      $langx = $name = self::TEMPLATE;
+      $langx = self::TEMPLATE;
+      $name  = self::TEMPLATE.'.po';
     } else {
       $name = "$lang.po";
     }
