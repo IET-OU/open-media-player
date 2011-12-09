@@ -1,12 +1,15 @@
 <?php
 /** Render language pack as a (M)HTML table for easy opening in MS Word.
-*/
+ *
+ * @copyright Copyright 2011 The Open University.
+ */
 ?>
 <!DOCTYPE html><html><head>
 <meta http-equiv=Content-Type content="text/html; charset=utf-8">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 2008">
 <meta name=Originator content="Microsoft Word 2008">
+<meta name=ROBOTS content="noindex, nofollow">
 <?php /*<link rel=File-List href="ouplayer-lang_files/filelist.xml">*/ ?>
 <title>OU player/OU embed language file: HTML for MS Word</title>
 <style>
@@ -21,10 +24,11 @@
 @font-face
 	{font-family:"Heiti TC Light";
 	panose-1:2 0 0 0 0 0 0 0 0 0;}
- /* Style Definitions */
+ /* Style Definitions - print-oriented. */
 body{margin:1.7cm; font:12pt Arial,sans-serif;}
 table{border-color:#ddd; margin:12pt 0;}
-p, li{margin:6pt 0;}
+p, li{margin:4pt 0;}
+#meta li{margin:1pt 0; font-size:11pt; color:#444;}
 td{width:25%; padding:3pt;}
 th tt{font-size:small; font-weight:normal;}
 p.-MsoNormal, li.MsoNormal, div.MsoNormal
@@ -72,25 +76,33 @@ table.MsoNormalTable
 -->
 </style>
 </head>
-
 <body lang=EN-US style='tab-interval:36.0pt'>
 
 <div class=Section1>
 
 <h1>OU Player language file</h1>
 
-<ul id="hints">
+<ul id="help">
   <li>You probably want to save me with a <tt>.mhtml</tt> or <tt>.html</tt> file extension.</li>
   <li>Then you can open me in Microsoft Word and save me as a Word document 
     &mdash; Save As: <tt>Word 97-2004 (.doc)</tt> please.</li>
   <li>Placeholders are denoted <tt>%s</tt> and <tt>&lt;s></tt> &mdash; do not translate me!</li>
   <li>Example player: <a href="http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?lang=<?= $lang ?>"
   >embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b</a></li>
-  <li>Example language file: <a href="http://dl.dropbox.com/u/3203144/ouplayer/ouplayer-lang.word.html">ouplayer-lang.word.html</a>
+  <li>Example language files: <?=anchor('localize/html/en', 'M/HTML template (en)') ?>
+   | <?=anchor("localize/po/$lang", "this PO ($lang)") ?></li>
   <li>Help! Email or MS Lync me: <a href="mailto:N.D.Freear@open.ac.uk">N.D.Freear</a>.</li>
 </ul>
-<p >Language: <tt id=langCode><?= $lang ?></tt> (<a href=
-"http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">List of ISO 639-1 codes</a>).</p>
+<p >Language: <tt id="langCode"><?= $lang ?></tt> <small>(<a href=
+"http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">List of ISO 639-1 codes</a>).</small></p>
+
+<ul id="meta">
+<?php foreach ($metas as $mkey => $mval):
+    $meta = preg_replace('#<.+?>#', '', $mval);
+  ?>
+  <li><?=$mkey ?>: <?=$meta ?></li>
+<?php endforeach; ?>
+</ul>
 
 <?php /*
 <p class=MsoNormal style='tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><span
@@ -122,5 +134,4 @@ style='font-size:10.0pt;font-family:"Heiti TC Light";mso-bidi-font-family:"Heiti
 </div>
 
 </body>
-
 </html>

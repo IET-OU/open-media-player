@@ -59,7 +59,7 @@ class Localize extends MY_Controller {
 	}
   }
 
-  /** Render the language pack as (M)HTML for easy opening in MS Word.
+  /** Experimental/ #1278. Render language pack as M/HTML for easy opening in MS Word.
   * Security: http://technet.microsoft.com/en-us/security/bulletin/ms11-026
   */
   public function html($lang='x', $download=false) {
@@ -84,7 +84,7 @@ class Localize extends MY_Controller {
 
 		$this->lang->_load_gettext($langx);
 		$this->load->view('localize/word_html',
-		    array('lang'=>$lang, 'strings'=>$this->lang->get_list()) );
+		    array('lang'=>$lang, 'strings'=>$this->lang->get_list(), 'metas'=>$this->lang->get_meta()) );
 	} else {
 		$this->_error("Language pack not found: $lang ($name)", 404);
 	}
