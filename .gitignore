@@ -15,4 +15,5 @@ app*/language/ouplayer_*.pot
 * copy*
 *.zip
 *.log
+*.mo
 *min.js
