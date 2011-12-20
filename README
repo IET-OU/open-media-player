@@ -1,6 +1,8 @@
 Readme for the ouplayer (ouembed) project.
 
-http://embed.open.ac.uk | http://media-podcast-dev.open.ac.uk/player/
+
+* http://embed.open.ac.uk | http://media-podcast-dev.open.ac.uk/player
+* Bugs/ Issues:  http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
 
 
 OU player: Copyright © 2010-2011 The Open University. All rights reserved.
@@ -15,6 +17,10 @@ OUICE-Bold theme: Copyright 2011 The Open University. All rights reserved.
 
 OUICE-Light theme: Copyright 2011 The Open University. All rights reserved.
  * Author: David Winter <d.j.winter+@+open.ac.uk> / LTS.
+
+OU player/OU embed translations.
+ * Kiswahili/ Swahili: Pauline Nngimwa, Christian Msoffe.
+ * Chinese Simplified: Guangyu Yang Freear.
 
 Based on codeigniter-reactor, changeset 2263:1b173956c908 (v2.0.0+) (6 mar.-10 days)
  *  <http://bitbucket.org/ellislab/codeigniter-reactor/changeset/1b173956c908>
@@ -46,8 +52,6 @@ Fire PHP: Copyright (c) 2006-2009, Christoph Dorn.
  * License: <http://opensource.org/licenses/BSD-3-Clause> New BSD
  * Code: <http://www.firephp.org/>
 
-
-Bugs/ Issues:  http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
 
 
 TODOs:

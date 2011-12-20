@@ -94,6 +94,8 @@ $config['cache_path'] = '/var/www/_ouplayer_data/cache/';
 
 // Localization/ internationalization, including aliases.
 $config['locales'] = array(
+    # Keys must be lower-case, using '-'.
+    # Order is significant - 'en'+aliases must be last.
     'es'   => array('name'=>'Español - España/Internacional'),
     'es-ar'=> 'es',
     'es-es'=> 'es',
@@ -104,6 +106,8 @@ $config['locales'] = array(
 
     'zh-cn'=> array('name'=>'简体中文/ Chinese (Simplified)'),
     'cmn-hans'=>'zh-cn',
+
+    'sw'   => array('name'=>'Kiswahili/ Swahili'),
 
     'en'   => array('name'=>'English/ En anglais/ Inglés'),
     'en-gb'=> 'en',
