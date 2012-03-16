@@ -6,7 +6,7 @@
 .__lams.oembed object{display:block;}
 .lams.oembed .seq{display:block; --width:500px; margin:.6em auto;}
 .lams.oembed .zoom{display:block; text-decoration:none; float:right; width:4.5em;
- background:url(http://lamscommunity.org/lamscentral/embed/z.png)no-repeat left; padding-left:20px;}
+ background:url(http://lamscommunity.org/lamscentral/embed/z.png) no-repeat left; padding-left:20px;}
 .lams.oembed .zoom:hover{text-decoration:underline;}
 .lams.oembed .logo{float:right; border:1px solid transparent; padding:3px;}
 .lams.oembed .logo:hover{border:1px dotted gray; border-radius:2px;}
@@ -16,4 +16,4 @@
  border:1px solid #aaa; -moz-border-radius:4px; border-radius:4px;}
 .lams.oembed .button:hover, .lams.oembed .button:focus{border:1px solid #448;}
 .lams.oembed a span{display:inline-block; width:0; height:0; overflow:hidden; /*position:absolute; top:-999em;*/}
-.lams.oembed .cc-by-nc-sa{background:url(cc-by-nc-sa.png)no-repeat left; padding-left:51px; letter-spacing:-0.05em;}
+.lams.oembed .cc-by-nc-sa{background:url(cc-by-nc-sa.png) no-repeat left; padding-left:51px; letter-spacing:-0.05em;}
