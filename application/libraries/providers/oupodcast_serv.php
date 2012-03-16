@@ -16,7 +16,12 @@ class Oupodcast_serv extends Base_service {
 
   public function __construct() {
       $this->CI =& get_instance();
-      $this->CI->load->model('podcast_items_model');
+      if ($this->CI->config->item('podcast_data_use_feed')) {
+        $this->CI->load->model('Podcast_items_feed_model', 'podcast_items_model');
+      } else {
+        // Or the original database model.    
+        $this->CI->load->model('podcast_items_model');
+      }
   }
 
   /** Used by oEmbed controller.
@@ -44,6 +49,8 @@ class Oupodcast_serv extends Base_service {
       if (!$result) {
 	      $this->CI->_error('podcast item not found.', 404, __CLASS__);
       }
+var_dump($result);
+exit;
 
       // TODO: Access control - SAMS cookie.
       $access = array(
