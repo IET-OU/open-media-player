@@ -1,20 +1,176 @@
 <?php
-/** A model to get item meta-data from the podcast DB.
+/**
+ * A model to get item meta-data from a podcast RSS feed.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author Jamie Daniels <j.d.daniels @ open.ac.uk>, May-July 2011.
+ * @author Nick Freear, March 2012.
  */
 //2 March 2011.
+require_once 'podcast_items_abstract_model.php';
 
-class Podcast_items_model extends CI_Model {
 
-	protected $db_pod;
+class Podcast_items_feed_model extends Podcast_items_abstract_model {
 
 	public function __construct() {
 		parent::__construct();
 
-		$this->db_pod = $this->load->database('podcast', TRUE);
+		$this->load->library('Http');
 	}
+
+
+	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {
+
+		$pod_base = Oupodcast_serv::POD_BASE;
+		$url = $pod_base."/feeds/$basename/". $this->config->item('podcast_feed_file');
+
+		$result = $this->http->request($url);
+		if (! $result->success) {
+			//ERROR.
+			echo "Feed error: can't read feed.";
+			var_dump($result);
+			return FALSE;
+		}
+
+		$this->_xmlo = $xmlo = simplexml_load_string($result->data);
+
+		foreach ($this->_xml_namespaces() as $prefix => $ns_uri) {
+            $bok = $xmlo->registerXPathNamespace($prefix, $ns_uri);
+        }
+
+		$xpath_url = '//atom:link[contains(@href, "pod/'. $basename .'/#!'. $shortcode .'")]';
+		$xpath_item = $xpath_url .'/..';
+		$item = $xmlo->xpath($xpath_item);
+
+		if (isset($item[0])) {
+			$item = $item[0];
+		} else {
+			//ERROR.
+			echo "Feed error: can't get item.";
+			return FALSE;
+		}
+
+		// Access control.
+		$access = array(
+		  #Item-level: (bool) cast.
+		  'published_flag' => $this->_xpath_val($xpath_item .'/oup:published_flag'),
+		  #Podcast-level
+		  'intranet_only' => $this->_xpath_val('//oup:restrict_access'),
+		  'private' => $this->_xpath_val('//oup:private'),
+		  'deleted' => $this->_xpath_val('//oup:deleted'),
+
+		  '_published_flag' => 'yes' != $this->_xpath_val('//app:draft'),
+		  '_intranet_only' => count( $xmlo->xpath('//yt:state[@reasonCode="oup:intranet_only"]') ),
+		  '_private' => count( $xmlo->xpath('//yt:private') ),
+		  '_deleted' => count( $xmlo->xpath('//yt:state[@name="deleted"]') ),
+		  '_processing' => count( $xmlo->xpath('//yt:state[@name="processing"]') ),
+		  '_list_allowed' => count( $xmlo->xpath('//yt:accessControl[@action="list"][@permission="allowed"]') ),
+		);
+
+		$vars = array(
+		  'title' => (string) $xmlo->channel->title .': '. $item->title,
+		  'pod_title' => (string) $xmlo->channel->title,
+		  'summary' => (string) $xmlo->channel->description,
+		  '_copyright' => (string) $xmlo->channel->copyright,
+
+		  'item_title' => (string) $item->title,
+		  'item_summary' => (string) $item->description,
+		  'timestamp' => strtotime((string) $item->pubDate),  #?
+		  'media_url' => (string) $item->enclosure->attributes()->url,
+		  'media_length' => (string) $item->enclosure->attributes()->length,
+		  'media_html5' => TRUE,
+		  'mime_type' => (string) $item->enclosure->attributes()->type,
+		  'poster_url' => $this->_xpath_val($xpath_item .'/media:thumbnail', 'url'),
+
+		  'transcript_url' => $this->_xpath_val($xpath_item .'/atom:link[@type="application/pdf"]', 'href'),
+		  'caption_url' => $this->_xpath_val($xpath_item .'/atom:link[@type="application/ttml+xml"]', 'href'), #?
+
+		  '_track_md5' => $shortcode,
+		  '_album_id' => $basename,
+		  'provider_mid' => "$basename/$shortcode", #?
+		  'url' => $this->_xpath_val($xpath_item .'/atom:link[@rel="oup:longlink"]', 'href'),
+		  '_short_url' => $this->_xpath_val($xpath_url, 'href'),
+		  'iframe_url' => NULL, #?
+
+		  'link' => $this->_xpath_val('//channel/atom:link[@rel="related"]', 'href'),
+		  'link_text' => $this->_xpath_val('//channel/atom:link[@rel="related"]', 'title'),
+		  'target_url' => $this->_xpath_val($xpath_item .'/atom:link[@rel="related"]', 'href'),
+		  'target_text' => $this->_xpath_val($xpath_item .'/atom:link[@rel="related"]', 'title'),
+
+		  '_itunes_url' => $this->_xpath_val('//atom:link[@rel="oup:ituneslink"]', 'href'), #oup:rel-itunes-url
+		  '_youtube_url' => $this->_xpath_val($xpath_item .'/atom:content[contains(@src, "youtube.com")]', 'src'), #'), #[@type="application/x-shockwave-flash"]
+		  'duration_orig' => $this->_xpath_val($xpath_item .'/itunes:duration'),
+		  'duration' => 0,
+		  'aspect_ratio' => $this->_xpath_val($xpath_item .'/oup:aspect_ratio'),
+
+		  '_access' => $access,
+
+		  #'_' => $item,
+		);
+
+		// Post process the duration, youtube URL etc.
+		$duration = $vars['duration_orig'];
+		if (preg_match('/\d{2}:\d{2}:\d{2}/', $duration)) {
+			$vars['duration'] = strtotime("1970-01-01T".$vars['duration_orig']. "GMT");
+		}
+
+		$vars['media_type'] = substr($vars['mime_type'], 0, strpos($vars['mime_type'], '/'));
+
+		if ($vars['_youtube_url']) {
+			$vars['youtube_id'] = preg_replace(array('#^.+v\/#', '#\?.*$#'), '', $vars['_youtube_url']);
+		}
+
+		return (object) $vars;
+	}
+
 	
+
+	/** Safely get an element or attribute value for SimpleXML.
+	* @return string
+	*/
+	protected function _xpath_val($expr, $attr=NULL) {
+		$reso = $this->_xmlo->xpath($expr);
+		if (isset($reso[0])) {
+			if ($attr) {
+				return (string) $reso[0]->attributes()->{$attr}[0];
+			}
+			return (string) $reso[0];
+		}
+		return FALSE;
+	}
+
+	/** Return all of the XML namespaces, and prefixes used in OU podcast RSS.
+	* @return array
+	*/
+	protected function _xml_namespaces() {
+	  $NAMESPACES = array(
+	  # http://validator.w3.org/feed/docs/howto/declare_namespaces.html
+	  # http://w3.org/TR/html5/namespaces.html
+	  /*'fn' => 'http://www.w3.org/2005/xpath-functions',
+	  'xmlns' => 'http://www.w3.org/2000/xmlns/',
+	  'xml' => 'http://www.w3.org/XML/1998/namespace',
+	  'html' => 'http://www.w3.org/1999/xhtml',
+	  'rss2' => 'http://backend.userland.com/rss2',*/
+
+	  'atom' => 'http://www.w3.org/2005/Atom',
+      'app' => 'http://www.w3.org/2007/app',
+
+	  'itunes' => 'http://www.itunes.com/dtds/podcast-1.0.dtd',
+      'itunesu' => 'http://www.itunesu.com/feed',
+      'media' => 'http://search.yahoo.com/mrss/',
+
+      'gd' => 'http://schemas.google.com/g/2005',
+      'yt' => 'http://gdata.youtube.com/schemas/2007',
+      'openSearch' => 'http://a9.com/-/spec/opensearch/1.1/',
+
+      's' => 'http://purl.org/steeple',
+      'oup' => 'http://podcast.open.ac.uk/2012',
+      'oupod_' => 'http://purl.org/net/oupod/',
+      );
+	  return $NAMESPACES;
+	}
+
+
 	// function to check to see if the file exists at the destination url
 	function url_exists($url){
 		$url = str_replace("http://", "", $url);
@@ -34,8 +190,11 @@ class Podcast_items_model extends CI_Model {
 		} else { return FALSE;}
 	}
 
-
-
+	/**
+	* xml2array
+	* lz_speedy at web dot de 30-Dec-2008 10:20
+	* http://www.php.net/manual/en/function.xml-parse.php#87920
+	*/
 	function xml2array($contents, $get_attributes=1, $priority = 'tag') {
 		if(!$contents) return array();
 
@@ -160,10 +319,10 @@ class Podcast_items_model extends CI_Model {
 		return($xml_array);
 	}
 
-
-
-
-	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {
+	/**
+	* @author Jamie Daniels.
+	*/
+	public function get_item_v1($basename, $shortcode=NULL, $captions=FALSE) {
 
 		$pod_base = Oupodcast_serv::POD_BASE;
 		$file=$pod_base."/feeds/$basename/".config_item('podcast_feed_file');

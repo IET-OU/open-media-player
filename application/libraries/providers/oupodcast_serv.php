@@ -49,8 +49,41 @@ class Oupodcast_serv extends Base_service {
       if (!$result) {
 	      $this->CI->_error('podcast item not found.', 404, __CLASS__);
       }
-var_dump($result);
-exit;
+
+	  // TODO: derive from maxwidth/maxheight!
+	  $width = Podcast_player::DEF_WIDTH;
+	  $height= Podcast_player::DEF_HEIGHT;
+
+	  if (isset($result->media_url)) {
+		  // Initialize player from feed object.
+		  $player = $this->_init_player($result); #(Podcast_player) cast?
+	  } else {
+	      // Process result from database.
+	      $player = $this->_process_DB_result($result);
+	  }
+
+	  $player->calc_size($width, $height, $audio_poster);
+	  $player = $this->_get_related_link($player, $result);
+	  $player = $this->_get_caption_url($player, $result);
+
+	  $this->CI->firephp->fb($player, 'player', 'LOG');
+
+      return $player;
+  }
+
+  protected function _init_player($result) {
+    $player = new Podcast_player;
+
+	$player->width = Podcast_player::DEF_WIDTH;
+	$player->height = Podcast_player::DEF_HEIGHT;
+	
+    foreach ($result as $key => $value) {
+	  $player->{$key} = $value;
+	}
+	return $player;
+  }
+
+  protected function _process_DB_result($result) {
 
       // TODO: Access control - SAMS cookie.
       $access = array(
@@ -61,7 +94,7 @@ exit;
           'published' => $result->published_flag, #Y.
           'deleted'   => $result->deleted, #0.
       );
-
+	  
       $custom_id = $result->custom_id;
       $shortcode = $result->shortcode;
 
@@ -112,13 +145,7 @@ exit;
 		'_itunes_url'=> $result->itunes_u_url, #Album.
 	  );
 
-	  $player->calc_size($width, $height, $audio_poster);
-	  $player = $this->_get_related_link($player, $result);
-	  $player = $this->_get_caption_url($player, $result);
-
-	  $this->CI->firephp->fb($player, 'player', 'LOG');
-
-      return $player;
+	  return $player;
   }
 
   /** Get the related link, and especially associated text. */

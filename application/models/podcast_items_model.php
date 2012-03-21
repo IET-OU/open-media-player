@@ -4,8 +4,10 @@
  * @copyright Copyright 2011 The Open University.
  */
 //2 March 2011.
+require_once 'podcast_items_abstract_model.php';
 
-class Podcast_items_model extends CI_Model {
+
+class Podcast_items_model extends Podcast_items_abstract_model {
 
     protected $db_pod;
 
