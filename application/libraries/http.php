@@ -1,9 +1,11 @@
 <?php
 /**
-From base_service.php
-
-NDF 6 March 2012.
-*/
+ * HTTP request library.
+ * Code from base_service.php, using cURL.
+ *
+ * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 6 March 2012.
+ */
 
 class Http {
 
