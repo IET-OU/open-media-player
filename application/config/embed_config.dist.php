@@ -15,6 +15,12 @@ date_default_timezone_set('Europe/London');
 // Debugging.
 $config['debug'] = false;
 
+// If TRUE, use the feed model, otherwise, use the database model (requires a config/database.php file).
+$config['podcast_data_use_feed'] = true;
+
+// The name of the remote RSS feed file.
+//$config['podcast_feed_file'] = '';
+
 // Debugging: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
