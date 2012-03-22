@@ -52,7 +52,8 @@ $autoload['packages'] = array(APPPATH.'third_party');
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'lang');
+// #1319, Don't autoload a database (iet-it-bugs 1319)
+$autoload['libraries'] = array(/*'database',*/ 'lang');
 
 
 /*

@@ -12,7 +12,7 @@ class Oembed extends MY_Controller {
     #parent::Controller();
     #@header("X-Powered-By:");
 
-    $this->load->model('embed_cache_model');
+    //( #1319, Don't load the embed cache model here. iet-it-bugs 1319)
   }
 
   protected function _tracker($provider, $host, $meta) {
@@ -87,7 +87,12 @@ EOF;
       $this->_error("not found, view '$name'.", 404.1);
     }
 
-    $meta = $this->embed_cache_model->get_embed($req->url);
+    // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
+    $meta = NULL;
+    if ('podcast.open.ac.uk' !== $host) { #Oupodcast_serv::POD_BASE
+      $this->load->model('embed_cache_model');
+      $meta = $this->embed_cache_model->get_embed($req->url);
+    }
 
     // Should we load the library for the service?
     if (($this->config->item('always_upstream') || !$meta)

@@ -10,14 +10,15 @@ title,author,author_url,thumbnail_url,desc.,timestamp,x_meta?]
 
 class Embed_cache_model extends CI_Model {
 
-  /*public function __construct() {
-      parent::CI_Model();
-  }*/
+  public function __construct() {
+      parent::__construct();
+
+      $this->db = $this->load->database('default', TRUE);
+  }
 
   public function get_embed($url) {
       $url_md5 = md5($url);
       $embed = false;
-#var_dump($this);
 
       $this->db->from('embed_cache');
       $this->db->where('embed_cache.url_md5', $url_md5);
