@@ -1,5 +1,7 @@
 <?php
-/** OU Player base theme.
+/**
+ * OU Media Player base theme.
+ * This theme extends the Mediaelement default theme, and adds Javascript features and views.
  *
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.
@@ -22,7 +24,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     $meps_base = $this->js_path; #From parent.
     $oups_base = 'themes/$this->name/js/';
 
-    $mep_scripts = array(
+    $this->javascripts = array(
       $oups_base.'mep-header-cl.js',
     # Mediaelement libraries.
       $meps_base.'me-namespace.js',
