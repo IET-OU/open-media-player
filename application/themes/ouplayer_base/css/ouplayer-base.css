@@ -136,7 +136,10 @@ body	{
 .mejs-container .mejs-controls .mejs-title-panel .logo {
 	width:60px;
 	height:70px;
-	background:transparent url('csg-4f6b5ebc9c52a.png') no-repeat 0 -72px;
+	/*
+	  SPRITE inclusion - needs moving!
+	*/
+	background:transparent url('../../oup_light/css/oup-light-sprite.png') no-repeat 0 -72px;
 	}
 
 .mejs-title-panel p, .mejs-title-panel h1 {

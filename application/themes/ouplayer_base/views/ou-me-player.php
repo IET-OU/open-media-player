@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<!doctype html><html lang="en"><meta charset="utf-8" /><title>*OUP/ MEP player</title>
+<!doctype html><html lang="en"><meta charset="utf-8" /><title><?= $params->title ?> | OU player</title>
 <?php
 
 $this->load->theme_view('oup-mep-head');

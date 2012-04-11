@@ -30,9 +30,9 @@
 	width: 16px;
 	border: 0;
 	/*
-	 THE single SPRITE inclusion.
+	 One of only TWO SPRITE inclusions (see mep-ouplayer.css)
 	*/
-	background: transparent url(csg-4f6b5ebc9c52a.png) no-repeat;
+	background: transparent url('oup-light-sprite.png') no-repeat;
 }
 .mejs-controls .oup-mejs-link a {
 	display:inline-block;

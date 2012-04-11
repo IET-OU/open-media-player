@@ -3,7 +3,8 @@
  * OU Player Light 2012 theme.
  *
  * @copyright Copyright 2012 The Open University.
- * @author N.D.Freear, 20 March 2012.
+ * @author Peter Devine/LTS 2012-03-08 (visuals, CSS)
+ * @author Nick Freear 2012-03-30 (CSS, PHP)
  */
 require_once dirname(__FILE__) .'/../ouplayer_base/theme.php';
 
