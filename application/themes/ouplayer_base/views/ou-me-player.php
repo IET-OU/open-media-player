@@ -1,4 +1,22 @@
 <?php
 
 ?>
-MY VIEW: ouplayer.
+<!doctype html><html lang="en"><meta charset="utf-8" /><title>*OUP/ MEP player</title>
+<?php
+
+$this->load->theme_view('oup-mep-head');
+$this->load->theme_view('oup-mep-body');
+$this->load->theme_view('oup-end-javascript');
+
+/*
+require_once 'oup-views/oup-mephead.php';
+require_once 'oup-views/oup-mepbody.php';
+require_once 'oup-views/oup-end-script.js.php';
+*/
+
+?>
+</html>
+<!--
+<?php echo basename(__FILE__) ?>
+
+-->
