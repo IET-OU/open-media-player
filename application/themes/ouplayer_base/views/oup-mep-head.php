@@ -16,8 +16,11 @@
 <meta name="robots" content="noindex,nofollow" />
 <link rel="license" title="©2012 The Open University" href="http://www.open.ac.uk/copyright" />
 
-<?php if ('jquery'==$params->jslib /*if ($params->jquery*/): ?>
-<script src="../build/jquery.js"></script>
+<!--
+ Todo: CDN plus fallback.
+-->
+<?php if ('jquery'==$this->theme->js_lib /*if ($params->jquery*/): ?>
+<script src="<?php echo base_url().'application/'. $this->theme->plugin_path ?>jquery.js"></script>
 <?php else: ?>
 
 <?php if ($params->debug): ?>
@@ -27,40 +30,29 @@
 <?php endif;
   //<script src="../src/js/jeesh.js"></script>
   ?>
-<script src="../src/js/jeesh-extras.js"></script>
+<script src="<?php echo base_url().'application/'. $this->theme->js_path ?>jeesh-extras.js"></script>
 
-<?php
-  //<script src="../oup/oup-js/bonzo-ender.js"></script>
-?>
 <?php endif; ?>
 
 <?php
-  if ($params->debug):
-    foreach ($mep_scripts as $meps_file): ?>
-<script src="<?php echo $meps_file ?>"></script>
+  if ($this->config->item('debug')):
+    foreach ($this->theme->javascripts as $js_file): ?>
+<script src="<?php echo base_url().'application/'. $js_file ?>"></script>
 <?php
     endforeach;
   else:
 ?>
-<script src="../build/mediaelement-and-player.min.js"></script>
+<script src="<?php echo base_url().'application/'. $this->theme->plugin_path ?>/build/mediaelement-and-player.min.js"></script>
 <?php endif; ?>
 
-<link rel="stylesheet" href="../build/mediaelementplayer.css" />
-<!--
-<link rel="stylesheet" href="css/mediaelementplayer.css" /><!--Edited 200312 PETER-|->
--->
-<?php if ('mejs-ted'==$params->skin || 'mejs-wmp'==$params->skin): ?>
+<?php foreach ($this->theme->styles as $css_file): ?>
+<link rel="stylesheet" href="<?php echo base_url().'application/'. $css_file ?>" />
+<?php endforeach; ?>
+
+<?php if ('mejs-ted'==$this->theme->name || 'mejs-wmp'==$this->theme->name): ?>
 <link rel="stylesheet" href="../build/mejs-skins.css" />
 <?php endif; ?>
 
-
-<link rel="stylesheet" href="css/mep-ouplayer.css" />
-
-<link rel="stylesheet" href="css/oup-theme1.css" />
--->
-<!--
-<link rel="stylesheet" href="http://iet-embed-acct.open.ac.uk/mediaelement/oup-0/css/mep-ouplayer.css" />
--->
 
 <style>
 </style>

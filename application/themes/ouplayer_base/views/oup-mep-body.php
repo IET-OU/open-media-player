@@ -1,7 +1,7 @@
 
 <!--Body classes - player flags. -->
-<body class="oup-mode-<?php echo ($params->is_video) ? 'video' : 'audio' ?> tscript-hide lang-<?php
-  echo $params->lang ?> <?php echo $params->skin ?> <?php echo $params->rgb ?> <?php echo $params->ua ?>">
+<body role="application" id="ouplayer" class="oup-mode-<?php echo $params->media_type ?> tscript-hide lang-<?php
+  echo $this->lang->lang_code() ?> <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> ua-<?php echo $this->agent->browser_code() ?>">
 
 <div id="oup-noscript">
 Your browser appears to have Javascript disabled, or there has been an error.
@@ -16,7 +16,7 @@ Your browser appears to have Javascript disabled, or there has been an error.
   $height_style= '';  #' height:100%';
 ?>
 
-<?php if ($params->is_video): ?>
+<?php if ('video'==$params->media_type): ?>
 <video
 <?php else: ?>
 <audio
@@ -24,14 +24,14 @@ Your browser appears to have Javascript disabled, or there has been an error.
  id="player1"
  x-class="mejs-player"
  x-width="640" <?php echo $height_attr ?> style="width:100%; <?php echo $height_style ?>"
- controls="controls" preload="none" <?php if ($params->is_video): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
+ controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
  <source type="video/mp4" src="<?php echo $params->media_url ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
-    echo $params->caption_url ?>" />
+    echo site_url('timedtext/webvtt').'?url='. $params->caption_url ?>" />
 <?php endif; ?>
 <p>[Fallback]</p>
-<?php if ($params->is_video): ?>
+<?php if ('video'==$params->media_type): ?>
 </video>
 <?php else: ?>
 </audio>

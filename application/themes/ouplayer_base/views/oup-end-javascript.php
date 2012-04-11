@@ -1,5 +1,5 @@
 <script>
-<?php if ('jquery' == $params->jslib): ?>
+<?php if ('jquery' == $this->theme->js_lib): ?>
 $(document).ready(function ouplayer_launch($){
 <?php else:
   //Ender?  $.domReady(function(){ ?>
@@ -16,20 +16,20 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
   // Keyboard accessibility: disable shortcuts!
   enableKeyboard:false,
 
-<?php if ($params->use_shim): ?>
+<?php //if ($params->use_shim): ?>
   mode: 'shim',
-<?php endif; ?>
+<?php //endif; ?>
 
 <?php if ($params->duration): ?>
   duration: <?php echo $params->duration ?>,
 <?php endif; ?>
 
-<?php if ($params->origin): ?>
-  origin:'<?php echo $params->origin ?>',
+<?php if ($this->theme->origin): ?>
+  origin:'<?php echo $this->theme->origin ?>',
 <?php endif; ?>
 
   features:
-'<?php echo $params->features ?>'
+'<?php echo $this->theme->features ?>'
 .split(','),
 
 <?php
@@ -38,12 +38,12 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
 
   //titleId:'',
   titleText:
-'<div class="logo"></div><h1><?php echo $params->title ?></h1> <a href="#" target="_blank" title="Related link opens in new window">The Student Experience in Study at The Open University</a>',
+'<div class="logo"></div><h1><?=$params->title ?></h1> <a href="<?=$params->_related_url ?>" target="_blank" title="Related link opens in new window"><?=$params->_related_text ?></a>',
 
   alwaysShowControls: true,
   usePluginFullScreen: true,
   // path to Flash and Silverlight plugins
-  pluginPath: '../build/',
+  pluginPath: '<?php echo base_url().'application/'. $this->theme->plugin_path ?>',
 
 <?php if ($params->debug): ?>
   enablePluginDebug: true,
@@ -63,14 +63,14 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
 
   $('#mejs-version').html(mejs.version);
   $.log('mejs.version: '+ mejs.version);
-  $.log('Browser: <?php echo $params->ua ?>'); //'+$('html').attr('class'));
+  $.log('Browser: <?php echo $this->agent->browser_code() ?>'); //'+$('html').attr('class'));
   $.log(player.options);
 
   setTimeout(function(){
     $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));
   }, 400);
 
-<?php if ('jquery' == $params->jslib): ?>
+<?php if ('jquery' == $this->theme->js_lib): ?>
 });
 <?php else: ?>
 })();

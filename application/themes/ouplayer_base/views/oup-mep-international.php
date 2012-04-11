@@ -39,11 +39,11 @@ $oup_mep_texts = array(
   'optionsText' => t('More options…'),
 );
 
-if ('my' == $params->lang) {
+/*if ('my' == $params->lang) {
   foreach ($oup_mep_texts as $key => $val) {
 	if ('startLanguage'!=$key) $oup_mep_texts[$key] .= ' **';
   }
-}
+}*/
 
 $texts_json = json_encode($oup_mep_texts);
 
