@@ -55,7 +55,9 @@ class Embed extends MY_Controller {
     // 'New' 2012 Mediaelement-based themes.
     if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
         $this->load->theme($this->_theme->name);
+
         $view_data['params'] = $view_data['meta'];
+        $view_data['params']->debug = $this->_debug;
 
         $this->load->theme_view(null, $view_data);
     } else

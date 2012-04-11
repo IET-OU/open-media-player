@@ -25,9 +25,9 @@ abstract class Player_Theme {
   /** Constructor: auto-generate 'name' and 'parent' properties.
   */
   public function __construct() {
-    // We use $this - instance, not class.
-  	$this->name = preg_replace('#_Theme$#i', '', get_class($this));
-  	$this->parent = get_parent_class($this);
+    // We use $this - an instance, not a class.
+    $this->name = strtolower(preg_replace('#_Theme$#i', '', get_class($this)));
+    $this->parent = strtolower(preg_replace('#_Theme$#i', '', get_parent_class($this)));
   	#$this->name = dirname(__FILE__);
 	#echo __FILE__;
 	#echo $this->parent;

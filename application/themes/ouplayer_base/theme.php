@@ -13,16 +13,28 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
   public $display = 'OU Player base theme';
   public $view = 'ou-me-player';
+  public $rgb  = 'ouvle-default-blue';
+  public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
 
   public $features =
-'oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_shim,oup_tooltip,oup_fullscreenhover';
+'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_fullscreenhover';
+# 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
 
   public function __construct() {
     parent::__construct();
 
+    $this->origin  = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+
+    // Hmm, $this->name won't be correct in child themes!
+    $theme_name = str_replace('_theme', '', strtolower(__CLASS__));
+
+    // Add our OU Player base styles to the array.
+    $this->styles[] = "themes/$theme_name/css/ouplayer-base.css";
+
+
     $meps_base = $this->js_path; #From parent.
-    $oups_base = 'themes/$this->name/js/';
+    $oups_base = "themes/$theme_name/js/";
 
     $this->javascripts = array(
       $oups_base.'mep-header-cl.js',
@@ -38,8 +50,8 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $meps_base.'mep-player.js',
       $meps_base.'mep-feature-time.js',
       $meps_base.'mep-feature-volume.js',
-      $meps_base.'mep-feature-fullscreen.js',
-      $meps_base.'mep-feature-tracks.js',
+      $oups_base.'mep-feature-fullscreen.js', # Group: 1-line change.
+      $oups_base.'mep-feature-tracks.js',     # Group: 1-line change.
       $meps_base.'mep-feature-googleanalytics.js',
     # OU Player extensions.
       $oups_base.'mep-oup-header.js',
@@ -54,8 +66,9 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $oups_base.'mep-oup-feature-options.js',
       $oups_base.'mep-oup-feature-title.js',
 
-      //$oups_base.'mep-oup-feature-tooltip.js',
-      //$oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
+      //$oups_base.'mep-oup-feature-tooltip.js', # TODO.
+	  $oups_base.'mep-oup-feature-group.js',
+      $oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
     );
   }
 }
