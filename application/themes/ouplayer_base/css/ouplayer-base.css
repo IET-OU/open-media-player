@@ -1,0 +1,281 @@
+@charset "UTF-8";
+/**
+ * MEP/ OU Player generic/base styles.
+ * (Was: oup-mep/css/mep-ouplayer.css)
+ * Copyright 2012 The Open University.
+ */
+
+/*
+ * Generic stuff.
+ */
+body	{
+	margin:0; 
+	font:1em sans-serif; 
+	/*background:#f8f8f8; 
+	color:#222;*/
+	background:#000; /*Was #222. */
+	color:#eee;
+	}
+
+.mejs-container { 
+	position:fixed; /*Not absolute. */
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	width:auto;
+	/*height:100% !important; /* Why 99% ?? */
+	}
+.mejs-container .mejs-controls {
+	position:fixed; /*Not absolute. */
+	/*background: none;*/
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	bottom:0;
+	left:0;
+	}
+.mejs-mediaelement, #me_flash_0_container, video,audio, embed,object, .mejs-poster, .mejs-overlay-play { 
+	position:fixed;
+	width:100%;
+	height:100% !important; /*Unfortunate, but necessary given the Ender.js problem with '100%' - see ../views/..body.php */
+	}
+
+#oup-noscript	{
+	position:absolute; 
+	z-index:999; 
+	background:#eee; 
+	color:#111; 
+	padding:5px; 
+	top:0; 
+	border:1px solid #a11;
+	}
+
+#oup-noscript.hide	{
+	display:none;
+	}
+
+.mejs-container button	{
+	padding:0;
+	cursor:pointer;
+	}
+
+.mejs-container .mejs-controls  div {
+	width:auto;
+	}
+
+.oup-mejs-button button, .oup-mejs-link a	{ 
+	display:block;  
+	width:16px; 
+	height:16px; 
+	}
+
+.mejs-container button:focus, .oup-mejs-link a:focus	{
+	outline:1px solid orange !important;
+	-moz-outline-radius:3px;
+	}
+
+
+
+.__mejs-controls .mejs-transcript-button 	{
+	position: absolute;
+	top:5px;
+	right:67px;
+	}
+
+/*.x-mejs-ted .mejs-transcript-button	{
+	display:none !important;
+	}*/
+
+/*Settings button - normal... should be quality button*/
+.__mejs-controls .mejs-high-res  {
+	position: absolute;
+	top:5px;
+	right:49px;
+	}
+.__mejs-controls  .mejs-popout-link	{
+	position: absolute;
+	top:5px;
+	right:31px;
+	}
+/*full-screen button - normal*/
+.__mejs-controls .mejs-fullscreen-button	{
+	position: absolute;
+	top:5px;
+	right:13px;
+	}
+/*Settings button - normal*/
+.__mejs-controls .mejs-options-button	{
+	position: absolute;
+	top:5px;
+	right:1px;
+	width:16px !important;
+	height:16px !important;
+	}
+
+
+
+/* Title panel.
+*/
+.mejs-container .mejs-controls .mejs-title-panel {
+	background: #f8f8f8;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.8)), to(rgba(200,200,200,0.8))); /* Saf4+, Chrome */
+	background:-webkit-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* Chrome 10+, Saf5.1+ */
+	background:   -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* FF3.6+ */
+	background:    -ms-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* IE10 */
+	background:     -o-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* Opera 11.10+ */
+	background:        linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));  /* W3C */
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#FFFFFF,endColorstr=#C8C8C8);
+
+	position:absolute;
+	left:0px;
+	bottom:22px;
+	width:100%;
+	height:auto;
+	}
+.mejs-container .mejs-controls .mejs-title-panel .logo {
+	width:60px;
+	height:70px;
+	background:transparent url('csg-4f6b5ebc9c52a.png') no-repeat 0 -72px;
+	}
+
+.mejs-title-panel p, .mejs-title-panel h1 {
+	font-weight:normal;
+	font-size:2em;
+	x-padding:0em 0em 0em 3em;
+	color:rgb(20,20,20);
+	margin:0.5em 0 0 3em;
+	line-height:1.2em;
+	}
+
+.mejs-title-panel a	{
+	margin:0.5em 0 0 3em;
+	font-size:2em;
+	x-color:#1f536b; 							/*This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always*/
+	display:block;
+	padding:0 0 0.6em;
+	text-decoration:none;
+	}
+
+.mejs-title-panel a:hover	{
+	text-decoration:underline;
+	}
+
+/* Title panel in audio player.
+*/
+.oup-mode-audio .mejs-container .mejs-controls .mejs-title-panel {
+	background: #f2f2f2;
+	}
+.oup-mode-audio .mejs-container .mejs-controls .mejs-title-panel .logo {
+	display:none; /* TODO: hide for now! */
+	}
+.oup-mode-audio .mejs-title-panel p, .oup-mode-audio .mejs-title-panel h1, .oup-mode-audio .mejs-title-panel a {
+	font-size:1.3em;
+	}
+
+/* Title panel: a bit back to front! */
+.oup-mode-video .mejs-title-panel.mejs-pause{ display:none !important; }
+
+/* Only show the progress-bar 'thumb' on keyboard focus. */
+.mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
+.mejs-controls .mejs-time-rail .mejs-time-handle:focus /*, .mejs-controls .mejs-time-rail:hover .mejs-time-handle*/{ top:0; height:8px; background:#eee; }
+
+.mejs-controls { 
+	/*color:rgb(40,41,42);/* 190312 - PETER*/
+	x-margin: 0 5px 0 2px;/* 190312 - PETER*/
+	}
+
+.mejs-container .mejs-controls .oup-volume-widget {
+	width:60px;
+}
+.__oup-volume-widget	{
+	/*display:block; */
+	width:60px!important;
+	position:absolute;
+	top:6px;
+	right:118px;
+	margin:0;
+	padding:0;
+	}
+
+.oup-volume-widget .oup-display	{
+	display:inline-block; 
+	padding:0 4px 0 0px;
+	width:14px;
+	text-align:right;
+	font-size:12px;
+	}
+
+.oup-volume-widget button	{
+	width:12px; 
+	height:12px; 
+	border-radius:0; 
+	}/* 190312 - PETER*/
+
+.mejs-captions-text{ font-size:1.4em; }
+
+.mejs-captions-button .__mejs-captions-selector{ display:none !important; }
+
+/* Options menu.
+*/
+#oup-options.show{ position:absolute; bottom:34px; right:2px; background:#eee; color:#111; padding:5px; z-index:100; }
+#oup-options.hide{ display:none; }
+
+/* Transcript panel.
+*/
+.tscript-show #oup-tscript	{
+	position:fixed;
+	top:0; 
+	bottom:22px; 
+	right:0; 
+	width:195px; 
+	background:#eee; 
+	color:#111; 
+	padding:5px; 
+	}
+	
+#oup-tscript button	{
+	background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
+	background-position: -1856px 0;
+	background-color: rgb(255,255,255);
+	float:right;
+	width:16px;
+	height:16px;
+	border:0;	
+	}
+
+#oup-tscript button:hover	{
+	background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
+	background-position: -1922px 0;
+	background-color: rgb(41,110,143);
+	width:16px;
+	height:16px;
+	border:0;	
+	}
+
+#oup-tscript span	{
+	padding:22px 22px 11px 11px;
+	font-size:85%;
+	line-height:100%;
+	overflow:scroll;
+	}
+
+.tscript-show .mejs-mediaelement, .tscript-show .mejs-layers{ position:fixed; top:0; bottom:22px; left:0; right:195px; width:auto !important; }
+
+
+.skin-ouice button {
+	border:0;/* 190312 - PETER*/
+}
+
+
+.oup-group{
+  position:absolute;
+  top:5px;
+  right:0;
+}
+.oup-group .mejs-button button, .oup-group .oup-mejs-button button, .oup-group .oup-mejs-link a {
+	margin:0 2px;
+}
+.mejs-controls .oup-quality-button button {
+	margin-left:1px; /* ?? */
+}
