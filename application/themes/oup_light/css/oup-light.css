@@ -1,0 +1,289 @@
+@charset "UTF-8";
+/**
+ * OU Player light theme.
+ *
+ * (Was: oup-mep/css/oup-theme1.css)
+ * By Peter Devine/LTS 2012-03-08; Re-work by Nick Freear 2012-03-30.
+ * Copyright 2012 The Open University.
+ */
+
+.mejs-container .mejs-controls {
+	padding-bottom:1px; /*Hmm, 1 pixel or 0? */
+	/*background: url(background.png);
+	background: rgba(0, 0, 0, 0.7); - Peter: 080312 */
+	background: rgb(243,242,242);/* - Peter: 080312 */
+	height: 22px;/* - Peter: 190312*/
+}
+.mejs-container .mejs-controls  div {
+	width:auto;
+}
+
+.mejs-controls .mejs-button button, button, .mejs-controls .oup-mejs-link a {
+	cursor: pointer;
+	font-size: 0;
+	line-height: 0;
+	text-decoration: none;
+	margin: 0; /*7px 5px;*/
+	padding: 0;
+	position: static;
+	height: 16px;
+	width: 16px;
+	border: 0;
+	/*
+	 THE single SPRITE inclusion.
+	*/
+	background: transparent url(csg-4f6b5ebc9c52a.png) no-repeat;
+}
+.mejs-controls .oup-mejs-link a {
+	display:inline-block;
+}
+.mejs-controls .mejs-button button, .mejs-controls .oup-mejs-button button, .mejs-controls .oup-mejs-link a {
+	background-color:#fff;
+}
+
+/* PLAY/PAUSE */
+.mejs-controls .mejs-playpause-button button {
+	width:22px;
+	height:22px;
+	background-position:0 0; /* - Peter: 080312 */
+}
+.mejs-controls .mejs-playpause-button.mejs-pause button {
+	background-position: -72px 0; /* - Peter: 080312 */
+	x-background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
+	}
+
+/*.mejs-container .mejs-controls .mejs-time {
+	color: rgb(40,41,42);
+}*/
+
+
+/* Start: Progress bar */
+
+.mejs-controls .mejs-time-rail {
+	width:auto;
+	height:4px;
+	margin-top:0;
+	/*width: 200px;*/
+	/*padding-top: 5px;*//* - Peter: 190312*/
+	position:fixed; /*Needed for firefox. */
+	left:22px;
+	}
+
+.mejs-controls .mejs-time-rail span {
+	display: block;
+	position: absolute;
+	width: 180px;
+	height: 4px;
+	/*-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;*//* - Peter: 190312*/
+	cursor: pointer;
+	}
+
+.mejs-controls .mejs-time-rail .mejs-time-total {
+	top:0;
+	margin: 0;
+	/*margin:5px;*/
+	/*background: #333;/* - Peter: 080312 COLOUR*/
+	background: rgb(204, 204, 203); /* - Peter: 080312 COLOUR*/
+	/*..
+	background: linear-gradient(rgba(30,30,30,0.8), rgba(60,60,60,0.8)); 	
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#1E1E1E,endColorstr=#3C3C3C);*/ /* - Peter: 080312*/
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	filter:none; /*MSIE*/
+	}
+/*MSIE: until we fix the PNG-transparency make the rail a little darker. */
+.ua-msie .mejs-time-rail .mejs-time-total {
+	background:rgb(192,192,192);
+	}
+
+.mejs-controls .mejs-time-rail .mejs-time-loaded {
+	background:transparent /*rgb(41,110,143)*/ url('mediaplayer-images/oump-21-preroll.png'); /* - Peter: 190312 COLOR - Peter: 190312 PRE-LOADER RAIL GRAPHIC*/
+	width: 0;
+	/*background-image: url(../oup/images/oump_preroll.png);*/
+	/*..
+	background: linear-gradient(rgba(44,124,145,0.8), rgba(78,183,212,0.8)); 	
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#2C7C91,endColorstr=#4EB7D4);/* - Peter: 190312*/
+	}
+
+.mejs-controls .mejs-time-rail .mejs-time-current {
+	width: 0;
+	x-background: rgb(41,110,143); /* - Peter: 190312 COLOR*/
+	/*background: rgba(255,255,255,0.8);
+	..
+	background: linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#FFFFFF,endColorstr=#C8C8C8);*//* - Peter: 190312*/
+	}
+
+.mejs-container .mejs-controls .mejs-time {
+	position:absolute;
+	top:3px;
+	left:26px;
+	color:#222;
+	margin:0;
+}
+.mejs-container .mejs-controls .mejs-time span {
+	color:#222;
+	x-font-size:1.2em;
+	font-size:12px;
+	line-height:12px;
+	display:block;
+	float:left;
+	margin:0 2px;
+	width:auto;
+}
+
+/* VOLUME */
+.mejs-container .mejs-controls .oup-volume-widget {
+	width:60px;
+	height:16px;
+	margin-right:16px;
+	position:relative;
+	top:5px;
+}
+.mejs-controls .oup-volume-widget button {
+	width:12px; height:12px;
+}
+/*Browser sniffing - MSIE is well behaved! */
+.ua-gecko .mejs-controls .oup-volume-widget {
+	top:2px;
+}
+.ua-gecko .mejs-controls .oup-volume-widget .oup-display {
+	position:relative;
+	top:4px;
+}
+.ua-webkit .mejs-controls .oup-volume-widget {
+	top:-5px;
+}
+.ua-webkit .mejs-controls .oup-volume-widget .oup-display {
+	position:relative;
+	top:11px;
+}
+
+.mejs-controls  button.oup-quieter {
+	background-position: -268px 0;
+	}
+
+.mejs-controls  .oup-quieter:hover {
+	background-position: -330px 0;
+	}	
+
+.mejs-controls  button.oup-louder {
+	background-position: -392px 0;
+	margin:0 0px 0 2px;
+	}
+
+.mejs-controls  .oup-louder:hover {
+	background-position: -454px 0;
+	}
+
+.mejs-controls button.oup-mute {			/*.oup-mute added by Peter: 210312*/
+	background-position: -144px 0;
+	x-background-color:rgb(41,110,143);				/*rgb(41,110,143);190312 - PETER - COLOR*/
+	}
+.XX-mejs-controls .oup-volume-widget button:hover {
+	outline:1px solid #ccc;
+	}
+
+.mejs-controls .mejs-unmute button.oup-mute {			/*.oup-mute added by Peter: 210312*/
+	background-position: -206px 0;
+	x-background-color:rgb(41,110,143);				/*rgb(41,110,143);190312 - PETER - COLOR*/
+	}
+
+.X-mejs-controls .mejs-volume-button {
+	position: relative;
+	}
+/* End volume. */
+
+
+/* Captions button: US/internat. English 'CC' - NO-bug: background should be white. */
+.mejs-controls .mejs-captions-button button { background-position:-780px 0;   x-background-color:#fff !important; }
+.mejs-controls .mejs-captions-button  :hover { background-position:-846px 0; } /*:hover == -button-off */
+
+/* Captions button: UK English 'S' */
+.lang-en-gb  .mejs-controls .mejs-captions-button button{ background-position:-978px 0; }
+.lang-en-gb  .mejs-controls .mejs-captions-button  :hover{ background-position:-912px 0; }
+
+/* Transcript button. */
+.mejs-controls .mejs-transcript-button button { background-position:-648px 0; }
+.mejs-controls .mejs-transcript-button  :hover { background-position:-714px 0; }
+
+/* High-definition button --? */
+.mejs-controls .mejs-quality-button button{ background-position:-1460px 0; } 
+.mejs-controls .mejs-quality-button button:hover{ background-position:-1526px 0; }
+
+/* Popout/new-window button. */
+.mejs-controls .mejs-popout-link a{ background-position: -1176px 0;  }
+.mejs-controls .mejs-popout-link a:hover{ background-position: -1242px 0;  }
+
+/* Fullscreen button. */
+.mejs-controls .mejs-fullscreen-button button{ background-position:-516px 0; }
+.mejs-controls .mejs-fullscreen-button button:hover{ background-position:-582px 0; }
+
+.mejs-controls .mejs-fullscreen-button.mejs-unfullscreen button {
+	background-position: -1724px 0;
+	background-color: red;
+}
+.mejs-controls .mejs-fullscreen-button.mejs-unfullscreen button:hover {
+	background-position: -1790px 0;
+	x-background-color: rgb(41,110,143);
+}
+
+/* Options/settings button. */
+.mejs-controls .mejs-options-button button{ background-position:-1110px 0; }
+.mejs-controls .mejs-options-button button:hover{ background-position:-1044px 0; }
+
+
+
+
+/*
+ OUVLE colours.
+*/
+
+/* Default blue */
+.ouvle-default-blue .mejs-button button:hover, .ouvle-default-blue .oup-mejs-button button:hover, .ouvle-default-blue .oup-mejs-link :hover,
+.ouvle-default-blue .mejs-playpause-button button, .ouvle-default-blue .oup-volume-widget button.oup-mute,
+.ouvle-default-blue .mejs-time-rail .mejs-time-loaded {
+	background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
+}
+.ouvle-default-blue .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
+}
+/*PETER: This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always. */
+.mejs-title-panel a	{
+	color:#1f536b;
+}
+
+
+/* Orange */
+.ouvle-orange .mejs-button button:hover, .ouvle-orange .oup-mejs-button button:hover, .ouvle-orange .oup-mejs-link :hover,
+.ouvle-orange .mejs-playpause-button button, .ouvle-orange .oup-volume-widget button.oup-mute,
+.ouvle-orange .mejs-time-rail .mejs-time-loaded {
+	background-color:rgb(204, 92, 40);
+}
+.ouvle-orange .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(204, 92, 40);
+}
+
+/* Dark blue */
+.ouvle-dark-blue .mejs-button button:hover, .ouvle-dark-blue .oup-mejs-button button:hover, .ouvle-dark-blue .oup-mejs-link :hover,
+.ouvle-dark-blue .mejs-playpause-button button, .ouvle-dark-blue .oup-volume-widget button.oup-mute {
+	background-color:rgb(29, 93, 157); /* ?? */
+}
+/* Green */
+.ouvle-green .mejs-button button:hover, .ouvle-green .oup-mejs-button button:hover, .ouvle-green .oup-mejs-link :hover,
+.ouvle-green .mejs-playpause-button button, .ouvle-green .oup-volume-widget button.oup-mute {
+	background-color:rgb(29, 93, 57);
+	x-background-color: rgb(82, 82, 37); /* olive? */
+}
+
+/* ... */
+
+
+/* Colour XY. */
+.ouvle-XY .mejs-button button:hover, .ouvle-XY .oup-mejs-button button:hover, .ouvle-XY .oup-mejs-link :hover,
+.ouvle-XY .mejs-playpause-button button, .ouvle-XY .oup-volume-widget button.oup-mute {
+	background-color:rgb(41,110,143);
+}

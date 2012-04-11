@@ -1,0 +1,91 @@
+Sprite created by:
+http://spritegen.website-performance.org/
+
+Version created 22nd March 
+
+#container li {
+    background: url(csg-4f6b5ebc9c52a.png) no-repeat top left;
+}
+
+
+.mejs-container .mejs-playpause-button button{ background-position: 0 0;  } 
+.mejs-container .mejs-playpause-button-pause button{ background-position: -72px 0;  } 
+.mejs-container .mejs-mute-button button{ background-position: -144px 0;  } 
+.mejs-container .mejs-unmute-button button{ background-position: -206px 0;  } 
+.mejs-container .mejs-quieter-button-off button{ background-position: -268px 0;  } 
+.mejs-container .mejs-quieter-button-on button{ background-position: -330px 0;  } 
+.mejs-container .mejs-louder-button-off button{ background-position: -392px 0;  } 
+.mejs-container .mejs-louder-button-on button{ background-position: -454px 0;  } 
+.mejs-container .mejs-fullscreen-button button{ background-position: -516px 0;  } 
+.mejs-container .mejs-fullscreen-button-off button{ background-position: -582px 0;  } 
+.mejs-container .mejs-transcript-button button{ background-position: -648px 0;  } 
+.mejs-container .mejs-transcript-button-off button{ background-position: -714px 0;  } 
+.mejs-container .mejs-closedcaption-button-off button{ background-position: -780px 0;  } 
+.mejs-container .mejs-closedcaption-button button{ background-position: -846px 0;  } 
+.mejs-container .mejs-subtitles-button-off button{ background-position: -912px 0;  } 
+.mejs-container .mejs-subtitles-button button{ background-position: -978px 0;  } 
+.mejs-container .mejs-settings-button-off button{ background-position: -1044px 0;  } 
+.mejs-container .mejs-settings-button button{ background-position: -1110px 0;  } 
+.mejs-container .mejs-new-window-button button{ background-position: -1176px 0;  } 
+.mejs-container .mejs-new-window-button-off button{ background-position: -1242px 0;  } 
+.mejs-container .mejs-preroll button{ background-position: -1308px 0;  } 
+.mejs-container .mejs-high-quality-button-off button{ background-position: -1460px 0;  } 
+.mejs-container .mejs-high-quality-button button{ background-position: -1526px 0;  } 
+.mejs-container .mejs-standard-quality-button-off button{ background-position: -1592px 0;  } 
+.mejs-container .mejs-standard-quality-button button{ background-position: -1658px 0;  } 
+.mejs-container .mejs-unfullscreen-button-off button{ background-position: -1724px 0;  } 
+.mejs-container .mejs-unfullscreen-button button{ background-position: -1790px 0;  } 
+.mejs-container .mejs-close-transcript-button-off button{ background-position: -1856px 0;  } 
+.mejs-container .mejs-close-transcript-button button{ background-position: -1922px 0;  } 
+.mejs-container .mejs-logo button{ background-position: 0 -72px;  } 
+
+
+
+Reference:
+http://dl.dropbox.com/u/3203144/ouplayer/sprite/screenshot-spritegen-form-1.png
+
+------------------------------------------------------------------------------------
+
+
+
+
+Sprite created by:
+http://spritegen.website-performance.org/
+
+Version created Monday 19th March
+
+
+
+#container li {
+    background: url(csg-4f6899278466f.png) no-repeat top left;
+}
+
+
+
+.mejs-container .mejs-playpause-button button{ background-position: 0 0;  } 
+.mejs-container .mejs-playpause-button-pause button{ background-position: -72px 0;  } 
+.mejs-container .mejs-mute-button button{ background-position: -144px 0;  } 
+.mejs-container .mejs-unmute-button button{ background-position: -203px 0;  } 
+.mejs-container .mejs-quieter-button-off button{ background-position: -262px 0;  } 
+.mejs-container .mejs-quieter-button-on button{ background-position: -320px 0;  } 
+.mejs-container .mejs-louder-button-off button{ background-position: -378px 0;  } 
+.mejs-container .mejs-louder-button-on button{ background-position: -436px 0;  } 
+.mejs-container .mejs-fullscreen-button button{ background-position: -494px 0;  } 
+.mejs-container .mejs-fullscreen-button-off button{ background-position: -560px 0;  } 
+.mejs-container .mejs-transcript-button button{ background-position: -626px 0;  } 
+.mejs-container .mejs-transcript-button-off button{ background-position: -692px 0;  } 
+.mejs-container .mejs-closedcaption-button-off button{ background-position: -758px 0;  } 
+.mejs-container .mejs-closedcaption-button button{ background-position: -824px 0;  } 
+.mejs-container .mejs-subtitles-button-off button{ background-position: -890px 0;  } 
+.mejs-container .mejs-subtitles-button button{ background-position: -956px 0;  } 
+.mejs-container .mejs-settings-button-off button{ background-position: -1022px 0;  } 
+.mejs-container .mejs-settings-button button{ background-position: -1088px 0;  } 
+.mejs-container .mejs-new-window-button button{ background-position: -1154px 0;  } 
+.mejs-container .mejs-new-window-button-off button{ background-position: -1220px 0;  } 
+.mejs-container .mejs-preroll button{ background-position: -1286px 0;  } 
+
+
+
+
+Reference:
+http://dl.dropbox.com/u/3203144/ouplayer/sprite/screenshot-spritegen-form-1.png
