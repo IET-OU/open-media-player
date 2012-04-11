@@ -13,6 +13,7 @@ class MY_Loader extends CI_Loader {
   /** Load a theme.php class/configuration file.
   */
   public function theme($theme_name) {
+    $theme_name = str_replace('-', '_', $theme_name);
 
     $this->file(APPPATH. "/themes/$theme_name/theme.php");
     #require_once APPPATH ."/themes/$theme_name/theme.php";

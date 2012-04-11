@@ -50,6 +50,16 @@ class Embed extends MY_Controller {
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
     );
 
+    // TODO: needs tidying up, access-control.
+
+    // 'New' 2012 Mediaelement-based themes.
+    if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
+        $this->load->theme($this->_theme->name);
+        $view_data['params'] = $view_data['meta'];
+
+        $this->load->theme_view(null, $view_data);
+    } else
+    // Legacy 2011 Flowplayer-based themes.
     // Access control - start simple!
     if ('Y'==$player->_access['intranet_only']) {
         $this->load->view('ouplayer/oup_restricted', $view_data);

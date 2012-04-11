@@ -71,6 +71,12 @@ $config['player_docs'] = array(
 $config['player_default_theme'] = 'ouice-light';
 
 $config['player_themes'] = array(
+  // 'New' 2012 Mediaelement-based themes.
+  'mejs-default' => true,
+  'ouplayer-base' => true,
+  'oup-light' => true,
+
+  // Legacy 2011 Flowplayer-based themes.
   // Experimental: 'menu' flag - make themes appear in Opera/Firefox Page/'View' > Style menu.
   'basic' => array('styles'=>null, 'view'=>'ouplayer/player_noscript'),
   'core'  => array('styles'=>null),
