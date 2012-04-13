@@ -84,22 +84,22 @@
 				var t = this;
 				return typeof t.oup_group==='undefined' ? t : t.oup_group;
 			}
-
-
-			$(window).resize(function(){
-				$.log('>> Resize.. 1');
-			});
 		}
 	});
 
 	$(document).ready(function(){
-		// Set a flag for narrow/ standard width players.
-		var body = $('body');
+		// Set a flag for narrow/ standard/ wide players (POPUP = wide).
+		var body = $('body'),
+			small = 'width-small',
+			medium = 'width-medium',
+			large = 'width-large';
 		function oup_check_size(){
 			if (body.width() <= 450) {
-				body.addClass('width-narrow').removeClass('width-standard');
+				body.addClass(small).removeClass(medium).removeClass(large);
+			} else if (body.width() >= 720) {
+				body.removeClass(small).removeClass(medium).addClass(large);
 			} else {
-				body.removeClass('width-narrow').addClass('width-standard');
+				body.removeClass(small).addClass(medium).removeClass(large);
 			}
 			$.log('>> check_size, width px: '+body.width());
 		};

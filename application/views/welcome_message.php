@@ -2,7 +2,7 @@
   $input = $this->input;
   $body_classes = ' oup-jquery-test';
   $body_classes .= $input->get('edge') ? ' oup-edge' :'';
-  $body_classes .= $input->get('width') ? ' oup-'.$input->get('width') :'';
+  $body_classes .= $input->get('size') ? ' oup-'.$input->get('size') :'';
 ?>
 <!doctype html><html lang="en" class="<?=$body_classes ?>"><meta charset="utf-8"/><title>*OU player/ OU embed - Beta Demonstrations</title>
 

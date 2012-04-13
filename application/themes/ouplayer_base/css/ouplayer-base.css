@@ -184,17 +184,17 @@ body	{
 
 /* Narrow players.  @media (max-width: 451px) { }
 */
-.width-narrow .mejs-title-panel h1, .width-narrow .mejs-title-panel a {
+.width-small .mejs-title-panel h1, .width-small .mejs-title-panel a {
     font-size:1.4em;
 	letter-spacing:-0.05em;
 	}
-.width-narrow .mejs-title-panel a {
+.width-small .mejs-title-panel a {
 	font-size:1.3em;
 	}
-.width-narrow.oup-mode-video .mejs-title-panel h1 {
+.width-small.oup-mode-video .mejs-title-panel h1 {
     font-weight:bold;
 	}
-.width-narrow .mejs-container .mejs-controls .mejs-title-panel .logo {
+.width-small .mejs-container .mejs-controls .mejs-title-panel .logo {
 	background-position:0 -80px;
 	}
 
@@ -252,14 +252,24 @@ body	{
 .tscript-show #oup-tscript	{
 	display:block;
 	position:fixed;
-	top:0; 
-	bottom:22px; 
-	right:0; 
+	top:0;
+	right:0;
+	bottom:22px;
 	width:195px;
 	background:#f8f8f8;
 	color:#222;
 	padding:5px;
 	overflow-y:scroll;
+	}
+.width-small.tscript-show #oup-tscript {
+	width:150px;
+	padding:3px;
+	font-size:0.8em;
+	}
+.width-large.tscript-show #oup-tscript {
+	width:21em; /*29em; /*300px*/
+	padding:8px;
+	font-size:1.1em;
 	}
 	
 #oup-tscript button	{

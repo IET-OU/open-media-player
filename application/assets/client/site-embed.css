@@ -35,7 +35,7 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 }
 .oembed.ou.podcast.video /*.theme-oup_light*/ {
   width:640px;
-  height:410px;
+  height:405px;
 }
 
 /* Legacy 2011 OU player embeds.
@@ -48,14 +48,18 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 
 /* Simulate a narrow column ( ?width=narrow )
 */
-.oup-narrow .oembed.ou.podcast.audio {
+.oup-small .oembed.ou.podcast.audio, .oup-narrow .oembed.ou.podcast.audio {
   width:360px;
 }
-.oup-narrow .oembed.ou.podcast.video {
+.oup-small .oembed.ou.podcast.video, .oup-narrow .oembed.ou.podcast.video {
   width:380px;
   height:250px;
 }
 
+.oup-large .oembed.ou.podcast.video {
+  width:720px;
+  height:450px;
+}
 
 /* Experimental hover effect ( ?edge=1 )
 */
