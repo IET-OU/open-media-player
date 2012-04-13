@@ -136,24 +136,25 @@ body	{
 .mejs-container .mejs-controls .mejs-title-panel .logo {
 	width:60px;
 	height:70px;
+	margin:0 0 2px;
 	/*
 	  SPRITE inclusion - needs moving!
 	*/
-	background:transparent url('../../oup_light/css/oup-light-sprite.png') no-repeat 0 -72px;
+	background:transparent url('../../oup_light/css/oup-light-sprite.png') no-repeat 0 -74px;
 	}
 
 .mejs-title-panel p, .mejs-title-panel h1 {
 	font-weight:normal;
-	font-size:2em;
-	x-padding:0em 0em 0em 3em;
+	font-size:1.8em;
+	/*padding:0em 0em 0em 3em;*/
 	color:rgb(20,20,20);
-	margin:0.5em 0 0 3em;
+	margin:0.5em 0 0 65px;
 	line-height:1.2em;
 	}
 
 .mejs-title-panel a	{
-	margin:0.5em 0 0 3em;
-	font-size:2em;
+	margin:0.5em 0 0 65px;
+	font-size:1.8em;
 	x-color:#1f536b; 							/*This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always*/
 	display:block;
 	padding:0 0 0.6em;
@@ -226,19 +227,24 @@ body	{
 
 /* Transcript panel.
 */
+#oup-tscript {
+	display:none;
+	}
 .tscript-show #oup-tscript	{
+	display:block;
 	position:fixed;
 	top:0; 
 	bottom:22px; 
 	right:0; 
-	width:195px; 
-	background:#eee; 
-	color:#111; 
-	padding:5px; 
+	width:195px;
+	background:#f8f8f8;
+	color:#222;
+	padding:5px;
+	overflow-y:scroll;
 	}
 	
 #oup-tscript button	{
-	background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
+	/*background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
 	background-position: -1856px 0;
 	background-color: rgb(255,255,255);
 	float:right;
@@ -248,7 +254,7 @@ body	{
 	}
 
 #oup-tscript button:hover	{
-	background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
+	/*background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
 	background-position: -1922px 0;
 	background-color: rgb(41,110,143);
 	width:16px;
@@ -256,14 +262,20 @@ body	{
 	border:0;	
 	}
 
-#oup-tscript span	{
+/*#oup-tscript .span	{
 	padding:22px 22px 11px 11px;
 	font-size:85%;
 	line-height:100%;
 	overflow:scroll;
-	}
+	}*/
 
-.tscript-show .mejs-mediaelement, .tscript-show .mejs-layers{ position:fixed; top:0; bottom:22px; left:0; right:195px; width:auto !important; }
+.tscript-show .mejs-mediaelement, .tscript-show .mejs-layers{
+  position:fixed;
+  top:0; left:0;
+  bottom:22px;
+  right:195px;
+  width:auto !important;
+}
 
 
 .skin-ouice button {
