@@ -44,6 +44,7 @@
 		loadingText: 'loading',
 		currentText: 'Current time',
 		durationText: 'Total time'
+		//, widthNarrow: 450
 	});
 
 	// Shims / fixes.
@@ -83,7 +84,29 @@
 				var t = this;
 				return typeof t.oup_group==='undefined' ? t : t.oup_group;
 			}
+
+
+			$(window).resize(function(){
+				$.log('>> Resize.. 1');
+			});
 		}
 	});
-	
+
+	$(document).ready(function(){
+		// Set a flag for narrow/ standard width players.
+		var body = $('body');
+		function oup_check_size(){
+			if (body.width() <= 450) {
+				body.addClass('width-narrow').removeClass('width-standard');
+			} else {
+				body.removeClass('width-narrow').addClass('width-standard');
+			}
+			$.log('>> check_size, width px: '+body.width());
+		};
+		$(window).resize(oup_check_size);
+		oup_check_size();
+
+		//$.log(mejs.MepOptions);
+	});
+
 })(mejs.$);
