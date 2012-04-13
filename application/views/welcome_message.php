@@ -1,11 +1,18 @@
-<!DOCTYPE html><html lang="en"><meta charset="utf-8"/><title>*OU player/ OU embed - Beta Demonstrations</title>
+<?php
+  $input = $this->input;
+  $body_classes = ' oup-jquery-test';
+  $body_classes .= $input->get('edge') ? ' oup-edge' :'';
+  $body_classes .= $input->get('width') ? ' oup-'.$input->get('width') :'';
+?>
+<!doctype html><html lang="en" class="<?=$body_classes ?>"><meta charset="utf-8"/><title>*OU player/ OU embed - Beta Demonstrations</title>
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <meta name="ROBOTS" content="noindex,nofollow" />
 
-<style>body{font:1em sans-serif; margin:2em; background:#fbfbfb; color:#222;} abbr{cursor:pointer;} .oembed{margin:1em 0; border:1px solid #ccc; border-radius:5px;} </style>
+<link rel="stylesheet" href="<?=base_url().'application/assets/client/site-embed.css' ?>" />
 
-<h1>OU player</h1> <h2>Prototype demonstrations</h2>
+
+<h1>OU player</h1> <h2>Beta tests</h2>
 
 <p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> player/<abbr title=
 "Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects. Here are <a href=
@@ -16,10 +23,12 @@
 
 
 <h3>OU player</h3>
-Audio - Flash falls back to HTML5.
+
+<p>Audio 1
 <p><a class=embed href=
 "http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d">Introduction: A Buerno Puerto, on OU podcast</a>
 
+<p>Video 1
 
 <p><a class=embed href="http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b">Student Experiences</a>
 <!--<p>Audio - OpenLearn/ iTunes U.
@@ -28,9 +37,12 @@ Audio - Flash falls back to HTML5.
 -->
 <br /><a href="http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?theme=ouice-light">iframe</a>
 
-<p>Video - Flash falls back to HTML5.
+<p>Video 2
 <p><a class=embed  href="http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334">Circular Motion...: All the Fun of the Fair, on OU podcast</a>
 
+
+
+<?php if ($input->get('ouldi')): ?>
 
 <h3>OU/OULDI embed</h3>
 
@@ -50,8 +62,10 @@ Audio - Flash falls back to HTML5.
 <p><a class=embed  href=
 "http://prezi.com/izeqbfy2z5w-/digital-scholarship">Dig. Scholarship by M.Weller, on Prezi</a>
 
+<?php endif; ?>
 
-<p>&copy;2011 The Open University.</p>
+
+<p>&copy;2011-2012 The Open University.</p>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="<?=site_url('scripts/jquery.oembed.js') ?>"></script>

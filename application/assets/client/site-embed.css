@@ -1,0 +1,76 @@
+@charset "utf-8";
+/*
+ * Example styles for OU Player and OU Embed embeds.
+ * Copyright 2012 The Open University.
+ */
+
+/* Generic page styles.
+*/
+.oup-jquery-test body{
+  font:.9em sans-serif;
+  background:#fbfbfb;
+  color:#222;
+  margin:2em;
+}
+a img{ border:none; }
+abbr{ cursor:help; border-bottom:1px dotted #bbb; }
+
+
+/* Generic oEmbed-response styles.
+*/
+
+.oembed {
+  display:block;
+  margin:1em 0;
+  border:1px solid #ddd;
+  border-radius:5px;
+}
+
+
+/* 'New' 2012 OU player embeds.
+*/
+.oembed.ou.podcast.audio.theme-oup_light {
+  width:380px;
+  height:80px;
+}
+.oembed.ou.podcast.video /*.theme-oup_light*/ {
+  width:640px;
+  height:410px;
+}
+
+/* Legacy 2011 OU player embeds.
+*/
+.oembed.ou.podcast.audio.theme-legacy {
+  width:380px;
+  height:108px;
+}
+
+
+/* Simulate a narrow column ( ?width=narrow )
+*/
+.oup-narrow .oembed.ou.podcast.audio {
+  width:360px;
+}
+.oup-narrow .oembed.ou.podcast.video {
+  width:380px;
+  height:250px;
+}
+
+
+/* Experimental hover effect ( ?edge=1 )
+*/
+.oup-edge .oembed {
+  margin:2px;
+  padding:2px;
+  border:2px solid transparent;
+  border-radius:5px;
+}
+.oup-edge .oembed:hover{
+  border:2px solid #bbb;
+  background:#ffd;
+
+  transition:all 1s;
+  -moz-transition:all 1s; /* Firefox 4 */
+  -webkit-transition:all 1s; /* Safari and Chrome */
+  -o-transition:all 1s; /* Opera */
+}
