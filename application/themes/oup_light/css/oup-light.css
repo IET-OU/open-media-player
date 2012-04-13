@@ -12,6 +12,7 @@
 	/*background: url(background.png);
 	background: rgba(0, 0, 0, 0.7); - Peter: 080312 */
 	background: rgb(243,242,242);/* - Peter: 080312 */
+	color: #111;
 	height: 22px;/* - Peter: 190312*/
 }
 .mejs-container .mejs-controls  div {
