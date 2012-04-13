@@ -1,12 +1,16 @@
 <?php
-/** OU player iframe.
+/**
+ * Legacy OU Player iframe content - for 2011 Flowplayer-based players.
+ *
+ * (For 'new' Mediaelement-based players see, 'applications/themes/ouplayer-base/views'.)
  *
  * @copyright Copyright 2011 The Open University.
-
+ * @author N.D.Freear, 2011-04-08/-05-19.
+ */
+ /*
 Test, video: /embed/pod/mst209-fun-of-the-fair/a67918b334?
 Test, audio: /embed/pod/l314-spanish/fe481a4d1d?poster=0
  */
-//NDF, 2011-04-08/-05-19.
   $base_url = base_url();
   //$base_url = str_replace('http://', '//', $base_url);
 
