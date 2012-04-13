@@ -89,7 +89,14 @@ EOF;
 
     // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
     $meta = NULL;
-    if ('podcast.open.ac.uk' !== $host) { #Oupodcast_serv::POD_BASE
+    if ('podcast.open.ac.uk' === $host) { #Oupodcast_serv::POD_BASE
+      $this->_player_init();
+      // 'New' 2012 Mediaelement-based themes.
+      if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
+        $this->load->theme($this->_theme->name);
+      }
+    }
+    else {
       $this->load->model('embed_cache_model');
       $meta = $this->embed_cache_model->get_embed($req->url);
     }
