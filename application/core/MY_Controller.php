@@ -99,13 +99,17 @@ class MY_Controller extends CI_Controller {
 
   /** Handle fatal errors.
   */
-  public function _error($message, $code=500, $from=null) { #Was: protected.
+  public function _error($message, $code=500, $from=null, $obj=null) { #Was: protected.
     #$this->firephp->fb("$code: $message", $from, 'ERROR');
     $this->_log('error', "$from: $code, $message");
     @header("HTTP/1.1 $code");
     @header('Content-Type: text/plain; charset=utf-8');
     // For now, just output plain text.
-    die("$code. Error, $message");
+    echo "$code. Error, $message".PHP_EOL;
+    if ($obj) { // ??
+      print_r($obj);
+    }
+    die();
   }
 
   public function _log($level='error', $message, $php_error=FALSE) {

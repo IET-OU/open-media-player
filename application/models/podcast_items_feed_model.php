@@ -21,15 +21,22 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 
 	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {
 
+		$podcast_feed_file = $this->config->item('podcast_feed_file');
+		if (! $podcast_feed_file) {
+			//ERROR 503.
+			$this->_error("(feed error) \$config[podcast_feed_file] appears to be empty in 'config/embed_config.php'", 503);
+		}
 		$pod_base = Oupodcast_serv::POD_BASE;
-		$url = $pod_base."/feeds/$basename/". $this->config->item('podcast_feed_file');
+		$url = $pod_base."/feeds/$basename/". $podcast_feed_file;
 
 		$result = $this->http->request($url);
 		if (! $result->success) {
 			//ERROR.
-			echo "Feed error: can't read feed.";
-			var_dump($result);
-			return FALSE;
+			if ($result->info['http_code'] == 404) {
+				$this->_error("(feed error) feed not found.",
+							404, null, array('url'=>$url));
+			}
+			$this->_error("(feed error) unknown error.", 500, null, $result);
 		}
 
 		$this->_xmlo = $xmlo = simplexml_load_string($result->data);
@@ -46,7 +53,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 			$item = $item[0];
 		} else {
 			//ERROR.
-			echo "Feed error: can't get item.";
+			$this->_error("(feed error) can't get item.");
 			return FALSE;
 		}
 
