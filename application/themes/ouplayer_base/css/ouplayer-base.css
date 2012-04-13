@@ -35,11 +35,20 @@ body	{
 	bottom:0;
 	left:0;
 	}
-.mejs-mediaelement, #me_flash_0_container, video,audio, embed,object, .mejs-poster, .mejs-overlay-play { 
+.jslib-ender .mejs-mediaelement, .jslib-ender #me_flash_0_container,
+.jslib-ender video,.jslib-ender audio, .jslib-ender embed,.jslib-ender object,
+.jslib-ender .mejs-poster {
 	position:fixed;
 	width:100%;
 	height:100% !important; /*Unfortunate, but necessary given the Ender.js problem with '100%' - see ../views/..body.php */
 	}
+.mejs-overlay-play, .mejs-layer {
+	position:fixed;
+	height:auto !important;
+	top:0;
+	bottom:22px;
+	}
+/*.mejs-fullscreen-hover { }*/
 
 #oup-noscript	{
 	position:absolute; 

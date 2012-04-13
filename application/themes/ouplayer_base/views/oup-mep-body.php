@@ -1,7 +1,8 @@
 
 <!--Body classes - player flags. -->
 <body role="application" id="ouplayer" class="oup-mode-<?php echo $params->media_type ?> tscript-hide lang-<?php
-  echo $this->lang->lang_code() ?> <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> ua-<?php echo $this->agent->browser_code() ?>">
+  echo $this->lang->lang_code() ?> <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> ua-<?php echo $this->agent->browser_code()
+  ?> jslib-<?=$this->theme->js_lib ?>">
 
 <div id="oup-noscript">
 Your browser appears to have Javascript disabled, or there has been an error.
@@ -13,7 +14,12 @@ Your browser appears to have Javascript disabled, or there has been an error.
   // (Can't use '100%' - Ender/jeesh chokes on .parent(), .width() or el.style)
   // (Mediaelement.js seems to choke on <audio.. style="height:100%"> in MSIE)
   $height_attr = 'height="360"';
-  $height_style= '';  #' height:100%';
+  $height_style= '';
+
+  if ('jquery' == $this->theme->js_lib) {
+    $height_attr = '';
+    $height_style= ' height:100%';
+  }
 ?>
 
 <?php if ('video'==$params->media_type): ?>
