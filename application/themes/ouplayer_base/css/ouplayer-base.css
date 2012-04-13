@@ -119,12 +119,12 @@ body	{
 */
 .mejs-container .mejs-controls .mejs-title-panel {
 	background: #f8f8f8;
-	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.8)), to(rgba(200,200,200,0.8))); /* Saf4+, Chrome */
-	background:-webkit-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* Chrome 10+, Saf5.1+ */
-	background:   -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* FF3.6+ */
-	background:    -ms-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* IE10 */
-	background:     -o-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.8)); /* Opera 11.10+ */
-	background:        linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));  /* W3C */
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.85)), to(rgba(200,200,200,0.85))); /* Saf4+, Chrome */
+	background:-webkit-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* Chrome 10+, Saf5.1+ */
+	background:   -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* FF3.6+ */
+	background:    -ms-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* IE10 */
+	background:     -o-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* Opera 11.10+ */
+	background:        linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.85));  /* W3C */
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#FFFFFF,endColorstr=#C8C8C8);
 
 	position:absolute;
@@ -145,7 +145,7 @@ body	{
 
 .mejs-title-panel p, .mejs-title-panel h1 {
 	font-weight:normal;
-	font-size:1.8em;
+	font-size:1.7em;
 	/*padding:0em 0em 0em 3em;*/
 	color:rgb(20,20,20);
 	margin:0.5em 0 0 65px;
@@ -154,7 +154,7 @@ body	{
 
 .mejs-title-panel a	{
 	margin:0.5em 0 0 65px;
-	font-size:1.8em;
+	font-size:1.7em;
 	x-color:#1f536b; 							/*This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always*/
 	display:block;
 	padding:0 0 0.6em;
@@ -170,15 +170,34 @@ body	{
 .oup-mode-audio .mejs-container .mejs-controls .mejs-title-panel {
 	background: #f2f2f2;
 	}
-.oup-mode-audio .mejs-container .mejs-controls .mejs-title-panel .logo {
+.oup-mode-audio .mejs-title-panel .logo {
 	display:none; /* TODO: hide for now! */
 	}
 .oup-mode-audio .mejs-title-panel p, .oup-mode-audio .mejs-title-panel h1, .oup-mode-audio .mejs-title-panel a {
 	font-size:1.3em;
+	margin-left:3px;
 	}
 
 /* Title panel: a bit back to front! */
 .oup-mode-video .mejs-title-panel.mejs-pause{ display:none !important; }
+
+
+/* Narrow players.  @media (max-width: 451px) { }
+*/
+.width-narrow .mejs-title-panel h1, .width-narrow .mejs-title-panel a {
+    font-size:1.4em;
+	letter-spacing:-0.05em;
+	}
+.width-narrow .mejs-title-panel a {
+	font-size:1.3em;
+	}
+.width-narrow.oup-mode-video .mejs-title-panel h1 {
+    font-weight:bold;
+	}
+.width-narrow .mejs-container .mejs-controls .mejs-title-panel .logo {
+	background-position:0 -80px;
+	}
+
 
 /* Only show the progress-bar 'thumb' on keyboard focus. */
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
