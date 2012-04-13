@@ -90,7 +90,8 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		  'provider_mid' => "$basename/$shortcode", #?
 		  'url' => $this->_xpath_val($xpath_item .'/atom:link[@rel="oup:longlink"]', 'href'),
 		  '_short_url' => $this->_xpath_val($xpath_url, 'href'),
-		  'iframe_url' => NULL, #?
+		  // Iframe - see Oupodcast_serv::_post_process()
+		  'iframe_url' => NULL,
 
 		  'link' => $this->_xpath_val('//channel/atom:link[@rel="related"]', 'href'),
 		  'link_text' => $this->_xpath_val('//channel/atom:link[@rel="related"]', 'title'),

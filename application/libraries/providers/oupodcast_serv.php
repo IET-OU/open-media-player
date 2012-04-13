@@ -1,5 +1,5 @@
 <?php
-/** OU podcast service provider.
+/** OU Media Player/ OU Podcast service provider.
  *
  * @copyright Copyright 2011 The Open University.
  */
@@ -66,6 +66,8 @@ class Oupodcast_serv extends Base_service {
 	  $player = $this->_get_related_link($player, $result);
 	  $player = $this->_get_caption_url($player, $result);
 
+	  $this->_post_process($player);
+
 	  $this->CI->firephp->fb($player, 'player', 'LOG');
 
       return $player;
@@ -121,8 +123,8 @@ class Oupodcast_serv extends Base_service {
 	  $player->width = $width;
 	  $player->height= $height;
 	  $player->transcript_url = "$pod_base/feeds/$custom_id/transcript/".str_replace(array('.mp3', '.m4v'), '.pdf', $result->filename); #TODO!
-	  // Our <iframe> embed!!
-	  $player->iframe_url = site_url("embed/pod/$custom_id/$shortcode").$this->CI->options_build_query(); #?width=$width&amp;height=$height";
+	  // Iframe - see $this->_post_process() method.
+	  $player->iframe_url = NULL;
 
 	  $player->_podcast_id = $result->podcast_id;
 	  $player->_album_id = $custom_id;
@@ -146,6 +148,13 @@ class Oupodcast_serv extends Base_service {
 	  );
 
 	  return $player;
+  }
+
+  /** Post process the player object.
+  */
+  protected function _post_process(&$player) {
+    // Our <iframe> embed!!
+    $player->iframe_url = site_url("embed/pod/$player->_album_id/$player->_track_md5").$this->CI->options_build_query(); #?width=$width&amp;height=$height";
   }
 
   /** Get the related link, and especially associated text. */
@@ -176,7 +185,9 @@ class Oupodcast_serv extends Base_service {
           $rel_text = t('The Open University');
         }
       }
-      $player->_related_text = t('Related link: %s', $rel_text);
+      //( Deprecated: $player->_related_text = t('Related link: %s', $rel_text); )
+      $player->_related_text = $rel_text;
+
       return $player;
   }
 
