@@ -6,9 +6,10 @@
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
+		// User testing suggests that 'Script' is more comprehensible than 'Transcript'.
 		showscriptText: 'Show script',
-		hidescriptText: 'Hide script'
-		, scriptId: 'oup-tscript'
+		hidescriptText: 'Hide script',
+		transcriptId: null //'oup-tscript'
 	});
 
 	// Transcript BUTTON
@@ -17,7 +18,15 @@
 			var 
 				t = this,
 				op = t.options,
-				//template = $('#'+ op.scriptId),
+				tscript = $('#'+op.transcriptId);
+
+			// Return early if no transcript is flagged.
+			if (0 == tscript.length) {
+				$.log('Warning: no transcript.');
+				return;
+			}
+
+			var
 				body = $('body'),
 				ts_visible = false,
 				btn_script =
@@ -30,7 +39,7 @@
 					return toggleScript(e);
 				}),
 				btn = btn_script.find('button'),
-				btn_x = $('#'+op.scriptId+' button'),
+				btn_x = $('#'+op.transcriptId+' button'),
 				toggleScript = function(e) {
 					if (e) e.preventDefault();
 
