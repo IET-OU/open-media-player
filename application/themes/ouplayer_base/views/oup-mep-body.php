@@ -43,10 +43,16 @@ Your browser appears to have Javascript disabled, or there has been an error.
  [ OPTIONS MENU ]
 </div>
 
-<div id="oup-tscript">
+<?php
+  $params->transcript_id = NULL;
+  if(isset($params->transcript_html) && $params->transcript_html):
+      $params->transcript_id = 'oup-tscript'; ?>
+<div id="<?php echo $params->transcript_id ?>">
   <button title="<?php echo t('Hide script') ?>"><span>X</span></button>
- [ TRANSCRIPT ]
+<?php echo $params->transcript_html ?>
+  <button title="<?php echo t('Hide script') ?>"><span>X</span></button>
 </div>
+<?php endif; ?>
 
 
 </body>

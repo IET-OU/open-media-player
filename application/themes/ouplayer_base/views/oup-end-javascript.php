@@ -40,6 +40,10 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
   titleText:
 '<div class="logo"></div><h1><?=$params->title ?></h1> <a href="<?=$params->_related_url ?>" target="_blank" title="Related link opens in new window"><?=$params->_related_text ?></a>',
 
+<?php if(isset($params->transcript_id) && $params->transcript_id): ?>
+  transcriptId: '<?php echo $params->transcript_id ?>',
+<?php endif; ?>
+
   alwaysShowControls: true,
   usePluginFullScreen: true,
   // path to Flash and Silverlight plugins
