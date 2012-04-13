@@ -32,7 +32,7 @@ class Demo extends MY_Controller {
 		$view_data = array(
 			'req' => $this->_request,
 		);
-		$this->load->view('welcome_message', $view_data);
+		$this->load->view('demo/oupodcast-demo', $view_data);
 	}
 
     /** OUVLE demonstrations.
