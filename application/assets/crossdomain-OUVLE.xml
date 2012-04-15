@@ -4,8 +4,9 @@
 
   Deploy on live, test and dev servers:
         http://learn.open.ac.uk/crossdomain.xml
-		http://learn-acct.open.ac.uk/crossdomain.xml
-		http://openlearn.open.ac.uk/crossdomain.xml
+        http://learn2.open.ac.uk/crossdomain.xml
+        http://learn-acct.open.ac.uk/crossdomain.xml
+        http://openlearn.open.ac.uk/crossdomain.xml
 		...
 
   See:  http://podcast.open.ac.uk/crossdomain.xml
@@ -18,21 +19,28 @@
     <site-control permitted-cross-domain-policies="all"/>
 <!--
   Less restrictive:
-	<allow-access-from domain="*.open.ac.uk" secure="false" />
 -->
+    <allow-access-from domain="*.open.ac.uk" secure="false" />
+    <allow-access-from domain="*.open.edu" secure="false" />
+
 <!--
   A more restrictive policy.
 
   Live servers:
 -->
     <allow-access-from domain="embed.open.ac.uk" secure="false" />
-	<allow-access-from domain="player.open.ac.uk" secure="false" />
-	<allow-access-from domain="podcast.open.ac.uk" secure="false" />
+    <allow-access-from domain="player.open.edu" secure="false" />
+    <allow-access-from domain="player.open.ac.uk" secure="false" />
+    <allow-access-from domain="vle-player.open.ac.uk" secure="false" />
+    <allow-access-from domain="podcast.open.ac.uk" secure="false" />
     <allow-access-from domain="podcast-api.open.ac.uk" secure="false" />
+
 <!--
   Development servers - Podcast's, Nick Freear's and the VLE team's:
 -->
+    <allow-access-from domain="iet-embed-acct.open.ac.uk" secure="false" />
     <allow-access-from domain="media-podcast-dev.open.ac.uk" secure="false"/>
     <allow-access-from domain="pcie663.open.ac.uk" secure="false" />
     <allow-access-from domain="*.vledev2.open.ac.uk" secure="false" />
+    <allow-access-from domain="iet.open.ac.uk" secure="false" />
 </cross-domain-policy>
