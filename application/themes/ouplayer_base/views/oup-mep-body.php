@@ -5,8 +5,13 @@
   ?> jslib-<?=$this->theme->js_lib ?>">
 
 <div id="oup-noscript">
-Your browser appears to have Javascript disabled, or there has been an error.
-<a href="<?php echo $params->media_url ?>">Download audio/video file.</a>
+  <p class="msg"><?=t('Your browser appears to have Javascript disabled, or there has been an error.') ?>
+  <a href="<?php echo $params->media_url ?>"><?php
+  echo 'video'==$params->media_type ? t('Download video file') : t('Download audio file') ?></a>
+  <h1><?=$params->title ?></h1>
+<?php if ($params->poster_url): ?>
+  <img alt="" src="<?=$params->poster_url ?>" />
+<?php endif; ?>
 </div>
 
 <?php

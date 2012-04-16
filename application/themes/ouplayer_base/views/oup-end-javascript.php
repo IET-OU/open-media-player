@@ -56,8 +56,10 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
 <?php endif; ?>
 
   success: function(mediaElement, domObject) {
-    $('#oup-noscript').addClass('hide');
+<?php #if (! $this->agent->is_browser('Opera')): ?>
+	$('#oup-noscript').addClass('hide');
     $.log("MEP/OUP: success, hiding #oup-noscript.");
+<?php #endif; ?>
   },
   error: function(ex) {
     $.log("MEP/OUP: error");
@@ -66,7 +68,7 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
 
 });
 
-<?php if ('audio'==$params->media_type): ?>
+<?php if ('audio'==$params->media_type && !$this->agent->is_mobile('operamini')): ?>
 // Audio: 'success:function' not fired - WHY? :(.
   $('#oup-noscript').addClass('hide');
   $.log("MEP/OUP: warning, hiding #oup-noscript.");
