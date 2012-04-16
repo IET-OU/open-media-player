@@ -12,6 +12,11 @@
 	// Quality BUTTON
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_quality: function(player, controls, layers, media) {
+
+			// Audio / Android and iOS: high-definition is not relevant.
+			if (!player.isVideo || mejs.MediaFeatures.hasTouch)
+				return;
+
 			var 
 				t = this,
 				transcript = 
