@@ -19,7 +19,7 @@
 
 			controls.oup_group = group;
 
-			console.log('Init. controls group');
+			$.log('Init. controls group');
 		}
 	});
 
