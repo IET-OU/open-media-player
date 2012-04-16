@@ -41,6 +41,12 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 
 		$this->_xmlo = $xmlo = simplexml_load_string($result->data);
 
+		if (! $xmlo) {
+			//ERROR: this can be caused by network errors.
+			$this->_error("(feed error) XML error.",
+							400, null, array('url'=>$url));
+		}
+
 		foreach ($this->_xml_namespaces() as $prefix => $ns_uri) {
             $bok = $xmlo->registerXPathNamespace($prefix, $ns_uri);
         }
