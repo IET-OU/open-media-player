@@ -155,6 +155,11 @@ class Oupodcast_serv extends Base_service {
   protected function _post_process(&$player) {
     // Our <iframe> embed!!
     $player->iframe_url = site_url("embed/pod/$player->_album_id/$player->_track_md5").$this->CI->options_build_query(); #?width=$width&amp;height=$height";
+
+    // Mediaelement.js doesn't seem to like 'x-m4v'.
+    if ('video/x-m4v' == $player->mime_type) {
+      $player->mime_type = 'video/m4v';
+    }
   }
 
   /** Get the related link, and especially associated text. */
