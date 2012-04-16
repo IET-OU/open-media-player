@@ -31,7 +31,7 @@ Your browser appears to have Javascript disabled, or there has been an error.
  x-class="mejs-player"
  x-width="640" <?php echo $height_attr ?> style="width:100%; <?php echo $height_style ?>"
  controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
- <source type="video/mp4" src="<?php echo $params->media_url ?>">
+ <source type="<?=$params->mime_type; #video/mp4 ?>" src="<?php echo $params->media_url ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
     echo site_url('timedtext/webvtt').'?url='. $params->caption_url ?>" />
