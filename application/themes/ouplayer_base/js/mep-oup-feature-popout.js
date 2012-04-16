@@ -14,16 +14,22 @@
 	// Popout LINK
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_popout: function(player, controls, layers, media) {
+
+			// Android and iOS: popout player is not relevant.
+			if (mejs.MediaFeatures.hasTouch /*&& this.options.hideVolumeOnTouchDevices*/ )
+				return;
+
 			var
 				t = this,
+				op = t.options,
 				popout = 
 				$('<div class="oup-mejs-link mejs-popout-link">'+
-					'<a href="'+ t.options.popoutUrl +'" target="'+ t.options.popoutTarget + '" aria-controls="' + t.id + '" title="' + t.options.popoutText + '"></a>' +
+					'<a href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' + op.popoutText + '"></a>' +
 				'</div>')
 				.appendTo(controls.group())
 				.click(function(e) {
 
-					if('#'===t.options.popoutUrl) {
+					if('#'===op.popoutUrl) {
 						e.preventDefault();
 
 				    	alert("OU pop out player: missing 'popoutUrl' !");
