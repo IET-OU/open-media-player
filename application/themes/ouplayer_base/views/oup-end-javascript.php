@@ -28,9 +28,11 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
   origin:'<?php echo $this->theme->origin ?>',
 <?php endif; ?>
 
+<?php if ($this->theme->features): ?>
   features:
 '<?php echo $this->theme->features ?>'
 .split(','),
+<?php endif; ?>
 
 <?php
   require_once 'oup-mep-international.php';
@@ -64,6 +66,11 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
 
 });
 
+<?php if ('audio'==$params->media_type): ?>
+// Audio: 'success:function' not fired - WHY? :(.
+  $('#oup-noscript').addClass('hide');
+  $.log("MEP/OUP: warning, hiding #oup-noscript.");
+<?php endif; ?>
 
   $('#mejs-version').html(mejs.version);
   $.log('mejs.version: '+ mejs.version);
