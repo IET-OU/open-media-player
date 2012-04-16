@@ -288,3 +288,22 @@
 .ouvle-XY .mejs-playpause-button button, .ouvle-XY .oup-volume-widget button.oup-mute {
 	background-color:rgb(41,110,143);
 }
+
+
+
+/* TOOLTIP - why do we need !important ? :(
+*/
+.mejs-controls .oup-tooltip {
+	display:none !important;
+}
+.mejs-controls .oup-tooltip.show {
+	display:block !important;
+	position:fixed;
+	background:#222;
+	color:#eee;
+	border:1px solid gray;
+	padding:3px;
+	font-size:.9em;
+	z-index:999;
+}
+
