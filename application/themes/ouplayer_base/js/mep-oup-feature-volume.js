@@ -59,6 +59,7 @@
 			// MUTE button
 			btn_mute.click(function() {
 				media.setMuted( !media.muted );
+				btn_mute.attr('title', media.muted ? op.muteoffText : op.muteonText);
 			});
 
 			btn_quieter.click(function() {
