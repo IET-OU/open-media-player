@@ -79,7 +79,7 @@ class Http {
 
 	$this->CI =& get_instance();
 
-	$this->CI->config->item('http_proxy');
+	$http_proxy = $this->CI->config->item('http_proxy');
 	if ($http_proxy) {
 	  curl_setopt($h_curl, CURLOPT_PROXY, $http_proxy);
 	}
