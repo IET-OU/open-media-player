@@ -22,7 +22,7 @@
 <?php if ('jquery'==$this->theme->jslib):
     /* jQuery via CDN, with local fallback.
        Note, '//ajax..' is not a mistake - works for HTTP and HTTP-S!
-       <script src="http://www8.open.ac.uk/platform/misc/jquery.js?Y"></script>
+       <script src="http://www8.open.ac.uk/platform/misc/jquery.js?Y"></script>  -- v1.3.2.
        http://stackoverflow.com/questions/1014203/best-way-to-use-googles-hosted-jquery-but-fall-back-to-my- ..
     */
 ?>

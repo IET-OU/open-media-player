@@ -47,10 +47,10 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $meps_base.'me-shim.js',
     # Mediaelement player libraries.
       $meps_base.'mep-library.js',
-      $meps_base.'mep-player.js',
+      $oups_base.'mep-player.js',  # Ender.js fix: 1-line change, NDF 2012-04-17.
       $meps_base.'mep-feature-time.js',
       $meps_base.'mep-feature-volume.js',
-      $oups_base.'mep-feature-fullscreen.js', # Group: 1-line change.
+      $oups_base.'mep-feature-fullscreen.js', # Group: 1-line change, NDF 2012-03-30.
       $oups_base.'mep-feature-tracks.js',     # Group: 1-line change.
       $meps_base.'mep-feature-googleanalytics.js',
     # OU Player extensions.
