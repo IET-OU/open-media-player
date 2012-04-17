@@ -2,7 +2,7 @@
 <!--Body classes - player flags. -->
 <body role="application" id="ouplayer" class="oup-mode-<?php echo $params->media_type ?> tscript-hide lang-<?php
   echo $this->lang->lang_code() ?> <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> ua-<?php echo $this->agent->browser_code()
-  ?> jslib-<?=$this->theme->js_lib ?>">
+  ?> jslib-<?=$this->theme->jslib ?>">
 
 <div id="oup-noscript">
   <p class="msg"><?=t('Your browser appears to have Javascript disabled, or there has been an error.') ?>
@@ -21,7 +21,7 @@
   $height_attr = 'height="360"';
   $height_style= '';
 
-  if ('jquery' == $this->theme->js_lib) {
+  if ('jquery' == $this->theme->jslib) {
     $height_attr = '';
     $height_style= ' height:100%';
   }

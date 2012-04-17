@@ -1,12 +1,11 @@
 <script>
-<?php if ('jquery' == $this->theme->js_lib): ?>
+<?php if ('jquery' == $this->theme->jslib): ?>
 $(document).ready(function ouplayer_launch($){
-<?php else:
-  //Ender?  $.domReady(function(){ ?>
-(function ouplayer_launch(){
+<?php else: ?>
+$.domReady(function ouplayer_launch(){
 <?php endif; ?>
 
-var player = new MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
+var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
 
 <?php if ($params->poster_url): ?>
   // url to poster (to fix iOS 3.x) 
@@ -75,6 +74,9 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
 <?php endif; ?>
 
   $('#mejs-version').html(mejs.version);
+  if(typeof CDN_fallback!='undefined'){
+    $.log('CDN fail: used local jslib.');
+  }
   $.log('mejs.version: '+ mejs.version);
   $.log('Browser: <?php echo $this->agent->browser_code() ?>'); //'+$('html').attr('class'));
   $.log(player.options);
@@ -83,9 +85,9 @@ var player = new MediaElementPlayer('#player1'<?php //document.getElementById('p
     $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));
   }, 400);
 
-<?php if ('jquery' == $this->theme->js_lib): ?>
+<?php //if ('jquery' == $this->theme->jslib): ?>
 });
-<?php else: ?>
+<?php /*else: ?>
 })();
-<?php endif; ?>
+<?php endif;*/ ?>
 </script>
