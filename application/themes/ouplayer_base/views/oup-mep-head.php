@@ -17,21 +17,38 @@
 <link rel="license" title="©2012 The Open University" href="http://www.open.ac.uk/copyright" />
 
 <!--
- Todo: CDN plus fallback.
+ CDN + fallback: jQuery / Ender
 -->
-<?php if ('jquery'==$this->theme->js_lib /*if ($params->jquery*/): ?>
-<script src="<?php echo base_url().'application/'. $this->theme->plugin_path ?>jquery.js"></script>
-<?php else: ?>
+<?php if ('jquery'==$this->theme->jslib):
+    /* jQuery via CDN, with local fallback.
+       Note, '//ajax..' is not a mistake - works for HTTP and HTTP-S!
+       <script src="http://www8.open.ac.uk/platform/misc/jquery.js?Y"></script>
+       http://stackoverflow.com/questions/1014203/best-way-to-use-googles-hosted-jquery-but-fall-back-to-my- ..
+    */
+?>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+if(typeof jQuery=='undefined'){
+  document.write(unescape("%3Cscript src='<?php echo base_url().'application/'. $this->theme->plugin_path ?>jquery.js' %3E%3C/script%3E"));
+  CDN_fallback = true;
+}
+</script>
 
-<?php if ($params->debug): ?>
-<script src="http://cdn.enderjs.com/jeesh.js"></script>
+<?php else:
+      /* Ender/jeesh.js via CDN, with local fallback.
+      */  
+      if ($params->debug): ?>
+<script src="//cdn.enderjs.com/jeesh.js"></script>
 <?php else: ?>
-<script src="http://cdn.enderjs.com/jeesh.min.js"></script>
-<?php endif;
-  //<script src="../src/js/jeesh.js"></script>
-  ?>
+<script src="//cdn.enderjs.com/jeesh.min.js"></script>
+<?php endif; ?>
+<script>
+if(typeof $=='undefined'){
+  document.write(unescape("%3Cscript src='<?= base_url().'application/'. $this->theme->js_path ?>jeesh.js' %3E%3C/script%3E"));
+  CDN_fallback = true;
+}
+</script>
 <script src="<?php echo base_url().'application/'. $this->theme->js_path ?>jeesh-extras.js"></script>
-
 <?php endif; ?>
 
 <?php
