@@ -56,6 +56,8 @@ class Embed extends MY_Controller {
     if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
         $this->load->theme($this->_theme->name);
 
+        $this->theme->prepare_jslib($player);
+
         $view_data['params'] = $view_data['meta'];
         $view_data['params']->debug = $this->_debug;
 
