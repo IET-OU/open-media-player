@@ -15,9 +15,8 @@ class Mejs_Default_Theme extends Player_Theme {
   public $type = 'player';
   public $engine = 'mediaelement';
 
-  public $js_lib = 'jquery'; // TODO. Name of the Javascript framework/ library, one of 'ender' or 'jquery'.
-  public $features;  // A comma-separated list of Javascript features (or null for the default Mediaelement features).
-
+  public $jslib;     // Name of the Javascript framework/ library, one of 'ender' or 'jquery' - see 'prepare_jslib()' below.
+  public $features;  // Comma-separated list of Javascript features (or null for the default Mediaelement features).
 
 
   public function __construct() {
@@ -60,5 +59,28 @@ class Mejs_Default_Theme extends Player_Theme {
       $meps_base.'mep-feature-googleanalytics.js',
       #$meps_base.'mep-feature-endedhtml.js',
     );
+  }
+
+
+  /** Call after Podcast_items_model::get_item, with player-parameter object.
+  */
+  public function prepare_jslib(& $player) {
+    $CI =& get_instance();
+
+    $this->jslib = $CI->input->get('jslib');
+    if (! $this->jslib) {
+      $this->jslib = $CI->config->item('jslib');
+    }
+
+    if ($CI->agent->is_browser('MSIE')) {
+      $this->jslib = 'jquery'; // Safer for MSIE 8 - is it ??
+    }
+    // At present, Ender can't parse a captions track.
+    if ('ender' == $this->jslib) {
+      $player->caption_url = null;
+    }
+    elseif (! $this->jslib && $player->caption_url) {
+      $this->jslib = 'jquery';
+    }
   }
 }
