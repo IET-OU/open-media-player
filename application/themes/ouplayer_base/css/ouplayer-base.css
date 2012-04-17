@@ -21,6 +21,17 @@ h1 {
 	margin:0.2em 0;
 }
 
+
+/*Accessibility: at least set a border in high-contrast/ignore colour mode.
+*/
+.ignore-color button, .ignore-color .oup-mejs-link a {
+	border:1px solid #111 !important;
+	}
+.ignore-color .mejs-playpause-button button {
+	margin-top:1px !important;
+	}
+
+
 .mejs-container { 
 	position:fixed; /*Not absolute. */
 	top:0;
