@@ -8,12 +8,12 @@
 
 	$.extend(mejs.MepDefaults, {
 		// Offset: 2 x padding + 2 x border.
-		tooltipOffsetXY: 8
+		tooltipOffsetXY: 10,
+		tooltipEvents: 'focus blur' //'mouseover mouseout focus blur'
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_tooltip: function(player, controls, layers, media) {
-
 			var 
 				t = this,
 				op = t.options,
@@ -27,7 +27,7 @@
 					, left
 					;
 
-					//if (tg.nodeName != 'BUTTON') return;
+					//if (tg.tagName!='BUTTON' || tg.tagName!='A') return;
 					//$.log(ev);
 
 					if (tip_visible) {
@@ -50,34 +50,17 @@
 					  tip_visible = ! tip_visible;
 
 					return false;
-				},
-				it,
-				btn,
-				buttons = controls.find('button');
-
-//$.log(buttons);
-$.log(tip);
-$.log(buttons.length);
-				var idx = 0;
-				for (it in buttons) {
-				  btn = buttons[it];
-				  
-				  //if (!btn) return;
-
-				  $(btn).bind('mouseover mouseout focus blur', function(e) {
-				  	toggleTip(e);
-				  });
-
-	if (idx > 8) {
-		$.log(btn);
-		return;
-	}
-	idx++;
-				  /*$(btn).bind('mouseout', function(e, btn) {
-				  	toggleTip(e, btn);
-				  });*/
 				}
-				
+				, buttons = controls.find('button')
+				;
+
+			if (! op.tooltipEvents) return;
+
+
+			$('button,.oup-mejs-link a').bind(op.tooltipEvents, function(e){
+				toggleTip(e);
+			});
+			
 		}
 	});
 

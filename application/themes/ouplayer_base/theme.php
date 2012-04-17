@@ -62,11 +62,11 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $oups_base.'mep-oup-feature-postmessage.js',
       $oups_base.'mep-oup-feature-popout.js',
       $oups_base.'mep-oup-feature-transcript.js',
-      $oups_base.'mep-oup-feature-quality.js', # High-def.
+      $oups_base.'mep-oup-feature-quality.js', # High-definition.
       $oups_base.'mep-oup-feature-options.js',
       $oups_base.'mep-oup-feature-title.js',
 
-      //$oups_base.'mep-oup-feature-tooltip.js', # TODO.
+      $oups_base.'mep-oup-feature-tooltip.js', #Experimental!
 	  $oups_base.'mep-oup-feature-group.js',
       $oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
     );
