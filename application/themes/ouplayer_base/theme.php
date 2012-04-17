@@ -69,6 +69,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $oups_base.'mep-oup-feature-tooltip.js', #Experimental!
 	  $oups_base.'mep-oup-feature-group.js',
       $oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
+	  $oups_base.'mep-oup-feature-ignore-color.js',    # High contrast/ignore colour accessibility fix.
     );
   }
 }
