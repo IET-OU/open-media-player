@@ -15,13 +15,16 @@
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_popout: function(player, controls, layers, media) {
 
+			var
+				t = this,
+				op = t.options;
+
 			// Android and iOS: popout player is not relevant.
-			if (mejs.MediaFeatures.hasTouch /*&& this.options.hideVolumeOnTouchDevices*/ )
+			// OR, no popoutUrl..
+			if (mejs.MediaFeatures.hasTouch || '#'===op.popoutUrl /*&& this.options.hideVolumeOnTouchDevices*/ )
 				return;
 
 			var
-				t = this,
-				op = t.options,
 				popout = 
 				$('<div class="oup-mejs-link mejs-popout-link">'+
 					'<a href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' + op.popoutText + '"></a>' +

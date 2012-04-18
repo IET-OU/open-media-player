@@ -19,6 +19,10 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   mode: 'shim',
 <?php //endif; ?>
 
+<?php if ($popup_url): ?>
+  popoutUrl:'<?php echo $popup_url ?>',
+<?php endif; ?>
+
 <?php if ($params->duration): ?>
   duration: <?php echo $params->duration ?>,
 <?php endif; ?>
