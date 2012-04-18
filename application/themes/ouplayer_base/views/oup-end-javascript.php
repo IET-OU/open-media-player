@@ -15,9 +15,9 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   // Keyboard accessibility: disable shortcuts!
   enableKeyboard:false,
 
-<?php //if ($params->use_shim): ?>
+<?php /*if ($params->use_shim): ?>
   mode: 'shim',
-<?php //endif; ?>
+<?php endif;*/ ?>
 
 <?php if ($popup_url): ?>
   popoutUrl:'<?php echo $popup_url ?>',
@@ -41,9 +41,12 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   require_once 'oup-mep-international.php';
 ?>
 
+<?php if ('Podcast_player'==get_class($params)): ?>
   //titleId:'',
   titleText:
-'<div class="logo"></div><h1><?=$params->title ?></h1> <a href="<?=$params->_related_url ?>" target="_blank" title="Related link opens in new window"><?=$params->_related_text ?></a>',
+'<div class="logo"></div><h1><?=$params->title ?></h1>'
+<?php if (isset($params->_related_url)): ?>+' <a href="<?=$params->_related_url ?>" target="_blank" title="Related link opens in new window"><?=$params->_related_text ?></a>'<?php endif ?>,
+<?php endif; ?>
 
 <?php if(isset($params->transcript_id) && $params->transcript_id): ?>
   transcriptId: '<?php echo $params->transcript_id ?>',

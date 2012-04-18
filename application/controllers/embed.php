@@ -116,11 +116,16 @@ class Embed extends MY_Controller {
     $player->language   = $this->input->get('lang'); #Just a reminder!
     #);
 
-	//TODO: Need to tighten back up for production (Was: '/learn.open.ac.uk../')
-    if (preg_match('/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/', $player->media_url, $ext)) { 
+    //TODO: Need to tighten back up for production (Was: '/learn.open.ac.uk../')
+    $media_url_regex = $this->config->item('media_url_regex');
+    if (! $media_url_regex) {
+      $media_url_regex = '/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/';
+    }
+    if (preg_match($media_url_regex, $player->media_url, $ext)) {
       // Codecs? http://wiki.whatwg.org/wiki/Video_type_parameters
-      $opts = array('mp4'=>'video', 'm4v'=>'video', 'flv'=>'video', 'mp3'=>'audio');
-      $player->media_type = $opts[$ext[1]];
+      $opts = array('mp4'=>'video/mp4', 'm4v'=>'video/mp4', 'flv'=>'video/flv', 'mp3'=>'audio/mpeg');
+      $player->mime_type = $opts[$ext[1]];
+      $player->media_type = substr($player->mime_type, 0, 5);
       $player->media_html5= 'flv'!=$ext[1];
     } else {
       $this->_error("'media_url' is a required parameter. (Accepts URLs ending mp4, flv and mp3.)", 400);
@@ -153,6 +158,19 @@ class Embed extends MY_Controller {
         $view_data['popup_url'] = str_replace('&?', '&', $view_data['popup_url']);
     }
 
+
+    // 'New' 2012 Mediaelement-based themes.
+    if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
+        $this->load->theme($this->_theme->name);
+
+        $this->theme->prepare_jslib($player);
+
+        $view_data['params'] = $view_data['meta'];
+        $view_data['params']->debug = $this->_debug;
+
+        $this->load->theme_view(null, $view_data);
+    } else
+    // Legacy 2011 Flowplayer-based themes.
 	if ('basic'!=$this->_theme->name) {
         $this->load->view('ouplayer/ouplayer', $view_data);
     } else {
