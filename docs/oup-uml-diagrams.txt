@@ -11,7 +11,7 @@
 [Ouplayer_Base_Theme]^-[An_Other_Theme...{bg:cornsilk}],
 [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
 //...
-//Edit: http://yuml.me/edit/c67666aa
+//Edit: http://yuml.me/edit/485ba8a8
 
 /*
  (Edit: http://yuml.me/edit/4e479410)
