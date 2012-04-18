@@ -1,13 +1,12 @@
-Readme for the ouplayer (ouembed) project.
+Credits/ licenses for OU Player project.
 
 
-* http://embed.open.ac.uk | http://media-podcast-dev.open.ac.uk/player
-* Bugs/ Issues:  http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
-
-
-OU player: Copyright © 2010-2011 The Open University. All rights reserved.
+OU player: Copyright © 2010-2012 The Open University. All rights reserved.
  * Not licensed as open-source (yet!)
  * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology.
+
+OUP-Light theme: Copyright 2012 The Open University.
+ * Author: Peter Devine <p.m.devine+@+open.ac.uk> / LTS.
 
 OUICE-Dark theme: Copyright 2011 The Open University. All rights reserved.
  * Author: David Winter <d.j.winter+@+open.ac.uk> / LTS.
@@ -23,7 +22,7 @@ OU player/OU embed translations.
  * Chinese Simplified: Guangyu Yang Freear.
 
 Based on codeigniter-reactor, changeset 2263:1b173956c908 (v2.0.0+) (6 mar.-10 days)
- *  <http://bitbucket.org/ellislab/codeigniter-reactor/changeset/1b173956c908>
+ * Code: <http://bitbucket.org/ellislab/codeigniter-reactor/changeset/1b173956c908>
 
 CodeIgniter: Copyright (c) 2008 - 2011, EllisLab, Inc.
  * License: <http://codeigniter.com/user_guide/license.html>
@@ -31,6 +30,15 @@ CodeIgniter: Copyright (c) 2008 - 2011, EllisLab, Inc.
 jquery-oembed: Copyright Richard Chamorro, Avanzis.
  * MIT License: <http://opensource.org/licenses/MIT>
  * Code: <http://code.google.com/p/jquery-oembed/#r20>
+
+Ender/jeesh: copyright 2012 Dustin Diaz & Jacob Thornton. 
+ * License: MIT
+ * Code: <http://ender.no.de/#jeesh>
+ * For the individual modules, see their respective licenses.
+
+Mediaelement: Copyright 2010 John Dyer.
+ * License: GPLv2/MIT
+ * Code: <http://mediaelementjs.com>
 
 Flowplayer: Copyright (c) 2008 Flowplayer Ltd.
  * GPLv3 License: <http://gnu.org/licenses/gpl.html>
@@ -48,19 +56,16 @@ php-po-parser: Copyright (C) 2008, Iulian Ilea (http://iulian.net), all rights r
  * License: <http://gnu.org/licenses/gpl.html> GNU GPL v3 onwards (code), or GNU Lesser GPL (project page)
  * Code: <http://code.google.com/p/php-po-parser/>
 
+High contrast detection Javascript: based on work by John Snyders.
+ * License: public domain.
+ * Code: <http://hardlikesoftware.com/weblog/2009/11/04/css-sprites-vs-high-contrast-mode>
+
 Fire PHP: Copyright (c) 2006-2009, Christoph Dorn.
  * License: <http://opensource.org/licenses/BSD-3-Clause> New BSD
  * Code: <http://www.firephp.org/>
 
-
-
-TODOs:
- * Add INSERTs to *_serv.php
- * Use $config[providers]..examples in the Demo controller.
- * Error handling - use exceptions.
- * Add $thumbnail_width to embed_cache Database.
- * services.json, like Embed.ly.
- * Use $this->CI->oembed_request, etc.
+yUML.me: Copyright Tobin Harris/ Engineroom.
+ * Tool: <http://yuml.me>
 
 
 [End.]
