@@ -191,19 +191,19 @@ h1 {
 
 /* Title panel in audio player.
 */
-.oup-mode-audio .mejs-container .mejs-controls .mejs-title-panel {
+.mtype-audio .mejs-container .mejs-controls .mejs-title-panel {
 	background: #f2f2f2;
 	}
-.oup-mode-audio .mejs-title-panel .logo {
+.mtype-audio .mejs-title-panel .logo {
 	display:none; /* TODO: hide for now! */
 	}
-.oup-mode-audio .mejs-title-panel p, .oup-mode-audio .mejs-title-panel h1, .oup-mode-audio .mejs-title-panel a {
+.mtype-audio .mejs-title-panel p, .mtype-audio .mejs-title-panel h1, .mtype-audio .mejs-title-panel a {
 	font-size:1.3em;
 	margin-left:3px;
 	}
 
 /* Title panel: a bit back to front! */
-.oup-mode-video .mejs-title-panel.mejs-pause{ display:none !important; }
+.mtype-video .mejs-title-panel.mejs-pause{ display:none !important; }
 
 
 /* Narrow players.  @media (max-width: 451px) { }
@@ -215,7 +215,7 @@ h1 {
 .width-small .mejs-title-panel a {
 	font-size:1.3em;
 	}
-.width-small.oup-mode-video .mejs-title-panel h1 {
+.width-small.mtype-video .mejs-title-panel h1 {
     font-weight:bold;
 	}
 .width-small .mejs-container .mejs-controls .mejs-title-panel .logo {
