@@ -21,5 +21,12 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme {
 
     // Add the light theme top-level styles to the array.
     $this->styles[] = "themes/$this->name/css/oup-light.css";
+
+
+	// Feature: currently we don't support 'High-definition'.
+	$this->features = str_replace(',oup_quality', '', $this->features);
+
+	// Experimental feature: add in tooltips on keyboard focus.
+	$this->features .= ',oup_tooltip';
   }
 }
