@@ -2,6 +2,8 @@
 /**
  * Mediaelement.js default theme.
  *
+ * A thin PHP wrapper around John Dyer's Mediaelement library.
+ *
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.
  */
@@ -62,8 +64,9 @@ class Mejs_Default_Theme extends Player_Theme {
   }
 
 
-  /** Call after Podcast_items_model::get_item, with player-parameter object.
-  */
+  /** Decide whether to use 'Ender' or 'jQuery' Javascript (no-)library.
+   *  Call after Podcast_items_model::get_item, with player-parameter object.
+   */
   public function prepare_jslib(& $player) {
     $CI =& get_instance();
 
@@ -73,9 +76,10 @@ class Mejs_Default_Theme extends Player_Theme {
     }
 
     if ($CI->agent->is_browser('MSIE')) {
-      $this->jslib = 'jquery'; // Safer for MSIE 8 - is it ??
+      // Safer for MSIE 8 - is it? (Fullscreen hover JS feature.)
+      $this->jslib = 'jquery';
     }
-    // At present, Ender can't parse a captions track.
+    // At present, Ender can't parse a captions track ("Full support for Ender.js.." is in the Mediaelement readme).
     if ('ender' == $this->jslib) {
       $player->caption_url = null;
     }
