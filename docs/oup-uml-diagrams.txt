@@ -6,13 +6,15 @@
 
 // OU Player theme class hierarchy
 [Abstract: Player_Theme]^-[Mejs_Default_Theme],
+[Mejs_Default_Theme]-[note: 2012 Mediaelementjs engine{bg:cornsilk}]
 [Mejs_Default_Theme]^-[Ouplayer_Base_Theme],
 [Ouplayer_Base_Theme]^-[An_Other_Theme...{bg:cornsilk}],
 [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
 //...
+//Edit: http://yuml.me/edit/c67666aa
 
 /*
- Edit: http://yuml.me/edit/4e479410
+ (Edit: http://yuml.me/edit/4e479410)
  http://yuml.me//diagram/scruffy;dir:TB;/class/edit/// OU Player theme class hierarchy, [Player_Theme]^-[Mejs_Default_Theme], [Mejs_Default_Theme]^-[Ouplayer_Base_Theme], [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
  PNG:  http://yuml.me/4e479410
  http://yuml.me//diagram/scruffy;dir:TB;/class/// OU Player theme classes, [Player_Theme]^-[Mejs_Default_Theme], [Mejs_Default_Theme]^-[Ouplayer_Base_Theme], [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
@@ -21,6 +23,20 @@
  JSON: http://yuml.me/4e479410.json
  SVG:  http://yuml.me/4e479410.svg
 */
+
+// OU Player theme classes v2
+[Abstract: Player_Theme]^-[Mejs_Default_Theme],
+[Abstract: Player_Theme]^-[Flowplayer_Default_Theme],
+[Mejs_Default_Theme]-[note: 2012 Mediaelementjs engine{bg:cornsilk}]
+[Flowplayer_Default_Theme]-[note: 2011 Flowplayer engine{bg:cornsilk}]
+[Mejs_Default_Theme]^-[Ouplayer_Base_Theme],
+[Ouplayer_Base_Theme]^-[An_Other_Theme...{bg:cornsilk}],
+[Ouplayer_Base_Theme]^-[Oup_Light_Theme]
+[Flowplayer_Default_Theme]^-[Oup2011_Core_Theme]
+[Oup2011_Core_Theme]^-[Oup2011_Dark_Theme]
+[Oup2011_Core_Theme]^-[Oup2011_Light_Theme...{bg:cornsilk}]
+//...
+//Edit: http://yuml.me/edit/d70d3238
 
 
 // OU Embed provider class hierarchy
@@ -46,10 +62,12 @@
 
 // OU Player/OU Embed controller class hierarchy
 [CI_Controller]^-[MY_Controller],
-[MY_Controller]^-[Oembed],
+[MY_Controller]^-[Another...{bg:cornsilk}],
+[MY_Controller]^-[Popup],
 [MY_Controller]^-[Embed],
-[MY_Controller]^-[Popup]
+[MY_Controller]^-[Oembed]
 //...
+//Edit: http://yuml.me/edit/df7df068
 
 
 // Cool Class Diagram - Yuml.me example
