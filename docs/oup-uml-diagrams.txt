@@ -1,14 +1,15 @@
 /*
- * UML diagrams
+ * OU Player UML diagrams.
  * N.D.Freear, 18 April 2012.
  */
 
 
 // OU Player theme class hierarchy
-[Player_Theme]^-[Mejs_Default_Theme],
+[Abstract: Player_Theme]^-[Mejs_Default_Theme],
 [Mejs_Default_Theme]^-[Ouplayer_Base_Theme],
+[Ouplayer_Base_Theme]^-[An_Other_Theme...{bg:cornsilk}],
 [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
-
+//...
 
 /*
  Edit: http://yuml.me/edit/4e479410
@@ -20,6 +21,35 @@
  JSON: http://yuml.me/4e479410.json
  SVG:  http://yuml.me/4e479410.svg
 */
+
+
+// OU Embed provider class hierarchy
+[<<iService>>]^-.-[Abstract: Oembed_Provider],
+[Abstract: Oembed_Provider]^-[Another_serv...{bg:cornsilk}],
+[Abstract: Oembed_Provider]^-[Youtube_serv],
+[Abstract: Oembed_Provider]^-[Oupodcast_serv]
+[Abstract: Oembed_Provider]-[note: was 'Base_service'{bg:cornsilk}]
+//...
+//Edit: http://yuml.me/edit/4acc0519
+//(Edit: http://yuml.me/edit/76adfbbd)
+
+
+// OU Player model class hierarchy
+[CI_Model]^-[Abstract: Podcast_items_abstract_model],
+[Abstract: Podcast_items_abstract_model]^-[Podcast_items_feed_model],
+[Abstract: Podcast_items_abstract_model]^-[Podcast_items_model],
+[CI_Model]^-[Embed_cache_model]
+
+//Edit: http://yuml.me/edit/32b7a5ef
+//(Edit: http://yuml.me/edit/a4354d65)
+
+
+// OU Player/OU Embed controller class hierarchy
+[CI_Controller]^-[MY_Controller],
+[MY_Controller]^-[Oembed],
+[MY_Controller]^-[Embed],
+[MY_Controller]^-[Popup]
+//...
 
 
 // Cool Class Diagram - Yuml.me example
