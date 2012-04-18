@@ -1,8 +1,11 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Iframe embed controller.  NDF, 22 March 2011.
+ * Iframe embed controller for OU Player.
  *
- * @copyright Copyright 2011 The Open University.
+ * Note, this controller is also used for the 'popup' functionality (see Popup controller).
+ *
+ * @copyright Copyright 2012 The Open University.
+ * @author N.D.Freear, 2011-03-22.
  */
 require_once APPPATH.'libraries/ouplayer_lib.php';
 
@@ -44,11 +47,16 @@ class Embed extends MY_Controller {
         'theme'=> $this->_theme,
         'debug'=> $this->_debug,
         'standalone' => false,
-        'mode' => 'embed',
+        // Auto-generate 'embed' or 'popup'.
+        'mode' => strtolower(get_class($this)),
         'req'  => $this->_request,
         'google_analytics'=>$this->_get_analytics_id('podcast.open.ac.uk'),
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
     );
+    if ('Popup' == get_class($this)) {
+        // We don't want a "Pop up" button in the "popup" view.
+        $view_data['popup_url'] = NULL;
+    }
 
     // TODO: needs tidying up, access-control.
 
@@ -131,13 +139,19 @@ class Embed extends MY_Controller {
         'theme'=> $this->_theme,
         'debug'=> $this->_debug,
         'standalone' => false,
-        'mode' => 'embed',
+        // Auto-generate 'embed' or 'popup'.
+        'mode' => strtolower(get_class($this)),
         'req'  => $this->_request,
       //TODO: needs more work!
         'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
     );
-	//Hack.
-	$view_data['popup_url'] = str_replace('&?', '&', $view_data['popup_url']);
+    if ('Popup' == get_class($this)) {
+        // We don't want a "Pop up" button in the "popup" view.
+        $view_data['popup_url'] = NULL;
+    } else {
+        //Hack.
+        $view_data['popup_url'] = str_replace('&?', '&', $view_data['popup_url']);
+    }
 
 	if ('basic'!=$this->_theme->name) {
         $this->load->view('ouplayer/ouplayer', $view_data);
