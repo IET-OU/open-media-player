@@ -157,8 +157,9 @@ class Oupodcast_serv extends Base_service {
     $player->iframe_url = site_url("embed/pod/$player->_album_id/$player->_track_md5").$this->CI->options_build_query(); #?width=$width&amp;height=$height";
 
     // Mediaelement.js doesn't seem to like 'x-m4v'.
+    // And, Webkit HTML5 doesn't like 'video/m4v'.
     if ('video/x-m4v' == $player->mime_type) {
-      $player->mime_type = 'video/m4v';
+      $player->mime_type = 'video/mp4';
     }
   }
 
