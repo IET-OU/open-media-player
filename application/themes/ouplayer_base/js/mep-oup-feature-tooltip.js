@@ -8,7 +8,7 @@
 
 	$.extend(mejs.MepDefaults, {
 		// Offset: 2 x padding + 2 x border.
-		tooltipOffsetXY: 10,
+		tooltipOffsetXY: 8,
 		tooltipEvents: 'focus blur' //'mouseover mouseout focus blur'
 	});
 
@@ -24,6 +24,7 @@
 				toggleTip = function(ev) { //,btn)
 					var tg = ev.target
 					, offset = $(tg).offset()
+					, body_width = $('body').width() //Ender doesn't like $(window).width()
 					, left
 					;
 
@@ -40,8 +41,8 @@
 				  		tip.html(tg.title);
 						tip.css('top', (offset.top - tip.height() - op.tooltipOffsetXY) +'px');
 						left = offset.left;
-						if (left + tip.width() >= $(window).width()) {
-							left = $(window).width() - tip.width() - op.tooltipOffsetXY;
+						if (left + tip.width() >= body_width) {
+							left = body_width - tip.width() - op.tooltipOffsetXY;
 						}
 						tip.css('left', left +'px');
 
