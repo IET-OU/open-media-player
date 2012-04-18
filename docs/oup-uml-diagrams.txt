@@ -1,0 +1,31 @@
+/*
+ * UML diagrams
+ * N.D.Freear, 18 April 2012.
+ */
+
+
+// OU Player theme class hierarchy
+[Player_Theme]^-[Mejs_Default_Theme],
+[Mejs_Default_Theme]^-[Ouplayer_Base_Theme],
+[Ouplayer_Base_Theme]^-[Oup_Light_Theme]
+
+
+/*
+ Edit: http://yuml.me/edit/4e479410
+ http://yuml.me//diagram/scruffy;dir:TB;/class/edit/// OU Player theme class hierarchy, [Player_Theme]^-[Mejs_Default_Theme], [Mejs_Default_Theme]^-[Ouplayer_Base_Theme], [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
+ PNG:  http://yuml.me/4e479410
+ http://yuml.me//diagram/scruffy;dir:TB;/class/// OU Player theme classes, [Player_Theme]^-[Mejs_Default_Theme], [Mejs_Default_Theme]^-[Ouplayer_Base_Theme], [Ouplayer_Base_Theme]^-[Oup_Light_Theme]
+
+ PDF:  http://yuml.me/4e479410.pdf
+ JSON: http://yuml.me/4e479410.json
+ SVG:  http://yuml.me/4e479410.svg
+*/
+
+
+// Cool Class Diagram - Yuml.me example
+[Customer]<>-orders*>[Order]
+[Order]++-0..*>[LineItem]
+[Order]-[note:Aggregate root.]
+
+
+//[End.]
