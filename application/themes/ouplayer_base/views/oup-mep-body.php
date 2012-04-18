@@ -1,8 +1,15 @@
 
 <!--Body classes - player flags. -->
-<body role="application" id="ouplayer" class="oup-mode-<?php echo $params->media_type ?> tscript-hide lang-<?php
-  echo $this->lang->lang_code() ?> <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> ua-<?php echo $this->agent->browser_code()
+<body role="application" id="ouplayer" class="oup mtype-<?= $params->media_type ?> mode-<?= $mode ?> ctx-<?= get_class($params) ?> hide-tscript lang-<?php
+  echo $this->lang->lang_code() ?> theme <?= $this->theme->name ?> <?= $this->theme->rgb ?> ua-<?= $this->agent->browser_code()
   ?> jslib-<?=$this->theme->jslib ?>">
+
+<?php /* Body classes:
+Mediaelement: "oup-mode-video tscript-hide lang-en oup_light ouvle-default-blue ua-webkit jslib-jquery width-large"
+
+Flowplayer:  <body role="application" id="ouplayer" class=
+  "oup mtype-video width-640 theme-ouice-light hide-tscript hide-captions hide-settings oup-paused lang-en -webkit ctx-Podcast_player mode-embed no-debug has-poster has-captions has-tscript has-rel-link not-private -no-docmode use-flash js"
+  style="cursor: default">*/ ?>
 
 <div id="oup-noscript">
   <p class="msg"><?=t('Your browser appears to have Javascript disabled, or there has been an error.') ?>
