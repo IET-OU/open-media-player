@@ -21,6 +21,10 @@ $config['podcast_data_use_feed'] = true;
 // The name of the remote RSS feed file.
 //$config['podcast_feed_file'] = '';
 
+// Either NULL, 'ender' (maybe for OUVLE?) or 'jquery' (maybe for Podcast?)
+// NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
+//$config['jslib'] = NULL;
+
 // Debugging: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
