@@ -46,6 +46,17 @@ class Demo extends MY_Controller {
 	  $this->load->view('vle_demo', $view_data);
 	}
 
+	/** OUVLE demonstration - many players.
+    */
+	public function vle_many() {
+	  $this->_sams_check();
+
+	  $view_data = array(
+	    'req' => $this->_request,
+	  );
+	  $this->load->view('vle_demo/learn3-mod-oucontent-many.php', $view_data);
+	}
+
     /** Basic OU-SAMS cookie check and redirect.
     */
 	protected function _sams_check() {
