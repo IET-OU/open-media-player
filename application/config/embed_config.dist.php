@@ -111,7 +111,7 @@ $config['cache_path'] = '/var/www/_ouplayer_data/cache/';
 
 */
 
-// Localization/ internationalization, including aliases.
+// Localization/ internationalization, including 'aliases'.
 $config['locales'] = array(
     # Keys must be lower-case, using '-'.
     # Order is significant - 'en'+aliases must be last.
@@ -128,9 +128,14 @@ $config['locales'] = array(
 
     'sw'   => array('name'=>'Kiswahili/ Swahili'),
 
-    'en'   => array('name'=>'English/ En anglais/ Inglés'),
-    'en-gb'=> 'en',
+    'en-gb' => array('name'=>'English - British'),
+    'en'   => array('name'=>'English - United States (Int)/ En anglais/ Inglés'),
     'en-us'=> 'en',
+
+    /* Hmm, are these more similar to GB or US English? (http://screenfont.ca/learn/)
+	'en-za' => 'en', # S.Africa
+    'en-au' => 'en', # Australia
+    ... */
 );
 
 #End.
