@@ -13,13 +13,16 @@ $config['http_proxy'] = 'wwwcache.open.ac.uk:80';
 date_default_timezone_set('Europe/London');
 
 // Debugging.
-$config['debug'] = false;
+$config['debug'] = OUP_DEBUG_NONE;
 
 // If TRUE, use the feed model, otherwise, use the database model (requires a config/database.php file).
 $config['podcast_data_use_feed'] = true;
 
 // The name of the remote RSS feed file.
 //$config['podcast_feed_file'] = '';
+
+// Optional: regular expression for media_url, for OUVLE and OpenLearn players.
+//$config['media_url_regex'] = '/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/';
 
 // Either NULL, 'ender' (maybe for OUVLE?) or 'jquery' (maybe for Podcast?)
 // NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
