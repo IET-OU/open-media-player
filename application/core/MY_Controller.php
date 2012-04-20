@@ -3,10 +3,6 @@
  *
  * @copyright Copyright 2011 The Open University.
  */
-//Common parameter names, shared by oEmbed/ embed/ popup controllers.
-define('OUP_PARAM_DEBUG', 'debug'); #Was: _debug
-define('OUP_PARAM_THEME', 'theme'); #Was: _theme
-define('OUP_PARAM_LANG', 'lang');
 
 
 class MY_Controller extends CI_Controller {

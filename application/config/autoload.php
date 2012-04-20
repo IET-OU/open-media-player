@@ -81,7 +81,8 @@ $autoload['helper'] = array('url', 'ouplayer');
 |
 */
 
-$autoload['config'] = array('embed_config', 'providers');
+// oup_constants first.
+$autoload['config'] = array('oup_constants', 'embed_config', 'providers');
 
 
 /*
