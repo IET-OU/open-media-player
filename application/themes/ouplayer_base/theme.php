@@ -32,6 +32,10 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     // Add our OU Player base styles to the array.
     $this->styles[] = "themes/$theme_name/css/ouplayer-base.css";
 
+    // The minified OU Player+mediaelement Javascript/ CSS.
+    $this->js_min  = "themes/$theme_name/build/ouplayer-mediaelement.min.js";
+    $this->css_min = str_replace('.js', '.css', $this->js_min);
+
 
     $meps_base = $this->js_path; #From parent.
     $oups_base = "themes/$theme_name/js/";
