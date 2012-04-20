@@ -240,8 +240,8 @@
 			
 			// firefox+flash can't adjust plugin sizes without resetting :(
 			if (t.media.pluginType !== 'native' && (mejs.MediaFeatures.isFirefox || t.options.usePluginFullScreen)) {
-				//t.media.setFullscreen(true); //NDF:
-				//player.isFullScreen = true; //NDF:
+				//t.media.setFullscreen(true);
+				//player.isFullScreen = true;
 				return;
 			}			
 						

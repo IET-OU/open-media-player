@@ -364,7 +364,7 @@ mejs.HtmlMediaElementShim = {
 		} catch (e) {}
 
 		errorContainer.innerHTML = (poster !== '') ?
-			'<a href="' + playback.url + '"><img src="' + poster + '" /></a>' :
+			'<a href="' + playback.url + '"><img src="' + poster + '" width="100%" height="100%" /></a>' :
 			'<a href="' + playback.url + '"><span>Download File</span></a>';
 
 		htmlMediaElement.parentNode.insertBefore(errorContainer, htmlMediaElement);
@@ -384,6 +384,17 @@ mejs.HtmlMediaElementShim = {
 			specialIEContainer,
 			node,
 			initVars;
+
+		// copy tagName from html media element
+		pluginMediaElement.tagName = htmlMediaElement.tagName
+
+		// copy attributes from html media element to plugin media element
+		for (var i = 0; i < htmlMediaElement.attributes.length; i++) {
+			var attribute = htmlMediaElement.attributes[i];
+			if (attribute.specified == true) {
+				pluginMediaElement.setAttribute(attribute.name, attribute.value);
+			}
+		}
 
 		// check for placement inside a <p> tag (sometimes WYSIWYG editors do this)
 		node = htmlMediaElement.parentNode;
@@ -704,6 +715,7 @@ mejs.YouTubeApi = {
 	
 	iFrameReady: function() {
 		
+		this.isLoaded = true;
 		this.isIframeLoaded = true;
 		
 		while (this.iframeQueue.length > 0) {

@@ -40,9 +40,9 @@
 		alwaysShowControls: false,
 		// force iPad's native controls
 		iPadUseNativeControls: false,
-		// force iPad's native controls
+		// force iPhone's native controls
 		iPhoneUseNativeControls: false,	
-		// force iPad's native controls
+		// force Android's native controls
 		AndroidUseNativeControls: false,			
 		// features to show
 		features: ['playpause','current','progress','duration','tracks','volume','fullscreen'],
@@ -97,7 +97,7 @@
 										}
 										
 										// 5%
-										var newTime = Math.min(media.currentTime - (media.duration * 0.05), media.duration);
+										var newTime = Math.max(media.currentTime - (media.duration * 0.05), 0);
 										media.setCurrentTime(newTime);
 								}
 						}
@@ -115,7 +115,7 @@
 										}
 										
 										// 5%
-										var newTime = Math.max(media.currentTime + (media.duration * 0.05), 0);
+										var newTime = Math.min(media.currentTime + (media.duration * 0.05), media.duration);
 										media.setCurrentTime(newTime);
 								}
 						}
@@ -694,8 +694,14 @@
 
 		setPlayerSize: function(width,height) {
 			var t = this;
-			
-			// testing for 100% code
+
+			if (typeof width != 'undefined')
+				t.width = width;
+				
+			if (typeof height != 'undefined')
+				t.height = height;
+
+			// detect 100% mode
 			if (t.height.toString().indexOf('%') > 0) {
 			
 				// do we have the native dimensions yet?
@@ -756,7 +762,7 @@
 				rail = t.controls.find('.mejs-time-rail'),
 				total = t.controls.find('.mejs-time-total'),
 				current = t.controls.find('.mejs-time-current'),
-				loaded = t.controls.find('.mejs-time-loaded');
+				loaded = t.controls.find('.mejs-time-loaded'),
 				others = rail.siblings();
 			
 
@@ -971,7 +977,7 @@
 		},
 		changeSkin: function(className) {
 			this.container[0].className = 'mejs-container ' + className;
-			this.setPlayerSize();
+			this.setPlayerSize(this.width, this.height);
 			this.setControlsSize();
 		},
 		play: function() {
@@ -1006,7 +1012,7 @@
 			
 			if (t.media.pluginType == 'flash') {
 				t.media.remove();
-			} else if (t.media.pluginTyp == 'native') {
+			} else if (t.media.pluginType == 'native') {
 				t.media.prop('controls', true);
 			}
 			
