@@ -26,7 +26,7 @@
        http://stackoverflow.com/questions/1014203/best-way-to-use-googles-hosted-jquery-but-fall-back-to-my- ..
     */
 ?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="<?=OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script>
 if(typeof jQuery=='undefined'){
   document.write(unescape("%3Cscript src='<?php echo base_url().'application/'. $this->theme->plugin_path ?>jquery.js' %3E%3C/script%3E"));
@@ -36,11 +36,11 @@ if(typeof jQuery=='undefined'){
 
 <?php else:
       /* Ender/jeesh.js via CDN, with local fallback.
-      */  
-      if ($params->debug): ?>
-<script src="//cdn.enderjs.com/jeesh.js"></script>
+      */
+      if ($this->config->item('debug') > OUP_DEBUG_MIN): ?>
+<script src="<?=OUP_JS_CDN_ENDER ?>"></script>
 <?php else: ?>
-<script src="//cdn.enderjs.com/jeesh.min.js"></script>
+<script src="<?=OUP_JS_CDN_ENDER_MIN ?>"></script>
 <?php endif; ?>
 <script>
 if(typeof $=='undefined'){
@@ -52,14 +52,14 @@ if(typeof $=='undefined'){
 <?php endif; ?>
 
 <?php
-  if ($this->config->item('debug')):
+  if ($this->config->item('debug') > OUP_DEBUG_MIN):
     foreach ($this->theme->javascripts as $js_file): ?>
 <script src="<?php echo base_url().'application/'. $js_file ?>"></script>
 <?php
     endforeach;
   else:
 ?>
-<script src="<?php echo base_url().'application/'. $this->theme->plugin_path ?>/build/mediaelement-and-player.min.js"></script>
+<script src="<?php echo base_url().'application/'. $this->theme->js_min ?>"></script>
 <?php endif; ?>
 
 <?php foreach ($this->theme->styles as $css_file): ?>

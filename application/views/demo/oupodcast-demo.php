@@ -67,7 +67,7 @@
 
 <p>&copy;2011-2012 The Open University.</p>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="<?=OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script src="<?=site_url('scripts/jquery.oembed.js') ?>"></script>
 <script>
   $(document).ready(function() {
