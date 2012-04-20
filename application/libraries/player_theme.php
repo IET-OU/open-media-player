@@ -15,10 +15,11 @@ abstract class Player_Theme {
   public $view;    // The name of the main view file, without '.php'
   public $engine;  // The player engine, one of 'mediaelement' or 'flowplayer'.
 
-  public $styles;   // The stylesheet (Todo: an array)
-  public $js_file;  // 'The' single concatenated, minified Javascript (live).
+  public $styles;   // An ordered array of stylesheets (for building/ debug).
+  public $css_min;  // 'The' single compressed stylesheet for the theme (live).
+  public $js_min;   // 'The' single concatenated, minified Javascript (live).
   public $js_path;  // Path to individual, raw Javascripts.
-  public $javascripts; // Array of raw Javascripts (debug).
+  public $javascripts; // An ordered array of raw Javascripts (build/ debug).
   public $plugin_path; // Path to Flash/ Silverlight plugins.
   public $builder;  // File-path for a build script.
 

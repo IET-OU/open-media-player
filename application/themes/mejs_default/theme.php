@@ -29,7 +29,8 @@ class Mejs_Default_Theme extends Player_Theme {
 
     //$this->view = dirname(__FILE__).'/views/mep-player.php'; //'themes/mejs/views/'
     $this->styles[]  = $build_path . 'mediaelementplayer.min.css';
-    $this->js_file = $build_path . 'mediaelement-and-player.min.js';
+    $this->css_min = $build_path . 'mediaelementplayer.min.css';
+    $this->js_min  = $build_path . 'mediaelement-and-player.min.js';
     $this->js_path = $engine_path . 'src/js/';
     $this->plugin_path = $build_path;
     $this->builder = $engine_path . 'src/Builder.py';
