@@ -39,14 +39,23 @@ class My_Lang extends CI_Lang {
 	$CI->load->library('user_agent');
 
 	# Order is significant :(
-	foreach ($this->_locales as $lang => $item) {
+
+
+	# Use MY overridden accept_lang() method.
+	$ac_lang = $CI->agent->accept_lang(array_keys($this->_locales));
+	if ($ac_lang) {
+		# If it's an alias, follow it.
+		$_lang = is_string($this->_locales[$ac_lang]) ? $this->_locales[$ac_lang] : $ac_lang;
+		$method = 'ACC';
+	}
+	/*ORIG: foreach ($this->_locales as $lang => $item) {
 		if ($CI->agent->accept_lang(strtolower($lang))) {
 			# If it's an alias, follow it.
 			$_lang = is_string($item) ? $item : $lang;
 			$method= 'ACC';
 			break;
 		}
-	}
+	}*/
 
 	# 2. If there's a COOKIE, use that.
 	#$lc = $this->CI->input->cookie('language', FALSE);

@@ -30,5 +30,34 @@ class MY_User_agent extends CI_User_agent {
 
     return $res;
   }
+
+  /**
+   * Return the first acceptable language for the user (browser), from an input list of supported languages.
+   *
+   * @access	public
+   * @param		mixed Either a single language code, or an array of languages supported by the application.
+   * @return	mixed (Was:bool)
+   */
+  public function accept_lang($lang = NULL) {
+    $lang_res = NULL;
+
+    if (is_string($lang)) return parent::accept_lang($lang);
+
+    // Else, an array of locales supported by the application.
+    $supported_locales = $lang;
+
+	$user_accept_languages = $this->languages();
+
+	// Important: find the first acceptable language for the user (browser) - order matters!
+    foreach ($user_accept_languages as $try_lang) {
+      if (in_array($try_lang, $supported_locales)) {
+        $lang_res = $try_lang;
+		break;
+      }
+    }
+
+    return $lang_res;
+    //return (in_array(strtolower($lang), $this->languages(), TRUE));
+  }
   
 }
