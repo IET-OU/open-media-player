@@ -8,7 +8,8 @@
 
 	$.extend(mejs.MepDefaults, {
 		// Offset: 2 x padding + 2 x border.
-		tooltipOffsetXY: 8,
+		tooltipOffsetX: 6, //8
+		tooltipOffsetY: 2,
 		tooltipEvents: 'focus blur' //'mouseover mouseout focus blur'
 	});
 
@@ -39,10 +40,10 @@
 						//tip.className = 'oup-tooltip show';
 				  		tip.removeClass('hide').addClass('show');
 				  		tip.html(tg.title);
-						tip.css('top', (offset.top - tip.height() - op.tooltipOffsetXY) +'px');
+						tip.css('top', (offset.top - tip.height() - op.tooltipOffsetY) +'px');
 						left = offset.left;
 						if (left + tip.width() >= body_width) {
-							left = body_width - tip.width() - op.tooltipOffsetXY;
+							left = body_width - tip.width() - op.tooltipOffsetX;
 						}
 						tip.css('left', left +'px');
 

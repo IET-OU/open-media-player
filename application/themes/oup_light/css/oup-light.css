@@ -299,11 +299,20 @@
 .mejs-controls .oup-tooltip.show {
 	display:block !important;
 	position:fixed;
-	background:#222;
-	color:#eee;
-	border:1px solid gray;
-	padding:3px;
-	font-size:.9em;
+	background:#ffd;
+	color:#111;
+	border:1px solid #aaa;
+	border-radius:3px;
+	padding:1px 3px;
+	font-size:.7em;
+	line-height:1.1em;
+	height:1em;
+	white-space:nowrap;
 	z-index:999;
+}
+.ctx-Podcast_player .mejs-controls .oup-tooltip.show {
+	padding:4px;
+	font-size:.8em;
+	line-height:1.2em;
 }
 

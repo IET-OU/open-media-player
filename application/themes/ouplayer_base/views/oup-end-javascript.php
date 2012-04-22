@@ -23,6 +23,10 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   popoutUrl:'<?php echo $popup_url ?>',
 <?php endif; ?>
 
+<?php if ('Podcast_player'==get_class($params)): ?>
+  tooltipOffsetX:9, tooltipOffsetY:9,
+<?php endif; ?>
+
 <?php if ($params->duration): ?>
   duration: <?php echo $params->duration ?>,
 <?php endif; ?>
