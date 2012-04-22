@@ -23,9 +23,13 @@ abstract class Player_Theme {
   public $plugin_path; // Path to Flash/ Silverlight plugins.
   public $builder;  // File-path for a build script.
 
+  protected $CI;
+
   /** Constructor: auto-generate 'name' and 'parent' properties.
   */
   public function __construct() {
+    $this->CI =& get_instance();
+
     // We use $this - an instance, not a class.
     $this->name = strtolower(preg_replace('#_Theme$#i', '', get_class($this)));
     $this->parent = strtolower(preg_replace('#_Theme$#i', '', get_parent_class($this)));

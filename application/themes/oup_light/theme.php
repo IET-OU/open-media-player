@@ -19,6 +19,16 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme {
   public function __construct() {
     parent::__construct();
 
+    // The foreground colour name, from a URL parameter.
+    $rgb = $this->CI->input->get('rgb');
+    $this->rgb = $rgb ? $rgb : 'ouvle-default-blue';
+
+    // https://gist.github.com/2291035 --? /(ouvle-[a-z]+|button-normal)/
+    $RE = 'default-blue|orange|dark-blue|green';   #'|grey|purple|pink|dark-red';
+    if (! preg_match("/^ouvle-($RE)\$/", $this->rgb)) {
+      $this->CI->_error("(theme error) unrecognized value for 'rgb' parameter: ".$this->rgb, 400);
+    }
+
     // Add the light theme top-level styles to the array.
     $this->styles[] = "themes/$this->name/css/oup-light.css";
 
@@ -30,5 +40,10 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme {
 
 	// Experimental feature: add in tooltips on keyboard focus.
 	$this->features .= ',oup_tooltip';
+
+    // Experimental feature: HTML5 postMessage.
+    if ($this->CI->input->get('postmessage')) {
+      $this->features .= ',oup_postmessage';
+    }
   }
 }
