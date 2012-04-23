@@ -46,7 +46,7 @@ class Demo extends MY_Controller {
 	  $this->load->view('vle_demo', $view_data);
 	}
 
-	/** OUVLE demonstration - many players.
+	/** OUVLE demonstration - many players - OUVLE style/layout.
     */
 	public function vle_many() {
 	  $this->_sams_check();
@@ -55,6 +55,17 @@ class Demo extends MY_Controller {
 	    'req' => $this->_request,
 	  );
 	  $this->load->view('vle_demo/learn3-mod-oucontent-many.php', $view_data);
+	}
+
+	/** OUVLE demonstration - fewer players - OUVLE style/layout.
+    */
+	public function vle_fewer() {
+	  $this->_sams_check();
+
+	  $view_data = array(
+	    'req' => $this->_request,
+	  );
+	  $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
 	}
 
     /** Basic OU-SAMS cookie check and redirect.

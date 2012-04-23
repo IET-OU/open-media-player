@@ -95,3 +95,28 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
   font-size:1.3em;
   margin:.2em 0;
 }
+
+
+/* OUVLE 'beige' styles.
+*/
+#page-mod-oucontent-view .oucontent-s-heavybox2 .oucontent-inner-box {
+  background-color: #ECEDD8;
+  border: 1px solid #CCC;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-bottom-right-radius: 5px; /* should be left! */
+  border-bottom-right-radius: 5px;
+}
+#page-mod-oucontent-view .oucontent-inner-box {
+  padding: 1px 10px 5px;
+  margin: 0;
+}
+
+.oup-vle-edge iframe {
+  border:1px solid #ECEDD8;
+}
+.oup-vle-edge iframe:hover, .oup-vle-edge iframe:focus {
+  border-color:#ccc;
+}

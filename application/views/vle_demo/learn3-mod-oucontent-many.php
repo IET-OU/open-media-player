@@ -8,15 +8,21 @@
  */
 
 
+$input = $this->input;
+$body_classes = '';
+$body_classes .= $input->get('edge') ? ' oup-vle-edge' :'';
+
+
 // 24 instances of the player (2 videos).
-$original = (bool) $this->input->get('original');
+$original = (bool) $input->get('original');
 if ($original) {
   $player_url_unenc = 'http://learn3.open.ac.uk/local/mediahack/';
   #$player_url = 'http:\/\/learn3.open.ac.uk\/local\/mediahack\/';
   $audio_height = 30;
+  $body_classes .=' vle-mediahack';
 } else {
   $player_url_unenc = site_url('embed/vle');
-  $audio_height = 22;
+  $audio_height = 36; #22;
 }
 $player_url = str_replace('"', '', json_encode($player_url_unenc));
 
@@ -34,7 +40,7 @@ $transcript_url = "$resource_url/mod/oucontent/";
 <html  dir="ltr" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Learning Guide 1: Quality of life and wellbeing: Learning Guide 1 resources</title>
+    <title>*OUVLE 'many' players test | OU Player |   Learning Guide 1: Quality of life and wellbeing: Learning Guide 1 resources</title>
     <link rel="shortcut icon" href="<?= $resource_url ?>/theme/image.php?theme=ou&amp;image=favicon&amp;rev=730&amp;component=theme" />
     <link rel="stylesheet" type="text/css" href="<?= $resource_url ?>/includes/headers-footers/ou-header.css" />
     <link rel="stylesheet" type="text/css" href="<?= $resource_url ?>/includes/studenthome-header-2012.css" />
@@ -58,14 +64,15 @@ M.cfg = {"wwwroot":"http:\/\/learn3.open.ac.uk","sesskey":"6Rnfly9Bfp","loadingi
 <script type="text/javascript" src="http://learn3.open.ac.uk/theme/javascript.php?theme=ou&amp;rev=730&amp;type=head"></script>
 
 
-
+<!--NDF: test-related styles. -->
 <link rel="stylesheet" href="<?=base_url().'application/assets/client/site-embed.css' ?>" />
 
 
 
 </head>
-<body id="page-mod-oucontent-view" class=" path-mod path-mod-oucontent safari dir-ltr lang-en yui-skin-sam yui3-skin-sam learn3-open-ac-uk pagelayout-standard course-9 context-808 cmid-718 category-2 side-pre-only ou-variant-ouice">
-<div class="skiplinks"><a class="skip" href="#maincontent">Skip to main content</a></div>
+<body id="page-mod-oucontent-view" class="<?=$body_classes ?> path-mod path-mod-oucontent safari dir-ltr lang-en yui-skin-sam yui3-skin-sam learn3-open-ac-uk pagelayout-standard course-9 context-808 cmid-718 category-2 side-pre-only ou-variant-ouice">
+<!--NDF: skiplink fix - keyboard access. -->
+<div class="skiplinks"><a class="skip" x-href="#middle-column" href="#maincontent">Skip to main content</a></div>
 <script type="text/javascript">
 //<![CDATA[
 document.body.className += ' jsenabled';
@@ -110,12 +117,12 @@ document.body.className += ' jsenabled';
     <div id="page-content">
 
 
-
+	<!--NDF: warning. -->
 	<div id="warn" class="oup-test-warning ouvle">
-		<h1>This is a <strong>TEST</strong> VLE page</h1>
+		<h1>This is a <strong>TEST</strong> VLE page  <sub>(many players)</sub></h1>
 		<p>You may need to log in to the <a href="http://learn3.open.ac.uk/mod/oucontent/view.php?id=718&section=4">original page</a>, press browser 'Back' and refresh for the media to work.
-		(The page uses <a href="<?=$player_url_unenc ?>">this media player</a>.)
-		<p><small>(And, the OU skip link is broken, at least in Google Chrome browser - it was in the original page! NDF, April 2012.)</small>
+		<small>(The page uses <a href="<?=$player_url_unenc ?>" title="Audio height: <?=$audio_height ?>px, including beige bg.">this media player</a>.)</small>
+		<p><small>(Note, the <a href="http://code.google.com/p/chromium/issues/detail?id=37721">skip link is broken in Google Chrome</a> - a known bug :( NDF, April 2012.)</small>
 	</div>
 
 
@@ -158,7 +165,8 @@ Block 1 Forum</a></p></li></ul></li>
         <div id="region-main"><div id="region-main-inner">
             <div class="deco1"></div><div class="deco2"></div>
             <div class="region-content">
-                <span id="maincontent"></span><div id="middle-column"><div class='oucontent-prev'><a class="arrow_link" href="view.php?id=718&amp;section=3" title="Previous: Summary"><span class="arrow "></span>&nbsp;<span class="arrow_text">Previous: <strong>Summary</strong></span></a></div><div class="oucontent-content"><h1 class="oucontent-title-1">Learning Guide 1 resources</h1><div class="oucontent-box oucontent-s-heavybox2 oucontent-s-box "><div class="oucontent-outer-box"><h2 class="oucontent-h3 oucontent-nonumber">Audio and video resources</h2><div class="oucontent-inner-box"><h3 class="oucontent-h4 oucontent-basic">Overview</h3><div class="oucontent-media" style="width:342px;"><div class="oucontent-default-filter"><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_lg1_intro_jonl_hq.mp3?forcedownload=1" class="oumedialinknoscript">Download this audio clip.</a><span id="filter_mp3_3997610445"></span></span><script type="text/javascript">
+				<!--NDF: skiplink fix - keyboard access. -->
+                <span id="maincontent" name="maincontent"></span><div id="middle-column"><div class='oucontent-prev'><a class="arrow_link" href="view.php?id=718&amp;section=3" title="Previous: Summary"><span class="arrow "></span>&nbsp;<span class="arrow_text">Previous: <strong>Summary</strong></span></a></div><div class="oucontent-content"><h1 class="oucontent-title-1">Learning Guide 1 resources</h1><div class="oucontent-box oucontent-s-heavybox2 oucontent-s-box "><div class="oucontent-outer-box"><h2 class="oucontent-h3 oucontent-nonumber">Audio and video resources</h2><div class="oucontent-inner-box"><h3 class="oucontent-h4 oucontent-basic">Overview</h3><div class="oucontent-media" style="width:342px;"><div class="oucontent-default-filter"><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_lg1_intro_jonl_hq.mp3?forcedownload=1" class="oumedialinknoscript">Download this audio clip.</a><span id="filter_mp3_3997610445"></span></span><script type="text/javascript">
 //<![CDATA[
 document.getElementById("filter_mp3_3997610445").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Overview\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Overview&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_lg1_intro_jonl_hq.mp3&amp;width=342&amp;height=30\"><\/iframe>";
 
