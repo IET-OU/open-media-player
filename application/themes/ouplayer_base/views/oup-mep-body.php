@@ -56,9 +56,9 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 <?php endif; ?>
 
 
-<div id="oup-options" class="hide">
+<div id="oup-options" class="hide" role="menu" aria-label="<?=t('Player options') ?>">
   <button title="<?php echo t('Close options menu') ?>"><span>X</span></button>
- [ OPTIONS MENU ]
+<?php $this->load->theme_view('oup-options-menu') ?>
 </div>
 
 <?php

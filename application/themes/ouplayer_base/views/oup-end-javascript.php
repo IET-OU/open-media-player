@@ -50,6 +50,7 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   titleText:
 '<div class="logo"></div><h1><?=$params->title ?></h1>'
 <?php if (isset($params->_related_url)): ?>+' <a href="<?=$params->_related_url ?>" target="_blank" title="Related link opens in new window"><?=$params->_related_text ?></a>'<?php endif ?>,
+  embedcodeId:'embed-code',
 <?php endif; ?>
 
 <?php if(isset($params->transcript_id) && $params->transcript_id): ?>
