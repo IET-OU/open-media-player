@@ -17,14 +17,14 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
 
   public $features =
-'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_fullscreenhover,googleanalytics';
+'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_fullscreenhover';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
 
   public function __construct() {
     parent::__construct();
 
-    $this->origin  = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : null;
+    $this->origin  = $this->CI->agent->referrer();
 
     // Hmm, $this->name won't be correct in child themes!
     $theme_name = str_replace('_theme', '', strtolower(__CLASS__));
@@ -76,5 +76,21 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $oups_base.'mep-oup-feature-copyembed.js',   #Experimental.
       $oups_base.'mep-oup-feature-ignore-color.js',    # High contrast/ignore colour accessibility fix.
     );
+  }
+
+
+  /** Prepare: initialize features of the theme, given a player object.
+  */
+  public function prepare(& $player) {
+
+    $this->prepare_jslib($player);
+
+    if ('Podcast_player' == get_class($player)) {
+
+      $this->features .= ',googleanalytics';
+
+      // Experimental feature: select/copy embed code.
+      $this->features .= ',oup_copyembed';
+    }
   }
 }

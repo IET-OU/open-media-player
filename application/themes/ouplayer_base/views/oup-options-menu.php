@@ -6,7 +6,8 @@ if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
   $em_title = substr_replace($meta->title, '…', 36);
   ///Translators: Player options (settings) menus or panels.
   $copy_text = t('Copy and paste');
-  if (isset($meta->_short_url)) {
+  if ('jquery-oembed' == $this->config->item('player_embed_code')
+      && isset($meta->_short_url)) {
     $param_theme = OUP_PARAM_THEME;
     $jq_plugin_url = site_url('scripts/jquery.oembed.js');
     $jq_url = OUP_JS_CDN_JQUERY_MIN;
@@ -27,6 +28,7 @@ EOF;
 	$embed_label = t('OU player');
     $embed_url = current_url().'?'.$this->input->server('QUERY_STRING');
     $embed_url = str_replace('/popup/', '/embed/', $embed_url);
+    // Todo: needs work!
     $embed_code = <<<EOF
 <!--$copy_text--><iframe class="ouplayer $meta->media_type" title="$embed_label" width=640 height=410 src=
 "$embed_url"

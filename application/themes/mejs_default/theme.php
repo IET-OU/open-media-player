@@ -68,15 +68,13 @@ class Mejs_Default_Theme extends Player_Theme {
   /** Decide whether to use 'Ender' or 'jQuery' Javascript (no-)library.
    *  Call after Podcast_items_model::get_item, with player-parameter object.
    */
-  public function prepare_jslib(& $player) {
-    $CI =& get_instance();
-
-    $this->jslib = $CI->input->get('jslib');
+  protected function prepare_jslib(& $player) {
+    $this->jslib = $this->CI->input->get('jslib');
     if (! $this->jslib) {
-      $this->jslib = $CI->config->item('jslib');
+      $this->jslib = $this->CI->config->item('jslib');
     }
 
-    if ($CI->agent->is_browser('MSIE')) {
+    if ($this->CI->agent->is_browser('MSIE')) {
       // Safer for MSIE 8 - is it? (Fullscreen hover JS feature.)
       $this->jslib = 'jquery';
     }
