@@ -17,7 +17,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
 
   public $features =
-'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_fullscreenhover';
+'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
 
@@ -85,9 +85,10 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
     $this->prepare_jslib($player);
 
+    // OU Podcast only: options menu, google analytics..
     if ('Podcast_player' == get_class($player)) {
 
-      $this->features .= ',googleanalytics';
+      $this->features .= ',oup_options,googleanalytics';
 
       // Experimental feature: select/copy embed code.
       $this->features .= ',oup_copyembed';

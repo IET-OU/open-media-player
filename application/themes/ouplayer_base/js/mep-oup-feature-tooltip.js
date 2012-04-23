@@ -1,5 +1,5 @@
 /**
-* OU player: MEP tooltip feature - experimental!
+* OU player: Tooltip feature - only for keyboard ('title' attribute for mouse users) - experimental!
 * Copyright 2012 The Open University.
 * Author: Nick Freear, 12 march,16 april 2012.
 */
@@ -42,7 +42,7 @@
 				  		tip.removeClass('hide').addClass('show');
 				  		tip.html(tg.title);
 				  		// Woops, Ender & jQuery disagree for 'top' - .height() maybe?
-						offY = typeof $.ender=='undefined' ? op.tooltipOffsetY : op.tooltipOffsetY - 10;
+						offY = typeof $.ender=='undefined' ? op.tooltipOffsetY : op.tooltipOffsetY - 6; //10?
 						tip.css('top', (offset.top - tip.height() - offY) +'px');
 						left = offset.left;
 						if (left + tip.width() >= body_width) {

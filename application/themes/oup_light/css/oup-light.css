@@ -7,6 +7,22 @@
  * Copyright 2012 The Open University.
  */
 
+
+/* VLE beige background: audio-only.
+*/
+body.ctx-Vle_player.mtype-audio, .ctx-Vle_player.mtype-audio .mejs-mediaelement {
+	background-color:#ECEDD8;
+	color:#222;
+}
+/*PETER: This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always. */
+a {
+	color:#1f536b;
+	text-decoration:none;
+}
+a:hover, a:focus {
+	text-decoration:underline;
+}
+
 .mejs-container .mejs-controls {
 	padding-bottom:1px; /*Hmm, 1 pixel or 0? */
 	/*background: url(background.png);
@@ -147,11 +163,11 @@
 .mejs-controls .oup-volume-widget button {
 	width:12px; height:12px;
 }
-/*Browser sniffing - MSIE is well behaved! */
-.ua-gecko .mejs-controls .oup-volume-widget {
+/*Browser sniffing - MSIE is well behaved! (was: ua-gecko) */
+.ua-moz .mejs-controls .oup-volume-widget {
 	top:2px;
 }
-.ua-gecko .mejs-controls .oup-volume-widget .oup-display {
+.ua-moz .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
 	top:4px;
 }

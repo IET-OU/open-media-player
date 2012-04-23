@@ -263,10 +263,25 @@ h1 {
 
 .mejs-captions-button .__mejs-captions-selector{ display:none !important; }
 
-/* Options menu.
+/* Options menu panel.
 */
-#oup-options.show{ position:absolute; bottom:34px; right:2px; background:#eee; color:#111; padding:5px; z-index:100; }
+#oup-options.show{ position:absolute; bottom:25px; right:2px; background:#eee; color:#111; padding:3px 5px; z-index:100; width:11em; border-radius:4px; }
 #oup-options.hide{ display:none; }
+.oup-options ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size:.83em;
+	}
+.oup-options li {
+	margin:4px 0;
+	}
+.oup-options textarea {
+	display:block;
+	font-size:.8em;
+	width:99%;
+	height:8.5em;
+	}
 
 /* Transcript panel.
 */
@@ -295,8 +310,8 @@ h1 {
 	padding:8px;
 	font-size:1.1em;
 	}
-	
-#oup-tscript button	{
+
+#oup-tscript button, .oup-options button {
 	/*background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
 	background-position: -1856px 0;
 	background-color: rgb(255,255,255);

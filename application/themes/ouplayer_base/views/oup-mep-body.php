@@ -56,10 +56,12 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 <?php endif; ?>
 
 
-<div id="oup-options" class="hide" role="menu" aria-label="<?=t('Player options') ?>">
+<?php if ('Podcast_player' == get_class($params)): ?>
+<div id="oup-options" class="oup-options hide" role="menu" aria-label="<?=t('Player options') ?>">
   <button title="<?php echo t('Close options menu') ?>"><span>X</span></button>
 <?php $this->load->theme_view('oup-options-menu') ?>
 </div>
+<?php endif; ?>
 
 <?php
   $params->transcript_id = NULL;
