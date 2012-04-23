@@ -65,12 +65,12 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 */
 .oup-edge .oembed {
   margin:2px;
-  padding:2px;
+  padding:3px;
   border:2px solid transparent;
   border-radius:5px;
 }
 .oup-edge .oembed:hover{
-  border:2px solid #bbb;
+  border-color:#aaa;
   background:#ffd;
 
   transition:all 1s;
