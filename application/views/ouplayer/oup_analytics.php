@@ -1,20 +1,20 @@
 <?php
-/** Analytics / tracking view.
-*/
+/**
+ * Analytics / tracking view - Google and/or ComScore analytics.
+ */
 
 //VLE/ OpenLearn player??
-if ('Podcast_player'==get_class($meta)):
-?>
+if ('Podcast_player'==get_class($meta)): ?>
 
 <?php // ComScore/ StreamSense/ Nedstat.
+if ($this->config->item('player_analytics_comscore')):
 
 $ns_loc='no-loc';
 if ('embed'==$mode) {
-  $_ci=& get_instance();
-  $_ci->load->library('user_agent');
+  $this->load->library('user_agent');
   // For a page in an <iframe> the referrer is the host page.
-  if ($_ci->agent->is_referral()) {
-    $ns_loc=$_ci->agent->referrer();
+  if ($this->agent->is_referral()) {
+    $ns_loc = $this->agent->referrer();
     $ns_loc=str_replace('http://', '', $ns_loc);
     $ns_loc=str_replace(array('/', '.', '?', '&', '='), '-', $ns_loc);
   }
@@ -22,7 +22,7 @@ if ('embed'==$mode) {
 //Counter: embed.video.[internal|external].<location>.<title>.page
 $ns_counter ="ouplayer.$mode.$meta->media_type.$ns_loc.$meta->_album_id.$meta->_track_md5.".urlencode($meta->title).'.page'; #sub-title?
 $ns_subdom  ='www'; //'player'/'embed'
-$ns_sitename=config_item('compscore_sitename');
+$ns_sitename = $this->config->item('comscore_sitename');
 if(!$ns_sitename)$ns_sitename='test-ou';
 
 //<!--Begin CMC v.1.0.1-->
@@ -40,11 +40,13 @@ sitestat("//ouan.open.ac.uk/ou/<?=$ns_sitename ?>/s?name=<?=$ns_counter ?>&ou_su
 <noscript><p><img src="//ouan.open.ac.uk/ou/<?=$ns_sitename ?>/s?name=<?=$ns_counter ?>&ou_subdom=<?=$ns_subdom ?>" height="1" width="1" alt=""/></p></noscript>
 <!--End CMC-->
 
+<?php endif; ?>
+
 
 <?php // Google analytics.
 
 if (isset($google_analytics) && $google_analytics): //'Podcast_player'==get_class($meta)):
-  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5/".str_replace(array(' ', '\''), array('-', "\'"), $meta->title);
+  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5/".str_replace(array(' ', '\'', ':'), array('-', "\'", ''), $meta->title);
   ?>
 <script>
   var _gaq = _gaq || [];

@@ -71,5 +71,7 @@ if(typeof $=='undefined'){
 <?php endif; ?>
 
 
-<style>
-</style>
+<?php
+  // Google/ ComScore analytics (from the legacy player).
+  $this->load->view('ouplayer/oup_analytics');
+?>
