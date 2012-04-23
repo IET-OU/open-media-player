@@ -6,7 +6,7 @@ OU player: Copyright © 2010-2012 The Open University. All rights reserved.
  * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology.
 
 OUP-Light theme: Copyright 2012 The Open University.
- * Author: Peter Devine <p.m.devine+@+open.ac.uk> / LTS.
+ * Author: Peter Devine <p.m.devine+@+open.ac.uk> / Learning and Teaching Solutions.
 
 OUICE-Dark theme: Copyright 2011 The Open University. All rights reserved.
  * Author: David Winter <d.j.winter+@+open.ac.uk> / LTS.

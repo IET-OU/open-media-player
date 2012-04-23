@@ -99,7 +99,7 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 
 /* OUVLE 'beige' styles.
 */
-#page-mod-oucontent-view .oucontent-s-heavybox2 .oucontent-inner-box {
+#X-page-mod-oucontent-view .oucontent-s-heavybox2 .oucontent-inner-box {
   background-color: #ECEDD8;
   border: 1px solid #CCC;
   -moz-border-radius-bottomleft: 5px;
@@ -109,7 +109,7 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
   border-bottom-right-radius: 5px; /* should be left! */
   border-bottom-right-radius: 5px;
 }
-#page-mod-oucontent-view .oucontent-inner-box {
+#X-page-mod-oucontent-view .oucontent-inner-box {
   padding: 1px 10px 5px;
   margin: 0;
 }
