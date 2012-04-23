@@ -27,6 +27,8 @@
 					, offset = $(tg).offset()
 					, body_width = $('body').width() //Ender doesn't like $(window).width()
 					, left
+					// Woops, Ender & jQuery disagree for 'top' - .height() maybe?
+					, offY = typeof $.ender=='undefined' ? op.tooltipOffsetY : op.tooltipOffsetY - 10
 					;
 
 					//if (tg.tagName!='BUTTON' || tg.tagName!='A') return;
@@ -40,7 +42,9 @@
 						//tip.className = 'oup-tooltip show';
 				  		tip.removeClass('hide').addClass('show');
 				  		tip.html(tg.title);
-						tip.css('top', (offset.top - tip.height() - op.tooltipOffsetY) +'px');
+				  		// Woops, Ender & jQuery disagree for 'top' - .height() maybe?
+						offY = typeof $.ender=='undefined' ? op.tooltipOffsetY : op.tooltipOffsetY - 10;
+						tip.css('top', (offset.top - tip.height() - offY) +'px');
 						left = offset.left;
 						if (left + tip.width() >= body_width) {
 							left = body_width - tip.width() - op.tooltipOffsetX;
