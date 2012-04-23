@@ -17,7 +17,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
 
   public $features =
-'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_fullscreenhover';
+'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_options,oup_fullscreenhover,googleanalytics';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
 
@@ -73,7 +73,8 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $oups_base.'mep-oup-feature-tooltip.js', #Experimental!
 	  $oups_base.'mep-oup-feature-group.js',
       $oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
-	  $oups_base.'mep-oup-feature-ignore-color.js',    # High contrast/ignore colour accessibility fix.
+      $oups_base.'mep-oup-feature-copyembed.js',   #Experimental.
+      $oups_base.'mep-oup-feature-ignore-color.js',    # High contrast/ignore colour accessibility fix.
     );
   }
 }
