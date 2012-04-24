@@ -24,6 +24,15 @@ if ($original) {
 }
 $player_url = str_replace('"', '', json_encode($player_url_unenc));
 
+
+// Player 'foreground' colour.
+$player_param = '';
+$rgb = $input->get('rgb');
+if ($rgb) {
+  $player_param .= "&amp;rgb=$rgb";
+}
+
+
 // URL for stylesheets, Javascript, images etc.
 $resource_url = 'http://learn3.open.ac.uk';
 
@@ -152,11 +161,12 @@ document.body.className += ' jsenabled';
 <iframe
  id="mediaid4260259"
  class="flv video player"
- tabindex="0" title="Audio player: Overview" width="342" height="256" frameborder="0" scrolling="no" style="overflow:hidden"
- src="<?= $player_url_unenc ?>?title=Audio+player%3A+Overview&amp;media_url=http%3A%2F%2Flearn.open.ac.uk/file.php/5195/!via/oucontent/course/137628/robodog.flv&amp;width=342&amp;height=256"
+ tabindex="0" title="Video player: robodog/FLV" width="342" height="256" frameborder="0" scrolling="no" style="overflow:hidden"
+ src="<?= $player_url_unenc ?>?title=Video+player%3A+robodog/FLV&amp;media_url=http%3A%2F%2Flearn.open.ac.uk/file.php/5195/!via/oucontent/course/137628/robodog.flv&amp;width=342&amp;height=256<?=$player_param ?>"
  ></iframe>
 <!--
  A sample video (from T184)
+ SC / ► Using structured content / ► 2.5.4 How to embed video files (.mp4 ...
  http://learn.open.ac.uk/mod/oucontent/view.php?id=426478&section=2.5.4
 -->
 <div class="oucontent-default-filter"><span class="oumediafilter"><a id="dl_mediaid4260259" href="http://learn.open.ac.uk/file.php/5195/!via/oucontent/course/137628/robodog.flv?forcedownload=1" class="oumedialinknoscript">Download this video clip.</a></div>
@@ -164,19 +174,19 @@ document.body.className += ' jsenabled';
 
 <h3 class="oucontent-h4 oucontent-basic">Overview</h3><div class="oucontent-media" style="width:342px;"><div class="oucontent-default-filter"><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_lg1_intro_jonl_hq.mp3?forcedownload=1" class="oumedialinknoscript">Download this audio clip.</a><span id="filter_mp3_3997610445"></span></span><script type="text/javascript">
 //<![CDATA[
-document.getElementById("filter_mp3_3997610445").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Overview\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Overview&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_lg1_intro_jonl_hq.mp3&amp;width=342&amp;height=30\"><\/iframe>";
+document.getElementById("filter_mp3_3997610445").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Overview\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Overview&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_lg1_intro_jonl_hq.mp3&amp;width=342&amp;height=30<?=$player_param ?>\"><\/iframe>";
 
 //]]>
 </script>
 </div><div class="oucontent-figure-text"><div class="oucontent-transcriptlink"><a href="<?=$transcript_url ?>view.php?id=718&amp;extra=transcript_id394406960049" title="Transcript (opens in new window)" onclick="return oucontentTranscript('<?=$transcript_url ?>view.php?id=718&amp;extra=transcript_id394406960049')">Transcript <img src="<?= $icon_url ?>newwindow.png" alt="(opens in new window)"/></a></div><a name="transcript_id394406960049" id="back_transcript_id394406960049"></a><div class="oucontent-audiodownloadlink"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_lg1_intro_jonl_hq.mp3?forcedownload=1" title="Download this audio clip">Download</a></div><div class="oucontent-caption oucontent-nonumber"><span class="oucontent-figure-caption">Overview</span></div></div></div><h3 class="oucontent-h4 oucontent-basic">Activity 1.1</h3><div class="oucontent-media oucontent-media-mini"><div class="oucontent-default-filter "><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_b1_vid001_320x176.mp4?forcedownload=1" class="oumedialinknoscript">Download this video clip.</a><span id="filter_video_9612558355"></span></span><script type="text/javascript">
 //<![CDATA[
-document.getElementById("filter_video_9612558355").innerHTML = "<iframe tabindex=\"0\" title=\"Video player: Introducing \" width=\"320\" height=\"206\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Video+player%3A+Introducing+&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_vid001_320x176.mp4&amp;width=320&amp;height=206&amp;caption_url=k217_2010j_b1_vid001_320x176.srt\"><\/iframe>";
+document.getElementById("filter_video_9612558355").innerHTML = "<iframe tabindex=\"0\" title=\"Video player: Introducing \" width=\"320\" height=\"206\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Video+player%3A+Introducing+&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_vid001_320x176.mp4&amp;width=320&amp;height=206&amp;caption_url=k217_2010j_b1_vid001_320x176.srt<?=$player_param ?>\"><\/iframe>";
 
 //]]>
 </script>
 </div><div class="oucontent-figure-text"><div class="oucontent-transcriptlink"><a href="<?=$transcript_url ?>view.php?id=718&amp;extra=transcript_id394406960094" title="Transcript (opens in new window)" onclick="return oucontentTranscript('<?=$transcript_url ?>view.php?id=718&amp;extra=transcript_id394406960094')">Transcript <img src="<?= $icon_url ?>newwindow.png" alt="(opens in new window)"/></a></div><a name="transcript_id394406960094" id="back_transcript_id394406960094"></a><div class="oucontent-caption oucontent-nonumber"><span class="oucontent-figure-caption">Introducing Trevor and Dahlia</span></div></div></div><div class="oucontent-media" style="width:342px;"><div class="oucontent-default-filter"><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_b1_a001_asset1.mp3?forcedownload=1" class="oumedialinknoscript">Download this audio clip.</a><span id="filter_mp3_212651557046"></span></span><script type="text/javascript">
 //<![CDATA[
-document.getElementById("filter_mp3_212651557046").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Basic needs\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Basic+needs&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_a001_asset1.mp3&amp;width=342&amp;height=30\"><\/iframe>";
+document.getElementById("filter_mp3_212651557046").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Basic needs\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Basic+needs&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_a001_asset1.mp3&amp;width=342&amp;height=30<?=$player_param ?>\"><\/iframe>";
 
 //]]>
 </script>
@@ -184,7 +194,7 @@ document.getElementById("filter_mp3_212651557046").innerHTML = "<iframe tabindex
 
 <div class="oucontent-media" style="width:342px;"><div class="oucontent-default-filter"><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_b1_a001_asset2.mp3?forcedownload=1" class="oumedialinknoscript">Download this audio clip.</a><span id="filter_mp3_187370458447"></span></span><script type="text/javascript">
 //<![CDATA[
-document.getElementById("filter_mp3_187370458447").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Lyn\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Lyn&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_a001_asset2.mp3&amp;width=342&amp;height=30\"><\/iframe>";
+document.getElementById("filter_mp3_187370458447").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Lyn\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Lyn&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_a001_asset2.mp3&amp;width=342&amp;height=30<?=$player_param ?>\"><\/iframe>";
 
 //]]>
 </script>
@@ -201,7 +211,7 @@ document.getElementById("filter_mp3_187370458447").innerHTML = "<iframe tabindex
 
 <div class="oucontent-media" style="width:342px;"><div class="oucontent-default-filter"><span class="oumediafilter"><a href="http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_b1_a021_asset3d_hi.mp3?forcedownload=1" class="oumedialinknoscript">Download this audio clip.</a><span id="filter_mp3_149220040266"></span></span><script type="text/javascript">
 //<![CDATA[
-document.getElementById("filter_mp3_149220040266").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Part 3\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Part+3&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_a021_asset3d_hi.mp3&amp;width=342&amp;height=30\"><\/iframe>";
+document.getElementById("filter_mp3_149220040266").innerHTML = "<iframe tabindex=\"0\" title=\"Audio player: Part 3\" width=\"342\" height=\"<?=$audio_height ?>\" frameborder=\"0\" scrolling=\"no\" style=\"overflow:hidden\" src=\"<?= $player_url ?>?title=Audio+player%3A+Part+3&amp;media_url=http%3A%2F%2Flearn3.open.ac.uk%2Fpluginfile.php%2F808%2Fmod_oucontent%2Foucontent%2F103%2Fk217_2010j_b1_a021_asset3d_hi.mp3&amp;width=342&amp;height=30<?=$player_param ?>\"><\/iframe>";
 
 //]]>
 </script>
