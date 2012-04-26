@@ -10,12 +10,11 @@ class Gitlib {
 
     protected $_hash;
     protected $CI;
-    //protected $rev_path;
-    const REVISION_FILE;
+
+    const REVISION_FILE = "{__DIR__}/../.gitrevision";
 
     public function __construct() {
         $this->CI =& get_instance();
-        //$this->rev_path = APPPATH .'/../.gitrevision';
     }
 
     /**
@@ -33,19 +32,6 @@ class Gitlib {
         $this->_hash = $log->commit;
 
         return substr($this->_hash, 0, $length);
-
-//Old..
-        $result = self::_exec('log -1');
-        if (preg_match('/commit (\w+)/', $result, $matches)) {
-            $this->_hash = $matches[1];
-
-            return substr($this->_hash, 0, $length);
-        }
-
-        var_dump($result);
-    	exit;
-
-        return FALSE;
     }
 
     /** Save revision meta-data to a '.' file.
@@ -65,7 +51,7 @@ class Gitlib {
             }
         }
 
-        $bytes = file_put_contents(self::REVISION_FILE, json_encode($result)); //$this->rev_path
+        $bytes = file_put_contents(self::REVISION_FILE, json_encode($result));
 
         return $result;
     }
@@ -123,6 +109,3 @@ class Gitlib {
     }
 
 }
-
-#$git = new Gitlib();
-#echo $git->lastHash();
