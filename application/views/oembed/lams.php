@@ -25,40 +25,40 @@ TODO: scale the image.
     ob_start();
 
     ?>
-<link class='LAMS-css' rel='stylesheet' href='<?=$base_url ?>assets/services/lams.css' /><style>
-<?php /*MSIE 7: @import url(<?=$base_url ?>assets/services/lams.css);*/ ?>
-.lams.oembed .seq object, .lams.oembed .seq img{width:<?=$img_width ?>px; height:<?=$img_height ?>px;}
-</style><div class='lams oembed' about='<?=$url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#' xmlns:bz='http://digitalbazaar.com/media/'><div class="head">
+<link class='LAMS-css' rel='stylesheet' href='<?php echo $base_url ?>assets/services/lams.css' /><style>
+<?php /*MSIE 7: @import url(<?php echo $base_url ?>assets/services/lams.css);*/ ?>
+.lams.oembed .seq object, .lams.oembed .seq img{width:<?php echo $img_width ?>px; height:<?php echo $img_height ?>px;}
+</style><div class='lams oembed' about='<?php echo $url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#' xmlns:bz='http://digitalbazaar.com/media/'><div class="head">
 <?php ///Translators: LAMS, Learning Activity Management System. ?>
- <a class="logo" href="http://lamscommunity.org/" rel='dct:publisher' property='dct:publisher' content='LAMS'><img alt="<?=t('LAMS community') ?>" title="<?=t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
- <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?=$meta->title ?></h3>
- <?=t('By: %s', '')?><a class="xp-popup" property="cc:attributionName" rel="cc:attributionURL"
+ <a class="logo" href="http://lamscommunity.org/" rel='dct:publisher' property='dct:publisher' content='LAMS'><img alt="<?php echo t('LAMS community') ?>" title="<?php echo t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
+ <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?php echo $meta->title ?></h3>
+ <?php echo t('By: %s', '')?><a class="xp-popup" property="cc:attributionName" rel="cc:attributionURL"
  data-xp-width="1124" data-xp-height="700"
- href="<?=$meta->author_url ?>" target="lams-win"
- title="<?=t('Open in new window') ?>"><?=$meta->author ?><?php /*<span>, <-?=t('Open in new window') ?-></span>*/ ?></a> &nbsp;
- <?=t('License: %s', '')?><a rel="license" class="cc-by-nc-sa"
+ href="<?php echo $meta->author_url ?>" target="lams-win"
+ title="<?php echo t('Open in new window') ?>"><?php echo $meta->author ?><?php /*<span>, <-?=t('Open in new window') ?-></span>*/ ?></a> &nbsp;
+ <?php echo t('License: %s', '')?><a rel="license" class="cc-by-nc-sa"
  href="http://creativecommons.org/licenses/by-nc-sa/2.0/"
- title="Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Unported License"><?=t('Creative Commons License') ?></a>
+ title="Creative Commons Attribution-NonCommercial-ShareAlike 2.0 Unported License"><?php echo t('Creative Commons License') ?></a>
  </div>
- <p class="seq"><?php /*MSIE: <object type="image/svg+xml" data="<?=$meta->_svg_url ?>">*/ ?>
-  <img alt="<?=t('The LAMS sequence.') ?>" src="<?=$meta->thumbnail_url ?>" />
+ <p class="seq"><?php /*MSIE: <object type="image/svg+xml" data="<?php echo $meta->_svg_url ?>">*/ ?>
+  <img alt="<?php echo t('The LAMS sequence.') ?>" src="<?php echo $meta->thumbnail_url ?>" />
  <?php /*</object>*/ ?></p>
  <a class="xp-popup zoom btn" data-xp-width="780" data-xp-height="298" target="lams-win" rel="bz:download"
- href="<?=$meta->thumbnail_url ?>"
- title="<?=t('Open in new window') ?>"><?=t('Zoom<s>, new window') ?></span><!--764+15, 241+55--></a>
+ href="<?php echo $meta->thumbnail_url ?>"
+ title="<?php echo t('Open in new window') ?>"><?php echo t('Zoom<s>, new window') ?></span><!--764+15, 241+55--></a>
  <p class="foot">
 | <a class="xp-popup button" href=
-"http://lamscommunity.org/lamscentral/preview?ld_id=<?=$meta->_preview_id ?>" title="<?=t('Open in new window') ?>"><?=t('Preview<s>, new window') ?></span></a>
-| <a class="xp-popup button" href="http://lessonlams.com/lams/cloud/import.do?sequenceLocation=http://lamscommunity.org/seqs/<?=$meta->_seq_id ?>.zip" title="<?=t('Open in new window') ?>"
- ><?=t('Open in Lesson LAMS<s>, new window') ?></span></a>
+"http://lamscommunity.org/lamscentral/preview?ld_id=<?php echo $meta->_preview_id ?>" title="<?php echo t('Open in new window') ?>"><?php echo t('Preview<s>, new window') ?></span></a>
+| <a class="xp-popup button" href="http://lessonlams.com/lams/cloud/import.do?sequenceLocation=http://lamscommunity.org/seqs/<?php echo $meta->_seq_id ?>.zip" title="<?php echo t('Open in new window') ?>"
+ ><?php echo t('Open in Lesson LAMS<s>, new window') ?></span></a>
 | <a class="xp-popup button details" rel="dct:source"
  data-xp-width-0="1124" data-xp-height="700" data-xp-resizable=1 data-xp-scrollbars=1 
- href="http://lamscommunity.org/lamscentral/sequence?seq_id=<?=$meta->_seq_id ?>"
- target="_blank" title="<?=t('Open in new window') ?>"
- ><?=t('Full Info<s>, new window') ?></span></a>
-|  <a class="svg button" href="<?=$meta->_svg_url ?>" rel='bz:download'><abbr title="<?=t('Scalable Vector Graphic') ?>">SVG</abbr></a>
+ href="http://lamscommunity.org/lamscentral/sequence?seq_id=<?php echo $meta->_seq_id ?>"
+ target="_blank" title="<?php echo t('Open in new window') ?>"
+ ><?php echo t('Full Info<s>, new window') ?></span></a>
+|  <a class="svg button" href="<?php echo $meta->_svg_url ?>" rel='bz:download'><abbr title="<?php echo t('Scalable Vector Graphic') ?>">SVG</abbr></a>
 |</p>
-<?=$tracker ?></div>
+<?php echo $tracker ?></div>
 <?php
     $html = ob_get_clean();
 //EOF;
