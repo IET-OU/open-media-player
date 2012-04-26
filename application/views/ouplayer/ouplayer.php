@@ -59,24 +59,24 @@ $this->load->view('ouplayer/oup_analytics');
 
 $body_classes = $this->load->view('ouplayer/oup_bodyclass', '', true);
 ?>
-<body role="application" id="ouplayer" class="<?=$body_classes ?>">
+<body role="application" id="ouplayer" class="<?php echo $body_classes ?>">
 
 <div id="XX-ouplayer-outer">
 
 <?php //=$audio_poster ?>
-<div id="ouplayer-div" data-XX-style="width:<?=$meta->width ?>px; height:<?=$meta->object_height ?>px;">
-<?=$inner ?>
+<div id="ouplayer-div" data-XX-style="width:<?php echo $meta->width ?>px; height:<?php echo $meta->object_height ?>px;">
+<?php echo $inner ?>
 
 </div>
 
 <?php if(isset($meta->transcript_html) && ($meta->transcript_html || $debug)): ?>
 <div role="document" id="transcript" class="oup-tscript-panel" >
-<button class="tscript-close" aria-label="<?=('Close')?>" title="<?=t('Close script') ?>"><span>X</span></button>
-<a class="pdf icon" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
+<button class="tscript-close" aria-label="<?php echo ('Close')?>" title="<?php echo t('Close script') ?>"><span>X</span></button>
+<a class="pdf icon" href="<?php echo $meta->transcript_url ?>" target="_blank" title="<?php echo t('New window: %s', t('PDF')) ?>"><span><?php echo t('Download transcript') ?></span></a>
 <div class="transcript">
-<?= $meta->transcript_html ? $meta->transcript_html : '[No transcript - debug]'; ?>
+<?php echo $meta->transcript_html ? $meta->transcript_html : '[No transcript - debug]'; ?>
 </div>
-<button class="tscript-close tscript-close-end" aria-label="<?=('Close')?>" title="<?=t('Close script') ?>"><span>X</span></button>
+<button class="tscript-close tscript-close-end" aria-label="<?php echo ('Close')?>" title="<?php echo t('Close script') ?>"><span>X</span></button>
 </div>
 <?php endif; ?>
 
@@ -97,7 +97,7 @@ $body_classes = $this->load->view('ouplayer/oup_bodyclass', '', true);
 ?>
 
 <div id="media-links" style="display:none">
-  <a href="<?=$meta->media_url ?>"><?=t('Download %s', $meta->title) ?></a>
+  <a href="<?php echo $meta->media_url ?>"><?php echo t('Download %s', $meta->title) ?></a>
 </div>
 
 <div role="tooltip" id="oup-tooltips"></div>
@@ -116,7 +116,7 @@ if (OUP.supports_flash()) {
   $flow_key = config_item('flowplayer_key');
 ?>
   //Accessibility: wmode=opaque would be inaccessible if we relied on Flash controls.
-  OUP.player = $f("ouplayer-div", {src:"<?=$base_url ?><?=_flowplayer_flash() ?>", wmode:'opaque'}, {
+  OUP.player = $f("ouplayer-div", {src:"<?php echo $base_url ?><?php echo _flowplayer_flash() ?>", wmode:'opaque'}, {
 
     onError: function(code, message){
       OUP.log('onError: '+code+', '+message);
@@ -125,7 +125,7 @@ if (OUP.supports_flash()) {
 <?php if ($flow_key){ echo "key:'$flow_key',"; } ?>
 
     clip:{
-<?php /*url: "<?=$meta->media_url ?->",*/ ?>
+<?php /*url: "<?php echo $meta->media_url ?->",*/ ?>
 	  scaling: 'fit',
 	  autoPlay:false,
 	  autoBuffering:true,
@@ -134,17 +134,17 @@ if (OUP.supports_flash()) {
 	},
 
     playlist:[
-      {"url":"<?=$meta->media_url ?>" <?php if ('audio'==$meta->media_type && $meta->poster_url): ?>
-, coverImage:{"url":"<?=$meta->poster_url ?>"}<?php endif; ?><?php if ($meta->caption_url): ?>
+      {"url":"<?php echo $meta->media_url ?>" <?php if ('audio'==$meta->media_type && $meta->poster_url): ?>
+, coverImage:{"url":"<?php echo $meta->poster_url ?>"}<?php endif; ?><?php if ($meta->caption_url): ?>
       ,
-      "captionUrl":"<?=$meta->caption_url ?>"<?php endif; ?>}
+      "captionUrl":"<?php echo $meta->caption_url ?>"<?php endif; ?>}
     ],
 
     plugins: {
 <?php if ($meta->caption_url): ?>
-"captions":{"url":"<?=_flowplayer_plugin('captions', '3.2.3') ?>", "captionTarget":"content", "button":null},
+"captions":{"url":"<?php echo _flowplayer_plugin('captions', '3.2.3') ?>", "captionTarget":"content", "button":null},
 "content": {
-  "url":"<?=_flowplayer_plugin('content', '3.2.0') ?>",
+  "url":"<?php echo _flowplayer_plugin('content', '3.2.0') ?>",
   "display":"none",
   "bottom":5, //30,
 <?php /*"width":"90%"<-?=($meta->width - 60) //Percent fails - why? */
@@ -181,13 +181,13 @@ if (OUP.supports_flash()) {
 
 <?php if(isset($google_analytics) && $google_analytics): ?>
     gatracker: {
-      url:"<?=_flowplayer_plugin('analytics', '3.2.2') ?>",
+      url:"<?php echo _flowplayer_plugin('analytics', '3.2.2') ?>",
 
 <?php // track all possible events. By default only Start and Stop 
       // are tracked with their corresponding playhead time. ?>
       events:{ all:true, finish:'Finish' },
       //debug: true,
-      accountId: "<?=$google_analytics ?>" // your Google Analytics id here
+      accountId: "<?php echo $google_analytics ?>" // your Google Analytics id here
 	},
 <?php endif; ?>
 
@@ -196,12 +196,12 @@ if (OUP.supports_flash()) {
 <?php    //plugins: {controls:{autohide:false}}
 
   // install HTML controls inside element whose id is "X". ?>
-  }).controls("controls", {duration: <?=$meta->duration ? $meta->duration : 0 ?>});
+  }).controls("controls", {duration: <?php echo $meta->duration ? $meta->duration : 0 ?>});
 
   OUP.initialize();
 }
 else{
-  OUP.html5_fallback('<?=$meta->media_type ?>');
+  OUP.html5_fallback('<?php echo $meta->media_type ?>');
 }
 });
 </script>

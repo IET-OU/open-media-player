@@ -34,42 +34,42 @@ $about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
 $base_url = base_url();
 
 ?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=$restrict_text ?> | <?=t('OU player') ?></title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo $restrict_text ?> | <?php echo t('OU player') ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
-<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
+<link rel="stylesheet" href="<?php echo $base_url ?>assets/ouplayer/ouplayer.core.css" />
 <?php if (isset($theme->styles)): ?>
-<link rel="stylesheet" href="<?=$base_url ?>assets/<?=$theme->styles ?>" />
+<link rel="stylesheet" href="<?php echo $base_url ?>assets/<?php echo $theme->styles ?>" />
 <?php endif; ?>
-<link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
+<link rel="icon" href="<?php echo $base_url ?>assets/favicon.ico" />
 
 <?php
 $this->load->view('ouplayer/oup_analytics');
 ?>
-<body id="ouplayer" class="oup mode-embed restrict access-<?=$restrict_class ?>">
+<body id="ouplayer" class="oup mode-embed restrict access-<?php echo $restrict_class ?>">
 
 <div id="ouplayer-div">
 <?php if ($meta->poster_url): ?>
-  <img class="oup-poster" alt="" src="<?=$meta->poster_url ?>" />
+  <img class="oup-poster" alt="" src="<?php echo $meta->poster_url ?>" />
 <?php endif; ?>
 </div>
 
 <div id="title" class="oup-title panel titletoolbar">
-  <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
-  <img class="ou-home logo" alt="Open University logo" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
+  <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?php echo site_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
+  <img class="ou-home logo" alt="Open University logo" src="<?php echo site_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
-  <li><h1><?=$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
+  <li><h1><?php echo $meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
   <?php if ('Y'==$meta->_access['intranet_only']): ?>
-  <li class="restrict-text"><?=t('Staff/student access only') ?></li>
+  <li class="restrict-text"><?php echo t('Staff/student access only') ?></li>
   <?php endif; ?>
 
-  <li><a target="_blank" href="https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL=<?=/*urlencode*/($popup_url) ?>"
-	class="login popout" ><?=t('Log in and launch the player in a new window') ?></a></li>
+  <li><a target="_blank" href="https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL=<?php echo /*urlencode*/($popup_url) ?>"
+	class="login popout" ><?php echo t('Log in and launch the player in a new window') ?></a></li>
 
   <li>  <?php if(isset($meta->_related_url) && $meta->_related_url){
     echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window')));
   } ?></li>
-  <li><a class="about" href="<?=$about_url ?>" title="<?=t('New window') ?>"><?=t('About the player') ?></a></li>
+  <li><a class="about" href="<?php echo $about_url ?>" title="<?php echo t('New window') ?>"><?php echo t('About the player') ?></a></li>
   </ul>
 </div>
 

@@ -5,7 +5,7 @@
   //<meta> below - try to ensure the most recent MSIE rendering engine
   //@header('X-UA-Compatible: IE=edge');
 ?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?=$meta->title ?> | <?=t('OU player') ?></title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo t('OU player') ?></title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
@@ -17,7 +17,7 @@ for (var i=0; i < e.length; i++){ document.createElement(e[i]); }
 </script>
 <![endif]-->
 
-<link rel="stylesheet" href="<?=$base_url ?>assets/ouplayer/ouplayer.core.css" />
+<link rel="stylesheet" href="<?php echo $base_url ?>assets/ouplayer/ouplayer.core.css" />
 <?php
 if (isset($theme->styles)):
   $n_themes=0;
@@ -29,15 +29,15 @@ if (isset($theme->styles)):
       $n_themes++;
     }
 ?>
-<link rel="<?=$trel ?>stylesheet" href="<?=$base_url ?>assets/<?=$theme_r['styles'] ?>" title="<?=t('OU player') ?>: <?=t($theme_r['title']) ?>" />
+<link rel="<?php echo $trel ?>stylesheet" href="<?php echo $base_url ?>assets/<?php echo $theme_r['styles'] ?>" title="<?php echo t('OU player') ?>: <?php echo t($theme_r['title']) ?>" />
 <?php
   endforeach;
   if (!$n_themes): ?>
-<link rel="stylesheet" href="<?=$base_url ?>assets/<?=$theme->styles ?>" />
+<link rel="stylesheet" href="<?php echo $base_url ?>assets/<?php echo $theme->styles ?>" />
 <?php
   endif;
 endif; ?>
-<link rel="icon" href="<?=$base_url ?>assets/favicon.ico" />
+<link rel="icon" href="<?php echo $base_url ?>assets/favicon.ico" />
 
 <?php /*
 <script type="text/javascript" src="http://www.universalsubtitles.org/site_media/js/mirosubs-widgetizer.js">
