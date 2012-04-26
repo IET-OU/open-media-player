@@ -32,7 +32,9 @@ class MY_Controller extends CI_Controller {
     #$this->firephp->fb($_SERVER, 'OUP', 'INFO');
     #$this->firephp->log('test');
 
-    $this->lang->initialize();
+    if (! $this->input->is_cli_request()) {
+      $this->lang->initialize();
+    }
   }
 
   /** Initialize the player, including the theme (Embed and Popup controllers).
