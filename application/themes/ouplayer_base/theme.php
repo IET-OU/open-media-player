@@ -24,7 +24,9 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public function __construct() {
     parent::__construct();
 
-    $this->origin  = $this->CI->agent->referrer();
+    if (! $this->CI->input->is_cli_request()) {
+      $this->origin  = $this->CI->agent->referrer();
+    }
 
     // Hmm, $this->name won't be correct in child themes!
     $theme_name = str_replace('_theme', '', strtolower(__CLASS__));

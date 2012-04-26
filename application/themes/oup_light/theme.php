@@ -32,7 +32,7 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme {
     // Add the light theme top-level styles to the array.
     $this->styles[] = "themes/$this->name/css/oup-light.css";
 
-    $this->css_min = "themes/$this->name/build/oup-light-ouplayer-mediaelement.css";
+    $this->css_min = "themes/$this->name/build/oup-light-ouplayer-mediaelement.min.css";
 
 
 	// Feature: currently we don't support 'High-definition'.
