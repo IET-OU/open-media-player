@@ -15,20 +15,28 @@ date_default_timezone_set('Europe/London');
 // Debugging.
 $config['debug'] = OUP_DEBUG_NONE;
 
-// If TRUE, use the feed model, otherwise, use the database model (requires a config/database.php file).
+// Required/Podcast. If TRUE, use the feed model, otherwise, use the database model (requires a config/database.php file).
 $config['podcast_data_use_feed'] = true;
 
-// The name of the remote RSS feed file.
+// Required/Podcast. Required for feed access model - the default.
+$config['podcast_feed_url_pattern'] =
+    "http://example.org/feeds/__COLLECTION_ID__/rss2-extended.xml";
+
+// (Removed/Podcast. The name of the remote RSS feed file.)
 //$config['podcast_feed_file'] = '';
 
-// Optional: regular expression for media_url, for OUVLE and OpenLearn players.
+// (Alternative/Podcast. Required for database access model. No trailing '/')
+//$config['podcast_media_base'] = 'http://example.org/feeds';
+
+// Optional/VLE: regular expression for media_url, for OUVLE and OpenLearn players.
+// If used, must contain one (ext1|ext2..) group.
 //$config['media_url_regex'] = '/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/';
 
 // Either NULL, 'ender' (maybe for OUVLE?) or 'jquery' (maybe for Podcast?)
 // NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
 //$config['jslib'] = NULL;
 
-// Debugging: always make requests to upstream servers.
+// Debugging/OU-embed: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
 // Experimental.
@@ -54,11 +62,14 @@ $config['flowplayer_version'] = '3.1.5';*/
 //Was: $config['ouplayer_video_codec'] = 'avc1.42E01E, mp4a.40.2';
 //$config['ouplayer_video_type'] = 'type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\'';
 
-// Set the data directory.
+// Required/All. Set the data directory.
 $config['data_dir'] = '/var/www/_ouplayer_data/';
 #$config['data_dir'] = 'C:/Users/ndf42/workspace/_ouplayer_data/';
 
-// Optionally, set the path to a pdftohtml binary executable (not required on Redhat 6).
+// Optional. Use if Git is not in the PATH variable.
+//$config['git_path'] = "/usr/local/git/bin/git";  #Mac OS X
+
+// Optional. Set the path to the pdftohtml binary (not required on Redhat 6).
 #$config['pdftohtml_path'] = $config['data_dir'].'pdftohtml-0.39/pdftohtml.exe';
 
 // Which embed providers are live on this server?
