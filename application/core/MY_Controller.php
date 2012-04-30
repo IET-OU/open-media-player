@@ -101,13 +101,22 @@ class MY_Controller extends CI_Controller {
     #$this->firephp->fb("$code: $message", $from, 'ERROR');
     $this->_log('error', "$from: $code, $message");
     @header("HTTP/1.1 $code");
+    if ('oembed' != $this->uri->segment(1)
+      && 'timedtext' != $this->uri->segment(1)) {
+
+      $ex =& load_class('Exceptions', 'core');
+      echo $ex->show_error(t('OU Player error'), "Message: $message", 'error_general', $code);
+      exit;
+    } else {
+
     @header('Content-Type: text/plain; charset=utf-8');
     // For now, just output plain text.
     echo "$code. Error, $message".PHP_EOL;
     if ($obj) { // ??
       print_r($obj);
     }
-    die();
+      exit;
+    }
   }
 
   public function _log($level='error', $message, $php_error=FALSE) {
