@@ -12,15 +12,38 @@ require_once 'podcast_items_abstract_model.php';
 
 class Podcast_items_feed_model extends Podcast_items_abstract_model {
 
+	const COLLECTION_ID = '__COLLECTION_ID__';
+
+
 	public function __construct() {
 		parent::__construct();
 
 		$this->load->library('Http');
 	}
 
+	/** Test OU Podcast feed configuration and return the feed URL.
+	* @return string
+	*/
+	protected function _feed_url($basename, $shortcode) {
+		$url_pattern = $this->config->item('podcast_feed_url_pattern');
+		$locate = "\$config[podcast_feed_url_pattern] in 'config/embed_config.php'";
+		if (! $url_pattern) {
+			//ERROR 503.
+			$this->_error("Missing or empty $locate", 503);
+		}
+		if (FALSE !== strpos($url_pattern, 'example.org')) {
+			$this->_error("Invalid host in $locate", 503);
+		}
+		if (FALSE === strpos($url_pattern, self::COLLECTION_ID)) {
+			$this->_error("Missing {self::COLLECTION_ID} in $locate", 503);
+		}
+		$pu = parse_url($url_pattern);
+		if (!isset($pu['scheme']) || !isset($pu['host']) || !isset($pu['path'])) {
+			$this->_error("Invalid URL in $locate", 503);
+		}
+		return str_replace(self::COLLECTION_ID, $basename, $url_pattern);
 
-	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {
-
+		/*
 		$podcast_feed_file = $this->config->item('podcast_feed_file');
 		if (! $podcast_feed_file) {
 			//ERROR 503.
@@ -28,23 +51,30 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		}
 		$pod_base = Oupodcast_serv::POD_BASE;
 		$url = $pod_base."/feeds/$basename/". $podcast_feed_file;
+		*/
+	}
+
+
+	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {
+
+		$url = $this->_feed_url($basename, $shortcode);
 
 		$result = $this->http->request($url);
 		if (! $result->success) {
 			//ERROR.
 			if ($result->info['http_code'] == 404) {
-				$this->_error("(feed error) feed not found.",
-							404, null, array('url'=>$url));
-			}
-			$this->_error("(feed error) unknown error.", 500, null, $result);
+				$this->_error("Podcast data feed not found.",
+						404, null, array('url'=>$url));
+			} //ELSE:
+			$this->_error("Podcast data unknown error.", $result->info['http_code'], null, $result);
 		}
 
 		$this->_xmlo = $xmlo = simplexml_load_string($result->data);
 
 		if (! $xmlo) {
 			//ERROR: this can be caused by network errors.
-			$this->_error("(feed error) XML error.",
-							400, null, array('url'=>$url));
+			$this->_error("Podcast data XML error.",
+						400, null, array('url'=>$url));
 		}
 
 		foreach ($this->_xml_namespaces() as $prefix => $ns_uri) {
@@ -59,7 +89,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 			$item = $item[0];
 		} else {
 			//ERROR.
-			$this->_error("(feed error) can't get item.");
+			$this->_error("Podcast data item not found.", 404);
 			return FALSE;
 		}
 

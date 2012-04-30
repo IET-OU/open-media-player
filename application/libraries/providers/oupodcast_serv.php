@@ -10,7 +10,7 @@ require_once APPPATH.'libraries/ouplayer_lib.php';
 
 class Oupodcast_serv extends Base_service {
 
-  const POD_BASE = 'http://podcast.open.ac.uk';
+  //NDF: const POD_BASE = 'http://podcast.open.ac.uk';
 
   protected $CI;
 
@@ -38,7 +38,7 @@ class Oupodcast_serv extends Base_service {
   /** Used directly by embed controller.
   */
   public function _inner_call($basename, $fragment, $transcript=FALSE) {
-      $pod_base = self::POD_BASE;
+      //NDF: $pod_base = self::POD_BASE;
 
 	  $edge  = $this->CI->input->get('edge');
 	  $audio_poster= $this->CI->input->get('poster'); #Only for audio!
@@ -86,6 +86,11 @@ class Oupodcast_serv extends Base_service {
   }
 
   protected function _process_DB_result($result) {
+      $pod_base = $this->config->item('podcast_media_base');
+      if (! $pod_base) {
+        // NDF: needs testing!
+        $this->_error("Missing or empty \$config[podcast_media_base] in 'config/embed_config.php'", 503);
+      }
 
       // TODO: Access control - SAMS cookie.
       $access = array(
