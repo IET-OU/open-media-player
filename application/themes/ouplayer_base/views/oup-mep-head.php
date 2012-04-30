@@ -14,6 +14,7 @@
 <![endif]-->
 
 <meta name="robots" content="noindex,nofollow" />
+<meta name="generator" content="OU Player by IET" />
 <link rel="license" title="©2012 The Open University" href="http://www.open.ac.uk/copyright" />
 
 <!--
@@ -29,7 +30,7 @@
 <script src="<?=OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script>
 if(typeof jQuery=='undefined'){
-  document.write(unescape("%3Cscript src='<?php echo base_url().'application/'. $this->theme->plugin_path ?>jquery.js' %3E%3C/script%3E"));
+  document.write(unescape("%3Cscript src='<?php player_res_url($this->theme->plugin_path .'jquery.js') ?>' %3E%3C/script%3E"));
   CDN_fallback = true;
 }
 </script>
@@ -48,22 +49,22 @@ if(typeof $=='undefined'){
   CDN_fallback = true;
 }
 </script>
-<script src="<?php echo base_url().'application/'. $this->theme->js_path ?>jeesh-extras.js"></script>
+<script src="<?php player_res_url($this->theme->js_path. 'jeesh-extras.js') ?>"></script>
 <?php endif; ?>
 
 <?php
   if ($this->config->item('debug') > OUP_DEBUG_MIN):
     foreach ($this->theme->javascripts as $js_file): ?>
-<script src="<?php echo base_url().'application/'. $js_file ?>"></script>
+<script src="<?php player_res_url($js_file) ?>"></script>
 <?php
     endforeach;
   else:
 ?>
-<script src="<?php echo base_url().'application/'. $this->theme->js_min ?>"></script>
+<script src="<?php player_res_url($this->theme->js_min) ?>"></script>
 <?php endif; ?>
 
 <?php foreach ($this->theme->styles as $css_file): ?>
-<link rel="stylesheet" href="<?php echo base_url().'application/'. $css_file ?>" />
+<link rel="stylesheet" href="<?php player_res_url($css_file) ?>" />
 <?php endforeach; ?>
 
 <?php if ('mejs-ted'==$this->theme->name || 'mejs-wmp'==$this->theme->name): ?>

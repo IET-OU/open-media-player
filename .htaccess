@@ -31,7 +31,7 @@ DirectoryIndex index.php
 
     # Still some <\?= syntax in theme-views (<\?= supported in PHP 5.4 without this
     # setting, http://php.net/manual/en/ini.core.php#ini.short-open-tag )
-    # Temporary - not supported by OU-IT hosting.
+    # (Temporary - not supported by OU-IT hosting.)
     php_value  short_open_tag         1
 </IfModule>
 
@@ -73,7 +73,7 @@ DirectoryIndex index.php
 
 #ou-specific. For images, styles, scripts, SWFs.
 
-    RewriteRule ^(assets/.*)$ application/$1 [QSA,L]
+    RewriteRule ^(assets|engines|themes)(/.*)$ application/$1$2 [QSA,L]
     RewriteRule ^swf/(.*)$  application/assets/flowplayer/$1 [QSA,L]
 
 	##RewriteRule (crossdomain.xml)  application/assets/$1 [QSA,L]
