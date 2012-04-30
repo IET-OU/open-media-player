@@ -14,11 +14,15 @@
 
   $theme = 'theme-'. (isset($this->theme->name) ? $this->theme->name : 'legacy');
 
+  $allowfullscreen = 'video'==$meta->media_type ?
+      'allowfullscreen webkitallowfullscreen mozallowfullscreen' : '';
+
+
   //scrolling='no' - ?
   $html =<<<EOF
 <iframe class='ou player podcast oembed $meta->media_type $theme' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
- width='$meta->width' height='$meta->height' frameborder='0' scrolling='no' style='overflow:hidden;'
+ width='$meta->width' height='$meta->height' frameborder='0' scrolling='no' style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
 EOF;
   //src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'
