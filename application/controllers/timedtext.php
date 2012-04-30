@@ -18,7 +18,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 
-class Timedtext extends CI_Controller {
+class Timedtext extends MY_Controller { #CI_Controller {
 
 
   // Captions for Mediaelement-based players.
@@ -34,40 +34,56 @@ class Timedtext extends CI_Controller {
    */
   public function webvtt() {
 
-    $ttml_url = isset($_GET['url']) ? $_GET['url'] :
-      'http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml';
-    $debug = isset($_GET['debug']) ? $_GET['debug'] : null;
+    $ttml_url = $this->input->get('url');
+    #'http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml';
+    $debug = $this->input->get('debug');
 
     if (! $ttml_url) {
-      header("HTTP/1.0 400 Bad Request");
-      echo "Error, 'url' is a required parameter.";
-      exit;
+      $this->_error("Error, 'url' is a required parameter.", 400);
     }
 
-	$CI =& get_instance();
-	$CI->load->library('http');
 
-    $result = $CI->http->request($ttml_url, $spoof=FALSE);
-	//_http_request_curl($ttml_url);
+    // A naive check for SRT captions, from VLE etc.
+    $is_srt = FALSE !== strpos($ttml_url, '.srt');
+
+
+	$this->load->library('http');
+
+    $result = $this->http->request($ttml_url, $spoof=FALSE);
 
     if (! $result->success) {
-      header("HTTP/1.0 400 Bad Request");
-      echo "Error, ". $result->error;
-      var_dump($result->info);
-      exit;
+      if (404 == $result->info['http_code']) {
+        $this->_error('Caption file not found.', 404);
+      }
+      $this->_error('Caption request problem.', $result->info['http_code']);
+      #var_dump($result->info);
     }
 
-    /*simplexml_load_string*/
-    $xmlo = new SimpleXMLElement($result->data);
+
+    if (! $is_srt) {
+      $xmlo = @simplexml_load_string($result->data);
+      #$xmlo = new SimpleXMLElement($result->data);
+      if (! $xmlo) {
+        $this->_error('XML caption parsing problem.', 503);
+      }
+    }
 
     if ($debug) {
       header('Content-Type: text/plain; charset=UTF-8');
     } else {
       header('Content-Type: text/vtt; charset=UTF-8');
     }
-    @header('X-Input-TTML: '.$ttml_url);
+    @header('X-Input-Text-Track: '.$ttml_url); #Was: X-Input-TTML
     @header('Content-Disposition: inline; filename='.basename($ttml_url).'.vtt');
     echo 'WEBVTT'.PHP_EOL.PHP_EOL;
+
+
+    // Assume the SRT captions are well formed.
+    if ($is_srt) {
+      echo $result->data;
+      exit;
+    }
+
 
     // Get declared namespaces.
     $ns = $xmlo->getDocNamespaces();
