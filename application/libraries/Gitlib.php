@@ -50,6 +50,7 @@ class Gitlib {
                 if ('message'==$key) break;
             }
         }
+        $result['describe'] = trim($this->_exec('describe'));
 
         $bytes = file_put_contents(self::REVISION_FILE, json_encode($result));
 

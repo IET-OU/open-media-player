@@ -40,7 +40,7 @@ EOF;
 
     if ($this->input->is_cli_request()) {
       $this->load->library('Gitlib', null, 'git');
-      $this->git->put_revision();
+      $result = $this->git->put_revision();
 
       $this->_cli_builder();
     } else {
