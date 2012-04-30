@@ -4,6 +4,19 @@
  * @copyright Copyright 2011 The Open University.
  */
 
+
+/**
+* Output the URL for a Player-engine or theme resource.
+* Note, the URL is HTTP/SSL-neutral (//host/path) and contains a hash/version ID.
+* @return string
+*/
+function player_res_url($path) {
+  static $base_url;
+  if (! $base_url) $base_url = str_replace('http:/', '/', base_url());
+
+  echo $base_url. $path .'?v=0';
+}
+
 /** Return class and aria-label attributes for player controls.
 * @return string
 */
