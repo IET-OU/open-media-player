@@ -32,7 +32,7 @@ EOF;
 EOF;
   }
 ?>
-<!DOCTYPE html><html lang="en" role="application"><meta charset="utf-8" /><title><?=$meta->title ?> | OUVLE player</title>
+<!DOCTYPE html><html lang="en" role="application"><meta charset="utf-8" /><title><?php echo $meta->title ?> | OUVLE player</title>
 <!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
 
 <script>
@@ -46,18 +46,18 @@ object,img,audio,video{display:block;}
 </style>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
-<?=$audio_poster ?>
+<?php echo $audio_poster ?>
 <object tabindex="0" aria-label="Media player" type="application/x-shockwave-flash"
- width="<?=$meta->width ?>" height="<?=$meta->object_height ?>"
+ width="<?php echo $meta->width ?>" height="<?php echo $meta->object_height ?>"
  data="http://learn.open.ac.uk/local/mediaplayer.swf">
  <param name="movie" value="http://learn.open.ac.uk/local/mediaplayer.swf" />
  <param name="allowfullscreen" value="true" />
  <param name="flashvars" value=
-"file=<?=$meta->media_url ?>&amp;width=<?=$meta->width ?>&amp;height=<?=$meta->object_height ?>&amp;captions=<?=$meta->caption_url ?>" />
-<?=$inner ?>
+"file=<?php echo $meta->media_url ?>&amp;width=<?php echo $meta->width ?>&amp;height=<?php echo $meta->object_height ?>&amp;captions=<?php echo $meta->caption_url ?>" />
+<?php echo $inner ?>
 
 </object>
 <div id="media-links" style="display:none">
-  <a href="<?=$meta->media_url ?>">Download <?=$meta->title ?></a>
+  <a href="<?php echo $meta->media_url ?>">Download <?php echo $meta->title ?></a>
 </div>
 </html>
