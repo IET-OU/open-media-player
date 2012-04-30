@@ -35,6 +35,13 @@ class Demo extends MY_Controller {
 		$this->load->view('demo/oupodcast-demo', $view_data);
 	}
 
+
+    /** Error handling tests.
+    */
+    public function podcast_errors() {
+      $this->load->view('test/player-error-test');
+    }
+
     /** OUVLE demonstrations.
     */
 	public function vle() {
