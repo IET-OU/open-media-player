@@ -25,7 +25,10 @@ if ('en' != $lang_ui && 'en-gb' != $lang_ui && 'en-us' != $lang_ui):
     'pauseText' => t('Pause'),
 
     'muteonText' => t('Mute'),
-    'muteoffText' => t('Un mute'),
+// Accessibility: screen readers pronounce 'Unmute' OK,
+//https://docs.google.com/document/d/1nxCbhvBnuKwvnP-pNmLcuOWsfEoQaHcaKLLKurDkej4/edit
+// http://en.wiktionary.org/wiki/unmute
+    'muteoffText' => t('Unmute'),
     'quieterText' => t('Quieter'),
     'louderText' => t('Louder'),
     'volumeText' => t('Volume'),

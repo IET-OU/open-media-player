@@ -7,7 +7,9 @@
 
 	$.extend(mejs.MepDefaults, {
 		muteonText: 'Mute',
-		muteoffText: 'Un mute',
+		// Accessibility: screen readers pronounce 'Unmute' OK.
+		//+http://en.wiktionary.org/wiki/unmute
+		muteoffText: 'Unmute',
 		quieterText: 'Quieter',
 		louderText: 'Louder',
 		volumeText: 'Volume'
