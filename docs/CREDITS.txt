@@ -27,6 +27,10 @@ Based on codeigniter-reactor, changeset 2263:1b173956c908 (v2.0.0+) (6 mar.-10 d
 CodeIgniter: Copyright (c) 2008 - 2011, EllisLab, Inc.
  * License: <http://codeigniter.com/user_guide/license.html>
 
+Layout library: Copyright 2006-2009, CI Toby, adaykin and others.
+ * License: Creative Commons Attribution-Share Alike License.
+ * Code: <http://codeigniter.com/wiki/layout_library>
+
 jquery-oembed: Copyright Richard Chamorro, Avanzis.
  * MIT License: <http://opensource.org/licenses/MIT>
  * Code: <http://code.google.com/p/jquery-oembed/#r20>
