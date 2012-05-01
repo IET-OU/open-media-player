@@ -55,13 +55,19 @@ class Demo extends MY_Controller {
 
     /** OUVLE demonstrations.
     */
-	public function vle() {
-	  $this->_sams_check();
+	public function vle($page = 'video') {
+	    $this->_sams_check();
 
-	  $view_data = array(
-	    'req' => $this->_request,
-	  );
-	  $this->load->view('vle_demo', $view_data);
+	    $this->load->library('Layout', array('layout'=>'site_layout/layout_ouvle'));
+
+        $view = 'video'==$page ? 'video' : 'audio';
+
+        $view_data = array(
+            'req' => $this->_request,
+        );
+        $this->layout->view("vle_demo/learn3-one-$view", $view_data);
+
+	  //$this->load->view('vle_demo', $view_data);
 	}
 
 	/** OUVLE demonstration - many players - OUVLE style/layout.
