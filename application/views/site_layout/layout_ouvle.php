@@ -8,38 +8,8 @@
  */
 
 $input = $this->input;
-$body_classes = '';
+$body_classes = ' ouvle-test';
 $body_classes .= $input->get('edge') ? ' oup-vle-edge' :'';
-
-
-$original = (bool) $input->get('original');
-if ($original) {
-  $player_url_unenc = 'http://learn3.open.ac.uk/local/mediahack/';
-  #$player_url = 'http:\/\/learn3.open.ac.uk\/local\/mediahack\/';
-  $audio_height = 30;
-} else {
-  $player_url_unenc = site_url('embed/vle');
-  $audio_height = 36; #22;
-}
-$player_url = str_replace('"', '', json_encode($player_url_unenc));
-
-
-// Player 'foreground' colour.
-$player_param = '';
-$rgb = $input->get('rgb');
-if ($rgb) {
-  $player_param .= "&amp;rgb=$rgb";
-}
-
-
-// URL for stylesheets, Javascript, images etc.
-$resource_url = 'http://learn3.open.ac.uk';
-
-// 'newwindow.png' icon.
-$icon_url = "$resource_url/mod/oucontent/";
-
-$transcript_url = "$resource_url/mod/oucontent/";
-
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
