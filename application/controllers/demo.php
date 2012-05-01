@@ -35,17 +35,23 @@ class Demo extends MY_Controller {
 		$this->load->view('demo/oupodcast-demo', $view_data);
 	}
 
-    public function podcast($page = 'video') {
 
-        $this->load->library('Layout', array('layout'=>'site_layout/layout_bare'));
+    /** OU Podcast samples - 1 video or 1 audio, in 'context'.
+    */
+    public function podcast($page = 'video', $layout = 'bare') {
 
         $view = 'video'==$page ? 'video' : 'audio';
+        $layout = 'bare'==$page ? 'bare' : 'ouice';
+
+        $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
 
         $view_data = array(
             'req' => $this->_request,
+            'resource_url' => 'http://www8.open.ac.uk/',
         );
         $this->layout->view("demo/podcast-one-$view", $view_data);
     }
+
 
     /** Error handling tests.
     */
@@ -53,7 +59,8 @@ class Demo extends MY_Controller {
       $this->load->view('test/player-error-test');
     }
 
-    /** OUVLE demonstrations.
+
+    /** OUVLE demonstrations - 1 video or 1 audio, in 'context'.
     */
 	public function vle($page = 'video') {
 	    $this->_sams_check();
