@@ -7,7 +7,7 @@
 */
   $width = 608;
   $height= 362;
-  $pod_base = Oupodcast_serv::POD_BASE;
+  $pod_base = 'http://podcast.open.ac.uk';  //Oupodcast_serv::POD_BASE;
   $base = base_url();
   $label= t('OU player');
   $noframes = t('Your browser does not support frames.');
