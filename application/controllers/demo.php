@@ -35,6 +35,17 @@ class Demo extends MY_Controller {
 		$this->load->view('demo/oupodcast-demo', $view_data);
 	}
 
+    public function podcast($page = 'video') {
+
+        $this->load->library('Layout', array('layout'=>'site_layout/layout_bare'));
+
+        $view = 'video'==$page ? 'video' : 'audio';
+
+        $view_data = array(
+            'req' => $this->_request,
+        );
+        $this->layout->view("demo/podcast-one-$view", $view_data);
+    }
 
     /** Error handling tests.
     */
