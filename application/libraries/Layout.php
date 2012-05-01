@@ -9,6 +9,11 @@ class Layout
     
     function Layout($layout = "layout_main")
     {
+#ou-specific bug fix
+        if (is_array($layout)) {
+            $layout = isset($layout['layout']) ? $layout['layout'] : $layout[0];
+        }
+#ou-specific ends.
         $this->obj =& get_instance();
         $this->layout = $layout;
     }
