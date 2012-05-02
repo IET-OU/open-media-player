@@ -28,6 +28,11 @@ define('OUP_PARAM_THEME', 'theme'); #Was: _theme
 define('OUP_PARAM_LANG', 'lang');
 
 
+// Expected format of the OU Podcast MD5 item-shortcode.
+define('OUP_PODCAST_SHORTCODE_SIZE', 10);
+define('OUP_PODCAST_SHORTCODE_REGEX', '/^[a-f\d]{10}$/');
+
+
 // Javascript (no-)libraries / CDNs.
 // Note, the Player uses CDNs with Javascript fallbacks to local copies.
 

@@ -26,15 +26,14 @@ $target = ' target="_blank" title="'.t('Opens in new window').'"';
 
 <style>
 .size-small .ou-role-nav, .size-small .ou-ia-nav, .size-small #ou-org-footer, .size-small .searchrow{ display:none;}
-.my-content{ font:1em sans-serif; color:#222; }
-body.size-small{ margin:0 3px; padding:0; font-size:.9em; }
-.size-small .my-content{ float:right; position:relative; top:-85px; }
+.my-content{ font:.95em sans-serif; color:#333; margin:16px 6px; padding:7px; background:#f4f4f4; border:1px solid #a88; border-radius:4px; }
+body.size-small{ margin:0 0 0 3px; padding:0; font-size:.87em; }
+.size-small .my-content{ float:right; position:relative; top:-87px; margin:1px; padding:2px; max-width:265px; }
+.size-small p{ margin:9px 0 3px;}
 .size-small #ou-org-header{ width:86px; position:relative; top:-5px; }
-h2{ margin:1px 0; font-size:1.2em; }
+h2{ margin:1px 0; font-size:1.15em; }
 .searchrow{ float:right; font-size:.8em; }
 .searchrow a{ text-align:right; display:block; margin-top:3px; }
-.my-content{ margin:16px 6px; padding:7px; background:#f4f4f4; border:1px solid #a88; border-radius:4px; }
-.size-small .my-content{ margin:1px; padding:2px 6px; }
 </style>
 
 <body class="ou-ia-community">
@@ -71,7 +70,7 @@ h2{ margin:1px 0; font-size:1.2em; }
 
 <form action="http://podcast.open.ac.uk/search.php" method="post"<?php echo $target ?> class="searchrow">
 <label for="search">Search</b> podcasts </label>
-<input id="search" type="search" name="searchFor" maxlength="100" /> <input type="submit" />
+<input id="search" type="search" required name="searchFor" maxlength="100" /> <input type="submit" value="Search" />
 <a href="http://podcast.open.ac.uk/"<?php echo $target ?>>OU Podcasts</a>
 </form>
 
@@ -79,7 +78,7 @@ h2{ margin:1px 0; font-size:1.2em; }
 
 <h2><?php echo $heading ?></h2>
 
-<div><?php echo $message ?></div>
+<div class=message><?php echo $message ?></div>
 
 </div>
 
@@ -147,7 +146,7 @@ h2{ margin:1px 0; font-size:1.2em; }
 <script src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
 <script>
 if(typeof $=='undefined'){
-  document.write(unescape("%3Cscript src='<?php echo base_url() ?>'engines/mediaelement/src/js/jeesh.js' %3E%3C/script%3E"));
+  document.write(unescape("%3Cscript src='<?php echo base_url() ?>engines/mediaelement/src/js/jeesh.js' %3E%3C/script%3E"));
   CDN_fallback = true;
 }
 </script>

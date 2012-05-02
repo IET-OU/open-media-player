@@ -21,26 +21,37 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		$this->load->library('Http');
 	}
 
-	/** Test OU Podcast feed configuration and return the feed URL.
+	/** Test OU Podcast feed configuration and shortcode, and return the feed URL.
 	* @return string
 	*/
 	protected function _feed_url($basename, $shortcode) {
 		$url_pattern = $this->config->item('podcast_feed_url_pattern');
 		$locate = "\$config[podcast_feed_url_pattern] in 'config/embed_config.php'";
+
 		if (! $url_pattern) {
 			//ERROR 503.
-			$this->_error("Missing or empty $locate", 503);
+			$this->_error("Missing or empty $locate", 503.1);
 		}
 		if (FALSE !== strpos($url_pattern, 'example.org')) {
-			$this->_error("Invalid host in $locate", 503);
+			$this->_error("Invalid host in $locate", 503.2);
 		}
 		if (FALSE === strpos($url_pattern, self::COLLECTION_ID)) {
-			$this->_error("Missing {self::COLLECTION_ID} in $locate", 503);
+			$this->_error("Missing {self::COLLECTION_ID} in $locate", 503.3);
 		}
 		$pu = parse_url($url_pattern);
 		if (!isset($pu['scheme']) || !isset($pu['host']) || !isset($pu['path'])) {
-			$this->_error("Invalid URL in $locate", 503);
+			$this->_error("Invalid URL in $locate", 503.4);
 		}
+
+		if (strlen($shortcode) != OUP_PODCAST_SHORTCODE_SIZE) {
+			//ERROR 400..
+			$this->_error('Sorry, I expect a '. OUP_PODCAST_SHORTCODE_SIZE .' character shortcode', 400.1);
+		}
+		if (! preg_match(OUP_PODCAST_SHORTCODE_REGEX, $shortcode)) {
+			$this->_error('Sorry, unexpected characters in shortcode.', 400.2);
+		}
+
+
 		return str_replace(self::COLLECTION_ID, $basename, $url_pattern);
 
 		/*
@@ -63,18 +74,19 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		if (! $result->success) {
 			//ERROR.
 			if ($result->info['http_code'] == 404) {
-				$this->_error("Podcast data feed not found.",
-						404, null, array('url'=>$url));
-			} //ELSE:
+				$this->_error("Podcast data collection not found.",
+						404.1, null, array('url'=>$url));
+			}
+			// Other errors:
 			$this->_error("Podcast data unknown error.", $result->info['http_code'], null, $result);
 		}
 
 		$this->_xmlo = $xmlo = simplexml_load_string($result->data);
 
 		if (! $xmlo) {
-			//ERROR: this can be caused by network errors.
+			//ERROR: this can be caused by network errors, or invalid XML.
 			$this->_error("Podcast data XML error.",
-						400, null, array('url'=>$url));
+						400.3, null, array('url'=>$url));
 		}
 
 		foreach ($this->_xml_namespaces() as $prefix => $ns_uri) {
@@ -89,7 +101,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 			$item = $item[0];
 		} else {
 			//ERROR.
-			$this->_error("Podcast data item not found.", 404);
+			$this->_error("Podcast data item not found.", 404.2);
 			return FALSE;
 		}
 
@@ -102,12 +114,15 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		  'private' => $this->_xpath_val('//oup:private'),
 		  'deleted' => $this->_xpath_val('//oup:deleted'),
 
-		  '_published_flag' => 'yes' != $this->_xpath_val('//app:draft'),
+		  /*'_published_flag' => 'yes' != $this->_xpath_val('//app:draft'),
 		  '_intranet_only' => count( $xmlo->xpath('//yt:state[@reasonCode="oup:intranet_only"]') ),
 		  '_private' => count( $xmlo->xpath('//yt:private') ),
 		  '_deleted' => count( $xmlo->xpath('//yt:state[@name="deleted"]') ),
 		  '_processing' => count( $xmlo->xpath('//yt:state[@name="processing"]') ),
 		  '_list_allowed' => count( $xmlo->xpath('//yt:accessControl[@action="list"][@permission="allowed"]') ),
+		  */
+
+		  '_embed_allowed' => NULL,
 		);
 
 		$vars = array(
