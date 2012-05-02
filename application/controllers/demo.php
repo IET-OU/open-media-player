@@ -41,7 +41,7 @@ class Demo extends MY_Controller {
     public function podcast($page = 'video', $layout = 'bare') {
 
         $view = 'video'==$page ? 'video' : 'audio';
-        $layout = 'bare'==$page ? 'bare' : 'ouice';
+        $layout = 'bare'==$layout ? 'bare' : 'ouice';
 
         $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
 
