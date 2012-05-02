@@ -56,7 +56,9 @@ class Demo extends MY_Controller {
     /** Error handling tests.
     */
     public function podcast_errors() {
-      $this->load->view('test/player-error-test');
+      $this->load->library('Layout', array('layout'=>"site_layout/layout_bare"));
+
+      $this->layout->view('test/player-error-test');
     }
 
 

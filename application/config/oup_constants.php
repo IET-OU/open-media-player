@@ -29,8 +29,9 @@ define('OUP_PARAM_LANG', 'lang');
 
 
 // Expected format of the OU Podcast MD5 item-shortcode.
+// (http://codeaid.net/php/check-if-the-string-is-a-valid-md5-hash)
 define('OUP_PODCAST_SHORTCODE_SIZE', 10);
-define('OUP_PODCAST_SHORTCODE_REGEX', '/^[a-f\d]{10}$/');
+define('OUP_PODCAST_SHORTCODE_REGEX', '/^[a-f0-9]{10}$/');
 
 
 // Javascript (no-)libraries / CDNs.
@@ -40,7 +41,7 @@ define('OUP_PODCAST_SHORTCODE_REGEX', '/^[a-f\d]{10}$/');
 define('OUP_JS_CDN_ENDER_MIN', 'http://cdn.enderjs.com/jeesh.min.js');
 define('OUP_JS_CDN_ENDER',     'http://cdn.enderjs.com/jeesh.js');
 
-// Fallback: jQuery 1.7+
+// Fallback: jQuery 1.7+ ('//' is deliberate - HTTPS/SSL support!)
 define('OUP_JS_CDN_JQUERY_MIN',
   '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 define('OUP_JS_CDN_JQUERY',

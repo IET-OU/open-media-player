@@ -1,38 +1,42 @@
-<?php
-  $input = $this->input;
-  $body_classes = ' oup-jquery-test';
-  $body_classes .= $input->get('edge') ? ' oup-edge' :'';
-  $body_classes .= $input->get('size') ? ' oup-'.$input->get('size') :'';
-?>
-<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta charset="utf-8"/><title>*OU player - Error tests</title>
 
-<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
-<meta name="ROBOTS" content="noindex,nofollow" />
+<h2>Error tests</h2>
 
-<link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
+<p>Iframe tests. Note, the error page adapts (using Javascript) to suit the size of the Iframe.
+ Also, the error pages may be visible on OU and non-OU branded pages, hence the OU branding.
 
 
-<h1>OU player</h1> <h2>Error tests</h2>
-
-<p>Iframe tests..
-
-<p>Audio: 404 Podcast collection not found.
+<h4>404 Not found errors</h4>
+<p>Audio: 404.1 Podcast collection not found
 <iframe
- class="ou player oembed podcast audio"
- scrolling="no"
- src="<?php echo site_url('embed/pod/404/Collection-not-found') ?>"
+ class="ou player oembed podcast audio e-404-1"
+ width="360" height="80" scrolling="no"
+ src="<?php echo site_url('embed/pod/404/abcdef0123#!Collection-not-found') ?>"
  ></iframe>
 
-
-<p>Video: 404 Podcast item not found.
+<p>Video: 404.2 Podcast item not found.
 <iframe
- class="ou player oembed podcast video"
- scrolling="no"
- src="<?php echo site_url('embed/pod/student-experiences/404-Item-not-found') ?>"
+ class="ou player oembed podcast video e-404-2"
+ width="640" height="400" scrolling="no"
+ src="<?php echo site_url('embed/pod/student-experiences/abcdef0123#!404-Item-not-found') ?>"
  ></iframe>
-
 
 <p>Site: <a href="<?php echo site_url('404-Page-not-found') ?>">404 Page not found</a>.
+
+
+<h4>400 Bad request errors</h4>
+<p>Audio: 400.1 Podcast shortcode too long.
+<iframe
+ class="ou player oembed podcast audio e-400-1"
+ width="360" height="80" scrolling="no"
+ src="<?php echo site_url('embed/pod/400/abcdef0123456789#!400-Shortcode-too-long') ?>"
+ ></iframe>
+
+<p>Audio: 400.2 Podcast shortcode unexpected characters.
+<iframe
+ class="ou player oembed podcast audio e-400-2"
+ width="360" height="80" scrolling="no"
+ src="<?php echo site_url('embed/pod/400/Unexpected#!shortcode') ?>"
+ ></iframe>
 
 
 
@@ -42,6 +46,7 @@
 Todo:
 
 ** XML parsing errors..
+** 'Missing' data..
 
 * jquery-oembed embed errors..
 * VLE error tests
@@ -52,4 +57,3 @@ See:
 * http://podcast.open.ac.uk/404_ERROR
 * http://www.open.ac.uk/404_ERROR
 
-</html>
