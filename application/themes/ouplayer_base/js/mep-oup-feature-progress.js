@@ -22,8 +22,8 @@
 				'<span class="mejs-time-total">'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
-					'<button type="button" class="mejs-time-handle" role="slider"'+
-					' aria-label="'+ op.progressText +'" aria-valuemin="0" aria-valuemax="" aria-valuenow="0" aria-valuetext="00:00"></button>'+
+					'<span tabindex="0" type="button" class="mejs-time-handle" role="slider"'+
+					' aria-label="'+ op.progressText +'" aria-valuemin="0" aria-valuemax="" aria-valuenow="0" aria-valuetext="00:00"></span>'+
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
 						'<span class="mejs-time-float-corner"></span>' + 
