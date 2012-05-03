@@ -40,6 +40,22 @@
 
 
 
+<h4>Other error texts - for comparison</h4>
+
+<p>YouTube: 404 Video not found/ doesn't exist (just shows the player).
+<iframe
+ width="420" height="315"
+ src="http://www.youtube.com/embed/404-Not-found"
+ data-X-src="http://www.youtube.com/embed/TW5faQAjOIw"
+ frameborder="0" allowfullscreen></iframe>
+
+<!--
+<p>404 Page not found.
+<iframe
+ width="320" height="200" style="border:1px solid #aaa"
+ src="http://www.youtube.com/404_test"></iframe>
+-->
+
 <pre>
 
 

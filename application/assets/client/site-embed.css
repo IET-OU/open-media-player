@@ -14,12 +14,16 @@
 }
 a img{ border:none; }
 abbr{ cursor:help; border-bottom:1px dotted #bbb; }
-
+.oup-jquery-test iframe {
+  display:block;
+  overflow:hidden;
+  border:none;
+}
 
 /* Generic oEmbed-response styles.
 */
 
-.oembed {
+iframe.oembed {
   display:block;
   margin:1em 0;
   border:1px solid #ddd;
