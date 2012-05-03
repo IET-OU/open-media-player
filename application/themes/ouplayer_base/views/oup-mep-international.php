@@ -42,10 +42,15 @@ if ('en' != $lang_ui && 'en-gb' != $lang_ui && 'en-us' != $lang_ui):
     'currentText' => t('Current time'),
     'durationText' => t('Total time'),
 
-    'qualityText' => t('Quality selection/ High definition'),
-    'popoutText' => t('New window: %s').t('pop out player'),
+    'qualityText' => t('Quality'),
+    'qualityhighText'=> t('High definition'),
+    'qualitylowText' => t('Standard definition'),
+    'popoutText' => t('Pop out player'),
+    // Accessibility: add more detail via aria-label attribute (WAI-ARIA).
+    'popoutlabelText' => t('Pop out player') .', '. t('opens in new window'),
+    '_newwindowText' => t('New window: %s'),
     'fullscreenText' => t('Full screen'),
-    'optionsText' => t('More options…'),
+    'optionsText' => t('More options…'), #Or settings
   );
 
 /*if ('my' == $params->lang) {
