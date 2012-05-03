@@ -6,7 +6,9 @@
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
-		qualityText: 'Quality selection/ High definition'
+		qualityText: 'Quality',
+		qualityhighText:'High definition',
+		qualitylowText: 'Standard definition'
 	});
 
 	// Quality BUTTON
@@ -19,15 +21,16 @@
 
 			var 
 				t = this,
+				op = t.options,
 				transcript = 
 				$('<div class="oup-mejs-button mejs-quality-button mejs-high-res" >' +
-					'<button type="button" aria-controls="' + t.id + '" title="' + t.options.qualityText + '"></button>' +
+					'<button type="button" aria-controls="' + t.id + '" title="' + op.qualityhighText + '"></button>' +
 				'</div>')
 				.appendTo(controls.group())
 				.click(function(e) {
 					e.preventDefault();
 
-				    alert("Quality/ high definition: not yet functional!");
+				    alert("High definition: not yet functional!");
 
 					return false;
 				});

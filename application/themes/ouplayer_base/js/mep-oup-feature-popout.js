@@ -6,7 +6,8 @@
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
-		popoutText: 'New window: pop out player',
+		popoutText: 'Pop out player',
+		popoutlabelText: 'Pop out player, opens in new window',
 		popoutTarget: '_blank', //(valid browsing context name|_blank|_top)
 		popoutUrl: '#'
 	});
@@ -27,7 +28,8 @@
 			var
 				popout = 
 				$('<div class="oup-mejs-link mejs-popout-link">'+
-					'<a href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' + op.popoutText + '"></a>' +
+					'<a role="button" href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' + 
+					op.popoutText + '" aria-label="'+ op.popoutlabelText +'"></a>' +
 				'</div>')
 				.appendTo(controls.group())
 				.click(function(e) {
