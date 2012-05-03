@@ -27,6 +27,7 @@
 				.click(function(e) {
 					return toggleOptionsMenu(e);
 				})
+				, btn_xo = $('#'+op.optionsId+' button')
 				/*.bind('mouseover', function(e) { //mouseenter.
 					opts_visible = false;
 					return toggleOptionsMenu(e);
@@ -47,6 +48,8 @@
 
 					return false;
 				};
+
+				btn_xo.click(toggleOptionsMenu);
 		}
 	});
 	
