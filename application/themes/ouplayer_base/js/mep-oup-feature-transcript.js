@@ -41,7 +41,8 @@
 				btn = btn_script.find('button'),
 				btn_x = $('#'+op.transcriptId+' button'),
 				toggleScript = function(e) {
-					if (e) e.preventDefault();
+					//if (e)
+					e.preventDefault();
 
 					if (ts_visible) {
 						body.addClass('tscript-hide').removeClass('tscript-show');
@@ -66,9 +67,7 @@
 			media.addEventListener('transcript_show',function() {
 			}, false);*/
 
-			btn_x.click(function(e) {
-				return toggleScript(e);
-			});
+			btn_x.click(toggleScript );
 		}
 	});
 	
