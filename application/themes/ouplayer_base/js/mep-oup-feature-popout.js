@@ -26,22 +26,44 @@
 				return;
 
 			var
-				popout = 
+				pop_ctl =
 				$('<div class="oup-mejs-link mejs-popout-link">'+
 					'<a role="button" href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' + 
 					op.popoutText + '" aria-label="'+ op.popoutlabelText +'"></a>' +
 				'</div>')
 				.appendTo(controls.group())
 				.click(function(e) {
+					//e.preventDefault();
 
 					if('#'===op.popoutUrl) {
-						e.preventDefault();
 
 				    	alert("OU pop out player: missing 'popoutUrl' !");
 
 						return false;
 					}
-					//TODO: Fire an event?
+
+				//TODO: Fire an event for postMessage?
+
+
+					// Experimental, but seems to work in Fx, Webkit..!
+
+					// 1. Pause the media if playing..
+					var autoplay = ! media.paused;
+					if (! media.paused) {
+						media.pause();
+					}
+					// 2. Get the timestamp, format a hash '#t=31m08s'
+					//http://www.mattcutts.com/blog/link-to-youtube-minute-second/
+					var time = mejs.Utility.secondsToTimeCode(media.currentTime),
+					  hash = '#t='+time.replace(':', 'm')+'s' + (autoplay ? '&play=1' : ''),
+					// 3. Append timestamp to 'href' attribute..
+					  pop_win = window.open(op.popoutUrl + hash, op.popoutTarget, 'toolbar=0,menubar=0,status=1');
+					$.log('Popout open: '+ hash);
+
+
+				//TODO: catch the '#t=..' on the popout side..
+
+					return false;
 				});
 
 		}
