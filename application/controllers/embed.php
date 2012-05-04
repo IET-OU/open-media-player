@@ -108,8 +108,8 @@ class Embed extends MY_Controller {
     // Required.
     $player->media_url = $this->input->get('media_url');
     $player->title     = $this->_required('title');
-    $player->width     = $this->_required('width');  # is_numeric. Required?
-    $player->height    = $this->_required('height'); # Play height, not media(?)
+    $player->width     = $this->input->get('width');  # is_numeric. Required?
+    $player->height    = $this->input->get('height'); # Play height, not media(?)
     // Optional.
     $player->poster_url = $this->input->get('image_url');
     $player->caption_url= $this->input->get('caption_url');
