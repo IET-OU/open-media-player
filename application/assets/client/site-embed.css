@@ -103,6 +103,10 @@ iframe.oembed {
 
 /* OUVLE 'beige' styles.
 */
+body.path-mod {
+  margin-left:2em;
+}
+
 #X-page-mod-oucontent-view .oucontent-s-heavybox2 .oucontent-inner-box {
   background-color: #ECEDD8;
   border: 1px solid #CCC;
