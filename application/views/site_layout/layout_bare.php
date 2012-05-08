@@ -4,7 +4,8 @@
   $body_classes .= $input->get('edge') ? ' oup-edge' :'';
   $body_classes .= $input->get('size') ? ' oup-'.$input->get('size') :'';
 ?>
-<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta charset="utf-8"/><title>*OU Player tests</title>
+<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" /><title>*OU Player tests</title>
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <meta name="ROBOTS" content="noindex,nofollow" />

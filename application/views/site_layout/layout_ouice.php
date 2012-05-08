@@ -10,7 +10,8 @@
 $site_url = $resource_url = 'http://www8.open.ac.uk';
 
 
-?><!doctype html><html lang="en-GB"><meta charset="utf-8" /><title>*Study Explained | Open University</title>
+?><!doctype html><html lang="en-GB"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8" /><title>*Study Explained | Open University</title>
 
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
   <meta name="ROBOTS" content="noindex,nofollow" />
