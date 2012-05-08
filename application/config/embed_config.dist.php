@@ -32,6 +32,9 @@ $config['podcast_feed_url_pattern'] =
 // If used, must contain one (ext1|ext2..) group.
 //$config['media_url_regex'] = '/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/';
 
+// Required/VLE/experimental: array of names of session cookies to pass on for caption/subtitle proxy requests (Bug #1334).
+//$config['httplib_proxy_cookies'] = array('cookiename1', 'cookiename2', '..');
+
 // Either NULL, 'ender' (maybe for OUVLE?) or 'jquery' (maybe for Podcast?)
 // NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
 //$config['jslib'] = NULL;

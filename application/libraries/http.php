@@ -9,6 +9,8 @@
 
 class Http {
 
+  protected $CI;
+
   public function request($url, $spoof=TRUE, $options=array()) {
     $result = $this->_prepare_request($url, $spoof, $options);
 
@@ -20,7 +22,9 @@ class Http {
   */
 #http://api.drupal.org/api/drupal/core%21includes%21common.inc/function/drupal_http_request/8
   protected function _prepare_request($url, $spoof, &$options) {
-    $result = new stdClass();
+    $this->CI =& get_instance();
+
+	$result = new stdClass();
 
     // Parse the URL and make sure we can handle the schema.
     $uri = @parse_url($url);
@@ -39,6 +43,22 @@ class Http {
 
     #timer_start(__FUNCTION__);
 
+
+    // Bug #1334, Proxy mode to fix VLE caption redirects (Timedtext controller).
+    if (isset($options['proxy_cookies'])) {
+      $cookie_names =  $this->CI->config->item('httplib_proxy_cookies');
+      if (! is_array($cookie_names)) {
+        $this->CI->_error('Array expected for $config[httplib_proxy_cookies]', 400);
+      }
+
+      $cookies = '';
+      foreach ($cookie_names as $cname) {
+        $cookies .= "$cname=". $this->CI->input->cookie($cname) .'; ';
+      }
+      $options['cookie'] = rtrim($cookies, '; ');
+    }
+
+
     $ua = 'OU Player/0.9 (PHP/cURL)';
     if ($spoof) {
        // Updated, April 2012.
@@ -55,6 +75,7 @@ class Http {
       'timeout' => 15.0,  #30.0 seconds,
       'context' => NULL,
 
+      'cookie' => NULL,
       'ua' => $ua,
     );
     return $result;
@@ -72,12 +93,17 @@ class Http {
       curl_setopt($h_curl, CURLOPT_REFERER, base_url());
     }
 
+    if ($options['cookie']) {
+		curl_setopt($h_curl, CURLOPT_COOKIE, $options['cookie']);
+		header('X-Proxy-Cookie: '.$options['cookie']);
+    }
+
     curl_setopt($h_curl, CURLOPT_AUTOREFERER, TRUE);
     curl_setopt($h_curl, CURLOPT_MAXREDIRS, $options['max_redirects']);
     curl_setopt($h_curl, CURLOPT_FOLLOWLOCATION, TRUE);
     curl_setopt($h_curl, CURLOPT_TIMEOUT, $options['timeout']);
 
-	$this->CI =& get_instance();
+	
 
 	$http_proxy = $this->CI->config->item('http_proxy');
 	if ($http_proxy) {

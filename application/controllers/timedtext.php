@@ -42,21 +42,31 @@ class Timedtext extends MY_Controller { #CI_Controller {
       $this->_error("Error, 'url' is a required parameter.", 400);
     }
 
+    $p = parse_url($ttml_url);
+
 
     // A naive check for SRT captions, from VLE etc.
-    $is_srt = FALSE !== strpos($ttml_url, '.srt');
+    $is_srt = 'srt' == pathinfo($p['path'], PATHINFO_EXTENSION);
+
+
+	// Bug #1334, Proxy mode to fix VLE caption redirects.
+	// Example:  http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_b1_vid001_320x176.srt
+    $options = array();
+    if ($is_srt && preg_match('/^(learn|[\w\.]*vledev)\w*.open.ac.uk\/(moodle\w*\/)?pluginfile/', $p['host'].$p['path'], $matches)) {
+      $options['proxy_cookies'] = true;
+    }
 
 
 	$this->load->library('http');
 
-    $result = $this->http->request($ttml_url, $spoof=FALSE);
+    $result = $this->http->request($ttml_url, $spoof=FALSE, $options);
 
     if (! $result->success) {
       if (404 == $result->info['http_code']) {
         $this->_error('Caption file not found.', 404);
       }
-      $this->_error('Caption request problem.', $result->info['http_code']);
       #var_dump($result->info);
+      $this->_error('Caption request problem.', $result->info['http_code']);
     }
 
 
