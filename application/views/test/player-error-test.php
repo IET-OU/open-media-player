@@ -8,15 +8,16 @@
 <h4>404 Not found errors</h4>
 <p>Audio: 404.1 Podcast collection not found
 <iframe
- class="ou player oembed podcast audio e-404-1"
- width="360" height="80" scrolling="no"
+ class="ou player oembed podcast audio x-small e-404-1"
+ width="360" height="80" scrolling="no" frameborder=0
  src="<?php echo site_url('embed/pod/404/abcdef0123#!Collection-not-found') ?>"
  ></iframe>
 
 <p>Video: 404.2 Podcast item not found.
 <iframe
- class="ou player oembed podcast video e-404-2"
- width="640" height="400" scrolling="no"
+ class="ou player oembed podcast video small e-404-2" scrolling="no" frameborder=0
+ width="480" height="270"
+ style="width:480px; height:270px;"
  src="<?php echo site_url('embed/pod/student-experiences/abcdef0123#!404-Item-not-found') ?>"
  ></iframe>
 
@@ -24,17 +25,19 @@
 
 
 <h4>400 Bad request errors</h4>
-<p>Audio: 400.1 Podcast shortcode too long.
+<p>Video: 400.1 Podcast shortcode too long.
 <iframe
- class="ou player oembed podcast audio e-400-1"
- width="360" height="80" scrolling="no"
+ class="ou player oembed podcast video medium e-400-1" scrolling="no" frameborder=0
+ width="560" height="315"
+ style="width:560px; height:315px;"
  src="<?php echo site_url('embed/pod/400/abcdef0123456789#!400-Shortcode-too-long') ?>"
  ></iframe>
 
-<p>Audio: 400.2 Podcast shortcode unexpected characters.
+<p>Video: 400.2 Podcast shortcode unexpected characters.
 <iframe
- class="ou player oembed podcast audio e-400-2"
- width="360" height="80" scrolling="no"
+ class="ou player oembed podcast video large e-400-2" scrolling="no" frameborder=0
+ width="640" height="360"
+ style="width:640px; height:360px;"
  src="<?php echo site_url('embed/pod/400/Unexpected#!shortcode') ?>"
  ></iframe>
 
