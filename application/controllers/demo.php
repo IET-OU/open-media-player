@@ -53,7 +53,18 @@ class Demo extends MY_Controller {
     }
 
 
-    /** Error handling tests.
+    /** OU player size tests.
+    */
+    public function player_sizes($layout = 'bare') {
+      $layout = 'bare'==$layout ? 'bare' : 'ouice';
+
+      $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+      
+      $this->layout->view('test/player-sizes');
+    }
+
+
+    /** Player error handling tests.
     */
     public function podcast_errors() {
       $this->load->library('Layout', array('layout'=>"site_layout/layout_bare"));
