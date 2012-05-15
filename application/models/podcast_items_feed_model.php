@@ -124,6 +124,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 
 		  '_embed_allowed' => NULL,
 		);
+		$access['published'] = $access['published_flag'];
 
 		$vars = array(
 		  'title' => (string) $xmlo->channel->title .': '. $item->title,

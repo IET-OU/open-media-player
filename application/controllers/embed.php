@@ -60,6 +60,13 @@ class Embed extends MY_Controller {
 
     // TODO: needs tidying up, access-control.
 
+    // Access control - start simple!
+    $restrict_image = $this->config->item('player_restricted_poster_url');
+    if ($restrict_image && 'Y'==$player->_access['intranet_only']) {
+        $view_data['meta']->poster_url = $restrict_image;
+        #..pixastic/podcast-pix-emboss-grey-220-strength-3.0-blend-opacity-0.25.png;
+        $this->load->view('ouplayer/oup_restricted', $view_data);
+    } else
     // 'New' 2012 Mediaelement-based themes.
     if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
         $this->load->theme($this->_theme->name);
@@ -72,11 +79,7 @@ class Embed extends MY_Controller {
         $this->load->theme_view(null, $view_data);
     } else
     // Legacy 2011 Flowplayer-based themes.
-    // Access control - start simple!
-    if ('Y'==$player->_access['intranet_only']) {
-        $this->load->view('ouplayer/oup_restricted', $view_data);
-    }
-    elseif ('basic'!=$this->_theme->name || $edge) {
+    if ('basic'!=$this->_theme->name || $edge) {
         // The themed player.
         $this->load->view('ouplayer/ouplayer', $view_data);
     } else {
