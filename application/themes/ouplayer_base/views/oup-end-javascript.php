@@ -35,6 +35,12 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   origin:'<?php echo $this->theme->origin ?>',
 <?php endif; ?>
 
+<?php if (isset($this->theme->mobile_native_controls)): ?>
+  iPadUseNativeControls:true,
+  iPhoneUseNativeControls:true,
+  AndroidUseNativeControls:true,
+<?php endif; ?>
+
 <?php if ($this->theme->features): ?>
   features:
 '<?php echo $this->theme->features ?>'

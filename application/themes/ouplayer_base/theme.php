@@ -16,6 +16,9 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $rgb  = 'ouvle-default-blue';
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
 
+  //iPadUseNativeControls etc.
+  public $mobile_native_controls = true;
+
   public $features =
 'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
