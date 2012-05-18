@@ -5,6 +5,18 @@
  */
 
 
+/** JSON encode a string, removing the outer quotes (").
+*/
+function json_encode_str($str) {
+  return str_replace("'", "\\'", trim(json_encode($str), '"{}'));
+}
+
+/** JSON encode an object, removing the outer braces {}.
+*/
+function json_encode_bare($obj) {
+  return str_replace("'", "\\'", trim(json_encode($obj), '{}'));
+}
+
 /**
 * Output the URL for a Player-engine or theme resource.
 * Note, the URL is HTTP/SSL-neutral (//host/path) and contains a hash/version ID.
