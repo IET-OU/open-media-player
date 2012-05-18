@@ -59,7 +59,6 @@ if ('en' != $lang_ui && 'en-gb' != $lang_ui && 'en-us' != $lang_ui):
   }
 }*/
 
-  $texts_json = json_encode($oup_mep_texts);
 
-  echo trim($texts_json, '{}') .',';
+  echo json_encode_bare($oup_mep_texts) .',';
 endif;
