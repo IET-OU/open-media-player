@@ -62,7 +62,7 @@ class Embed extends MY_Controller {
 
     // Access control - start simple!
     $restrict_image = $this->config->item('player_restricted_poster_url');
-    if ($restrict_image && 'Y'==$player->_access['intranet_only']) {
+    if ($restrict_image && $player->_access['intranet_only']) { #Was: 'Y'==$player->..
         $view_data['meta']->poster_url = $restrict_image;
         #..pixastic/podcast-pix-emboss-grey-220-strength-3.0-blend-opacity-0.25.png;
         $this->load->view('ouplayer/oup_restricted', $view_data);

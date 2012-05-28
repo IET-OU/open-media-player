@@ -39,6 +39,13 @@ $config['podcast_feed_url_pattern'] =
 // NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
 //$config['jslib'] = NULL;
 
+
+// NEW!
+//$config['player_restricted_poster_url'] = '';
+// NEW, optional!
+//$config['player_show_embed_code'] = true;
+
+
 // Debugging/OU-embed: always make requests to upstream servers.
 $config['always_upstream'] = true;
 
