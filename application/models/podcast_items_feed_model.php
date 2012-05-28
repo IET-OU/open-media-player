@@ -110,7 +110,8 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		  #Item-level: (bool) cast.
 		  'published_flag' => $this->_xpath_val($xpath_item .'/oup:published_flag'),
 		  #Podcast-level
-		  'intranet_only' => $this->_xpath_val('//oup:restrict_access'),
+		  //'intranet_only' => $this->_xpath_val('//oup:restrict_access'),
+		  'intranet_only' => $this->_xpath_val('//oup:intranet_only'),
 		  'private' => $this->_xpath_val('//oup:private'),
 		  'deleted' => $this->_xpath_val('//oup:deleted'),
 
