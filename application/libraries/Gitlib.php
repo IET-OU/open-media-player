@@ -2,6 +2,8 @@
 /**
  * Gitlib: a simple Git library, to get changeset hashes and information.
  *
+ * See: https://bitbucket.org/cloudengine/cloudengine/src/tip/system/application/libraries/Hglib.php
+ *
  * @copyright 2012 The Open University.
  * @author N.D.Freear, 2012-04-25.
  */
@@ -34,7 +36,8 @@ class Gitlib {
         return substr($this->_hash, 0, $length);
     }
 
-    /** Save revision meta-data to a '.' file.
+    /** Save revision meta-data to a '.' file, JSON-encoded.
+     *  (CloudEngine's Hglib uses PHP (un)serialize.)
      */
     public function put_revision() {
         $log = $this->_exec('log -1');
@@ -51,6 +54,7 @@ class Gitlib {
             }
         }
         $result['describe'] = trim($this->_exec('describe'));
+        $result['agent'] = basename(__FILE__);
 
         $bytes = file_put_contents(self::REVISION_FILE, json_encode($result));
 
