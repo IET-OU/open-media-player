@@ -27,7 +27,7 @@ iframe.oembed {
   display:block;
   margin:1em 0;
   border:1px solid #ddd;
-  border-radius:5px;
+  x-border-radius:5px;
 }
 
 
