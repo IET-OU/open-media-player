@@ -23,7 +23,7 @@ a:hover, a:focus {
 }
 
 .mejs-container .mejs-controls {
-	padding-bottom:1px; /*Hmm, 1 pixel or 0? */
+	x-padding-bottom:1px; /*Hmm, 1 pixel or 0? */
 	/*background: url(background.png);
 	background: rgba(0, 0, 0, 0.7); - Peter: 080312 */
 	background: rgb(243,242,242);/* - Peter: 080312 */
@@ -33,6 +33,7 @@ a:hover, a:focus {
 .mejs-container .mejs-controls  div {
 	width:auto;
 }
+
 
 .mejs-controls .mejs-button button, button, .mejs-controls .oup-mejs-link a {
 	cursor: pointer;
@@ -135,7 +136,7 @@ a:hover, a:focus {
 
 .mejs-container .mejs-controls .mejs-time {
 	position:absolute;
-	top:3px;
+	top:2px;
 	left:26px;
 	color:#222;
 	margin:0;
@@ -144,6 +145,7 @@ a:hover, a:focus {
 	color:#222;
 	x-font-size:1.2em;
 	font-size:12px;
+	x-font-size:0.845em;
 	line-height:12px;
 	display:block;
 	float:left;
@@ -164,14 +166,14 @@ a:hover, a:focus {
 }
 /*Browser sniffing - MSIE is well behaved! (was: ua-gecko) */
 .ua-moz .mejs-controls .oup-volume-widget {
-	top:2px;
+	top:0;
 }
 .ua-moz .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
 	top:4px;
 }
 .ua-webkit .mejs-controls .oup-volume-widget {
-	top:-5px;
+	top:-6px;
 }
 .ua-webkit .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
@@ -329,5 +331,15 @@ a:hover, a:focus {
 	padding:4px;
 	font-size:.8em;
 	line-height:1.2em;
+}
+
+
+
+
+.mejs-container .mejs-controls div.mejs-button, .mejs-container .mejs-controls div.oup-mejs-link {
+  margin:0 2px;
+}
+.mejs-container .mejs-controls div.mejs-playpause-button {
+  margin:0;
 }
 
