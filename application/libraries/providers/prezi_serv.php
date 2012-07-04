@@ -1,14 +1,15 @@
-<?php
-/** Prezi service provider.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Prezi oEmbed service provider.
  *
  * @copyright Copyright 2011 The Open University.
  */
 //NDF, 1, 23 March 2011.
 
-require_once APPPATH.'libraries/base_service.php';
+require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
-class Prezi_serv extends Base_service {
+class Prezi_serv extends Oembed_Provider {
 
   /** Short URL for the Prezi iPad app (protocol: itms)
   * http://itunes.apple.com/us/app/prezi/id407759942

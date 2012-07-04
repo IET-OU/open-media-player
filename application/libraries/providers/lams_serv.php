@@ -1,5 +1,6 @@
-<?php
-/** LAMS/ Learning Activity Management System service provider.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * LAMS/ Learning Activity Management System  oEmbed service provider.
  *
  * Get oEmbed response from upstream Lamscommunity.org server.
  * Options: cache the SVG, screen-scrape the Lamscentral page (for extended meta-data).
@@ -8,10 +9,10 @@
  * @copyright Copyright 2011 The Open University.
  */
 //24/2, 1/3/2011.
-require_once APPPATH.'libraries/base_service.php';
+require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
-class Lams_serv extends Base_service {
+class Lams_serv extends Oembed_Provider {
 
   public function call($url, $matches) {
       $seq_id = $matches[2];

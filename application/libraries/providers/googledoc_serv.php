@@ -1,14 +1,15 @@
-<?php
-/** Google Docs spreadsheet/forms service provider.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Google Docs spreadsheet/forms oEmbed service provider.
  *
  *  @copyright Copyright 2011 The Open University.
  */
 #NDF, 4/3/2011.
 #/oembed?url=http%3A//spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ%23height=1160
-require_once APPPATH.'libraries/base_service.php';
+require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
-class Googledoc_serv extends Base_service {
+class Googledoc_serv extends Oembed_Provider {
 
   public function call($url, $matches) {
 
