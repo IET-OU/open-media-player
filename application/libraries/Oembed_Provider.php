@@ -1,18 +1,52 @@
-<?php
-/** Base class for all oEmbed service provider libraries.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Base class for all oEmbed service provider libraries.
  *
  * @copyright Copyright 2011 The Open University.
  */
-//NDF, extracted from oembed controller, 24 Feb. 2011.
+//NDF, extracted from oembed controller, 24 Feb. 2011/ extended 4 July 2012.
 
 interface iService {
+
   /** call.
   * @return object Return a $meta meta-data object, as inserted in DB.
   */
   public function call($url, $regex_matches);
 }
 
-abstract class Base_service implements iService {
+/** Was: Base_service
+*/
+abstract class Oembed_Provider implements iService {
+
+  public $regex = '';			# array();
+  public $about = '';			# Human
+  public $displayname = '';     # Human, mixed-case
+  public $name = NULL;          # Machine, lower-case
+  public $domain = '';			# HOST
+  public $subdomains = array();	# HOSTs
+  public $favicon = '';			# URL
+  public $type = 'rich';
+
+  public $_type_x = NULL;
+  public $_regex_real = NULL;
+  public $_examples = array();
+  public $_google_analytics = NULL; # 'UA-12345678-0'
+
+  public $_status = 'private';	# ?
+
+/* JSON: http://api.embed.ly/1/services [
+{
+ "regex": ["http://*youtube.com/watch*", "http://*.youtube.com/v/*", "https://*youtube.com/watch*", "https://*.youtube.com/v/*", "http://youtu.be/*",  ...  ],
+ "about": "YouTube is the world's most popular online video community, allowing millions ...",
+ "displayname": "YouTube",
+ "name": "youtube",
+ "domain": "youtube.com",
+ "subdomains": ["m.youtube.com"],
+ "favicon": "http://c2548752.cdn.cloudfiles.rackspacecloud.com/youtube.ico",
+ "type": "video"
+},
+..
+] */
 
   protected $CI;
 
