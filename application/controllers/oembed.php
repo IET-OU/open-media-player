@@ -1,7 +1,9 @@
-<?php
-/** oEmbed controller. NDF 18 June 2010.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * The oEmbed API controller. 
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 18 June 2010-4 July 2012.
  */
 ini_set('display_errors', true);
 
@@ -72,15 +74,28 @@ EOF;
     }
 
 	$provider = $providers[$host];
+	if (is_string($provider)) {
+	  # New (#1356)
+	  $name = $provider;
+	  $this->load->library("providers/{$name}_serv.php");
+      $regex_display = $this->{"{$name}_serv"}->regex;
+
+	  $regex = $this->{"{$name}_serv"}->_regex_real ? $this->{"{$name}_serv"}->_regex_real : str_replace('*', '([\w_-]*?)', $regex_display);
+	  
+	} else {
+	  # Legacy (is_array).
     $name  = $providers[$host]['name'];
-    $regex = $providers[$host]['regex'];
+    $regex_display = $providers[$host]['regex'];
     if (isset($providers[$host]['_regex_real'])) {
       $regex = $providers[$host]['_regex_real'];
     } else {
-      $regex = str_replace('*', '([\w_-]*?)', $regex); #([^\/]*?)
+      $regex = str_replace('*', '([\w_-]*?)', $regex_display); #([^\/]*?)
     }
+
+	} # End legacy.
+
     if (! preg_match("@{$regex}$@", $req->url, $matches)) {
-      $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '".$providers[$host]['regex']."'.", 400);
+      $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
     }
 
     if (!file_exists(APPPATH."views/oembed/$name.php")) {
