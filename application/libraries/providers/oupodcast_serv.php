@@ -1,14 +1,15 @@
-<?php
-/** OU Media Player/ OU Podcast service provider.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * OU Media Player/ OU Podcast oEmbed service provider.
  *
  * @copyright Copyright 2011 The Open University.
  */
 //NDF, 3/3/2011.
-require_once APPPATH.'libraries/base_service.php';
+require_once APPPATH.'libraries/Oembed_Provider.php';
 require_once APPPATH.'libraries/ouplayer_lib.php';
 
 
-class Oupodcast_serv extends Base_service {
+class Oupodcast_serv extends Oembed_Provider {
 
   //NDF: const POD_BASE = 'http://podcast.open.ac.uk';
 
