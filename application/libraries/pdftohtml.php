@@ -1,4 +1,4 @@
-<?php
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Convert PDF transcripts to clean HTML5 snippets.
  * NDF, 25 March 2011.

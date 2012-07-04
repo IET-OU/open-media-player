@@ -1,5 +1,6 @@
-<?php
-/** An abstract theme from which to extend OU Media Player themes or skins.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * An abstract theme from which to extend OU Media Player themes or skins.
  *
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.

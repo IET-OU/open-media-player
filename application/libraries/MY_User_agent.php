@@ -1,5 +1,6 @@
-<?php
-/** Extends the user agent class, to return browser short codes - for CSS hacks etc.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Extends the user agent class, to return browser short codes - for CSS hacks etc.
  *
  * @copyright Copyright 2011 The Open University.
  */
