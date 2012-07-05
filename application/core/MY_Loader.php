@@ -1,6 +1,6 @@
 <?php
 /**
- * Extend the CI Loader class, so that it handles player themes.
+ * Extend the CI Loader class, so that it handles Player themes, and oEmbed providers.
  *
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.
@@ -38,5 +38,13 @@ class MY_Loader extends CI_Loader {
       return $this->view('../'. $view_file, $vars, $return);
     }
     return $this->view('../themes/'. $this->my_ci->theme->parent ."/views/$view", $vars, $return);
+  }
+
+
+  /** Load an oEmbed provider class.
+  */
+  public function oembed_provider($provider_name, $object_name = 'provider') {
+    // Simplify lines like, $regex = $this->{"{$name}_serv"}->regex;
+    return $this->library("providers/{$provider_name}_serv", NULL, $object_name);
   }
 }

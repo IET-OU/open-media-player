@@ -20,19 +20,20 @@ abstract class Oembed_Provider implements iService {
 
   public $regex = '';			# array();
   public $about = '';			# Human
-  public $displayname = '';     # Human, mixed-case
-  public $name = NULL;          # Machine, lower-case
+  public $displayname = '';		# Human, mixed-case
+  public $name = NULL;			# Auto-generate, machine-readable, lower-case.
   public $domain = '';			# HOST
   public $subdomains = array();	# HOSTs
   public $favicon = '';			# URL
-  public $type = 'rich';
+  public $type = 'rich';		# photo|video|link|rich (http://oembed.com/#section2.3) NOT 'audio'
 
   public $_type_x = NULL;
+  public $_about_url = NULL;
   public $_regex_real = NULL;
   public $_examples = array();
   public $_google_analytics = NULL; # 'UA-12345678-0'
 
-  public $_status = 'private';	# ?
+  public $_access = 'public';	# public|private|unpublished|external (Also 'maturity'..?)
 
 /* JSON: http://api.embed.ly/1/services [
 {
@@ -50,17 +51,32 @@ abstract class Oembed_Provider implements iService {
 
   protected $CI;
 
+  /** Constructor: auto-generate 'name' property.
+  */
   public function __construct() {
     $this->CI =& get_instance();
+
+    // We use $this - an instance, not a class.
+    $this->name = strtolower(preg_replace('#_sevr$#i', '', get_class($this)));
   }
 
-  protected function _http_request_curl($url, $spoof=TRUE) {
-    $this->CI->load->library('http');
-    return $this->CI->http->request($url, $spoof);
+
+  protected function _error($message, $code=500, $from=null, $obj=null) {
+    return $this->CI->_error($message, $code, $from, $obj);
   }
-  
-  protected function _http_request_json($url, $spoof=TRUE) {
-    $result = $this->_http_request_curl($url, $spoof);
+
+  protected function _log($level='error', $message, $php_error=FALSE) {
+    return $this->CI->_log($level, $message, $php_error);
+  }
+
+
+  protected function _http_request_curl($url, $spoof=TRUE, $options=array()) {
+    $this->CI->load->library('http');
+    return $this->CI->http->request($url, $spoof, $options);
+  }
+
+  protected function _http_request_json($url, $spoof=TRUE, $options=array()) {
+    $result = $this->_http_request_curl($url, $spoof, $options);
     if ($result->success) {
       $result->json = json_decode($result->data);
     }
