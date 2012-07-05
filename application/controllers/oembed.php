@@ -77,11 +77,11 @@ EOF;
 	if (is_string($provider)) {
 	  # New (#1356)
 	  $name = $provider;
-	  $this->load->library("providers/{$name}_serv.php");
-      $regex_display = $this->{"{$name}_serv"}->regex;
+	  $this->load->oembed_provider($name);
+	  $regex_display = $this->provider->regex;
 
-	  $regex = $this->{"{$name}_serv"}->_regex_real ? $this->{"{$name}_serv"}->_regex_real : str_replace('*', '([\w_-]*?)', $regex_display);
-	  
+	  $regex = $this->provider->_regex_real ? $this->provider->_regex_real : str_replace('*', '([\w_-]*?)', $regex_display);
+
 	} else {
 	  # Legacy (is_array).
     $name  = $providers[$host]['name'];
@@ -119,9 +119,10 @@ EOF;
     // Should we load the library for the service?
     if (($this->config->item('always_upstream') || !$meta)
         && file_exists(APPPATH."/libraries/providers/{$name}_serv.php")) {
-      $this->load->library("providers/{$name}_serv.php");
-      $meta = $this->{"{$name}_serv"}->call($req->url, $matches);
-    } elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
+      $this->load->oembed_provider($name);
+      $meta = $this->provider->call($req->url, $matches);
+    }
+    elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
       // Legacy.
 echo " this->_meta_$name() ";
       $meta = $this->{"_meta_$name"}($req->url, $matches);
@@ -164,7 +165,7 @@ echo " this->_meta_$name() ";
       }*/
 
     } else {
-      $this->_error("not found, view '$name'.", 404);
+      $this->_error("not found, view '$name'.", 404.11);
     }
     $this->_log('debug', __CLASS__.": Success");
   }
