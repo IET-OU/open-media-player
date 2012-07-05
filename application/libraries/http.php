@@ -77,7 +77,10 @@ class Http {
 
       'cookie' => NULL,
       'ua' => $ua,
+      'debug' => FALSE,
+      'auth' => NULL, #'[domain\]user:password'
     );
+
     return $result;
   }
 
@@ -103,7 +106,18 @@ class Http {
     curl_setopt($h_curl, CURLOPT_FOLLOWLOCATION, TRUE);
     curl_setopt($h_curl, CURLOPT_TIMEOUT, $options['timeout']);
 
-	
+    if ($options['debug']) {
+      curl_setopt($h_curl, CURLOPT_HEADER, TRUE);
+      curl_setopt($h_curl, CURLINFO_HEADER_OUT, TRUE);
+    }
+
+    if ($options['auth']) {
+      //TODO: http://unitstep.net/blog/2009/05/05/using-curl-in-php-to-access-https-ssltls-protected-sites/
+      curl_setopt($h_curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+      curl_setopt($h_curl, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);
+      curl_setopt($h_curl, CURLOPT_USERPWD, $options['auth']);
+    }
 
 	$http_proxy = $this->CI->config->item('http_proxy');
 	if ($http_proxy) {
@@ -111,12 +125,20 @@ class Http {
 	}
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
     $result->data = curl_exec($h_curl);
+
+    $result->_headers = NULL;
+    // Fragile: rely on cURL always putting 'Content-Length' last..
+    if ($options['debug'] && preg_match('#^(HTTP\/1\..+Content\-Length: \d+\s)(.*)$#ms', $result->data, $matches)) {
+      $result->_headers = $matches[1];
+      $result->data = trim($matches[2], "\r\n");
+    }
     if ($errno = curl_errno($h_curl)) {
       //Error. Quietly log?
       $this->CI->_log('error', "cURL $errno, ".curl_error($h_curl)." GET $url");
       #$this->CI->firephp->fb("cURL $errno", "cURL error", "ERROR");
     }
     $result->info = curl_getinfo($h_curl);
+    $result->http_code = $result->info['http_code'];
     $result->success = ($result->info['http_code'] < 300);
     return (object) $result;
   }
