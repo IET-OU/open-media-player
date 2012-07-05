@@ -57,7 +57,7 @@ abstract class Oembed_Provider implements iService {
     $this->CI =& get_instance();
 
     // We use $this - an instance, not a class.
-    $this->name = strtolower(preg_replace('#_sevr$#i', '', get_class($this)));
+    $this->name = strtolower(preg_replace('#_serv$#i', '', get_class($this)));
   }
 
 

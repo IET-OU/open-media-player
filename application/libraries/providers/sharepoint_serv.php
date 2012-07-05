@@ -69,7 +69,7 @@ EOT;
 	  $xpath_query = "//item[link[contains(., '?ID=$document_id')]]";
 	  $item = $xmlo->xpath($xpath_query);
 	  if (! $item) {
-	    $this->_error("document not found, ". $matches[0], 404);
+	    $this->_error("Sharepoint document not found, ". $matches[0], 404);
 	  }
 	  $item = $item[0];
 
@@ -82,9 +82,14 @@ EOT;
 		'author' => (string) $item->author,
 		'timestamp' => strtotime((string) $item->pubDate),
 		'document_url' => (string) $item->enclosure['url'],
-		'document_type'=> 'application/msword',
+		'document_type'=> NULL,
 		#'document_size'
 	  );
+
+	  #$ext = pathinfo($meta['document_url'], PATHINFO_EXTENSION);
+
+	  $this->CI->load->helper('file');
+	  $meta['document_type'] = get_mime_by_extension($meta['document_url']);
 
 	  #&source=https%3A%2F%2Fintranet7%2Eopen%2Eac%2Euk%2Fcollaboration%2Fiet-professional-development%2FShared%2520Documents%2FForms%2FAllItems%2Easpx
 	  $meta['_viewer_url'] = $this->_root .'/_layouts/WordViewer.aspx?id='. urlencode(parse_url($meta['document_url'], PHP_URL_PATH));
