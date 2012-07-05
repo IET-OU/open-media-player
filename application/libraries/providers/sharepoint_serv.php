@@ -22,7 +22,7 @@ EOT;
   public $favicon = 'http://sharepoint.microsoft.com/_layouts/images/favicon.ico';
   #https://intranet7.open.ac.uk/collaboration/iet-professional-development/_layouts/images/siteIcon.png
   #https://intranet7.open.ac.uk/_layouts/images/siteIcon.png
-  public $type = 'link';  # Initially 'link', later 'rich'
+  public $type = 'rich';  # Initially 'link', later 'rich'
 
   public $_about_url = 'http://sharepoint.microsoft.com/';
   public $_regex_real = 'https://intranet7.open.ac.uk/collaboration/iet-professional-development/Shared Documents/Forms/DispForm.aspx\?ID=(\d+)';
