@@ -7,6 +7,8 @@
 | Upload class to help identify allowed file types.
 |
 */
+//ou-specific: NDF.
+global $mimes;
 
 $mimes = array(	'hqx'	=>	'application/mac-binhex40',
 				'cpt'	=>	'application/mac-compactpro',
