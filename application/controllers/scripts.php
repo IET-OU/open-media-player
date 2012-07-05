@@ -49,8 +49,16 @@ class Scripts extends MY_Controller {
 	  // OU embed providers.
 	  $providers = $this->config->item('providers');
       foreach ($providers as $domain => $provider) {
+		if (is_string($provider)) {
+		  # New Jul 2012: loose coupling (iet-it-bugs:1356)
+		  $this->load->oembed_provider($provider);
+		  $name = $this->provider->name;
+		  $type = $this->provider->type;
+		} else {
+		  # Legacy.
 		$name = strtolower($provider['name']);
 		$type = $provider['type'];
+		}
 		$regex = '"'.str_replace('.', '\.', $domain).'"';
 		$script_prov .= "\t\t"
         //   ."new OEmbedProvider('ouplayer', '$domain', '$oembed_url'),".PHP_EOL;
