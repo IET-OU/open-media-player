@@ -110,7 +110,12 @@ $config['providers'] = array(
     #NO: https://docs.google.com/spreadsheet/gform?key=0AgJMkdi3MO4HdFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE&hl=en_GB&gridId=0#edit
     'https://docs.google.com/spreadsheet/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0'),
     ),
+
+
+    # New Jul 2012: most data is in 'Sharepoint_serv' - loose coupling (iet-it-bugs:1356)
+    'intranet7.open.ac.uk' => 'sharepoint',
 );
+
 
 // Other providers.
 // IF (!endpoint) endpoint=embedly;
@@ -140,5 +145,7 @@ $config['providers_other'] = array(
 	// OLnet - roll into OU embed.
 	'cohere.open.ac.uk'=> array('name'=>'olnet', 'type'=>'rich', 'endpoint'=>'http://olnet.org/oembed'),
 	'mathtran.org'     => array('name'=>'olnet', 'type'=>'rich', 'endpoint'=>'http://olnet.org/oembed'),
+
+	'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
 );
 

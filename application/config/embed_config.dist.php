@@ -40,7 +40,7 @@ $config['podcast_feed_url_pattern'] =
 //$config['jslib'] = NULL;
 
 
-// NEW!
+// NEW! A placeholder image for intranet-only podcasts etc.
 //$config['player_restricted_poster_url'] = '';
 // NEW, optional!
 //$config['player_show_embed_code'] = true;
@@ -55,10 +55,13 @@ $config['cache_minutes'] = false; //10;
 // Experimental.
 $config['player_scripts_compress'] = false;
 
+// NEW! OU Sharepoint NTLM (LDAP) account.
+#$config['http_sharepoint_userpwd'] = 'open-university\[UNIT]-cluster:[PASSWORD]';
+
 // Key for Embed.ly API (free for oEmbed/ Pass. Gorilla: iet-embed@ou)
 $config['embedly_api_key'] = false; //'04..7';
 
-// Experimental.
+// Optional/Experimental.
 $config['flowplayer_dev'] = false;
 
 // Flowplayer commercial license key.
