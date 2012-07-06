@@ -25,7 +25,8 @@ EOT;
   public $type = 'rich';  # Initially 'link', later 'rich'
 
   public $_about_url = 'http://sharepoint.microsoft.com/';
-  public $_regex_real = 'https://intranet7.open.ac.uk/collaboration/iet-professional-development/Shared Documents/Forms/DispForm.aspx\?ID=(\d+)';
+  public $_regex_real =
+    'https://intranet7.open.ac.uk/collaboration/iet-professional-development/Shared( |\+|%20|%2520|_|-)Documents/(Forms/DispForm.aspx\?ID=(\d+)|[^\/]+)';
   public $_examples = array(
     'Follow-up Induction Apr 2008 (Word doc)'=>'https://intranet7.open.ac.uk/collaboration/iet-professional-development/Shared Documents/Forms/DispForm.aspx?ID=1',
 	'_RSS'=>'https://intranet7.open.ac.uk/collaboration/iet-professional-development/_layouts/listfeed.aspx?List=%7B55377B07-A07E-4BDD-9F8E-03CFD5524546%7D',
@@ -34,13 +35,17 @@ EOT;
 
   public $_access = 'private';
 
-
   protected $_list_id = '55377B07-A07E-4BDD-9F8E-03CFD5524546';
   protected $_root = 'https://intranet7.open.ac.uk/collaboration/iet-professional-development';
   protected $_author_root = 'http://people.open.ac.uk/search?q=';
 
+  /**
+  * Implementation of call() - Get and parse a Sharepoint RSS feed.
+  * @return object
+  */
   public function call($url, $matches) {
-      $document_id  = $matches[1]; #DispForm.aspx?ID=1
+      $document_id  = isset($matches[3]) ? $matches[3] : NULL; #DispForm.aspx?ID=1
+      $document_alt = $matches[2];
 
 	  $rss_url = "$this->_root/_layouts/listfeed.aspx?List=%7B{$this->_list_id}%7D";
 
@@ -66,7 +71,12 @@ EOT;
 	  // We'd prefer the XPath 2.0 ends-with function.
 	  // http://stackoverflow.com/questions/5435310/php-xpath-ends-with
 	  // $xmlo->registerXPathNamespace('fn', 'http://www.w3.org/2005/xpath-functions');
-	  $xpath_query = "//item[link[contains(., '?ID=$document_id')]]";
+	  if ($document_id) {
+	    #$xpath_query = "//item[link[contains(., '?ID=$document_id')]]";
+	    $xpath_query = "//item[link = '$this->_root/Shared Documents/Forms/DispForm.aspx?ID=$document_id']";
+	  } else {
+	    $xpath_query = "//item[enclosure[contains(@url, 'Documents/". urldecode($document_alt) ."')]]";
+	  }
 	  $item = $xmlo->xpath($xpath_query);
 	  if (! $item) {
 	    $this->_error("Sharepoint document not found, ". $matches[0], 404);
@@ -84,6 +94,7 @@ EOT;
 		'_timestamp' => strtotime((string) $item->pubDate),
 		'_date_pub' => (string) $item->pubDate,
 		'_description' => (string) $item->description,
+		'_bookmark_url' => (string) $item->link,
 		'_document_url' => (string) $item->enclosure['url'],
 		#'document_size', document_version, tags ..
 

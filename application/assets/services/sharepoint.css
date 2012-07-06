@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* OU-Sharepoint embed styles.
    http://www.open.ac.uk/webstandards/v3.0/icons.php */
-.sharepoint.embed-rsp a.cr, a.vi, .sharepoint.embed-rsp time, .sharepoint.embed-rsp i{ font-size:small; }
+.sharepoint.embed-rsp a.cr, a.vi, .sharepoint.embed-rsp time, .sharepoint.embed-rsp i{ font-size:small /*.83em*/ }
 
 /* Download link */
 .sharepoint.embed-rsp a.dl{ background:url(http://sharepoint.microsoft.com/_layouts/images/favicon.ico) no-repeat right; padding-right:18px; }
