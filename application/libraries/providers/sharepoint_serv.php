@@ -37,7 +37,7 @@ EOT;
 
   protected $_list_id = '55377B07-A07E-4BDD-9F8E-03CFD5524546';
   protected $_root = 'https://intranet7.open.ac.uk/collaboration/iet-professional-development';
-
+  protected $_author_root = 'http://people.open.ac.uk/search?q=';
 
   public function call($url, $matches) {
       $document_id  = $matches[1]; #DispForm.aspx?ID=1
@@ -77,22 +77,28 @@ EOT;
 		'provider_name'=> (string) $xmlo->channel->title,
 		'provider_url' => $this->_root,
 		'provider_mid' => $document_id,
-		'generator_name' => $this->displayname,
+		'_generator_name' => $this->displayname,
 		'title'  => (string) $item->title,
 		'author' => (string) $item->author,
-		'timestamp' => strtotime((string) $item->pubDate),
-		'document_url' => (string) $item->enclosure['url'],
-		'document_type'=> NULL,
-		#'document_size'
+		'author_url' => $this->_author_root . $item->author,
+		'_timestamp' => strtotime((string) $item->pubDate),
+		'_date_pub' => (string) $item->pubDate,
+		'_description' => (string) $item->description,
+		'_document_url' => (string) $item->enclosure['url'],
+		#'document_size', document_version, tags ..
+
+		'_style_url' => base_url() . 'assets/services/sharepoint.css',
+		'_style_embed' => FALSE === $this->CI->input->get('style_link') || $this->CI->input->get('style_link'),
 	  );
 
-	  #$ext = pathinfo($meta['document_url'], PATHINFO_EXTENSION);
-
 	  $this->CI->load->helper('file');
-	  $meta['document_type'] = get_mime_by_extension($meta['document_url']);
+	  $meta['_document_type'] = get_mime_by_extension($meta['_document_url']);
+
+	  $meta['_document_ext'] = pathinfo($meta['_document_url'], PATHINFO_EXTENSION);
+	  $meta['_date_iso'] = date('c', $meta['_timestamp']);
 
 	  #&source=https%3A%2F%2Fintranet7%2Eopen%2Eac%2Euk%2Fcollaboration%2Fiet-professional-development%2FShared%2520Documents%2FForms%2FAllItems%2Easpx
-	  $meta['_viewer_url'] = $this->_root .'/_layouts/WordViewer.aspx?id='. urlencode(parse_url($meta['document_url'], PHP_URL_PATH));
+	  $meta['_viewer_url'] = $this->_root .'/_layouts/WordViewer.aspx?id='. urlencode(parse_url($meta['_document_url'], PHP_URL_PATH));
 
 	  return (object) $meta;
   }
