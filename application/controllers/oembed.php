@@ -111,7 +111,9 @@ EOF;
         $this->load->theme($this->_theme->name);
       }
     }
-    else {
+	// #1358, Make OU-embed services work without a DB..
+    elseif (! $this->config->item('always_upstream')) {
+      
       $this->load->model('embed_cache_model');
       $meta = $this->embed_cache_model->get_embed($req->url);
     }
