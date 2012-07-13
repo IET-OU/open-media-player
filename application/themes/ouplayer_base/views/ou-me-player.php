@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta charset="utf-8" /><title><?= $params->title ?> | OU player</title>
 <?php
 
