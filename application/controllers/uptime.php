@@ -1,50 +1,78 @@
-<?php
-/** Controller for a responder forathe Uptime Server Monitoring service
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Controller for a responder for the Uptime Server Monitoring service.
+ *
  * Requires the following line in application/config/routes.php
  * <code>
  *   $route['uptime.txt'] = 'uptime';
  * </code>
+ * @link http://uptime.solutiongrove.com/
  * @link http://uptime.openacs.org/
  * @copyright 2011 The Open University.
- * @package Uptime NDF, 1 April 2010.
+ * @author N.D.Freear, 1 April 2010, 13 July 2012.
+ * @package Uptime
  */
 
-class Uptime extends CI_Controller {
+class Uptime extends MY_Controller {
 
-  /** Uptime page, for both podcast and OU-embed databases.
+  /** Uptime page, for both podcast and OU-embed data sources/DBs.
   */
   public function index() {
-    $this->load->model('embed_cache_model');
-	$embed_count = $this->embed_cache_model->count();
-	@header('X-Count-Embed-Cache: '.$embed_count);
+    $return = TRUE;
 
-	# Need to add an IF (config) check.
-	$this->load->model('podcast_items_model');
-	$podcasts_count = $this->podcast_items_model->count();
-	@header('X-Count-Podcast-Items: '.$podcasts_count);
+    $podcasts_count = $this->podcast($return);
 
-	@header('Content-Type: text/plain; charset=UTF-8');
+    $embed_count = $this->embed($return);
+
 	if (!$embed_count || !$podcasts_count) {
-	    @header('HTTP/1.1 503 Service Unavailable'); #Actually, CI never reaches this point!
-		die('A Database Error Occurred'.PHP_EOL);
+        $this->_error('A Feed/ Database Error Occurred'); #Actually, CI never reaches this point!
 	}
 
-	echo 'success'.PHP_EOL;
+    $this->_echo_success();
   }
 
-  /** Uptime page for just the podcast DB.
+
+  /** Uptime page/monitor for just the podcast RSS feed(s) or DB.
+  *
+  * Suggest OPML:  http://podcast.open.ac.uk/feeds/opml.xml
+  * Eg.  http://openlearn.open.ac.uk/rss/file.php/stdfeed/1/full_opml.xml
   */
-  public function podcast() {
-    $this->load->model('podcast_items_model');
-	$podcasts_count = $this->podcast_items_model->count();
-	@header('X-Count-Podcast-Items: '.$podcasts_count);
+  public function podcast($return = false) {
+    $url = 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d';
 
-	@header('Content-Type: text/plain; charset=UTF-8');
-	if (!$podcasts_count) {
-	    @header('HTTP/1.1 503 Service Unavailable'); #Actually, CI never reaches this point!
-		die('A Database Error Occurred'.PHP_EOL);
+    $this->load->oembed_provider('Oupodcast');
+    $result = $this->provider->_inner_call('l314-spanish', 'fe481a4d1d');
+
+    $podcasts_count = $result ? '> 1' : 0;
+    @header('X-Count-Podcast-Items: '.$podcasts_count);
+
+    if (! $return) {
+      $this->_echo_success();
 	}
+	return $podcasts_count;
+  }
 
+
+  /** Uptime page/monitor for just the embed cache DB.
+  */
+  public function embed($return = false) {
+    if ($this->config->item('always_upstream')) {
+	  $embed_count = 'upstream';
+	} else {
+	  $this->load->model('embed_cache_model');
+	  $embed_count = $this->embed_cache_model->count();
+	}
+	@header('X-Count-Embed-Cache: '.$embed_count);
+
+	if (! $return) {
+      $this->_echo_success();
+	}
+	return $embed_count;
+  }
+
+
+  protected function _echo_success() {
+    @header('Content-Type: text/plain; charset=UTF-8');
 	echo 'success'.PHP_EOL;
   }
 }
