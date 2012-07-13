@@ -19,10 +19,13 @@ class Oupodcast_serv extends Oembed_Provider {
       $this->CI =& get_instance();
       if ($this->CI->config->item('podcast_data_use_feed')) {
         $this->CI->load->model('Podcast_items_feed_model', 'podcast_items_model');
+        $method = 'feed';
       } else {
         // Or the original database model.    
         $this->CI->load->model('podcast_items_model');
+        $method = 'db';
       }
+      @header('X-Podcast-Data: '.$method);
   }
 
   /** Used by oEmbed controller.
