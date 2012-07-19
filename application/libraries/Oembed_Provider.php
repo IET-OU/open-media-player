@@ -58,6 +58,13 @@ abstract class Oembed_Provider implements iService {
 
     // We use $this - an instance, not a class.
     $this->name = strtolower(preg_replace('#_serv$#i', '', get_class($this)));
+
+    // Get the Google Analytics ID, if available.
+    $this->CI->config->load('providers');
+    $ga_analytics_ids = $this->CI->config->item('provider_google_analytics_ids');
+    if (isset($ga_analytics_ids[$this->name])) {
+      $this->_google_analytics = $ga_analytics_ids[$this->name];
+    }
   }
 
 

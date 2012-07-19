@@ -68,14 +68,7 @@ $config['providers'] = array(
     'scratch.mit.edu' => array('name'=>'scratch',
         'regex' =>'scratch.mit.edu/projects/*-/*'),
     */
-    'prezi.com'   => array('name'=>'prezi',
-        'regex' =>'prezi.com/*/*/?', // Optional trailing slash.
-        'type'  =>'rich',
-        '_examples' => array(
-          'Dig. Schol. by M.Weller' => 'http://prezi.com/izeqbfy2z5w-/digital-scholarship',
-          'http://prezi.com/zoidjousoeat/technology-for-the-classroom',
-        ),
-        '_google_analytics'=>'UA-24005173-4'), #IPR?
+    'prezi.com' => 'prezi',
 
 	/*
 	SS:  https://docs.google.com/spreadsheet/ccc?key=0AlpQljt8DLyXdHE0dzVLVXkyeXdBYXk5UzdQbFJ4OFE&hl=en_US#gid=0
@@ -84,37 +77,19 @@ $config['providers'] = array(
 	Doc/ OU player help: https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit?hl=en_GB
 	https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y&hl=en_GB
 	*/
-    'docs.google.com' => array(
-        'about'  => '',
-        'displayname'=>'Google Docs spreadsheets/forms/presentations',
-        'domain' => 'docs.google.com',
-        'favicon'=> 'http://docs.google.com/favicon.ico',
-        //'name'   => 'gglspread',
-        'name'     => 'googledoc',
-        //'regex'  => 'docs.google.com/spreadsheet/*?*key=*',
-        'regex'  => 'docs.google.com/(spreadsheet|document|present[ation])/*',
-        'type'   => 'rich',
-    //'_regex_real'=> 'docs.google.com\/(spreadsheet)\/\w*(ccc|pub|form)\?.*(form)?key=(\w+).*?(#height=(\d+))?',
-
-	// Bug #1271 - a work-in-progress!!
-	'_regex_real'=>'docs.google.com\/(spreadsheet|present|presentation|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?#?(.*?)(height=(\d+))?',
-
-    '_examples'=>array(
-      'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
-	  'Rhodri\'s talk' => 'https://docs.google.com/presentation/d/1ODWAPH9pXgVo-IImJeUDCHrh5owh33OXkvHfWlJyOqo/edit#slide=id.g14429bf_1_14',
-      'OU Player help/ about' => 'https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit#id.j2um0zpktyo1',
-
-      'OU Player notif.' => 'https://docs.google.com/spreadsheet/viewform?hl=en_&formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
-      'Student satis./ Ouseful' => 'http://docs.google.com/spreadsheet/ccc?key=reBYenfrJHIRd4voZfiSmuw',
-    'https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#gid=0',
-    #NO: https://docs.google.com/spreadsheet/gform?key=0AgJMkdi3MO4HdFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE&hl=en_GB&gridId=0#edit
-    'https://docs.google.com/spreadsheet/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0'),
-    ),
+    'docs.google.com' => 'googledoc',
 
 
     # New Jul 2012: most data is in 'Sharepoint_serv' - loose coupling (iet-it-bugs:1356)
     'intranet7.open.ac.uk' => 'sharepoint',
 );
+
+
+$config['provider_google_analytics_ids'] = array(
+
+  'prezi' => 'UA-24005173-4',
+);
+
 
 
 // Other providers.

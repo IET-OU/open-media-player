@@ -2,15 +2,48 @@
 /**
  * Google Docs spreadsheet/forms oEmbed service provider.
  *
- *  @copyright Copyright 2011 The Open University.
+ * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 4 March 2011.
  */
-#NDF, 4/3/2011.
-#/oembed?url=http%3A//spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ%23height=1160
 require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Googledoc_serv extends Oembed_Provider {
 
+  public $regex = 'https://docs.google.com/(spreadsheet|document|present[ation])/*'; #array()
+  public $about = <<<EOT
+  Embed Google Docs spreadsheets, forms, documents and presentations in your web site. [Initially for Cloudworks/OULDI. Public access.]';
+EOT;
+  public $displayname = 'Google Docs';
+  #public $name = 'googledoc';
+  public $domain = 'docs.google.com';
+  public $subdomains = array();
+  public $favicon = 'http://docs.google.com/favicon.ico';
+  public $type = 'rich';
+
+  public $_about_url = 'https://docs.google.com/';
+  // Bug #1271 - a work-in-progress!!
+  public $_regex_real =
+    'docs.google.com\/(spreadsheet|present|presentation|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?#?(.*?)(height=(\d+))?';
+  public $_examples = array(
+    'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
+    'Rhodri\'s talk' => 'https://docs.google.com/presentation/d/1ODWAPH9pXgVo-IImJeUDCHrh5owh33OXkvHfWlJyOqo/edit#slide=id.g14429bf_1_14',
+    'OU Player help/ about' => 'https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit#id.j2um0zpktyo1',
+
+    'OU Player notif. (form)' => 'https://docs.google.com/spreadsheet/viewform?hl=en_&formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#height=690',
+    'Student satis./ Ouseful (spreadsheet)' => 'http://docs.google.com/spreadsheet/ccc?key=reBYenfrJHIRd4voZfiSmuw',
+    'https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA#gid=0',
+    #NO: https://docs.google.com/spreadsheet/gform?key=0AgJMkdi3MO4HdFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE&hl=en_GB&gridId=0#edit
+    'https://docs.google.com/spreadsheet/ccc?key=0AgJMkdi3MO4HdDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE&hl=en_GB#gid=0',
+    '_OEM'=>'/oembed?url=http%3A//spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ%23height=1160',
+  );
+  public $_access = 'public';
+
+
+  /**
+   * Implementation of call().
+   * @return object
+   */
   public function call($url, $matches) {
 
       $what  = $matches[1]; #spreadsheet|present|document.
@@ -54,7 +87,7 @@ class Googledoc_serv extends Oembed_Provider {
       // HTTP request - get the title...?
 
       $meta = array(
-          #'title'=> '',
+          'title'=> NULL, #'[unknown]',
           'width' => 640, #720,
           'height'=> $height,
           'embed_url'=>$embed_url,

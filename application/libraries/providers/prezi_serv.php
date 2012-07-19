@@ -11,6 +11,28 @@ require_once APPPATH.'libraries/Oembed_Provider.php';
 
 class Prezi_serv extends Oembed_Provider {
 
+  public $regex = 'prezi.com/*/*/?'; // Optional trailing slash.
+  public $about = <<<EOT
+  Prezi - The Zooming Presentations Editor. Embed presentations hosted on Prezi. [Initially for Cloudworks/OULDI. Public access.]';
+EOT;
+  public $displayname = 'Prezi';
+  #public $name = 'prezi';
+  public $domain = 'prezi.com';
+  public $subdomains = array();
+  public $favicon = 'http://prezi.com/favicon.ico';
+  public $type = 'rich';
+
+  public $_about_url = 'http://prezi.com/';
+
+  public $_regex_real = NULL;
+  public $_examples = array(
+    'Dig. Schol. by M.Weller' => 'http://prezi.com/izeqbfy2z5w-/digital-scholarship',
+    'http://prezi.com/zoidjousoeat/technology-for-the-classroom',
+    '_OEM'=>'/oembed?url=http%3A//spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ%23height=1160',
+  );
+  public $_access = 'public';
+
+
   /** Short URL for the Prezi iPad app (protocol: itms)
   * http://itunes.apple.com/us/app/prezi/id407759942
   * Tested, OK in iPad-Safari and iPad-Opera Mini.

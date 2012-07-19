@@ -18,9 +18,11 @@ class Oembed extends MY_Controller {
   }
 
   protected function _tracker($provider, $host, $meta) {
-    //TODO - UA-, URL. ($this->uri->site_url() ?)
-	if (isset($provider['_google_analytics'])) {
-	  $id = $provider['_google_analytics'];
+	# Fix for new (#1356) v. legacy.
+	$provider = is_array($provider) ? (object) $provider : $provider;
+	//TODO - UA-, URL. ($this->uri->site_url() ?)
+	if (isset($provider->_google_analytics)) {
+	  $id = $provider->_google_analytics;
 	  $path = isset($meta->provider_mid) ? $meta->provider_mid : 'p';
       $image_url = site_url()."track/i/$id/$host/$path/".str_replace(' ','-',$meta->title).'?title='.urlencode($meta->title);
       return <<<EOF
@@ -138,7 +140,8 @@ echo " this->_meta_$name() ";
       'callback'=>$req->callback,
       'matches' =>$matches,
       'meta'  => $meta,
-      'tracker'=>$this->_tracker($provider, $host, $meta),
+      # Fix for new (#1356) v. legacy.
+      'tracker'=>$this->_tracker(isset($this->provider) ? $this->provider : $provider, $host, $meta),
     );
 
     if (file_exists(APPPATH."views/oembed/$name.php")) {
