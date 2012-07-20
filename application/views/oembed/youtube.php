@@ -5,12 +5,11 @@
  http://www.youtube.com/watch_ajax?action_get_caption_track_all&v=NaBBk-kpmL4
  http://video.google.com/timedtext?lang=en&v=NaBBk-kpmL4
 */
-  $video_id = $matches[1];
+  $video_id = $meta->provider_mid;
   $width = 640;
   $height= 390;
 
 //?cc_load_policy=1&amp;enablejsapi=1&amp;origin=example.com / ?feature=player_embedded
-  //$html =<<<EOF
   ob_start();
 
   ?>
@@ -22,7 +21,7 @@ src='http://www.youtube.com/embed/<?php echo $video_id ?>?origin=<?php echo $thi
 <?php
 
   $html = ob_get_clean();
-//EOF;
+
 
   $oembed = array(
         'version'=> '1.0',

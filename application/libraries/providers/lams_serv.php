@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * LAMS/ Learning Activity Management System  oEmbed service provider.
+ * LAMS/ Learning Activity Management System oEmbed service provider.
  *
  * Get oEmbed response from upstream Lamscommunity.org server.
  * Options: cache the SVG, screen-scrape the Lamscentral page (for extended meta-data).
@@ -8,12 +8,37 @@
  * @author N.D.Freear, 24-Feb-2011 on.
  * @copyright Copyright 2011 The Open University.
  */
-//24/2, 1/3/2011.
 require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Lams_serv extends Oembed_Provider {
 
+  public $regex = 'lamscommunity.org/*?seq_id=*'; //array()
+  public $about = <<<EOT
+  <abbr title="Learning Activity Management System">LAMS</abbr> is a new tool for producing online collaborative learning activities. It provides teachers with a visual authoring environment for creating sequences.
+  Embed previews of LAMS sequences [Initially for Cloudworks/OULDI. Public access.]';
+EOT;
+  public $displayname = 'LAMS Community';
+  #public $name = 'lams';
+  public $domain = 'lamscommunity.org';
+  public $subdomains = array();
+  public $favicon = 'http://lamscommunity.org/favicon.ico';
+  public $type = 'rich';
+
+  public $_about_url = 'http://lamscommunity.org/';
+  public $_regex_real = 'lamscommunity.org\/.*(sequence|dl)\?seq_id=(\d{2,10})$';
+  public $_examples = array(
+    'Crime fighting'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1007900',
+    'Γενετικά Τροποποιημένα Τρόφιμα 1 [el]'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1074994',
+    '_OEM'=>'/oembed?url=http%3A//lamscommunity.org/lamscentral/sequence%3Fseq_id=1007900',
+  );
+  public $_access = 'public';
+
+
+  /**
+   * Implementation of call().
+   * @return object
+   */
   public function call($url, $matches) {
       $seq_id = $matches[2];
       $lams_base = 'http://lamscommunity.org';

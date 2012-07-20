@@ -39,30 +39,11 @@ $config['providers'] = array(
         '_google_analytics'=>'UA-24005173-2',
     ),
 
-    'lamscommunity.org' => array(
-        'about'  => '<abbr title="Learning Activity Management System">LAMS</abbr> is a new tool for producing online collaborative learning activities. It provides teachers with a visual authoring environment for creating sequences.',
-        'displayname'=>'LAMS Community',
-        'domain' => 'lamscommunity.org',
-        'favicon'=> 'http://lamscommunity.org/favicon.ico',
-        'name'   => 'lams',
-        'regex'  => 'lamscommunity.org/*?seq_id=*', //array()?
-        'subdomains'=>array(),
-        'type'   => 'rich',
-        '_regex_real'=>'lamscommunity.org\/.*(sequence|dl)\?seq_id=(\d{2,10})$',
-        #oembed?url=http%3A//lamscommunity.org/lamscentral/sequence%3Fseq_id=1007900
-        '_examples'=>array(
-          'Crime fighting'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1007900',
-          'Γενετικά Τροποποιημένα Τρόφιμα 1 [el]'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1074994'),
-        '_google_analytics'=>'UA-24005173-3',
-    ),
+    'lamscommunity.org' => 'lams',
 
-    'youtube.com' => array('name'=>'youtube', 'type'=>'video', 'regex'=>'youtube.com/watch*', 
-        '_regex_real'=>'youtube.com/watch\?.*v=([\w-_]*)&*.*',
-        '_examples'=>array(
-          'Interview with Martin Bean (captions)' => 'http://youtube.com/watch?v=NaBBk-kpmL4',
-		  'http://youtu.be/NaBBk-kpmL4'),
-        ),
-    'youtu.be' => array('name'=>'youtube', 'type'=>'video', 'regex'=>'youtu.be/*', /*'parent'=>'youtube.com'*/ ),
+    'youtube.com'=> 'youtube',
+    'youtu.be'   => 'youtube',
+
     /*'cohere.ac.uk'=> array('name'=>'cohere', ),
     #'mathtran.org'=> array('name'=>'mathtran', ),
     'scratch.mit.edu' => array('name'=>'scratch',
@@ -86,7 +67,7 @@ $config['providers'] = array(
 
 
 $config['provider_google_analytics_ids'] = array(
-
+  'lams'  => 'UA-24005173-3',
   'prezi' => 'UA-24005173-4',
 );
 
