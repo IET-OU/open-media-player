@@ -1,6 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Cohere oEmbed service provider (CI: collective intelligence)
+ * Cohere oEmbed service provider.
+ *
+ * Originally developed as part of the OLnet project (CI_oembed: collective intelligence).
  *
  * @copyright Copyright 2009 The Open University.
  * @author N.D.Freear, 21 October 200, 23 July 2012.
@@ -41,31 +43,17 @@ EOT;
   * Implementation of call() - used by oEmbed controller.
   */
   public function call($url, $matches) {
-    return (object) $this->ci_oembed_cohere($url, $matches);
-  }
 
-
-  /**
- @link http://cohere.open.ac.uk/snippet/ Examples 
- @link http://cohere.open.ac.uk/node.php?nodeid=9396932240241950001231360289#conn-neighbour A neighbourhood.
- <iframe src=
-"http://cohere.open.ac.uk/snippet/snippet-conn-neighbourhood.php?snippet=3&nodeid=9396932240241950001231360289&start=0&max=20&orderby=date&sort=DESC&direction=right&filtergroup=&filterlist=&netnodeid=&netq=&netscope=&focalnode=9396932240241950001231360289&context=node"
-  width="1015" height="340" scrolling="no" frameborder="0"></iframe>
- @link http://cohere.open.ac.uk/api/service.php?format=rss&method=getnodesbysearch&q=OER&scope=all&start=0&max=20&orderby=date&sort=DESC&direction=right
- */
-  function ci_oembed_cohere($request, $url_parts) {
     $request = (object) array(
-	  'url' => $request,
+	  'url' => $url,
 	  'html5' => TRUE,
 	);
-    $matches = $url_parts;
 
   #Width: I've trimmed, but still too big!
   $embed_width = 650;
   $embed_height= 340;
   $iframe_width= 1002; #1002,1015;
-  $cohere_url_pattern = "#\/cohere\.open\.ac\.uk\/node.*?nodeid=(\d{6,})(.*)$#";
-  $node_id = NULL;
+  $node_id = $matches[1];
 
   $iframe_attr = NULL; #' style="overflow:scroll"';
   if ($request->html5) {
@@ -73,25 +61,23 @@ EOT;
     $iframe_attr =' seamless="seamless" '; #sandbox?
   }
 
-# 2. Validate URL and get node ID - #@todo parse_url?
-
-  if (preg_match($cohere_url_pattern, $request->url, $matches)) {
+# 2. Validate URL and get node ID - Oembed controller.
     $node_id = $matches[1];
-  } else { #@todo: ERROR.
-    die(' Error in URL, cohere. ');
-  }
 
 # 3. Form feed URL, Get RSS feed - cURL... max=20
   $feed_url = "http://cohere.open.ac.uk/api/service.php?format=rss&method=getnodesbynode&nodeid=$node_id&start=0&max=5&orderby=date&sort=DESC&direction=right"; #&filtergroup=&filterlist=&netnodeid=&netq=&netscope=";
 
-  #$rss = drupal_http_request($feed_url);
-  $rss = $this->_http_request_curl($feed_url);
-  if (!$rss) {
-    die(' Error in feed, cohere. ');
+  $result = $this->_http_request_curl($feed_url);
+  if (! $result->success) {
+    $this->_error("Cohere oEmbed provider HTTP problem, $feed_url", $result->http_code);
   }
 
+
 # 4. Extract meta-data from Feed.
-  $xmlo = simplexml_load_string($rss->data);
+  $xmlo = @simplexml_load_string($result->data);
+  if (! $xmlo) {
+    $this->_error("Cohere oEmbed provider XML problem, $feed_url");
+  }
 
   $xmlo->registerXPathNamespace('dc', 'http://purl.org/dc/elements/1.1/');
   #$link  = $xmlo->xpath('//item/link');
@@ -106,30 +92,24 @@ EOT;
   $author= (string) $author[$idx];
   $date  = strtotime((string) $date[$idx]);
 
-# 5. Create <iframe> markup + a heading-link.
-  #@todo: Does jquery-oembed.js escape tags in <iframe> :(.
-  $html =<<<EOF
-<h2 class="cohere" style="font-size:small;"><a href="http://cohere.open.ac.uk/node.php?nodeid=$node_id#conn-neighbour" title="View on Cohere">$title<span style="position:absolute;top:-99em;">. Connections by $author on Cohere</span></a></h2>
-<div class="cohere" style="width:{$embed_width}px;overflow-x:scroll;border-right:1px solid #d3e8e8;"><iframe $iframe_attr title="$title" src=
-"http://cohere.open.ac.uk/snippet/snippet-conn-neighbourhood.php?snippet=3&nodeid=$node_id&start=0&max=20&orderby=date&sort=DESC&direction=right&&focalnode=$node_id&context=node"
- width="$iframe_width" height="$embed_height" scrolling="no" frameborder="0">($title  Connections, by $author on Cohere)</iframe></div>
-EOF;
+# 5. Create <iframe> markup + a heading-link - see the view.
 
-  $oembed = array(
-    'version'=>'1.0',
-    'type'  => 'rich', #@todo ?
+  $meta = array(
+    'type'  => $this->type,
     'title' => $title,
     'author_name'  => $author,
     #'author_url'  => 'http://cohere.open.ac.uk/user.php?userid=137108251180600208001228233364', #@todo: Anna.
-    'provider_name'=> 'Cohere',
-    'provider_url' => 'http://cohere.open.ac.uk/',
-    'html'  => str_replace('&', '&amp;', $html),
+    'provider_mid' => $node_id,
+    'provider_name'=> $this->displayname,
+    'provider_url' => $this->_about_url,
+    'html'  => NULL,
     'width' => $embed_width,
+    '_iframe_width' => $iframe_width,
     'height'=> $embed_height,
     'description'=>$desc,
     'lang'  => 'en', #@todo ?
   );
-  return $oembed;
+    return (object) $meta;
   }
 
 }

@@ -2,6 +2,8 @@
 /**
  * Mathtran oEmbed service provider.
  *
+ * Originally developed as part of the OLnet project (CI_oembed: collective intelligence).
+ *
  * @copyright Copyright 2009 The Open University.
  * @author N.D.Freear, 21 October 200, 23 July 2012.
  *
@@ -38,35 +40,25 @@ EOT;
   * Implementation of call() - used by oEmbed controller.
   */
   public function call($url, $matches) {
-    return (object) $this->ci_oembed_mathtran($url, $matches);
-  }
-
-
-
-  function ci_oembed_mathtran($request, $url_parts) {
-    $url = $request;
-    $matches = $url_parts;
 
   $embed_width = 600;#Maximums? http://mathtran.org/formulas/details/341/#568x27, http://mathtran.org/formulas/details/345/#447x56
   $embed_height= 56;
   $mathtran_url_pattern = "#\/mathtran\.org\/formulas\/details\/(\d+)#";
 
-# 2. Validate URL.
-  /*if (preg_match($mathtran_url_pattern, $request->url, $matches)) {
-    $detail_id = $matches[1];
-  } else { #@todo: ERROR.
-    die(' Error in URL, mathtran. ');
-  }*/
+# 2. Validate URL - Oembed controller.
 
-  #$html = drupal_http_request($request->url);
-  $html = $this->_http_request_curl($url);
-  if (!$html) {
-    die(' Error in page, mathtran. ');
+  $result = $this->_http_request_curl($url);
+  if (! $result->success) {
+    $this->_error("Cohere oEmbed provider HTTP problem, $feed_url", $result->http_code);
   }
 
+
 # 4. Extract meta-data from page.
-  $html->data = str_replace('&copy;', '&#169;', $html->data); #@todo Hack!
-  $xmlo = simplexml_load_string($html->data);
+  $result->data = str_replace('&copy;', '&#169;', $result->data); #@todo Hack!
+  $xmlo = @simplexml_load_string($result->data);
+  if (! $xmlo) {
+    $this->_error("Mathtran oEmbed provider XML problem, $feed_url");
+  }
 
   $xmlo->registerXPathNamespace('xh', 'http://www.w3.org/1999/xhtml');
   $title = $xmlo->xpath('//xh:title');
@@ -83,21 +75,20 @@ EOT;
   $tex = urldecode($matches[1]);
 
   $oembed = array(
-    'version'=>'1.0',
-    'type'  => 'photo', #@todo ?
+    'type'  => $this->type,
     'title' => "Maths formula '$title', $caption, tex: $tex",
     'url'   => $image,
     'author_name'  => $author,
     'author_url'  => "http://mathtran.org/profiles/$author", #@todo.
-    'provider_name'=>'Mathtran',
-    'provider_url' =>'http://mathtran.org/',
+    'provider_name'=>$this->displayname,
+    'provider_url' =>$this->_about_url,
     'width' => $embed_width,
     'height'=> $embed_height,
     'tex'   => $tex,
     'description'=>$caption,
     #'lang'  => 'en', #@todo ?
   );
-  return $oembed;
+    return (object) $oembed;
   }
 
 }
