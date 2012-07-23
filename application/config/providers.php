@@ -33,6 +33,10 @@ $config['providers'] = array(
 
     # New Jul 2012: most data is in 'Sharepoint_serv' - loose coupling (iet-it-bugs:1356)
     'intranet7.open.ac.uk' => 'sharepoint',
+
+	# OLnet - roll into OU embed (iet-it-bugs:1364)
+	'mathtran.org' => 'mathtran',
+	'cohere.open.ac.uk' => 'cohere',
 );
 
 
@@ -70,10 +74,7 @@ $config['providers_other'] = array(
 	'gist.github.com' => array('name'=>'GitHub', 'type'=>'rich'),
 	'cacoo.com' => array('name'=>'Cacoo', 'type'=>'rich', 'endpoint' => 'http://cacoo.com/oembed.json'),
 
-	// OLnet - roll into OU embed.
-	'cohere.open.ac.uk'=> array('name'=>'olnet', 'type'=>'rich', 'endpoint'=>'http://olnet.org/oembed'),
-	'mathtran.org'     => array('name'=>'olnet', 'type'=>'rich', 'endpoint'=>'http://olnet.org/oembed'),
-
+	// iSpot.
 	'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
 );
 

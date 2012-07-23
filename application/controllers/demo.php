@@ -36,6 +36,20 @@ class Demo extends MY_Controller {
 	}
 
 
+	/** OULDI (and OLnet) tests.
+	*/
+	public function ouldi($layout = 'bare') {
+        $layout = 'bare'==$layout ? 'bare' : 'ouice';
+
+        $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+
+        $view_data = array(
+            'req' => $this->_request,
+            'resource_url' => 'http://www8.open.ac.uk/',
+        );
+        $this->layout->view('demo/ouldi-demo', $view_data);
+	}
+
     /** OU Podcast samples - 1 video or 1 audio, in 'context'.
     */
     public function podcast($page = 'video', $layout = 'bare') {
