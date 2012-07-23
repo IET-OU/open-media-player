@@ -35,7 +35,7 @@
 <p><a class=embed  href=
 "http://podcast.open.ac.uk/pod/entrepreneurial-lives/#!cb127010cf">Invisible Boundaries..: Entrepreneurial Lives, on OU podcast</a>
 -->
-<br /><a href="http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?theme=ouice-light">iframe</a>
+<br /><a href="<?php echo site_url('popup/pod/student-experiences/db6cc60d6b') ?>?theme=<?php echo $this->config->item('player_default_theme') ?>">iframe</a>
 
 <p>Video 2
 <p><a class=embed  href="http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334">Circular Motion...: All the Fun of the Fair, on OU podcast</a>

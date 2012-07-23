@@ -3,22 +3,19 @@
  * Prezi oEmbed service provider.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 1-23 March 2011.
  */
-//NDF, 1, 23 March 2011.
-
 require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Prezi_serv extends Oembed_Provider {
 
-  public $regex = 'prezi.com/*/*/?'; // Optional trailing slash.
+  public $regex = 'http://prezi.com/*/*/?'; // Optional trailing slash.
   public $about = <<<EOT
   Prezi - The Zooming Presentations Editor. Embed presentations hosted on Prezi. [Initially for Cloudworks/OULDI. Public access.]';
 EOT;
   public $displayname = 'Prezi';
-  #public $name = 'prezi';
   public $domain = 'prezi.com';
-  public $subdomains = array();
   public $favicon = 'http://prezi.com/favicon.ico';
   public $type = 'rich';
 
@@ -47,7 +44,9 @@ EOT;
     return 'prezi://open?oid='.$prezi_id;
   }
 
-  /** Call the Embed.ly service (2011-03-23).
+
+  /**
+  * Call the Embed.ly service (2011-03-23).
   * @return object
   */
   public function call($url, $matches) {
