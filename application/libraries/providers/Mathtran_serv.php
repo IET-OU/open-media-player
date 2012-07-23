@@ -38,6 +38,7 @@ EOT;
 
   /**
   * Implementation of call() - used by oEmbed controller.
+  * @return object
   */
   public function call($url, $matches) {
 

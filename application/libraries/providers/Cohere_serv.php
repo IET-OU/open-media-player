@@ -28,7 +28,7 @@ EOT;
   public $_about_url = 'http://cohere.open.ac.uk/';
   public $_logo_url = 'http://cohere.open.ac.uk/images/cohere_logo2.png';
 
-  public $_regex_real = '\/cohere\.open\.ac\.uk\/node.*?nodeid=(\d{6,})(.*)$';
+  public $_regex_real = '\/cohere\.open\.ac\.uk\/node.*\?nodeid=(\d{6,})(.*)$';
   public $_examples = array(
     'What does OLnet.org provide? what are the activities that bring people back to our site?' => 'http://cohere.open.ac.uk/node.php?nodeid=137108251180792633001256905958#conn-neighbour',
     '1 - Climate' => 'http://cohere.open.ac.uk/node.php?nodeid=9396932240241950001231360289#conn-neighbour',
@@ -41,6 +41,7 @@ EOT;
 
   /**
   * Implementation of call() - used by oEmbed controller.
+  * @return object
   */
   public function call($url, $matches) {
 

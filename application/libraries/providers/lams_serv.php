@@ -13,20 +13,19 @@ require_once APPPATH.'libraries/Oembed_Provider.php';
 
 class Lams_serv extends Oembed_Provider {
 
-  public $regex = 'lamscommunity.org/*?seq_id=*'; //array()
+  public $regex = 'http://lamscommunity.org/*?seq_id=*'; //array()
   public $about = <<<EOT
   <abbr title="Learning Activity Management System">LAMS</abbr> is a new tool for producing online collaborative learning activities. It provides teachers with a visual authoring environment for creating sequences.
   Embed previews of LAMS sequences [Initially for Cloudworks/OULDI. Public access.]';
 EOT;
   public $displayname = 'LAMS Community';
-  #public $name = 'lams';
   public $domain = 'lamscommunity.org';
-  public $subdomains = array();
   public $favicon = 'http://lamscommunity.org/favicon.ico';
   public $type = 'rich';
 
   public $_about_url = 'http://lamscommunity.org/';
-  public $_regex_real = 'lamscommunity.org\/.*(sequence|dl)\?seq_id=(\d{2,10})$';
+  public $_logo_url = 'http://lamscommunity.org/images/lams_logo.gif';
+  public $_regex_real = '\/lamscommunity.org\/.*(sequence|dl)\?seq_id=(\d{2,10})$';
   public $_examples = array(
     'Crime fighting'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1007900',
     'Γενετικά Τροποποιημένα Τρόφιμα 1 [el]'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1074994',
@@ -50,8 +49,7 @@ EOT;
       $result = $this->_http_request_json($oembed_url);
       if (! $result->success) {
         // HTTP Error, eg. 404.
-        log_message('error', __CLASS__.". Error getting LAMS seq=$seq_id, $oembed_url | ".$result->info['http_code']);
-        die("Error, Lams_serv woops");
+        $this->_error("LAMS oEmbed provider HTTP problem, $oembed_url", $result->http_code);
         return FALSE;
       }
 
@@ -61,7 +59,7 @@ EOT;
       $image_re  = '/script:FullView\((\d+),(\d+),\d+\)/ms';
       if (!preg_match($author_re, $result->json->html, $author_m)) {
           //Error.
-          log_message('error', __CLASS__.". Error in author regex seq=$seq_id, $oembed_url");
+          $this->_error("LAMS oEmbed provider author-Regex problem, seq=$seq_id, $oembed_url");
       }
       $author_id  = $author_m[1];
       $author_name= $author_m[2];
@@ -74,13 +72,12 @@ EOT;
 
       if (!preg_match($preview_re, $result->json->html, $preview_m)) {
           //Error.
-          log_message('error', __CLASS__.". Error in preview regex seq=$seq_id, $oembed_url");
+          $this->_error("LAMS oEmbed provider preview-Regex problem, seq=$seq_id, $oembed_url");
       }
       $preview_id  = $preview_m[1];
 
       if (!preg_match($image_re, $result->json->html, $image_m)) {
-          //Error.
-          log_message('error', __CLASS__.". Error in image regex seq=$seq_id, $oembed_url");
+		  $this->_error("LAMS oEmbed provider image-Regex problem, seq=$seq_id, $oembed_url");
       }
       $image_width = $image_m[1];
       $image_height= $image_m[2];
