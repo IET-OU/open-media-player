@@ -11,12 +11,38 @@ require_once APPPATH.'libraries/ouplayer_lib.php';
 
 class Oupodcast_serv extends Oembed_Provider {
 
+  public $regex = 'http://podcast.open.ac.uk/*/*';
+  public $about = <<<EOT
+  Podcast audio and video on topics including study and research at The Open University. Embed podcasts via the OU Media Player. [Public and restricted access.]';
+EOT;
+  public $displayname = 'OU Podcast';
+  public $domain = 'podcast.open.ac.uk';
+  public $favicon = 'http://www3.open.ac.uk/favicon.ico';
+  public $type = 'video';
+
+  public $_type_x = 'video|audio'; #Or 'audio'!!
+  public $_about_url = 'http://podcast.open.ac.uk/';
+
+  # regex_real: 'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
+  public $_regex_real = 'podcast.open.ac.uk.*/([\w-]+)([/#]+!?)(\w{10}|\w+\.m\w{2})$';
+  public $_examples = array(
+    'A Buen Puerto/Spanish: Introduction (audio)' => 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
+      'http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3',
+      'http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish/fe481a4d1d', # '#!' or '/'
+    'Invisible Boundaries..: Entrepreneurial Lives (audio)' => 'http://podcast.open.ac.uk/pod/entrepreneurial-lives/#!cb127010cf',
+    'Motion...: All the Fun of the Fair (video)' => 'http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334',
+    'VC message 01-02-2011 (private/staff)' => 'http://podcast.open.ac.uk/pod/vc-message-to-staff#!746ee92293',
+    'New to OU study (hidden: tips)' => 'http://podcast.open.ac.uk/pod/new-to-ou-study/a9e72b75ff',
+    '_OEM'=>'/oembed?url=http%3A//podcast.open.ac.uk/pod/vc-message-to-staff%23!746ee92293',
+  );
+  public $_access = 'public';
+
   //NDF: const POD_BASE = 'http://podcast.open.ac.uk';
 
-  protected $CI;
 
   public function __construct() {
-      $this->CI =& get_instance();
+      parent::__construct();
+
       if ($this->CI->config->item('podcast_data_use_feed')) {
         $this->CI->load->model('Podcast_items_feed_model', 'podcast_items_model');
         $method = 'feed';
@@ -28,7 +54,8 @@ class Oupodcast_serv extends Oembed_Provider {
       @header('X-Podcast-Data: '.$method);
   }
 
-  /** Used by oEmbed controller.
+  /**
+  * Implementation of call() - used by oEmbed controller.
   */
   public function call($url, $matches) {
       $basename = str_replace(array('podcast-','pod-'), '', $matches[1]);

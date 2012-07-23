@@ -4,43 +4,13 @@
  * @copyright Copyright 2011 The Open University.
  */
 
+// Locally-available providers.
 //api.embed.ly/1/services (json, Was /api/v1/services)
 $config['providers'] = array(
 
-/* Some example input URLs.
- http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish/079b8e506c
- http://podcast.open.ac.uk/pod/l314-spanish#!079b8e506c
- http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3
-*/
-    'podcast.open.ac.uk' => array(
-        'about'  => 'Podcast audio and video on topics including courses and research from The Open University.',
-        'displayname'=>'OU Podcast',
-        'domain' => 'podcast.open.ac.uk',
-        'favicon'=> 'http://www3.open.ac.uk/favicon.ico', #iet.open
-        'name'   => 'oupodcast',
-        'regex'  => 'podcast.open.ac.uk/*/*', //array()?
-        'subdomains'=>array(),
-        'type'   => 'video',
-        'type_x' => 'video|audio', #Or 'audio'!!
-        '_regex_real'=>'podcast.open.ac.uk.*/([\w-]+)([/#]+!?)(\w{10}|\w+\.m\w{2})$',
-    #'_regex_real'=>'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
-    #/oembed?url=http%3A//podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish%23!fe481a4d1d
-    #/oembed?url=http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3
-    #/oembed?url=http%3A//podcast.open.ac.uk/pod/vc-message-to-staff%23!746ee92293
-        '_examples'=>array(
-          'Introduction: A Buen Puerto/Spanish (audio)' => 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
-            'http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3',
-            'http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d',
-          'Invisible Boundaries..: Entrepreneurial Lives (audio)' => 'http://podcast.open.ac.uk/pod/entrepreneurial-lives/#!cb127010cf',
-          'Motion...: All the Fun of the Fair (video)' => 'http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334',
-          'http://podcast.open.ac.uk/pod/vc-message-to-staff#!746ee92293', #Private/staff: VC message 01-02-2011.
-          'http://podcast.open.ac.uk/pod/new-to-ou-study/a9e72b75ff' #Hidden: Tips.
-          ),
-        '_google_analytics'=>'UA-24005173-2',
-    ),
+    'podcast.open.ac.uk' => 'oupodcast',
 
     'lamscommunity.org' => 'lams',
-
     'youtube.com'=> 'youtube',
     'youtu.be'   => 'youtube',
 
@@ -66,7 +36,9 @@ $config['providers'] = array(
 );
 
 
+// Google Analytics.
 $config['provider_google_analytics_ids'] = array(
+  'oupodcast' => 'UA-24005173-2',
   'lams'  => 'UA-24005173-3',
   'prezi' => 'UA-24005173-4',
 );
