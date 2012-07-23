@@ -26,6 +26,7 @@ EOT;
   public $_examples = array(
     'Interview with Martin Bean (captions)' => 'http://youtube.com/watch?v=NaBBk-kpmL4',
     'http://youtu.be/NaBBk-kpmL4',
+	'Brian McAllister, Roadtrip Nation (OLnet)' => 'http://youtube.com/watch?v=VesKht_8HCo',
 	'_OEM'=>'/oembed?url=http%3A//youtu.be/NaBBk-kpmL4',
   );
   public $_access = 'public';
