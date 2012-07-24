@@ -1,14 +1,16 @@
 /**
-* OU player: MEP progress bar feature - with keyboard access & WAI-ARIA properties.
+* OU player: MEP progress bar feature - with keyboard accessibility & WAI-ARIA properties.
 * Copyright 2012 The Open University.
-* Author: Nick Freear.
+* Author: Nick Freear, 11 April 2012.
 */
 (function($) {
 
+//ou-specific
 	$.extend(mejs.MepDefaults, {
 		progressText: 'Seek bar',
 		seekSeconds: 5
 	});
+//ou-specific ends.
 
 	// progress/loaded bar
 	$.extend(MediaElementPlayer.prototype, {
@@ -22,8 +24,10 @@
 				'<span class="mejs-time-total">'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
+//ou-specific
 					'<span tabindex="0" type="button" class="mejs-time-handle" role="slider"'+
 					' aria-label="'+ op.progressText +'" aria-valuemin="0" aria-valuemax="" aria-valuenow="0" aria-valuetext="00:00"></span>'+
+//ou-specific ends.
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
 						'<span class="mejs-time-float-corner"></span>' + 
@@ -70,6 +74,7 @@
 				mouseIsDown = false,
 				mouseIsOver = false,
 
+//ou-specific
 				handleKeyMove = function(sec, e) {
 					if (-1 == sec) {
 						media.pause();
@@ -90,7 +95,7 @@
 						time = mejs.Utility.secondsToTimeCode(sec),
 						d = media.duration;
 
-					// WAI-ARIA: property or attribute? (Ender.js doesn't have prop() func.)
+					// WAI-ARIA accessibility: property or attribute? (Ender.js doesn't have prop() func.)
 					handle.attr('aria-valuenow', sec);
 					handle.attr('aria-valuetext', time);
 					handle.attr('aria-valuemax', d);
@@ -98,7 +103,7 @@
 					$.log('Slider: '+ time);
 				};
 
-			// handle keyboard.
+			// handle keyboard - accessibility.
 			handle.bind('keydown', function(e) {
 				$.log(e);
 
@@ -143,7 +148,7 @@ jQuery.event.add.elemData.handle.eventHandle
 */
 				}
 			});
-
+//ou-specific ends.
 
 			// handle clicks
 			//controls.find('.mejs-time-rail').delegate('span', 'click', handleMouseMove);
@@ -191,7 +196,7 @@ jQuery.event.add.elemData.handle.eventHandle
 			media.addEventListener('timeupdate', function(e) {
 				player.setProgressRail(e);
 				player.setCurrentRail(e);
-
+//ou-specific
 				updateSlider(e);
 			}, false);
 			
