@@ -54,6 +54,10 @@
 						body.removeClass('tscript-hide').addClass('tscript-show');
 						btn.attr('title', op.hidescriptText);
 
+						// Focus & scroll
+						btn_x.focus();
+						tscript.scrollTop(0);
+
 						$.oup_fire(media, 'transcript_show');
 					}
 					ts_visible = !ts_visible;
