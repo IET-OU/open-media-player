@@ -46,11 +46,11 @@
 			volumeCurrent = t.container.find('.mejs-volume-current, .mejs-horizontal-volume-current'),
 			volumeHandle = t.container.find('.mejs-volume-handle, .mejs-horizontal-volume-handle'),
 
-			positionVolumeHandle = function(volume) {
+			positionVolumeHandle = function(volume, secondTry) {
 
-				if (!volumeSlider.is(':visible')) {
+				if (!volumeSlider.is(':visible') && typeof secondTry != 'undefined') {
 					volumeSlider.show();
-					positionVolumeHandle(volume);
+					positionVolumeHandle(volume, true);
 					volumeSlider.hide()
 					return;
 				}
@@ -170,23 +170,21 @@
 				})
 				.bind('mousedown', function (e) {
 					handleVolumeMove(e);
+					$(document)
+						.bind('mousemove.vol', function(e) {
+							handleVolumeMove(e);
+						})
+						.bind('mouseup.vol', function () {
+							mouseIsDown = false;
+							$(document).unbind('.vol');
+
+							if (!mouseIsOver && mode == 'vertical') {
+								volumeSlider.hide();
+							}
+						});
 					mouseIsDown = true;
 						
 					return false;
-				});
-				
-			$(document)
-				.bind('mouseup', function (e) {
-					mouseIsDown = false;
-					
-					if (!mouseIsOver && mode == 'vertical') {
-						volumeSlider.hide();
-					}
-				})
-				.bind('mousemove', function (e) {
-					if (mouseIsDown) {
-						handleVolumeMove(e);
-					}
 				});
 
 

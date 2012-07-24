@@ -5,6 +5,7 @@
 
 			$('<div class="mejs-time-rail">'+
 				'<span class="mejs-time-total">'+
+					'<span class="mejs-time-buffering"></span>'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-time-handle"></span>'+
@@ -15,6 +16,7 @@
 				'</span>'+
 			'</div>')
 				.appendTo(controls);
+				controls.find('.mejs-time-buffering').hide();
 
 			var 
 				t = this,
@@ -62,31 +64,32 @@
 					if (e.which === 1) {
 						mouseIsDown = true;
 						handleMouseMove(e);
+						$(document)
+							.bind('mousemove.dur', function(e) {
+								handleMouseMove(e);
+							})
+							.bind('mouseup.dur', function (e) {
+								mouseIsDown = false;
+								timefloat.hide();
+								$(document).unbind('.dur');
+							});
 						return false;
-					}					
-				});
-
-			controls.find('.mejs-time-total')
+					}
+				})
 				.bind('mouseenter', function(e) {
 					mouseIsOver = true;
+					$(document).bind('mousemove.dur', function(e) {
+						handleMouseMove(e);
+					});
 					if (!mejs.MediaFeatures.hasTouch) {
 						timefloat.show();
 					}
 				})
 				.bind('mouseleave',function(e) {
 					mouseIsOver = false;
-					timefloat.hide();
-				});
-
-			$(document)
-				.bind('mouseup', function (e) {
-					mouseIsDown = false;
-					timefloat.hide();
-					//handleMouseMove(e);
-				})
-				.bind('mousemove', function (e) {
-					if (mouseIsDown || mouseIsOver) {
-						handleMouseMove(e);
+					if (!mouseIsDown) {
+						$(document).unbind('.dur');
+						timefloat.hide();
 					}
 				});
 
