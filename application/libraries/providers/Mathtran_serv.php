@@ -5,7 +5,7 @@
  * Originally developed as part of the OLnet project (CI_oembed: collective intelligence).
  *
  * @copyright Copyright 2009 The Open University.
- * @author N.D.Freear, 21 October 200, 23 July 2012.
+ * @author N.D.Freear, 21 October 2009, 23 July 2012.
  *
  * @link https://wahoo.open.ac.uk/svn/repos/olnet/trunk/sites/all/modules/custom/ci_oembed/ci_oembed.providers.inc : ci_oembed_mathtran(), lines 87-138 (6.x-0.1-dev)
  * Also, http://olnet.org/node/142 | http://olnet.org/ci/demo | http://olnet.org/oembed
@@ -17,9 +17,10 @@ class Mathtran_serv extends Oembed_Provider {
 
   public $regex = 'http://mathtran.org/formulas/details/*'; // Optional trailing slash?
   public $about = <<<EOT
-   [Initially for OLnet. Public access.]';
+  With MathTran you can to create, store and translate mathematical content. Using the formula editor, you can interactively create mathematical formulas.
+  MathTran translates TeX-notation mathematics to images (for inclusion in web pages and on emails) as a web service. [Initially for OLnet. Public access.]';
 EOT;
-  public $displayname = 'Mathtran';
+  public $displayname = 'MathTran';
   public $domain = 'mathtran.org';
   public $favicon = 'http://mathtran.org/favicon.ico';
   public $type = 'photo';

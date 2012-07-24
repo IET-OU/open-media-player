@@ -5,7 +5,7 @@
  * Originally developed as part of the OLnet project (CI_oembed: collective intelligence).
  *
  * @copyright Copyright 2009 The Open University.
- * @author N.D.Freear, 21 October 200, 23 July 2012.
+ * @author N.D.Freear, 21 October 2009, 23 July 2012.
  *
  * @link https://wahoo.open.ac.uk/svn/repos/olnet/trunk/sites/all/modules/custom/ci_oembed/ci_oembed.providers.inc : ci_oembed_cohere(), lines 14-84 (6.x-0.1-dev)
  * Also, http://olnet.org/node/142 | http://olnet.org/ci/demo | http://olnet.org/oembed
@@ -34,7 +34,7 @@ EOT;
     '1 - Climate' => 'http://cohere.open.ac.uk/node.php?nodeid=9396932240241950001231360289#conn-neighbour',
     '2 - Olnet' => 'http://cohere.open.ac.uk/node.php?nodeid=13710849440486941001232370050#conn-neighbour',
     '_OEM'=>'/oembed?url=http%3A//cohere.open.ac.uk/node.php%3Fnodeid%3D137108251180792633001256905958%23conn-neighbour',
-	'_RSS'=>'http://cohere.open.ac.uk/api/service.php?format=rss&method=getnodesbysearch&q=OER&scope=all&start=0&max=20&orderby=date&sort=DESC&direction=right',
+    '_RSS'=>'http://cohere.open.ac.uk/api/service.php?format=rss&method=getnodesbysearch&q=OER&scope=all&start=0&max=20&orderby=date&sort=DESC&direction=right',
   );
   public $_access = 'public';
 
@@ -46,15 +46,15 @@ EOT;
   public function call($url, $matches) {
 
     $request = (object) array(
-	  'url' => $url,
-	  'html5' => TRUE,
-	);
+      'url' => $url,
+      'html5' => TRUE,
+    );
+    $node_id = $matches[1];
 
   #Width: I've trimmed, but still too big!
   $embed_width = 650;
   $embed_height= 340;
   $iframe_width= 1002; #1002,1015;
-  $node_id = $matches[1];
 
   $iframe_attr = NULL; #' style="overflow:scroll"';
   if ($request->html5) {
@@ -63,7 +63,6 @@ EOT;
   }
 
 # 2. Validate URL and get node ID - Oembed controller.
-    $node_id = $matches[1];
 
 # 3. Form feed URL, Get RSS feed - cURL... max=20
   $feed_url = "http://cohere.open.ac.uk/api/service.php?format=rss&method=getnodesbynode&nodeid=$node_id&start=0&max=5&orderby=date&sort=DESC&direction=right"; #&filtergroup=&filterlist=&netnodeid=&netq=&netscope=";
