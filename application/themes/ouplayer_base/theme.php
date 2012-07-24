@@ -15,6 +15,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $view = 'ou-me-player';
   public $rgb  = 'ouvle-default-blue';
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
+  public $player_embed_code = NULL;
 
   //iPadUseNativeControls etc.
   public $mobile_native_controls = true;
@@ -94,6 +95,14 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     if ('Podcast_player' == get_class($player)) {
 
       $this->features .= ',oup_options,googleanalytics';
+    }
+
+    // Embed code - uses jQuery-oEmbed plugin or Iframe.
+    // http://support.google.com/youtube/bin/answer.py?hl=en&answer=171780&expand=UseHTTPS#HTTPS
+    if ('Vle_player' != get_class($player)) {
+      $this->player_embed_code = $this->CI->config->item('player_embed_code');
+    }
+    if ($this->player_embed_code) {
 
       // Experimental feature: select/copy embed code.
       $this->features .= ',oup_copyembed';
