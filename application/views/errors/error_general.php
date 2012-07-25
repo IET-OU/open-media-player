@@ -46,7 +46,7 @@ div#ou-org-footer{ margin-top:1px; padding-top:17px; }
 .size-medium .ou-footer-links .ou-c3of4{ position:relative; left:-42px; }
 </style>
 
-<body class="ou-ia-community">
+<body class="x-ou-ia-community">
 <script>if(typeof window.ou_sitestat=='function')ou_sitestat()</script>
 
 <div id="ou-org-header"> <a class="ou-skip" href="#ou-content">Skip to content</a> <a class="ou-link-ou" href="http://www.open.ac.uk/"<?php echo $target ?>><img src="<?php echo $base_url ?>/includes/headers-footers/oulogo-56.jpg" alt="The Open University" /></a>

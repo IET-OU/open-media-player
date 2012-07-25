@@ -7,6 +7,9 @@
 
 class Demo extends MY_Controller {
 
+    // Default layout/template.
+    const LAYOUT = 'bare';
+
     public function __construct() {
       parent::__construct();
       header('Content-Type: text/html; charset=utf-8');
@@ -27,21 +30,22 @@ class Demo extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($layout = self::LAYOUT)
 	{
+		#if ('/'==$this->uri->uri_string()) redirect('demo/index');
+
+		$this->_load_layout($layout);
+
 		$view_data = array(
 			'req' => $this->_request,
 		);
-		$this->load->view('demo/oupodcast-demo', $view_data);
+		$this->layout->view('demo/oupodcast-demo', $view_data);
 	}
-
 
 	/** OULDI (and OLnet) tests.
 	*/
-	public function ouldi($layout = 'bare') {
-        $layout = 'bare'==$layout ? 'bare' : 'ouice';
-
-        $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+	public function ouldi($layout = self::LAYOUT) {
+        $this->_load_layout($layout);
 
         $view_data = array(
             'req' => $this->_request,
@@ -52,12 +56,10 @@ class Demo extends MY_Controller {
 
     /** OU Podcast samples - 1 video or 1 audio, in 'context'.
     */
-    public function podcast($page = 'video', $layout = 'bare') {
+    public function podcast($page = 'video', $layout = self::LAYOUT) {
+        $this->_load_layout($layout);
 
         $view = 'video'==$page ? 'video' : 'audio';
-        $layout = 'bare'==$layout ? 'bare' : 'ouice';
-
-        $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
 
         $view_data = array(
             'req' => $this->_request,
@@ -69,10 +71,8 @@ class Demo extends MY_Controller {
 
     /** OU player size tests.
     */
-    public function player_sizes($layout = 'bare') {
-      $layout = 'bare'==$layout ? 'bare' : 'ouice';
-
-      $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+    public function player_sizes($layout = self::LAYOUT) {
+      $this->_load_layout($layout);
       
       $this->layout->view('test/player-sizes');
     }
@@ -80,8 +80,8 @@ class Demo extends MY_Controller {
 
     /** Player error handling tests.
     */
-    public function podcast_errors() {
-      $this->load->library('Layout', array('layout'=>"site_layout/layout_bare"));
+    public function podcast_errors($layout = self::LAYOUT) {
+      $this->_load_layout($layout);
 
       $this->layout->view('test/player-error-test');
     }
@@ -92,6 +92,7 @@ class Demo extends MY_Controller {
 	public function vle($page = 'video') {
 	    $this->_sams_check();
 
+	    # Not, $this->_load_layout('ouvle').
 	    $this->load->library('Layout', array('layout'=>'site_layout/layout_ouvle'));
 
         $view = 'video'==$page ? 'video' : 'audio';
@@ -132,9 +133,6 @@ class Demo extends MY_Controller {
             'transcript_url' => "$resource_url/mod/oucontent/",
         );
         $this->layout->view("vle_demo/learn3-one-$view", $view_data);
-
-
-	    //$this->load->view('vle_demo', $view_data);
 	}
 
 
@@ -159,6 +157,14 @@ class Demo extends MY_Controller {
 	  );
 	  $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
 	}
+
+
+    /** Load the layout library with a 'bare' or OUICE template.
+    */
+    protected function _load_layout($layout = self::LAYOUT) {
+      $layout = 'bare'==$layout ? 'bare' : 'ouice';
+      $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+    }
 
     /** Basic OU-SAMS cookie check and redirect.
     */

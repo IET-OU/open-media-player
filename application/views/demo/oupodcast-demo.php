@@ -1,4 +1,5 @@
 <?php
+  /*
   $input = $this->input;
   $body_classes = ' oup-jquery-test';
   $body_classes .= $input->get('edge') ? ' oup-edge' :'';
@@ -12,7 +13,10 @@
 <link rel="stylesheet" href="<?=base_url().'application/assets/client/site-embed.css' ?>" />
 
 
-<h1>OU player</h1> <h2>Beta tests</h2>
+<h1>OU player</h1>
+*/?>
+
+<h2>Beta tests</h2>
 
 <p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> player/<abbr title=
 "Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects. Here are <a href=
@@ -42,7 +46,7 @@
 
 
 
-<?php if ($input->get('ouldi')): ?>
+<?php if ($this->input->get('ouldi')): ?>
 
 <h3>OU/OULDI embed</h3>
 
@@ -65,16 +69,17 @@
 <?php endif; ?>
 
 
+<?php /*
 <p>&copy;2011-2012 The Open University.</p>
 
 <script src="<?=OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script src="<?=site_url('scripts/jquery.oembed.js') ?>"></script>
 <script>
   $(document).ready(function() {
-    $("a.embed"    ).oembed(null, {'oupodcast':{'<?=OUP_PARAM_THEME ?>':'<?=$req->theme ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>
+    $("a.embed"    ).oembed(null, {'oupodcast':{'<?=OUP_PARAM_THEME ?>':'<?=$req->theme ?>'}});<?php /*null, { embedMethod: "replace" });*-/ ?>
 
     $("[rel=embed]").oembed(); //Legacy.
   });
 </script>
 
-</html>
+</html>*/ ?>
