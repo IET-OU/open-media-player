@@ -4,6 +4,12 @@
  * Copyright 2012 The Open University.
  */
 
+
+/* Reset OUICE anomaly.
+*/
+body.ouice iframe{ width:auto; }
+
+
 /* Generic page styles.
 */
 .oup-jquery-test body{
