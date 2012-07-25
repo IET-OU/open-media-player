@@ -25,7 +25,7 @@ EOT;
 
   public $_about_url = 'http://lamscommunity.org/';
   public $_logo_url = 'http://lamscommunity.org/images/lams_logo.gif';
-  public $_regex_real = '\/lamscommunity.org\/.*(sequence|dl)\?seq_id=(\d{2,10})$';
+  public $_regex_real = ':\/\/lamscommunity\.org\/.*(sequence|dl)\?seq_id=(\d{2,10})$';
   public $_examples = array(
     'Crime fighting'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1007900',
     'Γενετικά Τροποποιημένα Τρόφιμα 1 [el]'=> 'http://lamscommunity.org/lamscentral/sequence?seq_id=1074994',

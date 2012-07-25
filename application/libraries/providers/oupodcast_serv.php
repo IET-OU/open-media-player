@@ -3,8 +3,8 @@
  * OU Media Player/ OU Podcast oEmbed service provider.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 3 March 2011.
  */
-//NDF, 3/3/2011.
 require_once APPPATH.'libraries/Oembed_Provider.php';
 require_once APPPATH.'libraries/ouplayer_lib.php';
 
@@ -24,7 +24,7 @@ EOT;
   public $_about_url = 'http://podcast.open.ac.uk/';
 
   # regex_real: 'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
-  public $_regex_real = 'podcast.open.ac.uk.*/([\w-]+)([/#]+!?)(\w{10}|\w+\.m\w{2})$';
+  public $_regex_real = ':\/\/podcast\.open\.ac\.uk\/.*\/([\w-]+)([\/#]+!?)(\w{10}|\w+\.m\w{2})$';
   public $_examples = array(
     'A Buen Puerto/Spanish: Introduction (audio)' => 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
       'http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3',

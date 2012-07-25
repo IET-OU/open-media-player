@@ -24,7 +24,7 @@ EOT;
   public $_about_url = 'https://docs.google.com/';
   // Bug #1271 - a work-in-progress!!
   public $_regex_real =
-    'docs.google.com\/(spreadsheet|present|presentation|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?#?(.*?)(height=(\d+))?';
+    ':\/\/docs\.google\.com\/(spreadsheet|present|presentation|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?#?(.*?)(height=(\d+))?';
   public $_examples = array(
     'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
     'Rhodri\'s talk' => 'https://docs.google.com/presentation/d/1ODWAPH9pXgVo-IImJeUDCHrh5owh33OXkvHfWlJyOqo/edit#slide=id.g14429bf_1_14',

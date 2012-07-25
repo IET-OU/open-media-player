@@ -22,7 +22,7 @@ EOT;
   public $type = 'video';
 
   public $_about_url = 'http://youtube.com/';
-  public $_regex_real = '(youtu.be\/|youtube.com\/watch\?.*v=)([\w-_]+)&*.*';
+  public $_regex_real = '(youtu\.be\/|youtube\.com\/watch\?.*v=)([\w-_]+)&*.*';
   public $_examples = array(
     'Interview with Martin Bean (captions)' => 'http://youtube.com/watch?v=NaBBk-kpmL4',
     'http://youtu.be/NaBBk-kpmL4',
