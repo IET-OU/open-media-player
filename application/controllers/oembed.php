@@ -82,7 +82,7 @@ EOF;
 	  $this->load->oembed_provider($name);
 	  $regex_display = $this->provider->regex;
 
-	  $regex = $this->provider->_regex_real ? $this->provider->_regex_real : str_replace('*', '([\w_-]*?)', $regex_display);
+	  $regex = $this->provider->_regex_real ? $this->provider->_regex_real : str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $regex_display);
 
 	} else {
 	  # Legacy (is_array).
@@ -91,10 +91,11 @@ EOF;
     if (isset($providers[$host]['_regex_real'])) {
       $regex = $providers[$host]['_regex_real'];
     } else {
-      $regex = str_replace('*', '([\w_-]*?)', $regex_display); #([^\/]*?)
+      $regex = str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $regex_display); #([^\/]*?)
     }
 
 	} # End legacy.
+	//@header('X-Regex: '.$regex);
 
     if (! preg_match("@{$regex}$@", $req->url, $matches)) {
       $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
