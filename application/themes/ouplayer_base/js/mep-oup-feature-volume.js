@@ -69,8 +69,8 @@
 				if (media.pluginType !== 'native' && 0 == media.currentTime) return;
 
 				var v = media.volume;
-				//try {
-				if (v > 0) {
+				// Prevent '-1' volume and "Uncaught Error: INDEX_SIZE_ERR: DOM Exception 1" (was 0)
+				if (v > 0.1) {
 					media.setVolume( v - 0.1 );
 				}
 				/*} catch(e) {
