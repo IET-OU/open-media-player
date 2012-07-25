@@ -111,11 +111,11 @@ jQuery.event.add.elemData.handle.eventHandle
 
 			if (t.container.is(':visible')) {
 				// set initial volume
-				displayVolume(player.options.startVolume);
+				displayVolume(op.startVolume);
 
 				// shim gets the startvolume as a parameter, but we have to set it on the native <video> and <audio> elements
 				if (media.pluginType === 'native') {
-					media.setVolume(player.options.startVolume);
+					media.setVolume(op.startVolume);
 				}
 			}
 		}
