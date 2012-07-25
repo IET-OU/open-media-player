@@ -73,24 +73,12 @@
 				if (v > 0.1) {
 					media.setVolume( v - 0.1 );
 				}
-				/*} catch(e) {
-					media.volume = 0;
-				} //Quick and dirty!
-/*Uncaught Error: INDEX_SIZE_ERR: DOM Exception 1
-(anonymous function)mep-oup-feature-volume.js:61
-jQuery.event.dispatchjquery.js:3319
-jQuery.event.add.elemData.handle.eventHandle
-*/
 			});
 			btn_louder.click(function() {
 				var v = media.volume;
-				//try {
 				if (v < 1) {
 					media.setVolume( v + 0.1 );
 				}
-				/*} catch(e) {
-					media.volume = 1;
-				}*/
 			});
 
 			// listen for volume change events from other sources
