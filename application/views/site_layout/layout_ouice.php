@@ -205,7 +205,7 @@ jQuery.extend(Drupal.settings, { "basePath": "/study/explained/", "jcarousel": {
 <script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
 <script>
 $(document).ready(function() {
-  $("a.embed").oembed(null, {'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo $req->theme ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>
+  $("a.embed").oembed(null, {'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>
 });
 </script>
 
