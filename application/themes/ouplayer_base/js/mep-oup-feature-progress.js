@@ -1,14 +1,37 @@
+/**
+* OU player: MEP progress bar feature - with keyboard accessibility & WAI-ARIA properties.
+* Copyright 2012 The Open University.
+* Author: Nick Freear, 11 April 2012.
+*/
 (function($) {
+
+//ou-specific
+	$.extend(mejs.MepDefaults, {
+		progressText: 'Seek bar',
+		seekSeconds: 5
+	});
+//ou-specific ends.
+
 	// progress/loaded bar
 	$.extend(MediaElementPlayer.prototype, {
-		buildprogress: function(player, controls, layers, media) {
-
-			$('<div class="mejs-time-rail">'+
+//ou-specific
+		buildoup_progress: function(player, controls, layers, media) {
+			$.log('oup_progress');
+			var
+			t = this,
+			op = t.options,
+			progress =
+			$('<div class="mejs-time-rail oup-mejs-widget">'+
+//ou-specific ends.
 				'<span class="mejs-time-total">'+
 					'<span class="mejs-time-buffering"></span>'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
-					'<span class="mejs-time-handle"></span>'+
+//ou-specific
+					//'<span class="mejs-time-handle"></span>'+
+					'<span tabindex="0" type="button" class="mejs-time-handle" role="slider"'+
+					' aria-label="'+ op.progressText +'" aria-valuemin="0" aria-valuemax="" aria-valuenow="0" aria-valuetext="00:00"></span>'+
+//ou-specific ends.
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
 						'<span class="mejs-time-float-corner"></span>' + 
@@ -19,7 +42,8 @@
 				controls.find('.mejs-time-buffering').hide();
 
 			var 
-				t = this,
+//ou-specific
+				//t = this,
 				total = controls.find('.mejs-time-total'),
 				loaded  = controls.find('.mejs-time-loaded'),
 				current  = controls.find('.mejs-time-current'),
@@ -55,6 +79,82 @@
 				},
 				mouseIsDown = false,
 				mouseIsOver = false;
+
+//ou-specific
+				handleKeyMove = function(sec, e) {
+					if (-1 == sec) {
+						media.pause();
+						media.setCurrentTime(media.duration - 2);
+					} else {
+						media.setCurrentTime(sec);
+					}
+					e.preventDefault();
+
+					/*timefloat.css('left', pos);
+					timefloatcurrent.html(mejs.Utility.secondsToTimeCode(c) );
+					timefloat.show();
+					*/
+				};
+
+				updateSlider = function(e) {
+					var sec = media.currentTime,
+						time = mejs.Utility.secondsToTimeCode(sec),
+						d = media.duration;
+
+					// WAI-ARIA accessibility: property or attribute? (Ender.js doesn't have prop() func.)
+					handle.attr('aria-valuenow', sec);
+					handle.attr('aria-valuetext', time);
+					handle.attr('aria-valuemax', d);
+
+					$.log('Slider: '+ time);
+				};
+
+			// handle keyboard - accessibility.
+			handle.bind('keydown', function(e) {
+				$.log(e);
+
+				if (e.keyCode >= 35 && e.keyCode <= 39) {
+					try {
+					var c = media.currentTime;
+					// mac Command + left/right.
+					if (typeof e.metaKey!='undefined' && e.metaKey) {
+						if (e.keyCode==37) {
+							handleKeyMove(0, e);
+						}
+						else if (e.keyCode==39) {
+							handleKeyMove(-1, e);
+						}
+					} else {
+					switch (e.keyCode) {
+					    case 37: // left
+							handleKeyMove(c - op.seekSeconds, e);
+					    break;
+
+						case 39: // right
+							handleKeyMove(c + op.seekSeconds, e);
+						break;
+
+						case 36: // home (windows)
+							handleKeyMove(0, e);
+						break;
+
+						case 35: // end (windows)
+							handleKeyMove(-1, e);
+						break;
+					}
+					}
+				} catch (ex) {
+					$.log(ex);
+				}
+/*Uncaught Error: INVALID_STATE_ERR: DOM Exception 11
+mejs.HtmlMediaElement.setCurrentTime  me-mediaelements.js:10
+$.extend.buildoup_progress.total.bind.mouseIsDown  mep-oup-feature-progress.js:83
+jQuery.event.dispatch  jquery.js:3319
+jQuery.event.add.elemData.handle.eventHandle
+*/
+				}
+			});
+//ou-specific ends.
 
 			// handle clicks
 			//controls.find('.mejs-time-rail').delegate('span', 'click', handleMouseMove);
@@ -103,6 +203,9 @@
 			media.addEventListener('timeupdate', function(e) {
 				player.setProgressRail(e);
 				player.setCurrentRail(e);
+//ou-specific
+				updateSlider(e);
+
 			}, false);
 			
 			
