@@ -128,3 +128,15 @@ body.path-mod {
 .oup-vle-edge iframe:hover, .oup-vle-edge iframe:focus {
   border-color:#ccc;
 }
+
+
+/* MathTran photo embeds.
+*/
+.oup-jquery-test [href*="mathtran.org"] {
+  border:1px dotted #bbb;
+  padding:4px;
+  display:inline-block;
+}
+.oup-jquery-test [href*="mathtran.org"]:hover {
+  border-bottom:1px solid #66c;
+}
