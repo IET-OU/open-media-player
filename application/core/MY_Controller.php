@@ -1,7 +1,9 @@
-<?php
-/**Most controllers should extend this one.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Most controllers should extend this one.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 23 May 2011.
  */
 
 
@@ -10,6 +12,8 @@ class MY_Controller extends CI_Controller {
   public $firephp;
   protected $_request;
   protected $_theme;
+
+  static $API_PATHS = array('oembed', 'timedtext', 'uptime');
 
   public function __construct() {
     parent::__construct();
@@ -101,9 +105,8 @@ class MY_Controller extends CI_Controller {
     #$this->firephp->fb("$code: $message", $from, 'ERROR');
     $this->_log('error', "$from: $code, $message");
     @header('HTTP/1.1 '. (integer) $code);
-    if ('oembed' != $this->uri->segment(1)
-      && 'timedtext' != $this->uri->segment(1)) {
 
+	if (! $this->_is_api_call()) {
       $ex =& load_class('Exceptions', 'core');
       echo $ex->show_error(t('OU Player error'), $message, 'error_general', $code);
       exit;
@@ -133,6 +136,13 @@ class MY_Controller extends CI_Controller {
     $fp_level = 'error'==$level ? 'ERROR' : 'INFO';
     $fp_label = 'error'==$level ? 'Error log' : 'Log';
     $this->firephp->fb($msg, $fp_label, $fp_level);
+  }
+
+  /** Determine whether we're in an API controller/ context.
+  * @return bool
+  */
+  protected function _is_api_call() {
+    return in_array($this->uri->segment(1), self::$API_PATHS);
   }
 
   /** Handle required GET parameters. */
