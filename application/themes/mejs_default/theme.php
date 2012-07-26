@@ -64,6 +64,9 @@ class Mejs_Default_Theme extends Player_Theme {
     );
   }
 
+  public function prepare(& $player) {
+    return $this->prepare_jslib($player);
+  }
 
   /** Decide whether to use 'Ender' or 'jQuery' Javascript (no-)library.
    *  Call after Podcast_items_model::get_item, with player-parameter object.

@@ -38,5 +38,8 @@ abstract class Player_Theme {
 	#echo __FILE__;
 	#echo $this->parent;
   }
+
+
+  abstract public function prepare(& $player);
 }
 
