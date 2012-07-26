@@ -26,6 +26,7 @@ abstract class Player_Theme {
 
   protected $CI;
 
+
   /** Constructor: auto-generate 'name' and 'parent' properties.
   */
   public function __construct() {
@@ -39,7 +40,8 @@ abstract class Player_Theme {
 	#echo $this->parent;
   }
 
-
+  /** Prepare: initialize features of the theme, given a player object.
+  */
   abstract public function prepare(& $player);
 }
 

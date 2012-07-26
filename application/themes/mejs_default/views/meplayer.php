@@ -68,21 +68,20 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 <?php endif; ?>
  id="player1" <?php if ('video'==$params->media_type): ?>width="640" height="360"<?php else: ?>width="380"<?php endif; ?>
  src="<?php echo $params->media_url ?>" type="<?=$params->mime_type; #video/mp4 ?>"
- controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
-
+ controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>
+>
 <?php if ('video'==$params->media_type): ?>
 </video>
 <?php else: ?>
 </audio>
 <?php endif; ?>
 
-
+<?php /*
 <!-- simple single file method -->
-<!--
 <video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4" 
 	id="player1" poster="../media/echo-hereweare.jpg" 
 	controls="controls" preload="none"></video>
--->
+*/ ?>
 
 <script>
 $(document).ready(function($){
@@ -91,7 +90,7 @@ $(document).ready(function($){
     // Keyboard accessibility: disable shortcuts!
     enableKeyboard:false,
 
-    //alwaysShowControls: true,
+    alwaysShowControls: true,
 
   });
 });
