@@ -3,6 +3,7 @@
  * Mediaelement.js default theme.
  *
  * A thin PHP wrapper around John Dyer's Mediaelement library.
+ * @link http://mediaelementjs.com/
  *
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.

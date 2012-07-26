@@ -31,12 +31,35 @@
 
 <link rel="stylesheet" href="<?=$base_url ?>build/mediaelementplayer.min.css" />
 
-<!--TODO: fix audio/video player size. -->
 <style>
-body{ margin:0; background:transparent; /*#f8f8f8*/ }
+/*TODO: fix audio/video player size. */
+
+body.mode-embed{ margin:0; background:transparent; }
+body.mode-popup{ margin:0; background:#f8f8f8; }
+.mejs-container{ margin:0 auto; }
+
+.mode-embed .mejs-container.mejs-audio{ position:fixed; bottom:0; }
+.mode-popup .mejs-container.mejs-audio{ margin-top:20px; }
+
+
+/*Accessibility: allow keyboard focus. */
+
+.mejs-controls .mejs-time-rail .mejs-time-handle{
+  display:block !important;
+  background:transparent;
+  border:none;
+
+  /*width:10px; height:10px; background:yellow;*/
+}
+
+.mejs-controls .mejs-time-rail:hover .mejs-time-handle,
+.mejs-controls .mejs-time-rail .mejs-time-handle:focus {
+  border: solid 2px #444;
+  background: #f4f4f4;
+}
 </style>
 
-<body role="application">
+<body role="application" class="mode-<?= $mode ?>">
 
 <?php if ('video'==$params->media_type): ?>
 <video
@@ -63,7 +86,14 @@ body{ margin:0; background:transparent; /*#f8f8f8*/ }
 
 <script>
 $(document).ready(function($){
-  var player = new mejs.MediaElementPlayer('#player1', { });
+  var player = new mejs.MediaElementPlayer('#player1', {
+
+    // Keyboard accessibility: disable shortcuts!
+    enableKeyboard:false,
+
+    //alwaysShowControls: true,
+
+  });
 });
 </script>
 
