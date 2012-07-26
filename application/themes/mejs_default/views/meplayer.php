@@ -29,7 +29,11 @@
 <script src="<?php player_res_url($this->theme->js_min) ?>"></script>
 <?php endif; ?>	
 
+<?php if ($this->config->item('debug')): ?>
+<link rel="stylesheet" href="<?=$base_url ?>src/css/mediaelementplayer.css" />
+<?php else: ?>
 <link rel="stylesheet" href="<?=$base_url ?>build/mediaelementplayer.min.css" />
+<?php endif; ?>
 
 <style>
 /*TODO: fix audio/video player size. */

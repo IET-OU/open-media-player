@@ -3,8 +3,9 @@
  * Base class for all oEmbed service provider libraries.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, extracted from oem. controller 24 Feb 2011/ extended 4 July 2012.
  */
-//NDF, extracted from oembed controller, 24 Feb. 2011/ extended 4 July 2012.
+
 
 interface iService {
 
