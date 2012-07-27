@@ -1,7 +1,11 @@
 <?php
 /** oEmbed renderer view.
 */
-$oembed['version'] = "1.0";
+
+// 'Services' controller.
+if (! isset($not_oembed)) {
+  $oembed['version'] = "1.0";
+}
 
 if ('json'==$format):
   //application/json+oembed
