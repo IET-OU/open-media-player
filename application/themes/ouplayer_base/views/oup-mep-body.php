@@ -1,7 +1,7 @@
 
 <!--Body classes - player flags. -->
 <body role="application" id="ouplayer" class="oup mtype-<?= $params->media_type ?> mode-<?= $mode ?> ctx-<?= get_class($params) ?> hide-tscript lang-<?php
-  echo $this->lang->lang_code() ?> theme <?= $this->theme->name ?> <?= $this->theme->rgb ?> ua-<?= $this->agent->browser_code()
+  echo $this->lang->lang_code() ?> theme <?= $this->theme->name ?> <?= $this->theme->rgb ?> bg-<?= $this->theme->background ?> ua-<?= $this->agent->browser_code()
   ?> jslib-<?=$this->theme->jslib ?>">
 
 <?php /* Body classes:

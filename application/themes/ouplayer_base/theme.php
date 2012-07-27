@@ -14,6 +14,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $display = 'OU Player base theme';
   public $view = 'ou-me-player';
   public $rgb  = 'ouvle-default-blue';
+  public $background = 'transparent'; //(transparent|black|white..)
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
   public $player_embed_code = NULL;
 
@@ -107,6 +108,13 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
       // Experimental feature: select/copy embed code.
       $this->features .= ',oup_copyembed';
+    }
+
+    // Bug #1377, Experimental: custom player background color.
+    $bg = $this->CI->input->get('background');
+    $bg_options = explode('|', 'transparent|black|white|beige');
+    if ($bg && in_array($bg, $bg_options)) {
+      $this->background = $bg;
     }
   }
 }
