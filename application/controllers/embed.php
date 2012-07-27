@@ -61,12 +61,31 @@ class Embed extends MY_Controller {
     // TODO: needs tidying up, access-control.
 
     // Access control - start simple!
+
     $restrict_image = $this->config->item('player_restricted_poster_url');
-    if ($restrict_image && $player->_access['intranet_only']) { #Was: 'Y'==$player->..
+    $this->load->library('Sams_Auth', null, 'auth');
+
+    if ($this->auth->is_private_caller()
+        && $player->is_private_podcast()) {
+
+        $this->auth->authenticate();
+    }
+    elseif ($restrict_image
+        && $player->is_private_podcast()
+        && 'Embed' == get_class($this)) {
+
         $view_data['meta']->poster_url = $restrict_image;
         #..pixastic/podcast-pix-emboss-grey-220-strength-3.0-blend-opacity-0.25.png;
         $this->load->view('ouplayer/oup_restricted', $view_data);
-    } else
+
+		return;
+    }
+    elseif ($player->is_private_podcast()) {
+	    // Private podcast, public site, 'popup' view - authenticate.
+
+        $this->auth->authenticate();
+    }
+
     // 'New' 2012 Mediaelement-based themes.
     if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
         $this->load->theme($this->_theme->name);

@@ -172,14 +172,11 @@ class Demo extends MY_Controller {
       $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
     }
 
-    /** Basic OU-SAMS cookie check and redirect.
+    /** Basic OU-SAMS authentication check and redirect.
     */
 	protected function _sams_check() {
-	  // Security: note the 'localhost' check.
-	  if ('localhost' != $this->input->server('HTTP_HOST') &&
-	      !$this->input->cookie('SAMSsession')) {
-	    redirect('https://msds.open.ac.uk/signon/?URL='.current_url());
-	  }
+	  $this->load->library('Sams_Auth', null, 'auth');
+	  $this->auth->authenticate();
 	}
 }
 
