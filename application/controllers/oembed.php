@@ -36,8 +36,23 @@ EOF;
     return parent::_error($message, $code, __CLASS__);
   }
 
-  public function p($params){var_dump("Params: $params");exit;}
-  
+
+  /**
+  * So called 'extended' oEmbed endpoint, to support Drupal consumers and custom oEmbed parameters.
+  *
+  * Eg. /oembed/ex/theme:oup-light/...?url=http://..
+  */
+  public function ex() {
+    $this->input->use_get_and_expath();
+
+    // Now call main handler, below.
+    $this->index();
+  }
+
+
+  /**
+  * THE handler for the oEmbed endpoint.
+  */
   public function index() {
     @header('Content-Type: text/plain; charset=UTF-8');
     #header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
