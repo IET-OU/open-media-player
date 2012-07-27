@@ -70,6 +70,11 @@ abstract class Base_player {
 	  #var_dump($this->width, $this->height, $this->object_height);
     }
   }
+
+
+  public function is_private_podcast() {
+    return TRUE;
+  }
 }
 
 class Vle_player extends Base_player {}
@@ -81,6 +86,11 @@ class Openlearn_player extends Base_player {
   public $_related_text;
 
   public $transcript_html;
+
+
+  public function is_private_podcast() {
+    return FALSE;
+  }
 }
 
 class Podcast_player extends Openlearn_player {
@@ -99,6 +109,15 @@ class Podcast_player extends Openlearn_player {
   public $_album_id;   #Alpha-numeric (DB: custom_id)
 
   public $timestamp;
+
+
+  public function is_private_podcast() {
+    if (! isset($this->_access['intranet_only'])) {
+	  // ERROR?
+	  die('Error, unexpected condition, Privacy_Auth.');
+	}
+	return $this->_access['intranet_only']; #Was: 'Y'==$player->..
+  }
 }
 
 
