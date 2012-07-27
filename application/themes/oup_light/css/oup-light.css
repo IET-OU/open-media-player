@@ -7,12 +7,6 @@
 */
 /* (Was: oup-mep/css/oup-theme1.css) */
 
-/* VLE beige background: audio-only.
-*/
-body.ctx-Vle_player.mtype-audio, .ctx-Vle_player.mtype-audio .mejs-mediaelement {
-	background-color:#ECEDD8;
-	color:#222;
-}
 /*PETER: This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always. */
 a {
 	color:#1f536b;
