@@ -20,8 +20,6 @@ class MY_Controller extends CI_Controller {
 
     $this->_request = (object) array(
       'debug' =>(bool)$this->input->get(OUP_PARAM_DEBUG),
-      'theme' => $this->input->get(OUP_PARAM_THEME),
-      'hide_controls'=>(bool)$this->input->get('_hide_controls'),
     );
 
     $this->load->library('FirePHPCore/Firephp');
@@ -44,6 +42,12 @@ class MY_Controller extends CI_Controller {
   /** Initialize the player, including the theme (Embed and Popup controllers).
   */
   protected function _player_init() {
+
+	// Support extended MY_Input::get.
+	$this->_request->theme = $this->input->get(OUP_PARAM_THEME);
+	$this->_request->hide_controls = (bool)$this->input->get('_hide_controls');
+
+
 	$themes = $this->config->item('player_themes');
 	if ($this->_request->theme && isset($themes[$this->_request->theme])) {
 		$this->_theme = (object) $themes[$this->_request->theme];
