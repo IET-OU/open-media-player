@@ -113,8 +113,14 @@ class Demo extends MY_Controller {
         // Player 'foreground' colour.
         $player_param = '';
         $rgb = $input->get('rgb');
+
+		// Bug #1377, Custom player background colour.
+        $background = $input->get('background');
         if ($rgb) {
           $player_param .= "&amp;rgb=$rgb";
+        }
+        if ($background) {
+          $player_param .= "&amp;background=$background";
         }
 
         // URL for stylesheets, Javascript, images etc.
