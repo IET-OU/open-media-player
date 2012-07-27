@@ -29,6 +29,13 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme {
       $this->CI->_error("(theme error) unrecognized value for 'rgb' parameter: ".$this->rgb, 400);
     }
 
+    // Bug #1377, Experimental: custom/ transparent player background color.
+    $bg = $this->CI->input->get('background');
+    $bg_options = explode('|', 'transparent|black|white|beige');
+    if ($bg && in_array($bg, $bg_options)) {
+      $this->background = $bg;
+    }
+
     // Add the light theme top-level styles to the array.
     $this->styles[] = "themes/$this->name/css/oup-light.css";
 

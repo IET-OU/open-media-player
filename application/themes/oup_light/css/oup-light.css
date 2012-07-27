@@ -16,6 +16,16 @@ a:hover, a:focus {
 	text-decoration:underline;
 }
 
+
+/* Bug #1377, Custom player-background colours, etc.
+*/
+body.bg-black{/* Defaults above. */}
+body.bg-white, .bg-white .mejs-container{ background:#fafafa; color:#222; }
+body.bg-transparent, .bg-transparent .mejs-container{ background:transparent; color:#111; }
+body.bg-beige{ background:#ECEDD8; color:#1a1a1a; /* VLE player */}
+body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
+
+
 .mejs-container .mejs-controls {
 	x-padding-bottom:1px; /*Hmm, 1 pixel or 0? */
 	/*background: url(background.png);
