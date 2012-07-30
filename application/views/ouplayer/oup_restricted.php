@@ -8,21 +8,21 @@
 $restrict_text = t('Public access');
 $restrict_class= 'public';
 
-if (1==$meta->_access['deleted']) {
+if ($meta->is_deleted_podcast()) {
   $restrict_text = t('Deleted'); // Woops!
   $restrict_class= 'deleted';
 }
-elseif ('Y'==$meta->_access['private']) {
+elseif ($meta->is_private_podcast()) {
   $restrict_text = t('Private access only');
   $restrict_class= 'private';
 }
-elseif ('Y'==$meta->_access['intranet_only']) {
-  $restrict_text = t('Staff/student access only');
-  $restrict_class= 'intranet';
-}
-elseif ('N'==$meta->_access['published']) {
+elseif (! $meta->is_published_podcast()) {
   $restrict_text = t('Unpublished');
   $restrict_class= 'unpublished';
+}
+elseif ($meta->is_restricted_podcast()) {
+  $restrict_text = t('Staff/student access only');
+  $restrict_class= 'intranet';
 }
 
 
@@ -34,13 +34,14 @@ $about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
 $base_url = base_url();
 
 ?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo $restrict_text ?> | <?php echo t('OU player') ?></title>
+<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<meta charset="utf-8" /><title><?php #echo $meta->title .' | ' ?><?php echo $restrict_text ?> | <?php echo t('OU player') ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
 <link rel="stylesheet" href="<?php echo $base_url ?>assets/ouplayer/ouplayer.core.css" />
-<?php if (isset($theme->styles)): ?>
-<link rel="stylesheet" href="<?php echo $base_url ?>assets/<?php echo $theme->styles ?>" />
-<?php endif; ?>
+<?php #if (isset($theme->styles)): ?>
+<link rel="stylesheet" href="<?php echo $base_url ?>assets/<?php echo 'ouplayer/ouice-light/ouice-light.css' #$theme->styles ?>" />
+<?php #endif; ?>
 <link rel="icon" href="<?php echo $base_url ?>assets/favicon.ico" />
 
 <?php
@@ -59,11 +60,11 @@ $this->load->view('ouplayer/oup_analytics');
   <img class="ou-home logo" alt="Open University logo" src="<?php echo site_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
   <li><h1><?php echo $meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
-  <?php if ('Y'==$meta->_access['intranet_only']): ?>
-  <li class="restrict-text"><?php echo t('Staff/student access only') ?></li>
-  <?php endif; ?>
+  <?php #if ($meta->is_restricted_podcast()): ?>
+  <li class="restrict-text"><?php echo $restrict_text #t('Staff/student access only') ?></li>
+  <?php #endif; ?>
 
-  <li><a target="_blank" href="https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL=<?php echo /*urlencode*/($popup_url) ?>"
+  <li><a target="_blank" href="<?php echo Sams_Auth::login_link($popup_url) ?>"
 	class="login popout" ><?php echo t('Log in and launch the player in a new window') ?></a></li>
 
   <li>  <?php if(isset($meta->_related_url) && $meta->_related_url){
