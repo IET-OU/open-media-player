@@ -58,7 +58,6 @@ class Embed extends MY_Controller {
         $view_data['popup_url'] = NULL;
     }
 
-    // TODO: needs tidying up, access-control.
 
     // Access control - start simple!
 
@@ -66,12 +65,12 @@ class Embed extends MY_Controller {
     $this->load->library('Sams_Auth', null, 'auth');
 
     if ($this->auth->is_private_caller()
-        && $player->is_private_podcast()) {
+        && $player->is_restricted_podcast()) {
 
         $this->auth->authenticate();
     }
     elseif ($restrict_image
-        && $player->is_private_podcast()
+        && $player->is_restricted_podcast()
         && 'Embed' == get_class($this)) {
 
         $view_data['meta']->poster_url = $restrict_image;
@@ -80,8 +79,9 @@ class Embed extends MY_Controller {
 
 		return;
     }
-    elseif ($player->is_private_podcast()) {
-	    // Private podcast, public site, 'popup' view - authenticate.
+    elseif ($player->is_restricted_podcast()
+        && 'Popup' == get_class($this)) {
+        // Private podcast, public site, 'popup' view - authenticate.
 
         $this->auth->authenticate();
     }
