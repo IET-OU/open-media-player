@@ -111,12 +111,51 @@ class Podcast_player extends Openlearn_player {
   public $timestamp;
 
 
+
+  /** Check 'intranet only' AND private flags etc.
+  */
+  public function is_restricted_podcast() {
+	$this->_check_access();
+
+	return self::truthy($this->_access['intranet_only'])
+		|| $this->is_private_podcast()
+		|| $this->is_deleted_podcast()
+		|| ! $this->is_published_podcast()
+	;
+  }
+
+  /** Just test the 'private' flag. */
   public function is_private_podcast() {
-    if (! isset($this->_access['intranet_only'])) {
+	$this->_check_access();
+
+	return self::truthy($this->_access['private']);
+  }
+
+  public function is_deleted_podcast() {
+	$this->_check_access();
+
+	return self::truthy($this->_access['private']);
+  }
+
+  public function is_published_podcast() {
+	$this->_check_access();
+
+	return self::truthy($this->_access['published']);
+  }
+
+
+  /** A generic 'boolean' test. */
+  protected static function truthy($flag) {
+	return 1 == $flag   // Feed model.
+		|| 'Y' == $flag // DB model.
+		|| TRUE === $flag;
+  }
+
+  protected function _check_access() {
+	if (! isset($this->_access['intranet_only'])) {
 	  // ERROR?
-	  die('Error, unexpected condition, Privacy_Auth.');
+	  die('Error, unexpected condition, '. __CLASS__);
 	}
-	return $this->_access['intranet_only']; #Was: 'Y'==$player->..
   }
 }
 
