@@ -1,20 +1,3 @@
-<?php
-  /*
-  $input = $this->input;
-  $body_classes = ' oup-jquery-test';
-  $body_classes .= $input->get('edge') ? ' oup-edge' :'';
-  $body_classes .= $input->get('size') ? ' oup-'.$input->get('size') :'';
-?>
-<!doctype html><html lang="en" class="<?=$body_classes ?>"><meta charset="utf-8"/><title>*OU player/ OU embed - Beta Demonstrations</title>
-
-<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
-<meta name="ROBOTS" content="noindex,nofollow" />
-
-<link rel="stylesheet" href="<?=base_url().'application/assets/client/site-embed.css' ?>" />
-
-
-<h1>OU player</h1>
-*/?>
 
 <h2>Beta tests</h2>
 
@@ -41,9 +24,17 @@
 -->
 <br /><a href="<?php echo site_url('popup/pod/student-experiences/db6cc60d6b') ?>?theme=<?php echo $this->config->item('player_default_theme') ?>">iframe</a>
 
+
+<?php if ($this->input->get('all')): ?>
+
 <p>Video 2
 <p><a class=embed  href="http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334">Circular Motion...: All the Fun of the Fair, on OU podcast</a>
 
+
+<h3>Video 3: restricted access</h3>
+<p><a class=embed href="http://podcast.open.ac.uk/pod/learn-about-fair-2009/0a49a38de2">Learn about... 2009: OU on iTunes U, by Ben Hawkridge</a>
+
+<?php endif; ?>
 
 
 <?php if ($this->input->get('ouldi')): ?>
@@ -68,18 +59,3 @@
 
 <?php endif; ?>
 
-
-<?php /*
-<p>&copy;2011-2012 The Open University.</p>
-
-<script src="<?=OUP_JS_CDN_JQUERY_MIN ?>"></script>
-<script src="<?=site_url('scripts/jquery.oembed.js') ?>"></script>
-<script>
-  $(document).ready(function() {
-    $("a.embed"    ).oembed(null, {'oupodcast':{'<?=OUP_PARAM_THEME ?>':'<?=$req->theme ?>'}});<?php /*null, { embedMethod: "replace" });*-/ ?>
-
-    $("[rel=embed]").oembed(); //Legacy.
-  });
-</script>
-
-</html>*/ ?>
