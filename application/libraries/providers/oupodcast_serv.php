@@ -255,6 +255,10 @@ EOT;
   */
   public function get_transcript($player) {
 
+    $player->transcript_html = NULL;
+
+    if (! $player->transcript_url) return $player;
+
     $res = $pdf = $html = false;
 
 	// Maybe a sub-directory?
@@ -294,7 +298,11 @@ EOT;
 	}
 	elseif (file_exists($trans_file_html)) {
 	  // OR get an existing HTML snippet.
-	  $player->transcript_html = $this->CI->pdftohtml->filter(file_get_contents($trans_file_html));
+	  $player->transcript_html = $this->CI->pdftohtml->filter(@file_get_contents($trans_file_html));
+	  if (! $player->transcript_html) {
+	    //Error/ warning?
+	    $this->CI->_log('error', __CLASS__.". Error getting HTML transcript.");
+	  }
 	}
 
     return $player;
