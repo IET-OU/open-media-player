@@ -9,8 +9,11 @@
 require_once APPPATH.'controllers/embed.php';
 
 
-class Popup extends Embed { //MY_Controller {
+class Popup extends Embed {
 
   // Very similar to the embed controller!
 
+
+
+  // get_class( $CI ) tells us whether we are in Embed or Popup mode.
 }

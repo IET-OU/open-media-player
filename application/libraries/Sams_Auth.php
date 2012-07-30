@@ -43,8 +43,8 @@ class Sams_Auth extends Privacy_Auth {
     }
   }
 
-  public function login_link($url) {
-    #?? https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL=
+  public static function login_link($url) {
+    //( Redirect to:  https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL= )
 
 	return 'https://msds.open.ac.uk/signon/?URL=' . $url;
   }

@@ -1,9 +1,11 @@
-<?php
-/** OU player library.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * OU player library.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 2011-04-07.
  */
-//NDF, 2011-04-07.
+
 
 /* Ouplayer class - Holds meta-data for the player.
    Consistency between OU and OUVLE variants.
