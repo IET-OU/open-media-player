@@ -16,7 +16,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
   // Note, set defaults for 'foreground' and background colours here (use & make them customizable in oup_light theme).
   public $rgb  = 'ouvle-default-blue';
-  public $background = 'transparent';
+  public $background = 'black';
 
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
   public $player_embed_code = NULL;
@@ -92,8 +92,6 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   /** Prepare: initialize features of the theme, given a player object.
   */
   public function prepare(& $player) {
-
-    #$this->prepare_jslib($player);
     parent::prepare($player);
 
     // OU Podcast only: options menu, google analytics..
