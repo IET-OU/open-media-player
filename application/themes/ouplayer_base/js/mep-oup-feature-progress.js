@@ -114,7 +114,7 @@
 						'aria-valuemax': d,
 						'aria-label': op.progressText,
 						'tabindex': 0,
-						'role': 'slider', //type=button
+						'role': 'slider' //type=button
 					})
 					/*
 					handle.attr('aria-valuenow', sec);
