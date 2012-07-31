@@ -234,7 +234,7 @@ h1 {
 
 /* Only show the progress-bar 'thumb' on keyboard focus. */
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
-.mejs-controls .mejs-time-rail .mejs-time-handle:focus /*, .mejs-controls .mejs-time-rail:hover .mejs-time-handle*/{ top:0; height:8px; background:#eee; }
+.mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-2px; height:10px; background:#fff; outline:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
 
 .mejs-controls { 
 	/*color:rgb(40,41,42);/* 190312 - PETER*/
@@ -341,7 +341,7 @@ h1 {
 	bottom:40px;
 	}
 .width-small.tscript-show #oup-tscript {
-	bottom:21px;
+	bottom:20px;
 	width:150px;
 	padding:3px;
 	font-size:0.8em;
