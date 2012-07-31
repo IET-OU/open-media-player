@@ -274,7 +274,34 @@ h1 {
 
 /* Options menu panel.
 */
-#oup-options.show{ position:absolute; bottom:25px; right:2px; background:#eee; color:#111; padding:3px 5px; z-index:100; width:11em; border-radius:4px; }
+#oup-options.show{
+	position:absolute;
+	bottom:22px;
+	right:0;
+	width:194px;
+	background:#efefef;
+	color:#111;
+	padding:5px;
+	z-index:100;
+	border:1px solid #ccc;
+	border-radius:3px;
+	font-size:1.05em;
+	line-height:1.2em;
+}
+/* A bottom 'gutter' for the popup player (18+22px) */
+.mode-popup #oup-options.show{ bottom:40px; }
+.width-large #oup-options.show {
+	width:20em;
+	font-size:1.15em;
+	padding:8px;
+	}
+.width-small #oup-options.show {
+	width:145px;
+	font-size:.87em;
+	padding:0 5px;
+	bottom:15px;
+	line-height:.85em;
+	}
 #oup-options.hide{ display:none; }
 .oup-options ul {
 	margin:0;
@@ -304,15 +331,23 @@ h1 {
 	right:0;
 	bottom:22px;
 	width:195px;
+	border-left:1px solid #ccc;
 	background:#f8f8f8;
 	color:#222;
 	padding:5px;
 	overflow-y:scroll;
 	}
+.mode-popup.tscript-show #oup-tscript {
+	bottom:40px;
+	}
 .width-small.tscript-show #oup-tscript {
+	bottom:21px;
 	width:150px;
 	padding:3px;
 	font-size:0.8em;
+	}
+.width-small #oup-tscript p {
+	margin:.3em 0;
 	}
 .width-large.tscript-show #oup-tscript {
 	width:21em; /*29em; /*300px*/
