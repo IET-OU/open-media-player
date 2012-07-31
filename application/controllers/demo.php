@@ -48,6 +48,7 @@ class Demo extends MY_Controller {
         $this->_load_layout($layout);
 
         $view_data = array(
+            'header' => t('OU Embeds'),
             'req' => $this->_request,
             'resource_url' => 'http://www8.open.ac.uk/',
         );

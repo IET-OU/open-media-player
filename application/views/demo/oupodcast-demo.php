@@ -1,8 +1,7 @@
 
 <h2>Beta demos</h2>
 
-<p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> Media Player and <abbr title=
-"Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects.
+<p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> Media Player project.
 
 
 
