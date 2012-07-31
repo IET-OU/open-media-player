@@ -13,10 +13,12 @@ class Gitlib {
     protected $_hash;
     protected $CI;
 
-    const REVISION_FILE = "{__DIR__}/../.gitrevision";
+    static $REVISION_FILE = 'gitrevision';
 
     public function __construct() {
         $this->CI =& get_instance();
+
+        self::$REVISION_FILE = dirname(__FILE__) .'/../'. self::$REVISION_FILE;
     }
 
     /**
@@ -53,10 +55,15 @@ class Gitlib {
                 if ('message'==$key) break;
             }
         }
-        $result['describe'] = trim($this->_exec('describe'));
+        // Describe "v0.86-usertest-95-g.."
+        $result['describe'] = trim($this->_exec('describe --tags --long'));
+        $result['version'] = preg_replace('/(\d)-(\w+)-(\d+)-g/', '\1.\3/\2-g', $result['describe']);
         $result['agent'] = basename(__FILE__);
+        $result['git'] = rtrim($this->_exec('--version'), "\r\n ");
 
-        $bytes = file_put_contents(self::REVISION_FILE, json_encode($result));
+        $bytes = file_put_contents(self::$REVISION_FILE, json_encode($result));
+
+        echo "File written, $bytes: ", self::$REVISION_FILE;
 
         return $result;
     }
@@ -64,7 +71,7 @@ class Gitlib {
     /** Read revision meta-data from the '.' file.
     */
     public function get_revision() {
-        return (object) json_decode(file_get_contents(self::REVISION_FILE));
+        return (object) json_decode(file_get_contents(self::$REVISION_FILE));
     }
 
 
