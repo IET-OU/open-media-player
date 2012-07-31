@@ -7,7 +7,7 @@
 
 /* Reset OUICE anomaly.
 */
-body.ouice iframe{ width:auto; }
+body.ouice iframe, .oup-ice-test iframe.oembed{ width:auto; max-width:99%; }
 
 
 /* Generic page styles.
@@ -81,7 +81,7 @@ iframe.oembed {
 }
 .oup-edge .oembed:hover{
   border-color:#aaa;
-  background:#ffd;
+  background:#fff; /*Was: #ffd*/
 
   transition:all 1s;
   -moz-transition:all 1s; /* Firefox 4 */
@@ -136,6 +136,7 @@ body.path-mod {
 }
 
 
+
 /* MathTran photo embeds.
 */
 .oup-jquery-test [href*="mathtran.org"] {
@@ -145,4 +146,13 @@ body.path-mod {
 }
 .oup-jquery-test [href*="mathtran.org"]:hover {
   border-bottom:1px solid #66c;
+}
+
+/* Cohere.
+*/
+.cohere.embed-rsp iframe {
+  height:340px; width:1002px;
+}
+.cohere.embed-rsp div {
+  height:357px; overflow-x:scroll;
 }

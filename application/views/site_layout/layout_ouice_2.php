@@ -11,7 +11,7 @@
   $is_demo_page = TRUE;
   $is_player_site = TRUE;
 
-  $body_classes = 'ou-ia-community sections oup-jquery-test';
+  $body_classes = 'ou-ia-community sections oup-ice-test';
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
