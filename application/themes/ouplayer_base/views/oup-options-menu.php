@@ -43,12 +43,19 @@ $docs = $this->config->item('player_docs');
 $help_url = isset($docs['help']) ? $docs['help'] : '#help/TODO';
 $about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
 $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
+
+$help_url = str_replace('__SITE__/', site_url(), $help_url);
+$about_url= str_replace('__SITE__/', site_url(), $about_url);
 ?>
 
 
 <ul>
+<?php if ($help_url && $about_url): ?>
   <li><a rel="help" class="help" href="<?=$help_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
   <li><a class="about" href="<?=$about_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
+<?php else: ?>
+  <li><a rel="help" class="help" href="<?=$about_url ? $about_url : $help_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Help and about') ?></span></a>
+<?php endif; ?>
   <li><a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
   <li><a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>

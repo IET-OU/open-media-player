@@ -92,9 +92,9 @@ $config['providers_local'] = array(
 // OU Player user documentation.
 $player_docs_google = 'https://docs.google.com/document/pub?id=1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc';
 $config['player_docs'] = array(
-  'help' => "$player_docs_google#id.j2um0zpktyo1",
-  'about'=> "$player_docs_google#id.mi4tst6i0wac",
-  'embed'=> "$player_docs_google#id.9xoj8o7ev1d5",
+  'help' => FALSE,   #"$player_docs_google#id.j2um0zpktyo1",
+  'about'=> '__SITE__/about', #"$player_docs_google#id.mi4tst6i0wac",
+  'embed'=> FALSE,   #"$player_docs_google#id.9xoj8o7ev1d5",
 );
 
 // OU Player themes.
