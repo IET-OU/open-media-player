@@ -8,7 +8,7 @@
 class Demo extends MY_Controller {
 
     // Default layout/template.
-    const LAYOUT = 'bare';
+    const LAYOUT = 'ouice';  #'bare';
 
     public function __construct() {
       parent::__construct();
@@ -168,7 +168,7 @@ class Demo extends MY_Controller {
     /** Load the layout library with a 'bare' or OUICE template.
     */
     protected function _load_layout($layout = self::LAYOUT) {
-      $layout = 'bare'==$layout ? 'bare' : 'ouice';
+      $layout = 'bare'==$layout ? 'bare' : 'ouice_2';
       $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
     }
 

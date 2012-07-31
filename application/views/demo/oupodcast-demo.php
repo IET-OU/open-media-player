@@ -1,21 +1,16 @@
 
-<h2>Beta tests</h2>
+<h2>Beta demos</h2>
 
-<p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> player/<abbr title=
-"Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects. Here are <a href=
-"http://freear.org.uk/content/ou-media-player-project">introductory blog</a>  <a href="http://freear.org.uk/content/ou-embed-proposal">posts</a>.</p>
-
-<p>NOTE:  these demos use the <a href="<?=site_url('scripts/jquery.oembed.js') ?>">jquery-oembed plugin</a>.
-<p>NOTE:  the OU player is now fairly accessible. Feedback to <a href="mailto:N.D.Freear+@+open.ac.uk?subject=OU+player">N.D.Freear+@+open.ac.uk</a></p>
+<p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> Media Player and <abbr title=
+"Open University Learning Design Initiative, including Cloudworks">OULDI</abbr> embed projects.
 
 
-<h3>OU player</h3>
 
-<p>Audio 1
+<h4>Audio player</h4>
 <p><a class=embed href=
 "http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d">Introduction: A Buerno Puerto, on OU podcast</a>
 
-<p>Video 1
+<h4>Video player</h4>
 
 <p><a class=embed href="http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b">Student Experiences</a>
 <!--<p>Audio - OpenLearn/ iTunes U.
@@ -27,11 +22,11 @@
 
 <?php if ($this->input->get('all')): ?>
 
-<p>Video 2
+<h4>Video 2</h4>
 <p><a class=embed  href="http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334">Circular Motion...: All the Fun of the Fair, on OU podcast</a>
 
 
-<h3>Video 3: restricted access</h3>
+<h4>Video 3: restricted access</h4>
 <p><a class=embed href="http://podcast.open.ac.uk/pod/learn-about-fair-2009/0a49a38de2">Learn about... 2009: OU on iTunes U, by Ben Hawkridge</a>
 
 <?php endif; ?>

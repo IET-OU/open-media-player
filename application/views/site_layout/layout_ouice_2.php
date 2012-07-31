@@ -1,6 +1,8 @@
 <?php
 /**
 *
+* @author: N.D.Freear, 30 July 2012.
+*
 * Source: http://www3.open.ac.uk/study/
 */
 
@@ -13,9 +15,7 @@
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta charset="utf-8" /><title>
-	Study at the OU - Degrees, Diplomas, Courses, Certificates and Qualifications - Open University
-</title>
+<meta charset="utf-8" /><title>OU Media Player - Open University</title>
 <meta name="ROBOTS" content="noindex,nofollow" />
 
 <meta name="description" content="Open University is the UK's largest university for part-time higher education..." />
@@ -30,6 +30,8 @@
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" media="screen, projection" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/screen.css" media="screen, projection" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/print.css" media="print" />
+
+<link rel="shortcut icon" href="<?php echo $resource_url ?>/favicon.ico" type="image/x-icon" />
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/ie.css" />
@@ -52,13 +54,14 @@
 <!--<link href="<?php echo $resource_url ?>/study/stylesheets/study-common.css" rel="stylesheet" media="all" />-->
 
 <!-- site specific head components -->
+<?php /*
 <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-<!--<link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />-->  
-<!--<script src="<?php echo $resource_url ?>/study/includes/jquery-scripts/jquery-1.7.1.min.js"></script>-->
-<!--<style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>-->
+    <link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />  
+    <script src="<?php echo $resource_url ?>/study/includes/jquery-scripts/jquery-1.7.1.min.js"></script>
+    <style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>
+*/ ?>
 
-
-<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
+    <script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 
 <?php if ($is_demo_page): ?>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
@@ -103,14 +106,17 @@
                
 <ul class="ou-sections">
 <?php if ($is_player_site): ?>
-    <li class="first menu- selected active-trail active"><a href="<?php echo $base_url ?>" class="selected active">Player home</a></li>
-    <li class="menu-"><a href="<?php echo $base_url ?>about" >About</a></li>
-    <li class="menu-"><a href="<?php echo $base_url ?>about/help" >Player Help</a></li>
-    <li class="menu-"><a href="<?php echo $base_url ?>demo/ouldi" >Other OU embeds</a></li>
-    <li class="menu-"><a href="<?php echo $base_url ?>demo/podcast_errors" >Error tests</a></li>
-    <li class="menu-"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Requires login" >[VLE]</a></li>
-	<li class="last menu-"><a href="http://podcast.open.ac.uk/" >OU Podcasts</a></li>
-<?php else: ?>
+    <li class="first menu- -selected active-trail -active"><a href="<?php echo $base_url ?>" class="selected active">Player home</a>
+    <li class="menu-"><a href="<?php echo $base_url ?>about">About</a>
+    <!--<li class="menu-"><a href="<?php echo $base_url ?>about/help" rel="nofollow">Player Help</a>-->
+    <li class="menu-"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other OU embeds</a>
+    <li class="menu-"><a href="<?php echo $base_url ?>demo/podcast_errors" rel="nofollow">Error tests</a>
+    <li class="menu-"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Requires a University login" rel="nofollow">[VLE]</a>
+	<!--<li ><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology">IET</a>-->
+	<li ><a href="http://www.open.ac.uk/disability/" title="Services for disabled students">Disabled services</a>
+	<li class="menu-"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts">OU Podcasts</a>
+	<li class="last menu-"><a href="http://www.open.edu/itunes/" title="The Open University on iTunes U">iTunes U</a>
+<?php else: // 'Study' ?>
     <li id="tm-study-home"><a href="<?php echo $site_url ?>/study/">Study at the OU</a></li>
     <li id="tm-undergraduate"><a href="<?php echo $site_url ?>/study/undergraduate/index.htm">Undergraduate</a></li>
     <li id="tm-postgraduate"><a href="<?php echo $site_url ?>/study/postgraduate/index.htm">Postgraduate</a></li>
