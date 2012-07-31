@@ -5,12 +5,15 @@
 * In Web mode creates a Closure Compiler build script.
 * In cli mode builds using YUI Compressor.
 *
+*     Usage: $ \xampp\php\php index.php build/revision
+*
 * See mediaelement/src/Builder.py
 * See oup-mep/src/build.php
 *
 * @link http://closure-compiler.appspot.com/home
 * (http://www.minifyjs.com/javascript-compressor/)
 * (http://www.lotterypost.com/css-compress.aspx)
+*
 * @copyright 2012 The Open University.
 * @author N.D.Freear, 17 April 2012, -04-25.
 */
@@ -30,7 +33,21 @@ class Build extends MY_Controller {
 EOF;
 
 
-  /** Build a theme.
+  /** Build a 'revision' file (CLI).
+  */
+  public function revision() {
+    if ($this->input->is_cli_request()) {
+      $this->load->library('Gitlib', null, 'git');
+
+      $result = $this->git->put_revision();
+
+	} else {
+	  $this->_error('The page you requested was not found.', 404);
+	}
+  }
+
+
+  /** Build a theme (Web/CLI).
   */
   public function theme($theme_name = 'oup-light', $optimizations = 'simple', $output = 'ouplayer.min') {	
     $theme_name = strtolower(str_replace('-', '_', $theme_name));
