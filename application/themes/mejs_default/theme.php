@@ -66,6 +66,8 @@ class Mejs_Default_Theme extends Player_Theme {
   }
 
   public function prepare(& $player) {
+    parent::prepare($player);
+
     return $this->prepare_jslib($player);
   }
 

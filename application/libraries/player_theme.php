@@ -40,8 +40,12 @@ abstract class Player_Theme {
 	#echo $this->parent;
   }
 
-  /** Prepare: initialize features of the theme, given a player object.
+  /** Prepare: initialize features of the theme, given a player object (was abstract).
   */
-  abstract public function prepare(& $player);
+  public function prepare(& $player) {
+    if (! is_subclass_of($player, 'Base_player')) {
+      die('Error, not a valid player object, '.__CLASS__);
+    }
+  }
 }
 
