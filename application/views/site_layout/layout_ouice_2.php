@@ -11,7 +11,10 @@
   $is_demo_page = TRUE;
   $is_player_site = TRUE;
 
-  $body_classes = 'ou-ia-community sections oup-ice-test';
+  $body_classes = 'ou-ia-community ou-sections oup-ice-test ';
+
+  $path = str_replace('/', ' ', $this->uri->uri_string());
+  $body_classes .= ' '==$path ? 'pg-home' : 'pg-'. $path;
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -67,6 +70,13 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
 <?php endif; ?>
 
+<style>
+.pg-home .menu-home a, .pg-about .menu-about a, .pg-demo .menu-demo a,
+.pg-demo.ouldi .menu-ouldi a, .pg-demo.podcast_errors .menu-error a{
+  background:#fafafa;
+}
+</style>
+
 
 <body class="X-ou-ia-study <?php echo $body_classes ?>" id="X-study" >
 
@@ -106,11 +116,11 @@
                
 <ul class="ou-sections">
 <?php if ($is_player_site): ?>
-    <li class="first menu- -selected active-trail -active"><a href="<?php echo $base_url ?>" class="selected active">Player home</a>
-    <li class="menu-"><a href="<?php echo $base_url ?>about">About</a>
+    <li class="first menu-home"><a href="<?php echo $base_url ?>" class="selected active">Player home</a>
+    <li class="menu-about"><a href="<?php echo $base_url ?>about">About</a>
     <!--<li class="menu-"><a href="<?php echo $base_url ?>about/help" rel="nofollow">Player Help</a>-->
-    <li class="menu-"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other OU embeds</a>
-    <li class="menu-"><a href="<?php echo $base_url ?>demo/podcast_errors" rel="nofollow">Error tests</a>
+    <li class="menu-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other OU embeds</a>
+    <li class="menu-error"><a href="<?php echo $base_url ?>demo/podcast_errors" rel="nofollow">Error tests</a>
     <li class="menu-"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Requires a University login" rel="nofollow">[VLE]</a>
 	<!--<li ><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology">IET</a>-->
 	<li ><a href="http://www.open.ac.uk/disability/" title="Services for disabled students">Disabled services</a>

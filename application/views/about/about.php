@@ -14,9 +14,10 @@
 
 <h2>Giving feedback</h2>
 
-<p><label for="app-info">If you need to report an issue, or give feedback to the <a href="http://www.open.ac.uk/students/help/" rel="nofollow">Student Computing Helpdesk</a>,
- please copy and paste the following information:</label>
-<p><textarea readonly id="app-info" rows="3" cols="40" style="width:96%;">
+<p>If you are an Open University student please use your <a href="https://msds.open.ac.uk/students/help.aspx" title="Requires a University login" rel="nofollow">Student Help centre</a>
+ to find answers, or the contact details for people who can help you.
+ <label for="app-info">When you report a problem, please copy and paste the following information:</label>
+<p><textarea readonly id="app-info" rows="3" style="width:96%;">
 OU Player version: <?php echo $app_revision->version ?>
 
 Browser: <?php echo $_SERVER['HTTP_USER_AGENT'] ?>
@@ -31,7 +32,7 @@ Browser: <?php echo $_SERVER['HTTP_USER_AGENT'] ?>
 </ul>
 
 <p>NOTE: the demos on this site use the <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>" rel="nofollow">jquery-oembed plugin</a>.
-<p>NOTE: the OU Media Player is now fairly accessible. Feedback to <a href="mailto:N.D.Freear+@+open.ac.uk?subject=OU+player">N.D.Freear+@+open.ac.uk</a>
+<p>NOTE: the OU Media Player is now fairly accessible. Feedback to <a href="mailto:N.D.Freear+@+open.ac.uk?subject=OU+player">N.D.Freear+@+open.ac.uk</a>.
 
 
 <script>
