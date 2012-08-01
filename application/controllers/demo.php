@@ -178,6 +178,10 @@ class Demo extends MY_Controller {
 	protected function _sams_check() {
 	  $this->load->library('Sams_Auth', null, 'auth');
 	  $this->auth->authenticate();
+
+	  if (! $this->auth->is_staff()) {
+	    $this->_error('Sorry, staff only (Forbidden)', 403);
+	  }
 	}
 }
 

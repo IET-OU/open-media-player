@@ -30,9 +30,6 @@ class Sams_Auth extends Privacy_Auth {
 
   /**
   * Basic OU-SAMS session cookie check and redirect - used for VLE demo/test pages.
-  *
-  SAMSsession=20460a8663e3b7593a9a9dbd97b57b2a501337e2ndf42
-  2=9000b6ae61b04e91855c2f7353e146aa501337e2ndf42
   */
   public function authenticate() {
     // Security: note the 'localhost' check.
@@ -49,4 +46,12 @@ class Sams_Auth extends Privacy_Auth {
 	return 'https://msds.open.ac.uk/signon/?URL=' . $url;
   }
 
+
+  /**
+  * Determine if the authenticated user is staff, including OU tutors.
+  */
+  public function is_staff() {
+    $sess = $this->CI->input->cookie('SAMS2session');
+    return $sess && (FALSE !== strpos($sess, 'samsStaffID=') || FALSE !== strpos($sess, 'samsTutorID='));
+  }
 }
