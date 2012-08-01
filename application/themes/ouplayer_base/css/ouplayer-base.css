@@ -11,7 +11,7 @@
  */
 body	{
 	margin:0; 
-	font:1em sans-serif; 
+	font:1em Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;
 	background:#000; /*Was #222. */
 	color:#eee;
 	}
