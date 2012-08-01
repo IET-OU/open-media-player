@@ -58,7 +58,10 @@
 					$('<div class="mejs-button mejs-fullscreen-button">' + 
 						'<button type="button" aria-controls="' + t.id + '" title="' + t.options.fullscreenText + '"></button>' + 
 					'</div>')
-					.appendTo(controls);
+//ou-specific:  NDF 2012-03-30.
+					.appendTo(controls.group());
+					//.appendTo(controls);
+//ou-specific ends.
 				
 				if (t.media.pluginType === 'native' || (!t.options.usePluginFullScreen && !mejs.MediaFeatures.isFirefox)) {
 					

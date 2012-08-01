@@ -1067,6 +1067,8 @@
 	
 	$(document).ready(function() {
 		// auto enable using JSON attribute
+//ou-specific:  Ender fix, NDF 2012-04-17.
+		if ($('.mejs-player').length > 0)
 		$('.mejs-player').mediaelementplayer();
 	});
 	

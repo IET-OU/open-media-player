@@ -40,7 +40,10 @@
 							'</ul>'+
 						'</div>'+
 					'</div>')
-						.appendTo(controls)
+//ou-specific:  NDF 2012-03-30.
+						.appendTo(controls.group())
+						//.appendTo(controls)
+//ou-specific ends.
 						
 						// hover
 						.hover(function() {
