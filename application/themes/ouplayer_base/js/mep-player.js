@@ -16,6 +16,16 @@
 		defaultAudioWidth: 400,
 		// default if the user doesn't specify
 		defaultAudioHeight: 30,
+
+		// default amount to move back when back key is pressed		
+		defaultSeekBackwardInterval: function(media) {
+			return (media.duration * 0.05);
+		},		
+		// default amount to move forward when forward key is pressed				
+		defaultSeekForwardInterval: function(media) {
+			return (media.duration * 0.05);
+		},		
+		
 		// width of audio player
 		audioWidth: -1,
 		// height of audio player
@@ -40,9 +50,9 @@
 		alwaysShowControls: false,
 		// force iPad's native controls
 		iPadUseNativeControls: false,
-		// force iPad's native controls
+		// force iPhone's native controls
 		iPhoneUseNativeControls: false,	
-		// force iPad's native controls
+		// force Android's native controls
 		AndroidUseNativeControls: false,			
 		// features to show
 		features: ['playpause','current','progress','duration','tracks','volume','fullscreen'],
@@ -97,7 +107,7 @@
 										}
 										
 										// 5%
-										var newTime = Math.min(media.currentTime - (media.duration * 0.05), media.duration);
+										var newTime = Math.max(media.currentTime - player.options.defaultSeekBackwardInterval(media), 0);
 										media.setCurrentTime(newTime);
 								}
 						}
@@ -115,7 +125,7 @@
 										}
 										
 										// 5%
-										var newTime = Math.max(media.currentTime + (media.duration * 0.05), 0);
+										var newTime = Math.min(media.currentTime + player.options.defaultSeekForwardInterval(media), media.duration);										
 										media.setCurrentTime(newTime);
 								}
 						}
@@ -290,10 +300,12 @@
 					(4) defaultVideoWidth (for unspecified cases)
 				*/
 				
-				var capsTagName = tagName.substring(0,1).toUpperCase() + tagName.substring(1);
+				var tagType = (t.isVideo ? 'video' : 'audio'),
+					capsTagName = tagType.substring(0,1).toUpperCase() + tagType.substring(1);
+					
 				
-				if (t.options[tagName + 'Width'] > 0 || t.options[tagName + 'Width'].toString().indexOf('%') > -1) {
-					t.width = t.options[tagName + 'Width'];
+				if (t.options[tagType + 'Width'] > 0 || t.options[tagType + 'Width'].toString().indexOf('%') > -1) {
+					t.width = t.options[tagType + 'Width'];
 				} else if (t.media.style.width !== '' && t.media.style.width !== null) {
 					t.width = t.media.style.width;						
 				} else if (t.media.getAttribute('width') !== null) {
@@ -302,8 +314,8 @@
 					t.width = t.options['default' + capsTagName + 'Width'];
 				}
 				
-				if (t.options[tagName + 'Height'] > 0 || t.options[tagName + 'Height'].toString().indexOf('%') > -1) {
-					t.height = t.options[tagName + 'Height'];
+				if (t.options[tagType + 'Height'] > 0 || t.options[tagType + 'Height'].toString().indexOf('%') > -1) {
+					t.height = t.options[tagType + 'Height'];
 				} else if (t.media.style.height !== '' && t.media.style.height !== null) {
 					t.height = t.media.style.height;
 				} else if (t.$media[0].getAttribute('height') !== null) {
@@ -694,8 +706,14 @@
 
 		setPlayerSize: function(width,height) {
 			var t = this;
-			
-			// testing for 100% code
+
+			if (typeof width != 'undefined')
+				t.width = width;
+				
+			if (typeof height != 'undefined')
+				t.height = height;
+
+			// detect 100% mode
 			if (t.height.toString().indexOf('%') > 0) {
 			
 				// do we have the native dimensions yet?
@@ -709,31 +727,35 @@
 					parentWidth = $(window).width();
 					newHeight = $(window).height();
 				}
-					
 				
-				// set outer container size
-				t.container
-					.width(parentWidth)
-					.height(newHeight);
+				if ( newHeight != 0 ) {
+					// set outer container size
+					t.container
+						.width(parentWidth)
+						.height(newHeight);
+						
+					// set native <video>
+					t.$media
+						.width('100%')
+						.height('100%');
+						
+					// set shims
+					t.container.find('object, embed, iframe')
+						.width('100%')
+						.height('100%');
+						
+					// if shim is ready, send the size to the embeded plugin	
+					if (t.isVideo) {
+						if (t.media.setVideoSize) {
+							t.media.setVideoSize(parentWidth, newHeight);
+						}
+					}
 					
-				// set native <video>
-				t.$media
-					.width('100%')
-					.height('100%');
-					
-				// set shims
-				t.container.find('object, embed, iframe')
-					.width('100%')
-					.height('100%');
-					
-				// if shim is ready, send the size to the embeded plugin	
-				if (t.media.setVideoSize)
-					t.media.setVideoSize(parentWidth, newHeight);
-					
-				// set the layers
-				t.layers.children('.mejs-layer')
-					.width('100%')
-					.height('100%');					
+					// set the layers
+					t.layers.children('.mejs-layer')
+						.width('100%')
+						.height('100%');
+				}
 			
 			
 			} else {
@@ -756,7 +778,7 @@
 				rail = t.controls.find('.mejs-time-rail'),
 				total = t.controls.find('.mejs-time-total'),
 				current = t.controls.find('.mejs-time-current'),
-				loaded = t.controls.find('.mejs-time-loaded');
+				loaded = t.controls.find('.mejs-time-loaded'),
 				others = rail.siblings();
 			
 
@@ -778,7 +800,7 @@
 				});
 				
 				// fit the rail into the remaining space
-				railWidth = t.controls.width() - usedWidth - (rail.outerWidth(true) - rail.outerWidth(false));
+				railWidth = t.controls.width() - usedWidth - (rail.outerWidth(true) - rail.width());
 			}
 
 			// outer area
@@ -846,8 +868,7 @@
 					'<div class="mejs-overlay-error"></div>'+
 				'</div>')
 				.hide() // start out hidden
-				.appendTo(layers),				
-				
+				.appendTo(layers),
 			// this needs to come last so it's on top
 			bigPlay = 
 				$('<div class="mejs-overlay mejs-layer mejs-overlay-play">'+
@@ -874,13 +895,25 @@
 			media.addEventListener('play',function() {
 				bigPlay.hide();
 				loading.hide();
+				controls.find('.mejs-time-buffering').hide();
 				error.hide();
 			}, false);	
 			
 			media.addEventListener('playing', function() {
 				bigPlay.hide();
 				loading.hide();
+				controls.find('.mejs-time-buffering').hide();
 				error.hide();			
+			}, false);
+
+			media.addEventListener('seeking', function() {
+				loading.show();
+				controls.find('.mejs-time-buffering').show();
+			}, false);
+
+			media.addEventListener('seeked', function() {
+				loading.hide();
+				controls.find('.mejs-time-buffering').hide();
 			}, false);
 	
 			media.addEventListener('pause',function() {
@@ -891,6 +924,7 @@
 			
 			media.addEventListener('waiting', function() {
 				loading.show();	
+				controls.find('.mejs-time-buffering').show();
 			}, false);			
 			
 			
@@ -901,14 +935,17 @@
 				//	return;
 					
 				loading.show();
+				controls.find('.mejs-time-buffering').show();
 			}, false);	
 			media.addEventListener('canplay',function() {
 				loading.hide();
+				controls.find('.mejs-time-buffering').hide();
 			}, false);	
 
 			// error handling
 			media.addEventListener('error',function() {
 				loading.hide();
+				controls.find('.mejs-time-buffering').hide();
 				error.show();
 				error.find('mejs-overlay-error').html("Error loading this resource");
 			}, false);				
@@ -930,7 +967,7 @@
 										for (var j=0, jl=keyAction.keys.length; j<jl; j++) {
 												if (e.keyCode == keyAction.keys[j]) {
 														e.preventDefault();
-														keyAction.action(player, media);
+														keyAction.action(player, media, e.keyCode);
 														return false;
 												}												
 										}
@@ -971,7 +1008,7 @@
 		},
 		changeSkin: function(className) {
 			this.container[0].className = 'mejs-container ' + className;
-			this.setPlayerSize();
+			this.setPlayerSize(this.width, this.height);
 			this.setControlsSize();
 		},
 		play: function() {
@@ -1004,10 +1041,10 @@
 		remove: function() {
 			var t = this;
 			
-			if (t.media.pluginType == 'flash') {
+			if (t.media.pluginType === 'flash') {
 				t.media.remove();
-			} else if (t.media.pluginTyp == 'native') {
-				t.media.prop('controls', true);
+			} else if (t.media.pluginType === 'native') {
+				t.$media.prop('controls', true);
 			}
 			
 			// grab video and put it back in place
@@ -1030,8 +1067,6 @@
 	
 	$(document).ready(function() {
 		// auto enable using JSON attribute
-//ou-specific:  Ender fix, NDF 2012-04-17.
-		if ($('.mejs-player').length > 0)
 		$('.mejs-player').mediaelementplayer();
 	});
 	
