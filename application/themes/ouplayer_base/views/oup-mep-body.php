@@ -39,12 +39,12 @@ Flowplayer:  <body role="application" id="ouplayer" class=
   // Video/ audio height.
   // (Can't use '100%' - Ender/jeesh chokes on .parent(), .width() or el.style)
   // (Mediaelement.js seems to choke on <audio.. style="height:100%"> in MSIE)
-  $height_attr = 'height="360"';
-  $height_style= '';
+  $size_attr = 'height="360"';
+  $size_style= 'style="width:100%;"';
 
   if ('jquery' == $this->theme->jslib) {
-    $height_attr = '';
-    $height_style= ' height:100%';
+    $size_attr = 'width="100%" height="100%"';
+    $size_style= '';
   }
 ?>
 
@@ -55,7 +55,7 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 <?php endif; ?>
  id="player1"
  x-class="mejs-player"
- x-width="640" <?php echo $height_attr ?> style="width:100%; <?php echo $height_style ?>"
+ <?php echo $size_attr ?> <?php echo $size_style ?>
  controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
  <source type="<?=$params->mime_type; #video/mp4 ?>" src="<?php echo $params->media_url ?>">
 <?php if ($params->caption_url): ?>
