@@ -5,7 +5,8 @@
 (function($) {
 
 	$.extend(mejs.MepDefaults, {
-		titleText:null //'[OU logo] [Title] <a href="#">[link]</a>'
+		titleClass:'mejs-title-panel:first' //iet-it-bugs: #1385
+		//titleText:null //'[OU logo] [Title] <a href="#">[link]</a>'
 	});
 
 	// OUP title panel
@@ -15,14 +16,15 @@
 				t = this,
 				op = t.options;
 
-			// Return early if there is no title-text (expected for VLE player).
+			/*// Return early if there is no title-text (expected for VLE player).
 			if (! op.titleText) {
 				$.log('Warning: no title.');
 				return;
-			}
+			}*/
 
 			var
-				titlepanel = 
+				titlepanel = $('.'+ op.titleClass);
+				/*
 				$('<div class="oup-mejs-panel mejs-title-panel mejs-play" id="'+t.id+'-ttl-panel">' + op.titleText +
 				'</div>')
 				.appendTo(controls)
@@ -33,6 +35,14 @@
 
 					return false;
 				})*/;
+
+			// Return early if there is no title-text (expected for VLE player).
+			if (! titlepanel) {
+				$.log('Warning: no title.');
+				return;
+			}
+
+			titlepanel[0].id = t.id +'-ttl-panel';
 
 			media.addEventListener('play',function() {
 				titlepanel.removeClass('mejs-play').addClass('mejs-pause');
