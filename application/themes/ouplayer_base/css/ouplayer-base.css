@@ -104,7 +104,7 @@ h1 {
 
 /* Title panel.
 */
-.mejs-container .mejs-controls .mejs-title-panel {
+/*.mejs-container .mejs-controls*/ .mejs-title-panel {
 	background: #f8f8f8;
 	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.85)), to(rgba(200,200,200,0.85))); /* Saf4+, Chrome */
 	background:-webkit-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* Chrome 10+, Saf5.1+ */
@@ -115,19 +115,22 @@ h1 {
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#FFFFFF,endColorstr=#C8C8C8);
 
 	position:absolute;
-	left:0px;
+	left:0;
 	bottom:22px;
 	width:100%;
 	height:auto;
+
+	z-index:5;
 	}
 /* A bottom 'gutter' for the popup player (22+18px) */
-.mode-popup .mejs-container .mejs-controls .mejs-title-panel {
+.mode-popup /*.mejs-container .mejs-controls*/ .mejs-title-panel {
 	bottom:40px;
 }
-.mejs-container .mejs-controls .mejs-title-panel .logo {
+/*.mejs-container .mejs-controls*/ .mejs-title-panel .logo {
+	float:left;
 	width:60px;
-	height:70px;
-	margin:0 0 2px;
+	height:66px; /*70px*/
+	/*margin:0 0 2px;*/
 	/*
 	  SPRITE inclusion - needs moving!
 	*/
@@ -136,19 +139,19 @@ h1 {
 
 .mejs-title-panel p, .mejs-title-panel h1 {
 	font-weight:normal;
-	font-size:1.7em;
+	font-size:1.2em; /*1.7em; Computed: 18.7px*/
 	/*padding:0em 0em 0em 3em;*/
 	color:rgb(20,20,20);
-	margin:0.5em 0 0 65px;
-	line-height:1.2em;
+	margin:9px 0 0 65px;
+	line-height:1.1em; /*1.2em*/
 	}
 
 .mejs-title-panel a	{
-	margin:0.5em 0 0 65px;
-	font-size:1.7em;
+	margin:9px 0 0 65px; /*.5em; Computed: 9.35px*/
+	font-size:1.15em; /*1.7em*/
 	x-color:#1f536b; 							/*This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always*/
 	display:block;
-	padding:0 0 0.6em;
+	padding:0 0 11px; /*.6em*/
 	text-decoration:none;
 	}
 
@@ -158,14 +161,14 @@ h1 {
 
 /* Title panel in audio player.
 */
-.mtype-audio.mode-embed .mejs-container .mejs-controls .mejs-title-panel {
+.mtype-audio.mode-embed /*.mejs-container .mejs-controls*/ .mejs-title-panel {
 	background: #f2f2f2;
 	}
 .mtype-audio.mode-embed .mejs-title-panel .logo {
 	display:none; /* TODO: hide for now! */
 	}
-.mtype-audio.mode-embed .mejs-title-panel p, .mtype-audio.mode-embed .mejs-title-panel h1, .mtype-audio.mode-embed .mejs-title-panel a {
-	font-size:1.3em;
+.mtype-audio.mode-embed .mejs-title-panel h1, .mtype-audio.mode-embed .mejs-title-panel a {
+	font-size: 1.05em; /*1.3em; Computed: 14.3px*/
 	margin-left:3px;
 	}
 
@@ -176,16 +179,16 @@ h1 {
 /* Title panel in narrow players.  @media (max-width: 451px) { }
 */
 .width-small .mejs-title-panel h1, .width-small .mejs-title-panel a {
-    font-size:1.4em;
-	letter-spacing:-0.05em;
+    font-size:1em; /*1.4em*/
+	letter-spacing:-0.01em;
 	}
-.width-small .mejs-title-panel a {
-	font-size:1.3em;
+.mtype-audio.mode-embed .mejs-title-panel a, .width-small .mejs-title-panel a {
+	font-size:.95em;
 	}
 .width-small.mtype-video .mejs-title-panel h1 {
     font-weight:bold;
 	}
-.width-small .mejs-container .mejs-controls .mejs-title-panel .logo {
+.width-small /*.mejs-container .mejs-controls*/ .mejs-title-panel .logo {
 	background-position:0 -80px;
 	}
 
@@ -285,6 +288,8 @@ h1 {
 	color:#222;
 	padding:5px;
 	overflow-y:scroll;
+
+	z-index:10;
 	}
 .mode-popup.tscript-show #oup-tscript {
 	bottom:40px;
