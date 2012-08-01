@@ -12,8 +12,6 @@
 body	{
 	margin:0; 
 	font:1em sans-serif; 
-	/*background:#f8f8f8; 
-	color:#222;*/
 	background:#000; /*Was #222. */
 	color:#eee;
 	}
@@ -68,7 +66,6 @@ h1 {
 	top:0;
 	bottom:22px;
 	}
-/*.mejs-fullscreen-hover { }*/
 
 #oup-noscript	{
 	position:absolute; 
@@ -103,45 +100,6 @@ h1 {
 	outline:1px solid orange !important;
 	-moz-outline-radius:3px;
 	}
-
-
-
-.__mejs-controls .mejs-transcript-button 	{
-	position: absolute;
-	top:5px;
-	right:67px;
-	}
-
-/*.x-mejs-ted .mejs-transcript-button	{
-	display:none !important;
-	}*/
-
-/*Settings button - normal... should be quality button*/
-.__mejs-controls .mejs-high-res  {
-	position: absolute;
-	top:5px;
-	right:49px;
-	}
-.__mejs-controls  .mejs-popout-link	{
-	position: absolute;
-	top:5px;
-	right:31px;
-	}
-/*full-screen button - normal*/
-.__mejs-controls .mejs-fullscreen-button	{
-	position: absolute;
-	top:5px;
-	right:13px;
-	}
-/*Settings button - normal*/
-.__mejs-controls .mejs-options-button	{
-	position: absolute;
-	top:5px;
-	right:1px;
-	width:16px !important;
-	height:16px !important;
-	}
-
 
 
 /* Title panel.
@@ -244,15 +202,6 @@ h1 {
 .mejs-container .mejs-controls .oup-volume-widget {
 	width:60px;
 }
-.__oup-volume-widget	{
-	/*display:block; */
-	width:60px!important;
-	position:absolute;
-	top:6px;
-	right:118px;
-	margin:0;
-	padding:0;
-	}
 
 .oup-volume-widget .oup-display	{
 	display:inline-block; 
