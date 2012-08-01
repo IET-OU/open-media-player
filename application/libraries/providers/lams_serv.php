@@ -122,7 +122,11 @@ EOT;
         log_message('error', __CLASS__.". Error getting LAMS SVG, $svg_url | ".$result->info['http_code']);
         return FALSE;
       }
-      return file_put_contents($svg_path, $result->data);
+      $bytes = @file_put_contents($svg_path, $result->data);
+      if (! $bytes) {
+        log_message('error', __CLASS__.". Error caching LAMS SVG, $svg_url");
+      }
+      return $bytes;
   }
 
   /** Create cache directories, using 1st and last digits in seq ID (to avoid filling one directory called '1'!)
