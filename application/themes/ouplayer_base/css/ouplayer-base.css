@@ -154,6 +154,11 @@ h1 {
 	padding:0 0 11px; /*.6em*/
 	text-decoration:none;
 	}
+.mejs-title-panel h1, .mejs-title-panel a {
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis; /*#1388, truncate too-long titles..*/
+	}
 
 .mejs-title-panel a:hover	{
 	text-decoration:underline;
