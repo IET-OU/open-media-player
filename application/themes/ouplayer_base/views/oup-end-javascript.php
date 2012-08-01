@@ -51,13 +51,12 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   require_once 'oup-mep-international.php';
 ?>
 
-<?php if ('Podcast_player'==get_class($params)): ?>
-  //titleId:'',
+<?php /*if ('Podcast_player'==get_class($params)): ?>
   titleText:
 "<div class='logo'></div><h1><?=json_encode_str($params->title) ?></h1>"
 <?php if (isset($params->_related_url)): ?>+" <a href='<?=$params->_related_url ?>' target='_blank' title='<?=t('Related link') ?> <?=t('opens in new window') ?>'><?=json_encode_str($params->_related_text) ?></a>"<?php endif ?>,
   embedcodeId:'embed-code',
-<?php endif; ?>
+<?php endif;*/ ?>
 
 <?php if(isset($params->transcript_id) && $params->transcript_id): ?>
   transcriptId: '<?php echo $params->transcript_id ?>',
