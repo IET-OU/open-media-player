@@ -40,9 +40,10 @@ $(document).ready(function(){
   oup_detect_ignore_color();
 
   //? http://darcyclarke.me/development/detect-attribute-changes-with-jquery/
-  if (typeof $.browser!='undefined' && $.browser.mozilla){
-	//$(document).bind("DOMAttrModified", oup_detect_ignore_color);
+  /*if (typeof $.browser!='undefined' && $.browser.mozilla){
+	$(document).bind("DOMAttrModified", oup_detect_ignore_color);
   }
+  */
 
   // Experimental: works when MSIE/Mozilla enter 'ignore colour' mode (and Mozilla leaves).
   setInterval(oup_detect_ignore_color, 5000);
