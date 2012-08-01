@@ -18,6 +18,7 @@
 			var 
 				t = this,
 				op = t.options,
+				is_mouse = false,
 				tip_visible = false,
 				tip = 
 				$('<div class="oup-tooltip hide" role="tooltip">TIP</div>')
@@ -37,7 +38,7 @@
 				  		//tip.className = 'oup-tooltip hide';
 				  		tip.addClass('hide').removeClass('show');
 						$.log('Tooltip hide..');
-					  } else {
+					  } else if (! is_mouse) {
 						//tip.className = 'oup-tooltip show';
 				  		tip.removeClass('hide').addClass('show');
 				  		tip.html(tg.title);
@@ -64,6 +65,15 @@
 
 			$('button,.oup-mejs-link a').bind(op.tooltipEvents, function(e){
 				toggleTip(e);
+			});
+
+			$('button,.oup-mejs-link a').mouseover( function(e){
+				//IF op.tooltipEvents contains 'mouseover', return
+				if (op.tooltipEvents.indexOf('mouse') != -1) return;
+				is_mouse = true;
+			});
+			$('button,.oup-mejs-link a').mouseout( function(e){
+				is_mouse = false;
 			});
 			
 		}
