@@ -41,6 +41,8 @@
 $route['default_controller'] = "demo"; #"welcome"
 $route['404_override'] = '';
 
+$route['test/(:any)'] = 'demo/$1';
+
 $route['uptime.txt'] = 'uptime';
 $route['translate'] = 'localize'; #/template';
 $route['translate/po/(:any)'] = 'localize/po/$1';
