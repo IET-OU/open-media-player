@@ -24,8 +24,9 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   //iPadUseNativeControls etc.
   public $mobile_native_controls = true;
 
+  // Order matters in the feature-list.
   public $features =
-'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover';
+'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover,oup_tracks_shim';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
 
@@ -70,6 +71,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     # OU Player extensions.
       $oups_base.'mep-oup-header.js',
       $oups_base.'mep-oup-feature-shim.js',
+      $oups_base.'mep-oup-feature-tracks-shim.js',
       $oups_base.'mep-oup-feature-playpause.js',
       $oups_base.'mep-oup-feature-progress.js',
       $oups_base.'mep-oup-feature-volume.js',

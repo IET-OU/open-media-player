@@ -52,32 +52,16 @@
 		buildoup_shim: function(player, controls, layers, media) {
 			var
 				t = this,
-				op = t.options
+				op = t.options,
 				con = controls,
 				track = null,
 				at = 'aria-label',
 				current = con.find('.mejs-currenttime'),
-				duration = con.find('.mejs-duration')
-				btn_cc = con.find('.mejs-captions-button button');
+				duration = con.find('.mejs-duration');
 
 			con.attr(at, op.controlsText).attr('role', 'toolbar').attr('lang', op.startLanguage);
 			current.attr(at, op.currentText);
 			duration.attr(at, op.durationText);
-
-			$.log(player.tracks[0]);
-
-			btn_cc.click(function() {
-				if (player.selectedTrack==null) {
-					//player.captions.show();
-					player.selectedTrack = track; //player.tracks[0];
-					player.captions.attr('lang', track.srclang);
-					player.displayCaptions();
-				} else {
-					player.captions.hide();
-					track = player.selectedTrack;
-					player.selectedTrack = null;
-				}
-			});
 
 			// Get a ref. to the grouping element in the controlbar.
 			controls.group = function(){
