@@ -13,8 +13,11 @@
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_titlepanel: function(player, controls, layers, media) {
 			var 
-				t = this,
-				op = t.options;
+				t = this
+				, op = t.options
+				, cl_play = 'mejs-play'
+				, cl_pause= 'mejs-pause'
+				;
 
 			/*// Return early if there is no title-text (expected for VLE player).
 			if (! op.titleText) {
@@ -45,17 +48,17 @@
 			titlepanel[0].id = t.id +'-ttl-panel';
 
 			media.addEventListener('play',function() {
-				titlepanel.removeClass('mejs-play').addClass('mejs-pause');
+				titlepanel.removeClass(cl_play).addClass(cl_pause);
 			}, false);
 			media.addEventListener('playing',function() {
-				titlepanel.removeClass('mejs-play').addClass('mejs-pause');
+				titlepanel.removeClass(cl_play).addClass(cl_pause);
 			}, false);
 
             media.addEventListener('pause',function() {
-				titlepanel.removeClass('mejs-pause').addClass('mejs-play');
+				titlepanel.removeClass(cl_pause).addClass(cl_play);
 			}, false);
 			media.addEventListener('paused',function() {
-				titlepanel.removeClass('mejs-pause').addClass('mejs-play');
+				titlepanel.removeClass(cl_pause).addClass(cl_play);
 			}, false);
 		}
 	});
