@@ -209,7 +209,7 @@ h1 {
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
 .mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-3px; height:10px; background:#fff; border:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
 
-.mejs-controls .mejs-time-rail .mejs-time-handle, .mejs-controls .mejs-time-rail .mejs-time-float{ z-index:20; }
+.mejs-controls .mejs-time-rail .mejs-time-handle, .mejs-controls .mejs-time-rail .mejs-time-float{ z-index:40; }
 
 .mejs-controls { 
 	/*color:rgb(40,41,42);/* 190312 - PETER*/
@@ -253,7 +253,7 @@ h1 {
 	font-size:1.05em;
 	line-height:1.2em;
 }
-#oup-options.show{ z-index:100; }
+#oup-options.show{ z-index:20; }
 
 /* A bottom 'gutter' for the popup player (18+22px) */
 .mode-popup #oup-options.show{ bottom:40px; }
@@ -337,7 +337,7 @@ h1 {
 	border:0;	
 	}
 
-#oup-tscript button:hover	{
+#oup-tscript button:hover, #oup-options button:hover	{
 	/*background-image: url('csg-4f6b5ebc9c52a.png');								/*background-image added as a test by Peter: 210312*/
 	background-position: -1922px 0;
 	background-color: rgb(41,110,143);
@@ -356,7 +356,7 @@ h1 {
 .tscript-show .mejs-mediaelement, .tscript-show .mejs-layers{
   position:fixed;
   top:0; left:0;
-  bottom:22px;
+  bottom:23px;
   right:195px;
   width:auto !important;
 }
