@@ -10,6 +10,25 @@ class MY_Loader extends CI_Loader {
 
   protected $my_ci;
 
+
+  /**
+  * Class Loader
+  * This function lets users load and instantiate classes.
+  * @return	void
+  */
+  public function library($library = '', $params = NULL, $object_name = NULL) {
+   $lib_register = array(
+      '_Gitlib' => 'git',
+      '_Sams_Auth' => 'auth',
+    );
+    if (!$object_name && isset($lib_register[$library])) {
+      $object_name = $lib_register[$library];
+    }
+
+    return parent::library($library, $params, $object_name);
+  }
+
+
   /** Load a theme.php class/configuration file.
   */
   public function theme($theme_name) {

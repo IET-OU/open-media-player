@@ -37,6 +37,8 @@ class MY_Controller extends CI_Controller {
     if (! $this->input->is_cli_request()) {
       $this->lang->initialize();
     }
+
+    log_message('debug', __CLASS__." Class Initialized");
   }
 
   /** Initialize the player, including the theme (Embed and Popup controllers).
