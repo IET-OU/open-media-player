@@ -89,6 +89,8 @@ class MY_Controller extends CI_Controller {
   /** Get optional parameters for iframe URL (http_build_query)
   */
   public function options_build_query() {
+    if (! isset($this->_request->theme)) return NULL;
+
     $params = '?';
 	if ($this->_request->theme) {
 	  $params .= '&'. OUP_PARAM_THEME .'='.$this->_request->theme;
