@@ -17,27 +17,8 @@
 				, op = t.options
 				, cl_play = 'mejs-play'
 				, cl_pause= 'mejs-pause'
+				, titlepanel = $('.'+ op.titleClass);
 				;
-
-			/*// Return early if there is no title-text (expected for VLE player).
-			if (! op.titleText) {
-				$.log('Warning: no title.');
-				return;
-			}*/
-
-			var
-				titlepanel = $('.'+ op.titleClass);
-				/*
-				$('<div class="oup-mejs-panel mejs-title-panel mejs-play" id="'+t.id+'-ttl-panel">' + op.titleText +
-				'</div>')
-				.appendTo(controls)
-				/*.click(function(e) {
-					e.preventDefault();
-
-				    alert("Title panel: mostly functional - needs more styling!");
-
-					return false;
-				})*/;
 
 			// Return early if there is no title-text (expected for VLE player).
 			if (! titlepanel) {

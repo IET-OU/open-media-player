@@ -17,24 +17,13 @@
 //ou-specific
 		buildoup_progress: function(player, controls, layers, media) {
 			$.log('oup_progress');
-			/*var
-			t = this,
-			op = t.options,
-			progress =
-			*/
+
 			$('<div class="mejs-time-rail oup-mejs-widget">'+
-//ou-specific ends.
 				'<span class="mejs-time-total">'+
 					'<span class="mejs-time-buffering"></span>'+
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
-//ou-specific
 					'<span class="mejs-time-handle"></span>'+
-					/*
-					'<span tabindex="0" type="button" class="mejs-time-handle" role="slider"'+
-					' aria-label="'+ op.progressText +'" aria-valuemin="0" aria-valuemax="" aria-valuenow="0" aria-valuetext="00:00"></span>'+
-					*/
-//ou-specific ends.
 					'<span class="mejs-time-float">' + 
 						'<span class="mejs-time-float-current">00:00</span>' + 
 						'<span class="mejs-time-float-corner"></span>' + 
@@ -115,14 +104,9 @@
 						'aria-label': op.progressText,
 						'tabindex': 0,
 						'role': 'slider' //type=button
-					})
-					/*
-					handle.attr('aria-valuenow', sec);
-					handle.attr('aria-valuetext', time);
-					handle.attr('aria-valuemax', d);
-					*/
+					});
 
-					$.log('Slider: '+ time);
+					//$.log('Slider: '+ time);
 					//$.log('Slider: '+ handle.attr('aria-valuetext'));
 				};
 
