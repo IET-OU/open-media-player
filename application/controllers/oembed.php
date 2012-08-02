@@ -116,9 +116,6 @@ EOF;
       $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
     }
 
-    if (!file_exists(APPPATH."views/oembed/$name.php")) {
-      $this->_error("not found, view '$name'.", 404.1);
-    }
 
     // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
     $meta = NULL;
@@ -137,10 +134,13 @@ EOF;
     }
 
     // Should we load the library for the service?
+    $oembed_view = $name;
     if (($this->config->item('always_upstream') || !$meta)
         && file_exists(APPPATH."/libraries/providers/{$name}_serv.php")) {
       $this->load->oembed_provider($name);
       $meta = $this->provider->call($req->url, $matches);
+
+      $oembed_view = 'oembed/'. $this->provider->name;
     }
     elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
       // Legacy.
@@ -160,8 +160,8 @@ echo " this->_meta_$name() ";
       'tracker'=>$this->_tracker(isset($this->provider) ? $this->provider : $provider, $host, $meta),
     );
 
-    if (file_exists(APPPATH."views/oembed/$name.php")) {
-      $html = $this->load->view("oembed/$name", $view_data); #, TRUE);
+    if (file_exists(APPPATH."views/$oembed_view.php")) {
+      $html = $this->load->view($oembed_view, $view_data); #, TRUE);
       /*$resp = array_merge(array(
           #'version'=>'1.0',
           'type'=>'rich',
@@ -186,7 +186,7 @@ echo " this->_meta_$name() ";
       }*/
 
     } else {
-      $this->_error("not found, view '$name'.", 404.11);
+      $this->_error("not found, view '$oembed_view'.", 404.11);
     }
     $this->_log('debug', __CLASS__.": Success");
   }

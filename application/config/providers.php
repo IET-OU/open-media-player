@@ -11,8 +11,8 @@ $config['providers'] = array(
     'podcast.open.ac.uk' => 'oupodcast',
 
     'lamscommunity.org' => 'lams',
-    'youtube.com'=> 'youtube',
-    'youtu.be'   => 'youtube',
+    'youtube.com'=> 'Youtube',  // Case does matter - Linux etc.!
+    'youtu.be'   => 'Youtube',
 
     /*'cohere.ac.uk'=> array('name'=>'cohere', ),
     #'mathtran.org'=> array('name'=>'mathtran', ),
@@ -35,8 +35,8 @@ $config['providers'] = array(
     'intranet7.open.ac.uk' => 'sharepoint',
 
 	# OLnet - roll into OU embed (iet-it-bugs:1364)
-	'mathtran.org' => 'mathtran',
-	'cohere.open.ac.uk' => 'cohere',
+	'mathtran.org' => 'Mathtran',
+	'cohere.open.ac.uk' => 'Cohere',
 );
 
 
