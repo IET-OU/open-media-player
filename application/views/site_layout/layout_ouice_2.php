@@ -13,8 +13,8 @@
 
   $body_classes = 'ou-ia-community ou-sections oup-ice-test ';
 
-  $path = str_replace('/', ' ', $this->uri->uri_string());
-  $body_classes .= ' '==$path ? 'pg-home' : 'pg-'. $path;
+  $path = str_replace('/', '-', $this->uri->uri_string());
+  $body_classes .= '-'==$path ? 'pg-player-home' : 'pg-'. $path;
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -71,9 +71,11 @@
 <?php endif; ?>
 
 <style>
-.pg-home .menu-home a, .pg-about .menu-about a, .pg-demo .menu-demo a,
-.pg-demo.ouldi .menu-ouldi a, .pg-demo.podcast_errors .menu-error a{
-  background:#fafafa;
+/* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201 */
+body.pg-player-home li.tm-player-home a, .pg-demo li.tm-demo a, .pg-about li.tm-about a,
+.pg-demo-ouldi li.tm-demo-ouldi a, .pg-test-podcast_errors li.tm-test-error a{
+    background-color:#fbfbfb;
+    background-image:none;
 }
 </style>
 
@@ -116,16 +118,17 @@
                
 <ul class="ou-sections">
 <?php if ($is_player_site): ?>
-    <li class="first menu-home"><a href="<?php echo $base_url ?>" class="selected active">Player home</a>
-    <li class="menu-about"><a href="<?php echo $base_url ?>about">About</a>
+    <li class="first tm-player-home tm-demo"><a href="<?php echo $base_url ?>">Player home</a>
+    <li class="tm-about"><a href="<?php echo $base_url ?>about">About</a>
     <!--<li class="menu-"><a href="<?php echo $base_url ?>about/help" rel="nofollow">Player Help</a>-->
-    <li class="menu-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other OU embeds</a>
-    <li class="menu-error"><a href="<?php echo $base_url ?>demo/podcast_errors" rel="nofollow">Error tests</a>
-    <li class="menu-"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Requires a University login" rel="nofollow">[VLE]</a>
-	<!--<li ><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology">IET</a>-->
-	<li ><a href="http://www.open.ac.uk/disability/" title="Services for disabled students">Disabled services</a>
-	<li class="menu-"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts">OU Podcasts</a>
-	<li class="last menu-"><a href="http://www.open.edu/itunes/" title="The Open University on iTunes U">iTunes U</a>
+    <li class="tm-demo-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other embeds</a>
+    <li class="tm-test-size"><a href="<?php echo $base_url ?>test/player_sizes/bare" rel="nofollow" title="'Bare' template">Size tests</a>
+    <li class="tm-test-error"><a href="<?php echo $base_url ?>test/podcast_errors" rel="nofollow">Error tests</a>
+    <li class="tm-demo-vle"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Virtual learning environment: &#10;Requires a University login" rel="nofollow">[VLE demo]</a>
+    <!--<li class="tm-ext iet"><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology">IET</a>-->
+    <li class="tm-ext dis"><a href="http://www.open.ac.uk/disability/" title="Services for disabled students">Disabled services</a>
+    <li class="tm-ext pod"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts">OU Podcasts</a>
+    <li class="last tm-ext itu"><a href="http://www.open.edu/itunes/" title="The Open University on iTunes U">iTunes U</a>
 <?php else: // 'Study' ?>
     <li id="tm-study-home"><a href="<?php echo $site_url ?>/study/">Study at the OU</a></li>
     <li id="tm-undergraduate"><a href="<?php echo $site_url ?>/study/undergraduate/index.htm">Undergraduate</a></li>
@@ -285,7 +288,7 @@ div.teasers ul li:last-child a {border-right:none;}
             <div id="ou-site-footer">
                 <a class="ou-to-top" href="#ou-content">Back to top</a>
             </div>
-
+</div>
         </div>  <!-- ou-site -->
 
     <div id="ou-org-footer">

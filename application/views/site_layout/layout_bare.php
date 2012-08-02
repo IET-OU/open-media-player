@@ -17,11 +17,14 @@
 
 
 
-<h1 class=hide>OU Player</h1>
+<h1 class=hide>OU Media Player</h1>
+<p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
 
 <?php echo $content_for_layout ?>
 
+</pre>
 
+<p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
 <p id="footer">&copy;2012 The Open University.</p>
 
 <script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
