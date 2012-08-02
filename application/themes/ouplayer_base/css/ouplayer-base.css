@@ -71,13 +71,13 @@ h1 {
 
 #oup-noscript	{
 	position:absolute; 
-	z-index:999; 
 	background:#f8f8f8;
 	color:#222;
 	padding:5px; 
 	top:0; 
 	border:1px solid #a11;
 	}
+#oup-noscript{ z-index:999; }  /* << Put z-index on its own - easier search & compare. */
 
 #oup-noscript.hide	{
 	display:none;
@@ -126,9 +126,9 @@ h1 {
 	bottom:22px;
 	width:100%;
 	height:auto;
-
-	z-index:5;
 	}
+.mejs-title-panel{ z-index:5; }
+
 /* A bottom 'gutter' for the popup player (22+18px) */
 .mode-popup /*.mejs-container .mejs-controls*/ .mejs-title-panel {
 	bottom:40px;
@@ -207,7 +207,9 @@ h1 {
 
 /* Only show the progress-bar 'thumb' on keyboard focus. */
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
-.mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-2px; height:10px; background:#fff; outline:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
+.mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-3px; height:10px; background:#fff; border:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
+
+.mejs-controls .mejs-time-rail .mejs-time-handle, .mejs-controls .mejs-time-rail .mejs-time-float{ z-index:20; }
 
 .mejs-controls { 
 	/*color:rgb(40,41,42);/* 190312 - PETER*/
@@ -246,12 +248,13 @@ h1 {
 	background:#efefef;
 	color:#111;
 	padding:5px;
-	z-index:100;
 	border:1px solid #ccc;
 	border-radius:3px;
 	font-size:1.05em;
 	line-height:1.2em;
 }
+#oup-options.show{ z-index:100; }
+
 /* A bottom 'gutter' for the popup player (18+22px) */
 .mode-popup #oup-options.show{ bottom:40px; }
 .width-large #oup-options.show {
@@ -303,9 +306,9 @@ h1 {
 	color:#222;
 	padding:5px;
 	overflow-y:scroll;
-
-	z-index:10;
 	}
+.tscript-show #oup-tscript{ z-index:10; }
+
 .mode-popup.tscript-show #oup-tscript {
 	bottom:40px;
 	}
