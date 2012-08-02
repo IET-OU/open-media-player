@@ -11,6 +11,7 @@ $lang_ui = $this->lang->lang_code();
 
 ?>
   startLanguage:"en", langUI:"<?=$lang_ui ?>", tracksText:"<?=t('Captions') ?>",
+  showtracksText:"<?=t('Show captions') ?>",hidetracksText:"<?=t('Hide captions') ?>",
 <?php
 if ('en' != $lang_ui && 'en-gb' != $lang_ui && 'en-us' != $lang_ui):
 
