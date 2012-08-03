@@ -38,8 +38,7 @@ class Services extends MY_Controller {
       $this->load->oembed_provider($provider);
 
       // Filter - all?
-      $services[] = get_object_vars($this->provider);
-      #$services[] = $this->provider->getVars();
+      $services[] = $this->provider->getProperties();
     }
 
 

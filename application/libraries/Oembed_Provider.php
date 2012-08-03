@@ -92,6 +92,23 @@ abstract class Oembed_Provider implements iService {
     return $this->_regex_real ? $this->_regex_real : str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $this->regex);
   }
 
+  /** Get 'published' properties for Services controller (Cf. http://api.embed.ly/1/services)
+  * @return object
+  */
+  public function getProperties() {
+    $choose = explode('|', 'regex|about|displayname|name|domain|subdomains|favicon|type');
+    $props = (object)array();
+    foreach (get_object_vars($this) as $key => $value) {
+      if (in_array($key, $choose)) {
+        $props->{$key} = $value;
+      }
+    }
+    if (is_string($props->regex)) {
+      $props->regex = array($props->regex);
+    }
+    return $props;
+  }
+
 
   protected function _error($message, $code=500, $from=null, $obj=null) {
     return $this->CI->_error($message, $code, $from, $obj);
