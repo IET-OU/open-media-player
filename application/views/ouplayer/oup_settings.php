@@ -7,14 +7,14 @@
 ?>
 
 <div id="title" class="oup-title panel titletoolbar">
-  <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
-  <img class="ou-home logo" alt="<?=t('The Open University') ?>" src="<?=site_url('assets/0.gif') ?>" height="38" width="32" />
+  <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?php echosite_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
+  <img class="ou-home logo" alt="<?php echot('The Open University') ?>" src="<?php echosite_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
-  <li><h1><?=$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
+  <li><h1><?php echo$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
   <?php if (isset($meta->_access['intranet_only']) && 'Y'==$meta->_access['intranet_only']): ?>
-  <li class="restrict-text"><?=t('Staff/student access only') ?></li>
+  <li class="restrict-text"><?php echot('Staff/student access only') ?></li>
   <?php endif; ?>
-  <li><?php /*if($meta->summary): ?><span class="summary"><?=substr_replace($meta->summary, '…', 95) ?></span><?php endif;*/ ?>
+  <li><?php /*if($meta->summary): ?><span class="summary"><?php echosubstr_replace($meta->summary, '…', 95) ?></span><?php endif;*/ ?>
   <?php if(isset($meta->_related_url) && $meta->_related_url){
     #$rel_text = 'video'==$meta->media_type ? $meta->_related_text : substr_replace($meta->_related_text, '…', 55);
     echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('Related link opens in new window')));
@@ -67,57 +67,57 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
 ?>
 
 
-<div role="menu" class="optionalnav" aria-label="<?=t('Player options') ?>">
+<div role="menu" class="optionalnav" aria-label="<?php echot('Player options') ?>">
   <div class="col1">
-  <a rel="help" class="help" href="#help/TODO"  title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
-  <a class="about" href="#about/TODO" title="<?=t('New window') ?>"><span><?=t('About') ?></span></a>
-<?php /*<button class="decreasesize" aria-label="<?=t('Decrease text size') ?>"><span>-A</span></button>
-  <button class="increasesize" aria-label="<?=t('Increase text size') ?>"><span>A+</span></button>*/ ?>
-  <label role="button" class="themeoption" for="theme-menu" title="<?=t('Choose the theme') ?>"><span><?=t('Theme') ?><?php /*<img class="styleicon" alt="Style icon" src="a6../styleicon.jpg" height="16" width="16">Style*/ ?></span></label>
-  <select id="theme-menu" name="<?=OUP_PARAM_THEME ?>">
+  <a rel="help" class="help" href="#help/TODO"  title="<?php echot('New window') ?>"><span><?php echot('Player help') ?></span></a>
+  <a class="about" href="#about/TODO" title="<?php echot('New window') ?>"><span><?php echot('About') ?></span></a>
+<?php /*<button class="decreasesize" aria-label="<?php echot('Decrease text size') ?>"><span>-A</span></button>
+  <button class="increasesize" aria-label="<?php echot('Increase text size') ?>"><span>A+</span></button>*/ ?>
+  <label role="button" class="themeoption" for="theme-menu" title="<?php echot('Choose the theme') ?>"><span><?php echot('Theme') ?><?php /*<img class="styleicon" alt="Style icon" src="a6../styleicon.jpg" height="16" width="16">Style*/ ?></span></label>
+  <select id="theme-menu" name="<?php echoOUP_PARAM_THEME ?>">
     <option value="ouice-dark">OUICE Dark</option>
     <option value="ouice-bold" selected>OUICE Bold</option>
   </select>
   </div>
   <div class="col2">
 <?php if ($embed_code): ///Translators: software/programming/HTML code to allow further embedding of this player. ?>
-  <label role="button" class="embed" for="embed-code" title="<?=t('Embed on other sites') ?>"><span><?=t('Embed code') ?></span></label></a>
-  <textarea id="embed-code" class="emcode-opt" readonly title="<?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
-  <a class="embed-opt" href="#embed/TODO" title="<?=t('New window') ?>"><span><?=t('More embeds…') ?></span></a>
+  <label role="button" class="embed" for="embed-code" title="<?php echot('Embed on other sites') ?>"><span><?php echot('Embed code') ?></span></label></a>
+  <textarea id="embed-code" class="emcode-opt" readonly title="<?php echo$embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
+  <a class="embed-opt" href="#embed/TODO" title="<?php echot('New window') ?>"><span><?php echot('More embeds…') ?></span></a>
 <?php endif; ?>
 <?php /*<button class=""><span>Option</span></button>
   <button class=""><span>Text</span></button>
   <button class=""><span>Subs</span></button>*/ ?>
   </div>
   <div class="col3">
-  <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
+  <a class="media-url" href="<?php echo$meta->media_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
+  <a class="script-pdf" href="<?php echo$meta->transcript_url ?>" target="_blank" title="<?php echot('New window: %s', t('PDF')) ?>"><span><?php echot('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
 <?php ///Translators: 'Permanent link' - view on OU Podcasts web site. ?>
-  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?php echo$meta->_short_url ?>" target="_blank" title="<?php echot('New window: %s', t('perma-link')) ?>"><span><?php echot('View on Podcasts') ?></span></a>
 <?php endif; ?>
   </div>
   </div>
 </div>
 
 
-<div role="menu" id="more" class="oup-settings panel" aria-label="<?=t('Player options') ?>">
-  <button class="more-close" title="<?=t('Close options menu') ?>"><span>X</span></button>
-  <a rel="help" class="help" href="<?=$help_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
-  <a class="about" href="<?=$about_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
+<div role="menu" id="more" class="oup-settings panel" aria-label="<?php echot('Player options') ?>">
+  <button class="more-close" title="<?php echot('Close options menu') ?>"><span>X</span></button>
+  <a rel="help" class="help" href="<?php echo$help_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Player help') ?></span></a>
+  <a class="about" href="<?php echo$about_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('About the player') ?></span></a>
 <?php if ($embed_code): ?>
-  <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?=t('Embed code') ?></span></label></a>
-  <textarea id="emcode-more" class="emcode-more" readonly title="<?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
-  <a class="embed-opt" href="<?=$embedopts_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
+  <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?php echot('Embed code') ?></span></label></a>
+  <textarea id="emcode-more" class="emcode-more" readonly title="<?php echo$embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
+  <a class="embed-opt" href="<?php echo$embedopts_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('More embed options') ?></span></a>
 <?php endif; ?>
-  <a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
+  <a class="media-url" href="<?php echo$meta->media_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
+  <a class="script-pdf" href="<?php echo$meta->transcript_url ?>" target="_blank" title="<?php echot('New window: %s', t('PDF')) ?>"><span><?php echot('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
-  <a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts site') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?php echo$meta->_short_url ?>" target="_blank" title="<?php echot('New window: %s', t('perma-link')) ?>"><span><?php echot('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 </div>
 
