@@ -161,29 +161,7 @@ echo " this->_meta_$name() ";
     );
 
     if (file_exists(APPPATH."views/$oembed_view.php")) {
-      $html = $this->load->view($oembed_view, $view_data); #, TRUE);
-      /*$resp = array_merge(array(
-          #'version'=>'1.0',
-          'type'=>'rich',
-          'html'=>$html,
-        ),
-        $meta
-      );
-      $this->load->view('oembed/render', array(
-        'format'=>$format,
-        'callback'=>$json_callback,
-        'oembed'=>$resp,
-      ));
-      /*if ('json'==$format) {
-        $json = json_encode($resp);
-        $json = str_replace('",', '",'.PHP_EOL, $json);
-        if ($json_callback) {
-          $json = "$json_callback($json\n)";
-        }
-        echo $json;
-      } else {
-        $this->load->view('oembed/xml', $resp);
-      }*/
+      $html = $this->load->view($oembed_view, $view_data);
 
     } else {
       $this->_error("not found, view '$oembed_view'.", 404.11);
@@ -199,81 +177,6 @@ echo " this->_meta_$name() ";
     $result = preg_replace('@&[^#]\w+?;@', '', $result);
     $result = str_replace($place, $safe, $result);
     return $result;
-  }
-
-
-  #protected function _meta_prezi(...)
-
-  protected function _meta_scratch($url, $matches=null) {
-
-    $meta = array(
-      'url'=>$url,
-      'provider_name'=>'scratch',
-      'provider_mid' =>$matches[2],
-      'author' => $matches[1]);
-    
-      /*<!-- <rdf:RDF..><Work..><dc:title>..
-    #pactivity(views,loves..); #pdesc-description; ul#taglist */
-  #echo "GET $url";
-    $result = $this->_http_request_curl($url);
-    if (! $result->success) {
-      die("Error, _meta_scratch woops");
-      return FALSE; //Error.
-    }
-    if (! preg_match('#(<Work.*\/Work>)#ms', $result->data, $matches)) {
-      die("Error, preg [rdf..Work]");
-      return FALSE;
-    }
-    // Suppress un-registered namespace warnings?
-    $rdf = @new SimpleXmlElement($matches[1]);
-    $rdf->registerXPathNamespace('rdf', "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-    //$rdf->registerXPathNamespace('cc', 'http://web.resource.org/cc/');
-    $rdf->registerXPathNamespace('dc', 'http://purl.org/dc/elements/1.1/');
-
-    //dc:title,date,desc,creator,rights,type,license.
-    foreach ($rdf->children() as $name => $value) {
-      if ('creator'==$name) {
-        $value = $value->Agent->title;
-        $name  = 'author';
-      }
-      elseif ($attr = $value->attributes()) {
-        $value = $attr['resource'];
-      }
-      if ('rights'==$name||'type'==$name||'license'==$name) {
-      //switch($name) { case 'rights':case 'type':case 'license': #@todo??
-          continue;
-      }
-      $meta[$name] = (string) $value;
-    }
-    $meta['timestamp'] = strtotime($meta['date']);
-    $meta['author_url']= 'http://scratch.mit.edu/users/'.$meta['author']; #@todo.
-    //$author=  $rdf->xpath('/Work/creator//text()'); #<license rdf:resource*/
-
-    //More efficient/robust using SimpleXml ?
-    preg_match('#(<ul id=.taglist.>.*?<\/ul>)#ms', $result->data, $m_tags);
-    $tags = strip_tags(str_replace('</li>', '|', $m_tags[1]));
-    $tags = explode('|', $tags);
-    $taglist;
-    foreach ($tags as $tag) {
-      $taglist[] = trim($tag);
-    }
-    $meta['extended']['tags'] = trim(implode('|', $taglist), '|'); #??
-
-    preg_match('#(<div id=.pactivity.*?<\/div>)#ms', $result->data, $m_activity);
-    $activity = trim(strip_tags($m_activity[1])); #194 views, 2 taggers...
-    $meta['extended']['activity'] = $activity;
-    
-    preg_match('#<div  id=.projectdown.*?\/h3>(.*?)<a#ms', $result->data, $m_project);
-    $project = trim(strip_tags($m_project[1])); #Download the 3 sprites and 4 scripts  of..
-    $meta['extended']['project'] = $project;
-
-    preg_match("#<link rel=.image_src. href=.(.*?). \/>#", $result->data, $m_image);
-    $meta['thumbnail_url'] = $m_image[1];
-
-
-    $cache_id = $this->embed_cache_model->insert_embed($meta);
-    
-    return (object) $meta;
   }
 
 }
