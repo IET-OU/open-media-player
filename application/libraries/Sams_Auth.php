@@ -2,6 +2,7 @@
 /**
 * OU SAMS authentication.
 *
+* @copyright 2012 The Open University.
 * @author N.D.Freear, 27 July 2012.
 */
 

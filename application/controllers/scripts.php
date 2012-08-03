@@ -3,12 +3,12 @@
  * Dynamically create Javascripts, for delivery and caching.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear, 4 March 2011.
  *
  * Caching: 
 http://stackoverflow.com/questions/1971721/how-to-use-http-cache-headers-with-php#v3
 http://www.mnot.net/cache_docs/
  */
-//NDF, 4 March 2011 (was: class Javascript)
 
 class Scripts extends MY_Controller {
 
@@ -81,7 +81,7 @@ class Scripts extends MY_Controller {
       echo $out;
   }
 
-  /**Get/generate minified/concatenated Javascript for embedded/popup OU player.
+  /**Get/generate minified/concatenated Javascript for embedded/popup OU player / LEGACY 2011 themes.
    *   jsbin/embed-ouplayer.{mtime}.js
    */
   public function embed_ouplayer_js($mtime=null) {
