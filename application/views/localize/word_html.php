@@ -89,20 +89,20 @@ table.MsoNormalTable
   <li>Then you can open me in Microsoft Word and save me as a Word document 
     &mdash; Save As: <tt>Word 97-2004 (.doc)</tt> please.</li>
   <li>Placeholders are denoted <tt>%s</tt> and <tt>&lt;s></tt> &mdash; do not translate me!</li>
-  <li>Example player: <a href="http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?lang=<?= $lang ?>"
+  <li>Example player: <a href="http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?lang=<?php echo $lang ?>"
   >embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b</a></li>
-  <li>Example language files: <?=anchor('localize/html/en', 'M/HTML template (en)') ?>
-   | <?=anchor("localize/po/$lang", "this PO ($lang)") ?></li>
+  <li>Example language files: <?php echoanchor('localize/html/en', 'M/HTML template (en)') ?>
+   | <?php echoanchor("localize/po/$lang", "this PO ($lang)") ?></li>
   <li>Help! Email or MS Lync me: <a href="mailto:N.D.Freear@open.ac.uk">N.D.Freear</a>.</li>
 </ul>
-<p >Language: <tt id="langCode"><?= $lang ?></tt> <small>(<a href=
+<p >Language: <tt id="langCode"><?php echo $lang ?></tt> <small>(<a href=
 "http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">List of ISO 639-1 codes</a>).</small></p>
 
 <ul id="meta">
 <?php foreach ($metas as $mkey => $mval):
     $meta = preg_replace('#<.+?>#', '', $mval);
   ?>
-  <li><?=$mkey ?>: <?=$meta ?></li>
+  <li><?php echo$mkey ?>: <?php echo$meta ?></li>
 <?php endforeach; ?>
 </ul>
 
@@ -127,8 +127,8 @@ style='font-size:10.0pt;font-family:"Heiti TC Light";mso-bidi-font-family:"Heiti
     $ref = $o['references'][0];
     $com = isset($o['extracted-comments']) ? $o['extracted-comments'] :'';
 ?>
-  <tr id=<?=$hid ?>><td class=i><?=$link.$sid ?></td><td class=s><?=$str ?></td>
-    <td class=r><?=$ref ?></td><td class=c><?=$com ?></td></tr>
+  <tr id=<?php echo$hid ?>><td class=i><?php echo$link.$sid ?></td><td class=s><?php echo$str ?></td>
+    <td class=r><?php echo$ref ?></td><td class=c><?php echo$com ?></td></tr>
 <?php endforeach; ?>
 </table>
 

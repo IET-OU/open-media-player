@@ -17,17 +17,17 @@ $body_classes .= $input->get('edge') ? ' oup-vle-edge' :'';
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>*OUVLE 'many' players test | OU Player |   Learning Guide 1: Quality of life and wellbeing: Learning Guide 1 resources</title>
-    <link rel="shortcut icon" href="<?= $resource_url ?>/theme/image.php?theme=ou&amp;image=favicon&amp;rev=730&amp;component=theme" />
-    <link rel="stylesheet" type="text/css" href="<?= $resource_url ?>/includes/headers-footers/ou-header.css" />
-    <link rel="stylesheet" type="text/css" href="<?= $resource_url ?>/includes/studenthome-header-2012.css" />
-    <script type="text/javascript" src="<?= $resource_url ?>/includes/headers-footers/ou-header.js"></script>
+    <link rel="shortcut icon" href="<?php echo $resource_url ?>/theme/image.php?theme=ou&amp;image=favicon&amp;rev=730&amp;component=theme" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo $resource_url ?>/includes/studenthome-header-2012.css" />
+    <script type="text/javascript" src="<?php echo $resource_url ?>/includes/headers-footers/ou-header.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="moodle, Learning Guide 1: Quality of life and wellbeing: Learning Guide 1 resources" />
-<link rel="stylesheet" type="text/css" href="<?= $resource_url ?>/theme/yui_combo.php?3.4.1/build/cssreset/reset-min.css&amp;3.4.1/build/cssfonts/fonts-min.css&amp;3.4.1/build/cssgrids/grids-min.css&amp;3.4.1/build/cssbase/base-min.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $resource_url ?>/theme/yui_combo.php?3.4.1/build/cssreset/reset-min.css&amp;3.4.1/build/cssfonts/fonts-min.css&amp;3.4.1/build/cssgrids/grids-min.css&amp;3.4.1/build/cssbase/base-min.css" />
 <script type="text/javascript" src="http://learn3.open.ac.uk/lib/yui/3.4.1/build/yui/yui-min.js"></script>
 <script type="text/javascript" src="http://learn3.open.ac.uk/theme/yui_combo.php?2.9.0/build/yahoo-dom-event/yahoo-dom-event.js&amp;2.9.0/build/connection/connection-min.js"></script>
-<link rel="stylesheet" type="text/css" href="<?= $resource_url ?>/theme/yui_combo.php?2.9.0/build/assets/skins/sam/skin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $resource_url ?>/theme/yui_combo.php?2.9.0/build/assets/skins/sam/skin.css" />
 <script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="http://learn3.open.ac.uk/theme/styles.php?theme=ou&amp;rev=730" />
 <script type="text/javascript">
 //<![CDATA[
@@ -58,7 +58,7 @@ document.body.className += ' jsenabled';
 </script>
 
 <script type="text/javascript">if (typeof window.ou_sitestat=='function')ou_sitestat();</script>
-<div id="ou-org-header">  <a class="ou-link-ou" href="http://www.open.ac.uk/"><img src="<?= $resource_url ?>/includes/headers-footers/oulogo-56.jpg" alt="The Open University" /></a>
+<div id="ou-org-header">  <a class="ou-link-ou" href="http://www.open.ac.uk/"><img src="<?php echo $resource_url ?>/includes/headers-footers/oulogo-56.jpg" alt="The Open University" /></a>
   <div class="ou-role-nav">
     <ul>
       <li class="ou-role-accessibility"><a href="http://www.open.ac.uk/accessibility/">Accessibility</a></li>

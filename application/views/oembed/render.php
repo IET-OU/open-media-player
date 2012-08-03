@@ -45,7 +45,7 @@ function _xml_element($obj) {
 <oembed xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="en">
 <?php echo _xml_element($oembed);
 /* foreach ($oembed as $key => $value): ?>
-  <<?="$key>". (is_string($value) ? htmlspecialchars($value) : $value) /*TODO: more work? *-/ ."</$key" ?>>
+  <<?php echo"$key>". (is_string($value) ? htmlspecialchars($value) : $value) /*TODO: more work? *-/ ."</$key" ?>>
 <?php endforeach;*/ ?>
 </oembed>
 <?php
