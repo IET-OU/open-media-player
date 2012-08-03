@@ -9,7 +9,8 @@ if (! isset($not_oembed)) {
 
 if ('json'==$format):
   //application/json+oembed
-  if ($this->input->get('debug')) {
+  if ($this->input->get('debug') || $callback) {
+    // text/javascript if there is a callback.
     @header("Content-Type: text/javascript; charset=UTF-8");
   } else {
     @header("Content-Type: application/json; charset=UTF-8");
