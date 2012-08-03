@@ -2,7 +2,7 @@
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta charset="utf-8" /><title><?= $params->title ?> | OU player</title>
+<meta charset="utf-8" /><title><?php echo $params->title ?> | OU player</title>
 <?php
 
 $this->load->theme_view('oup-mep-head');

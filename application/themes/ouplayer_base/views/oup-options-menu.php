@@ -51,22 +51,22 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
 
 <ul>
 <?php if ($help_url && $about_url): ?>
-  <li><a rel="help" class="help" href="<?=$help_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Player help') ?></span></a>
-  <li><a class="about" href="<?=$about_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('About the player') ?></span></a>
+  <li><a rel="help" class="help" href="<?php echo $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Player help') ?></span></a>
+  <li><a class="about" href="<?php echo $about_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('About the player') ?></span></a>
 <?php else: ?>
-  <li><a rel="help" class="help" href="<?=$about_url ? $about_url : $help_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Help and about') ?></span></a>
+  <li><a rel="help" class="help" href="<?php echo $about_url ? $about_url : $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Help and about') ?></span></a>
 <?php endif; ?>
-  <li><a class="media-url" href="<?=$meta->media_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('Download media') ?></span></a>
+  <li><a class="media-url" href="<?php echo $meta->media_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <li><a class="script-pdf" href="<?=$meta->transcript_url ?>" target="_blank" title="<?=t('New window: %s', t('PDF')) ?>"><span><?=t('Download transcript') ?></span></a>
+  <li><a class="script-pdf" href="<?php echo $meta->transcript_url ?>" target="_blank" title="<?php echo t('New window: %s', t('PDF')) ?>"><span><?php echo t('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
-  <li><a class="short-url" rel="bookmark" href="<?=$meta->_short_url ?>" target="_blank" title="<?=t('New window: %s', t('perma-link')) ?>"><span><?=t('View on Podcasts site') ?></span></a>
+  <li><a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echo t('New window: %s', t('perma-link')) ?>"><span><?php echo t('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 <?php if ($embed_code): ?>
-  <li><?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="embed-code"><span><?=t('Share') ?> &rarr; <?=t('Embed') ?></span></label></a>
-  <textarea id="embed-code" class="embed-code" readonly title="<?=t('Copy and paste') ?>: <?=$embed_method ?>"><?=str_replace('<','&lt;', $embed_code) ?></textarea>
-  <li><a class="embed-opt" href="<?=$embedopts_url ?>" target="_blank" title="<?=t('New window') ?>"><span><?=t('More embed options') ?></span></a>
+  <li><?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="embed-code"><span><?php echo t('Share') ?> &rarr; <?php echo t('Embed') ?></span></label></a>
+  <textarea id="embed-code" class="embed-code" readonly title="<?php echo t('Copy and paste') ?>: <?php echo $embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
+  <li><a class="embed-opt" href="<?php echo $embedopts_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('More embed options') ?></span></a>
 <?php endif; ?>
 </ul>
 

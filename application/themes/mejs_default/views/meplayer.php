@@ -17,7 +17,7 @@
 <link rel="generator" content="MediaElement.js" href="http://mediaelementjs.com/" />
 <link rel="license" title="MediaElement.js License: GPLv2/MIT" href="https://github.com/johndyer/mediaelement#readme" />
 
-<script src="<?=$base_url ?>build/jquery.js"></script>
+<script src="<?php echo$base_url ?>build/jquery.js"></script>
 <?php
   if ($this->config->item('debug') > OUP_DEBUG_MIN):
 	foreach ($this->theme->javascripts as $js_file): ?>
@@ -30,9 +30,9 @@
 <?php endif; ?>	
 
 <?php if ($this->config->item('debug')): ?>
-<link rel="stylesheet" href="<?=$base_url ?>src/css/mediaelementplayer.css" />
+<link rel="stylesheet" href="<?php echo$base_url ?>src/css/mediaelementplayer.css" />
 <?php else: ?>
-<link rel="stylesheet" href="<?=$base_url ?>build/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="<?php echo$base_url ?>build/mediaelementplayer.min.css" />
 <?php endif; ?>
 
 <style>
@@ -63,7 +63,7 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 }
 </style>
 
-<body role="application" class="mode-<?= $mode ?>">
+<body role="application" class="mode-<?php echo $mode ?>">
 
 <?php if ('video'==$params->media_type): ?>
 <video
@@ -71,7 +71,7 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 <audio
 <?php endif; ?>
  id="player1" <?php if ('video'==$params->media_type): ?>width="640" height="360"<?php else: ?>width="380"<?php endif; ?>
- src="<?php echo $params->media_url ?>" type="<?=$params->mime_type; #video/mp4 ?>"
+ src="<?php echo $params->media_url ?>" type="<?php echo$params->mime_type; #video/mp4 ?>"
  controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>
 >
 <?php if ('video'==$params->media_type): ?>

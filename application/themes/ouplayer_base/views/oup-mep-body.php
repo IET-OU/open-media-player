@@ -1,8 +1,8 @@
 
 <!--Body classes - player flags. -->
-<body role="application" id="ouplayer" class="oup mtype-<?= $params->media_type ?> mode-<?= $mode ?> ctx-<?= get_class($params) ?> hide-tscript lang-<?php
-  echo $this->lang->lang_code() ?> theme <?= $this->theme->name ?> <?= $this->theme->rgb ?> bg-<?= $this->theme->background ?> ua-<?= $this->agent->browser_code()
-  ?> jslib-<?=$this->theme->jslib ?>">
+<body role="application" id="ouplayer" class="oup mtype-<?php echo $params->media_type ?> mode-<?php echo $mode ?> ctx-<?php echo get_class($params) ?> hide-tscript lang-<?php
+  echo $this->lang->lang_code() ?> theme <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> bg-<?php echo $this->theme->background ?> ua-<?php echo $this->agent->browser_code()
+  ?> jslib-<?php echo $this->theme->jslib ?>">
 
 <?php /* Body classes:
 Mediaelement: "oup-mode-video tscript-hide lang-en oup_light ouvle-default-blue ua-webkit jslib-jquery width-large"
@@ -12,12 +12,12 @@ Flowplayer:  <body role="application" id="ouplayer" class=
   style="cursor: default">*/ ?>
 
 <div id="oup-noscript">
-  <p class="msg"><?=t('Your browser appears to have Javascript disabled, or there has been an error.') ?>
+  <p class="msg"><?php echo t('Your browser appears to have Javascript disabled, or there has been an error.') ?>
   <a href="<?php echo $params->media_url ?>"><?php
   echo 'video'==$params->media_type ? t('Download video file') : t('Download audio file') ?></a>
-  <h1><?=$params->title ?></h1>
+  <h1><?php echo $params->title ?></h1>
 <?php if ($params->poster_url): ?>
-  <img alt="" src="<?=$params->poster_url ?>" />
+  <img alt="" src="<?php echo $params->poster_url ?>" />
 <?php endif; ?>
 </div>
 
@@ -57,7 +57,7 @@ Flowplayer:  <body role="application" id="ouplayer" class=
  x-class="mejs-player"
  <?php echo $size_attr ?> <?php echo $size_style ?>
  controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
- <source type="<?=$params->mime_type; #video/mp4 ?>" src="<?php echo $params->media_url ?>">
+ <source type="<?php echo $params->mime_type; #video/mp4 ?>" src="<?php echo $params->media_url ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
   // Bug #1334, VLE caption redirect bug.
@@ -76,7 +76,7 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 
 
 <?php if ('Podcast_player' == get_class($params)): ?>
-<div id="oup-options" class="oup-options hide" role="menu" aria-label="<?=t('Player options') ?>">
+<div id="oup-options" class="oup-options hide" role="menu" aria-label="<?php echo t('Player options') ?>">
   <button title="<?php echo t('Close options menu') ?>"><span>X</span></button>
 <?php $this->load->theme_view('oup-options-menu') ?>
 </div>
