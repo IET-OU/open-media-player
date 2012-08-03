@@ -1,5 +1,6 @@
-<?php
-/** Dynamically create Javascripts, for delivery and caching.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Dynamically create Javascripts, for delivery and caching.
  *
  * @copyright Copyright 2011 The Open University.
  *
@@ -19,8 +20,6 @@ class Scripts extends MY_Controller {
   /** oEmbed jQuery plugin, scripts/jquery.oembed.js
   */
   public function jquery_oembed($cache_minutes=10) {
-      header('Content-Type: application/x-javascript; charset=utf-8');
-      @header('Content-Disposition: inline; filename=jquery.oembed.js');
 
       $cache_key = 'scripts_jquery.oembed.js';
       $this->_cache_init($cache_key);
@@ -52,8 +51,9 @@ class Scripts extends MY_Controller {
 		if (is_string($provider)) {
 		  # New Jul 2012: loose coupling (iet-it-bugs:1356)
 		  $this->load->oembed_provider($provider);
-		  $name = $this->provider->name;
-		  $type = $this->provider->type;
+
+		  $name = $this->provider->getName();
+		  $type = $this->provider->getType();
 		} else {
 		  # Legacy.
 		$name = strtolower($provider['name']);
@@ -75,6 +75,8 @@ class Scripts extends MY_Controller {
 
       //$out .= PHP_EOL.'/*'. var_export($this->cache->get_metadata($cache_key), true).'*/';
 
+      header('Content-Type: application/x-javascript; charset=utf-8');
+      @header('Content-Disposition: inline; filename=jquery.oembed.js');
       @header('Content-Length: '.strlen($out));
       echo $out;
   }

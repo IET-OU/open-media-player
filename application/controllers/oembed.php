@@ -11,11 +11,8 @@ class Oembed extends MY_Controller {
 
   public function __construct() {
     parent::__construct();
-    #parent::Controller();
-    #@header("X-Powered-By:");
-
-    //( #1319, Don't load the embed cache model here. iet-it-bugs 1319)
   }
+
 
   protected function _tracker($provider, $host, $meta) {
 	# Fix for new (#1356) v. legacy.
@@ -54,7 +51,7 @@ EOF;
   * THE handler for the oEmbed endpoint.
   */
   public function index() {
-    @header('Content-Type: text/plain; charset=UTF-8');
+    #@header('Content-Type: text/plain; charset=UTF-8');
     #header('Content-Disposition: inline; filename=ouplayer-oembed.json.txt');
 
     //Get 'width', 'height'.
@@ -94,20 +91,15 @@ EOF;
 	if (is_string($provider)) {
 	  # New (#1356)
 	  $name = $provider;
-	  $this->load->oembed_provider($name);
-	  $regex_display = $this->provider->regex;
 
-	  $regex = $this->provider->_regex_real ? $this->provider->_regex_real : str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $regex_display);
+	  $this->load->oembed_provider($name);
+
+	  $regex = $this->provider->getInternalRegex();
+	  $oembed_view = $this->provider->getView();
 
 	} else {
 	  # Legacy (is_array).
-    $name  = $providers[$host]['name'];
-    $regex_display = $providers[$host]['regex'];
-    if (isset($providers[$host]['_regex_real'])) {
-      $regex = $providers[$host]['_regex_real'];
-    } else {
-      $regex = str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $regex_display); #([^\/]*?)
-    }
+      $this->_error("Unexpected oEmbed provider, $provider.");
 
 	} # End legacy.
 	//@header('X-Regex: '.$regex);
@@ -128,26 +120,17 @@ EOF;
     }
 	// #1358, Make OU-embed services work without a DB..
     elseif (! $this->config->item('always_upstream')) {
-      
+
       $this->load->model('embed_cache_model');
       $meta = $this->embed_cache_model->get_embed($req->url);
     }
 
     // Should we load the library for the service?
-    $oembed_view = $name;
     if (($this->config->item('always_upstream') || !$meta)
         && file_exists(APPPATH."/libraries/providers/{$name}_serv.php")) {
       $this->load->oembed_provider($name);
-      $meta = $this->provider->call($req->url, $matches);
 
-      $oembed_view = 'oembed/'. $this->provider->name;
-    }
-    elseif (!$meta && is_callable(array($this, "_meta_$name"))) {
-      // Legacy.
-echo " this->_meta_$name() ";
-      $meta = $this->{"_meta_$name"}($req->url, $matches);
-    } else {
-      #$meta = array();
+      $meta = $this->provider->call($req->url, $matches);
     }
 
     $view_data = array(
