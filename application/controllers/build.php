@@ -72,6 +72,9 @@ EOF;
 ?>
 <!doctype html><title>*Closure compiler script | OU Player</title>
 <a href="http://closure-compiler.appspot.com/home">closure-compiler.appspot.com/home</a>
+
+<p>Theme name: <?php echo $this->theme->getDisplayname() ?> [<span id=theme><?php echo $this->theme->getName() ?></span>]
+
 <?php
 
     // Build script for minified Javascripts.
