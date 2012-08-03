@@ -34,10 +34,10 @@ function sitestat(u){
  u=ns_pixelUrl+"&ns_c="+((d.characterSet)?d.characterSet:d.defaultCharset)+"&ns_ti="+escape(d.title)+"&ns_jspageurl="+escape(l&&l.href?l.href:d.URL)+"&ns_referrer="+escape(d.referrer);
  (d.images)?new Image().src=u:d.write('<'+'p><img src="'+u+'" height="1" width="1" alt=""/><'+'/p>');
 };
-sitestat("//ouan.open.ac.uk/ou/<?php echo$ns_sitename ?>/s?name=<?php echo$ns_counter ?>&ou_subdom=<?php echo$ns_subdom ?>");
+sitestat("//ouan.open.ac.uk/ou/<?php echo $ns_sitename ?>/s?name=<?php echo $ns_counter ?>&ou_subdom=<?php echo $ns_subdom ?>");
 //]]>
 </script>
-<noscript><p><img src="//ouan.open.ac.uk/ou/<?php echo$ns_sitename ?>/s?name=<?php echo$ns_counter ?>&ou_subdom=<?php echo$ns_subdom ?>" height="1" width="1" alt=""/></p></noscript>
+<noscript><p><img src="//ouan.open.ac.uk/ou/<?php echo $ns_sitename ?>/s?name=<?php echo $ns_counter ?>&ou_subdom=<?php echo $ns_subdom ?>" height="1" width="1" alt=""/></p></noscript>
 <!--End CMC-->
 
 <?php endif; ?>
@@ -50,8 +50,8 @@ if (isset($google_analytics) && $google_analytics): //'Podcast_player'==get_clas
   ?>
 <script>
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', '<?php echo$google_analytics ?>']);
-  _gaq.push(['_trackPageview', '<?php echo$ga_path ?>']);
+  _gaq.push(['_setAccount', '<?php echo $google_analytics ?>']);
+  _gaq.push(['_trackPageview', '<?php echo $ga_path ?>']);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;

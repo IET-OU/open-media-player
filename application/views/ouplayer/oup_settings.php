@@ -10,7 +10,7 @@
   <?php /*<a class="ou-home" href="http://www.open.ac.uk/"><img class="logo" alt="The Open University" src="<?php echosite_url('assets/0.gif') ?>" height="38" width="32" /></a>*/ ?>
   <img class="ou-home logo" alt="<?php echot('The Open University') ?>" src="<?php echosite_url('assets/0.gif') ?>" height="38" width="32" />
   <ul class="mediatitle">
-  <li><h1><?php echo$meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
+  <li><h1><?php echo $meta->title; /*substr_replace($meta->title, '…', 62)*/ ?></h1></li>
   <?php if (isset($meta->_access['intranet_only']) && 'Y'==$meta->_access['intranet_only']): ?>
   <li class="restrict-text"><?php echot('Staff/student access only') ?></li>
   <?php endif; ?>
@@ -82,7 +82,7 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
   <div class="col2">
 <?php if ($embed_code): ///Translators: software/programming/HTML code to allow further embedding of this player. ?>
   <label role="button" class="embed" for="embed-code" title="<?php echot('Embed on other sites') ?>"><span><?php echot('Embed code') ?></span></label></a>
-  <textarea id="embed-code" class="emcode-opt" readonly title="<?php echo$embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
+  <textarea id="embed-code" class="emcode-opt" readonly title="<?php echo $embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
   <a class="embed-opt" href="#embed/TODO" title="<?php echot('New window') ?>"><span><?php echot('More embeds…') ?></span></a>
 <?php endif; ?>
 <?php /*<button class=""><span>Option</span></button>
@@ -90,13 +90,13 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
   <button class=""><span>Subs</span></button>*/ ?>
   </div>
   <div class="col3">
-  <a class="media-url" href="<?php echo$meta->media_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Download media') ?></span></a>
+  <a class="media-url" href="<?php echo $meta->media_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <a class="script-pdf" href="<?php echo$meta->transcript_url ?>" target="_blank" title="<?php echot('New window: %s', t('PDF')) ?>"><span><?php echot('Download transcript') ?></span></a>
+  <a class="script-pdf" href="<?php echo $meta->transcript_url ?>" target="_blank" title="<?php echot('New window: %s', t('PDF')) ?>"><span><?php echot('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
 <?php ///Translators: 'Permanent link' - view on OU Podcasts web site. ?>
-  <a class="short-url" rel="bookmark" href="<?php echo$meta->_short_url ?>" target="_blank" title="<?php echot('New window: %s', t('perma-link')) ?>"><span><?php echot('View on Podcasts') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echot('New window: %s', t('perma-link')) ?>"><span><?php echot('View on Podcasts') ?></span></a>
 <?php endif; ?>
   </div>
   </div>
@@ -105,19 +105,19 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
 
 <div role="menu" id="more" class="oup-settings panel" aria-label="<?php echot('Player options') ?>">
   <button class="more-close" title="<?php echot('Close options menu') ?>"><span>X</span></button>
-  <a rel="help" class="help" href="<?php echo$help_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Player help') ?></span></a>
-  <a class="about" href="<?php echo$about_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('About the player') ?></span></a>
+  <a rel="help" class="help" href="<?php echo $help_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Player help') ?></span></a>
+  <a class="about" href="<?php echo $about_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('About the player') ?></span></a>
 <?php if ($embed_code): ?>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?php echot('Embed code') ?></span></label></a>
-  <textarea id="emcode-more" class="emcode-more" readonly title="<?php echo$embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
-  <a class="embed-opt" href="<?php echo$embedopts_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('More embed options') ?></span></a>
+  <textarea id="emcode-more" class="emcode-more" readonly title="<?php echo $embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
+  <a class="embed-opt" href="<?php echo $embedopts_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('More embed options') ?></span></a>
 <?php endif; ?>
-  <a class="media-url" href="<?php echo$meta->media_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Download media') ?></span></a>
+  <a class="media-url" href="<?php echo $meta->media_url ?>" target="_blank" title="<?php echot('New window') ?>"><span><?php echot('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
-  <a class="script-pdf" href="<?php echo$meta->transcript_url ?>" target="_blank" title="<?php echot('New window: %s', t('PDF')) ?>"><span><?php echot('Download transcript') ?></span></a>
+  <a class="script-pdf" href="<?php echo $meta->transcript_url ?>" target="_blank" title="<?php echot('New window: %s', t('PDF')) ?>"><span><?php echot('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
-  <a class="short-url" rel="bookmark" href="<?php echo$meta->_short_url ?>" target="_blank" title="<?php echot('New window: %s', t('perma-link')) ?>"><span><?php echot('View on Podcasts site') ?></span></a>
+  <a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echot('New window: %s', t('perma-link')) ?>"><span><?php echot('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 </div>
 

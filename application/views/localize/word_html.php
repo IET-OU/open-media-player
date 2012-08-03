@@ -102,7 +102,7 @@ table.MsoNormalTable
 <?php foreach ($metas as $mkey => $mval):
     $meta = preg_replace('#<.+?>#', '', $mval);
   ?>
-  <li><?php echo$mkey ?>: <?php echo$meta ?></li>
+  <li><?php echo $mkey ?>: <?php echo $meta ?></li>
 <?php endforeach; ?>
 </ul>
 
@@ -127,8 +127,8 @@ style='font-size:10.0pt;font-family:"Heiti TC Light";mso-bidi-font-family:"Heiti
     $ref = $o['references'][0];
     $com = isset($o['extracted-comments']) ? $o['extracted-comments'] :'';
 ?>
-  <tr id=<?php echo$hid ?>><td class=i><?php echo$link.$sid ?></td><td class=s><?php echo$str ?></td>
-    <td class=r><?php echo$ref ?></td><td class=c><?php echo$com ?></td></tr>
+  <tr id=<?php echo $hid ?>><td class=i><?php echo $link.$sid ?></td><td class=s><?php echo $str ?></td>
+    <td class=r><?php echo $ref ?></td><td class=c><?php echo $com ?></td></tr>
 <?php endforeach; ?>
 </table>
 
