@@ -13,12 +13,12 @@ class Gitlib {
     protected $_hash;
     protected $CI;
 
-    static $REVISION_FILE = 'gitrevision';
+    static $REVISION_FILE = 'version.json';
 
     public function __construct() {
         $this->CI =& get_instance();
 
-        self::$REVISION_FILE = dirname(__FILE__) .'/../'. self::$REVISION_FILE;
+        self::$REVISION_FILE = dirname(__FILE__) .'/../../'. self::$REVISION_FILE;
     }
 
     /**
