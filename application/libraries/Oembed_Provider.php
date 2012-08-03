@@ -69,6 +69,30 @@ abstract class Oembed_Provider implements iService {
   }
 
 
+  /** Get the machine-readable name for the Scripts controller.
+  * @return string
+  */
+  public function getName() { return $this->name; }
+
+  /** Get the oEmbed type for the Scripts controller.
+  */
+  public function getType() { return $this->type; }
+
+  /** Get the path to the view for the Oembed controller (relative to application/views directory).
+  * @return string
+  */
+  public function getView() {
+    return 'oembed/'. $this->name;
+  }
+
+  /** Get the regular expression for the Oembed controller.
+  * @return string
+  */
+  public function getInternalRegex() {
+    return $this->_regex_real ? $this->_regex_real : str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $this->regex);
+  }
+
+
   protected function _error($message, $code=500, $from=null, $obj=null) {
     return $this->CI->_error($message, $code, $from, $obj);
   }
