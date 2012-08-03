@@ -35,7 +35,6 @@ class MY_Loader extends CI_Loader {
     $theme_name = str_replace('-', '_', $theme_name);
 
     $this->file(APPPATH. "/themes/$theme_name/theme.php");
-    #require_once APPPATH ."/themes/$theme_name/theme.php";
 
     $classname = $theme_name .'_Theme';
 
@@ -50,13 +49,12 @@ class MY_Loader extends CI_Loader {
   /** Load a view file from the theme or parent theme directory.
   */
   public function theme_view($view=null, $vars=array(), $return=false) {
-  	$view = $view ? $view : $this->my_ci->theme->view;
+    $view_file = $this->my_ci->theme->getView($view);
 
-    $view_file = 'themes/'. $this->my_ci->theme->name ."/views/$view.php";
-    if (file_exists(APPPATH .$view_file)) {
+    if (file_exists(APPPATH . $view_file .'.php')) {
       return $this->view('../'. $view_file, $vars, $return);
     }
-    return $this->view('../themes/'. $this->my_ci->theme->parent ."/views/$view", $vars, $return);
+    return $this->view('../'. $this->my_ci->theme->getParentView($view), $vars, $return);
   }
 
 
