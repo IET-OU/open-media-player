@@ -25,7 +25,7 @@ EOT;
   public $_examples = array(
     'Dig. Schol. by M.Weller' => 'http://prezi.com/izeqbfy2z5w-/digital-scholarship',
     'http://prezi.com/zoidjousoeat/technology-for-the-classroom',
-    '_OEM'=>'/oembed?url=http%3A//spreadsheets.google.com/embeddedform?formkey=dDhQOXpJYkl0VzFEQnZnTkhGcF9DSFE6MQ%23height=1160',
+    '_OEM'=>'/oembed?url=http%3A//prezi.com/izeqbfy2z5w-/digital-scholarship',
   );
   public $_access = 'public';
 

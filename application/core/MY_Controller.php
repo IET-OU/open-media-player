@@ -13,7 +13,8 @@ class MY_Controller extends CI_Controller {
   protected $_request;
   protected $_theme;
 
-  static $API_PATHS = array('oembed', 'timedtext', 'uptime');
+  static $API_PATHS = array('oembed', 'timedtext', 'uptime', 'scripts');
+
 
   public function __construct() {
     parent::__construct();
@@ -37,6 +38,9 @@ class MY_Controller extends CI_Controller {
     if (! $this->input->is_cli_request()) {
       $this->lang->initialize();
     }
+
+    @header('Content-Type: text/html; charset=UTF-8');
+    #@header("X-Powered-By:");
 
     log_message('debug', __CLASS__." Class Initialized");
   }
