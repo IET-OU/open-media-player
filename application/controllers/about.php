@@ -22,6 +22,7 @@ class About extends Demo { #MY_Controller {
 
 	$view_data = array(
 		'app_revision' => $rev,
+		'is_demo_page' => FALSE,
 	);
 	$this->layout->view('about/about', $view_data);
   }

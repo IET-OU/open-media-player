@@ -7,8 +7,8 @@
 */
 
   $site_url = $resource_url = 'http://www3.open.ac.uk';
-  $base_url = base_url();
-  $is_demo_page = TRUE;
+  $base_url = site_url();
+  $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
   $is_player_site = TRUE;
 
   $body_classes = 'ou-ia-community ou-sections oup-ice-test ';
@@ -71,11 +71,33 @@
 <?php endif; ?>
 
 <style>
-/* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201 */
+/* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
+*/
 body.pg-player-home li.tm-player-home a, .pg-demo li.tm-demo a, .pg-about li.tm-about a,
 .pg-demo-ouldi li.tm-demo-ouldi a, .pg-test-podcast_errors li.tm-test-error a{
     background-color:#fbfbfb;
     background-image:none;
+}
+
+/* Icons: http://www.open.ac.uk/blogs/icons/?s=lock /?s=external
+*/
+ul.ou-sections li.tm-extern a, ul.ou-sections li.X-tm-demo-vle a{
+  padding-right:15px;
+}
+li.tm-extern a:hover, li.tm-extern a:focus, li [rel=external]:focus{
+  background-image:url(http://www.open.ac.uk/includes/icons/16x16px/02weblink16.gif);
+  background-image:url(<?php echo base_url() ?>assets/site/icons/external_link_16.png);
+  background-repeat:no-repeat;
+  background-position:bottom right;
+}
+li.X-tm-demo-vle a:hover{
+  background-image:url(/ouplayer/assets/site/icons/lock_16.png);
+  background-repeat:no-repeat;
+  background-position:bottom right;
+}
+
+ul.ou-sections li a:hover, ul.ou-sections li a:focus{
+  background-color:#fdfdfd;
 }
 </style>
 
@@ -125,10 +147,10 @@ body.pg-player-home li.tm-player-home a, .pg-demo li.tm-demo a, .pg-about li.tm-
     <li class="tm-test-size"><a href="<?php echo $base_url ?>test/player_sizes/bare" rel="nofollow" title="'Bare' template">Size tests</a>
     <li class="tm-test-error"><a href="<?php echo $base_url ?>test/podcast_errors" rel="nofollow">Error tests</a>
     <li class="tm-demo-vle"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Virtual learning environment: &#10;Requires a University login" rel="nofollow">[VLE demo]</a>
-    <!--<li class="tm-ext iet"><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology">IET</a>-->
-    <li class="tm-ext dis"><a href="http://www.open.ac.uk/disability/" title="Services for disabled students">Disabled services</a>
-    <li class="tm-ext pod"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts">OU Podcasts</a>
-    <li class="last tm-ext itu"><a href="http://www.open.edu/itunes/" title="The Open University on iTunes U">iTunes U</a>
+    <!--<li class="tm-extern iet"><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology - external" rel="external">IET</a>-->
+    <li class="tm-extern dis"><a href="http://www.open.ac.uk/disability/" title="Services for disabled students - external OU" rel="external">Disabled services</a>
+    <li class="tm-extern pod"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts - external OU" rel="external">OU Podcasts</a>
+    <li class="last tm-extern itu"><a href="http://www.open.edu/itunes/" title="The Open University on iTunes U - external OU" rel="external">iTunes U</a>
 <?php else: // 'Study' ?>
     <li id="tm-study-home"><a href="<?php echo $site_url ?>/study/">Study at the OU</a></li>
     <li id="tm-undergraduate"><a href="<?php echo $site_url ?>/study/undergraduate/index.htm">Undergraduate</a></li>
