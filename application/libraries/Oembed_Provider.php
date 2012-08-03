@@ -78,7 +78,7 @@ abstract class Oembed_Provider implements iService {
   */
   public function getType() { return $this->type; }
 
-  /** Get the path to the view for the Oembed controller (relative to application/views directory).
+  /** Get the path to the view for the Oembed controller (relative to application/views directory, without '.php').
   * @return string
   */
   public function getView() {

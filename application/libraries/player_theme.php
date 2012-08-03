@@ -40,6 +40,30 @@ abstract class Player_Theme {
 	#echo $this->parent;
   }
 
+  /** Get the machine-readable name for the Scripts controller.
+  * @return string
+  */
+  public function getName() { return $this->name; }
+
+  /** Get the theme display name.
+  * @return string
+  */
+  public function getDisplayname() { return $this->display; }
+
+  /** Get a path to a theme view (relative to application/ directory, without '.php').
+  * @return string
+  */
+  public function getView($view = NULL) {
+    return 'themes/'. $this->getName() .'/views/'. ($view ? $view : $this->view);
+  }
+
+  /** Get a path to a view for the parent theme.
+  */
+  public function getParentView($view = NULL) {
+    return 'themes/'. $this->parent .'/views/'. ($view ? $view : $this->view);
+  }
+
+
   /** Prepare: initialize features of the theme, given a player object (was abstract).
   */
   public function prepare(& $player) {
