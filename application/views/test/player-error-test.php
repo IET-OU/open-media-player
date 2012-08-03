@@ -1,8 +1,8 @@
 
 <h2>Error tests</h2>
 
-<p>Iframe tests. Note, the error page adapts (using Javascript) to suit the size of the Iframe.
- Also, the error pages may be visible on OU and non-OU branded pages, hence the OU branding.
+<p>The error pages may be visible on OU and non-OU branded pages, hence the OU branding.
+<p>These are Iframe-based tests. Note, the error page adapts (using Javascript) to suit the size of the iframe.
 
 
 <h4>404 Not found errors</h4>
