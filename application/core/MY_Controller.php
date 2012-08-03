@@ -52,6 +52,8 @@ class MY_Controller extends CI_Controller {
 	// Support extended MY_Input::get.
 	$this->_request->theme = $this->input->get(OUP_PARAM_THEME);
 	$this->_request->hide_controls = (bool)$this->input->get('_hide_controls');
+	$this->_request->site_access = $this->input->get('site_access');
+	$this->_request->lang = $this->input->get(OUP_PARAM_LANG);
 
 
 	$themes = $this->config->item('player_themes');
@@ -96,19 +98,16 @@ class MY_Controller extends CI_Controller {
     if (! isset($this->_request->theme)) return NULL;
 
     $params = '?';
-	if ($this->_request->theme) {
-	  $params .= '&'. OUP_PARAM_THEME .'='.$this->_request->theme;
-	}
-	if ($this->_request->debug) {
-	  $params .= '&'. OUP_PARAM_DEBUG .'='.$this->_request->debug;
-	}
-	/*if ($this->_request->lang) {
-	  $params .= '&'. OUP_PARAM_LANG .'='.$this->_request->lang;
-	}*/
-	if ($this->_request->hide_controls) {
-	  $params .= '&'. '_hide_controls' .'='.$this->_request->hide_controls;
-	}
-	return $params;
+    $keys = explode('|', 'theme|debug|lang|hide_controls|site_access');
+    foreach ($keys as $key) {
+      if ($this->_request->{$key}) {
+	    $params .= '&'. $key .'='. $this->_request->{$key};
+	  }
+    }
+
+    if ('?' == $params) return '';
+
+	return str_replace('?&', '?', $params);
   }
 
   /** Handle fatal errors.
