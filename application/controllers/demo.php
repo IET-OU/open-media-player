@@ -7,8 +7,6 @@
 
 class Demo extends MY_Controller {
 
-    // Default layout/template.
-    const LAYOUT = 'ouice';  #'bare';
 
     public function __construct() {
       parent::__construct();
@@ -165,13 +163,6 @@ class Demo extends MY_Controller {
 	  $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
 	}
 
-
-    /** Load the layout library with a 'bare' or OUICE template.
-    */
-    protected function _load_layout($layout = self::LAYOUT) {
-      $layout = 'bare'==$layout ? 'bare' : 'ouice_2';
-      $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
-    }
 
     /** Basic OU-SAMS authentication check and redirect.
     */

@@ -13,6 +13,9 @@ class MY_Controller extends CI_Controller {
   protected $_request;
   protected $_theme;
 
+  // Default layout/template (was: 'bare')
+  const LAYOUT = 'ouice';
+
   static $API_PATHS = array('oembed', 'timedtext', 'uptime', 'scripts');
 
 
@@ -46,6 +49,15 @@ class MY_Controller extends CI_Controller {
 
     log_message('debug', __CLASS__." Class Initialized");
   }
+
+
+  /** Load the layout library with a 'bare' or OUICE template.
+  */
+  protected function _load_layout($layout = self::LAYOUT) {
+    $layout = 'bare'==$layout ? 'bare' : 'ouice_2';
+    $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+  }
+
 
   /** Initialize the player, including the theme (Embed and Popup controllers).
   */

@@ -5,10 +5,9 @@
 * @copyright 2012 The Open University.
 * @author N.D.Freear, 30 July 2012.
 */
-require_once APPPATH. 'controllers/demo.php';
 
 
-class About extends Demo { #MY_Controller {
+class About extends MY_Controller {
 
   #const LAYOUT = 'ouice_2';
 
