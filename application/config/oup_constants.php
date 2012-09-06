@@ -20,6 +20,16 @@ define('OUP_DEBUG_MIN',  1);
 define('OUP_DEBUG_MAX',  2);
 
 
+
+/*
+|--------------------------------------------------------------------------
+| XML Nampsaces - oEmbed extensions; OU Player data-feeds.
+*/
+define('XMLNS_OU_OEMBED_EXTEND', 'http://embed.open.ac.uk/2012/extend#');
+define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
+
+
+
 // URL parameter names (eg. http://example.org/path?param=value)
 
 //Common parameter names, shared by oEmbed/ embed/ popup controllers.

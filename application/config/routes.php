@@ -41,6 +41,11 @@
 $route['default_controller'] = "demo"; #"welcome"
 $route['404_override'] = '';
 
+
+// Namespace: http://embed.open.ac.uk/2012/extend#
+$route['2012/extend'] = 'xml_namespace/ou_oembed_extend';
+
+
 $route['test/(:any)'] = 'demo/$1';
 
 $route['uptime.txt'] = 'uptime';
