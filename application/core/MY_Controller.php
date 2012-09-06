@@ -39,6 +39,8 @@ class MY_Controller extends CI_Controller {
       $this->lang->initialize();
     }
 
+    // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
+    @header('Access-Control-Allow-Origin: *');
     @header('Content-Type: text/html; charset=UTF-8');
     #@header("X-Powered-By:");
 
