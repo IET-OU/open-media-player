@@ -1,5 +1,5 @@
 
-<h2>oEmbed Extend namespace</h2>
+<h2>Extend oEmbed namespace</h2>
 
 <p>The namespace <code style="font-size:medium"><?php echo XMLNS_OU_OEMBED_EXTEND ?></code>
 is intended for use in various Open University projects which employ <a href="http://oembed.com/">oEmbed</a>.
