@@ -27,7 +27,7 @@
        http://stackoverflow.com/questions/1014203/best-way-to-use-googles-hosted-jquery-but-fall-back-to-my- ..
     */
 ?>
-<script src="<?php echoOUP_JS_CDN_JQUERY_MIN ?>"></script>
+<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script>
 if(typeof jQuery=='undefined'){
   document.write(unescape("%3Cscript src='<?php player_res_url($this->theme->plugin_path .'jquery.js') ?>' %3E%3C/script%3E"));
@@ -39,9 +39,9 @@ if(typeof jQuery=='undefined'){
       /* Ender/jeesh.js via CDN, with local fallback.
       */
       if ($this->config->item('debug') > OUP_DEBUG_MIN): ?>
-<script src="<?php echoOUP_JS_CDN_ENDER ?>"></script>
+<script src="<?php echo OUP_JS_CDN_ENDER ?>"></script>
 <?php else: ?>
-<script src="<?php echoOUP_JS_CDN_ENDER_MIN ?>"></script>
+<script src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
 <?php endif; ?>
 <script>
 if(typeof $=='undefined'){

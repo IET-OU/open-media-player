@@ -53,8 +53,8 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 
 <?php /*if ('Podcast_player'==get_class($params)): ?>
   titleText:
-"<div class='logo'></div><h1><?php echojson_encode_str($params->title) ?></h1>"
-<?php if (isset($params->_related_url)): ?>+" <a href='<?php echo $params->_related_url ?>' target='_blank' title='<?php echo t('Related link') ?> <?php echo t('opens in new window') ?>'><?php echojson_encode_str($params->_related_text) ?></a>"<?php endif ?>,
+"<div class='logo'></div><h1><?php echo json_encode_str($params->title) ?></h1>"
+<?php if (isset($params->_related_url)): ?>+" <a href='<?php echo $params->_related_url ?>' target='_blank' title='<?php echo t('Related link') ?> <?php echo t('opens in new window') ?>'><?php echo json_encode_str($params->_related_text) ?></a>"<?php endif ?>,
   embedcodeId:'embed-code',
 <?php endif;*/ ?>
 

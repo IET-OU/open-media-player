@@ -65,7 +65,7 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
 <?php endif; ?>
 <?php if ($embed_code): ?>
   <li><?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="embed-code"><span><?php echo t('Share') ?> &rarr; <?php echo t('Embed') ?></span></label></a>
-  <textarea id="embed-code" class="embed-code" readonly title="<?php echo t('Copy and paste') ?>: <?php echo $embed_method ?>"><?php echostr_replace('<','&lt;', $embed_code) ?></textarea>
+  <textarea id="embed-code" class="embed-code" readonly title="<?php echo t('Copy and paste') ?>: <?php echo $embed_method ?>"><?php echo str_replace('<','&lt;', $embed_code) ?></textarea>
   <li><a class="embed-opt" href="<?php echo $embedopts_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('More embed options') ?></span></a>
 <?php endif; ?>
 </ul>
