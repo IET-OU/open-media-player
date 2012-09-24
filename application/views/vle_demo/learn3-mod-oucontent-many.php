@@ -74,7 +74,7 @@ M.cfg = {"wwwroot":"http:\/\/learn3.open.ac.uk","sesskey":"6Rnfly9Bfp","loadingi
 
 
 <!--NDF: test-related styles. -->
-<link rel="stylesheet" href="<?php echobase_url().'application/assets/client/site-embed.css' ?>" />
+<link rel="stylesheet" href="<?php echo base_url().'application/assets/client/site-embed.css' ?>" />
 
 
 

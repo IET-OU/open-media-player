@@ -8,7 +8,7 @@ if ($compress):
   if (cache_exists($script_key)) {
 ?>
 <script src="<?php echo $base_url
-    ?>scripts/embed_ouplayer_js/t_<?php echocache_time($script_key) ?>"></script>
+    ?>scripts/embed_ouplayer_js/t_<?php echo cache_time($script_key) ?>"></script>
 <?php } else { ?>
 <script src="<?php echo $base_url ?>scripts/embed_ouplayer_js"></script>
 <?php } 
@@ -20,5 +20,5 @@ else: ?>
 -->*/ ?>
 <script src="<?php echo $base_url ?>swf/flowplayer.controls-OUP.js"></script>
 <script src="<?php echo $base_url ?>assets/ouplayer/ouplayer.tooltips.js"></script>
-<script src="<?php echo $base_url ?>assets/ouplayer/ouplayer.behaviors.js?r=<?php echorand() ?>"></script>
+<script src="<?php echo $base_url ?>assets/ouplayer/ouplayer.behaviors.js?r=<?php echo rand() ?>"></script>
 <?php endif; ?>

@@ -91,8 +91,8 @@ table.MsoNormalTable
   <li>Placeholders are denoted <tt>%s</tt> and <tt>&lt;s></tt> &mdash; do not translate me!</li>
   <li>Example player: <a href="http://embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?lang=<?php echo $lang ?>"
   >embed.open.ac.uk/embed/pod/student-experiences/db6cc60d6b</a></li>
-  <li>Example language files: <?php echoanchor('localize/html/en', 'M/HTML template (en)') ?>
-   | <?php echoanchor("localize/po/$lang", "this PO ($lang)") ?></li>
+  <li>Example language files: <?php echo anchor('localize/html/en', 'M/HTML template (en)') ?>
+   | <?php echo anchor("localize/po/$lang", "this PO ($lang)") ?></li>
   <li>Help! Email or MS Lync me: <a href="mailto:N.D.Freear@open.ac.uk">N.D.Freear</a>.</li>
 </ul>
 <p >Language: <tt id="langCode"><?php echo $lang ?></tt> <small>(<a href=
