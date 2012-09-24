@@ -29,7 +29,7 @@ class Xml_namespace extends MY_Controller {
 
     $host = $this->input->server('HTTP_HOST');
     if ($host && FALSE===strpos(self::NS_HOSTS, $host)) {
-      $this->_error('The page you requested was not found.', 404);
+      $this->_error('The page you requested was not found.', 404.9);
     }
 
 
