@@ -70,7 +70,7 @@ $this->load->view('ouplayer/oup_analytics');
   <li>  <?php if(isset($meta->_related_url) && $meta->_related_url){
     echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window')));
   } ?></li>
-  <li><a class="about" href="<?php echo $about_url ?>" title="<?php echo t('New window') ?>"><?php echo t('About the player') ?></a></li>
+  <li><a class="about" href="<?php echo str_replace('__SITE__/', site_url(), $about_url) ?>" title="<?php echo t('New window') ?>"><?php echo t('About the player') ?></a></li>
   </ul>
 </div>
 
