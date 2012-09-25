@@ -92,6 +92,13 @@ abstract class Oembed_Provider implements iService {
     return $this->_regex_real ? $this->_regex_real : str_replace(array('*', '/'), array('([\w_-]*?)', '\/'), $this->regex);
   }
 
+  /** Get the Google Analytics account ID.
+  * @return string
+  */
+  public function getAnalyticsId() {
+    return $this->_google_analytics;
+  }
+
   /** Get 'published' properties for Services controller (Cf. http://api.embed.ly/1/services)
   * @return object
   */

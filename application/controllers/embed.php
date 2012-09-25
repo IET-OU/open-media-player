@@ -50,7 +50,7 @@ class Embed extends MY_Controller {
         // Auto-generate 'embed' or 'popup'.
         'mode' => strtolower(get_class($this)),
         'req'  => $this->_request,
-        'google_analytics'=>$this->_get_analytics_id('podcast.open.ac.uk'),
+        'google_analytics' => $this->oupodcast_serv->getAnalyticsId(),  #$this->_get_analytics_id('podcast.open.ac.uk'),
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
     );
     if ('Popup' == get_class($this)) {

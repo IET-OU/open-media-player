@@ -99,6 +99,7 @@ class MY_Controller extends CI_Controller {
   }
 
   /** Return the analytics ID for a domain, eg. podcast.open.ac.uk
+  * @deprecated v0.9-beta-19-gb2ed30a / 2012-09-25 - Use $this->provider->getAnalyticsId()
   */
   protected function _get_analytics_id($domain) {
     $this->config->load('providers');
