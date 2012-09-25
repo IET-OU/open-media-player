@@ -40,7 +40,7 @@ $base_url = base_url();
 
 <link rel="stylesheet" href="<?php echo $base_url ?>assets/ouplayer/ouplayer.core.css" />
 <?php #if (isset($theme->styles)): ?>
-<link rel="stylesheet" href="<?php echo $base_url ?>assets/<?php echo 'ouplayer/ouice-light/ouice-light.css' #$theme->styles ?>" />
+<link rel="stylesheet" href="<?php echo $base_url ?>assets/<?php echo 'ouplayer/ouice-light/ouice-light.css?r='. rand(0,100) #$theme->styles ?>" />
 <?php #endif; ?>
 <link rel="icon" href="<?php echo $base_url ?>assets/favicon.ico" />
 
@@ -67,9 +67,9 @@ $this->load->view('ouplayer/oup_analytics');
   <li><a target="_blank" href="<?php echo Sams_Auth::login_link($popup_url) ?>"
 	class="login popout" ><?php echo t('Log in and launch the player in a new window') ?></a></li>
 
-  <li>  <?php if(isset($meta->_related_url) && $meta->_related_url){
+  <?php /*<li>  <?php if(isset($meta->_related_url) && $meta->_related_url){
     echo anchor($meta->_related_url, $meta->_related_text, array('class'=>'rel-2','target'=>'_blank','title'=>t('New window')));
-  } ?></li>
+  } ?></li>*/ ?>
   <li><a class="about" href="<?php echo str_replace('__SITE__/', site_url(), $about_url) ?>" title="<?php echo t('New window') ?>"><?php echo t('About the player') ?></a></li>
   </ul>
 </div>
