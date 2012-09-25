@@ -40,7 +40,8 @@ $config['podcast_feed_url_pattern'] =
 //$config['jslib'] = NULL;
 
 // NEW! A placeholder image for intranet-only podcasts etc.
-//$config['player_restricted_poster_url'] = '';
+#$config['player_restricted_poster_url'] = '/themes/ouplayer_base/pix/embossed-video-background-s1-3-v0.png';
+$config['player_restricted_poster_url'] = '/themes/ouplayer_base/pix/locked-video-background-v1.png';
 
 // Optional/Podcast. One of NULL, 'iframe' or 'jquery-oembed' (default: NULL)
 $config['player_embed_code'] = NULL;
