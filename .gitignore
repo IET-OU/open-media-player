@@ -3,17 +3,30 @@ Thumbs.db
 .DS_Store
 .project
 .settings
+
 application/config/database.php
 application/config/embed_config.php
-application/logs/log-*.php
+
 application/cache/*
-app*/cli/xgettext.txt
-app*/language/ouplayer_*.pot
-*.diff
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*.php
+# !application/logs/index.html
+
+application/cli/*.txt
+application/engines/mediael*/demo/*.html
+
+application/language/*.pot
+!application/language/ouplayer.pot.po
+
 *.patch
-*.html
+*.diff
 * copy*
-*.zip
 *.log
 *.mo
+
+drupal/*
+_docs/*
+
 # *min.js
