@@ -47,8 +47,8 @@ DirectoryIndex index.php
     # (which will keep the subdomain-sensive config file happy)
     # If you want the site to be accessed WITH the "www."
     # comment-out the following two lines.
-    #RewriteCond %{HTTP_HOST} ^www\.maltwiki\.org$ [NC]
-    #RewriteRule ^(.*)$ http://maltwiki.org/$1 [L,R=301]
+    #RewriteCond %{HTTP_HOST} ^www\.mediaplayer\.open\.edu$ [NC]
+    #RewriteRule ^(.*)$ http://mediaplayer.open.edu/$1 [L,R=301]
 
     # If a controler can't be found - then issue a 404 error from PHP
     # Error messages (via the "error" plugin)
