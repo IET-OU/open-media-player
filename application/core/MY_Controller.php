@@ -45,7 +45,10 @@ class MY_Controller extends CI_Controller {
     // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
     @header('Access-Control-Allow-Origin: *');
     @header('Content-Type: text/html; charset=UTF-8');
-    #@header("X-Powered-By:");
+    if (ini_get('expose_php')) {
+      // 'ofa' - OU flavoured Apache..?
+      @header('X-Powered-By: iet-ou');
+    }
 
     log_message('debug', __CLASS__." Class Initialized");
   }
@@ -124,6 +127,27 @@ class MY_Controller extends CI_Controller {
 
 	return str_replace('?&', '?', $params);
   }
+
+
+  /**
+  * Based on @link  https://gist.github.com/1712707
+  */
+  public function _debug($exp) {
+    static $where, $count = 0;
+    if ($this->config->item('debug')) {
+      # $where could be based on __FUNCTION__ or debug_stacktrace().
+      if(!$where) $where = str_replace(array('.php', '_', '.'), '-', basename(__FILE__));
+      $value = json_encode($exp);
+      $value = is_string($exp) ? str_replace('\/', '/', $value) : $value;
+      @header("X-D-$where-".sprintf('%02d', $count).': '. $value);
+
+      foreach (func_get_args() as $c => $arg) {
+        if($c > 0) $this->_debug($arg);  # Recurse.
+      }
+      $count++;
+    }
+  }
+
 
   /** Handle fatal errors.
   */

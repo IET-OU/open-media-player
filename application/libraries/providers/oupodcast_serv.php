@@ -277,7 +277,14 @@ EOT;
 	}
 
     if ($res && $res->success && $res->data) {
-	  $pdf = file_put_contents($trans_pdf, $res->data);
+	  $pdf = @file_put_contents($trans_pdf, $res->data);
+	  if (! $pdf) {
+		$this->CI->_log('error', __CLASS__.". Error writing PDF transcript, $trans_pdf");
+		$this->CI->_debug('Error writing PDF transcript');
+		#echo '<META name="ERROR" content="Error writing PDF transcript" />' .PHP_EOL;
+
+		return $player;
+	  }
 	}
 
 	$this->CI->load->library('Pdftohtml');
