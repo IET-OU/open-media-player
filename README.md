@@ -18,14 +18,14 @@ In brief, the 6 steps for the installation of OU Player/ OU-Embed:
 
 Detailed:
 
-* Installation guide: [extended readme on Google](https://docs.google.com/document/d/1tg1mrPqniUp6evs0odfs7wughuMLY4r82-kFylVWQXE/edit)
+* Installation guide: [extended readme on Google][install]
 
 
 
 ## Links
 
-* <http://embed.open.ac.uk> | <http://media-podcast-dev.open.ac.uk/player>
-* Bugs/ Issues:  [iet-it-bugs.open.ac.uk/project/issues/ouplayer](http://iet-it-bugs.open.ac.uk/project/issues/ouplayer)
+* <http://embed.open.ac.uk> | <http://mediaplayer-dev.open.ac.uk>
+* Bugs/ Issues:  [IET-IT-bugs: project/issues/ouplayer][bugs]
 
 
 ## Credits
@@ -35,7 +35,7 @@ OU player: Copyright 2010-2012 The Open University. All rights reserved.
 * Not licensed as open-source (yet!)
 * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology, and many others.
 
-For full credits and licenses see docs/CREDITS.txt.
+For full credits and licenses see [docs/CREDITS.txt][credit]
 
 
 ## TODOs
@@ -45,6 +45,12 @@ For full credits and licenses see docs/CREDITS.txt.
 * Add $thumbnail_width to embed_cache Database.
 * services.json, like Embed.ly.
 * Use $this->CI->oembed_request, etc.
+
+
+
+[install]: https://docs.google.com/document/d/1tg1mrPqniUp6evs0odfs7wughuMLY4r82-kFylVWQXE/edit
+[bugs]: http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
+[credit]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.md
 
 
 [End.]
