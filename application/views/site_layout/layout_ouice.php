@@ -164,7 +164,7 @@ $site_url = $resource_url = 'http://www8.open.ac.uk';
 				</div>
 				<div class="sbc2of4">
 					<ul>
-						<li><a href="http://www.open.ac.uk/privacy">Website privacy</a></li>
+						<li><a href="http://www.open.ac.uk/privacy">Privacy and cookies</a></li>
 						<li><a href="http://www.open.ac.uk/copyright">Copyright</a></li>
 						<li><a href="http://www.open.ac.uk/conditions">Conditions of use</a></li>
 						<li><a href="http://www.open.ac.uk/cymraeg">Cymraeg</a></li>

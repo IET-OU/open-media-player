@@ -143,7 +143,9 @@ ul.ou-sections li a:hover, ul.ou-sections li a:focus{
     <li class="first tm-player-home tm-demo"><a href="<?php echo $base_url ?>">Player home</a>
     <li class="tm-about"><a href="<?php echo $base_url ?>about">About</a>
     <!--<li class="menu-"><a href="<?php echo $base_url ?>about/help" rel="nofollow">Player Help</a>-->
+<?php if ($is_ouembed): ?>
     <li class="tm-demo-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other embeds</a>
+<?php endif; ?>
     <li class="tm-test-size"><a href="<?php echo $base_url ?>test/player_sizes/bare" rel="nofollow" title="'Bare' template">Size tests</a>
     <li class="tm-test-error"><a href="<?php echo $base_url ?>test/podcast_errors" rel="nofollow">Error tests</a>
     <li class="tm-demo-vle"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Virtual learning environment: &#10;Requires a University login" rel="nofollow">[VLE demo]</a>
@@ -335,7 +337,7 @@ div.teasers ul li:last-child a {border-right:none;}
     <ul>
     <li class="ou-contact"><a href="http://www.open.ac.uk/contact/">Contact</a></li>
       <li class="ou-search"><a href="http://www.open.ac.uk/search/">Search</a></li>
-      <li class="ou-privacy"><a href="http://www.open.ac.uk/privacy/">Website privacy</a></li>
+      <li class="ou-privacy"><a href="http://www.open.ac.uk/privacy/">Privacy and cookies</a></li>
       <li class="ou-copyright"><a href="http://www.open.ac.uk/copyright/">Copyright</a></li>
       <li class="ou-conditions"><a href="http://www.open.ac.uk/conditions/">Conditions of use</a></li>
       <li class="ou-cymraeg"><a href="http://www.open.ac.uk/cymraeg/">Cymraeg</a></li>
