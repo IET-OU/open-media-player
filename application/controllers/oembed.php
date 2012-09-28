@@ -74,8 +74,7 @@ EOF;
       $this->_error("the parameter 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'", "400.6");
     }
 
-    $this->config->load('providers');
-    $providers = $this->config->item('providers');
+    $providers = $this->_get_oembed_providers();
 
     $p = parse_url($req->url);
     if (!isset($p['host'])) {
@@ -105,6 +104,7 @@ EOF;
 	//@header('X-Regex: '.$regex);
 
     if (! preg_match("@{$regex}$@", $req->url, $matches)) {
+      $regex_display = $this->provider->regex;
       $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
     }
 

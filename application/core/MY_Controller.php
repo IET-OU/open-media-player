@@ -73,6 +73,18 @@ class MY_Controller extends CI_Controller {
     }
   }
 
+  /** Get array of oEmbed providers/ services.
+  */
+  protected function _get_oembed_providers() {
+    $this->config->load('providers');
+    $providers_all = $this->config->item('providers');
+    if ($this->_is_ouembed()) {
+      return $providers_all;
+    }
+    // OU Player-only..
+    $providers[OUP_PLAYER_HOST] = $providers_all[OUP_PLAYER_HOST];
+    return $providers;
+  }
 
   /** Load the layout library with a 'bare' or OUICE template.
   */

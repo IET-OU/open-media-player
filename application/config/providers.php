@@ -1,14 +1,19 @@
-<?php
-/** Configuration: oEmbed providers/ services.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * Configuration: oEmbed providers/ services.
  *
  * @copyright Copyright 2011 The Open University.
  */
+
+
+if (! defined('OUP_PLAYER_HOST')) define('OUP_PLAYER_HOST', 'podcast.open.ac.uk');
+
 
 // Locally-available providers.
 //api.embed.ly/1/services (json, Was /api/v1/services)
 $config['providers'] = array(
 
-    'podcast.open.ac.uk' => 'oupodcast',
+    OUP_PLAYER_HOST => 'oupodcast',
 
     'lamscommunity.org' => 'lams',
     'youtube.com'=> 'Youtube',  // Case does matter - Linux etc.!

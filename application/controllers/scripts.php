@@ -46,7 +46,7 @@ class Scripts extends MY_Controller {
 		$script_prov .= "\t\t"."new \$.fn.oembed.OEmbedProvider('$name', '$type', [$regex]$oembed_other),".PHP_EOL; #plugin.r23.
 	  }
 	  // OU embed providers.
-	  $providers = $this->config->item('providers');
+	  $providers = $this->_get_oembed_providers();
       foreach ($providers as $domain => $provider) {
 		if (is_string($provider)) {
 		  # New Jul 2012: loose coupling (iet-it-bugs:1356)
