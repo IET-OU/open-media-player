@@ -20,6 +20,7 @@ class About extends MY_Controller {
 	$rev = $this->gitlib->get_revision();
 
 	$view_data = array(
+		'is_ouembed' => $this->_is_ouembed(),
 		'app_revision' => $rev,
 		'is_demo_page' => FALSE,
 	);

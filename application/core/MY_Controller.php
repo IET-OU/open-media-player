@@ -54,6 +54,26 @@ class MY_Controller extends CI_Controller {
   }
 
 
+  /**
+  * Determine if we are a Player-only install (IT-hosted), or an OU-embed install.
+  * @link http://intranet4.open.ac.uk/wikis/sysdevdoc/Environment_variables
+  * @return bool
+  */
+  public function _is_ouembed() {
+    switch (strtolower(getenv('OUENV'))) {
+      case 'live':
+      case 'acct':    # IT-hosting - fall through.
+      case 'test':
+      case 'dev':
+        return FALSE;
+      case 'ouembed': # Fall through.
+      case 'iet': 
+      default:
+        return TRUE;
+    }
+  }
+
+
   /** Load the layout library with a 'bare' or OUICE template.
   */
   protected function _load_layout($layout = self::LAYOUT) {

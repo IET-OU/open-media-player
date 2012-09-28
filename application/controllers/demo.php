@@ -35,6 +35,7 @@ class Demo extends MY_Controller {
 		$this->_load_layout($layout);
 
 		$view_data = array(
+			'is_ouembed' => $this->_is_ouembed(),
 			'req' => $this->_request,
 		);
 		$this->layout->view('demo/oupodcast-demo', $view_data);
@@ -43,6 +44,9 @@ class Demo extends MY_Controller {
 	/** OULDI (and OLnet) tests.
 	*/
 	public function ouldi($layout = self::LAYOUT) {
+        if (! $this->_is_ouembed()) {
+            $this->_error('The page you requested was not found.', 404);
+        }
         $this->_load_layout($layout);
 
         $view_data = array(
@@ -61,7 +65,8 @@ class Demo extends MY_Controller {
         $view = 'video'==$page ? 'video' : 'audio';
 
         $view_data = array(
-            'req' => $this->_request,
+            'is_ouembed' => $this->_is_ouembed(),
+			'req' => $this->_request,
             'resource_url' => 'http://www8.open.ac.uk/',
         );
         $this->layout->view("demo/podcast-one-$view", $view_data);
@@ -82,7 +87,10 @@ class Demo extends MY_Controller {
     public function podcast_errors($layout = self::LAYOUT) {
       $this->_load_layout($layout);
 
-      $this->layout->view('test/player-error-test');
+      $view_data = array(
+        'is_ouembed' => $this->_is_ouembed(),
+      );
+      $this->layout->view('test/player-error-test', $view_data);
     }
 
 
