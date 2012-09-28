@@ -1,0 +1,5 @@
+# robots.txt for OU Media Player
+# (See http'//youtube.com/robots.txt)
+
+User-agent: *
+Disallow: /
