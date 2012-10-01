@@ -34,6 +34,7 @@ $config['providers'] = array(
 	https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y&hl=en_GB
 	*/
     'docs.google.com' => 'googledoc',
+    'groups.google.com' => 'Googlegroups',
 
 
     # New Jul 2012: most data is in 'Sharepoint_serv' - loose coupling (iet-it-bugs:1356)
