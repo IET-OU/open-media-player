@@ -23,6 +23,14 @@
 "http://prezi.com/izeqbfy2z5w-/digital-scholarship">Dig. Scholarship by M.Weller, on Prezi</a>
 
 
+<h3 id=google>Google</h3>
+<p><a class=embed href=
+"https://groups.google.com/forum/?fromgroups#!forum/developer-contact">Google Group</a>
+
+<p><a class=embed  href=
+"https://docs.google.com/spreadsheet/viewform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA">OU Player notifications, Google Docs</a>
+
+
 <hr /><h2 id=olnet>OLnet</h2>
 <h3>Mathtran</h3>
 
