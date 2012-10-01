@@ -7,7 +7,7 @@
 
 /* Reset OUICE anomaly.
 */
-body.ouice iframe, .oup-ice-test iframe.oembed{ width:auto; max-width:99%; }
+body.ouice iframe, .oup-ice-test iframe.oembed{ X-width:auto; max-width:99%; }
 
 
 /* Generic page styles.
@@ -94,8 +94,8 @@ iframe.oembed {
 */
 .oup-test-warning/*.ouvle#warn*/ {
   text-align:center;
-  border:1px solid red;
-  background:#eee;
+  border:1px solid #c11;
+  background:#f2f2f2;
   margin:5px;
   padding:5px;
   font-size:1.2em;

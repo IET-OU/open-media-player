@@ -66,9 +66,9 @@
 
     <script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 
-<?php if ($is_demo_page): ?>
+<?php //if ($is_demo_page): ?>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
-<?php endif; ?>
+<?php //endif; ?>
 
 <style>
 /* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
@@ -171,21 +171,20 @@ ul.ou-sections li a:hover, ul.ou-sections li a:focus{
                 <div>
                     <!-- Content Page is loaded here -->
 
-
-<style >
+<?php /*<style >
 div.teaser {margin: 0 0 2em 0; float:left; clear:both; width:100%; height:Auto;}
 div#col1 div.teasers h2 {margin-bottom:0; padding-bottom: 0; margin-left:105px; margin-top:0;}
 div.teasers p {margin-top:0; padding-top:.5em; padding-left: 105px;}
 div.teasers ul {margin:0; list-style:none; padding:0; padding-left: 105px;}
- 
-/*div.teasers ul li {display: inline; background:none; margin:0; padding:0;*/ /*white-space:nowrap; gd53: removed 04.03.08*/
+
+/*div.teasers ul li {display: inline; background:none; margin:0; padding:0;*/ /*white-space:nowrap; gd53: removed 04.03.08*-/
 div.teasers ul li {display: inline; background:none; margin:0; padding:0; white-space:nowrap;}
 
-/*div.teasers ul li a {padding: 0 8px 0 0; border-right: 1px solid #ccc; margin-right: 4px;}*/
+/*div.teasers ul li a {padding: 0 8px 0 0; border-right: 1px solid #ccc; margin-right: 4px;}*-/
 div.teasers ul li a {padding: 0 8px 0 0; border-right: 1px solid #ccc; margin-right: 4px;  white-space:nowrap;}
 div.teasers ul li:last-child a {border-right:none;}
 
-</style>
+</style>*/ ?>
 
 <div id="ou-page" class="study">
 
@@ -195,6 +194,15 @@ div.teasers ul li:last-child a {border-right:none;}
 
     <div id="ou-region1">
         <div id="ou-content" class="ou-content">
+
+
+<?php if ($is_ouembed): ?>
+<div id=warn class=oup-test-warning>
+	<p>Note, this is not the final home of the OU Media Player - that will be <a href="http://mediaplayer.open.edu/">MediaPlayer.open.edu</a>.
+	<br />(<a href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/OULDI-embed services.)</p>
+</div>
+<?php endif; ?>
+
 
     <h1><?php echo isset($header) ? $header : 'OU Media Player' ?></h1>
 
