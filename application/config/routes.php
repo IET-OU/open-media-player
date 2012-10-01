@@ -48,6 +48,7 @@ $route['2012/extend'] = 'xml_namespace/ou_oembed_extend';
 
 $route['test/(:any)'] = 'demo/$1';
 
+$route['services.json'] = 'services';
 $route['uptime.txt'] = 'uptime';
 $route['translate'] = 'localize'; #/template';
 $route['translate/po/(:any)'] = 'localize/po/$1';

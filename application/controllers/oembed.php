@@ -69,10 +69,7 @@ EOF;
     }
 
     // Security. Only allow eg. 'Object.func_CB_1234'
-    $req->callback = $this->input->get('callback', $xss_clean=TRUE);
-    if ($req->callback && !preg_match('/^[a-zA-Z][\w_\.]*$/', $req->callback)) {
-      $this->_error("the parameter 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'", "400.6");
-    }
+    $req->callback = $this->_-jsonp_callback_check();
 
     $providers = $this->_get_oembed_providers();
 

@@ -93,6 +93,21 @@ class MY_Controller extends CI_Controller {
     $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
   }
 
+  /** Check a JSON-P callback parameter for security etc.
+  * @link http://json-p.org#!comment_Kyle-Simpson-getify.me_2010-10-26
+  */
+  protected function _jsonp_callback_check($name = 'callback') {
+    // Security. Only allow eg. 'Object.func_CB_1234'
+    $callback = $this->input->get('callback', $xss_clean=TRUE);
+    if ($callback && !preg_match('/^[a-zA-Z][\w_\.]*$/', $callback)) {
+      $this->_error("the parameter {callback} must start with a letter, and contain only letters, numbers, underscore and '.' **", "400.6");
+    }
+    if ($callback && preg_match('/(Object|Function|Math|window|document|eval$)/', $callback)) {
+      $this->_error("the parameter {callback} can't contain reserved names like 'window' or 'eval'.", "400.7");
+    }
+    return $callback;
+  }
+
 
   /** Initialize the player, including the theme (Embed and Popup controllers).
   */

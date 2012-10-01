@@ -18,27 +18,22 @@ class Services extends MY_Controller {
 	@header('Content-Disposition: inline; filename=ou-embed-services.json');
 
     // JSON-P callback: security. Only allow eg. 'Object.func_CB_1234'
-    $callback = $this->input->get('callback', $xss_clean=TRUE);
-    if ($callback && !preg_match('/^[a-zA-Z][\w_\.]*$/', $callback)) {
-      $this->_error("the parameter 'callback' must start with a letter, and contain only letters, numbers, underscore and '.'", "400.6");
-    }
+    $callback = $this->_jsonp_callback_check();
 
 
-	// Get oEmbed service providers.
+    // Get oEmbed service providers.
+    $providers = $this->_get_oembed_providers();
     $services = array();
 
-    $this->config->load('providers');
-    $providers = $this->config->item('providers');
-
-	foreach ($providers as $domain => $provider) {
+    foreach ($providers as $domain => $provider) {
 
       if (! is_string($provider)) continue;
 
       # New (#1356)
       $this->load->oembed_provider($provider);
 
-      // Filter - all?
-      $services[] = $this->provider->getProperties();
+      // Use the 'name' to filter duplicates, then call 'array_values' below.
+      $services[$this->provider->getName()] = $this->provider->getProperties();
     }
 
 
@@ -46,7 +41,7 @@ class Services extends MY_Controller {
     $view_data = array(
       'format' => 'json',
       'callback' => $callback,
-      'oembed' => $services, # A hack!
+      'oembed' => array_values($services), # A hack!
       'not_oembed' => true,
     );
     $this->load->view('oembed/render', $view_data);
