@@ -69,7 +69,7 @@ EOF;
     }
 
     // Security. Only allow eg. 'Object.func_CB_1234'
-    $req->callback = $this->_-jsonp_callback_check();
+    $req->callback = $this->_jsonp_callback_check();
 
     $providers = $this->_get_oembed_providers();
 
