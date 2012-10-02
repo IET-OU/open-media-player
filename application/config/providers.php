@@ -78,6 +78,8 @@ $config['providers_other'] = array(
 	#'freemusicarchive.org',
 	#'huffduffer.com'=>array('name'=>'Huffduffer', 'type'=>'audio', '__endpoint'=>'http://huffduffer.com/oembed'),
 	'gist.github.com' => array('name'=>'GitHub', 'type'=>'rich'),
+	// No JSON-P 'callback' parameter :( - https://speakerdeck.com/faq#oembed
+	'speakerdeck.com' => array('name'=>'Speakerdeck', 'type'=>'rich', 'endpoint' => 'http://speakerdeck.com/oembed.json'),
 	'cacoo.com' => array('name'=>'Cacoo', 'type'=>'rich', 'endpoint' => 'http://cacoo.com/oembed.json'),
 
 	// iSpot.
