@@ -7,10 +7,13 @@
  */
 ini_set('display_errors', true);
 
+
 class Oembed extends MY_Controller {
 
   public function __construct() {
     parent::__construct();
+
+    @header('Content-Disposition: inline; filename=ouplayer-oembed.json-p-xml.txt');
   }
 
 

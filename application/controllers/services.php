@@ -9,13 +9,14 @@
  */
 ini_set('display_errors', true);
 
+
 class Services extends MY_Controller {
 
 
   /** Output JSON/ JSON-P.
   */
   public function index() {
-	@header('Content-Disposition: inline; filename=ou-embed-services.json');
+	@header('Content-Disposition: inline; filename=ouplayer-ou-embed-services.json');
 
     // JSON-P callback: security. Only allow eg. 'Object.func_CB_1234'
     $callback = $this->_jsonp_callback_check();
