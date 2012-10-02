@@ -24,8 +24,11 @@
 
 
 <h3 id=google>Google</h3>
-<p><a class=embed href=
-"https://groups.google.com/forum/?fromgroups#!forum/developer-contact">Google Group</a>
+<p><a class=embed  href=
+"https://groups.google.com/forum/?fromgroups#!forum/developer-contact&height=1200">Google Group</a>
+
+<p><a class=embed  href=
+"https://docs.google.com/presentation/d/1_VJa5jPg4DFLm9Z9kIy_XGdBTMx0xrT9wFrcpTk8bvE/embed#/present?ueb=true#slide=id.p16">ICT skills for study / FELS</a>
 
 <p><a class=embed  href=
 "https://docs.google.com/spreadsheet/viewform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA">OU Player notifications, Google Docs</a>

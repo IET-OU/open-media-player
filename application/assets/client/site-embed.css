@@ -7,7 +7,7 @@
 
 /* Reset OUICE anomaly.
 */
-body.ouice iframe, .oup-ice-test iframe.oembed{ X-width:auto; max-width:99%; }
+body.ouice iframe, .oup-ice-test iframe.oembed, .oup-ice-test iframe.embed-rsp{ X-width:auto; max-width:99%; min-width:400px; }
 
 
 /* Generic page styles.
@@ -28,6 +28,7 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 
 /* Generic oEmbed-response styles.
 */
+.oup-ice-test .oembed, .oup-ice-test .embed-rsp{ margin:2em 0; }
 
 iframe.oembed {
   display:block;
@@ -96,7 +97,7 @@ iframe.oembed {
   text-align:center;
   border:1px solid #c11;
   background:#f2f2f2;
-  margin:5px;
+  margin:20px 0;
   padding:5px;
   font-size:1.2em;
 }
@@ -136,6 +137,8 @@ body.path-mod {
 }
 
 
+iframe.google-docs, .youtube.oembed iframe { width:99%; }
+
 
 /* MathTran photo embeds.
 */
@@ -154,5 +157,5 @@ body.path-mod {
   height:340px; width:1002px;
 }
 .cohere.embed-rsp div {
-  height:357px; overflow-x:scroll;
+  height:357px; width:99% !important; overflow-x:scroll;
 }
