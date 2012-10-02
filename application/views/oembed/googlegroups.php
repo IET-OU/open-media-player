@@ -2,9 +2,9 @@
 /** Google Groups forum oEmbed view.
 */
 
-  $label   = t('Google Groups embed');
+  $label   = t('%s embed', $meta->provider_name);
   $noframes= t('Your browser does not support frames.');
-  $alttext = t('Access the page on Google');
+  $alttext = t('View the page on %s', $meta->provider_name);
 
   $html =<<<EOF
 <iframe class='google google-groups $meta->_group embed-rsp' role='document' seamless title='$label' width='$meta->width' height='$meta->height'
@@ -14,13 +14,13 @@
 EOF;
 
   $oembed = array(
-      'version'=> '1.0',
+      #'version'=> '1.0',
       'type'   => $meta->type,
       'provider_name'=> $meta->provider_name,
       'provider_url' => $meta->provider_url,
       'title'  => $meta->title,
       'html'   => $html,
-      '_group' => $meta->_group,
+      '_group_id' => $meta->_group,
       'width'  => $meta->width,
       'height' => $meta->height,
   );

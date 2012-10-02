@@ -113,6 +113,7 @@ abstract class Oembed_Provider implements iService {
     if (is_string($props->regex)) {
       $props->regex = array($props->regex);
     }
+    $props->about = str_replace(array('  ', "\r"), '', $props->about);
     return $props;
   }
 

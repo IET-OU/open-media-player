@@ -87,6 +87,9 @@ EOT;
       // HTTP request - get the title...?
 
       $meta = array(
+          'provider_name' => $this->displayname,
+          'provider_url' => $this->_about_url,
+          'type' => $this->type,
           'title'=> NULL, #'[unknown]',
           'width' => 640, #720,
           'height'=> $height,
