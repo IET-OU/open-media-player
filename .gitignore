@@ -26,6 +26,7 @@ application/language/*.pot
 *.log
 *.mo
 
+blog/*
 drupal/*
 _docs/*
 
