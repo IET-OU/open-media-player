@@ -64,13 +64,20 @@ $docs = $this->config->item('player_docs');
 $help_url = isset($docs['help']) ? $docs['help'] : '#help/TODO';
 $about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
 $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
+
+$help_url = str_replace('__SITE__/', site_url(), $help_url);
+$about_url= str_replace('__SITE__/', site_url(), $about_url);
 ?>
 
 
 <div role="menu" class="optionalnav" aria-label="<?php echo t('Player options') ?>">
   <div class="col1">
-  <a rel="help" class="help" href="#help/TODO"  title="<?php echo t('New window') ?>"><span><?php echo t('Player help') ?></span></a>
-  <a class="about" href="#about/TODO" title="<?php echo t('New window') ?>"><span><?php echo t('About') ?></span></a>
+<?php if ($help_url && $about_url): ?>
+  <a rel="help" class="help" href="<?php echo $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Player help') ?></span></a>
+  <a class="about" href="<?php echo $about_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('About the player') ?></span></a>
+<?php else: ?>
+  <a rel="help" class="help" href="<?php echo $about_url ? $about_url : $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Help and about') ?></span></a>
+<?php endif; ?>
 <?php /*<button class="decreasesize" aria-label="<?php echo t('Decrease text size') ?>"><span>-A</span></button>
   <button class="increasesize" aria-label="<?php echo t('Increase text size') ?>"><span>A+</span></button>*/ ?>
   <label role="button" class="themeoption" for="theme-menu" title="<?php echo t('Choose the theme') ?>"><span><?php echo t('Theme') ?><?php /*<img class="styleicon" alt="Style icon" src="a6../styleicon.jpg" height="16" width="16">Style*/ ?></span></label>
@@ -83,7 +90,9 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
 <?php if ($embed_code): ///Translators: software/programming/HTML code to allow further embedding of this player. ?>
   <label role="button" class="embed" for="embed-code" title="<?php echo t('Embed on other sites') ?>"><span><?php echo t('Embed code') ?></span></label></a>
   <textarea id="embed-code" class="emcode-opt" readonly title="<?php echo $embed_method ?>"><?php echo str_replace('<','&lt;', $embed_code) ?></textarea>
-  <a class="embed-opt" href="#embed/TODO" title="<?php echo t('New window') ?>"><span><?php echo t('More embeds…') ?></span></a>
+<?php if ($embedopts_url): ?>
+  <a class="embed-opt" href="<?php echo $embedopts_url ?>" title="<?php echo t('New window') ?>"><span><?php echo t('More embeds…') ?></span></a>
+<?php endif; ?>
 <?php endif; ?>
 <?php /*<button class=""><span>Option</span></button>
   <button class=""><span>Text</span></button>
@@ -103,14 +112,21 @@ $embedopts_url = isset($docs['embed']) ? $docs['embed'] : '#embed/TODO';
 </div>
 
 
+
 <div role="menu" id="more" class="oup-settings panel" aria-label="<?php echo t('Player options') ?>">
   <button class="more-close" title="<?php echo t('Close options menu') ?>"><span>X</span></button>
+<?php if ($help_url && $about_url): ?>
   <a rel="help" class="help" href="<?php echo $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Player help') ?></span></a>
   <a class="about" href="<?php echo $about_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('About the player') ?></span></a>
+<?php else: ?>
+  <a rel="help" class="help" href="<?php echo $about_url ? $about_url : $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Help and about') ?></span></a>
+<?php endif; ?>
 <?php if ($embed_code): ?>
   <?php /*<a class="embed" href="#embed-code">*/ ?><label class="embed" for="emcode-more"><span><?php echo t('Embed code') ?></span></label></a>
   <textarea id="emcode-more" class="emcode-more" readonly title="<?php echo $embed_method ?>"><?php echo str_replace('<','&lt;', $embed_code) ?></textarea>
+<?php if ($embedopts_url): ?>
   <a class="embed-opt" href="<?php echo $embedopts_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('More embed options') ?></span></a>
+<?php endif; ?>
 <?php endif; ?>
   <a class="media-url" href="<?php echo $meta->media_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Download media') ?></span></a>
 <?php if (isset($meta->transcript_url)): ?>
