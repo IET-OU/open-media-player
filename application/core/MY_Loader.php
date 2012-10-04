@@ -59,8 +59,17 @@ class MY_Loader extends CI_Loader {
 
 
   /** Load an oEmbed provider class.
+  * @return void
   */
   public function oembed_provider($provider_name, $object_name = 'provider') {
+    if (! class_exists('Oembed_Provider')) {
+      // Require the base provider class file.
+      $this->file(APPPATH .'/libraries/Oembed_Provider.php');
+    }
+
+    // If appropriate, include intermediate class file...
+
+
     // Simplify lines like, $regex = $this->{"{$name}_serv"}->regex;
     return $this->library("providers/{$provider_name}_serv", NULL, $object_name);
   }

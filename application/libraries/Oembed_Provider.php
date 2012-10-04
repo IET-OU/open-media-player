@@ -114,6 +114,9 @@ abstract class Oembed_Provider implements iService {
       $props->regex = array($props->regex);
     }
     $props->about = str_replace(array('  ', "\r"), '', $props->about);
+    if (isset($this->_endpoint_url)) {
+      $props->_endpoint_url = $this->_endpoint_url;
+    }
     return $props;
   }
 

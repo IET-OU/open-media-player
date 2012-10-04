@@ -28,7 +28,7 @@ class Scripts extends MY_Controller {
       require_once APPPATH.'assets/client/jquery.oembed.js';
       $script = ob_get_clean();
 
-      $oembed_url = base_url().'oembed';
+      $local_oembed_url = base_url().'oembed';
       $script_prov ='';
 
       $this->config->load('providers');
@@ -52,8 +52,11 @@ class Scripts extends MY_Controller {
 		  # New Jul 2012: loose coupling (iet-it-bugs:1356)
 		  $this->load->oembed_provider($provider);
 
+		  $props = $this->provider->getProperties();
+
 		  $name = $this->provider->getName();
 		  $type = $this->provider->getType();
+		  $oembed_url = isset($props->_endpoint_url) ? $props->_endpoint_url : $local_oembed_url;
 		} else {
 		  # Legacy.
 		$name = strtolower($provider['name']);

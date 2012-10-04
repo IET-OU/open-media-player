@@ -43,6 +43,13 @@ $config['providers'] = array(
 	# OLnet - roll into OU embed (iet-it-bugs:1364)
 	'mathtran.org' => 'Mathtran',
 	'cohere.open.ac.uk' => 'Cohere',
+
+
+	# External.
+	'openlearn.open.ac.uk' => 'Trackoer',
+	'labspace.open.ac.uk' => 'Trackoer',
+
+	#'ispot.org.uk' => 'Ispot',
 );
 
 
