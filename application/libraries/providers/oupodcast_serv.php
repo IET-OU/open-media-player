@@ -289,15 +289,22 @@ EOT;
 
 	$this->CI->load->library('Pdftohtml');
 
-	if ($pdf || !file_exists($trans_file_html)) {
-	  try {
-	    $html = $this->CI->pdftohtml->parse($trans_pdf, $trans_file_xml);
-	  } catch (Exception $e) {
-	    // Log error.
-        $this->CI->_log('error', __CLASS__.". Error parsing PDF transcript | ".$e->getMessage());
+    $f_pdftohtml = $this->CI->config->item('pdftohtml_path');
+    if ($f_pdftohtml) {
 
+      if ($pdf || !file_exists($trans_file_html)) {
+        try {
+          $html = $this->CI->pdftohtml->parse($trans_pdf, $trans_file_xml);
+        } catch (Exception $e) {
+          // Log error.
+          $this->CI->_log('error', __CLASS__.". Error parsing PDF transcript | Pdftohtml | ".$e->getMessage());
+        }
 	  }
-	}
+    } else {
+      // Fallback to pure PHP library on IT-hosting (#1409).
+      $html = $this->_pdf2text($trans_pdf);
+
+    }
 	if ($html) {
 	  $b2 = file_put_contents($trans_file_html, $html);
 	  $this->CI->_log('debug', "Transcript file written, $b2 bytes, $trans_file_html");
@@ -315,4 +322,34 @@ EOT;
     return $player;
   }
 
+
+  /**
+  * Fallback to pure PHP library on IT-hosting (#1409).
+  * @return string
+  */
+  protected function _pdf2text($pdf_file) {
+    require_once __DIR__ . '/../class.pdf2text.php';
+
+    $pdf = new PDF2Text();
+    $pdf->setFilename($pdf_file);
+    $pdf->decodePDF();
+
+    $result = $pdf->output();
+
+    // Fix floating 's' 'th' ',' etc - English locale-specific.
+    $result = preg_replace('#(\w)\ss\s#', '$1s ', $result);
+    $result = preg_replace('#\sth\s\w#', ' th$1', $result);
+    $result = preg_replace('#\s([,\.;])#', '$1', $result);
+
+    // Concatenate lines starting with lowercase letters.
+    $result = preg_replace('#\s+([a-z])#', ' $1', $result);
+
+    $result = str_replace('  ', ' ', $result);
+
+    // A crude conversion to HTML.
+    #$html = preg_replace('#([\w\. ])\n(\r)?\n(\w)#ms', '$1<br>$2', $result);
+    $html = str_replace(array("\n\n\n", "\n\n", "\n"), '<br>', $result);
+
+    return $html;
+  }
 }
