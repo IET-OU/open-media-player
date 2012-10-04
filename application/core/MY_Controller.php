@@ -26,17 +26,8 @@ class MY_Controller extends CI_Controller {
       'debug' =>(bool)$this->input->get(OUP_PARAM_DEBUG),
     );
 
-    $this->load->library('FirePHPCore/Firephp');
-    if ($this->config->item('debug') && $this->_request->debug) {
-        #$this->load->library('FirePHPCore/FirephpEx', null, 'firephp');
-    } else {
-        $this->firephp->setEnabled(false);
-        #$this->load->library('firephp_fake', null, 'firephp');
-        #$this->firephp =& $this->firephp_fake;
-    }
-    $this->firephp->fb(__METHOD__, 'OUP', 'INFO');
-    #$this->firephp->fb($_SERVER, 'OUP', 'INFO');
-    #$this->firephp->log('test');
+    $this->_firephp_init();
+	$this->_datadir_init();
 
     if (! $this->input->is_cli_request()) {
       $this->lang->initialize();
@@ -259,4 +250,41 @@ class MY_Controller extends CI_Controller {
     return $url;
   }
 
+
+  /**
+  * Create data sub-directories - reduce configuration.
+  */
+  protected function _datadir_init() {
+    $data_dir = $this->config->item('data_dir');
+    $this->_debug($data_dir);
+    if (! file_exists($data_dir)) {
+      $this->_debug("Error, data directory doesn't exist.");
+    }
+    if (! file_exists($data_dir .'logs/')) {
+      $b_log = mkdir($data_dir .'logs/', 0775);
+      $this->_debug("Creating 'logs' directory, $b_log");
+	}
+	if (! file_exists($data_dir .'oupodcast/')) {
+      $b_pod = mkdir($data_dir .'oupodcast/', 0775);
+      $this->_debug("Creating 'oupodcast' directory, $b_pod");
+	}
+  }
+
+
+  /**
+  * Fire PHP
+  */
+  protected function _firephp_init() {
+    $this->load->library('FirePHPCore/Firephp');
+    if ($this->config->item('debug') && $this->_request->debug) {
+        #$this->load->library('FirePHPCore/FirephpEx', null, 'firephp');
+    } else {
+        $this->firephp->setEnabled(false);
+        #$this->load->library('firephp_fake', null, 'firephp');
+        #$this->firephp =& $this->firephp_fake;
+    }
+    $this->firephp->fb(__METHOD__, 'OUP', 'INFO');
+    #$this->firephp->fb($_SERVER, 'OUP', 'INFO');
+    #$this->firephp->log('test');
+  }
 }
