@@ -68,6 +68,12 @@ Fire PHP: Copyright (c) 2006-2009, Christoph Dorn.
  * License: <http://opensource.org/licenses/BSD-3-Clause> New BSD
  * Code: <http://www.firephp.org/>
 
+class.pdf2text.php: Webcheatsheet.com (Original code) / Joeri Stegeman (joeri210 [at] yahoo [dot] com) (Class conversion and fixes/adjustments)
+ * License: GPLv2+
+ * Code: <http://code.google.com/p/lucene-silverstripe-plugin/source/browse/trunk/thirdparty/class.pdf2text.php?r=19>\
+ * Code: <http://code.google.com/p/sfbrowser/source/browse/trunk/web/sfbrowser/connectors/php/class.pdf2text.php>
+ * Also: <http://webcheatsheet.com/php/reading_clean_text_from_pdf.php>
+
 yUML.me: Copyright Tobin Harris/ Engineroom.
  * Tool: <http://yuml.me>
 
