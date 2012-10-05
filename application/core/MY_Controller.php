@@ -256,18 +256,18 @@ class MY_Controller extends CI_Controller {
   */
   protected function _datadir_init() {
     $data_dir = $this->config->item('data_dir');
-    $this->_debug($data_dir);
+    #$this->_debug($data_dir);
     if (! file_exists($data_dir)) {
       $this->_debug("Error, data directory doesn't exist.");
     }
     if (! file_exists($data_dir .'logs/')) {
       $b_log = mkdir($data_dir .'logs/', 0775);
       $this->_debug("Creating 'logs' directory, $b_log");
-	}
-	if (! file_exists($data_dir .'oupodcast/')) {
+    }
+    if (! file_exists($data_dir .'oupodcast/')) {
       $b_pod = mkdir($data_dir .'oupodcast/', 0775);
       $this->_debug("Creating 'oupodcast' directory, $b_pod");
-	}
+    }
   }
 
 

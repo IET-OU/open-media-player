@@ -41,7 +41,7 @@ class Pdftohtml {
     $this->CI =& get_instance();
 	$path = $this->CI->config->item('pdftohtml_path');
 
-	if ($path) {
+	if (is_string($path) && strlen($path) > 0) {
 	  self::$cmd_path = $path;
 	}
 	log_message('debug', __CLASS__." Class Initialized | ".self::$cmd_path);
@@ -104,6 +104,7 @@ class Pdftohtml {
   protected function pdftoxml($pdf_file, $xml_file) {
     if (!file_exists(self::$cmd_path)) {
       //Error.
+      $this->CI->_debug('Error finding pdftohtml binary | '.self::$cmd_path);
       throw new Exception('Error finding pdftohtml binary | '.self::$cmd_path);
     }
 

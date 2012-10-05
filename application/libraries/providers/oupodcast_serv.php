@@ -299,7 +299,7 @@ EOT;
           // Log error.
           $this->CI->_log('error', __CLASS__.". Error parsing PDF transcript | Pdftohtml | ".$e->getMessage());
         }
-	  }
+      }
     } else {
       // Fallback to pure PHP library on IT-hosting (#1409).
       $html = $this->_pdf2text($trans_pdf);
