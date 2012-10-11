@@ -20,14 +20,14 @@ EOT;
   #public $name = 'trackoer';
   public $domain = 'openlearn.open.ac.uk';
   public $subdomains = array('labspace.open.ac.uk', 'oercommons.org');
-  #public $favicon = 'https://groups.google.com/forum/favicon.ico';
+  #public $favicon = 'http://../favicon.ico';
   public $type = 'rich';
 
   public $_about_url = 'http://track.olnet.org/about';
-  public $_regex_real = ':\/\/groups\.google\.com\/(.*forum)\/([^#].*?)(&height=(\d+))?';
+  public $_logo_url = 'http://track.olnet.org/assets/site/trackoer-ca-logo-big.png';
   public $_examples = array(
-    '_OEM: Learning to Learn/ Piwik analytics' => 'http://track.olnet.org/oembed?url=http%3A//labspace.open.ac.uk/Learning_to_Learn_1.0',
-    '_OEM: The Aaron Copland Collect.' => 'http://track.olnet.org/oembed?url=http%3A//oercommons.org/courses/the-aaron-copland-collection-ca-1900-1990',
+    'Learning to Learn/ Piwik analytics' => 'http://labspace.open.ac.uk/Learning_to_Learn_1.0',
+    'The Aaron Copland Collect.' => 'http://oercommons.org/courses/the-aaron-copland-collection-ca-1900-1990',
   );
   public $_access = 'public';
 

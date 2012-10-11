@@ -30,11 +30,15 @@ abstract class Oembed_Provider implements iService {
 
   public $_type_x = NULL;
   public $_about_url = NULL;
+  public $_logo_url = NULL;
   public $_regex_real = NULL;
   public $_examples = array();
   public $_google_analytics = NULL; # 'UA-12345678-0'
 
   public $_access = 'public';	# public|private|unpublished|external (Also 'maturity'..?)
+
+  protected $_endpoint_url;
+
 
 /* JSON: http://api.embed.ly/1/services [
 {
