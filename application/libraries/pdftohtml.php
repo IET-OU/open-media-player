@@ -134,7 +134,8 @@ class Pdftohtml {
   }
 
   /** Remove DOCTYPE and other stuff that is present in transcripts stored in HTML form.
-  * @return string HTML
+  * @param string Input HTML.
+  * @return string Filtered HTML.
   */
   public function filter($html) {
     $out = $html;
@@ -143,12 +144,12 @@ class Pdftohtml {
 	return $out;
   }
 
-  /** Get the pdftohtml binary version.
+  /** Get the version of the pdftohtml binary.
   * @return array
   */
   public function version() {
-	$last = $this->_exec('-v', $output_r, $status);
-	return $output_r;  #implode(PHP_EOL, $output_r);
+    $last = $this->_exec('-v', $output_r, $status);
+    return $output_r;  #implode(PHP_EOL, $output_r);
   }
 
   /** pdftoxml
@@ -172,8 +173,12 @@ class Pdftohtml {
   }
 
   /** Execute a pdftohtml binary command.
+  * @param string $options Pdftohtml CLI options.
+  * @param array $output_r [out]
+  * @param int $return_var [out]
+  * @return string Last line of result.
   */
-  protected function _exec($options, &$output_r, &$return_var) {
+  protected function _exec($options, array &$output_r = NULL, &$return_var) {
     if (! file_exists(self::$cmd_path)) {
       //Error.
       if (isset($this->CI)) {
