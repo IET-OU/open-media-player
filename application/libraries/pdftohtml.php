@@ -9,7 +9,7 @@
 
 /* ============================================================
 
- pdftohtml binary installation:
+ pdftohtml binary installation (Redhat Linux)
 
  Uses: pdftohtml v0.39 (which uses xpdf) http://pdftohtml.sourceforge.net/
  @copyright 2003-6 Gueorgui Ovtcharov and Rainer Dorsch.
@@ -29,12 +29,14 @@
 
  PHP usage:
 
-// Standalone configuration.
+// Standalone context.
 define('PDFTOHTML_PATH', 'C:/Users/ndf42/workspace/_ouplayer_data/pdftohtml-0.39/pdftohtml.exe');  # Windows.
 #define('PDFTOHTML_PATH', '/usr/bin/pdftohtml');  # Redhat 6.
+require_once 'libraries/pdftohtml.php';
 
-// CodeIgniter configuration.
-$config['pdftohtml_path'] = '/usr/bin/pdftohtml';
+//( Or, CodeIgniter context. )
+#$config['pdftohtml_path'] = '/usr/bin/pdftohtml';
+#$this->load->library('pdftohtml');
 
 $pdf = '/var/www/_ouplayer_data/transcripts/l314audio2.pdf'; #Ok.
 #$pdf = '_test/oupod-entrep-invisable_transcript_00775_7600.pdf'; #Errors :(.
