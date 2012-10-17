@@ -36,6 +36,7 @@ class Demo extends MY_Controller {
 
 		$view_data = array(
 			'is_ouembed' => $this->_is_ouembed(),
+			'is_live' => $this->_is_live(),
 			'req' => $this->_request,
 		);
 		$this->layout->view('demo/oupodcast-demo', $view_data);
@@ -51,6 +52,7 @@ class Demo extends MY_Controller {
 
         $view_data = array(
             'is_ouembed' => true,
+            'is_live' => $this->_is_live(),
             'header' => t('OU Embeds'),
             'req' => $this->_request,
             'resource_url' => 'http://www8.open.ac.uk/',
@@ -67,7 +69,8 @@ class Demo extends MY_Controller {
 
         $view_data = array(
             'is_ouembed' => $this->_is_ouembed(),
-			'req' => $this->_request,
+            'is_live' => $this->_is_live(),
+            'req' => $this->_request,
             'resource_url' => 'http://www8.open.ac.uk/',
         );
         $this->layout->view("demo/podcast-one-$view", $view_data);
@@ -90,6 +93,7 @@ class Demo extends MY_Controller {
 
       $view_data = array(
         'is_ouembed' => $this->_is_ouembed(),
+        'is_live' => $this->_is_live(),
       );
       $this->layout->view('test/player-error-test', $view_data);
     }

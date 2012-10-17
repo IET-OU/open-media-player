@@ -64,6 +64,25 @@ class MY_Controller extends CI_Controller {
     }
   }
 
+  /**
+  * Determine if we are a live server.
+  * @link http://intranet4.open.ac.uk/wikis/sysdevdoc/Environment_variables
+  * @return bool
+  */
+  public function _is_live() {
+    switch (strtolower(getenv('OUENV'))) {
+      case 'live':
+      case 'acct':    # Fall through.
+      case 'ietlive':
+        return TRUE;
+      case 'test':
+      case 'dev':
+      case 'ietdev':
+      default:
+        return FALSE;
+    }
+  }
+
   /** Get array of oEmbed providers/ services.
   */
   protected function _get_oembed_providers() {

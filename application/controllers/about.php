@@ -21,6 +21,7 @@ class About extends MY_Controller {
 
 	$view_data = array(
 		'is_ouembed' => $this->_is_ouembed(),
+		'is_live' => $this->_is_live(),
 		'app_revision' => $rev,
 		'is_demo_page' => FALSE,
 	);
