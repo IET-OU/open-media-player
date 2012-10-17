@@ -12,7 +12,7 @@ class Googledoc_serv extends Oembed_Provider {
 
   public $regex = 'https://docs.google.com/(spreadsheet|document|present[ation])/*'; #array()
   public $about = <<<EOT
-  Embed Google Docs spreadsheets, forms, documents and presentations in your web site. [Initially for Cloudworks/OULDI. Public access.]';
+  Embed Google Docs spreadsheets, forms, documents and presentations in your web site. [Initially for Cloudworks/OULDI. Public access.]
 EOT;
   public $displayname = 'Google Docs';
   #public $name = 'googledoc';

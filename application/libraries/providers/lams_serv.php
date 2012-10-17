@@ -15,8 +15,9 @@ class Lams_serv extends Oembed_Provider {
 
   public $regex = 'http://lamscommunity.org/*?seq_id=*'; //array()
   public $about = <<<EOT
-  <abbr title="Learning Activity Management System">LAMS</abbr> is a new tool for producing online collaborative learning activities. It provides teachers with a visual authoring environment for creating sequences.
-  Embed previews of LAMS sequences [Initially for Cloudworks/OULDI. Public access.]';
+  <abbr title="Learning Activity Management System">LAMS</abbr> is a new tool for producing online collaborative learning activities.
+  It provides teachers with a visual authoring environment for creating sequences.
+  Embed previews of LAMS sequences [Initially for Cloudworks/OULDI. Public access.]
 EOT;
   public $displayname = 'LAMS Community';
   public $domain = 'lamscommunity.org';

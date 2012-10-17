@@ -13,7 +13,7 @@ class Sharepoint_serv extends Oembed_Provider {
   public $regex = 'https://intranet7.open.ac.uk/collaboration/iet-professional-development/Shared Documents/*'; #array()
   public $about = <<<EOT
     "Microsoft® SharePoint® 2010 makes it easier for people to work together. Using SharePoint, your people can set up Web sites...[and] manage documents from start to finish..."
-    Use this service to embed links to shared documents stored in SharePoint, with associated meta-data. [Initially for the OU-internal E-PD site. Restricted access.]';
+    Use this service to embed links to shared documents stored in SharePoint, with associated meta-data. [Initially for the OU-internal E-PD site. Restricted access.]
 EOT;
   public $displayname = 'Microsoft SharePoint®';
   #public $name = 'sharepoint';

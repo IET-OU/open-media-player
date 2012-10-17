@@ -17,8 +17,9 @@ class Cohere_serv extends Oembed_Provider {
 
   public $regex = 'http://cohere.open.ac.uk/node/*';
   public $about = <<<EOT
-  The Web is about IDEAS+PEOPLE. Cohere is a visual tool to create, connect and share Ideas. Back them up with websites. Support or challenge them. Embed them to spread virally.
-  Discover who - literally - connects with your thinking. [Initially for OLnet. Public access.]';
+  The Web is about IDEAS+PEOPLE. Cohere is a visual tool to create, connect and share Ideas.
+  Back them up with websites. Support or challenge them. Embed them to spread virally.
+  Discover who - literally - connects with your thinking. [Initially for OLnet. Public access.]
 EOT;
   public $displayname = 'Cohere';
   public $domain = 'cohere.open.ac.uk';

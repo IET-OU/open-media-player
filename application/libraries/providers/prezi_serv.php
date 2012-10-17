@@ -12,7 +12,7 @@ class Prezi_serv extends Oembed_Provider {
 
   public $regex = 'http://prezi.com/*/*/?'; // Optional trailing slash.
   public $about = <<<EOT
-  Prezi - The Zooming Presentations Editor. Embed presentations hosted on Prezi. [Initially for Cloudworks/OULDI. Public access.]';
+  Prezi - The Zooming Presentations Editor. Embed presentations hosted on Prezi. [Initially for Cloudworks/OULDI. Public access.]
 EOT;
   public $displayname = 'Prezi';
   public $domain = 'prezi.com';

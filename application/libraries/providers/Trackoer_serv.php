@@ -14,7 +14,7 @@
 class Trackoer_serv extends Oembed_Provider {
   public $regex = 'http://(openlearn.open.ac.uk|labspace.open.ac.uk|*oercommons.org)/*';
   public $about = <<<EOT
-  Create (and embed) license-tracker code snippets for OpenLearn and OER Commons content. [JISC Track OER service. Public access.]';
+  Create (and embed) license-tracker code snippets for OpenLearn and OER Commons content. [JISC Track OER service. Public access.]
 EOT;
   public $displayname = 'Track OER';
   #public $name = 'trackoer';

@@ -18,7 +18,7 @@ class Mathtran_serv extends Oembed_Provider {
   public $regex = 'http://mathtran.org/formulas/details/*'; // Optional trailing slash?
   public $about = <<<EOT
   With MathTran you can to create, store and translate mathematical content. Using the formula editor, you can interactively create mathematical formulas.
-  MathTran translates TeX-notation mathematics to images (for inclusion in web pages and on emails) as a web service. [Initially for OLnet. Public access.]';
+  MathTran translates TeX-notation mathematics to images (for inclusion in web pages and on emails) as a web service. [Initially for OLnet. Public access.]
 EOT;
   public $displayname = 'MathTran';
   public $domain = 'mathtran.org';

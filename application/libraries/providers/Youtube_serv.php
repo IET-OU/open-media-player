@@ -12,7 +12,7 @@ class Youtube_serv extends Oembed_Provider {
   public $regex = array('http://*youtube.com/watch*', 'http://youtu.be/*');
   public $about = <<<EOT
   YouTube is the world's most popular online video community, allowing millions of people to discover, watch and share originally-created videos.
-  Embed videos from YouTube with a HTML5-video option. [Initially for Cloudworks/OULDI. Public access.]';
+  Embed videos from YouTube with a HTML5-video option. [Initially for Cloudworks/OULDI. Public access.]
 EOT;
   public $displayname = 'YouTube';
   #public $name = 'youtube';

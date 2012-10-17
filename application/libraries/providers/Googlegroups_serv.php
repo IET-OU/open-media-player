@@ -14,7 +14,7 @@ require_once APPPATH.'libraries/Oembed_Provider.php';
 class Googlegroups_serv extends Oembed_Provider {
   public $regex = 'https://groups.google.com/forum/#!forum/*';
   public $about = <<<EOT
-  Embed Google Groups forums on your web site. [Initially for Cloudworks/OLDS-Mooc. Public access.]';
+  Embed Google Groups forums on your web site. [Initially for Cloudworks/OLDS-Mooc. Public access.]
 EOT;
   public $displayname = 'Google Groups';
   #public $name = 'googlegroups';
