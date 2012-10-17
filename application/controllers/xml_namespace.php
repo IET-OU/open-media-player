@@ -9,6 +9,7 @@
  * @example  http://a9.com/-/spec/opensearch/1.1/
  * @example  http://creativecommons.org/ns#Work
  * @example  http://purl.org/steeple
+ * @example  http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul
  * @example  http://embed.open.ac.uk/2012/extend#
  *
  * @link  http://w3.org/TR/REC-xml-names
@@ -35,8 +36,15 @@ class Xml_namespace extends MY_Controller {
 
     $this->_load_layout(self::LAYOUT);
 
+    $view_data = array(
+       'is_ouembed' => $this->_is_ouembed(),
+       'is_live' => $this->_is_live(),
+       'is_demo_page' => FALSE,
+       'is_namespace' => TRUE,
+    );
+
     #echo 'XML Namespace for oEmbed extensions: http://embed.open.ac.uk/2012/extend#';
-    $this->layout->view('about/xmlns_ou_oembed_extend');
+    $this->layout->view('about/xmlns_ou_oembed_extend', $view_data);
   }
 
 }
