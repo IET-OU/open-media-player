@@ -13,9 +13,10 @@ class Oupodcast_serv extends Oembed_Provider {
 
   public $regex = 'http://podcast.open.ac.uk/*/*';
   public $about = <<<EOT
-  Podcast audio and video on topics including study and research at The Open University. Embed podcasts via the OU Media Player. [Public and restricted access.]';
+  Learn at any time with The Open University audio and video podcasts.
+  Embed podcast audio and video on topics including study and research via the OU Media Player. [Public and restricted access.]
 EOT;
-  public $displayname = 'OU Podcast';
+  public $displayname = 'OU Podcasts (beta)';
   public $domain = 'podcast.open.ac.uk';
   public $favicon = 'http://www3.open.ac.uk/favicon.ico';
   public $type = 'video';

@@ -17,7 +17,7 @@ class Ispot_serv extends Oembed_Provider {
   public $about = <<<EOT
   Learn more about wildlife, share your interest with a friendly community and get help identifying what you have seen.
   iSpot is a website aimed at helping anyone identify anything in nature. 
-  Embed observations and maps. [Initially developed for OpenLearn. Public access.]';
+  Use the service to embed observations, observation lists and maps. [Initially developed for OpenLearn. Public access.]
 EOT;
   public $displayname = 'iSpot';
   #public $name = 'ispot';

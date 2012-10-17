@@ -49,7 +49,7 @@ $config['providers'] = array(
 	'openlearn.open.ac.uk' => 'Trackoer',
 	'labspace.open.ac.uk' => 'Trackoer',
 
-	#'ispot.org.uk' => 'Ispot',
+	'ispot.org.uk' => 'Ispot',
 );
 
 
