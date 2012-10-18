@@ -8,6 +8,7 @@
 /* Reset OUICE anomaly.
 */
 body.ouice iframe, .oup-ice-test iframe.oembed, .oup-ice-test iframe.embed-rsp{ X-width:auto; max-width:99%; min-width:400px; }
+body.oup-ice-test.pg-test-podcast_errors iframe{ min-width:auto; }
 
 
 /* Generic page styles.

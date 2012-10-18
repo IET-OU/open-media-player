@@ -8,9 +8,15 @@
 if(!function_exists('t')) {
   function t($s) { return $s; }
 }
+if(!function_exists('base_url')) {
+  function base_url() { return '/'; }
+}
+if (!defined('OUP_JS_CDN_ENDER_MIN')) define('OUP_JS_CDN_ENDER_MIN', '//__NO__js_cdn_ender');
+
 
 $base_url = 'http://podcast.open.ac.uk';
 $target = ' target="_blank" title="'.t('Opens in new window').'"';
+$x_target = '';
 
 
 ?>
@@ -35,7 +41,18 @@ body.size-x-small{ margin:0 0 0 3px; padding:0; font-size:.87em; }
 h2{ margin:1px 0; font-size:1.15em; }
 .searchrow{ float:right; font-size:.8em; height:2em !important; overflow:visible; }
 .searchrow a{ text-align:right; display:block; margin-top:4px; }
-div#ou-org-footer{ margin-top:1px; padding-top:17px; }
+
+body.is-iframe div#ou-org-footer{ /*margin-top:1px; padding-top:17px;*/ background-image:none; }
+.is-iframe #ou-org-footer .ou-c1of4{ width:100%; }
+
+.is-iframe #ou-org-footer .ou-c2of4,
+.is-iframe #ou-org-footer .ou-c3of4,
+.is-iframe #ou-org-footer .ou-phone,
+.is-iframe #ou-org-footer .ou-title,
+.is-iframe #ou-org-footer .ou-copyright .all,
+.is-iframe #ou-org-header .ou-ia-nav { display:none; }
+
+<?php /*
 #ou-org-footer li.ou-phone{ font-size:1.1em; }
 
 .size-small #ou-org-footer{ background:none; }
@@ -44,16 +61,17 @@ div#ou-org-footer{ margin-top:1px; padding-top:17px; }
 
 .size-medium .ou-footer-links .ou-c2of4{ position:relative; left:-21px; }
 .size-medium .ou-footer-links .ou-c3of4{ position:relative; left:-42px; }
+*/ ?>
 </style>
 
-<body class="x-ou-ia-community">
+<body class="ou-ia-community">
 <script>if(typeof window.ou_sitestat=='function')ou_sitestat()</script>
 
 <div id="ou-org-header"> <a class="ou-skip" href="#ou-content">Skip to content</a> <a class="ou-link-ou" href="http://www.open.ac.uk/"<?php echo $target ?>><img src="<?php echo $base_url ?>/includes/headers-footers/oulogo-56.jpg" alt="The Open University" /></a>
   <div class="ou-role-nav">
     <ul>
       <li class="ou-role-accessibility"><a href="http://www.open.ac.uk/accessibility/"<?php echo $target ?>>Accessibility</a></li>
-      <li class="ou-role-signin" id="ou-signin1"><a href="https://msds.open.ac.uk/signon/sams001.aspx" id="ou-signin2">Sign in</a></li>
+      <li class="ou-role-signin" id="ou-signin1"><a href="https://msds.open.ac.uk/signon/sams001.aspx" id="ou-signin2"<?php echo $target ?>>Sign in</a></li>
       <li id="ou-signout" class="ou-role-signout"><a href="https://msds.open.ac.uk/signon/samsoff.aspx" id="ou-signout2">/ Sign out</a></li>
 <?php /*
       <li id="ou-studenthome" class="ou-role-studenthome"><a href="http://www.open.ac.uk/students/" id="ou-studenthome2">StudentHome</a></li>
@@ -67,11 +85,11 @@ div#ou-org-footer{ margin-top:1px; padding-top:17px; }
   </div>
 <div class="ou-ia-nav">
     <ul>
-      <li class="ou-ia-home"><a href="http://www.open.ac.uk/"<?php echo $target ?>>The Open University</a></li>
-      <li class="ou-ia-study"><a href="http://www.open.ac.uk/study/"<?php echo $target ?>>Study at the OU</a></li><?php /*
-      <li class="ou-ia-research"><a href="http://www.open.ac.uk/research/"<?php echo $target ?>>Research at the OU</a></li>
-     */ ?> <li class="ou-ia-community"><a href="http://www.open.ac.uk/community/"<?php echo $target ?>>OU Community</a></li>
-      <?php /*<li class="ou-ia-about"><a href="http://www.open.ac.uk/about/"<?php echo $target ?>>About the OU</a></li>
+      <li class="ou-ia-home"><a href="http://www.open.ac.uk/"<?php echo $x_target ?>>The Open University</a></li>
+      <li class="ou-ia-study"><a href="http://www.open.ac.uk/study/"<?php echo $x_target ?>>Study at the OU</a></li><?php /*
+      <li class="ou-ia-research"><a href="http://www.open.ac.uk/research/"<?php echo $x_target ?>>Research at the OU</a></li>
+     */ ?> <li class="ou-ia-community"><a href="http://www.open.ac.uk/community/"<?php echo $x_target ?>>OU Community</a></li>
+      <?php /*<li class="ou-ia-about"><a href="http://www.open.ac.uk/about/"<?php echo $x_target ?>>About the OU</a></li>
    */ ?> </ul>
   </div>
 </div>
@@ -99,9 +117,9 @@ div#ou-org-footer{ margin-top:1px; padding-top:17px; }
 <div class="ou-grid ou-footer-links">
   <div class="ou-c1of4">
     <ul>
-      <?php /*<li class="ou-title"><a href="http://www.open.ac.uk"<?php echo $target ?>>The Open University</a></li>*/ ?>
-      <li class="ou-copyright">&#169; Copyright <span id="sbyear">2012</span>.<?php /*All rights reserved*/ ?></li>
-      <li class="ou-phone"><!--+44 (0) 8-->0845 300 60 90</li>
+      <li class="ou-title"><a href="http://www.open.ac.uk"<?php echo $x_target ?>>The Open University</a></li>
+      <li class="ou-copyright">&#169; Copyright <span id="sbyear">2012</span>.<span class=all>All rights reserved</span></li>
+      <li class="ou-phone">+44 (0) 8 845 300 60 90</li>
       <li class="ou-email"><a href="http://www.open.ac.uk/email/"<?php echo $target ?>>Email us</a></li>
       <?php /*<li class="ou-study"><a href="http://www.open.ac.uk/study/">Study at the OU</a></li>
       <li class="ou-research"><a href="http://www.open.ac.uk/research/">Research</a></li>
@@ -114,11 +132,11 @@ div#ou-org-footer{ margin-top:1px; padding-top:17px; }
     <ul>
     <?php /*<li class="ou-contact"><a href="http://www.open.ac.uk/contact/">Contact</a></li>
       <li class="ou-search"><a href="http://www.open.ac.uk/search/">Search</a></li>*/ ?>
-      <li class="ou-privacy"><a href="http://www.open.ac.uk/privacy/"<?php echo $target ?>>Website privacy</a></li>
-      <li class="ou-copyright"><a href="http://www.open.ac.uk/copyright/"<?php echo $target ?>>Copyright</a></li>
-      <?php /*<li class="ou-conditions"><a href="http://www.open.ac.uk/conditions/">Conditions of use</a></li>
-      <li class="ou-cymraeg"><a href="http://www.open.ac.uk/cymraeg/">Cymraeg</a></li>
-      <li class="ou-mobile-enquiries">0845 300 60 90</li>*/ ?>
+      <li class="ou-privacy"><a href="http://www.open.ac.uk/privacy/"<?php echo $x_target ?>>Privacy and cookies</a></li>
+      <li class="ou-copyright"><a href="http://www.open.ac.uk/copyright/"<?php echo $x_target ?>>Copyright</a></li>
+      <li class="ou-conditions"><a href="http://www.open.ac.uk/conditions/"<?php echo $x_target ?>>Conditions of use</a></li>
+      <li class="ou-cymraeg"><a href="http://www.open.ac.uk/cymraeg/"<?php echo $x_target ?>>Cymraeg</a></li>
+      <li class="ou-mobile-enquiries">0845 300 60 90</li>
     </ul>
   </div>
   <div class="ou-c3of4">
@@ -134,12 +152,12 @@ div#ou-org-footer{ margin-top:1px; padding-top:17px; }
       <li class="ou-ia-home"><a href="http://www.open.ac.uk/alumni/" class="ou-home">Alumni</a></li>
       <li class="ou-ia-home ou-ia-research ou-ia-about"><a href="http://www.open.ac.uk/jobs/">Jobs</a></li>
       <li class="ou-ia-home"><a href="http://www.open.ac.uk/fundraising/">Donate</a></li>*/ ?>
-      <li class="ou-ia-community"><a href="http://www.open.ac.uk/platform/"<?php echo $target ?>>Platform</a></li>
-      <li class="ou-ia-community"><a href="http://www.open.ac.uk/openlearn/"<?php echo $target ?>>OpenLearn</a></li>
-      <li class="ou-ia-community"><a href="http://www.open.ac.uk/facebook/"<?php echo $target ?>>Facebook</a></li>
-      <?php /*<li class="ou-ia-community"><a href="http://www.open.ac.uk/twitter/">Twitter</a></li>
-      <li class="ou-ia-community"><a href="http://www.open.ac.uk/youtube/">YouTube</a></li>
-      <li class="ou-ia-learning"><a href="http://www.open.ac.uk/students/">StudentHome</a></li>
+      <li class="ou-ia-community"><a href="http://www.open.ac.uk/platform/"<?php echo $x_target ?>>Platform</a></li>
+      <li class="ou-ia-community"><a href="http://www.open.ac.uk/openlearn/"<?php echo $x_target ?>>OpenLearn</a></li>
+      <li class="ou-ia-community"><a href="http://www.open.ac.uk/facebook/"<?php echo $x_target ?>>Facebook</a></li>
+      <li class="ou-ia-community"><a href="http://www.open.ac.uk/twitter/"<?php echo $x_target ?>>Twitter</a></li>
+      <li class="ou-ia-community"><a href="http://www.open.ac.uk/youtube/"<?php echo $x_target ?>>YouTube</a></li>
+      <?php /*<li class="ou-ia-learning"><a href="http://www.open.ac.uk/students/">StudentHome</a></li>
       <li class="ou-ia-learning"><a href="http://www.open.ac.uk/skillsforstudy/">Learning Support</a></li>
       <li class="ou-ia-learning"><a href="http://library.open.ac.uk/">Library</a></li>*/ ?>
     </ul>
@@ -170,15 +188,17 @@ $.domReady(function(){
   //, large = 'size-large'
   ;
   function oup_check_size(){
-	if (body.width() <= 360) {
+	if (body.width() <= 370/*360*/) {
 		body.addClass(xsmall).removeClass(small).removeClass(medium);
 	} else if (body.width() <= 480) {
 		body.removeClass(xsmall).addClass(small).removeClass(medium);
 	} else {
 		body.removeClass(xsmall).removeClass(small).addClass(medium);
 	}
-	//console.log('> check_size, width px: '+body.width());
-	//$.log('>> check_size, width px: '+body.width());
+	body.addClass(window == window.top ? 'not-iframe' : 'is-iframe');
+
+<?php //console.log('> check_size, width px: '+body.width());
+	//$.log('>> check_size, width px: '+body.width()); ?>
   };
   $(window).resize(oup_check_size);
   oup_check_size();
