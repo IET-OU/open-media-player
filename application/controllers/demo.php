@@ -53,7 +53,7 @@ class Demo extends MY_Controller {
         $view_data = array(
             'is_ouembed' => true,
             'is_live' => $this->_is_live(),
-            'header' => t('OU Embeds'),
+            'page_title' => t('OU/ OULDI Embeds'),
             'req' => $this->_request,
             'resource_url' => 'http://www8.open.ac.uk/',
         );

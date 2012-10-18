@@ -10,15 +10,16 @@
   $base_url = site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
   $is_player_site = TRUE;
+  $page_title = isset($page_title) ? $page_title : t('OU Media Player');
 
   $body_classes = 'ou-ia-community ou-sections oup-ice-test ';
 
   $path = str_replace('/', '-', $this->uri->uri_string());
   $body_classes .= '-'==$path ? 'pg-player-home' : 'pg-'. $path;
-  
+
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta charset="utf-8" /><title>OU Media Player - Open University</title>
+<meta charset="utf-8" /><title><?php echo $page_title ?> - The Open University</title>
 <meta name="ROBOTS" content="noindex,nofollow" />
 
 <meta name="description" content="Open University is the UK's largest university for part-time higher education..." />
@@ -206,7 +207,7 @@ div.teasers ul li:last-child a {border-right:none;}
 <?php endif; ?>
 
 
-    <h1><?php echo isset($header) ? $header : 'OU Media Player' ?></h1>
+    <h1><?php echo $page_title ?></h1>
 
 
 <?php echo $content_for_layout ?>
