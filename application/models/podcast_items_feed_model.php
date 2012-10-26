@@ -143,6 +143,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		  'poster_url' => $this->_xpath_val($xpath_item .'/media:thumbnail', 'url'),
 
 		  'transcript_url' => $this->_xpath_val($xpath_item .'/atom:link[@type="application/pdf"]', 'href'),
+		  'transcript_html_url' => $this->_xpath_val($xpath_item .'/atom:link[@type="text/html"][@rel="oup:transcript"]', 'href'),
 		  'caption_url' => $this->_xpath_val($xpath_item .'/atom:link[@type="application/ttml+xml"]', 'href'), #?
 
 		  '_track_md5' => $shortcode,
