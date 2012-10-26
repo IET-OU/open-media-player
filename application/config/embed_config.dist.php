@@ -60,8 +60,8 @@ $config['player_embed_code'] = NULL;
 | OUVLE Player configuration.
 */
 // Optional/VLE: regular expression for media_url, for OUVLE and OpenLearn players.
-// If used, must contain one (ext1|ext2..) group.
-//$config['media_url_regex'] = '/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/';
+// If used, must contain (ext1|ext2..) as the second matching group.
+//$config['media_url_regex'] = '/.open.ac.uk(\:\d+)?\/.*\.(mp4|m4v|flv|mp3)[\/\?]?/'; //No '$' at the end.
 
 // Required/VLE/experimental: array of names of session cookies to pass on for caption/subtitle proxy requests (Bug #1334).
 //$config['httplib_proxy_cookies'] = array('cookiename1', 'cookiename2', '..');

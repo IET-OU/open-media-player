@@ -141,14 +141,16 @@ class Embed extends MY_Controller {
     //TODO: Need to tighten back up for production (Was: '/learn.open.ac.uk../')
     $media_url_regex = $this->config->item('media_url_regex');
     if (! $media_url_regex) {
-      $media_url_regex = '/.open.ac.uk\/.*\.(mp4|m4v|flv|mp3)$/';
+      $media_url_regex = '/.open.ac.uk(\:\d+)?\/.*\.(mp4|m4v|flv|mp3)[\/\?]?/'; //No '$' at the end.
     }
+    $this->_debug($media_url_regex);
+
     if (preg_match($media_url_regex, $player->media_url, $ext)) {
       // Codecs? http://wiki.whatwg.org/wiki/Video_type_parameters
       $opts = array('mp4'=>'video/mp4', 'm4v'=>'video/mp4', 'flv'=>'video/flv', 'mp3'=>'audio/mpeg');
-      $player->mime_type = $opts[$ext[1]];
+      $player->mime_type = $opts[$ext[2]];
       $player->media_type = substr($player->mime_type, 0, 5);
-      $player->media_html5= 'flv'!=$ext[1];
+      $player->media_html5 = ('flv' != $ext[2]);
     } else {
       $this->_error("'media_url' is a required parameter. (Accepts URLs ending mp4, flv and mp3.)", 400);
     }
