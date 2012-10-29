@@ -19,8 +19,13 @@ h1 {
 	font-size:1.2em;
 	margin:0.2em 0;
 }
-
-
+.error {
+	color:#a00;
+	}
+.error em{
+	font-style:normal;
+	font-weight:bold;
+	}
 
 
 /*Accessibility: at least set a border in high-contrast/ignore colour mode.
@@ -40,8 +45,10 @@ h1 {
 	left:0;
 	right:0;
 	width:auto;
+	height:auto;
 	/*height:100% !important; /* Why 99% ?? */
 	}
+
 .mejs-container .mejs-controls {
 	position:fixed; /*Not absolute. */
 	/*background: none;*/
@@ -113,12 +120,12 @@ h1 {
 */
 /*.mejs-container .mejs-controls*/ .mejs-title-panel {
 	background: #f8f8f8;
-	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.85)), to(rgba(200,200,200,0.85))); /* Saf4+, Chrome */
-	background:-webkit-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* Chrome 10+, Saf5.1+ */
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0.99)), to(rgba(200,200,200,0.99))); /* Saf4+, Chrome */
+	background:-webkit-linear-gradient(top, rgba(255,255,255,0.83), rgba(200,200,200,0.9)); /* Chrome 10+, Saf5.1+ */
 	background:   -moz-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* FF3.6+ */
 	background:    -ms-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* IE10 */
 	background:     -o-linear-gradient(top, rgba(255,255,255,0.8), rgba(200,200,200,0.85)); /* Opera 11.10+ */
-	background:        linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.85));  /* W3C */
+	background:        linear-gradient(rgba(255,255,255,0.99), rgba(200,200,200,0.99));  /* W3C */
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#FFFFFF,endColorstr=#C8C8C8);
 
 	position:absolute;

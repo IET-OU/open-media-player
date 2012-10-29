@@ -71,7 +71,16 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   enablePluginDebug: true,
 <?php endif; ?>
 
-  success: function(mediaElement, domObject) {
+  success: function(media, node, player) {
+	var events = ['loadstart', 'play', 'pause', 'ended', 'error'];
+	for (var i=0, il=events.length; i<il; i++) {
+		media.addEventListener(events[i], function (e) {
+
+			$.oup_error_handler(e, '#oup-noscript', player);
+
+		});
+	}
+
 <?php #if (! $this->agent->is_browser('Opera')): ?>
 	$('#oup-noscript').addClass('hide');
     $.log("MEP/OUP: success, hiding #oup-noscript.");

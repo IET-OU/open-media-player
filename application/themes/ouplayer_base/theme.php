@@ -71,6 +71,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     # OU Player extensions.
       $oups_base.'mep-oup-header.js',
       $oups_base.'mep-oup-feature-shim.js',
+      $oups_base.'mep-oup-feature-error.js',
       $oups_base.'mep-oup-feature-tracks-shim.js',
       $oups_base.'mep-oup-feature-playpause.js',
       $oups_base.'mep-oup-feature-progress.js',
