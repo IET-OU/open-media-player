@@ -61,6 +61,7 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
   border: solid 2px #444;
   background: #f4f4f4;
 }
+/*-*/
 </style>
 
 <body role="application" class="mode-<?php echo $mode ?>">
@@ -95,6 +96,9 @@ $(document).ready(function($){
     enableKeyboard:false,
 
     alwaysShowControls: true,
+
+    // path to Flash and Silverlight plugins
+    pluginPath: '<?php echo $base_url ?>/build/'
 
   });
 });
