@@ -60,9 +60,9 @@ class Gitlib {
         $result['version'] = preg_replace('/(\d)-(\w+)-(\d+)-g/', '\1.\3/\2-g', $result['describe']);
         // http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repo-was-originally-pulled-from
         $result['origin'] = rtrim($this->_exec('config --get remote.origin.url'), "\r\n");
-        $result['origin url'] = str_replace(array('git@', 'com:'), array('https://', 'com/'), $result['origin']);
-        $result['agent'] = basename(__FILE__);
-        $result['git'] = rtrim($this->_exec('--version'), "\r\n ");
+        #$result['origin url'] = str_replace(array('git@', 'com:'), array('https://', 'com/'), $result['origin']);
+        #$result['agent'] = basename(__FILE__);
+        #$result['git'] = rtrim($this->_exec('--version'), "\r\n ");
 
         $bytes = file_put_contents(self::$REVISION_FILE, json_encode($result));
 
