@@ -59,38 +59,39 @@ The [jQuery-oEmbed plugin][ouplayer-jquery] is used on Embed.open.ac.uk
 
 A simple HTML example:
 
-    &lt;a class=embed href="http://podcast.open.ac.uk/..">A video&lt;/a>
+	<a class=embed href="http://podcast.open.ac.uk/..">A video</a>
 	
-	&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">&lt;/script>
-	&lt;script src="http://embed.open.ac.uk/scripts/jquery.oembed.js">&lt;/script>
-	&lt;script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="http://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
+	<script>
 	$(document).ready(function () {
-      $("a.embed").oembed();
+	  $("a.embed").oembed();
 	});
-	&lt;/script>
+	</script>
+
 
 An example with a custom parameter (`theme: oup-light`):
 
-    &lt;script>
+	<script>
 	$(document).ready(function () {
-      $("a.embed").oembed(null, {
+	  $("a.embed").oembed(null, {
 	    oupodcast: {
 		  theme: "oup-light"
 		}
 	  });
 	});
-	&lt;/script>
+	</script>
 
 
-### `<iframe>` ###
+### Iframe ###
 
 
-    &lt;iframe
+	<iframe
 	 allowfullscreen mozAllowfullscreen webkitAllowfullscreen
 	 src="http://mediaplayer-dev.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?theme=oup-light"
 	>
-	&lt;/iframe>
-```
+	</iframe>
+
 
 
 
