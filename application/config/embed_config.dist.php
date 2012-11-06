@@ -51,6 +51,9 @@ $config['player_restricted_poster_url'] = '/themes/ouplayer_base/pix/locked-vide
 // Optional/Podcast. One of NULL, 'iframe' or 'jquery-oembed' (default: NULL)
 $config['player_embed_code'] = NULL;
 
+// Optional/ OU-embed only.
+//$config['player_oembed_endpoint'] = 'http://mediaplayer.open.ac.uk/oembed';
+
 // (Alternative/Podcast. Required for database access model. No trailing '/')
 //$config['podcast_media_base'] = 'http://example.org/feeds';
 

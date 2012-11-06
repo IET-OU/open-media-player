@@ -56,7 +56,7 @@ class Scripts extends MY_Controller {
 
 		  $name = $this->provider->getName();
 		  $type = $this->provider->getType();
-		  $oembed_url = isset($props->_endpoint_url) ? $props->_endpoint_url : $local_oembed_url;
+		  $oembed_url = isset($props->_oembed_endpoint) ? $props->_oembed_endpoint : $local_oembed_url;
 		  $comment = isset($props->_comment) ? " /*IMPORTANT: $props->_comment */" : '';
 		} else {
 		  # Legacy.

@@ -37,7 +37,7 @@ EOT;
     '_OEM'=>'/oembed?url=http%3A//podcast.open.ac.uk/pod/vc-message-to-staff%23!746ee92293',
   );
   public $_access = 'public';
-  protected $_comment = 'this will be deprecated in favour of http://mediaplayer.open.ac.uk';
+  protected $_comment = 'This endpoint will be deprecated in favour of http://mediaplayer.open.ac.uk [live]';
 
   //NDF: const POD_BASE = 'http://podcast.open.ac.uk';
 
@@ -52,6 +52,13 @@ EOT;
         // Or the original database model.    
         $this->CI->load->model('podcast_items_model');
         $method = 'db';
+      }
+
+      $endpoint = $this->CI->config->item('player_oembed_endpoint');
+      if ($endpoint) {
+        $this->_endpoint_url = $endpoint;
+        //$this->_comment = NULL;
+        @header('X-Ouplayer-Endpoint: '. $endpoint);
       }
       @header('X-Podcast-Data: '.$method);
   }

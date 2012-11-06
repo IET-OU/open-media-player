@@ -37,8 +37,8 @@ abstract class Oembed_Provider implements iService {
 
   public $_access = 'public';	# public|private|unpublished|external (Also 'maturity'..?)
 
-  protected $_endpoint_url;
-  protected $_comment;
+  protected $_endpoint_url;		# oEmbed endpoint for 'external' providers, eg. iSpot.
+  protected $_comment;			# Single-line comment aimed at developers.
 
 
 /* JSON: http://api.embed.ly/1/services [
@@ -120,7 +120,7 @@ abstract class Oembed_Provider implements iService {
     }
     $props->about = str_replace(array('  ', "\r"), '', $props->about);
     if (isset($this->_endpoint_url)) {
-      $props->_endpoint_url = $this->_endpoint_url;
+      $props->_oembed_endpoint = $this->_endpoint_url;
     }
     if (isset($this->_comment)) {
       $props->_comment = $this->_comment;
