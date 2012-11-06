@@ -1,6 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Extend the default CI Input class, to support mixed-format URIs eg. 
+ * Extend the default CI Input class, to support mixed-format URIs  (iet-it-bugs:1378).
+ * Primarily to support Drupal consumers and custom oEmbed parameters.
+ * Eg.
  *
  *   /[Controller]/ex/name1:value1/name2:value2/...?name3=value3&..
  *   /oembed/ex/theme:oup-light/...?url=http://..
@@ -8,7 +10,7 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 27 July 2012.
  */
-ini_set('display_errors', 1);
+#ini_set('display_errors', 1);
 
 
 class MY_Input extends CI_Input {
@@ -40,14 +42,18 @@ class MY_Input extends CI_Input {
 			parse_str($uri_ex, $this->_expath);
 
 			ini_set('arg_separator.input', $orig_sep);
-			var_dump($orig_sep);*/
+			*/
 
-			$uri_ex = str_replace(array($delimiter, $pair_delimiter), array('=', '&'), $uri_ex);
+			#$uri_ex = str_replace(array($delimiter, $pair_delimiter), array('=', '&'), $uri_ex);
+			$uri_ex = strtr($uri_ex, array(
+				$delimiter => '=',
+				urlencode($delimiter) => '=',
+				strtolower(urlencode($delimiter)) => '=',
+				$pair_delimiter => '&',
+			));
 
 			parse_str($uri_ex, $this->_expath);
 		}
-
-		#var_dump($this->_expath, $_GET, $uri_ex);
 	}
 
 	/**
