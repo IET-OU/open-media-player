@@ -37,6 +37,7 @@ EOT;
     '_OEM'=>'/oembed?url=http%3A//podcast.open.ac.uk/pod/vc-message-to-staff%23!746ee92293',
   );
   public $_access = 'public';
+  protected $_comment = 'this will be deprecated in favour of http://mediaplayer.open.ac.uk';
 
   //NDF: const POD_BASE = 'http://podcast.open.ac.uk';
 
@@ -101,7 +102,8 @@ EOT;
 	  $this->_post_process($player);
 
 	  $this->CI->firephp->fb($player, 'player', 'LOG');
-
+$this->CI->_debug($player);
+#var_dump($player); exit;
       return $player;
   }
 

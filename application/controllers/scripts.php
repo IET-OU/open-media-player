@@ -57,6 +57,7 @@ class Scripts extends MY_Controller {
 		  $name = $this->provider->getName();
 		  $type = $this->provider->getType();
 		  $oembed_url = isset($props->_endpoint_url) ? $props->_endpoint_url : $local_oembed_url;
+		  $comment = isset($props->_comment) ? " /*IMPORTANT: $props->_comment */" : '';
 		} else {
 		  # Legacy.
 		$name = strtolower($provider['name']);
@@ -65,7 +66,7 @@ class Scripts extends MY_Controller {
 		$regex = '"'.str_replace('.', '\.', $domain).'"';
 		$script_prov .= "\t\t"
         //   ."new OEmbedProvider('ouplayer', '$domain', '$oembed_url'),".PHP_EOL;
-             ."new \$.fn.oembed.OEmbedProvider('$name', '$type', [$regex], '$oembed_url'),".PHP_EOL;
+             ."new \$.fn.oembed.OEmbedProvider('$name', '$type', [$regex], '$oembed_url'),$comment".PHP_EOL;
       }
 
 	  // http://code.google.com/p/oohembed/issues/detail?id=14
