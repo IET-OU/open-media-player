@@ -11,7 +11,12 @@
 */
 
 $platforms = array (
-					'windows nt 6.0'	=> 'Windows Longhorn',
+//ou-specific
+					'windows nt 6.2'	=> 'Windows 8',
+					'windows nt 6.1'	=> 'Windows 7',
+					'windows nt 6.0'	=> 'Windows Vista',
+					#'windows nt 6.0'	=> 'Windows Longhorn',
+//ou-specific ends.
 					'windows nt 5.2'	=> 'Windows 2003',
 					'windows nt 5.0'	=> 'Windows 2000',
 					'windows nt 5.1'	=> 'Windows XP',
@@ -24,6 +29,13 @@ $platforms = array (
 					'windows 95'		=> 'Windows 95',
 					'win95'				=> 'Windows 95',
 					'windows'			=> 'Unknown Windows OS',
+//ou-specific: Adding mobiles.
+					'android'			=> 'Android',
+					'blackberry'		=> 'BlackBerry',
+					'iphone'			=> 'iOS',
+					'ipad'				=> 'iOS',
+					'ipod'				=> 'iOS',
+//ou-specific ends.
 					'os x'				=> 'Mac OS X',
 					'ppc mac'			=> 'Power PC Mac',
 					'freebsd'			=> 'FreeBSD',
@@ -126,6 +138,9 @@ $mobiles = array(
 					'sendo'				=> "Sendo",
 
 					// Operating Systems
+//ou-specific
+					'android'		=> 'Android',
+
 					'symbian'				=> "Symbian",
 					'SymbianOS'				=> "SymbianOS",
 					'elaine'				=> "Palm",
