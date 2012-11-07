@@ -32,6 +32,24 @@ class MY_User_agent extends CI_User_agent {
     return $res;
   }
 
+  /** Return a short code, indicating the platform/ operating system.
+  * @return string 'win', 'osx', 'ios', 'android'..
+  */
+  public function platform_code() {
+    $platform = $this->platform();
+    $pres = 'yy'; # Unknown/ other.
+    if (FALSE !== strpos($platform, 'Windows')) {
+      $pres = 'win';
+    }
+    elseif ('Mac OS X' == $platform) {
+      $pres = 'osx';
+    }
+    else {
+      $pres = strtolower(str_replace(array(' ', '/'), '', $platform));
+    }
+    return $pres;
+  }
+
   /**
    * Return the first acceptable language for the user (browser), from an input list of supported languages.
    *
