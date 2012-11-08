@@ -12,7 +12,7 @@ Flowplayer:  <body role="application" id="ouplayer" class=
   style="cursor: default">*/ ?>
 
 <div id="oup-noscript">
-  <p class="msg"><?php echo t('Your browser appears to have Javascript disabled, or there has been an error.') ?>
+  <p class="msg"><?php echo t('Sorry, your browser appears to have Javascript disabled, or there has been an error.') ?>
   <a href="<?php echo $params->media_url ?>"><?php
   echo 'video'==$params->media_type ? t('Download video file') : t('Download audio file') ?></a>
   <h1><?php echo $params->title ?></h1>

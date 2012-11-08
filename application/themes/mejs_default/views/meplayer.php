@@ -64,6 +64,11 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 /*-*/
 </style>
 
+<?php
+  // Google/ ComScore analytics (from the legacy player).
+  $this->load->view('ouplayer/oup_analytics');
+?>
+
 <body role="application" class="mode-<?php echo $mode ?>">
 
 <?php if ('video'==$params->media_type): ?>
@@ -71,7 +76,7 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 <?php else: ?>
 <audio
 <?php endif; ?>
- id="player1" <?php if ('video'==$params->media_type): ?>width="640" height="360"<?php else: ?>width="380"<?php endif; ?>
+ id="player1" <?php #if ('video'==$params->media_type): ?>width="99%" height="100%"<?php /*else: ?>width="380"<?php endif;*/ ?>
  src="<?php echo $params->media_url ?>" type="<?php echo $params->mime_type; #video/mp4 ?>"
  controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>
 >

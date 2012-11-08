@@ -122,6 +122,7 @@ class MY_Controller extends CI_Controller {
   /** Initialize the player, including the theme (Embed and Popup controllers).
   */
   protected function _player_init() {
+	$this->load->library('user_agent');
 
 	// Support extended MY_Input::get.
 	$this->_request->theme = $this->input->get(OUP_PARAM_THEME);
@@ -150,11 +151,17 @@ class MY_Controller extends CI_Controller {
 	}
 
 	// For MSIE <= 6.5, downgrade the theme to 'basic' aka 'noscript'!
-	$this->load->library('user_agent');
 	if ($this->agent->is_browser('Internet Explorer') && $this->agent->version() < 7) {
 		header('X-OUP-Requested-Theme: '.$this->_theme->name);
 		$this->_theme = (object) $themes['basic'];
 		$this->_theme->name = 'basic';
+	}
+
+	// Mobiles, tablets, Android, iOS etc. - use MediaElement default..?
+	if ($this->agent->is_mobile()) {
+		@header('X-OUP-Requested-Theme: '.$this->_theme->name);
+		$this->_theme = (object) $themes['mejs-default'];
+		$this->_theme->name = 'mejs-default';
 	}
   }
 
