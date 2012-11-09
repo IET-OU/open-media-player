@@ -158,10 +158,11 @@ class MY_Controller extends CI_Controller {
 	}
 
 	// Mobiles, tablets, Android, iOS etc. - use MediaElement default..?
-	if ($this->agent->is_mobile()) {
+	$mobile_theme = $this->config->item('player_mobile_theme');
+	if ($mobile_theme && $this->agent->is_mobile()) {
 		@header('X-OUP-Requested-Theme: '.$this->_theme->name);
-		$this->_theme = (object) $themes['mejs-default'];
-		$this->_theme->name = 'mejs-default';
+		$this->_theme = (object) $themes[$mobile_theme];
+		$this->_theme->name = $mobile_theme;
 	}
   }
 

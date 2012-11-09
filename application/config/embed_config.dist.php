@@ -134,6 +134,7 @@ $config['player_docs'] = array(
 | OU Player themes.
 */
 $config['player_default_theme'] = 'oup-light';
+$config['player_mobile_theme'] = 'mejs-default';
 
 $config['player_themes'] = array(
   // 'New' 2012 Mediaelement-based themes.
