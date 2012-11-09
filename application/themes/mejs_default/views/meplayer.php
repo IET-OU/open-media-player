@@ -71,12 +71,25 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 
 <body role="application" class="mode-<?php echo $mode ?>">
 
+<?php
+  // Video/ audio height. (iet-it-bugs:1414)
+  // (Can't use '100%' - Ender/jeesh chokes on .parent(), .width() or el.style)
+  // (Mediaelement.js seems to choke on <audio.. style="height:100%"> in MSIE)
+  $size_attr = 'height="360"';
+  $size_style= 'style="width:100%;"';
+
+  if ('jquery' == $this->theme->jslib) {
+    $size_attr = 'width="100%" height="100%"';
+    $size_style= '';
+  }
+?>
+
 <?php if ('video'==$params->media_type): ?>
 <video
 <?php else: ?>
 <audio
 <?php endif; ?>
- id="player1" <?php #if ('video'==$params->media_type): ?>width="99%" height="100%"<?php /*else: ?>width="380"<?php endif;*/ ?>
+ id="player1" <?php echo $size_attr ?> <?php echo $size_style ?>
  src="<?php echo $params->media_url ?>" type="<?php echo $params->mime_type; #video/mp4 ?>"
  controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>
 >

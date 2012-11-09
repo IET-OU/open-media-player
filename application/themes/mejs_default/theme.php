@@ -80,7 +80,7 @@ class Mejs_Default_Theme extends Player_Theme {
       $this->jslib = $this->CI->config->item('jslib');
     }
 
-    if ($this->CI->agent->is_browser('MSIE')) {
+    if ($this->CI->agent->is_browser('MSIE') || $this->CI->agent->is_mobile()) {
       // Safer for MSIE 8 - is it? (Fullscreen hover JS feature.)
       $this->jslib = 'jquery';
     }
