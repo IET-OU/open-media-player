@@ -1,6 +1,11 @@
 # ouplayer httpd config.
 
 
+<IfModule mod_access_sams.c>
+    DISABLE_SAMS
+</IfModule>
+
+
 # Deny OR Allow Folder Indexes.
 # Since we disable access to PHP files you
 # can leave this on without worries.
