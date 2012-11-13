@@ -20,7 +20,7 @@
 
   //scrolling='no' - ?
   $html =<<<EOF
-<iframe class='ou player podcast oembed $meta->media_type $theme' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+<iframe class='ou player podcast oembed $meta->media_type $theme $meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
  width='$meta->width' height='$meta->height' frameborder='0' scrolling='no' style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
@@ -55,8 +55,8 @@ EOF;
         'provider_url' => $pod_base,
         'title'  => $meta->title,
         //'author_name'=>$meta->author, 'author_url' =>null,
-        'width'  => $width,
-        'height' => $height,
+        'width'  => $meta->width,
+        'height' => $meta->height,
         'html'   => $html, #'embed_type'=> 'application/x-shockwave-flash',
         'thumbnail_url'=> $meta->poster_url, #thumbnail or poster.
         '__duration'=>$meta->duration,
