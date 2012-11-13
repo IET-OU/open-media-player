@@ -5,10 +5,12 @@
 * @author N.D.Freear, 26 July 2012.
 */
 
-  $base_url = base_url() .'application/engines/mediaelement/';
+  $engine_path = 'application/engines/mediaelement/';
+  $base_url = base_url() . $engine_path;
+
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta charset="utf-8" /><title> | MediaElement player</title>
+<meta charset="utf-8" /><title><?php echo $params->title ?> | <?php //MediaElement ?>OU Player*</title>
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5-els.js"></script>
 <![endif]-->
@@ -17,7 +19,16 @@
 <link rel="generator" content="MediaElement.js" href="http://mediaelementjs.com/" />
 <link rel="license" title="MediaElement.js License: GPLv2/MIT" href="https://github.com/johndyer/mediaelement#readme" />
 
-<script src="<?php echo $base_url ?>build/jquery.js"></script>
+<!--
+ CDN + fallback: jQuery.
+-->
+<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
+<script>
+if(typeof jQuery=='undefined'){
+  document.write(unescape("%3Cscript src='<?php player_res_url($this->theme->plugin_path .'jquery.js') ?>' %3E%3C/script%3E"));
+  CDN_fallback = true;
+}
+</script>
 <?php
   if ($this->config->item('debug') > OUP_DEBUG_MIN):
 	foreach ($this->theme->javascripts as $js_file): ?>
@@ -29,10 +40,10 @@
 <script src="<?php player_res_url($this->theme->js_min) ?>"></script>
 <?php endif; ?>	
 
-<?php if ($this->config->item('debug')): ?>
-<link rel="stylesheet" href="<?php echo $base_url ?>src/css/mediaelementplayer.css" />
+<?php if ($this->config->item('debug') > OUP_DEBUG_MIN): ?>
+<link rel="stylesheet" href="<?php player_res_url($engine_path . 'src/css/mediaelementplayer.css') ?>" />
 <?php else: ?>
-<link rel="stylesheet" href="<?php echo $base_url ?>build/mediaelementplayer.min.css" />
+<link rel="stylesheet" href="<?php player_res_url($engine_path . 'build/mediaelementplayer.min.css') ?>" />
 <?php endif; ?>
 
 <style>
@@ -42,8 +53,8 @@ body.mode-embed{ margin:0; background:transparent; }
 body.mode-popup{ margin:0; background:#f8f8f8; }
 .mejs-container{ margin:0 auto; }
 
-.mode-embed .mejs-container.mejs-audio{ position:fixed; bottom:0; }
-.mode-popup .mejs-container.mejs-audio{ margin-top:20px; }
+.XX-mode-embed .mejs-container.mejs-audio{ position:fixed; bottom:0; }
+.XX-mode-popup .mejs-container.mejs-audio{ margin-top:20px; }
 
 
 /*Accessibility: allow keyboard focus. */
@@ -116,7 +127,7 @@ $(document).ready(function($){
     alwaysShowControls: true,
 
     // path to Flash and Silverlight plugins
-    pluginPath: '<?php echo $base_url ?>/build/'
+    pluginPath: '<?php echo $base_url ?>build/'
 
   });
 });
