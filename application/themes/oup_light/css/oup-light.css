@@ -12,7 +12,7 @@ a {
 	color:#1f536b;
 	text-decoration:none;
 }
-a:hover, a:focus {
+a:hover, a:focus, .error a, #oup-noscript a  {
 	text-decoration:underline;
 }
 
