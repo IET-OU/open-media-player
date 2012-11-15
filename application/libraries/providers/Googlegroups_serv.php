@@ -8,7 +8,6 @@
  * @link http://iet-it-bugs.open.ac.uk/node/1407
  * @link http://dl.dropbox.com/u/3203144/cloudworks.ac.uk-mooc-groups.html
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Googlegroups_serv extends Oembed_Provider {

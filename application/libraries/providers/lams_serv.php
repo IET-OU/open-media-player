@@ -8,7 +8,6 @@
  * @author N.D.Freear, 24-Feb-2011 on.
  * @copyright Copyright 2011 The Open University.
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Lams_serv extends Oembed_Provider {

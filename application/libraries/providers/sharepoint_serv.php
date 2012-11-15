@@ -5,7 +5,6 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 4 July 2012.
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Sharepoint_serv extends Oembed_Provider {

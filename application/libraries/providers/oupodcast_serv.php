@@ -5,7 +5,6 @@
  * @copyright Copyright 2011 The Open University.
  * @author N.D.Freear, 3 March 2011.
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 require_once APPPATH.'libraries/ouplayer_lib.php';
 
 

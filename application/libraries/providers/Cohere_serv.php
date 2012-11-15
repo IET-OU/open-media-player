@@ -10,7 +10,6 @@
  * @link https://wahoo.open.ac.uk/svn/repos/olnet/trunk/sites/all/modules/custom/ci_oembed/ci_oembed.providers.inc : ci_oembed_cohere(), lines 14-84 (6.x-0.1-dev)
  * Also, http://olnet.org/node/142 | http://olnet.org/ci/demo | http://olnet.org/oembed
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Cohere_serv extends Oembed_Provider {

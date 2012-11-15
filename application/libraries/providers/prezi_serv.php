@@ -5,7 +5,6 @@
  * @copyright Copyright 2011 The Open University.
  * @author N.D.Freear, 1-23 March 2011.
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Prezi_serv extends Oembed_Provider {

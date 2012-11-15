@@ -4,7 +4,6 @@
  *
  * @copyright Copyright 2012 The Open University.
  */
-require_once APPPATH.'libraries/Oembed_Provider.php';
 
 
 class Youtube_serv extends Oembed_Provider {
