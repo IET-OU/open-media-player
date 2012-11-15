@@ -29,5 +29,6 @@ application/language/*.pot
 blog/*
 drupal/*
 _docs/*
+_data/*
 
 # *min.js
