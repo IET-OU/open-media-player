@@ -76,6 +76,8 @@ h1 {
 	bottom:22px;
 	}
 
+.ua-ie9 .mejs-container .mejs-layer, .ua-ie9 video{ position:fixed; width:100% !important; height:100%; /*top:0; bottom:0; left:0; right:0 !important; border:1px solid red;*/ }
+
 #oup-noscript	{
 	position:absolute; 
 	background:#f8f8f8;
