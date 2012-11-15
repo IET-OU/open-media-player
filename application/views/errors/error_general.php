@@ -19,6 +19,13 @@ $target = ' target="_blank" title="'.t('Opens in new window').'"';
 $x_target = '';
 
 
+// Catch commandline 404 errors.
+$CI =& get_instance();
+if ($CI->input->is_cli_request()) {
+    fprintf(STDERR, "Error, $message".PHP_EOL);
+    exit (1);
+}
+
 ?>
 <!doctype html><html lang="en"><meta charset=utf-8 />
   <title><?php echo $heading ?> - The Open University</title>

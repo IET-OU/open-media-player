@@ -20,6 +20,7 @@ function json_encode_bare($obj) {
 /**
 * Output the URL for a Player-engine or theme resource.
 * Note, the URL is HTTP/SSL-neutral (//host/path) and contains a hash/version ID.
+* @link http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml#Protocol
 * @return string
 */
 function player_res_url($path) {
