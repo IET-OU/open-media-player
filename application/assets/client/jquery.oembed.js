@@ -167,7 +167,9 @@
         if (!isNullOrEmpty(settings.customProviders)) {
             $.each(settings.customProviders, function (n, customProvider) {
                 if (customProvider instanceof $.fn.oembed.OEmbedProvider) {
-                    activeProviders.push(provider);
+//ou-specific: Bug fix.
+                    //activeProviders.push(provider);
+                    activeProviders.push(customProvider);
                 } else {
                     provider = new $.fn.oembed.OEmbedProvider();
                     if (provider.fromJSON(customProvider))
