@@ -15,7 +15,7 @@ class Services extends MY_Controller {
 
   /** Output JSON/ JSON-P.
   */
-  public function index() {
+  public function index($return = FALSE) {
 	@header('Content-Disposition: inline; filename=ouplayer-ou-embed-services.json');
 
     // JSON-P callback: security. Only allow eg. 'Object.func_CB_1234'
@@ -32,9 +32,21 @@ class Services extends MY_Controller {
 
       # New (#1356)
       $this->load->oembed_provider($provider);
+      $name = $this->provider->getName();
 
       // Use the 'name' to filter duplicates, then call 'array_values' below.
-      $services[$this->provider->getName()] = $this->provider->getProperties();
+      $services[$name] = $this->provider->getProperties();
+
+      if ('oupodcast' == $provider) {
+        require_once APPPATH .'libraries/ouplayer_lib.php';
+
+        $player = new Podcast_player();
+        $services[$name]->_sizes = $player->get_sizes();
+      }
+    }
+
+    if ($return) {
+      return $services;
     }
 
 

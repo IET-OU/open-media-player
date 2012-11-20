@@ -49,6 +49,15 @@ abstract class Base_player {
   public $_extend; #Odds and ends?
 
 
+  /** Get a list of sizes, suitable for the Services controller.
+  */
+  public function get_sizes() {
+	$sizes = self::$video_sizes;
+	$sizes['default'] = array('width'=>self::DEF_WIDTH, 'height'=>self::DEF_HEIGHT, 'label'=>'default');
+	#$sizes['audio']
+	return array('video' => array_values($sizes));
+  }
+
   /** calc_size: Calculate the appropriate size for the Player oEmbed response.
   */
   public function calc_size($width, $height, $audio_poster=false) {

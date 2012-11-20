@@ -28,4 +28,23 @@ class About extends MY_Controller {
 	$this->layout->view('about/about', $view_data);
   }
 
+
+  /**
+  * @link http://embed.ly/providers
+  */
+  public function providers() {
+    $this->_load_layout(self::LAYOUT);
+
+    $this->load->library('../controllers/services');
+	$services = $this->services->index($return = TRUE);
+
+	$view_data = array(
+		'is_ouembed' => $this->_is_ouembed(),
+		'is_live' => $this->_is_live(),
+		'page_title' => 'Providers',
+		'services' => $services,
+		'embedly' => $this->input->get('embedly'),
+	);
+	$this->layout->view('about/providers_list', $view_data);
+  }
 }
