@@ -112,21 +112,24 @@ This is the suggested syntax for a direct embed using a HTML5 `<iframe>` -- [exa
 	 frameborder="0"
 	 src="http://mediaplayer-dev.open.ac.uk/embed/pod/student-experiences/db6cc60d6b"
 	 allowfullscreen
-	 mozAllowfullscreen
-	 webkitAllowfullscreen
+	 mozallowfullscreen
+	 webkitallowfullscreen
 	>
 	</iframe>
 
 
 Notes:
 
- 1. `width="100%"` appears to be widely supported in browsers, is useful, but is not valid [HTML5][html5-iframe],
+ 1. `width="100%"` is useful, it appears to be widely supported in browsers, but it is not valid [HTML5][html5-iframe] ("_...valid non-negative integers_"),
  2. `frameborder="0"` is not valid HTML5. However, it is easier to override in stylesheets and more backwards-compatible than `style="border:none"`,
- 3. `allowfullscreen` and the vendor specific `(moz|webkit)allowfullscreen` are not currently part of the [HTML5 specification][html5-iframe], but are needed to make fullscreen work,
+ 3. `allowfullscreen` and the vendor specific `(moz|webkit)allowfullscreen` are not currently part of the [HTML5 specification][html5-iframe], but are needed to make fullscreen work ([`allowfullscreen` is in a separate document][w3c-fullscreen], [Mozilla page][moz-allowfull] and [bug tracker][w3c-bug-full]).
  4. See also, [Embedding a YouTube player][youtube-how].
 
 
-[html5-iframe]: http://whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-iframe-element "4.8.2 The iframe element, HTML5"
+[html5-iframe]: http://whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-iframe-element "4.8.2 The iframe element, HTML5 Living Standard —"
+[w3c-bug-full]: https://www.w3.org/Bugs/Public/buglist.cgi?quicksearch=allowfullscreen "Bug 18840 - Fullscreen changes"
+[w3c-fullscreen]: http://w3.org/TR/2012/WD-fullscreen-20120703/#security-and-privacy-considerations "Fullscreen; W3C Working Draft 03 July 2012"
+[moz-allowfull]: https://developer.mozilla.org/en-US/docs/HTML/Element/iframe#attr-mozallowfullscreen "(moz|webkit)allowfullscreen attributes; Mozilla"
 [oembed]: http://oembed.com/
 [oembed-ex]: http://oembed.com/#section2.2 "'.. Providers are welcome to support custom additional parameters...' (oEmbed specification)"
 [oembed-drupal]: http://drupal.org/project/oembed
