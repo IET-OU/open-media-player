@@ -1,6 +1,6 @@
 # OU Media Player #
 
-The OU Media Player is an online audio and video player that is designed to be simple to integrate into student, public and staff facing web sites at The Open University. It can be incorporated via an `<iframe>` or an [oEmbed API][oembed].
+The OU Media Player is an online audio and video player that is designed to be simple to integrate into student, public and staff facing web sites at The Open University. It can be incorporated via an [`<iframe>`](#iframe) or an [oEmbed API][oembed].
 
 The OU Player has three _variants_:
 
@@ -22,44 +22,63 @@ If you use _Embed.open.ac.uk_ at present you should be prepared to migrate to Me
 
 ## OU Podcast player -- API ##
 
-We'll use as our example the podcast video "Student views of the OU",
+We'll use as our example the Podcast video "_Student views of the OU_",
 
-    http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b
+ * [`http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b`][oupod-ex-1]
+
+The Player currently supports individual podcast _tracks_, not whole collections. In the example above,
+
+ 1. `student-experiences` is the collection identifier,
+ 2. `#!` (_shebang_ or hash-exclamation-mark) are the separators,
+ 3. `db6cc60d6b` is the track identifier.
+
+The above example is the short form of the URL. There is also a longer form and the two can be freely interchanged in the oEmbed API,
+
+ * [`http://podcast.open.ac.uk/oulife/podcast-student-experiences#!db6cc60d6b`][oupod-ex-1b]
+
+..Where `oulife` is a Podcast category. There can be multiple categories, for example,
+
+ * [`http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d`][oupod-ex-2b]
+
+### oEmbed endpoint ###
+
+The endpoint for the oEmbed API is,
+
+ * Endpoint: [`http://mediaplayer-dev.open.ac.uk/oembed`][ouplayer-api]
+ * Example: <http://mediaplayer-dev.open.ac.uk/oembed?url=http%3A//podcast.open.ac.uk/pod/student-experiences%23!db6cc60d6b>
 
 ### GET parameters ####
 
-See [this matrix][api-table] for a comparison of the parameters supported by the various player variants.
+See [this matrix][ouplayer-api-table] for a comparison of the HTTP GET parameters supported by the various player variants.
 
  * `url` : Required, standard oEmbed
  * `format`: Optional, standard oEmbed, two possible values, `format=json` (default), `format=xml`; The output format
- * `callback`: Optional, extension; JSON-P callback function name, for example, `format=myFunction`
+ * `callback`: Optional, extension; JSON-P callback function name, for example, `callback=myFunction`
  * `theme`: Optional, extension; An OU Player theme name, for example, `theme=oup-light` (default)
  * `site_access`: Optional, extension; two possible values, `site_access=public` (default), `site_access=private`
+ * `lang`: Optional, extension; `lang=en`, `lang=zh-CN` and so on.
 
 
 ### OU-Drupal ###
 
 The [Drupal 6.x oEmbed module][oembed-drupal] does not currently support [custom additional parameters to oEmbed][oembed-ex]. As a workaround there is an _extended_ endpoint - see below.
 
- * Endpoint: http://mediaplayer-dev.open.ac.uk/oembed
- * Extended endpoint: http://mediaplayer-dev.open.ac.uk/oembed/ex/name1:value1/name2:value2/..
- * Example endpoint: http://mediaplayer-dev.open.ac.uk/oembed/ex/theme:oup-light
+ * Endpoint: `http://mediaplayer-dev.open.ac.uk/oembed`
+ * Extended endpoint: `http://mediaplayer-dev.open.ac.uk/oembed/ex/name1:value1/name2:value2/..`
+ * Example endpoint: `http://mediaplayer-dev.open.ac.uk/oembed/ex/theme:oup-light`
  * Schemes: `http://podcast.open.ac.uk/*/*`
- * (Behind the scenes: http://mediaplayer-dev.open.ac.uk/oembed/ex/theme:oup-light?url=http%3A//podcast.open.ac.uk/pod/student-experiences%23!db6cc60d6b )
+ * (Behind the scenes: <http://mediaplayer-dev.open.ac.uk/oembed/ex/theme:oup-light?url=http%3A//podcast.open.ac.uk/pod/student-experiences%23db6cc60d6b> )
 
-
-[Example of a server call by Drupal][ouplayer-drupal-1]
-
-Important: remove the exclamation mark `!` from the URL in Drupal node content.
+__Important__: remove the exclamation mark `!` from the URL in Drupal node content.
 
 
 ### jquery-oembed ###
 
-The [jQuery-oEmbed plugin][ouplayer-jquery] is used on Embed.open.ac.uk
+The [jQuery-oEmbed plugin][ouplayer-jquery] (extended from [Chamorro's plugin][jquery-oembed]) is available via Embed.open.ac.uk
 
 A simple HTML example:
 
-	<a class=embed href="http://podcast.open.ac.uk/..">A video</a>
+	<a class=embed href="http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b">A video</a>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="http://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
@@ -83,28 +102,46 @@ An example with a custom parameter (`theme: oup-light`):
 	</script>
 
 
-### Iframe ###
+### Iframe {#iframe}
 
+This is the suggested syntax for a direct embed using a HTML5 `<iframe>` -- [example embed][ouplayer-embed-1],
 
 	<iframe
-	 allowfullscreen mozAllowfullscreen webkitAllowfullscreen
-	 src="http://mediaplayer-dev.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?theme=oup-light"
+	 width="560"
+	 height="315"
+	 frameborder="0"
+	 src="http://mediaplayer-dev.open.ac.uk/embed/pod/student-experiences/db6cc60d6b"
+	 allowfullscreen
+	 mozAllowfullscreen
+	 webkitAllowfullscreen
 	>
 	</iframe>
 
 
+Notes:
+
+ 1. `width="100%"` appears to be widely supported in browsers, is useful, but is not valid [HTML5][html5-iframe],
+ 2. `frameborder="0"` is not valid HTML5. However, it is easier to override in stylesheets and more backwards-compatible than `style="border:none"`,
+ 3. `allowfullscreen` and the vendor specific `(moz|webkit)allowfullscreen` are not currently part of the [HTML5 specification][html5-iframe], but are needed to make fullscreen work,
+ 4. See also, [Embedding a YouTube player][youtube-how].
 
 
-[iframe]: http://whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-iframe-element "4.8.2 The iframe element, HTML5"
+[html5-iframe]: http://whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-iframe-element "4.8.2 The iframe element, HTML5"
 [oembed]: http://oembed.com/
 [oembed-ex]: http://oembed.com/#section2.2 "'.. Providers are welcome to support custom additional parameters...' (oEmbed specification)"
 [oembed-drupal]: http://drupal.org/project/oembed
+[oembed-notes]: https://bitbucket.org/cloudengine/cloudengine/wiki/oEmbed "Guidelines for developers of oEmbed services/providers"
 [oupod]: http://podcast.open.ac.uk/
 [oupod-ex-1]: http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b
+[oupod-ex-1b]: http://podcast.open.ac.uk/oulife/podcast-student-experiences#!db6cc60d6b
+[oupod-ex-2]: http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d
+[oupod-ex-2b]: http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d
 [ouplayer-git]: https://github.com/IET-OU/ouplayer
 [ouplayer-ex-1]: http://mediaplayer-dev.open.ac.uk/popup/pod/student-experiences/db6cc60d6b
 [ouplayer-embed-1]: http://mediaplayer-dev.open.ac.uk/embed/pod/student-experiences/db6cc60d6b?theme=oup-light
 [ouplayer-jquery]: http://embed.open.ac.uk/scripts/jquery.oembed.js "We deliberately link to the jQuery Javascript hosted at Embed.open.ac.uk"
 [ouplayer-api]: http://mediaplayer-dev.open.ac.uk/oembed
 [ouplayer-drupal-1]: http://mediaplayer-dev.open.ac.uk/oembed/ex/theme:oup-light?url=http%3A//podcast.open.ac.uk/pod/student-experiences%23!db6cc60d6b
-[api-table]: https://docs.google.com/spreadsheet/ccc?key=0AgJMkdi3MO4HdDZ4QzVscFlSYnRDNXlkM2ZuYURLbWc#gid=0
+[ouplayer-api-table]: https://docs.google.com/spreadsheet/ccc?key=0AgJMkdi3MO4HdDZ4QzVscFlSYnRDNXlkM2ZuYURLbWc#gid=0
+[jquery-oembed]: http://code.google.com/p/jquery-oembed/ "Copyright (c) 2009 Richard Chamorro/ MIT license"
+[youtube-how]: https://developers.google.com/youtube/player_parameters#Embedding_a_Player
