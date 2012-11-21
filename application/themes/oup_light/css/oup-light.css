@@ -168,7 +168,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .mejs-controls .oup-volume-widget button {
 	width:12px; height:12px;
 }
-/*Browser sniffing - MSIE is well behaved! (was: ua-gecko) */
+/*Browser sniffing - MSIE 8+ is well behaved! (was: ua-gecko) */
 .ua-moz .mejs-controls .oup-volume-widget {
 	top:0;
 }
@@ -182,6 +182,11 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .ua-webkit .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
 	top:11px;
+}
+.ua-ie7 .mejs-controls .oup-volume-widget .oup-display {
+	position:relative;
+	top:-4px;
+	font-size:1em;
 }
 
 .mejs-controls  button.oup-quieter {
