@@ -65,7 +65,7 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   alwaysShowControls: true,
   usePluginFullScreen: true,
   // path to Flash and Silverlight plugins
-  pluginPath: '<?php echo base_url().'application/'. $this->theme->plugin_path ?>',
+  pluginPath: '<?php echo base_url() .APPPATH. $this->theme->plugin_path ?>',
 
 <?php if ($params->debug): ?>
   enablePluginDebug: true,

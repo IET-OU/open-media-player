@@ -5,7 +5,7 @@
 * @author N.D.Freear, 26 July 2012.
 */
 
-  $engine_path = 'application/engines/mediaelement/';
+  $engine_path = APPPATH. 'engines/mediaelement/';
   $base_url = base_url() . $engine_path;
 
 ?>

@@ -104,7 +104,7 @@ EOF;
   */
   protected function _closure($file_array, $output, $comp_level = 'simple') {
 
-    $base_url = base_url().'application/';
+    $base_url = base_url() .APPPATH;
     $rand = rand(0, 100);
 
     $levels = array(
