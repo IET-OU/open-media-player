@@ -5,6 +5,15 @@ A unified, accessible online media player solution for The Open University.
 Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed (all included).
 
 
+## Requirements
+
+ * Linux (Redhat RHEL 6) (ideally, or OS X/ Windows)
+ * PHP 5.3+
+ ** cURL, `json_encode`
+ * Apache 2.2+
+ ** mod_rewrite and `.htaccess` (or access to `httpd.conf`)
+
+
 ## Installation {#install}
 
 In brief, the steps for the installation of OU Media Player (and OU-Embed) are:
@@ -14,7 +23,7 @@ In brief, the steps for the installation of OU Media Player (and OU-Embed) are:
  3. Set `$config['debug']`,
  4. Set `$config['podcast_feed_url_pattern']`,
  5. Check `$config['http_proxy']`,
- 6. Create a data directory, and set permissions (eg. `$ chown -R apache:apache` )
+ 6. Create a data directory with `logs/` and `oupodcast/` sub-directories, and set permissions (eg. `$ chown -R apache:apache` )
  7. Set `$config['data_dir']` in config/embed_config.php,
  8. Set `$config['log_path']` in config/config.php
 
@@ -25,17 +34,33 @@ Details and notes:
 
 ## Ignore files {#ignore}
 
-When importing to _AllChange_, please ensure that these files and directories are ignored:
+When importing to _AllChange_, please ensure that these files and directories are ignored/ deleted:
 
     .git/
-    _data/      -- To discuss(*)
+    .gitignore
+    _data/         -- To discuss(*)
     _data/logs/*.php
     _data/oupodcast/*.*
     application/config/embed_config.php
     application/logs/*.php
 
-(*) We need to either ignore the whole `_data/` directory, or most of its contents, including `logs/*.php`.
+(*) We need to either ignore the whole `_data/` directory, or most of its contents, including `logs/*.php` and `oupodcast/*`. Then [re-create - see install](#install).
 
+## Include files {#include}
+
+When importing to _AllChange_, please ensure that these files and directories are included/ implemented:
+
+    _data/         -- See [ignore](#ignore)
+    application/*  -- Except for [ignored files](#ignore)
+    docs/*
+    system/*
+    .htaccess
+    .sams
+    index.php
+    license-ci.txt
+    README.md
+    robots.txt
+    version.json
 
 ## Links
 
