@@ -279,22 +279,36 @@ class MY_Controller extends CI_Controller {
 
 
   /**
-  * Create data sub-directories - reduce configuration.
+  * Create data/ logs sub-directories - reduce configuration.
   */
   protected function _datadir_init() {
     $data_dir = $this->config->item('data_dir');
     #$this->_debug($data_dir);
+    @header('X-ouplayer-accessible-alt: 0');
     if (! file_exists($data_dir)) {
-      $this->_debug("Error, data directory doesn't exist.");
+      $this->_debug("Error, data directory doesn't exist. Check 'embed_config..' configuration file.");
+      return FALSE;
     }
     if (! file_exists($data_dir .'logs/')) {
-      $b_log = mkdir($data_dir .'logs/', 0775);
-      $this->_debug("Creating 'logs' directory, $b_log");
+      $b_log = @mkdir($data_dir .'logs/', 0775);
+      if (file_exists($data_dir .'logs/')) {
+        $this->_debug("OK, created 'logs' directory, $b_log");
+      } else {
+        $this->_debug("Error creating 'logs' directory. Is the sub-directory writeable?");
+        return FALSE;
+      }
     }
     if (! file_exists($data_dir .'oupodcast/')) {
-      $b_pod = mkdir($data_dir .'oupodcast/', 0775);
-      $this->_debug("Creating 'oupodcast' directory, $b_pod");
+      $b_pod = @mkdir($data_dir .'oupodcast/', 0775);
+      if (file_exists($data_dir .'oupodcast/')) {
+        $this->_debug("OK, created 'oupodcast' directory, $b_pod");
+      } else {
+        $this->_debug("Error creating 'oupodcast' directory. Is the sub-directory writeable?");
+        return FALSE;
+      }
     }
+    $this->_debug('Data-dirs OK');
+    @header('X-ouplayer-accessible-alt: 1');
   }
 
 

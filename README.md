@@ -9,9 +9,9 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed (all included).
 
  * Linux (Redhat RHEL 6) (ideally, or OS X/ Windows)
  * PHP 5.3+
- ** cURL, `json_encode`
+   * cURL, `json_encode`
  * Apache 2.2+
- ** mod_rewrite and `.htaccess` (or access to `httpd.conf`)
+   * mod_rewrite and `.htaccess` (or access to `httpd.conf`)
 
 
 ## Installation {#install}
