@@ -20,10 +20,12 @@ $x_target = '';
 
 
 // Catch commandline 404 errors.
-$CI =& get_instance();
-if ($CI->input->is_cli_request()) {
+if (class_exists('CI_Controller')) {
+  $CI =& get_instance();
+  if ($CI->input->is_cli_request()) {
     fprintf(STDERR, "Error, $message".PHP_EOL);
     exit (1);
+  }
 }
 
 ?>
