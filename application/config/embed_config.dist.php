@@ -10,7 +10,7 @@
 |--------------------------------------------------------------------------
 | Debugging flag (integer, one of OUP_DEBUG_NONE, OUP_DEBUG_MIN, OUP_DEBUG_MAX).
 */
-$config['debug'] = OUP_DEBUG_NONE;
+$config['debug'] = OUP_DEBUG_MIN;
 
 
 /*
@@ -24,8 +24,10 @@ $config['http_proxy'] = 'wwwcache.open.ac.uk:80';
 |--------------------------------------------------------------------------
 | Data directory (required/all).
 */
-$config['data_dir'] = '/var/www/_ouplayer_data/';
-#$config['data_dir'] = 'C:/Users/NAME/workspace/_ouplayer_data/';
+$config['data_dir'] = dirname(__FILE__) .'/../../_data/';
+
+#$config['data_dir'] = '/var/www/_ouplayer_data/';
+#$config['data_dir'] = 'C:/Users/[NAME]/workspace/_ouplayer_data/';
 
 
 /*

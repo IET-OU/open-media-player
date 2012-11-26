@@ -183,7 +183,20 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 2; #1.
+switch (strtolower(getenv('OUENV'))) {
+  case 'live':
+    $config['log_threshold'] = 1;
+    break;
+  case 'acct':  # IT-hosting - fall through.
+  case 'test':
+  case 'dev':
+  case 'iet':   # Fall through.
+  default:
+    $config['log_threshold'] = 2;
+	break;
+}
+
+#$config['log_threshold'] = 2;  #1;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,7 +207,9 @@ $config['log_threshold'] = 2; #1.
 | application/logs/ folder. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = '';
+$config['log_path'] = dirname(__FILE__) .'/../../_data/logs/';
+
+#$config['log_path'] = '';
 
 /*
 |--------------------------------------------------------------------------

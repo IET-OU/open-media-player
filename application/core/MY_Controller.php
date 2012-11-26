@@ -1,6 +1,8 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Most controllers should extend this one.
+ * OU Media Player.
+ *
+ * (Most) all controllers should extend this class.
  *
  * @copyright Copyright 2011 The Open University.
  * @author N.D.Freear, 23 May 2011.
@@ -36,6 +38,7 @@ class MY_Controller extends CI_Controller {
     // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
     @header('Access-Control-Allow-Origin: *');
     @header('Content-Type: text/html; charset=UTF-8');
+    @header('X-ouenv: '. getenv('OUENV'));
     if (ini_get('expose_php')) {
       // 'ofa' - OU flavoured Apache..?
       @header('X-Powered-By: iet-ou');
