@@ -11,7 +11,7 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed (all included).
  * PHP 5.3+
    * cURL, `json_encode`
  * Apache 2.2+
-   * mod_rewrite and `.htaccess` (or access to `httpd.conf`)
+   * mod_rewrite and `.htaccess` (`.sams`) (or access to `httpd.conf`)
 
 
 ## Installation {#install}
@@ -24,8 +24,8 @@ In brief, the steps for the installation of OU Media Player (and OU-Embed) are:
  4. Set `$config['podcast_feed_url_pattern']`,
  5. Check `$config['http_proxy']`,
  6. Create a data directory with `logs/` and `oupodcast/` sub-directories, and set permissions (eg. `$ chown -R apache:apache` )
- 7. Set `$config['data_dir']` in config/embed_config.php,
- 8. Set `$config['log_path']` in config/config.php
+ 7. Set the data directory `$config['data_dir']` in application/config/embed_config.php,
+ 8. Set `$config['log_path']` in application/config/config.php
 
 Details and notes:
 
@@ -79,7 +79,7 @@ For full credits and licenses see [docs/CREDITS.txt][credit]
 
 
 
-[install]: https://docs.google.com/document/d/1tg1mrPqniUp6evs0odfs7wughuMLY4r82-kFylVWQXE/edit
+[install]: https://docs.google.com/document/d/1tg1mrPqniUp6evs0odfs7wughuMLY4r82-kFylVWQXE/edit#heading=h.1esjm0y5y8se
 [bugs]: http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
 [credit_g]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.txt
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt
