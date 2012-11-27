@@ -6,7 +6,7 @@
 * Source: http://www3.open.ac.uk/study/
 */
 
-  $site_url = $resource_url = 'http://www3.open.ac.uk';
+  $site_url = $resource_url = OUP_OU_RESOURCE_URL;
   $base_url = site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
   $is_player_site = TRUE;

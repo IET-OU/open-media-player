@@ -30,6 +30,13 @@ define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
 
 
 
+/*
+|--------------------------------------------------------------------------
+| Resource URL - Stylesheet/JS base URL for OUICE layout/template view (Was: www3).
+*/
+define('OUP_OU_RESOURCE_URL', 'http://www8.open.ac.uk');
+
+
 // URL parameter names (eg. http://example.org/path?param=value)
 
 //Common parameter names, shared by oEmbed/ embed/ popup controllers.
