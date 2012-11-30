@@ -18,7 +18,7 @@ abstract class Base_player {
   const AUDIO_HEIGHT= 36;
   const POD_AUDIO_HEIGHT = 108; #60;
 
-  // Sizes in reverse-order: largest first. These sizes are NOT final! Need to check...
+  // Bug #1415, Sizes in reverse-order: largest first. These sizes are NOT final! Need to check...
   // https://docs.google.com/document/d/1zgycCtBTcph7O4wwXAQtQq0jtXoJ3eKnSxKnNr6VRPU/edit
   protected static $video_sizes = array(
     array('width' => 848, 'height' => 480, 'label' => 'x-large'),
@@ -65,7 +65,8 @@ abstract class Base_player {
 	// Need to move 'maxwidth'/maxheight calls into the oEmbed controller.
 	$max_width = (int) $CI->input->get('maxwidth');
 	$max_height= (int) $CI->input->get('maxheight');
-	$resizable = $CI->input->get('_resizable');
+	$resizable = $CI->input->get('_resizable'); //Not used.
+	$percent_width = (int) $CI->input->get('pcwidth'); //Experimental
 
 	// These sizes are NOT final! Need to check...
 	#$rev_sizes = array(720=>460, 640=>410, 620=>400, 560=>350 /*340*/, 480=>360, 460=>350);
@@ -116,6 +117,14 @@ abstract class Base_player {
 	  }
 	  $this->object_height = $this->height - 30;
 
+	  // Experimental, <iframe> width=100%
+	  if ($percent_width) {
+	    if ($percent_width > 10 && $percent_width <= 100) {
+		  $this->width = $percent_width .'%';
+		} else {
+		  $this->width = '100%';
+		}
+	  }
 	  #var_dump($this->width, $this->height, $this->object_height, self::$video_sizes); exit;
     }
   }

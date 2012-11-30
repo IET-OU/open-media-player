@@ -53,10 +53,13 @@ See [this matrix][ouplayer-api-table] for a comparison of the HTTP GET parameter
 
  * `url` : Required, standard oEmbed
  * `format`: Optional, standard oEmbed, two possible values, `format=json` (default), `format=xml`; The output format
+ * `maxwidth`: Optional, standard oEmbed, integer pixels;
+ * `maxheight`: Optional, standard oEmbed;
+ * `pcwidth`: Optional, extension, experimental, integer; Use video width expressed as a percentage, `pcwidth=0` (default), `pcwidth=1` (100%), `pcwidth=99` (99%) and so on,
  * `callback`: Optional, extension; JSON-P callback function name, for example, `callback=myFunction`
  * `theme`: Optional, extension; An OU Player theme name, for example, `theme=oup-light` (default)
- * `site_access`: Optional, extension; two possible values, `site_access=public` (default), `site_access=private`
- * `lang`: Optional, extension; `lang=en`, `lang=zh-CN` and so on.
+ * `site_access`: Optional, extension; How to display private podcasts on restricted-access sites, two possible values, `site_access=public` (default), `site_access=private`
+ * `lang`: Optional, extension; User-interface language/locale, `lang=en`, `lang=zh-CN` and so on.
 
 
 ### OU-Drupal ###
