@@ -11,6 +11,11 @@ class Http {
 
   protected $CI;
 
+  public function __construct() {
+    $this->CI =& get_instance();
+  }
+
+
   public function request($url, $spoof=TRUE, $options=array()) {
     $result = $this->_prepare_request($url, $spoof, $options);
 
@@ -22,8 +27,6 @@ class Http {
   */
 #http://api.drupal.org/api/drupal/core%21includes%21common.inc/function/drupal_http_request/8
   protected function _prepare_request($url, $spoof, &$options) {
-    $this->CI =& get_instance();
-
 	$result = new stdClass();
 
     // Parse the URL and make sure we can handle the schema.
@@ -68,12 +71,13 @@ class Http {
 
     // Merge the default options.
     $options += array(
+      'proxy' => $this->CI->config->item('http_proxy'),
       'headers' => array(),
       'method' => 'GET',
       'data' => NULL,
       'max_redirects' => 2,  #3,
-      'timeout' => 15.0,  #30.0 seconds,
-      'context' => NULL,
+      'timeout' => 5,  #15, 30.0 seconds,
+      #'context' => NULL,
 
       'cookie' => NULL,
       'ua' => $ua,
@@ -90,6 +94,8 @@ class Http {
   protected function _http_request_curl($url, $spoof, $options, $result) {
     if (!function_exists('curl_init'))  die('Error, cURL is required.');
 
+    $this->CI->_debug($options);
+
     $h_curl = curl_init($url);
     curl_setopt($h_curl, CURLOPT_USERAGENT, $options['ua']);
     if (!$spoof) {
@@ -105,6 +111,7 @@ class Http {
     curl_setopt($h_curl, CURLOPT_MAXREDIRS, $options['max_redirects']);
     curl_setopt($h_curl, CURLOPT_FOLLOWLOCATION, TRUE);
     curl_setopt($h_curl, CURLOPT_TIMEOUT, $options['timeout']);
+    curl_setopt($h_curl, CURLOPT_CONNECTTIMEOUT, $options['timeout']);
 
     if ($options['debug']) {
       curl_setopt($h_curl, CURLOPT_HEADER, TRUE);

@@ -38,7 +38,7 @@ class MY_Controller extends CI_Controller {
     // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
     @header('Access-Control-Allow-Origin: *');
     @header('Content-Type: text/html; charset=UTF-8');
-    @header('X-ouenv: '. getenv('OUENV'));
+    $this->_debug('ouenv='. getenv('OUENV'));
     if (ini_get('expose_php')) {
       // 'ofa' - OU flavoured Apache..?
       @header('X-Powered-By: iet-ou');
@@ -196,13 +196,26 @@ class MY_Controller extends CI_Controller {
 	return str_replace('?&', '?', $params);
   }
 
+  /** Are debug config and HTTP params set?
+  * @link https://github.com/IET-OU/trackoer-core/blob/master/application/core/MY_Controller.php#L152
+  * @return mixed (Default: boolean)
+  */
+  public function _is_debug($threshold = 1, $score = FALSE) {
+    $is_debug = 0;
+    $is_debug += (int) $this->input->get('debug');
+    $is_debug += (int) $this->config->item('debug');
+    if ($score) {
+      return $is_debug;
+    }
+    return $is_debug > $threshold;
+  }
 
-  /**
-  * Based on @link  https://gist.github.com/1712707
+  /** Optionally output strings/objects in a debug HTTP header.
+  * @link https://gist.github.com/1712707
   */
   public function _debug($exp) {
     static $where, $count = 0;
-    if ($this->config->item('debug')) {
+    if ($this->_is_debug()) {
       # $where could be based on __FUNCTION__ or debug_stacktrace().
       if(!$where) $where = str_replace(array('.php', '_', '.'), '-', basename(__FILE__));
       $value = json_encode($exp);
