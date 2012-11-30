@@ -10,7 +10,7 @@
 */
 ?>
 <!--[if lt IE 9]>
-<script src="http://html5shim.googlecode.com/svn/trunk/html5-els.js"></script>
+<script src="//html5shim.googlecode.com/svn/trunk/html5-els.js"></script>
 <![endif]-->
 
 <meta name="robots" content="noindex,nofollow" />
