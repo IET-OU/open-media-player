@@ -28,7 +28,7 @@ TODO: scale the image.
 <link class='LAMS-css' rel='stylesheet' href='<?php echo $base_url ?>assets/services/lams.css' /><style>
 <?php /*MSIE 7: @import url(<?php echo $base_url ?>assets/services/lams.css);*/ ?>
 .lams.oembed .seq object, .lams.oembed .seq img{width:<?php echo $img_width ?>px; height:<?php echo $img_height ?>px;}
-</style><div class='lams oembed' about='<?php echo $url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#' xmlns:bz='http://digitalbazaar.com/media/'><div class="head">
+</style><div class='lams embed-rsp' about='<?php echo $url ?>' xmlns:dct='http://purl.org/dc/terms/' xmlns:cc='http://creativecommons.org/ns#' xmlns:bz='http://digitalbazaar.com/media/'><div class="head">
 <?php ///Translators: LAMS, Learning Activity Management System. ?>
  <a class="logo" href="http://lamscommunity.org/" rel='dct:publisher' property='dct:publisher' content='LAMS'><img alt="<?php echo t('LAMS community') ?>" title="<?php echo t('LAMS community') ?>" src="http://lamscommunity.org/images/lams_logo.gif" /></a>
  <h3 href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type"><?php echo $meta->title ?></h3>

@@ -18,7 +18,7 @@ EOF;*/
   ob_start();
 
   ?>
-<div class='prezi oembed' about='<?php echo $url ?>' xmlns:dct='http://purl.org/dc/terms/'><object aria-label='<?php echo t('Prezi presentation') ?>' type='application/x-shockwave-flash' width='<?php echo $width ?>' height='<?php echo $height ?>' data='http://prezi.com/bin/preziloader.swf'>
+<div class='prezi embed-rsp' about='<?php echo $url ?>' xmlns:dct='http://purl.org/dc/terms/'><object aria-label='<?php echo t('Prezi presentation') ?>' type='application/x-shockwave-flash' width='<?php echo $width ?>' height='<?php echo $height ?>' data='http://prezi.com/bin/preziloader.swf'>
 <param name="movie" value="http://prezi.com/bin/preziloader.swf"/>
 <param name="allowfullscreen" value="true"/>
 <param name="allowscriptaccess" value="always"/>

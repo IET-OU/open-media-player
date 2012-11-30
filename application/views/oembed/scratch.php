@@ -14,7 +14,7 @@
 
   // HTML5: 4 <param>s -- 3 for all Java applets + 1 specific to Scratch.
   $html =<<<EOF
-<div class="scratch"><object type="application/x-java-applet" width="$width" height="$height">
+<div class='scratch embed-rsp'><object type='application/x-java-applet' width='$width' height='$height'>
 <param name="codebase" value="http://$p->host/static/misc/"/>
 <param name="archive" value="ScratchApplet.jar"/>
 <param name="code" value="ScratchApplet"/>

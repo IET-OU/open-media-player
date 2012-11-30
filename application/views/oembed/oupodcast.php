@@ -20,7 +20,7 @@
 
   //scrolling='no' - ?
   $html =<<<EOF
-<iframe class='ou player podcast oembed $meta->media_type $theme $meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type $theme size-$meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
  width='$meta->width' height='$meta->height' frameborder='0' scrolling='no' style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
@@ -32,7 +32,7 @@ EOF;
 // Legacy OU podcast player, using the existing jwPlayer!
 //(file=http://podcast.open.ac.uk/feeds/l314-spanish/rss2.xml&javascriptid=flashplayer&enablejs=true)
   $html_ORIG =<<<EOF
-<div class="ou podcast oembed">
+<div class="ou podcast embed-rsp">
 <object tabindex="0" id="pod-$meta->_track_md5" aria-label="$label" type="application/x-shockwave-flash" height="$height" width="$width"
 data="$pod_base/flash_media_player/mediaplayer.swf" >
 <param name="movie" value="$pod_base/flash_media_player/mediaplayer.swf" />
