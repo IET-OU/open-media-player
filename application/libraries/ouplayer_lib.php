@@ -16,7 +16,7 @@ abstract class Base_player {
   const DEF_HEIGHT= 315; #Was: 410;
   const AUDIO_WIDTH = 360; #Was: 400, 380;
   const AUDIO_HEIGHT= 36;
-  const POD_AUDIO_HEIGHT = 108; #60;
+  const POD_AUDIO_HEIGHT = 80; #108; #60;
 
   // Bug #1415, Sizes in reverse-order: largest first. These sizes are NOT final! Need to check...
   // https://docs.google.com/document/d/1zgycCtBTcph7O4wwXAQtQq0jtXoJ3eKnSxKnNr6VRPU/edit

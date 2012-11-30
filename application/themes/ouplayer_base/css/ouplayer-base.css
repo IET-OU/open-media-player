@@ -246,6 +246,9 @@ h1 {
 	}/* 190312 - PETER*/
 
 .mejs-captions-text{ font-size:1.4em; }
+.oup.width-small .mejs-captions-text{ font-size:1.1em; padding:1px 3px; }
+
+.oup.width-small .mejs-captions-position-hover{ bottom: 5px; }
 
 /* Options menu panel.
 */

@@ -7,7 +7,7 @@
 
 /* Reset OUICE anomaly.
 */
-body.ouice iframe, .oup-ice-test iframe.oembed, .oup-ice-test iframe.embed-rsp{ X-width:auto; max-width:99%; min-width:400px; }
+body.ouice iframe, .oup-ice-test iframe.oembed, .oup-ice-test iframe.embed-rsp{ X-width:auto; max-width:99%; min-width:290px; }
 body.oup-ice-test.pg-test-podcast_errors iframe{ min-width:auto; }
 
 
@@ -31,9 +31,9 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 */
 .oup-ice-test .oembed, .oup-ice-test .embed-rsp{ margin:2em 0; }
 
-iframe.oembed {
+iframe.embed-rsp {
   display:block;
-  margin:1em 0;
+  x-margin:1em 0;
   border:1px solid #ddd;
   x-border-radius:5px;
 }
@@ -41,18 +41,22 @@ iframe.oembed {
 
 /* 'New' 2012 OU player embeds.
 */
-.oembed.ou.podcast.audio.theme-oup_light {
-  width:380px;
+.embed-rsp.ou.podcast.audio.theme-oup_light {
+  width:360px;
   height:80px;
 }
-.oembed.ou.podcast.video /*.theme-oup_light*/ {
+.embed-rsp.ou.podcast.video /*.theme-oup_light*/ {
+  width:560px;
+  height:315px;
+}
+.embed-rsp.ou.podcast.video.size-large {
   width:640px;
-  height:405px;
+  height:360px;
 }
 
 /* Legacy 2011 OU player embeds.
 */
-.oembed.ou.podcast.audio.theme-legacy {
+.embed-rsp.ou.podcast.audio.theme-legacy {
   width:380px;
   height:108px;
 }
@@ -60,28 +64,28 @@ iframe.oembed {
 
 /* Simulate a narrow column ( ?width=narrow )
 */
-.oup-small .oembed.ou.podcast.audio, .oup-narrow .oembed.ou.podcast.audio {
+.oup-small .embed-rsp.ou.podcast.audio, .oup-narrow .embed-rsp.ou.podcast.audio {
   width:360px;
 }
-.oup-small .oembed.ou.podcast.video, .oup-narrow .oembed.ou.podcast.video {
+.oup-small .embed-rsp.ou.podcast.video, .oup-narrow .embed-rsp.ou.podcast.video {
   width:380px;
   height:250px;
 }
 
-.oup-large .oembed.ou.podcast.video {
+.oup-large .embed-rsp.ou.podcast.video {
   width:720px;
   height:450px;
 }
 
 /* Experimental hover effect ( ?edge=1 )
 */
-.oup-edge .oembed {
+.oup-edge .embed-rsp {
   margin:2px;
   padding:3px;
   border:2px solid transparent;
   border-radius:5px;
 }
-.oup-edge .oembed:hover{
+.oup-edge .embed-rsp:hover{
   border-color:#aaa;
   background:#fff; /*Was: #ffd*/
 
@@ -138,7 +142,7 @@ body.path-mod {
 }
 
 
-iframe.google-docs, .youtube.oembed iframe { width:99%; }
+iframe.google-docs, .youtube.embed-rsp iframe { width:99%; }
 
 
 /* MathTran photo embeds.
