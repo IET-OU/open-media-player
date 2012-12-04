@@ -177,6 +177,15 @@ class Demo extends MY_Controller {
 	}
 
 
+	/** SAMS protected (staff-only) call to phpinfo() - help with debugging.
+	*/
+	public function info() {
+	  $this->_sams_check();
+
+	  phpinfo();
+	}
+
+
     /** Basic OU-SAMS authentication check and redirect.
     */
 	protected function _sams_check() {

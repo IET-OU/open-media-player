@@ -43,7 +43,7 @@ class Uptime extends MY_Controller {
     $this->load->oembed_provider('Oupodcast');
     $result = $this->provider->_inner_call('l314-spanish', 'fe481a4d1d');
 
-    $podcasts_count = $result ? '> 1' : 0;
+    $podcasts_count = $result ? 'gt 1' : 0;
     @header('X-Count-Podcast-Items: '.$podcasts_count);
 
     if (! $return) {
