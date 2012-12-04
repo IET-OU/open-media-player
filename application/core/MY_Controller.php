@@ -35,13 +35,18 @@ class MY_Controller extends CI_Controller {
       $this->lang->initialize();
     }
 
-    // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
-    @header('Access-Control-Allow-Origin: *');
     @header('Content-Type: text/html; charset=UTF-8');
-    $this->_debug('ouenv='. getenv('OUENV'));
-    if (ini_get('expose_php')) {
-      // 'ofa' - OU flavoured Apache..?
-      @header('X-Powered-By: iet-ou');
+    #$this->_debug('ouenv='. getenv('OUENV'));
+    $this->_debug(array('ouenv' => getenv('OUENV'), 'token' => $this->config->item('token')));
+
+    if ($this->config->item('http_adv')) {
+       // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
+       @header('Access-Control-Allow-Origin: *');
+
+      if (ini_get('expose_php')) {
+        // 'ofa' - OU flavoured Apache..?
+        @header('X-Powered-By: iet-ou');
+      }
     }
 
     log_message('debug', __CLASS__." Class Initialized");
@@ -202,7 +207,7 @@ class MY_Controller extends CI_Controller {
   */
   public function _is_debug($threshold = 1, $score = FALSE) {
     $is_debug = 0;
-    $is_debug += (int) $this->input->get('debug');
+    $is_debug += (int) $this->input->get(OUP_PARAM_DEBUG);
     $is_debug += (int) $this->config->item('debug');
     if ($score) {
       return $is_debug;
@@ -300,7 +305,7 @@ class MY_Controller extends CI_Controller {
   protected function _datadir_init() {
     $data_dir = $this->config->item('data_dir');
     #$this->_debug($data_dir);
-    @header('X-ouplayer-accessible-alt: 0');
+    #@header('X-ouplayer-accessible-alt: 0');
     if (! file_exists($data_dir)) {
       $this->_debug("Error, data directory doesn't exist. Check 'embed_config..' configuration file.");
       return FALSE;
@@ -324,7 +329,7 @@ class MY_Controller extends CI_Controller {
       }
     }
     $this->_debug('Data-dirs OK');
-    @header('X-ouplayer-accessible-alt: 1');
+    #@header('X-ouplayer-accessible-alt: 1');
   }
 
 

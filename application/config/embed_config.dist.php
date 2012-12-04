@@ -4,6 +4,7 @@
 | OU Media Player / OU-embed main configuration file.
 |--------------------------------------------------------------------------
 */
+$config['token'] = 0;  #'NDF/2012-12-04';
 
 
 /*
@@ -15,9 +16,23 @@ $config['debug'] = OUP_DEBUG_MIN;
 
 /*
 |--------------------------------------------------------------------------
-| Web proxy.
+| Web proxy. (Not for IT-EUD, yes for IET-dmz.)
 */
-$config['http_proxy'] = 'wwwcache.open.ac.uk:80';
+switch (strtolower(getenv('OUENV'))) {
+  case 'live':
+  case 'acct':  # IT-hosting - fall through.
+  case 'test':
+  case 'dev':
+    $config['http_proxy'] = NULL;
+    break;
+  case 'iet':   # Fall through.
+  default:
+    $config['http_proxy'] = 'wwwcache.open.ac.uk:80';
+	break;
+}
+
+#$config['http_proxy'] = 'wwwcache.open.ac.uk:80';
+#$config['http_adv'] = TRUE;
 
 
 /*

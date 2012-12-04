@@ -57,9 +57,10 @@ EOT;
       if ($endpoint) {
         $this->_endpoint_url = $endpoint;
         //$this->_comment = NULL;
-        @header('X-Ouplayer-Endpoint: '. $endpoint);
+        $this->CI->_debug(array('ouplayer_endpoint' => $endpoint));
       }
-      @header('X-Podcast-Data: '.$method);
+      // Was @header()
+      $this->CI->_debug('podcast_data='.$method);
   }
 
   /**
