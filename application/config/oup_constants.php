@@ -37,6 +37,17 @@ define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
 define('OUP_OU_RESOURCE_URL', 'http://www8.open.ac.uk');
 
 
+/*
+| Blog, help and feedback URLs.
+|--------------------------------------------------------------------------
+| http://freear.org.uk/content/ou-media-player-project | http://freear.org.uk/content/ou-embed-proposal
+| mailto:N.D.Freear+@+open.ac.uk?subject=OU+player
+*/
+define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/ouplayer');
+define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
+define('OUP_CONTACT_URL', 'mailto:IET-Webmaster+@+open.ac.uk?subject=OU+player');
+
+
 // URL parameter names (eg. http://example.org/path?param=value)
 
 //Common parameter names, shared by oEmbed/ embed/ popup controllers.

@@ -9,12 +9,12 @@
 
 <p>The OU Media Player is an online audio and video player, developed at <a href="http://www.open.ac.uk/">The Open University</a>
  and used in student, public and staff facing services. Here are <a href=
-"http://freear.org.uk/content/ou-media-player-project">introductory blog</a>  <a href="http://freear.org.uk/content/ou-embed-proposal">posts</a>.
+"<?php echo OUP_BLOG_URL ?>" title="On Cloudworks">introductory blog posts</a>.
 
 
 <h2>Giving feedback</h2>
 
-<p>If you are an Open University student please use your <a href="https://msds.open.ac.uk/students/help.aspx" title="Requires a University login" rel="nofollow">Student Help centre</a>
+<p>If you are an Open University student please use your <a href="<?php echo OUP_HELP_URL ?>" title="Requires a University login" rel="nofollow">Student Help centre</a>
  to find answers, or the contact details for people who can help you.
  <label for="app-info">When you report a problem, please copy and paste the following information:</label>
 <p><textarea readonly id="app-info" rows="3" style="width:96%;">
@@ -32,7 +32,7 @@ Browser: <?php echo $_SERVER['HTTP_USER_AGENT'] ?>
 </ul>
 
 <p>NOTE: the demos on this site use the <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>" rel="nofollow">jquery-oembed plugin</a>.
-<p>NOTE: the OU Media Player is now fairly accessible. Feedback to <a href="mailto:N.D.Freear+@+open.ac.uk?subject=OU+player">N.D.Freear+@+open.ac.uk</a>.
+<p>NOTE: the OU Media Player is now fairly accessible. Feedback to <a href="<?php echo OUP_CONTACT_URL ?>">IET-Webmaster+@+open.ac.uk</a>.
 
 
 <script>
