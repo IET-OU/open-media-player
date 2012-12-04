@@ -97,6 +97,7 @@ class Http {
     $this->CI->_debug($options);
 
     $h_curl = curl_init($url);
+
     curl_setopt($h_curl, CURLOPT_USERAGENT, $options['ua']);
     if (!$spoof) {
       curl_setopt($h_curl, CURLOPT_REFERER, base_url());
@@ -131,6 +132,7 @@ class Http {
 	  curl_setopt($h_curl, CURLOPT_PROXY, $http_proxy);
 	}
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
+
     $result->data = curl_exec($h_curl);
 
     $result->_headers = NULL;
@@ -147,6 +149,9 @@ class Http {
     $result->info = curl_getinfo($h_curl);
     $result->http_code = $result->info['http_code'];
     $result->success = ($result->info['http_code'] < 300);
+
+    curl_close($h_curl);
+
     return (object) $result;
   }
   
