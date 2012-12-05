@@ -11,15 +11,18 @@ Examples:
 
 class Svg extends MY_Controller {
 
-  protected _whitelist;
+  protected $_whitelist;
 
   public function __construct(){
-    $this->_whitelist = array(
+    parent::__construct();
+
+	$this->_whitelist = array(
 	  'compendiumld.open.ac.uk', '*.open.ac.uk', 'openclipart.org', 'upload.wikimedia.org', 'www.basher-sounds.co.uk',
 	);
   }
- 
+
   public function r(){
-	var_dump(func_num_args(), func_get_args(), $this->uri->uri_string(), $this->uri->total_segments()); exit;
+	var_dump(func_num_args(), func_get_args(), $this->uri->uri_string(), $this->uri->total_segments());
+	exit;
   }
 }

@@ -5,7 +5,6 @@
  * @copyright Copyright 2011 The Open University.
  * @author N.D.Freear, 18 June 2010-4 July 2012.
  */
-ini_set('display_errors', true);
 
 
 class Oembed extends MY_Controller {
