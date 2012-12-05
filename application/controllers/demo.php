@@ -37,6 +37,7 @@ class Demo extends MY_Controller {
 		$view_data = array(
 			'is_ouembed' => $this->_is_ouembed(),
 			'is_live' => $this->_is_live(),
+			'use_oembed' => $this->config->item('home_use_oembed') || $this->input->get('oembed'),
 			'req' => $this->_request,
 		);
 		$this->layout->view('demo/oupodcast-demo', $view_data);
@@ -53,9 +54,9 @@ class Demo extends MY_Controller {
         $view_data = array(
             'is_ouembed' => true,
             'is_live' => $this->_is_live(),
+            'use_oembed' => true,
             'page_title' => t('OU/ OULDI Embeds'),
             'req' => $this->_request,
-            'resource_url' => 'http://www8.open.ac.uk/',
         );
         $this->layout->view('demo/ouldi-demo', $view_data);
 	}
@@ -70,8 +71,9 @@ class Demo extends MY_Controller {
         $view_data = array(
             'is_ouembed' => $this->_is_ouembed(),
             'is_live' => $this->_is_live(),
+            'use_oembed' => true,
             'req' => $this->_request,
-            'resource_url' => 'http://www8.open.ac.uk/',
+            #'resource_url' => OUP_OU_RESOURCE_URL,
         );
         $this->layout->view("demo/podcast-one-$view", $view_data);
     }
@@ -94,6 +96,7 @@ class Demo extends MY_Controller {
       $view_data = array(
         'is_ouembed' => $this->_is_ouembed(),
         'is_live' => $this->_is_live(),
+        'use_oembed' => FALSE,
       );
       $this->layout->view('test/player-error-test', $view_data);
     }

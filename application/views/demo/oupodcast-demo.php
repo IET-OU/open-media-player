@@ -3,7 +3,7 @@
 
 <p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> Media Player project.
 
-
+<?php if ($use_oembed): ?>
 
 <h4>Audio player</h4>
 <p><a class=embed href=
@@ -16,10 +16,29 @@
 <p><a class=embed  href=
 "http://podcast.open.ac.uk/pod/entrepreneurial-lives/#!cb127010cf">Invisible Boundaries..: Entrepreneurial Lives, on OU podcast</a>
 -->
-<br /><a href="<?php echo site_url('popup/pod/student-experiences/db6cc60d6b') ?>?theme=<?php echo $this->config->item('player_default_theme') ?>">iframe</a>
+
+<?php else: ?>
+
+<h4>Audio player</h4>
+
+<p><iframe
+ class="x ou audio player embed-rsp" width="360" height="80" frameborder="0"
+ src="<?php echo site_url('embed/pod/l314-spanish/fe481a4d1d') ?>"
+></iframe>
+
+<h4>Video player</h4>
+
+<p><iframe
+ class="x ou video player embed-rsp" width="560" height="315" frameborder="0"
+ src="<?php echo site_url('embed/pod/student-experiences/db6cc60d6b') ?>"
+></iframe>
+
+<?php endif; ?>
+
+<p><a href="<?php echo site_url('popup/pod/student-experiences/db6cc60d6b') ?>?theme=<?php echo $this->config->item('player_default_theme') ?>">iframe</a>
 
 
-<?php if ($this->input->get('all')): ?>
+<?php if ($this->input->get('all')): #Deprecated. ?>
 
 <h4>Video 2</h4>
 <p><a class=embed  href="http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334">Circular Motion...: All the Fun of the Fair, on OU podcast</a>
@@ -31,7 +50,7 @@
 <?php endif; ?>
 
 
-<?php if ($this->input->get('ouldi')): ?>
+<?php if ($this->input->get('ouldi')): #Deprecated. ?>
 
 <h3>OU/OULDI embed</h3>
 

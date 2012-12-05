@@ -31,7 +31,7 @@ Browser: <?php echo $_SERVER['HTTP_USER_AGENT'] ?>
   <li>jQuery Javascript version:  <span id="jquery-version">unknown</span>
 </ul>
 
-<p>NOTE: the demos on this site use the <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>" rel="nofollow">jquery-oembed plugin</a>.
+<p>NOTE: some demos on this site use the <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>" rel="nofollow">jquery-oembed plugin</a>.
 <p>NOTE: the OU Media Player is now fairly accessible. Feedback to <a href="<?php echo OUP_CONTACT_URL ?>">IET-Webmaster+@+open.ac.uk</a>.
 
 

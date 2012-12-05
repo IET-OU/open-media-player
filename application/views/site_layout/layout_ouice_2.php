@@ -393,7 +393,7 @@ div.teasers ul li:last-child a {border-right:none;}
 <!-- site specific scripts -->
 
 
-<?php if ($is_demo_page): ?>
+<?php if ($is_demo_page && $use_oembed): ?>
 <!--
 	<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 -->
