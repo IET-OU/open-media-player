@@ -185,12 +185,16 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 */
 switch (strtolower(getenv('OUENV'))) {
   case 'live':
+  case 'acct':  # IT-hosting - fall through.
+    $config['log_threshold'] = 0;  # Was 1  [iet-it-bugs:1446]
+    break;
+  case 'ietlive':
+  case 'ouembed': # Fall through.
     $config['log_threshold'] = 1;
     break;
-  case 'acct':  # IT-hosting - fall through.
   case 'test':
   case 'dev':
-  case 'iet':   # Fall through.
+  case 'ietdev':   # Fall through.
   default:
     $config['log_threshold'] = 2;
 	break;
