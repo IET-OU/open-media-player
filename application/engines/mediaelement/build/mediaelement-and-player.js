@@ -976,9 +976,11 @@ mejs.HtmlMediaElementShim = {
 				
 			for (i=0; i<mediaFiles.length; i++) {
 				// normal check
-				if (htmlMediaElement.canPlayType(mediaFiles[i].type).replace(/no/, '') !== '' 
+//ou-specific [iet-it-bugs:1416]
+				if (htmlMediaElement.canPlayType(mediaFiles[i].type).replace(/no|maybe/, '') !== '' 
 					// special case for Mac/Safari 5.0.3 which answers '' to canPlayType('audio/mp3') but 'maybe' to canPlayType('audio/mpeg')
-					|| htmlMediaElement.canPlayType(mediaFiles[i].type.replace(/mp3/,'mpeg')).replace(/no/, '') !== '') {
+					|| htmlMediaElement.canPlayType(mediaFiles[i].type.replace(/mp3/,'mpeg')).replace(/no|maybe/, '') !== '') {
+//ou-specific ends.
 					result.method = 'native';
 					result.url = mediaFiles[i].url;
 					break;
