@@ -28,16 +28,13 @@ class Demo extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($layout = self::LAYOUT)
-	{
-		#if ('/'==$this->uri->uri_string()) redirect('demo/index');
-
+	public function index($layout = self::LAYOUT, $use_oembed = FALSE) {
 		$this->_load_layout($layout);
 
 		$view_data = array(
 			'is_ouembed' => $this->_is_ouembed(),
 			'is_live' => $this->_is_live(),
-			'use_oembed' => $this->config->item('home_use_oembed') || $this->input->get('oembed'),
+			'use_oembed' => $use_oembed || $this->config->item('home_use_oembed') || $this->input->get('oembed'),
 			'req' => $this->_request,
 		);
 		$this->layout->view('demo/oupodcast-demo', $view_data);
@@ -179,13 +176,12 @@ class Demo extends MY_Controller {
 	  $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
 	}
 
-
 	/** SAMS protected (staff-only) call to phpinfo() - help with debugging.
 	*/
-	public function info() {
+	public function info($what = INFO_ALL) {
 	  $this->_sams_check();
 
-	  phpinfo();
+	  phpinfo($what);
 	}
 
 

@@ -37,7 +37,7 @@ class MY_Controller extends CI_Controller {
 
     @header('Content-Type: text/html; charset=UTF-8');
     #$this->_debug('ouenv='. getenv('OUENV'));
-    $this->_debug(array('ouenv' => getenv('OUENV'), 'token' => $this->config->item('token')));
+    $this->_debug(array('ouenv'=>getenv('OUENV'), 'server'=>$this->_server_name(), 'token'=>$this->config->item('token')));
 
     if ($this->config->item('http_adv')) {
        // Enable Cross-Origin Resource Sharing (CORS), http://enable-cors.org | http://w3.org/TR/cors
@@ -298,6 +298,20 @@ class MY_Controller extends CI_Controller {
     return $url;
   }
 
+  /** Get the load-balanced server name.
+  * @return string
+  */
+  protected function _server_name() {
+    ob_start();
+    phpinfo(INFO_GENERAL);
+    $info = ob_get_clean();
+
+    $server = NULL;
+    if (preg_match('/System.+?<td[^>]*>(Windows.+?<|.+\.uk)/', $info, $matches)) {
+      $server = trim(str_replace(array('Windows', 'Service Pack ', ' Edition', 'Linux'), array('Win', 'SP', ''), $matches[1]), ' <');
+    }
+    return $server;
+  }
 
   /**
   * Create data/ logs sub-directories - reduce configuration.
