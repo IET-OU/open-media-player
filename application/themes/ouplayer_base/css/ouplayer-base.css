@@ -247,6 +247,7 @@ h1 {
 
 .mejs-captions-text{ font-size:1.4em; }
 .oup.width-small .mejs-captions-text{ font-size:1.1em; padding:1px 3px; }
+.oup.width-large .mejs-captions-text{ font-size:2.8em; }
 
 .oup.width-small .mejs-captions-position-hover{ bottom: 5px; }
 
@@ -334,9 +335,9 @@ h1 {
 	margin:.3em 0;
 	}
 .width-large.tscript-show #oup-tscript {
-	width:21em; /*29em; /*300px*/
-	padding:8px;
-	font-size:1.1em;
+	width:19em; /*29em; /*300px*/
+	padding:7px;
+	font-size:1.35em;
 	}
 
 #oup-tscript button, .oup-options button {

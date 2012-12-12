@@ -341,6 +341,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	font-size:.8em;
 	line-height:1.2em;
 }
+.oup.width-large .oup-tooltip.show{ font-size:1.2em; }
 
 
 
