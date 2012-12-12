@@ -261,7 +261,7 @@ h1 {
 	background:#efefef;
 	color:#111;
 	padding:5px;
-	border:1px solid #ccc;
+	border:1px solid #bbb;
 	border-radius:3px;
 	font-size:1.05em;
 	line-height:1.2em;
@@ -272,7 +272,7 @@ h1 {
 .mode-popup #oup-options.show{ bottom:40px; }
 .width-large #oup-options.show {
 	width:20em;
-	font-size:1.15em;
+	font-size:1.25em;
 	padding:8px;
 	}
 .width-small #oup-options.show {
