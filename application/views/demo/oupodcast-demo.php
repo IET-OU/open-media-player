@@ -5,11 +5,11 @@
 
 <?php if ($use_oembed): ?>
 
-<h4>Audio player</h4>
+<h3>Audio player</h3>
 <p><a class=embed href=
 "http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish#!fe481a4d1d">Introduction: A Buerno Puerto, on OU podcast</a>
 
-<h4>Video player</h4>
+<h3>Video player</h3>
 
 <p><a class=embed href="http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b">Student Experiences</a>
 <!--<p>Audio - OpenLearn/ iTunes U.
@@ -19,17 +19,18 @@
 
 <?php else: ?>
 
-<h4>Audio player</h4>
+<h3>Audio player</h3>
 
 <p><iframe
  class="x ou audio player embed-rsp" width="360" height="80" frameborder="0"
  src="<?php echo site_url('embed/pod/l314-spanish/fe481a4d1d') ?>"
 ></iframe>
 
-<h4>Video player</h4>
+<h3>Video player</h3>
 
 <p><iframe
  class="x ou video player embed-rsp" width="560" height="315" frameborder="0"
+ allowfullscreen mozallowfullscreen webkitallowfullscreen
  src="<?php echo site_url('embed/pod/student-experiences/db6cc60d6b') ?>"
 ></iframe>
 
@@ -40,11 +41,11 @@
 
 <?php if ($this->input->get('all')): #Deprecated. ?>
 
-<h4>Video 2</h4>
+<h3>Video 2</h3>
 <p><a class=embed  href="http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334">Circular Motion...: All the Fun of the Fair, on OU podcast</a>
 
 
-<h4>Video 3: restricted access</h4>
+<h3>Video 3: restricted access</h3>
 <p><a class=embed href="http://podcast.open.ac.uk/pod/learn-about-fair-2009/0a49a38de2">Learn about... 2009: OU on iTunes U, by Ben Hawkridge</a>
 
 <?php endif; ?>
