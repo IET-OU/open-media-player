@@ -1,5 +1,13 @@
 # robots.txt for OU Media Player
+# Mostly don't publicise - except the home page.
 # (See http'//youtube.com/robots.txt)
 
 User-agent: *
-Disallow: /
+Disallow: /about
+Disallow: /test
+Disallow: /demo
+Disallow: /docs/
+Disallow: /assets/
+Disallow: /api
+Disallow: /build
+Disallow: /oembed
