@@ -176,12 +176,43 @@ class Demo extends MY_Controller {
 	  $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
 	}
 
-	/** SAMS protected (staff-only) call to phpinfo() - help with debugging.
-	*/
-	public function info($what = INFO_ALL) {
-	  $this->_sams_check();
 
-	  phpinfo($what);
+	/** SAMS protected (staff-only) call to phpinfo() - help with debugging.
+	* @todo - Improve content + styling, cf. http://cloudworks.ac.uk/admin/phpinfo
+	*/
+	public function info($layout = self::LAYOUT, $what = INFO_ALL) {
+	  $this->_sams_check();
+	  $this->_load_layout($layout);
+
+	  $my_env = array(
+	    'OUENV' => getenv('OUENV'),
+	    'Server' => $this->_server_name(),
+	    'CodeIgniter version' => CI_VERSION,  #.' <small>(Not always up-to-date!)</small>',
+	    #'Request' => $this->_request,
+	  );
+
+	  /*$vars = 'token data_dir log_path log_threshold debug podcast_feed_url_pattern http_proxy';
+	  foreach (explode(' ', $vars) as $key) {
+	    $my_env[ $key ] = $this->config->item($key);
+	  }*/	  
+
+	  $this->load->library('Gitlib', null, 'git');
+	  $my_env['<h3> version.json '] = '</h3>'; # Hack!
+	  $my_env += (array) $this->git->get_revision();
+
+	  $my_env['<h3> Configuration '] = '</h3>';
+	  $my_env += $this->config->config;
+
+	  $view_data = array(
+	    'is_ouembed' => $this->_is_ouembed(),
+	    'is_live' => $this->_is_live(),
+	    'use_oembed' => FALSE,
+	    'req' => $this->_request,
+	    'app_config' => $my_env,
+		'phpinfo_what' => $what,
+	  );
+
+	  $this->layout->view('about/phpinfo', $view_data);
 	}
 
 
