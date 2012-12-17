@@ -188,6 +188,7 @@ class Demo extends MY_Controller {
 	    'OUENV' => getenv('OUENV'),
 	    'Server' => $this->_server_name(),
 	    'CodeIgniter version' => CI_VERSION,  #.' <small>(Not always up-to-date!)</small>',
+	    'Token' => $this->config->item('token'),
 	    #'Request' => $this->_request,
 	  );
 

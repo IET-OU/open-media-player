@@ -13,18 +13,18 @@ $page = str_ireplace(array('<html>','<head>','<body>', '</html>','</head>','</bo
 $phpinfo = preg_replace('#<!DOCTYPE.*?>#', '', $page);
 ?>
 
-<p><?php echo anchor('', 'Return home') ?>
- &bull; <a href="#app">Player application config</a> &bull; <a href="?name=value" title=
+<p><a href="#app">Player application config</a> &bull; <a href="?name=value" title=
   "Add a GET parameter">[get]</a> &bull; <a href="#php">PHP info</a>  
 </p>
 
 
+<!--
 <h2 id="version">Versions</h2>
 <ul class="app version">
 
-  <li>CodeIgniter version: <?= CI_VERSION ?></li>
-</ul><p></p>
-
+  <li>CodeIgniter version: <?php echo CI_VERSION ?></li>
+</ul>
+-->
 
 <h2 id="app">Site configuration</h2>
 <ul class="app config">
