@@ -1,9 +1,14 @@
 # robots.txt for OU Media Player
 # Mostly don't publicise - except the home/about pages.
-# (See http'//youtube.com/robots.txt)
+# (See http://youtube.com/robots.txt)
+# http://archive.org/details/archive.org_bot
+# https://webarchive.jira.com/wiki/display/ARIH/Robots+Exclusion+Protocol
+
+
+User-agent: archive.org_bot
+Disallow:
 
 User-agent: *
-
 Disallow: /assets/
 Disallow: /blog/
 Disallow: /docs/
