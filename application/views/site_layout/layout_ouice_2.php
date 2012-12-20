@@ -108,7 +108,7 @@ ul.ou-sections li a:hover, ul.ou-sections li a:focus{
     <div id="ou-org">
 
 <script>if (typeof window.ou_sitestat=='function')ou_sitestat();</script>
-<div id="ou-org-header"> <a class="ou-skip" href="#ou-content">Skip to content</a> <a class="ou-link-ou" href="http://www.open.ac.uk/"><img src="<?php echo $resource_url ?>/includes/headers-footers/oulogo-56.jpg" alt="The Open University" /></a>
+<div id="ou-org-header" role="navigation"> <a class="ou-skip" href="#ou-content">Skip to content</a> <a class="ou-link-ou" href="http://www.open.ac.uk/"><img src="<?php echo $resource_url ?>/includes/headers-footers/oulogo-56.jpg" alt="The Open University" /></a>
   <div class="ou-role-nav">
     <ul>
       <li class="ou-role-accessibility"><a href="http://www.open.ac.uk/accessibility/">Accessibility</a></li>
@@ -139,13 +139,13 @@ ul.ou-sections li a:hover, ul.ou-sections li a:focus{
                
                <!-- Standard Navigation    -->   
                
-<ul class="ou-sections">
+<ul class="ou-sections" role="navigation">
 <?php if ($is_player_site): ?>
     <li class="first tm-player-home tm-demo"><a href="<?php echo $base_url ?>">Player home</a>
     <li class="tm-about"><a href="<?php echo $base_url ?>about">About</a>
     <!--<li class="menu-"><a href="<?php echo $base_url ?>about/help" rel="nofollow">Player Help</a>-->
 <?php if ($is_ouembed): ?>
-    <li class="tm-demo-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">Other embeds</a>
+    <li class="tm-demo-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">OU/OULDI embeds</a>
 <?php endif; ?>
 <?php if (! $is_live): ?>
     <li class="tm-test-size"><a href="<?php echo $base_url ?>test/player_sizes/bare" rel="nofollow" title="'Bare' template">Size tests</a>
@@ -196,13 +196,13 @@ div.teasers ul li:last-child a {border-right:none;}
     </div>
 
     <div id="ou-region1">
-        <div id="ou-content" class="ou-content">
+        <div id="ou-content" class="ou-content" role="main">
 
 
 <?php if ($is_ouembed): ?>
 <div id=warn class=oup-test-warning>
-	<p>Note, this is not the final home of the OU Media Player - that will be <a href="http://mediaplayer.open.edu/">MediaPlayer.open.edu</a>.
-	<br />(<a href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/OULDI-embed services.)</p>
+	<p>Note, OU Media Player is now live at its final home &ndash; <a href="http://mediaplayer.open.edu/" title="And 'mediaplayer.open.ac.uk'">MediaPlayer.open.edu</a>.
+	<p>(<a href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/OULDI-embed services.)</p>
 </div>
 <?php endif; ?>
 
@@ -326,7 +326,7 @@ div.teasers ul li:last-child a {border-right:none;}
 </div>
         </div>  <!-- ou-site -->
 
-    <div id="ou-org-footer">
+    <div id="ou-org-footer" role="contentinfo">
 
 <div class="ou-grid ou-mobile-footer" id="ou-mobile-jlinks"></div>
 
