@@ -44,12 +44,23 @@ $config['providers'] = array(
 	'mathtran.org' => 'Mathtran',
 	'cohere.open.ac.uk' => 'Cohere',
 
+	# File viewer.
+	'dl.dropbox.com' => 'Fileviewer',
+	'openclipart.org' => 'Fileviewer',
+	'openlearn.open.ac.uk' => 'Fileviewer',
+	'labspace.open.ac.uk' => 'Fileviewer',
+	'compendiumld.open.ac.uk' => 'Fileviewer',
+	'www.open.edu' => 'Fileviewer',
 
 	# External.
-	'openlearn.open.ac.uk' => 'Trackoer',
-	'labspace.open.ac.uk' => 'Trackoer',
+	//'openlearn.open.ac.uk' => 'Trackoer',
+	//'labspace.open.ac.uk' => 'Trackoer',
 
 	'ispot.org.uk' => 'Ispot',
+
+	'www.bibsonomy.org' => 'Bibsonomy',
+	'bibsonomy.org' => 'Bibsonomy',
+	
 );
 
 
@@ -84,7 +95,14 @@ $config['providers_other'] = array(
 	#'crocodoc.com'=>array('name'=>'crocodoc'),
 	#'freemusicarchive.org',
 	#'huffduffer.com'=>array('name'=>'Huffduffer', 'type'=>'audio', '__endpoint'=>'http://huffduffer.com/oembed'),
-	'gist.github.com' => array('name'=>'GitHub', 'type'=>'rich'),
+
+	// See, http://noembed.com
+	'gist.github.com' => array('name'=>'GitHub Gist', 'type'=>'rich', 'endpoint' => 'http://noembed.com/embed'),
+	'github.com' => array('name'=>'GitHub Commit', 'type'=>'rich', 'endpoint' => 'http://noembed.com/embed'),
+
+	'open.spotify.com' => array('name' => 'Spotify', 'type' => 'rich', 'endpoint' => 'http://noembed.com/embed'),
+	'wikipedia.org' => array('name' => 'Wikipedia', 'type' => 'rich', 'endpoint' => 'http://noembed.com/embed'),
+
 	// No JSON-P 'callback' parameter :( - https://speakerdeck.com/faq#oembed
 	'speakerdeck.com' => array('name'=>'Speakerdeck', 'type'=>'rich', 'endpoint' => 'http://speakerdeck.com/oembed.json'),
 	'cacoo.com' => array('name'=>'Cacoo', 'type'=>'rich', 'endpoint' => 'http://cacoo.com/oembed.json'),
