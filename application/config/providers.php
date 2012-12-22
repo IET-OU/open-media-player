@@ -50,6 +50,8 @@ $config['providers'] = array(
 	'openlearn.open.ac.uk' => 'Fileviewer',
 	'labspace.open.ac.uk' => 'Fileviewer',
 	'compendiumld.open.ac.uk' => 'Fileviewer',
+	'kn.open.ac.uk' => 'Fileviewer',
+	'oro.open.ac.uk' => 'Fileviewer',
 	'www.open.edu' => 'Fileviewer',
 
 	# External.

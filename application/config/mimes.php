@@ -101,6 +101,12 @@ $mimes = array(	'hqx'	=>	'application/mac-binhex40',
 				'xl'	=>	'application/excel',
 				'eml'	=>	'message/rfc822',
 				'json' => array('application/json', 'text/json')
+#ou-specific
+				,
+				'svg'  => 'image/svg+xml',
+				'svgz' => 'image/svg+xml',
+				'xml' => 'application/xml',
+#ou-specific ends.
 			);
 
 
