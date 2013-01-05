@@ -54,6 +54,8 @@ EOT;
     $meta = (object) array(
       'url' => $url,
       'entity_url' => htmlentities($url, ENT_QUOTES),
+      'id' => hash('crc32b', $url), #8, #substr(sha256($url), 0, 10),
+      #'hash_how' => 'crc32b',
       'host' => $matches[1],
       'path' => $matches[2],
       'ext' => $matches[3],
@@ -100,6 +102,9 @@ EOT;
       $meta->title = str_replace('/', ' / ', ltrim($meta->path, '/'));
       $meta->title = str_replace(".$meta->ext", " ($replace)", $meta->title);
     }
+
+    $meta->title = str_replace("\\'", "'", $meta->title);
+    $meta->entity_title = htmlentities($meta->title, ENT_QUOTES);
 
 
     return (object) $meta;
