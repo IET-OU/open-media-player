@@ -40,6 +40,22 @@ class Demo extends MY_Controller {
 		$this->layout->view('demo/oupodcast-demo', $view_data);
 	}
 
+    public function form($layout = self::LAYOUT) {
+      $this->_load_layout($layout);
+
+      $view_data = array(
+            'is_ouembed' => true,
+            'is_live' => $this->_is_live(),
+            'use_oembed' => true,
+            'page_title' => t('OU/ OULDI Embeds'),
+            'req' => $this->_request,
+
+            'url' => $this->input->get('url'),
+        );
+        $this->layout->view('demo/ouembed-form', $view_data);
+    }
+
+
 	/** OULDI (and OLnet) tests.
 	*/
 	public function ouldi($layout = self::LAYOUT) {
