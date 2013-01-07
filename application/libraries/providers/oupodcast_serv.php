@@ -109,8 +109,10 @@ EOT;
 	  $this->_post_process($player);
 
 	  $this->CI->firephp->fb($player, 'player', 'LOG');
-$this->CI->_debug($player);
-#var_dump($player); exit;
+
+	  if ($this->CI->_is_debug(OUP_DEBUG_MAX)) {
+		$this->CI->_debug($player);
+	  }
       return $player;
   }
 
@@ -312,7 +314,8 @@ $this->CI->_debug($player);
       }
     } else {
       // Fallback to pure PHP library on IT-hosting (#1409).
-      $html = $this->_pdf2text($trans_pdf);
+      # TODO: error, PDF2Text echoes to screen - messes up header() call.
+      #$html = $this->_pdf2text($trans_pdf);
 
     }
 	if ($html) {
@@ -338,6 +341,7 @@ $this->CI->_debug($player);
   * @return string
   */
   protected function _pdf2text($pdf_file) {
+    # TODO: error, PDF2Text echoes to screen - messes up header() call.
     require_once __DIR__ . '/../class.pdf2text.php';
 
     $pdf = new PDF2Text();
