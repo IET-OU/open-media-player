@@ -98,13 +98,6 @@ $config['providers_other'] = array(
 	#'freemusicarchive.org',
 	#'huffduffer.com'=>array('name'=>'Huffduffer', 'type'=>'audio', '__endpoint'=>'http://huffduffer.com/oembed'),
 
-	// See, http://noembed.com
-	'gist.github.com' => array('name'=>'GitHub Gist', 'type'=>'rich', 'endpoint' => 'http://noembed.com/embed'),
-	'github.com' => array('name'=>'GitHub Commit', 'type'=>'rich', 'endpoint' => 'http://noembed.com/embed'),
-
-	'open.spotify.com' => array('name' => 'Spotify', 'type' => 'rich', 'endpoint' => 'http://noembed.com/embed'),
-	'wikipedia.org' => array('name' => 'Wikipedia', 'type' => 'rich', 'endpoint' => 'http://noembed.com/embed'),
-
 	// No JSON-P 'callback' parameter :( - https://speakerdeck.com/faq#oembed
 	'speakerdeck.com' => array('name'=>'Speakerdeck', 'type'=>'rich', 'endpoint' => 'http://speakerdeck.com/oembed.json'),
 	'cacoo.com' => array('name'=>'Cacoo', 'type'=>'rich', 'endpoint' => 'http://cacoo.com/oembed.json'),
@@ -113,3 +106,15 @@ $config['providers_other'] = array(
 	'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
 );
 
+
+if (defined('OUP_NOEMBED_END_URL')) {
+
+$config['providers_other'] += array(
+	// See, http://noembed.com
+	'gist.github.com' => array('name'=>'GitHub Gist', 'type'=>'rich', 'endpoint' => OUP_NOEMBED_END_URL),
+	'github.com' => array('name'=>'GitHub Commit', 'type'=>'rich', 'endpoint' => OUP_NOEMBED_END_URL),
+	'open.spotify.com' => array('name' => 'Spotify', 'type' => 'rich', 'endpoint' => OUP_NOEMBED_END_URL),
+	'wikipedia.org' => array('name' => 'Wikipedia', 'type' => 'rich', 'endpoint' => OUP_NOEMBED_END_URL),
+);
+
+}

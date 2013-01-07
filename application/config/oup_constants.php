@@ -47,6 +47,8 @@ define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/ouplayer');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
 define('OUP_CONTACT_URL', 'mailto:IET-Webmaster+@+open.ac.uk?subject=OU+player');
 
+define('OUP_NOEMBED_END_URL', 'http://noembed.com/embed');
+
 
 // URL parameter names (eg. http://example.org/path?param=value)
 
