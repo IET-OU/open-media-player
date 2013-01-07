@@ -266,7 +266,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 
 /*
- OUVLE colours.
+ OUVLE colours, https://gist.github.com/2291035
 */
 
 /* Default blue */
@@ -297,22 +297,66 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 /* Dark blue */
 .ouvle-dark-blue .mejs-button button:hover, .ouvle-dark-blue .oup-mejs-button button:hover, .ouvle-dark-blue .oup-mejs-link :hover,
 .ouvle-dark-blue .mejs-playpause-button button, .ouvle-dark-blue .oup-volume-widget button.oup-mute {
-	background-color:rgb(29, 93, 157); /* ?? */
+	background-color:rgb(29, 93, 57); /* ?? */
+}
+.ouvle-dark-blue .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(29, 93, 57);
 }
 /* Green */
 .ouvle-green .mejs-button button:hover, .ouvle-green .oup-mejs-button button:hover, .ouvle-green .oup-mejs-link :hover,
 .ouvle-green .mejs-playpause-button button, .ouvle-green .oup-volume-widget button.oup-mute {
-	background-color:rgb(29, 93, 57);
-	x-background-color: rgb(82, 82, 37); /* olive? */
+	x-background-color:rgb(29, 93, 57);
+	background-color:rgb(82, 82, 37); /* olive? */
+}
+.ouvle-green .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(82, 82, 37);
+}
+/* Grey (not gray) */
+.ouvle-grey .mejs-button button:hover, .ouvle-grey .oup-mejs-button button:hover, .ouvle-grey .oup-mejs-link :hover,
+.ouvle-grey .mejs-playpause-button button, .ouvle-grey .oup-volume-widget button.oup-mute {
+	background-color:rgb(70, 70, 70);
+}
+.ouvle-grey .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(70, 70, 70);
+}
+/* Purple */
+.ouvle-purple .mejs-button button:hover, .ouvle-purple .oup-mejs-button button:hover, .ouvle-purple .oup-mejs-link :hover,
+.ouvle-purple .mejs-playpause-button button, .ouvle-purple .oup-volume-widget button.oup-mute {
+	background-color:rgb(78, 40, 122);
+}
+.ouvle-purple .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(78, 40, 122);
+}
+/* Pink */
+.ouvle-pink .mejs-button button:hover, .ouvle-pink .oup-mejs-button button:hover, .ouvle-pink .oup-mejs-link :hover,
+.ouvle-pink .mejs-playpause-button button, .ouvle-pink .oup-volume-widget button.oup-mute {
+	background-color:rgb(197, 45, 115);
+}
+.ouvle-pink .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(197, 45, 115);
+}
+/* Dark red */
+.ouvle-dark-red .mejs-button button:hover, .ouvle-dark-red .oup-mejs-button button:hover, .ouvle-dark-red .oup-mejs-link :hover,
+.ouvle-dark-red .mejs-playpause-button button, .ouvle-dark-red .oup-volume-widget button.oup-mute {
+	background-color:rgb(100, 24, 52);
+}
+.ouvle-dark-red .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(100, 24, 52);
 }
 
-/* ... */
-
+/* Button normal *-/
+.ouvle-button-normal .mejs-button button:hover, .ouvle-button-normal .oup-mejs-button button:hover, .ouvle-button-normal .oup-mejs-link :hover,
+.ouvle-button-normal .mejs-playpause-button button, .ouvle-button-normal .oup-volume-widget button.oup-mute {
+	background-color:rgb(255, 255, 255);
+}*/
 
 /* Colour XY. */
 .ouvle-XY .mejs-button button:hover, .ouvle-XY .oup-mejs-button button:hover, .ouvle-XY .oup-mejs-link :hover,
 .ouvle-XY .mejs-playpause-button button, .ouvle-XY .oup-volume-widget button.oup-mute {
 	background-color:rgb(41,110,143);
+}
+.ouvle-XY .mejs-controls .mejs-time-rail .mejs-time-current {
+	background:rgb(41,110,143);
 }
 
 

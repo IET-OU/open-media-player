@@ -55,10 +55,12 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme {
     $rgb = $this->CI->input->get('rgb');
     $this->rgb = $rgb ? $rgb : 'ouvle-default-blue';
 
-    // https://gist.github.com/2291035 --? /(ouvle-[a-z]+|button-normal)/
-    $RE = 'default-blue|orange|dark-blue|green';   #'|grey|purple|pink|dark-red';
+    // Bug #1324, https://gist.github.com/2291035 --? /(ouvle-[a-z]+|button-normal)/
+    $RE = 'default-blue|orange|dark-blue|green|grey|purple|pink|dark-red'; #'|button-normal'
     if (! preg_match("/^ouvle-($RE)\$/", $this->rgb)) {
-      $this->CI->_error("(theme error) unrecognized value for 'rgb' parameter: ".$this->rgb, 400);
+      #$this->CI->_error("(theme error) unrecognized value for 'rgb' parameter: ".$this->rgb, 400);
+      $this->CI->_debug("Warning (theme), unrecognized value for 'rgb' color parameter, ". $this->rgb);
+      $this->rgb = 'ouvle-default-blue';
     }
 
 
