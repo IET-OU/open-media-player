@@ -46,13 +46,16 @@ $config['providers'] = array(
 
 	# File viewer.
 	'dl.dropbox.com' => 'Fileviewer',
+	'ubuntuone.com' => 'Fileviewer',
 	'openclipart.org' => 'Fileviewer',
+	'upload.wikimedia.org' => 'Fileviewer',
 	'openlearn.open.ac.uk' => 'Fileviewer',
 	'labspace.open.ac.uk' => 'Fileviewer',
 	'compendiumld.open.ac.uk' => 'Fileviewer',
 	'kn.open.ac.uk' => 'Fileviewer',
 	'oro.open.ac.uk' => 'Fileviewer',
 	'www.open.edu' => 'Fileviewer',
+	'www.open.ac.uk' => 'Fileviewer',
 
 	# External.
 	//'openlearn.open.ac.uk' => 'Trackoer',
