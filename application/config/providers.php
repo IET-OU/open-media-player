@@ -105,6 +105,10 @@ $config['providers_other'] = array(
 	'speakerdeck.com' => array('name'=>'Speakerdeck', 'type'=>'rich', 'endpoint' => 'http://speakerdeck.com/oembed.json'),
 	'cacoo.com' => array('name'=>'Cacoo', 'type'=>'rich', 'endpoint' => 'http://cacoo.com/oembed.json'),
 
+	// Wordpress, https://bitbucket.org/cloudengine/cloudengine/issue/310/embedding-from-wordpress-blogs
+	'.wordpress.com' => array('name'=>'Wordpress', 'type'=>'rich', 'endpoint'=>'http://public-api.wordpress.com/oembed/1.0/?for=Embed.open.ac.uk'),
+	'wp.me' => array('name'=>'Wordpress', 'type'=>'rich', 'endpoint'=>'http://public-api.wordpress.com/oembed/1.0/?for=Embed.open.ac.uk'),
+
 	// iSpot.
 	'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
 );
