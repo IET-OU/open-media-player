@@ -192,7 +192,7 @@ class Podcast_player extends Openlearn_player {
   public function is_deleted_podcast() {
 	$this->_check_access();
 
-	return self::truthy($this->_access['private']);
+	return self::truthy($this->_access['deleted']);
   }
 
   public function is_published_podcast() {
