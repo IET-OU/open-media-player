@@ -93,7 +93,7 @@ class Embed extends MY_Controller {
         $this->theme->prepare($player);
 
         $view_data['params'] = $view_data['meta'];
-        $view_data['params']->debug = $this->_debug;
+        $view_data['params']->debug = $this->_is_debug(OUP_DEBUG_MAX);  #$this->_debug;
 
         $this->load->theme_view(null, $view_data);
     } else

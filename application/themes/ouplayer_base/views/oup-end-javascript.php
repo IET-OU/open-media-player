@@ -5,7 +5,8 @@ $(document).ready(function ouplayer_launch($){
 $.domReady(function ouplayer_launch(){
 <?php endif; ?>
 
-var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
+$.oup_debug = <?php echo $params->debug ? 'true':'false' ?>,
+$.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
 
 <?php if ($params->poster_url): ?>
   // url to poster (to fix iOS 3.x) 
@@ -105,7 +106,7 @@ var player = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   }
   $.log('mejs.version: '+ mejs.version);
   $.log('Browser: <?php echo $this->agent->browser_code() ?>'); //'+$('html').attr('class'));
-  $.log(player.options);
+  $.log($.ouplayer.options);
 
   setTimeout(function(){
     $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));
