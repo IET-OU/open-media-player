@@ -91,5 +91,9 @@ class Mejs_Default_Theme extends Player_Theme {
     elseif (! $this->jslib && $player->caption_url) {
       $this->jslib = 'jquery';
     }
+	// Bug #1456, Video size issue - Chrome etc. - ender/jeesh.JS / no captions.
+    elseif (! $this->jslib && ! $player->caption_url) {
+      $this->jslib = 'ender';
+    }
   }
 }
