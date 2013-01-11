@@ -27,7 +27,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 
 .mejs-container .mejs-controls {
-	x-padding-bottom:1px; /*Hmm, 1 pixel or 0? */
+	/*padding-bottom:1px; /*Hmm, 1 pixel or 0? */
 	/*background: url(background.png);
 	background: rgba(0, 0, 0, 0.7); - Peter: 080312 */
 	background: rgb(243,242,242);/* - Peter: 080312 */
@@ -70,7 +70,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 .mejs-controls .mejs-playpause-button.mejs-pause button {
 	background-position: -72px 0; /* - Peter: 080312 */
-	x-background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
+	/*background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
 	}
 
 /*.mejs-container .mejs-controls .mejs-time {
@@ -111,7 +111,6 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	background: linear-gradient(rgba(30,30,30,0.8), rgba(60,60,60,0.8)); 	
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#1E1E1E,endColorstr=#3C3C3C);*/ /* - Peter: 080312*/
 	-webkit-border-radius:0;
-	-moz-border-radius:0;
 	border-radius:0;
 	filter:none; /*MSIE*/
 	}
@@ -131,7 +130,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 .mejs-controls .mejs-time-rail .mejs-time-current {
 	width: 0;
-	x-background: rgb(41,110,143); /* - Peter: 190312 COLOR*/
+	/*background: rgb(41,110,143); /* - Peter: 190312 COLOR*/
 	/*background: rgba(255,255,255,0.8);
 	..
 	background: linear-gradient(rgba(255,255,255,0.9), rgba(200,200,200,0.8));
@@ -147,9 +146,9 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 .mejs-container .mejs-controls .mejs-time span {
 	color:#222;
-	x-font-size:1.2em;
+	/*font-size:1.2em;*/
 	font-size:12px;
-	x-font-size:0.845em;
+	/*font-size:0.845em;*/
 	line-height:12px;
 	display:block;
 	float:left;
@@ -208,7 +207,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 .mejs-controls button.oup-mute {			/*.oup-mute added by Peter: 210312*/
 	background-position: -144px 0;
-	x-background-color:rgb(41,110,143);				/*rgb(41,110,143);190312 - PETER - COLOR*/
+	/*background-color:rgb(41,110,143);				/*rgb(41,110,143);190312 - PETER - COLOR*/
 	}
 .XX-mejs-controls .oup-volume-widget button:hover {
 	outline:1px solid #ccc;
@@ -216,7 +215,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 .mejs-controls .mejs-unmute button.oup-mute {			/*.oup-mute added by Peter: 210312*/
 	background-position: -206px 0;
-	x-background-color:rgb(41,110,143);				/*rgb(41,110,143);190312 - PETER - COLOR*/
+	/*background-color:rgb(41,110,143);				/*rgb(41,110,143);190312 - PETER - COLOR*/
 	}
 
 .X-mejs-controls .mejs-volume-button {
@@ -226,7 +225,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 
 /* Captions button: US/internat. English 'CC' - NO-bug: background should be white. */
-.mejs-controls .mejs-captions-button button { background-position:-780px 0;   x-background-color:#fff !important; }
+.mejs-controls .mejs-captions-button button { background-position:-780px 0;   /*background-color:#fff !important;*/ }
 .mejs-controls .mejs-captions-button  :hover { background-position:-846px 0; } /*:hover == -button-off */
 
 /* Captions button: UK English 'S' */
@@ -255,7 +254,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 .mejs-controls .mejs-fullscreen-button.mejs-unfullscreen button:hover {
 	background-position: -1790px 0;
-	x-background-color: rgb(41,110,143);
+	/*background-color: rgb(41,110,143);*/
 }
 
 /* Options/settings button. */
@@ -305,7 +304,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 /* Green */
 .ouvle-green .mejs-button button:hover, .ouvle-green .oup-mejs-button button:hover, .ouvle-green .oup-mejs-link :hover,
 .ouvle-green .mejs-playpause-button button, .ouvle-green .oup-volume-widget button.oup-mute {
-	x-background-color:rgb(29, 93, 57);
+	/*background-color:rgb(29, 93, 57);*/
 	background-color:rgb(82, 82, 37); /* olive? */
 }
 .ouvle-green .mejs-controls .mejs-time-rail .mejs-time-current {
