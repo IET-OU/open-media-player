@@ -113,5 +113,11 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       // Experimental feature: select/copy embed code.
       $this->features .= ',oup_copyembed';
     }
+
+    // Bug #1447, captions expected - part of a fix?
+    if (! $player->caption_url) {
+      $this->features = str_replace(array(',tracks', ',oup_tracks_shim'), '', $this->features);
+    }
+
   }
 }
