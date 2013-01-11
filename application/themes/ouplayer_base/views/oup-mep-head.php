@@ -71,6 +71,15 @@ if(typeof $=='undefined'){
 <link rel="stylesheet" href="../build/mejs-skins.css" />
 <?php endif; ?>
 
+<?php /*//view-source:http://www.youtube.com/embed/pKioYCPigCo#Line-12 ?>
+<style>
+  @-o-viewport{ width:device-width; }
+  @-moz-viewport{ width:device-width; }
+  @-ms-viewport{ width:device-width; }
+  @-webkit-viewport{ width:device-width; }
+  @viewport{ width:device-width; }
+</style>
+*/ ?>
 
 <?php
   // Google/ ComScore analytics (from the legacy player).
