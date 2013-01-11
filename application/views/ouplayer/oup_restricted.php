@@ -35,7 +35,7 @@ $base_url = base_url();
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<meta charset="utf-8" /><title><?php #echo $meta->title .' | ' ?><?php echo $restrict_text ?> | <?php echo t('OU player') ?></title>
+<meta charset="utf-8" /><title><?php #echo $meta->title .' | ' ?><?php echo $restrict_text ?> | Podcast | <?php echo t('OU player') ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
 <link rel="stylesheet" href="<?php echo $base_url ?>assets/ouplayer/ouplayer.core.css" />
