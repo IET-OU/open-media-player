@@ -22,7 +22,8 @@
 				tip_visible = false,
 				tip = 
 				$('<div class="oup-tooltip hide" role="tooltip">TIP</div>')
-				.appendTo(controls),
+				//.appendTo(controls),
+				.appendTo($('body')),
 				toggleTip = function(ev) { //,btn)
 					var tg = ev.target
 					, offset = $(tg).offset()
