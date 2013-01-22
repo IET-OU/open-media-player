@@ -262,12 +262,63 @@ EOT;
 	return $player;
   }
 
+
+  protected function _get_html_transcript(& $player) {
+    if (! $player->transcript_html_url) return FALSE;
+
+    $res = FALSE;
+
+    $trans_n2_html = $this->CI->config->item('data_dir').'oupodcast/'.basename($player->transcript_html_url);
+	$trans_n2_html= str_replace(array('.html', '.htm'), '_trans_n2.html', $trans_n2_html);
+
+	if (! file_exists($trans_n2_html)) {
+	  $res = $this->_http_request_curl($player->transcript_html_url);
+      if (!$res->success) {
+        // Log error.
+        log_message('error', __CLASS__.". Error getting HTML transcript (N2), $player->transcript_html_url | ".$res->info['http_code']);
+      }
+    }
+
+    // We're only using the Pdftohtml::filter() call.
+    $this->CI->load->library('Pdftohtml');
+
+	if ($res && $res->success && $res->data) {
+	  $b1 = @file_put_contents($trans_n2_html, $res->data);
+	  if ($b1) {
+        $this->CI->_log('debug', "Transcript file written, $b1 bytes (N2), $trans_n2_html");
+        $this->CI->_debug("Transcript file written, $b1 bytes (N2), $trans_n2_html");
+
+        $player->transcript_html = '<!--N2-->'. $this->CI->pdftohtml->filter($res->data);
+	  } else {
+		$this->CI->_log('error', __CLASS__.". Error writing HTML transcript (N2), $trans_n2_html");
+		$this->CI->_debug('Error writing HTML transcript (N2)');
+		return FALSE;
+	  }
+	}
+    elseif (file_exists($trans_n2_html)) {
+      // OR get an existing HTML snippet.
+      $player->transcript_html = '<!--N2-->'. $this->CI->pdftohtml->filter(@file_get_contents($trans_n2_html));
+      if (! $player->transcript_html) {
+        $this->CI->_log('error', __CLASS__.". Error getting HTML transcript (N2).");
+        return FALSE;
+      }
+    }
+    return TRUE;
+  }
+
+
   /** Either get PDF transcript (from remote site) and convert to HTML snippet, or return existing snippet.
   * Note, an intermediate XML file is saved.
   */
   public function get_transcript($player) {
 
     $player->transcript_html = NULL;
+
+    $hres = $this->_get_html_transcript($player);
+
+    if ($hres) return $player;
+
+    // @deprecated
 
     if (! $player->transcript_url) return $player;
 
@@ -337,6 +388,8 @@ EOT;
 
 
   /**
+  * @deprecated
+  *
   * Fallback to pure PHP library on IT-hosting (#1409).
   * @return string
   */
