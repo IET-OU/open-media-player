@@ -23,7 +23,9 @@ EOT;
     'openclipart.org', 'upload.wikimedia.org',
     'www.open.edu', 'www.open.ac.uk',  # Includes OU blogs?
     'openlearn.open.ac.uk', 'labspace.open.ac.uk', 'compendiumld.open.ac.uk',
-    'kn.open.ac.uk', 'oro.open.ac.uk');  #ORO - ePrints - conflict?
+    'kn.open.ac.uk', 'oro.open.ac.uk',  #ORO - ePrints - conflict?
+    'sites.google.com', 'www.lkl.ac.uk', 'blogs.cetis.ac.uk',
+  );
   public $favicon = 'https://docs.google.com/favicon.ico';
   public $type = 'rich';
 

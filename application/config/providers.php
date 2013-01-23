@@ -47,6 +47,7 @@ $config['providers'] = array(
 	# File viewer.
 	'dl.dropbox.com' => 'Fileviewer',
 	'ubuntuone.com' => 'Fileviewer',
+	'sites.google.com' => 'Fileviewer',
 	'openclipart.org' => 'Fileviewer',
 	'upload.wikimedia.org' => 'Fileviewer',
 	'openlearn.open.ac.uk' => 'Fileviewer',
@@ -56,6 +57,8 @@ $config['providers'] = array(
 	'oro.open.ac.uk' => 'Fileviewer',
 	'www.open.edu' => 'Fileviewer',
 	'www.open.ac.uk' => 'Fileviewer',
+	'www.lkl.ac.uk' => 'Fileviewer',
+	'blogs.cetis.ac.uk' => 'Fileviewer',
 
 	# External.
 	//'openlearn.open.ac.uk' => 'Trackoer',
@@ -65,7 +68,8 @@ $config['providers'] = array(
 
 	'www.bibsonomy.org' => 'Bibsonomy',
 	'bibsonomy.org' => 'Bibsonomy',
-	
+
+	'data.dev8d.org' => 'Dev8d',
 );
 
 
@@ -109,8 +113,8 @@ $config['providers_other'] = array(
 	'.wordpress.com' => array('name'=>'Wordpress', 'type'=>'rich', 'endpoint'=>'http://public-api.wordpress.com/oembed/1.0/?for=Embed.open.ac.uk'),
 	'wp.me' => array('name'=>'Wordpress', 'type'=>'rich', 'endpoint'=>'http://public-api.wordpress.com/oembed/1.0/?for=Embed.open.ac.uk'),
 
-	// iSpot.
-	'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
+	// iSpot (see 'providers')
+	///'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
 );
 
 

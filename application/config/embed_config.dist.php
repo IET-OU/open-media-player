@@ -54,9 +54,9 @@ $config['podcast_data_use_feed'] = true;
 
 // Required/Podcast. Required for feed access model - the default.
 $config['podcast_feed_url_pattern'] =
-    "http://example.org/feeds/__COLLECTION_ID__/rss2-extended.xml";
+    "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
 
-
+XX
 /*
 |--------------------------------------------------------------------------
 | Podcast Player other configuration.
