@@ -13,6 +13,8 @@ $config['token'] = 0;  #'NDF/2012-12-04';
 */
 $config['debug'] = OUP_DEBUG_MIN;
 
+$config['robots'] = FALSE;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +58,7 @@ $config['podcast_data_use_feed'] = true;
 $config['podcast_feed_url_pattern'] =
     "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
 
-XX
+
 /*
 |--------------------------------------------------------------------------
 | Podcast Player other configuration.

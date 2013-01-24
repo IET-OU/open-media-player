@@ -6,6 +6,8 @@
 * Source: http://www3.open.ac.uk/study/
 */
 
+  $robots = $this->config->item('robots');
+
   $site_url = $resource_url = OUP_OU_RESOURCE_URL;
   $base_url = site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
@@ -17,10 +19,13 @@
   $path = str_replace('/', '-', $this->uri->uri_string());
   $body_classes .= '-'==$path ? 'pg-player-home' : 'pg-'. $path;
 
+
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta charset="utf-8" /><title><?php echo $page_title ?> - The Open University</title>
+<?php if (!$robots): ?>
 <meta name="ROBOTS" content="noindex,nofollow" />
+<?php endif ?>
 
 <meta name="description" content="Open University is the UK's largest university for part-time higher education..." />
 <meta name="keywords" content="" />
