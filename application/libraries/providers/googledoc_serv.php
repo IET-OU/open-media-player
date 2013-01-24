@@ -25,7 +25,7 @@ EOT;
   public $_regex_real =
     ':\/\/docs\.google\.com\/(spreadsheet|present|presentation|document)\/\w*(ccc|form|pub|d|view|edit)(\?\w+=|\/)([\w-]+)(\/edit)?#?(.*?)(height=(\d+))?';
   public $_examples = array(
-    'Get CloudEngine IET coffee..' => 'https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y',
+    'Get CloudEngine IET coffee..' => 'https://docs.google.com/presentation/d/1XK81uvcIZl_lTnYGRSOOMUz7Zor94eqG5TimKOZp-kg/edit#slide=id.i0',
     'Rhodri\'s talk' => 'https://docs.google.com/presentation/d/1ODWAPH9pXgVo-IImJeUDCHrh5owh33OXkvHfWlJyOqo/edit#slide=id.g14429bf_1_14',
     'OU Player help/ about' => 'https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit#id.j2um0zpktyo1',
 

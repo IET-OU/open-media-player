@@ -40,6 +40,9 @@ class Demo extends MY_Controller {
 		$this->layout->view('demo/oupodcast-demo', $view_data);
 	}
 
+
+    /** OU Embed demo form [iet-it-bugs:1454].
+    */
     public function form($layout = self::LAYOUT) {
       $this->_load_layout($layout);
 
@@ -49,10 +52,30 @@ class Demo extends MY_Controller {
             'use_oembed' => true,
             'page_title' => t('OU/ OULDI Embeds'),
             'req' => $this->_request,
-
+            'examples' => $this->_get_oembed_examples(),
             'url' => $this->input->get('url'),
         );
         $this->layout->view('demo/ouembed-form', $view_data);
+    }
+
+    protected function _get_oembed_examples() {
+      $examples = $names = array();
+      $providers = $this->_get_oembed_providers();
+
+      foreach ($providers as $domain => $name) {
+        // Prevent duplicated loads/ examples.
+        if (isset($names[$name])) continue;
+
+        $names[$name] = 1;
+
+        $this->load->oembed_provider($name);
+
+        $example = $this->provider->getExamples();
+        if ($example) {
+          $examples += $example;
+        }
+      }
+      return $examples;
     }
 
 

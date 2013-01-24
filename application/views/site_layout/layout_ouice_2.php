@@ -72,6 +72,13 @@
 <?php //endif; ?>
 
 <style>
+div#ou-region1{
+  float:none;
+  width:auto;
+  x-max-width:99%;
+}
+img{ display:inline-block; }
+
 /* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
 */
 body.pg-player-home li.tm-player-home a, .pg-demo li.tm-demo a, .pg-about li.tm-about a,

@@ -128,6 +128,15 @@ abstract class Oembed_Provider implements iService {
     return $props;
   }
 
+  /** Get one or more example URLs.
+  * @return mixed Array or FALSE.
+  */
+  public function getExamples($length = 1) {
+    if ('public' != $this->_access || count($this->_examples) < 1) return FALSE;
+
+    return array_slice($this->_examples, 0, $length);
+  }
+
 
   protected function _error($message, $code=500, $from=null, $obj=null) {
     return $this->CI->_error($message, $code, $from, $obj);
