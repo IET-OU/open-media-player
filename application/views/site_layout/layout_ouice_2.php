@@ -7,6 +7,7 @@
 */
 
   $robots = $this->config->item('robots');
+  $google_analytics = $this->config->item('google_analytics');
 
   $site_url = $resource_url = OUP_OU_RESOURCE_URL;
   $base_url = site_url();
@@ -81,8 +82,12 @@ div#ou-region1{
   float:none;
   width:auto;
   x-max-width:99%;
+  background-color:transparent;
 }
+div#ou-page{ background-color:#fdfdfd; }
 img{ display:inline-block; }
+hr { height:0; border-top:1px solid #ccc; margin:2em 0; }
+
 
 /* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
 */
@@ -113,6 +118,21 @@ ul.ou-sections li a:hover, ul.ou-sections li a:focus{
   background-color:#fdfdfd;
 }
 </style>
+
+
+<?php if($google_analytics): ?>
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '<?php echo $google_analytics ?>']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<?php endif; ?>
 
 
 <body class="X-ou-ia-study <?php echo $body_classes ?>" id="X-study" >
@@ -212,7 +232,7 @@ div.teasers ul li:last-child a {border-right:none;}
 
 
 <?php if ($is_ouembed): ?>
-<div id=warn class=oup-test-warning>
+<div id=warn class=oup-test-warning role="status">
 	<p>Note, OU Media Player is now live at its final home &ndash; <a href="http://mediaplayer.open.edu/" title="And 'mediaplayer.open.ac.uk'">MediaPlayer.open.edu</a>.
 	<p>(<a href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/OULDI-embed services.)</p>
 </div>
