@@ -111,6 +111,10 @@ $config['cache_minutes'] = false; //10;
 // Experimental.
 $config['player_scripts_compress'] = false;
 
+
+#$config['google_analytics'] = 'UA-24005173-1';
+
+
 // NEW! OU Sharepoint NTLM (LDAP) account.
 #$config['http_sharepoint_userpwd'] = 'open-university\[UNIT]-cluster:[PASSWORD]';
 

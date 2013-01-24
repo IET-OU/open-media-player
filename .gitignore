@@ -1,4 +1,7 @@
 
+/git*.php
+/git-pull*
+
 Thumbs.db
 .DS_Store
 .project
