@@ -104,7 +104,7 @@ abstract class Oembed_Provider implements iService {
     return $this->_google_analytics;
   }
 
-  /** Get 'published' properties for Services controller (Cf. http://api.embed.ly/1/services)
+  /** Get 'published' provider-properties for Services controller (Cf. http://api.embed.ly/1/services)
   * @return object
   */
   public function getProperties() {
@@ -131,10 +131,10 @@ abstract class Oembed_Provider implements iService {
   /** Get one or more example URLs.
   * @return mixed Array or FALSE.
   */
-  public function getExamples($length = 1) {
+  public function getExamples($count = 1) {
     if ('public' != $this->_access || count($this->_examples) < 1) return FALSE;
 
-    return array_slice($this->_examples, 0, $length);
+    return array_slice($this->_examples, 0, $count);
   }
 
 
@@ -201,6 +201,35 @@ abstract class Oembed_Provider implements iService {
   */
   protected function _embedly_oembed_url($url) {
     return "http://api.embed.ly/1/oembed?format=json&url=$url&key=".$this->_embedly_api_key();
+  }
+}
+
+
+/**
+ * Extend the base class for a generic IFRAME oEmbed provider.
+ */
+abstract class Generic_Iframe_Oembed_Provider extends Oembed_Provider {
+
+  public function getView() {
+    return 'oembed/_generic_iframe';
+  }
+
+  protected function getIframeResponse($url) {
+    return (object) array(
+        '_comment' => '/*TODO: work-in-progress! */',
+        'original_url' => $url,
+        #'is_iframe' => TRUE,
+        #'view_name' => $this->getView(),
+        'class_name' => $this->name,
+        'provider_name' => $this->displayname,
+        'provider_url' => $this->_about_url,
+        'provider_icon' => $this->favicon,
+        'type' => $this->type, #rich
+        'title'=> NULL,
+        'width' => '100%', #640, #720,
+        'height'=> 400, #$height,
+        'embed_url'=> NULL,
+    );
   }
 }
 
