@@ -8,6 +8,7 @@ h2{ margin-top:1.2em; }
 .ouembed-form input{ font-size:1.2em; padding:.6em 4px; background:#ddd; color:#333; border:1px solid #d0d0d0; margin:0; }
 input#url{ background:#f8f8f8; border-right-width:0 }
 input[type=submit]{ cursor:pointer; padding:.6em; }
+.X-ouembed-form .reset:before { position:relative; top:35px; left:-3em; }
 .ouembed-form input[type=submit]:hover{ background:#e8e8e8; }
 #examples li{ margin:3px 0; width:60%; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; /*#1388, truncate too-long titles..*/ }
 #oembed-out{ margin:1em auto; x-resize:both; x-overflow:auto; }
@@ -15,7 +16,7 @@ textarea, #oembed-out{ background:#f8f8f8; border:1px solid #ccc; padding:4px; }
 textarea{ width:97%; }
 input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 #oembed-out:hover, textarea:hover{ background:#fff; }
-#oembed-js-fm{ white-space:nowrap; overflow: hidden; }
+#X-oembed-js-fm{ white-space:nowrap; overflow:hidden; }
 #show-sharing{ margin:1.6em 0; padding:.5em; font-size:1.1em; }
 </style>
 
@@ -26,9 +27,9 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 <div class=ouembed-form>
 
 <form id=form>
-  <p><label for=url >URL to embed: </label>
-  <p><input id=url name=url type=url data-X-required value="<?php echo $url ?>" size=85 maxlength=140 placeholder="<?php echo array_pop(array_slice($examples, 0, 1)) ?>"
-  /><input type=submit />
+  <p><label for=url >URL to embed</label> - <a class=reset href="?" title="Reset form">reset</a>
+  <p><input id=url name=url type=url required value="<?php echo $url ?>" size=85 maxlength=140 placeholder="<?php echo array_pop(array_slice($examples, 0, 1)) ?>"
+  /><input type=submit value="Embed" />
 </form>
 
 <div id=examples >
@@ -75,23 +76,37 @@ $(document).ready(function() {
 </script><?php
     $jquery_oembed = ob_get_clean();
 ?>
-<p><label for=oembed-js-fm >Embed using <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>">jQuery-oEmbed</a>:</label>
+<p><label for=oembed-js-fm >Embed using <a class=js href="<?php echo site_url('scripts/jquery.oembed.js') ?>">jQuery-oEmbed</a>:</label>
 <p><textarea id=oembed-js-fm cols=95 rows=9 readonly ><?php echo str_replace('<', '&lt;', $jquery_oembed) ?></textarea>
 </div>
+<p class=oembed-api >[ <a href="<?php echo site_url('oembed') ?>?format=json&amp;url=<?php echo urlencode($url) ?>">JSON oEmbed</a>
+ | <a rel=help href="http://oembed.com/">What is oEmbed?</a> ]
 </div>
 
 
 <script>
 $(document).ready(function () {
   setTimeout(function () {
+    // MSIE: http://stackoverflow.com/questions/2873326/convert-html-tag-to-lowercase
     $('#static-embed-fm').val($('#oembed-out').html().replace(/\n/, ''));
   }, 2000);
   $('#show-sharing').click(function () {
     $('#sharing').slideToggle();
   });
-  if (document.location.hash.indexOf('sharing') == -1) {
-    $('#sharing').toggle();
+  function hashChange(search) {
+    if (!search) search = 'sharing';
+    if (document.location.hash.indexOf(search) == -1) {
+    //if (e.newURL.indexOf('sharing') == -1) {
+      $('#' + search).hide();
+    } else {
+      $('#' + search).show();
+    }
   }
+  // See: http://stackoverflow.com/questions/3090478/jquery-hash-change-event
+  $(window).bind('hashchange', function (e) {
+    hashChange();
+  });
+  hashChange();
 });
 </script>
 <?php endif; ?>
