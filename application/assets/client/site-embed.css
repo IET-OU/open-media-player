@@ -31,7 +31,7 @@ abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 */
 .oup-ice-test .oembed, .oup-ice-test .embed-rsp{ margin:2em 0; }
 
-iframe.embed-rsp {
+iframe.embed-rsp, .embed-rsp iframe, .oup-ice-test iframe {
   display:block;
   x-margin:1em 0;
   border:1px solid #ddd;
