@@ -17,6 +17,12 @@ function json_encode_bare($obj) {
   return str_replace("'", "\\'", trim(json_encode($obj), '{}'));
 }
 
+/** Does haystack contain needle? (Wrap up 'strpos')
+*/
+function contains($haystack, $needle) {
+  return FALSE !== strpos($haystack, $needle);
+}
+
 /**
 * Output the URL for a Player-engine or theme resource.
 * Note, the URL is HTTP/SSL-neutral (//host/path) and contains a hash/version ID.

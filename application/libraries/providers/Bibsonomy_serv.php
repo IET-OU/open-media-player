@@ -3,11 +3,11 @@
  * Bibsonomy oEmbed service provider -- a stop-gap service?!
  *
  * @copyright Copyright 2012 The Open University.
- * @author N.D.Freear, 19 November 2012.
+ * @author N.D.Freear, 19 November 2012 - 25 January 2013.
  */
 
 
-class Bibsonomy_serv extends Oembed_Provider {
+class Bibsonomy_serv extends Generic_Iframe_Oembed_Provider {
 
   public $regex = 'http://www.bibsonomy.org/*'; // Optional trailing slash.
   public $about = <<<EOT
@@ -20,23 +20,31 @@ EOT;
 
   public $_about_url = 'http://bibsonomy.org/';
 
-  public $_regex_real = 'bibsonomy\.org\/.*';
+  public $_regex_real = 'bibsonomy\.org\/?([^\?]*)(\?.*)?';
   public $_examples = array(
-    'Twitter tag' => 'http://www.bibsonomy.org/tag/twitter',
+    'Oldsmooc tag' => 'http://www.bibsonomy.org/tag/oldsmooc',
   );
   public $_access = 'public';
 
 
   /**
-  * Call the Embed.ly service (2011-03-23).
   * @return object
   */
   public function call($url, $matches) {
-    var_dump('/*TODO: work-in-progress! */', $url, $matches);
+
+    // Generate the embed URL from the input URL.
+    $embed_url = preg_replace('/format=\w*/', '', $url);
+    $embed_url .= contains($url, '?') ? '&' : '?';
+    $embed_url .= 'format=embed&for=' . $this->CI->input->server('HTTP_HOST');
+
+    $meta = $this->getIframeResponse($url);
+
+    $meta->title = isset($matches[1]) && !empty($matches[1]) ? $matches[1] : 'BibSonomy home';
+    $meta->embed_url = $embed_url;
 
     //redirect($url . '?format=oembed'); # Doesn't work?!
 
-	exit(1);
+    return $meta;
   }
 
 }
