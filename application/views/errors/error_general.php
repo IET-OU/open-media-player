@@ -48,6 +48,8 @@ body.size-x-small{ margin:0 0 0 3px; padding:0; font-size:.87em; }
 .size-x-small p{ margin:9px 0 3px;}
 .size-x-small #ou-org-header{ width:86px; position:relative; top:-5px; }
 h2{ margin:1px 0; font-size:1.15em; }
+h2 small,label{ font-weight:normal; font-size:small; }
+input{ margin:0; }
 .searchrow{ float:right; font-size:.8em; height:2em !important; overflow:visible; }
 .searchrow a{ text-align:right; display:block; margin-top:4px; }
 
@@ -106,14 +108,14 @@ body.is-iframe div#ou-org-footer{ /*margin-top:1px; padding-top:17px;*/ backgrou
 <div class="my-content">
 
 <form action="http://podcast.open.ac.uk/search.php" method="post"<?php echo $target ?> class="searchrow">
-<label for="search">Search podcasts </label>
-<input id="search" type="search" required name="searchFor" maxlength="100" /> <input type="submit" value="Search" />
+<label for="search">Search podcasts</label><input
+ id="search" type="search" required name="searchFor" maxlength="100" /><input type="submit" value="Search" />
 <a href="http://podcast.open.ac.uk/"<?php echo $target ?>>OU Podcasts</a>
 </form>
 
 <a id='ou-content' name='ou-content'></a>
 
-<h2><?php echo $heading ?></h2>
+<h2><?php echo $heading ?> <small>| <a href="/">Player home&crarr;</a></small></h2>
 
 <div class=message><?php echo $message ?></div>
 

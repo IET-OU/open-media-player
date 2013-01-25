@@ -4,6 +4,7 @@
 ?>
 <style>
 h2{ margin-top:1.2em; }
+input, textarea{ max-width:99%; }
 .ouembed-form{ font-size:1.05em; }
 .ouembed-form input{ font-size:1.2em; padding:.6em 4px; background:#ddd; color:#333; border:1px solid #d0d0d0; margin:0; }
 input#url{ background:#f8f8f8; border-right-width:0 }

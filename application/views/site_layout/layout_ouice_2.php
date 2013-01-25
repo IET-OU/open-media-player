@@ -51,7 +51,7 @@
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/ie6.css" />
 <![endif]-->
 
-<meta name="viewport" content="width=device-width" />
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-device-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-width:640px)" />
