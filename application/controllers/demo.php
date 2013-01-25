@@ -29,6 +29,11 @@ class Demo extends MY_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index($layout = self::LAYOUT, $use_oembed = FALSE) {
+		/*if ($this->_is_ouembed() && $this->uri->segment(1) == 'demo') {
+			redirect('demo/form');
+			return;
+		}*/
+
 		$this->_load_layout($layout);
 
 		$view_data = array(
@@ -42,8 +47,10 @@ class Demo extends MY_Controller {
 
 
     /** OU Embed demo form [iet-it-bugs:1454].
+	* @link http://track.olnet.org/oerform
+	* @link http://noembed.com/demo
     */
-    public function form($layout = self::LAYOUT) {
+    public function ouldi($layout = self::LAYOUT) {
       $this->_load_layout($layout);
 
       $view_data = array(
@@ -79,9 +86,9 @@ class Demo extends MY_Controller {
     }
 
 
-	/** OULDI (and OLnet) tests.
+	/** OULDI (and OLnet) tests (Was: 'ouldi')
 	*/
-	public function ouldi($layout = self::LAYOUT) {
+	public function ouldi_gallery($layout = self::LAYOUT) {
         if (! $this->_is_ouembed()) {
             $this->_error('The page you requested was not found.', 404);
         }

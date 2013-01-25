@@ -11,8 +11,8 @@ input[type=submit]{ cursor:pointer; padding:.6em; }
 .X-ouembed-form .reset:before { position:relative; top:35px; left:-3em; }
 .ouembed-form input[type=submit]:hover{ background:#e8e8e8; }
 #examples li{ margin:3px 0; width:60%; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; /*#1388, truncate too-long titles..*/ }
-#oembed-out{ margin:1em auto; x-resize:both; x-overflow:auto; }
-textarea, #oembed-out{ background:#f8f8f8; border:1px solid #ccc; padding:4px; }
+#X-oembed-out{ margin:1em auto; x-resize:both; x-overflow:auto; }
+textarea, #oembed-out{ background:#f8f8f8; border:1px solid #ccc; padding:6px; }
 textarea{ width:97%; }
 input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 #oembed-out:hover, textarea:hover{ background:#fff; }
@@ -21,13 +21,13 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 </style>
 
 
-<p id=page-nav role="navigation"><a href="#examples">Example URLs</a> | <a href="#preview">Preview</a> | <a href="#show-sharing">Sharing options</a></p>
+<p id=page-nav role="navigation"><a href="#examples">Example URLs</a> &darr; <a href="#preview">Preview</a> &darr; <a href="#show-sharing">Sharing options</a></p>
 
 
 <div class=ouembed-form>
 
 <form id=form>
-  <p><label for=url >URL to embed</label> - <a class=reset href="?" title="Reset form">reset</a>
+  <p><label for=url >URL to embed</label> &ndash; <a class=reset href="?" title="Reset form &crarr;">reset</a>
   <p><input id=url name=url type=url required value="<?php echo $url ?>" size=85 maxlength=140 placeholder="<?php echo array_pop(array_slice($examples, 0, 1)) ?>"
   /><input type=submit value="Embed" />
 </form>

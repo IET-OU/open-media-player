@@ -14,7 +14,7 @@
  width='$meta->width' height='$meta->height' frameborder='0'
  src='$meta->embed_url'
 ></iframe>
-<a href='$meta->original_url' style='background:url($meta->provider_icon) no-repeat left;padding-left:22px;display:block;'>$attribution</a>
+<a href='$meta->original_url' style='background:url($meta->provider_icon) no-repeat left;padding:4px 0 0 22px;display:block;'>$attribution</a>
 </div>
 EOF;
 
