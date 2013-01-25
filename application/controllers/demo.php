@@ -30,8 +30,7 @@ class Demo extends MY_Controller {
 	 */
 	public function index($layout = self::LAYOUT, $use_oembed = FALSE) {
 		/*if ($this->_is_ouembed() && $this->uri->segment(1) == 'demo') {
-			redirect('demo/form');
-			return;
+			redirect('demo/ouldi');
 		}*/
 
 		$this->_load_layout($layout);
@@ -51,6 +50,9 @@ class Demo extends MY_Controller {
 	* @link http://noembed.com/demo
     */
     public function ouldi($layout = self::LAYOUT) {
+      if (! $this->_is_ouembed()) {
+        $this->_error('The page you requested was not found.', 404);
+      }
       $this->_load_layout($layout);
 
       $view_data = array(
