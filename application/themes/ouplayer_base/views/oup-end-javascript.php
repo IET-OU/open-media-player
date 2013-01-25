@@ -76,7 +76,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 	var events = ['loadstart', 'play', 'pause', 'ended', 'error'];
 	for (var i=0, il=events.length; i<il; i++) {
 		media.addEventListener(events[i], function (e) {
-
+			$.log(e.type);
 			$.oup_error_handler(e, '#oup-noscript', player);
 
 		});
@@ -106,11 +106,20 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   }
   $.log('mejs.version: '+ mejs.version);
   $.log('Browser: <?php echo $this->agent->browser_code() ?>'); //'+$('html').attr('class'));
-  $.log($.ouplayer.options);
 
   setTimeout(function(){
+
+<?php if('video'==$params->media_type && 'ender'==$this->theme->jslib && $this->agent->is_browser('Firefox')): ?>
+// Video/Moz/Ender: 'success:function' not fired - WHY? :(.
+    if (! $("video").get(0).currentSrc) {
+      $('#oup-noscript').hide();
+      $.log("MEP/OUP: warning [2], hiding #oup-noscript.");
+    }
+<?php endif; ?>
+
     $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));
-  }, 400);
+    $.log($.ouplayer.options);
+  }, 200); //Was 400.
 
 <?php //if ('jquery' == $this->theme->jslib): ?>
 });
