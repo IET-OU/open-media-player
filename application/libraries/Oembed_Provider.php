@@ -134,6 +134,9 @@ abstract class Oembed_Provider implements iService {
   public function getExamples($count = 1) {
     if ('public' != $this->_access || count($this->_examples) < 1) return FALSE;
 
+    // '-1' means 'all'.
+    if ($count < 1) return $this->_examples;
+
     return array_slice($this->_examples, 0, $count);
   }
 
@@ -233,3 +236,15 @@ abstract class Generic_Iframe_Oembed_Provider extends Oembed_Provider {
   }
 }
 
+
+/**
+ *
+ */
+abstract class External_Oembed_Provider extends Oembed_Provider {
+
+  #protected $_endpoint_url;	# oEmbed endpoint for 'external' providers, eg. iSpot.
+
+  public function call($url, $matches) {
+    $this->_error('sorry the endpoint is: '. $this->_endpoint_url, 400.9);
+  }
+}

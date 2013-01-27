@@ -26,13 +26,7 @@ $config['providers'] = array(
     */
     'prezi.com' => 'prezi',
 
-	/*
-	SS:  https://docs.google.com/spreadsheet/ccc?key=0AlpQljt8DLyXdHE0dzVLVXkyeXdBYXk5UzdQbFJ4OFE&hl=en_US#gid=0
-	     https://docs.google.com/spreadsheet/pub?key=0AonYZs4MzlZbcmVCWWVuZnJKSElSZDR2b1pmaVNtdXc#gid=0
-	Form:https://docs.google.com/spreadsheet/embeddedform?formkey=dFJtUEJTQlZiVEs5R3B5ZFpRd3ZRMFE6MA
-	Doc/ OU player help: https://docs.google.com/document/d/1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc/edit?hl=en_GB
-	https://docs.google.com/present/edit?id=0AQJMkdi3MO4HZGM1M2NoamtfMTk4ZHEyaDlqY3Y&hl=en_GB
-	*/
+	# Google Docs.
     'docs.google.com' => 'googledoc',
     'groups.google.com' => 'Googlegroups',
 
@@ -65,6 +59,7 @@ $config['providers'] = array(
 	//'labspace.open.ac.uk' => 'Trackoer',
 
 	'ispot.org.uk' => 'Ispot',
+	'views.scraperwiki.com' => 'Scraperwiki',
 
 	'www.bibsonomy.org' => 'Bibsonomy',
 	'bibsonomy.org' => 'Bibsonomy',
