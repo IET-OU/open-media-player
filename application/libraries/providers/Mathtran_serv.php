@@ -27,11 +27,11 @@ EOT;
   public $_about_url = 'http://mathtran.org/';
   public $_logo_url = 'http://mathtran.org/site_media/logo.png';
 
-  public $_regex_real = '\/mathtran\.org\/formulas\/details\/(\d+)';
+  public $_regex_real = ':\/\/mathtran\.org\/formulas\/details\/(\d+)\/?';
   public $_examples = array(
-    'Trabajo, by Gustavo (es)' => 'http://mathtran.org/formulas/details/336/',
-    'classical time-evolution operator, by rcabrera' => 'http://mathtran.org/formulas/details/371/',
-    '_OEM'=>'/oembed?url=http%3A//mathtran.org/formulas/details/371',
+    'Trabajo, by Gustavo (es)' => 'http://mathtran.org/formulas/details/336',
+    'classical time-evolution operator, by rcabrera'
+        => 'http://mathtran.org/formulas/details/371',
   );
   public $_access = 'public';
 

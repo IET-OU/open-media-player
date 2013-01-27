@@ -26,14 +26,16 @@ EOT;
   # regex_real: 'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
   public $_regex_real = ':\/\/podcast\.open\.ac\.uk\/.*\/([\w-]+)([\/#]+!?)(\w{10}|\w+\.m\w{2})$';
   public $_examples = array(
-    'A Buen Puerto/Spanish: Introduction (audio)' => 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
-      'http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3',
-      'http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish/fe481a4d1d', # '#!' or '/'
+    'Student views of the OU (video)'
+        => 'http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b',
+    'A Buen Puerto/Spanish: Introduction (audio)'
+        => 'http://podcast.open.ac.uk/pod/l314-spanish#!fe481a4d1d',
+    'http://podcast.open.ac.uk/feeds/l314-spanish/l314audio1.mp3',
+  'http://podcast.open.ac.uk/oulearn/languages/spanish/podcast-l314-spanish/fe481a4d1d', # '#!' or '/'
     'Invisible Boundaries..: Entrepreneurial Lives (audio)' => 'http://podcast.open.ac.uk/pod/entrepreneurial-lives/#!cb127010cf',
     'Motion...: All the Fun of the Fair (video)' => 'http://podcast.open.ac.uk/pod/mst209-fun-of-the-fair#!a67918b334',
     'VC message 01-02-2011 (private/staff)' => 'http://podcast.open.ac.uk/pod/vc-message-to-staff#!746ee92293',
     'New to OU study (hidden: tips)' => 'http://podcast.open.ac.uk/pod/new-to-ou-study/a9e72b75ff',
-    '_OEM'=>'/oembed?url=http%3A//podcast.open.ac.uk/pod/vc-message-to-staff%23!746ee92293',
   );
   public $_access = 'public';
   protected $_comment = 'This endpoint will be deprecated in favour of http://mediaplayer.open.ac.uk [live]';
@@ -114,6 +116,10 @@ EOT;
 		$this->CI->_debug($player);
 	  }
       return $player;
+  }
+
+  public function getExamples($count = 2) {
+    return parent::getExamples($count);
   }
 
   protected function _init_player($result) {

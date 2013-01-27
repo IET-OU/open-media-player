@@ -29,10 +29,11 @@ EOT;
   public $_about_url = 'http://www.ispot.org.uk/whats_it_all_about';
   public $_logo_url = 'http://ispot.org.uk/sites/all/themes/custom/ispot_2010/images/ispot_logo.png';
   public $_examples = array(
-    'Observation/ node' => 'http://ispot.org.uk/node/123',
+    'South American Fur Seals (Falklands) by palemaiden'
+        => 'http://ispot.org.uk/node/313421',
+    'Map: indoors habitat' => 'http://ispot.org.uk/map?habitat=indoors',
     'Taxonomy term: 16 "Milton Keynes"' => 'http://ispot.org.uk/taxonomy/term/16',
-    'Habitat list' => 'http://ispot.org.uk/habitat/gardens+and+parks',
-    'Map: indoors' => 'http://ispot.org.uk/map?habitat=indoors',
+    'Habitat: gardens and parks' => 'http://ispot.org.uk/habitat/gardens+and+parks',
   );
   public $_access = 'public';
 
