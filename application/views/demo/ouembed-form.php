@@ -89,7 +89,7 @@ $(document).ready(function() {
 $(document).ready(function () {
   setTimeout(function () {
     // MSIE: http://stackoverflow.com/questions/2873326/convert-html-tag-to-lowercase
-    $('#static-embed-fm').val($('#oembed-out').html().replace(/\n/, ''));
+    $('#static-embed-fm').val($('#oembed-out').html().replace(/\n|=""/g, ''));
   }, 2000);
   $('#show-sharing').click(function () {
     $('#sharing').slideToggle();
