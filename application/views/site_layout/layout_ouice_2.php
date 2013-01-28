@@ -28,10 +28,11 @@
 <meta name="ROBOTS" content="noindex,nofollow" />
 <?php endif ?>
 
-<meta name="description" content="Open University is the UK's largest university for part-time higher education..." />
-<meta name="keywords" content="" />
-<meta name="author" content="The Open University" />
-<meta name="copyright" content="© 2012 The Open University" />
+<meta name="description" content=
+"OU Media Player is an online audio and video player, developed at The Open University, and used in student and public facing services. The Open University; open to people, places, methods and ideas." />
+<meta name="keywords" content="ouplayer, oembed, open university, distance, learning, study, employee development, research, course, qualification, uni" />
+<meta name="copyright" content="© 2013 The Open University" />
+<link rel="publisher" href="https://plus.google.com/u/0/b/116885993308590908200/" title="The Open University" />
 
 <!-- **********************************************************************************
     ***  OUICE 3
@@ -233,8 +234,9 @@ div.teasers ul li:last-child a {border-right:none;}
 
 <?php if ($is_ouembed): ?>
 <div id=warn class=oup-test-warning role="status">
-	<p>Note, OU Media Player is now live at its final home &ndash; <a href="http://mediaplayer.open.edu/" title="And 'mediaplayer.open.ac.uk'">MediaPlayer.open.edu</a>.
-	<p>(<a href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/OULDI-embed services.)</p>
+	<p>Note, OU Media Player is now live at its final home &ndash; <a rel=bookmark href="http://mediaplayer.open.edu/"
+		title='And "mediaplayer.open.ac.uk"' >MediaPlayer.open.edu</a>.
+	<p>(<a rel=bookmark href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/ OULDI-embed services.)</p>
 </div>
 <?php endif; ?>
 

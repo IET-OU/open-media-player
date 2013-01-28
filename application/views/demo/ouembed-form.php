@@ -5,20 +5,23 @@
 <style>
 h2{ margin-top:1.2em; }
 input, textarea{ max-width:99%; }
+textarea, #share-link-fm{ width:97%; }
 .ouembed-form{ font-size:1.05em; }
-.ouembed-form input{ font-size:1.2em; padding:.6em 4px; background:#ddd; color:#333; border:1px solid #d0d0d0; margin:0; }
+.ouembed-form input, #share-link-fm{ font-size:1.2em; padding:.6em 4px; background:#ddd; color:#333; border:1px solid #d0d0d0; margin:0; }
 input#url{ background:#f8f8f8; border-right-width:0 }
 input[type=submit]{ cursor:pointer; padding:.6em; }
 .X-ouembed-form .reset:before { position:relative; top:35px; left:-3em; }
 .ouembed-form input[type=submit]:hover{ background:#e8e8e8; }
 #examples li{ margin:3px 0; width:60%; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; /*#1388, truncate too-long titles..*/ }
 #X-oembed-out{ margin:1em auto; x-resize:both; x-overflow:auto; }
-textarea, #oembed-out{ background:#f8f8f8; border:1px solid #ccc; padding:6px; }
-textarea{ width:97%; }
+textarea, #oembed-out, #share-link-fm{ background:#f8f8f8; border:1px solid #ccc; padding:6px; }
+
 input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
-#oembed-out:hover, textarea:hover{ background:#fff; }
+#oembed-out:hover, textarea:hover, #share-link-fm:hover{ background:#fff; }
 #X-oembed-js-fm{ white-space:nowrap; overflow:hidden; }
 #show-sharing{ margin:1.6em 0; padding:.5em; font-size:1.1em; }
+
+.copy-fm{ cursor:pointer; }
 </style>
 
 
@@ -58,9 +61,16 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 <p><button id=show-sharing >Show/ hide sharing options</button>
 <div id=sharing >
 <h2>Sharing and embedding</h2>
+<div id=share-link >
+<p><label for=share-link-fm >Use this URL to "Add embedded content" on <a href="http://cloudworks.ac.uk/tag/view/oembed">Cloudworks</a>
+ and <a href="http://www.open.ac.uk/wikis/drupal/">OU Drupal</a>:</label>
+<p><input id=share-link-fm class=copy-fm value="<?php echo str_replace('!', '', $url) ?>" size=85 readonly />
+</div>
+
+
 <div id=static-embed >
-<p><label for=static-embed-fm >Static embed code:</label>
-<p><textarea id=static-embed-fm cols=95 rows=6 readonly ></textarea>
+<p><label for=static-embed-fm >Static embed code, for other blogs and systems:</label>
+<p><textarea id=static-embed-fm class=copy-fm cols=95 rows=6 readonly ></textarea>
 </div>
 
 
@@ -78,7 +88,7 @@ $(document).ready(function() {
     $jquery_oembed = ob_get_clean();
 ?>
 <p><label for=oembed-js-fm >Embed using <a class=js href="<?php echo site_url('scripts/jquery.oembed.js') ?>">jQuery-oEmbed</a>:</label>
-<p><textarea id=oembed-js-fm cols=95 rows=9 readonly ><?php echo str_replace('<', '&lt;', $jquery_oembed) ?></textarea>
+<p><textarea id=oembed-js-fm class=copy-fm cols=95 rows=9 readonly ><?php echo str_replace('<', '&lt;', $jquery_oembed) ?></textarea>
 </div>
 <p class=oembed-api >[ <a href="<?php echo site_url('oembed') ?>?format=json&amp;url=<?php echo urlencode($url) ?>">JSON oEmbed</a>
  | <a rel=help href="http://oembed.com/">What is oEmbed?</a> ]
@@ -86,6 +96,8 @@ $(document).ready(function() {
 
 
 <script>
+$.log = function(ob){if(typeof console!=='undefined'){console.log(arguments)}};
+
 $(document).ready(function () {
   setTimeout(function () {
     // MSIE: http://stackoverflow.com/questions/2873326/convert-html-tag-to-lowercase
@@ -108,6 +120,23 @@ $(document).ready(function () {
     hashChange();
   });
   hashChange();
+
+  // "Select all".
+  // https://github.com/IET-OU/ouplayer/blob/master/application/themes/ouplayer_base/js/mep-oup-feature-copyembed.js
+  $('.copy-fm').bind('focus click', function(ev){
+	this.select();
+
+    var id = ev.target.id;
+
+	// Work around Chrome's little problem
+	//preventDefault: https://bugs.webkit.org/show_bug.cgi?id=22691
+	//http://stackoverflow.com/questions/5797539/jquery-select-all-text-from-a-textarea
+	$('#'+id).mouseup(function(e) {
+		if(typeof e.preventDefault!=='undefined'){ e.preventDefault() }
+		// Prevent further mouseup intervention
+	});
+	$.log('Embed code selected, #' + id, ev.target);
+  });
 });
 </script>
 <?php endif; ?>

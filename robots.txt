@@ -3,7 +3,8 @@
 # (See http://youtube.com/robots.txt)
 # http://archive.org/details/archive.org_bot
 # https://webarchive.jira.com/wiki/display/ARIH/Robots+Exclusion+Protocol
-
+#
+#Disallow: /demo
 
 User-agent: archive.org_bot
 Disallow:
@@ -14,7 +15,6 @@ Disallow: /blog/
 Disallow: /docs/
 Disallow: /drupal/
 Disallow: /build
-Disallow: /demo
 Disallow: /test
 Disallow: /embed
 Disallow: /localize
