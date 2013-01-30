@@ -1,6 +1,6 @@
 <?php
 /**
- * An abstract model to get item meta-data from a podcast DB or feed.
+ * An abstract model to get item meta-data from a podcast DB or an RSS feed.
  *
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 16 March 2012.
@@ -8,11 +8,17 @@
 
 abstract class Podcast_items_abstract_model extends CI_Model {
 
+	protected $CI;
+
+	public function __construct() {
+		parent::__construct();
+		$this->CI =& get_instance();
+	}
+
 	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {}
 
 
 	protected function _error($message, $code=500, $from=null, $obj=null) {
-		$CI =& get_instance();
-		$CI->_error($message, $code, $from, $obj);
+		$this->CI->_error($message, $code, $from, $obj);
 	}
 }

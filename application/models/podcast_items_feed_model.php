@@ -6,7 +6,6 @@
  * @author Jamie Daniels <j.d.daniels @ open.ac.uk>, May-July 2011.
  * @author Nick Freear, March 2012.
  */
-//2 March 2011.
 require_once 'podcast_items_abstract_model.php';
 
 
@@ -70,21 +69,28 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 
 		$url = $this->_feed_url($basename, $shortcode);
 
-		$result = $this->http->request($url);
+		// Set a cookie, and don't spoof. [iet-it-bugs:1463]
+		$result = $this->http->request($url, $spoof = FALSE, array('cookie' => 'pod.auth=PASSED'));
 		if (! $result->success) {
 			//ERROR.
+			$_data = $result->data;
+			$result->data = $_data ? substr($_data, 0, 240) .' ... ' : $_data;
+			$this->CI->_debug($result);
+
 			if ($result->info['http_code'] == 404) {
-				$this->_error("Podcast data collection not found.",
+				$this->_error("Podcast data collection deleted or not found.",
 						404.1, null, array('url'=>$url));
 			}
 			// Other errors:
 			$this->_error("Podcast data unknown error.", $result->info['http_code'], null, $result);
 		}
 
-		$this->_xmlo = $xmlo = simplexml_load_string($result->data);
+		$this->_xmlo = $xmlo = @simplexml_load_string($result->data);
 
 		if (! $xmlo) {
 			//ERROR: this can be caused by network errors, or invalid XML.
+			$this->CI->_debug($url);
+			$this->CI->_debug(substr($result->data, 0, 122) .' ... ');
 			$this->_error("Podcast data XML error.",
 						400.3, null, array('url'=>$url));
 		}
