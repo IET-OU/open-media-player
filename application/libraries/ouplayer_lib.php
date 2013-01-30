@@ -176,9 +176,9 @@ class Podcast_player extends Openlearn_player {
 	$this->_check_access();
 
 	return self::truthy($this->_access['intranet_only'])
-		|| $this->is_private_podcast()
+		#Ignore:  || $this->is_private_podcast() //[iet-it-bugs:1463]
 		|| $this->is_deleted_podcast()
-		|| ! $this->is_published_podcast()
+		#Ignore:  || ! $this->is_published_podcast()
 	;
   }
 
@@ -212,7 +212,7 @@ class Podcast_player extends Openlearn_player {
   protected function _check_access() {
 	if (! isset($this->_access['intranet_only'])) {
 	  // ERROR?
-	  die('Error, unexpected condition, '. __CLASS__);
+	  die('Error, unexpected access condition, '. __CLASS__);
 	}
   }
 }
