@@ -25,12 +25,12 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 <?php if ('Podcast_player'==get_class($params)): ?>
 <div class="oup-mejs-panel mejs-title-panel mejs-play" <?php //id="mep_0-ttl-panel" ?>>
 <div class="logo"></div>
-<h1 title="<?php echo json_encode_str($params->title) ?>"><?php echo json_encode_str($params->title) ?></h1>
+<h1 title="<?php echo html_chars($params->title) ?>"><?php echo html_chars($params->title) ?></h1>
   <?php if (isset($params->_related_url)): ?>
   <a href="<?php echo $params->_related_url ?>" target="_blank" title="<?php echo t('Related link opens in new window')
   ?><?php if ('audio'==$params->media_type): ?>: 
-<?php echo json_encode_str($params->_related_text) ?><?php endif; ?>"
-  ><?php echo json_encode_str($params->_related_text) ?></a>
+<?php echo html_chars($params->_related_text) ?><?php endif; ?>"
+  ><?php echo html_chars($params->_related_text) ?></a>
   <?php endif; ?>
 </div>
 <?php endif; ?>

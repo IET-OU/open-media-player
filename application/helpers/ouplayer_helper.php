@@ -17,7 +17,25 @@ function json_encode_bare($obj) {
   return str_replace("'", "\\'", trim(json_encode($obj), '{}'));
 }
 
-/** Does haystack contain needle? (Wrap up 'strpos')
+
+/** Convert special characters '<', '"', etc. to HTML5 entities.
+*
+* @link http://stackoverflow.com/questions/13745353/what-do-the-ent-html5-ent-html401-modi ..
+* @link http://php.net/manual/en/changelog.strings.php PHP 5.4+
+*/
+if (! defined('ENT_HTML401')) {
+  define('ENT_HTML401', 0);
+  define('ENT_XML1', 16);
+  define('ENT_XHTML', 32);
+  define('ENT_HTML5', 16|32);
+}
+function html_chars($str, $flags = NULL, $encoding = 'UTF-8', $double_encode = FALSE) {
+  if (! $flags) $flags = ENT_COMPAT | ENT_HTML5;
+  return htmlspecialchars($str, $flags, $encoding, $double_encode);
+}
+
+
+/** Does haystack contain needle? (Semantic wrapper around 'strpos')
 */
 function contains($haystack, $needle) {
   return FALSE !== strpos($haystack, $needle);
