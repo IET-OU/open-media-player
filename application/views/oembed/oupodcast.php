@@ -18,15 +18,27 @@
       'allowfullscreen webkitallowfullscreen mozallowfullscreen' : '';
 
 
+if (isset($rdfa) && $rdfa):
+
   //scrolling='no' - ?
   $html =<<<EOF
 <iframe class='ou player podcast embed-rsp $meta->media_type $theme size-$meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
- width='$meta->width' height='$meta->height' frameborder='0' scrolling='no' style='overflow:hidden;' $allowfullscreen
+ width='$meta->width' height='$meta->height' frameborder='0' x-scrolling='no' x-style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
 EOF;
   //src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'
   //style='border:none; overflow:hidden;'
+
+else:
+
+  $html = <<<EOF
+<iframe class='ou player podcast embed-rsp $meta->media_type $theme size-$meta->size_label' aria-label='$label'
+ width='$meta->width' height='$meta->height' frameborder='0' $allowfullscreen
+ src='$meta->iframe_url'></iframe>
+EOF;
+
+endif;
 
 
 // Legacy OU podcast player, using the existing jwPlayer!
