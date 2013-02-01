@@ -36,7 +36,7 @@ Details and notes:
 
 When importing to [_AllChange_][allchange] for [IT-EUD hosting][eud], please ensure that these files and directories are ignored/ deleted:
 
-    .git/
+    .git/*/*       -- ALL sub-directories/ files
     .gitignore
     _data/         -- To discuss(*)
     _data/logs/*.php
@@ -50,11 +50,11 @@ When importing to [_AllChange_][allchange] for [IT-EUD hosting][eud], please ens
 When importing to _AllChange_, please ensure that these files and directories are included/ implemented:
 
     _data/			-- See [ignore](#ignore)
-    application/*/*	-- ALL sub-directories/files.. except for [ignored files](#ignore)
-    application/config/config.php		-- ..Including
-    application/config/embed_config.php	-- ..Including
+    application/*/*	-- ALL sub-directories/ files.. except for [ignored files](#ignore)
+    application/config/config.php		-- Including.. config.php
+    application/config/embed_config.php	-- Including.. embed_config.php
     docs/*			-- ALL files
-    system/*/*		-- ALL sub-directories/files
+    system/*/*		-- ALL sub-directories/ files
     .htaccess
     .sams
     index.php
@@ -66,8 +66,8 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
-### v0.9-beta-171-g1f5a76d
-Release: 28 January/ Live: approx. 7 February 2013
+### v0.95-beta-2-gb72490b
+Release: 31 January/ Live: approx. 7 February 2013
 
 #### OU Player features:
 
@@ -81,6 +81,7 @@ Release: 28 January/ Live: approx. 7 February 2013
 * Podcast player "private" flag bug [Bug #1448; fix 2013-01-10; reported by Ben.Hawkridge]
 * Firefox VLE player bug - "Sorry, your browser appears.." [Bug #1457][#:1457]; fix 2013-01-25; reported by Ray.Guo; [Bug #1447][#:1447]; reported by Ben.Hawkridge,
 * "rgb" parameter error handling too draconian [Bug #1453; fix 2013-01-07]
+* Fixed access control - ignore private/ published flags, set cookie [Bug #1463][#:1463]; fix 2013-01-30; reported by Ben.Hawkridge,
 
 #### OU Embed:
 
@@ -118,7 +119,7 @@ Release: 10 December/ Live: 13 December 2012
 
 ## Credits
 
-OU player: Copyright 2010-2012 The Open University. All rights reserved.
+OU player: Copyright © 2010-2013 The Open University. All rights reserved.
 
 * Not licensed as open-source (yet!)
 * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology, and many others.
