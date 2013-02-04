@@ -1,5 +1,6 @@
 <?php
-  //$url = $this->input->get('url');
+
+  $player_url = isset($player_url) ? $player_url : site_url();
 
 ?>
 <style>
@@ -61,25 +62,28 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 <p><button id=show-sharing >Show/ hide sharing options</button>
 <div id=sharing >
 <h2>Sharing and embedding</h2>
-<div id=share-link >
-<p><label for=share-link-fm >Use this URL to "Add embedded content" on <a href="http://cloudworks.ac.uk/tag/view/oembed">Cloudworks</a>
- and <a href="http://www.open.ac.uk/wikis/drupal/">OU Drupal</a>:</label>
-<p><input id=share-link-fm class=copy-fm value="<?php echo str_replace('!', '', $url) ?>" size=85 readonly />
-</div>
+You have three options to share this content: <ol>
+<li id=share-link >
+<p><label for=share-link-fm >Use this <a class=orig href="<?php echo $drupal_safe_url ?>" title="Original URL">URL</a>
+  to embed content in <a href="http://www.open.ac.uk/wikis/drupal/" title="Drupal 7 at the OU">OU Drupal</a>,
+  <a href="http://cloudworks.ac.uk/tag/view/oembed">Cloudworks</a> <em>(&ldquo;Add embedded content&rdquo;)</em>,
+  <a href="http://codex.wordpress.org/Embeds">Wordpress</a> and in emails:</label>
+<p><input id=share-link-fm class=copy-fm value="<?php echo $drupal_safe_url ?>" size=85 readonly />
+</li>
 
 
-<div id=static-embed >
-<p><label for=static-embed-fm >Static embed code, for other blogs and systems:</label>
+<li id=static-embed >
+<p><label for=static-embed-fm >The static embed code, for other blogs and content managment systems:</label>
 <p><textarea id=static-embed-fm class=copy-fm cols=95 rows=6 readonly ></textarea>
-</div>
+</li>
 
 
-<div id=oembed-js >
+<li id=oembed-js >
 <?php ob_start() ?>
 <a class="embed" href="<?php echo $url ?>">My embed<?php #echo $url ?></a>
 
 <script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
-<script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
+<script src="<?php echo $player_url .'scripts/jquery.oembed.js' ?>"></script>
 <script>
 $(document).ready(function() {
 &nbsp; $("a.embed").oembed(<?php #null, { "maxwidth": 800 } ?>);
@@ -87,10 +91,11 @@ $(document).ready(function() {
 </script><?php
     $jquery_oembed = ob_get_clean();
 ?>
-<p><label for=oembed-js-fm >Embed using <a class=js href="<?php echo site_url('scripts/jquery.oembed.js') ?>">jQuery-oEmbed</a>:</label>
+<p><label for=oembed-js-fm >Developers, quickly integrate embedding in any Web app. using <a class=js href="<?php echo $player_url .'scripts/jquery.oembed.js' ?>">jQuery-oEmbed</a>:</label>
 <p><textarea id=oembed-js-fm class=copy-fm cols=95 rows=9 readonly ><?php echo str_replace('<', '&lt;', $jquery_oembed) ?></textarea>
-</div>
-<p class=oembed-api >[ <a href="<?php echo site_url('oembed') ?>?format=json&amp;url=<?php echo urlencode($url) ?>">JSON oEmbed</a>
+</li>
+</ol>
+<p class=oembed-api >[ <a href="<?php echo $player_url. 'oembed' ?>?format=json&amp;url=<?php echo urlencode($url) ?>">JSON oEmbed</a>
  | <a rel=help href="http://oembed.com/">What is oEmbed?</a> ]
 </div>
 
@@ -123,7 +128,9 @@ $(document).ready(function () {
 
   // "Select all".
   // https://github.com/IET-OU/ouplayer/blob/master/application/themes/ouplayer_base/js/mep-oup-feature-copyembed.js
-  $('.copy-fm').bind('focus click', function(ev){
+  $('.copy-fm')
+    .attr('title', 'Copy me!')
+	.bind('focus click', function(ev){
 	this.select();
 
     var id = ev.target.id;

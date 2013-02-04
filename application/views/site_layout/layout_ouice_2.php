@@ -11,6 +11,7 @@
 
   $site_url = $resource_url = OUP_OU_RESOURCE_URL;
   $base_url = site_url();
+  $player_url = isset($player_url) ? $player_url : site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
   $is_player_site = TRUE;
   $page_title = isset($page_title) ? $page_title : t('OU Media Player');
@@ -432,7 +433,7 @@ div.teasers ul li:last-child a {border-right:none;}
 	<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 -->
 
-<script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
+<script src="<?php echo $player_url . 'scripts/jquery.oembed.js' ?>"></script>
 <script>
 $(document).ready(function() {
   $("a.embed").oembed(null, {'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>

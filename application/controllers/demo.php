@@ -55,6 +55,15 @@ class Demo extends MY_Controller {
       }
       $this->_load_layout($layout);
 
+      $player_url = $this->input->get('player_url');
+      //Todo: ou-specific REGEX in config?
+      if ($player_url && !preg_match('@^http:\/\/mediaplayer\.open\.(ac.uk|edu)$@', $player_url)) {
+        // Error - quietly fallback.
+        $this->_debug('Warning, invalid {player_url}.');
+		$player_url = NULL;
+      }
+	  $player_url = $player_url ? $player_url .'/' : site_url();
+
       $view_data = array(
             'is_ouembed' => true,
             'is_live' => $this->_is_live(),
@@ -63,6 +72,8 @@ class Demo extends MY_Controller {
             'req' => $this->_request,
             'examples' => $this->_get_oembed_examples(),
             'url' => $this->input->get('url'),
+            'drupal_safe_url' => str_replace('!', '', $this->input->get('url')),
+            'player_url' => $player_url,
         );
         $this->layout->view('demo/ouembed-form', $view_data);
     }
