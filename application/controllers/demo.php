@@ -60,9 +60,9 @@ class Demo extends MY_Controller {
       if ($player_url && !preg_match('@^http:\/\/mediaplayer\.open\.(ac.uk|edu)$@', $player_url)) {
         // Error - quietly fallback.
         $this->_debug('Warning, invalid {player_url}.');
-		$player_url = NULL;
+        $player_url = NULL;
       }
-	  $player_url = $player_url ? $player_url .'/' : site_url();
+      $player_url = $player_url ? $player_url .'/' : site_url();
 
       $view_data = array(
             'is_ouembed' => true,

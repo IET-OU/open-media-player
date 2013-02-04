@@ -21,6 +21,7 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 #oembed-out:hover, textarea:hover, #share-link-fm:hover{ background:#fff; }
 #X-oembed-js-fm{ white-space:nowrap; overflow:hidden; }
 #show-sharing{ margin:1.6em 0; padding:.5em; font-size:1.1em; }
+#X-static-embed .ifr:before{content:'('}
 
 .copy-fm{ cursor:pointer; }
 </style>
@@ -73,7 +74,7 @@ You have three options to share this content: <ol>
 
 
 <li id=static-embed >
-<p><label for=static-embed-fm >The static embed code, for other blogs and content managment systems:</label>
+<p><label for=static-embed-fm >The static embed code, for other blogs and content managment systems <span></span>:</label>
 <p><textarea id=static-embed-fm class=copy-fm cols=95 rows=6 readonly ></textarea>
 </li>
 
@@ -106,7 +107,13 @@ $.log = function(ob){if(typeof console!=='undefined'){console.log(arguments)}};
 $(document).ready(function () {
   setTimeout(function () {
     // MSIE: http://stackoverflow.com/questions/2873326/convert-html-tag-to-lowercase
-    $('#static-embed-fm').val($('#oembed-out').html().replace(/\n|=""/g, ''));
+    var snippet = $('#oembed-out').html().replace(/\n|=""/g, ''),
+        src = snippet.match(/src="(.+?)"/);
+    $.log(src);
+    if (src) {
+      $('#static-embed span').html(' &ndash; <a class=ifr href="' + src + '" title="The iframe \'SRC\'">iframe</a>');
+    }
+    $('#static-embed-fm').val(snippet);
   }, 2000);
   $('#show-sharing').click(function () {
     $('#sharing').slideToggle();
