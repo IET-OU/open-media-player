@@ -45,8 +45,16 @@ sitestat("//ouan.open.ac.uk/ou/<?php echo $ns_sitename ?>/s?name=<?php echo $ns_
 
 <?php // Google analytics.
 
-if (isset($google_analytics) && $google_analytics): //'Podcast_player'==get_class($meta)):
-  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5/".str_replace(array(' ', '\'', ':'), array('-', "\'", ''), $meta->title);
+if (isset($google_analytics) && $google_analytics):
+  $ga_title= substr(str_replace(array(' ', '\'', ':'), array('-', "\'", ''), $meta->title), 0, 40);
+  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5#!" . rtrim($ga_title, '-');
+
+  // Bug #1464, Encode the "embedder" in the "path".
+  if (isset($this->theme->origin)) {
+    $po = (object) parse_url($this->theme->origin);
+    $ga_path .= "!$po->host!";
+    $ga_path .= trim($po->path, '/ ') .'!';
+  }
   ?>
 <script>
   var _gaq = _gaq || [];
