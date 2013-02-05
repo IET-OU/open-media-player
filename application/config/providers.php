@@ -51,6 +51,7 @@ $config['providers'] = array(
 	'oro.open.ac.uk' => 'Fileviewer',
 	'www.open.edu' => 'Fileviewer',
 	'www.open.ac.uk' => 'Fileviewer',
+	'embed.open.ac.uk' => 'Fileviewer',
 	'www.lkl.ac.uk' => 'Fileviewer',
 	'blogs.cetis.ac.uk' => 'Fileviewer',
 

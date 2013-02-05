@@ -77,6 +77,7 @@
 
 <?php //if ($is_demo_page): ?>
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
+    <link rel="stylesheet" href="http://noembed.com/noembed.css" />
 <?php //endif; ?>
 
 <style>

@@ -10,7 +10,7 @@
 class Fileviewer_serv extends Oembed_Provider {
 
   public $regex =
-    'http://various.example.org/*.(pdf|doc|xls|ppt|zip|rar|svg|png|txt|markdown)';
+    'http://various.example.org/*.(pdf|doc|xls|ppt|zip|rar|svg|png|txt|html|php|js|css|markdown)';
   public $about = <<<EOT
   Embed arbitrary file-types hosted on a number of domains, including PDFs, MS Office files,
   Zips, SVG, Compendium SVG. It uses Google Docs Viewer among other services.
@@ -24,6 +24,7 @@ EOT;
     'www.open.edu', 'www.open.ac.uk',  # Includes OU blogs?
     'openlearn.open.ac.uk', 'labspace.open.ac.uk', 'compendiumld.open.ac.uk',
     'kn.open.ac.uk', 'oro.open.ac.uk',  #ORO - ePrints - conflict?
+    'embed.open.ac.uk',  # Recursive?!
     'sites.google.com', 'www.lkl.ac.uk', 'blogs.cetis.ac.uk',
   );
   public $favicon = 'https://docs.google.com/favicon.ico';
@@ -32,15 +33,16 @@ EOT;
   public $_about_url = 'https://docs.google.com/viewer';
   public $_help_url ='http://support.google.com/drive/bin/answer.py?hl=en&p=docs_viewer&answer=2423485';
 
-  protected $_extensions = 'pdf|docx?|xlsx?|pptx?|zip|rar|svg|png|txt|markdown|md';
+  protected $_extensions = 'pdf|docx?|xlsx?|pptx?|zip|rar|svg|png|txt|markdown|md|html?|php|js|css';
   public $_regex_real =
-  '(.*:\/\/.+?)(\/[^\?#]+\.?(pdf|docx?|xlsx?|pptx?|zip|rar|svg|png|txt|markdown|md)?)(\?[^\#]+)?(\#.+)?';
+  '(.*:\/\/.+?)(\/[^\?#]+\.?(pdf|docx?|xlsx?|pptx?|zip|rar|svg|png|txt|markdown|md|html?|php|js|css)?)(\?[^\#]+)?(\#.+)?';
   public $_examples = array(
     'Compendium LD SVG' =>
         'http://dl.dropbox.com/u/9130126/CompendiumLD/test8.svg#!CompendiumLD=1&width=374&height=350', # ? %3F / # %23 / & %26.
     'Compendium LD SVG 2' =>
         'http://ubuntuone.com/5bfulWfbf1RQ225utYWVHe#!name=task-times-v1.svg&CompendiumLD=1&title=Andrew%3A+task+times+v1&width=345&height=483',
     'ORO PDF' => 'http://oro.open.ac.uk/29700/1/3289OS-chpater-4-Spot-the-Difference.pdf',
+    'HTML5 page' => 'http://embed.open.ac.uk/demo/ouldi#!name=file.html',
   );
   public $_access = 'public';
 
