@@ -17,10 +17,10 @@
 <p>If you are an Open University student please use your <a href="<?php echo OUP_HELP_URL ?>" title="Requires a University login" rel="nofollow">Student Help centre</a>
  to find answers, or the contact details for people who can help you.
  <label for="app-info">When you report a problem, please copy and paste the following information:</label>
-<p><textarea readonly id="app-info" rows="3" style="width:96%;">
+<p><textarea readonly id="app-info" class="copy-fm" rows="3" cols="90">
 OU Player version: <?php echo $app_revision->version ?>
 
-Browser: <?php echo $_SERVER['HTTP_USER_AGENT'] ?>
+Browser: <?php echo $this->input->server('HTTP_USER_AGENT') ?>
 </textarea>
 
 
