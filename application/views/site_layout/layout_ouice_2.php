@@ -419,7 +419,7 @@ $(document).ready(function() {
 </script>
 <?php endif; ?>
 
-<script>$.oup_site_debug = <?php echo json_encode($req->debug) ?>;</script>
+<script>$.oup_site_debug = <?php echo json_encode(isset($req) ? $req->debug : NULL) ?>;</script>
 <script src="<?php echo base_url() ?>assets/site/site-behaviour.js"></script>
 
 </body>

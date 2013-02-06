@@ -5,7 +5,7 @@ $(document).ready(function ouplayer_launch($){
 $.domReady(function ouplayer_launch(){
 <?php endif; ?>
 
-$.oup_debug = <?php echo $params->debug ? 'true':'false' ?>,
+$.oup_debug = <?php echo json_encode((bool) $params->debug) ?>,
 $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
 
 <?php if ($params->poster_url): ?>
