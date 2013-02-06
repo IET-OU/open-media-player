@@ -2,8 +2,7 @@
 /** oEmbed OU podcast view - iframe-based.
 *
 * @copyright Copyright 2011 The Open University.
-*
-* NDF, 17 March 2011.
+* @author N.D.Freear, 17 March 2011.
 */
   $width = 608;
   $height= 362;
@@ -22,7 +21,7 @@ if (isset($rdfa) && $rdfa):
 
   //scrolling='no' - ?
   $html =<<<EOF
-<iframe class='ou player podcast embed-rsp $meta->media_type $theme size-$meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type x-$theme size-$meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
  width='$meta->width' height='$meta->height' frameborder='0' x-scrolling='no' x-style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
@@ -33,7 +32,7 @@ EOF;
 else:
 
   $html = <<<EOF
-<iframe class='ou player podcast embed-rsp $meta->media_type $theme size-$meta->size_label' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label' role='application' aria-label='$label'
  width='$meta->width' height='$meta->height' frameborder='0' $allowfullscreen
  src='$meta->iframe_url'></iframe>
 EOF;

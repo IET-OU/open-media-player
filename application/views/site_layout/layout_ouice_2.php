@@ -69,14 +69,14 @@
 
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/site/site-extra.css" />
 
-<?php //if ($is_demo_page): ?>
 <!--**
     ** Styles for OU Embed, Noembed etc.
     ** -->
 <link rel="stylesheet" href="<?php echo base_url() ?>ou-embed.css" title="OU Embed styles" />
+<?php if ($is_ouembed): ?>
 <link rel="stylesheet" href="<?php echo OUP_NOEMBED_STYLE_URL ?>" title="Noembed embed styles" />
 <link rel="EX-stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" />
-<?php //endif; ?>
+<?php endif; ?>
 
 
 <script src="<?php echo $resource_url ?>/includes/headers-footers/ou-header.js"></script>
@@ -405,13 +405,11 @@ div.teasers ul li:last-child a {border-right:none;}
     </div>  <!-- ou-org -->
     
 <script src="<?php echo $resource_url ?>/includes/ouice/3/scripts.js"></script>
+
 <!-- site specific scripts -->
 
-
 <?php if ($is_demo_page && $use_oembed): ?>
-<!--
-	<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
--->
+<?php /*<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>*/ ?>
 
 <script src="<?php echo $player_url . 'scripts/jquery.oembed.js' ?>"></script>
 <script>
