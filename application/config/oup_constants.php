@@ -43,12 +43,15 @@ define('OUP_OU_RESOURCE_URL', 'http://www3.open.ac.uk');
 | http://freear.org.uk/content/ou-media-player-project | http://freear.org.uk/content/ou-embed-proposal
 | mailto:N.D.Freear+@+open.ac.uk?subject=OU+player
 */
-define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/ouplayer');
+define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
+define('OUP_BLOG_RSS_URL', 'http://cloudworks.ac.uk/tag/rss/oEmbed');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
 define('OUP_CONTACT_URL', 'mailto:IET-Webmaster+@+open.ac.uk?subject=OU+player');
 
-define('OUP_NOEMBED_END_URL', 'http://noembed.com/embed');
+define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
 
+define('OUP_NOEMBED_END_URL', 'http://noembed.com/embed');
+define('OUP_NOEMBED_STYLE_URL', 'http://noembed.com/noembed.css');
 
 // URL parameter names (eg. http://example.org/path?param=value)
 

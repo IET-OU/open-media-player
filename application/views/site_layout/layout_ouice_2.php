@@ -35,6 +35,8 @@
 <meta name="copyright" content="© 2013 The Open University" />
 <link rel="publisher" href="https://plus.google.com/u/0/b/116885993308590908200/" title="The Open University" />
 
+<link rel="alternate" type="application/rss+xml" href="<?php echo OUP_BLOG_RSS_URL ?>" title="Project RSS feed" />
+
 <!-- **********************************************************************************
     ***  OUICE 3
     ***  ou-head.html will load all necessary css for OUICE styles required on page....
@@ -59,13 +61,26 @@
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header-mob.css" media="only screen and (max-device-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header-mob.css" media="only screen and (max-width:640px)" />
-
-<!--<link rel="alternate stylesheet" href="/includes/ouice/3/mobile.css" title="ou-mobile" /> -->
-
-<script src="<?php echo $resource_url ?>/includes/headers-footers/ou-header.js"></script>
-<!--<link href="<?php echo $resource_url ?>/study/stylesheets/study-common.css" rel="stylesheet" media="all" />-->
+<?php /*
+<link rel="alternate stylesheet" href="/includes/ouice/3/mobile.css" title="ou-mobile" />
+*/ ?>
 
 <!-- site specific head components -->
+
+<link rel="stylesheet" href="<?php echo base_url() ?>assets/site/site-extra.css" />
+
+<?php //if ($is_demo_page): ?>
+<!--**
+    ** Styles for OU Embed, Noembed etc.
+    ** -->
+<link rel="stylesheet" href="<?php echo base_url() ?>ou-embed.css" title="OU Embed styles" />
+<link rel="stylesheet" href="<?php echo OUP_NOEMBED_STYLE_URL ?>" title="Noembed embed styles" />
+<link rel="EX-stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" />
+<?php //endif; ?>
+
+
+<script src="<?php echo $resource_url ?>/includes/headers-footers/ou-header.js"></script>
+<?php /*<link href="<?php echo $resource_url ?>/study/stylesheets/study-common.css" rel="stylesheet" media="all" />*/ ?>
 <?php /*
 <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
     <link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />  
@@ -73,54 +88,7 @@
     <style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>
 */ ?>
 
-    <script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
-
-<?php //if ($is_demo_page): ?>
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
-    <link rel="stylesheet" href="http://noembed.com/noembed.css" />
-<?php //endif; ?>
-
-<style>
-div#ou-region1{
-  float:none;
-  width:auto;
-  x-max-width:99%;
-  background-color:transparent;
-}
-div#ou-page{ background-color:#fdfdfd; }
-img{ display:inline-block; }
-hr { height:0; border-top:1px solid #ccc; margin:2em 0; }
-
-
-/* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
-*/
-body.pg-player-home li.tm-player-home a, .pg-demo li.tm-demo a, .pg-about li.tm-about a,
-.pg-demo-ouldi li.tm-demo-ouldi a, .pg-test-podcast_errors li.tm-test-error a{
-    background-color:#fbfbfb;
-    background-image:none;
-}
-
-/* Icons: http://www.open.ac.uk/blogs/icons/?s=lock /?s=external
-*/
-ul.ou-sections li.tm-extern a, ul.ou-sections li.X-tm-demo-vle a{
-  padding-right:15px;
-}
-li.tm-extern a:hover, li.tm-extern a:focus, li [rel=external]:focus{
-  background-image:url(http://www.open.ac.uk/includes/icons/16x16px/02weblink16.gif);
-  background-image:url(<?php echo base_url() ?>assets/site/icons/external_link_16.png);
-  background-repeat:no-repeat;
-  background-position:bottom right;
-}
-li.X-tm-demo-vle a:hover{
-  background-image:url(/ouplayer/assets/site/icons/lock_16.png);
-  background-repeat:no-repeat;
-  background-position:bottom right;
-}
-
-ul.ou-sections li a:hover, ul.ou-sections li a:focus{
-  background-color:#fdfdfd;
-}
-</style>
+<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 
 
 <?php if($google_analytics): ?>
@@ -187,6 +155,9 @@ ul.ou-sections li a:hover, ul.ou-sections li a:focus{
     <li class="tm-test-error"><a href="<?php echo $base_url ?>test/podcast_errors" rel="nofollow">Error tests</a>
     <li class="tm-demo-vle"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Virtual learning environment: &#10;Requires a University login" rel="nofollow">[VLE demo]</a>
 <?php endif; ?>
+<?php if ($is_ouembed): ?>
+    <li class="tm-extern blog"><a href="<?php echo OUP_BLOG_URL ?>" rel="bookmark" title="Project blog and demos on Cloudworks">Blog</a>
+<?php endif; ?>
     <!--<li class="tm-extern iet"><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology - external" rel="external">IET</a>-->
     <li class="tm-extern dis"><a href="http://www.open.ac.uk/disability/" title="Services for disabled students - external OU" rel="external">Disabled services</a>
     <li class="tm-extern pod"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts - external OU" rel="external">OU Podcasts</a>
@@ -247,6 +218,8 @@ div.teasers ul li:last-child a {border-right:none;}
 
 
 <?php echo $content_for_layout ?>
+
+
 
 
 <?php /*
@@ -346,6 +319,12 @@ div.teasers ul li:last-child a {border-right:none;}
 */ ?>
 
 
+<?php if ($is_ouembed): ?>
+  <p id="developed-by">Developed by the <a href="http://iet.open.ac.uk/">Institute of Educational Technology</a>
+    and others at <a href="http://www.open.ac.uk/">The Open University</a>.</p>
+<?php endif; ?>
+
+
     </div> <!-- ou-region2  -->
 
 </div> <!-- ou-page -->
@@ -442,6 +421,8 @@ $(document).ready(function() {
 </script>
 <?php endif; ?>
 
+<script>$.oup_site_debug = <?php echo json_encode($req->debug) ?>;</script>
+<script src="<?php echo base_url() ?>assets/site/site-behaviour.js"></script>
 
 </body>
 </html>
