@@ -1,7 +1,7 @@
 /*
  OU Embed/Player site behaviours - especially 'ouembed-form' view.
 */
-$.log = function(ob){if(typeof console!=='undefined'){console.log(arguments)}};
+$.log = function(s){if(typeof console!=='undefined' && $.oup_site_debug){console.log(arguments.length <= 1 ? s : arguments)}};
 
 $(document).ready(function () {
 
