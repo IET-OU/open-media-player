@@ -29,8 +29,14 @@ $phpinfo = preg_replace('#<!DOCTYPE.*?>#', '', $page);
 <h2 id="app">Site configuration</h2>
 <ul class="app config">
 <?php
-    foreach ($app_config as $item => $value): ?>
-    <li><?php echo $item ?> = <span class="val"><?php echo $value ?></span>
+    foreach ($app_config as $item => $val):
+      if (is_string($val)) {
+        // Security - escape HTML in `version.json::message` etc.
+        $val = preg_replace('@<(\/?h\d)>@i', '[[$1]]', $val);
+        $val = htmlentities($val);
+        $val = preg_replace('@\[\[(\/?h\d)\]\]@i', '<$1>', $val);
+      } ?>
+    <li><?php echo $item ?> = <span class="val"><?php echo $val ?></span>
 <?php endforeach; ?>
 </ul><p></p>
 
