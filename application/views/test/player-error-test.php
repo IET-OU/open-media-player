@@ -5,15 +5,15 @@
 <p>These are Iframe-based tests. Note, the error page adapts (using Javascript) to suit the size of the iframe.
 
 
-<h4>404 Not found errors</h4>
-<p>Audio: 404.1 Podcast collection not found
+<h4 id=404 >404 Not found errors</h4>
+<p id=404-1 >Audio: 404.1 Podcast collection not found
 <iframe
  class="ou player oembed podcast audio x-small e-404-1"
  width="360" height="80" scrolling="no" frameborder=0
  src="<?php echo site_url('embed/pod/404/abcdef0123#!Collection-not-found') ?>"
  ></iframe>
 
-<p>Video: 404.2 Podcast item not found.
+<p id=404-2 >Video: 404.2 Podcast item not found.
 <iframe
  class="ou player oembed podcast video small e-404-2" scrolling="no" frameborder=0
  width="480" height="270"
@@ -24,8 +24,8 @@
 <p>Site: <a href="<?php echo site_url('404-Page-not-found') ?>">404 Page not found</a>.
 
 
-<h4>400 Bad request errors</h4>
-<p>Video: 400.1 Podcast shortcode too long.
+<h4 id=400 >400 Bad request errors</h4>
+<p id=400-1 >Video: 400.1 Podcast shortcode too long.
 <iframe
  class="ou player oembed podcast video medium e-400-1" scrolling="no" frameborder=0
  width="560" height="315"
@@ -33,7 +33,7 @@
  src="<?php echo site_url('embed/pod/400/abcdef0123456789#!400-Shortcode-too-long') ?>"
  ></iframe>
 
-<p>Video: 400.2 Podcast shortcode unexpected characters.
+<p id=400-2 >Video: 400.2 Podcast shortcode unexpected characters.
 <iframe
  class="ou player oembed podcast video large e-400-2" scrolling="no" frameborder=0
  width="640" height="360"
@@ -43,9 +43,9 @@
 
 
 
-<h4>Other error texts - for comparison</h4>
+<h4 id=other >Other error texts - for comparison</h4>
 
-<p>YouTube: 404 Video not found/ doesn't exist (just shows the player).
+<p id=404-yt >YouTube: 404 Video not found/ doesn't exist (just shows the player).
 <iframe
  width="420" height="315"
  src="http://www.youtube.com/embed/404-Not-found"
@@ -76,3 +76,4 @@ See:
 * http://podcast.open.ac.uk/404_ERROR
 * http://www.open.ac.uk/404_ERROR
 
+</pre>
