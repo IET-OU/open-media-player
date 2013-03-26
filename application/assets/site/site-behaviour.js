@@ -55,3 +55,26 @@ $(document).ready(function () {
 	$.log('Embed code selected, #' + id, ev.target);
   });
 });
+
+
+//var jq = jQuery.noConflict();
+if (typeof $(document).ajaxStart === 'function') {
+
+  $(document).ajaxStart(function (ev) {
+
+    $.oup_site_debug = true;
+
+    $.log("Ajax start handler. XX", ev);
+    $("#ajax-log").text("AJAX call started.\n"); //Note, .text() here, .append() below.
+    $.oup_timestamp = ev.timeStamp;
+  });
+  $(document).ajaxError(function (ev, req, op, ex) {
+    $.log("Ajax error handler.", ev, req, op, ex);
+    $("#ajax-log").append('AJAX error: "<b>' + (req.responseText ? req.responseText : 'Unknown error') + '</b>"\n');
+  });
+  $(document).ajaxComplete(function (ev, req, op) {
+    var diff = ev.timeStamp - $.oup_timestamp;
+    $.log("Ajax complete handler.", ev, req, op, diff + 'ms');
+    $("#ajax-log").append('AJAX call completed. Status: ' + req.statusText + '\n * <a href="' + op.url + '">' + op.url + '</a>\n');
+  });
+}

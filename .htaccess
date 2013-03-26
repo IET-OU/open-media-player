@@ -17,7 +17,7 @@ Options -Indexes
 Options +FollowSymLinks
 
 # Set the default file for indexes
-DirectoryIndex index.php
+DirectoryIndex index.php index.html index.htm
 
 #<Directory application/assets/>
 #    Allow from all

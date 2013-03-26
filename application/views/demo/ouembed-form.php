@@ -82,27 +82,9 @@ $(document).ready(function() {
 
 <div id=log >
 <h2>Log</h2>
+
 <pre id=ajax-log >[ Sorry, this URL is not supported by `jQuery-oEmbed` or a cross-domain request was made. ]</pre>
-
-<script>
-$.oup_log = function(o){if(typeof console!=='undefined'){console.log(arguments.length > 1 ? arguments : o)}};
-
-$(document).ajaxStart(function (ev) {
-  $.oup_log("Ajax start handler.", ev);
-  $("#ajax-log").text("AJAX call started.\n"); //Note, .text() here, .append() below.
-  $.oup_timestamp = ev.timeStamp;
-});
-$(document).ajaxError(function (ev, req, op, ex) {
-  $.oup_log("Ajax error handler.", ev, req, op, ex);
-  $("#ajax-log").append('AJAX error: "<b>' + (req.responseText ? req.responseText : 'Unknown error') + '</b>"\n');
-});
-$(document).ajaxComplete(function (ev, req, op) {
-  var diff = ev.timeStamp - $.oup_timestamp;
-  $.oup_log("Ajax complete handler.", ev, req, op, diff + 'ms');
-  $("#ajax-log").append('AJAX call completed. Status: ' + req.statusText + '\n * <a href="' + op.url + '">' + op.url + '</a>\n');
-});
-</script>
 </div>
 
 
-<?php endif; ?>
+<?php endif; //IF ($url) ?>

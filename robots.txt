@@ -12,6 +12,7 @@ Disallow:
 User-agent: *
 Disallow: /assets/
 Disallow: /blog/
+Disallow: /dev/
 Disallow: /docs/
 Disallow: /drupal/
 Disallow: /build
