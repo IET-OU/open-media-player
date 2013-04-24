@@ -7,7 +7,7 @@
  * @copyright Copyright 2012 The Open University.
  */
 
-$site_url = $resource_url = 'http://www8.open.ac.uk';
+$site_url = $resource_url = OUP_OU_RESOURCE_URL;
 
 
 ?><!doctype html><html lang="en-GB"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />

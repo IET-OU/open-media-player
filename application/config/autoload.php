@@ -52,7 +52,7 @@ $autoload['packages'] = array(APPPATH.'third_party');
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-// #1319, Don't autoload a database (iet-it-bugs 1319)
+// #1319, Don't autoload a database (iet-it-bugs:1319)
 $autoload['libraries'] = array(/*'database',*/ 'lang');
 
 
@@ -65,7 +65,8 @@ $autoload['libraries'] = array(/*'database',*/ 'lang');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url', 'ouplayer');
+// `ouplayer_helper` takes precedence - HTTPS/SSL support (iet-it-bugs:1329)
+$autoload['helper'] = array('ouplayer', 'url');
 
 
 /*

@@ -10,7 +10,7 @@
   $google_analytics = $this->config->item('google_analytics');
 
   $site_url = $resource_url = OUP_OU_RESOURCE_URL;
-  $local_res_url = site_res_url('', TRUE);
+  $local_res_url = site_res_url();
   $base_url = site_url();
   $player_url = isset($player_url) ? $player_url : site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;

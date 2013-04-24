@@ -43,32 +43,64 @@ function contains($haystack, $needle) {
   return FALSE !== strpos($haystack, $needle);
 }
 
+
+// ====================================================================
+
+/**
+ * Site URL. (Based on `/system/helpers/url_helper.php`)
+ * @return string
+ */
+if ( ! function_exists('site_url'))
+{
+  function site_url($uri = '')
+  {
+    $CI =& get_instance();
+    $site_url = $CI->config->site_url($uri);
+    return preg_replace('@https?:\/\/@', '//', $site_url);
+  }
+}
+
 /**
 * Output the URL for a Player-engine or theme resource.
 * Note, the URL is HTTPS/SSL-neutral (//host/path) and contains a hash/version ID.
 * @link http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml#Protocol
+  @param string $uri Path
+  @param bool $hash Whether to use a hash/version ID in the URL.
 * @return string
 */
-function player_res_url($path, $return = false) {
+function player_res_url($uri = '', $hash = true, $return = false) {
   static $base_url;
-  if (! $base_url) $base_url = preg_replace('@https?:\/\/@', '//', base_url());
+  if (! $base_url) {
+    //Was: $base_url = preg_replace('@https?:\/\/@', '//', base_url());
+    $p = parse_url(base_url());
+    $base_url = $p['path'];
+  }
+
+  if ($hash) {
+    $hash = '?v=0';
+  } else {
+    $hash = '';
+  }
 
   if ($return) {
-    return $base_url. $path .'?v=0';
+    return $base_url. $uri . $hash;
   }
-  echo $base_url. $path .'?v=0';
+  echo $base_url. $uri . $hash;
 }
 
 /**
-* Output URL for a site resource - HTTPS/SSL-neutral.
+* Output URL for a site resource - HTTPS/SSL-neutral (iet-it-bugs:1329)
+* @return string
 */
-function site_res_url($path = '', $return = false) {
-  $url = preg_replace('@https?:\/\/@', '//', base_url()) . $path;
-  if ($return) {
-    return $url;
-  }
-  echo $url;
+function site_res_url($uri = '') {
+  $p = parse_url(base_url());
+  $site_url = $p['path'] . $uri;
+
+  return $site_url;
 }
+
+// ====================================================================
+
 
 /** Return class and aria-label attributes for player controls.
 * @return string
