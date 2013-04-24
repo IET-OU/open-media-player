@@ -10,6 +10,7 @@
   $google_analytics = $this->config->item('google_analytics');
 
   $site_url = $resource_url = OUP_OU_RESOURCE_URL;
+  $local_res_url = site_res_url('', TRUE);
   $base_url = site_url();
   $player_url = isset($player_url) ? $player_url : site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
@@ -67,12 +68,12 @@
 
 <!-- site specific head components -->
 
-<link rel="stylesheet" href="<?php echo base_url() ?>assets/site/site-extra.css" />
+<link rel="stylesheet" href="<?php echo $local_res_url ?>assets/site/site-extra.css" />
 
 <!--**
     ** Styles for OU Embed, Noembed etc.
     ** -->
-<link rel="stylesheet" href="<?php echo base_url() ?>ou-embed.css" title="OU Embed styles" />
+<link rel="stylesheet" href="<?php echo $local_res_url ?>ou-embed.css" title="OU Embed styles" />
 <?php if ($is_ouembed): ?>
 <link rel="stylesheet" href="<?php echo OUP_NOEMBED_STYLE_URL ?>" title="Noembed embed styles" />
 <link rel="EX-stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" />
@@ -420,7 +421,7 @@ $(document).ready(function() {
 <?php endif; ?>
 
 <script>$.oup_site_debug = <?php echo json_encode(isset($req) ? $req->debug : NULL) ?>;</script>
-<script src="<?php echo base_url() ?>assets/site/site-behaviour.js"></script>
+<script src="<?php echo $local_res_url ?>assets/site/site-behaviour.js"></script>
 
 </body>
 </html>

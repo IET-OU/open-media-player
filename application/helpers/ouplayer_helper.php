@@ -1,7 +1,9 @@
-<?php
-/** OU player helper functions.
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * OU Media Player helper functions.
  *
  * @copyright Copyright 2011 The Open University.
+ * @author N.D.Freear.
  */
 
 
@@ -43,15 +45,29 @@ function contains($haystack, $needle) {
 
 /**
 * Output the URL for a Player-engine or theme resource.
-* Note, the URL is HTTP/SSL-neutral (//host/path) and contains a hash/version ID.
+* Note, the URL is HTTPS/SSL-neutral (//host/path) and contains a hash/version ID.
 * @link http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml#Protocol
 * @return string
 */
-function player_res_url($path) {
+function player_res_url($path, $return = false) {
   static $base_url;
-  if (! $base_url) $base_url = str_replace('http:/', '/', base_url());
+  if (! $base_url) $base_url = preg_replace('@https?:\/\/@', '//', base_url());
 
+  if ($return) {
+    return $base_url. $path .'?v=0';
+  }
   echo $base_url. $path .'?v=0';
+}
+
+/**
+* Output URL for a site resource - HTTPS/SSL-neutral.
+*/
+function site_res_url($path = '', $return = false) {
+  $url = preg_replace('@https?:\/\/@', '//', base_url()) . $path;
+  if ($return) {
+    return $url;
+  }
+  echo $url;
 }
 
 /** Return class and aria-label attributes for player controls.

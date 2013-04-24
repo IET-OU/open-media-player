@@ -33,8 +33,9 @@ define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
 /*
 |--------------------------------------------------------------------------
 | Resource URL - Stylesheet/JS base URL for OUICE layout/template view (Was: www8).
+| ('//' is deliberate - HTTPS/SSL - 'www3..' is available via HTTPS/SSL.)
 */
-define('OUP_OU_RESOURCE_URL', 'http://www3.open.ac.uk');
+define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
 
 
 /*
@@ -50,8 +51,9 @@ define('OUP_CONTACT_URL', 'mailto:IET-Webmaster+@+open.ac.uk?subject=OU+player')
 
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
 
+// ('//' is deliberate - HTTPS/SSL.)
+define('OUP_NOEMBED_STYLE_URL', '//noembed.com/noembed.css');
 define('OUP_NOEMBED_END_URL', 'http://noembed.com/embed');
-define('OUP_NOEMBED_STYLE_URL', 'http://noembed.com/noembed.css');
 
 // URL parameter names (eg. http://example.org/path?param=value)
 
@@ -70,11 +72,13 @@ define('OUP_PODCAST_SHORTCODE_REGEX', '/^[a-f0-9]{10}$/');
 // Javascript (no-)libraries / CDNs.
 // Note, the Player uses CDNs with Javascript fallbacks to local copies.
 
-// Preferred: Ender/jeesh
-define('OUP_JS_CDN_ENDER_MIN', 'http://cdn.enderjs.com/jeesh.min.js');
-define('OUP_JS_CDN_ENDER',     'http://cdn.enderjs.com/jeesh.js');
+// Preferred: Ender/jeesh ('//' is deliberate - HTTPS/SSL.)
+// See, https://github.com/ender-js/website/issues/11
+define('OUP_JS_CDN_ENDER_MIN', '//cdn.enderjs.com/jeesh.min.js');
+define('OUP_JS_CDN_ENDER',     '//cdn.enderjs.com/jeesh.js');
 
 // Fallback: jQuery 1.7+ ('//' is deliberate - HTTPS/SSL support!)
+//WAS: 1.7.2 (1.9.1)
 define('OUP_JS_CDN_JQUERY_MIN',
   '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 define('OUP_JS_CDN_JQUERY',

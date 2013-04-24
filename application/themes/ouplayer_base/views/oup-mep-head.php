@@ -45,7 +45,7 @@ if(typeof jQuery=='undefined'){
 <?php endif; ?>
 <script>
 if(typeof $=='undefined'){
-  document.write(unescape("%3Cscript src='<?php echo base_url() .APPPATH. $this->theme->js_path ?>jeesh.js' %3E%3C/script%3E"));
+  document.write(unescape("%3Cscript src='<?php player_res_url($this->theme->js_path. 'jeesh.js') ?> %3E%3C/script%3E"));
   CDN_fallback = true;
 }
 </script>
