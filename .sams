@@ -28,6 +28,8 @@ DISABLE_SAMS
 
     RewriteRule ^scripts/jquery.oembed.js(.*) index.php/scripts/jquery_oembed$1 [QSA,L]
     #RewriteRule ^scripts/(jquery.oembed.js)$ application/assets/client/$1 [QSA,L]
+
+    RewriteRule ^ou-embed.css$ application/assets/client/site-embed.css [QSA,L]
 #ou-specific ends.
 
     # If the file/dir is NOT real go to index
