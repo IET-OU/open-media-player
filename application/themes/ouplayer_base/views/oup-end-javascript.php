@@ -8,6 +8,9 @@ $.domReady(function ouplayer_launch(){
 $.oup_debug = <?php echo json_encode((bool) $params->debug) ?>,
 $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
 
+  videoWidth:'100%',
+  videoHeight:'100%',
+
 <?php if ($params->poster_url): ?>
   // url to poster (to fix iOS 3.x) 
   poster:'<?php echo $params->poster_url ?>',

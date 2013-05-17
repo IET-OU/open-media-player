@@ -76,9 +76,10 @@ h1 {
 	bottom:22px;
 	}
 
-/* #1417, MSIE 9/IE 9 compatibility bug */
-.ua-ie9 .mejs-container .mejs-layer, .ua-ie9 video,
-.ua-ie7 .mejs-container .mejs-layer, .ua-ie7 video{ position:fixed; width:100% !important; height:100%; /*top:0; bottom:0; left:0; right:0 !important;*/ }
+/* #1417, MSIE 9/IE 9 compatibility bug *--/
+.ua-ie9 .mejs-container, ._ua-ie9 video,
+.ua-ie7 .mejs-container, ._ua-ie7 video{ position:fixed; width:100% !important; height:100%; /*top:0; bottom:0; left:0; right:0 !important;*/ }
+*/
 
 #oup-noscript	{
 	position:absolute; 
