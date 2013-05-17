@@ -74,8 +74,10 @@ define('OUP_PODCAST_SHORTCODE_REGEX', '/^[a-f0-9]{10}$/');
 
 // Preferred: Ender/jeesh ('//' is deliberate - HTTPS/SSL.)
 // See, https://github.com/ender-js/website/issues/11
-define('OUP_JS_CDN_ENDER_MIN', '//cdn.enderjs.com/jeesh.min.js');
-define('OUP_JS_CDN_ENDER',     '//cdn.enderjs.com/jeesh.js');
+// See, http://ender.jit.su/#jeesh
+//Was: define('OUP_JS_CDN_ENDER_MIN', '//cdn.enderjs.com/jeesh.min.js');
+define('OUP_JS_CDN_ENDER_MIN', '//dnmrmlfxy5gpj.cloudfront.net/jeesh.min.js');
+define('OUP_JS_CDN_ENDER',     '//dnmrmlfxy5gpj.cloudfront.net/jeesh.js');
 
 // Fallback: jQuery 1.7+ ('//' is deliberate - HTTPS/SSL support!)
 //WAS: 1.7.2 (1.9.1)
