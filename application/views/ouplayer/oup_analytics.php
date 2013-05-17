@@ -50,7 +50,7 @@ if (isset($google_analytics) && $google_analytics):
   $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5#!" . rtrim($ga_title, '-');
 
   // Bug #1464, Encode the "embedder" in the "path".
-  if (isset($this->theme->origin)) {
+  if (isset($this->theme->origin) && $this->theme->origin) {
     $po = (object) parse_url($this->theme->origin);
     $ga_path .= "!$po->host!";
     $ga_path .= trim($po->path, '/ ') .'!';
