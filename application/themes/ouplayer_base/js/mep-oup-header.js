@@ -3,9 +3,9 @@
 
 
 /**
-* @preserve |
+* @preserve|
 *| OU Media Player
-*| Copyright 2011-2012 The Open University.
+*| Copyright 2011-2013 The Open University.
 *| (NOT released open-source, yet!)
 *| Author: Nick Freear.
 *|
@@ -13,7 +13,7 @@
 
 /*!
 * OU Media Player
-* Copyright 2011-2012 The Open University.
+* Copyright 2011-2013 The Open University.
 * (NOT released open-source, yet!)
 * Author: Nick Freear.
 *
