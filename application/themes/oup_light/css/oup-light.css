@@ -39,7 +39,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 
 
-.mejs-controls .mejs-button button, button, .mejs-controls .oup-mejs-link a {
+.no-svg .mejs-controls .mejs-button button, .mejs-controls .mejs-button button, button, .mejs-controls .oup-mejs-link a {
 	cursor: pointer;
 	font-size: 0;
 	line-height: 0;
@@ -63,12 +63,12 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 
 /* PLAY/PAUSE */
-.mejs-controls .mejs-playpause-button button {
+.no-svg .mejs-controls .mejs-playpause-button button, .mejs-controls .mejs-playpause-button button  {
 	width:22px;
 	height:22px;
 	background-position:0 0; /* - Peter: 080312 */
 }
-.mejs-controls .mejs-playpause-button.mejs-pause button {
+.no-svg .mejs-controls .mejs-playpause-button.mejs-pause button {
 	background-position: -72px 0; /* - Peter: 080312 */
 	/*background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
 	}
@@ -245,7 +245,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .mejs-controls .mejs-popout-link a:hover{ background-position: -1242px 0;  }
 
 /* Fullscreen button. */
-.mejs-controls .mejs-fullscreen-button button{ background-position:-516px 0; }
+.no-svg .mejs-controls .mejs-fullscreen-button button, .mejs-controls .mejs-fullscreen-button button{ background-position:-516px 0; }
 .mejs-controls .mejs-fullscreen-button button:hover{ background-position:-582px 0; }
 
 .mejs-controls .mejs-fullscreen-button.mejs-unfullscreen button {
@@ -270,7 +270,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 /* Default blue */
 .ouvle-default-blue .mejs-button button:hover, .ouvle-default-blue .oup-mejs-button button:hover, .ouvle-default-blue .oup-mejs-link :hover,
-.ouvle-default-blue .mejs-playpause-button button, .ouvle-default-blue .oup-volume-widget button.oup-mute,
+.ouvle-default-blue .no-svg .mejs-playpause-button button, .ouvle-default-blue .mejs-playpause-button button, .ouvle-default-blue .oup-volume-widget button.oup-mute,
 .ouvle-default-blue .mejs-time-rail .mejs-time-loaded {
 	background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
 }
@@ -285,7 +285,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 /* Orange */
 .ouvle-orange .mejs-button button:hover, .ouvle-orange .oup-mejs-button button:hover, .ouvle-orange .oup-mejs-link :hover,
-.ouvle-orange .mejs-playpause-button button, .ouvle-orange .oup-volume-widget button.oup-mute,
+.ouvle-orange .no-svg .mejs-playpause-button button, .ouvle-orange .mejs-playpause-button button, .ouvle-orange .oup-volume-widget button.oup-mute,
 .ouvle-orange .mejs-time-rail .mejs-time-loaded {
 	background-color:rgb(204, 92, 40);
 }
@@ -295,7 +295,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 /* Dark blue */
 .ouvle-dark-blue .mejs-button button:hover, .ouvle-dark-blue .oup-mejs-button button:hover, .ouvle-dark-blue .oup-mejs-link :hover,
-.ouvle-dark-blue .mejs-playpause-button button, .ouvle-dark-blue .oup-volume-widget button.oup-mute {
+.ouvle-dark-blue .no-svg .mejs-playpause-button button, .ouvle-dark-blue .mejs-playpause-button button, .ouvle-dark-blue .oup-volume-widget button.oup-mute {
 	background-color:rgb(29, 93, 57); /* ?? */
 }
 .ouvle-dark-blue .mejs-controls .mejs-time-rail .mejs-time-current {
@@ -303,7 +303,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 /* Green */
 .ouvle-green .mejs-button button:hover, .ouvle-green .oup-mejs-button button:hover, .ouvle-green .oup-mejs-link :hover,
-.ouvle-green .mejs-playpause-button button, .ouvle-green .oup-volume-widget button.oup-mute {
+.ouvle-green .no-svg .mejs-playpause-button button, .ouvle-green .mejs-playpause-button button, .ouvle-green .oup-volume-widget button.oup-mute {
 	/*background-color:rgb(29, 93, 57);*/
 	background-color:rgb(82, 82, 37); /* olive? */
 }
@@ -312,7 +312,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 /* Grey (not gray) */
 .ouvle-grey .mejs-button button:hover, .ouvle-grey .oup-mejs-button button:hover, .ouvle-grey .oup-mejs-link :hover,
-.ouvle-grey .mejs-playpause-button button, .ouvle-grey .oup-volume-widget button.oup-mute {
+.ouvle-grey .no-svg .mejs-playpause-button button, .ouvle-grey .mejs-playpause-button button, .ouvle-grey .oup-volume-widget button.oup-mute {
 	background-color:rgb(70, 70, 70);
 }
 .ouvle-grey .mejs-controls .mejs-time-rail .mejs-time-current {
@@ -320,7 +320,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 /* Purple */
 .ouvle-purple .mejs-button button:hover, .ouvle-purple .oup-mejs-button button:hover, .ouvle-purple .oup-mejs-link :hover,
-.ouvle-purple .mejs-playpause-button button, .ouvle-purple .oup-volume-widget button.oup-mute {
+.ouvle-purple .no-svg .mejs-playpause-button button, .ouvle-purple .mejs-playpause-button button, .ouvle-purple .oup-volume-widget button.oup-mute {
 	background-color:rgb(78, 40, 122);
 }
 .ouvle-purple .mejs-controls .mejs-time-rail .mejs-time-current {
@@ -328,7 +328,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 /* Pink */
 .ouvle-pink .mejs-button button:hover, .ouvle-pink .oup-mejs-button button:hover, .ouvle-pink .oup-mejs-link :hover,
-.ouvle-pink .mejs-playpause-button button, .ouvle-pink .oup-volume-widget button.oup-mute {
+.ouvle-pink .no-svg .mejs-playpause-button button, .ouvle-pink .mejs-playpause-button button, .ouvle-pink .oup-volume-widget button.oup-mute {
 	background-color:rgb(197, 45, 115);
 }
 .ouvle-pink .mejs-controls .mejs-time-rail .mejs-time-current {
@@ -336,7 +336,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 /* Dark red */
 .ouvle-dark-red .mejs-button button:hover, .ouvle-dark-red .oup-mejs-button button:hover, .ouvle-dark-red .oup-mejs-link :hover,
-.ouvle-dark-red .mejs-playpause-button button, .ouvle-dark-red .oup-volume-widget button.oup-mute {
+.ouvle-dark-red .no-svg .mejs-playpause-button button, .ouvle-dark-red .mejs-playpause-button button, .ouvle-dark-red .oup-volume-widget button.oup-mute {
 	background-color:rgb(100, 24, 52);
 }
 .ouvle-dark-red .mejs-controls .mejs-time-rail .mejs-time-current {
@@ -351,7 +351,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 /* Colour XY. */
 .ouvle-XY .mejs-button button:hover, .ouvle-XY .oup-mejs-button button:hover, .ouvle-XY .oup-mejs-link :hover,
-.ouvle-XY .mejs-playpause-button button, .ouvle-XY .oup-volume-widget button.oup-mute {
+.ouvle-XY .no-svg .mejs-playpause-button button, .ouvle-XY .mejs-playpause-button button, .ouvle-XY .oup-volume-widget button.oup-mute {
 	background-color:rgb(41,110,143);
 }
 .ouvle-XY .mejs-controls .mejs-time-rail .mejs-time-current {
