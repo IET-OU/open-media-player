@@ -66,6 +66,20 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
+### v0.95-beta-29-g75d2448
+Release: 20 May/ Live: approx: 23 May 2013
+
+#### OU Player features:
+
+* The Player is now available under HTTPS/ SSL - initially for VLE use.
+
+#### OU Player bug fixes:
+
+* Javascript/ configuration fix for video size - Internet Explorers/ MSIEs 7/ 9 [Bug #1474][#:1474]
+* Config. fix to Ender/jeesh Javascript URL under HTTPS/ SSL [Bug #1473]
+* Fix for `no-svg` class in `oup-light` CSS stylesheet [Bug #1476]
+* Follow-up PHP fix for analytics [Bug #1464]
+
 ### v0.95-beta-2-gb72490b
 Release: 31 January/ Live: approx. 7 February 2013
 

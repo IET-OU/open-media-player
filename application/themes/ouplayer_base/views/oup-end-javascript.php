@@ -8,8 +8,10 @@ $.domReady(function ouplayer_launch(){
 $.oup_debug = <?php echo json_encode((bool) $params->debug) ?>,
 $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
 
+<?php if ('jquery' == $this->theme->jslib): //Includes MSIE 7 and 9 (iet-it-bugs:1474) ?>
   videoWidth:'100%',
   videoHeight:'100%',
+<?php endif; ?>
 
 <?php if ($params->poster_url): ?>
   // url to poster (to fix iOS 3.x) 
