@@ -52,6 +52,8 @@ class Embed extends MY_Controller {
         'req'  => $this->_request,
         'google_analytics' => $this->oupodcast_serv->getAnalyticsId(),  #$this->_get_analytics_id('podcast.open.ac.uk'),
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
+        // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
+        '_caption_url' => site_url('timedtext/webvtt') .'?url='. $player->caption_url,
     );
     if ('Popup' == get_class($this)) {
         // We don't want a "Pop up" button in the "popup" view.
@@ -174,6 +176,8 @@ class Embed extends MY_Controller {
         'req'  => $this->_request,
       //TODO: needs more work!
         'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
+        // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
+        '_caption_url' => $player->caption_url .'?r='. mt_rand(1, 1000),
     );
     if ('Popup' == get_class($this)) {
         // We don't want a "Pop up" button in the "popup" view.

@@ -63,6 +63,12 @@ if(typeof $=='undefined'){
 <script src="<?php player_res_url($this->theme->js_min) ?>"></script>
 <?php endif; ?>
 
+<?php if ($params->caption_url): ?>
+<!--[if IE lte 9]>
+<script src="<?php player_res_url($this->theme->js_xdr) ?>"></script>
+<![endif]-->
+<?php endif; ?>
+
 <?php foreach ($this->theme->styles as $css_file): ?>
 <link rel="stylesheet" href="<?php player_res_url($css_file) ?>" />
 <?php endforeach; ?>

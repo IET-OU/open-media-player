@@ -60,12 +60,8 @@ Flowplayer:  <body role="application" id="ouplayer" class=
  <source type="<?php echo $params->mime_type; #video/mp4 ?>" src="<?php echo $params->media_url ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
-  // Bug #1334, VLE caption redirect bug.
-  //if (FALSE === strpos($params->caption_url, '.srt')):
-    echo site_url('timedtext/webvtt').'?url='. $params->caption_url;
-  /*else:
-    echo $params->caption_url;
-  endif;/**/ ?>" />
+  // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
+  echo $_caption_url ?>" />
 <?php endif; ?>
 <p>[Fallback]</p>
 <?php if ('video'==$params->media_type): ?>

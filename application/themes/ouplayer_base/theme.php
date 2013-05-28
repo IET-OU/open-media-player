@@ -18,6 +18,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $rgb  = 'ouvle-default-blue';
   public $background = 'black';
 
+  public $js_xdr;
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
   public $player_embed_code = NULL;
 
@@ -47,6 +48,8 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     $this->js_min  = "themes/$theme_name/build/ouplayer-mediaelement.min.js";
     $this->css_min = str_replace('.js', '.css', $this->js_min);
 
+    // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
+    $this->js_xdr = "themes/$theme_name/build/xdr.js";
 
     $meps_base = $this->js_path; #From parent.
     $oups_base = "themes/$theme_name/js/";

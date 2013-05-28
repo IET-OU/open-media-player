@@ -37,12 +37,16 @@ jquery-oembed: Copyright Richard Chamorro, Avanzis.
 
 Ender/jeesh: copyright 2012 Dustin Diaz & Jacob Thornton. 
  * License: MIT
- * Code: <http://ender.no.de/#jeesh>
+ * Code: <http://ender.jit.su/#jeesh>
  * For the individual modules, see their respective licenses.
 
 Mediaelement: Copyright 2010 John Dyer.
  * License: GPLv2/MIT
  * Code: <http://mediaelementjs.com>
+
+jQuery ajaxHooks/ xdr.js: copyright (c)2012 Julian Aubourg
+ * License: MIT
+ * Code: <https://github.com/jaubourg/ajaxHooks/blob/master/src/xdr.js>
 
 Flowplayer: Copyright (c) 2008 Flowplayer Ltd.
  * GPLv3 License: <http://gnu.org/licenses/gpl.html>
