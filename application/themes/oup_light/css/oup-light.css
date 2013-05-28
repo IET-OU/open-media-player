@@ -68,7 +68,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	height:22px;
 	background-position:0 0; /* - Peter: 080312 */
 }
-.no-svg .mejs-controls .mejs-playpause-button.mejs-pause button {
+.no-svg .mejs-controls .mejs-playpause-button.mejs-pause button, .mejs-controls .mejs-playpause-button.mejs-pause button {
 	background-position: -72px 0; /* - Peter: 080312 */
 	/*background-color:rgb(41,110,143); /* - Peter: 080312 COLOUR*/
 	}
