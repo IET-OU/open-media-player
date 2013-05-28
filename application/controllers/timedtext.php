@@ -50,12 +50,15 @@ class Timedtext extends MY_Controller { #CI_Controller {
 
 
 	// Bug #1334, Proxy mode to fix VLE caption redirects.
-	// Example:  http://learn3.open.ac.uk/pluginfile.php/808/mod_oucontent/oucontent/103/k217_2010j_b1_vid001_320x176.srt
+	// Example https://learn2acct.open.ac.uk/pluginfile.php/985394/mod_oucontent/oucontent/155114/k315-0-video1.srt
     $options = array();
     if ($is_srt && preg_match('/^(learn|[\w\.]*vledev)\w*.open.ac.uk\/(moodle\w*\/)?pluginfile/', $p['host'].$p['path'], $matches)) {
       $options['proxy_cookies'] = true;
+      $options['max_redirects'] = 0;
+      $options['ua'] = $this->agent->agent_string();
+      $options['ssl_verify'] = false;
+      $options['debug'] = true;
     }
-
 
 	$this->load->library('http');
 
@@ -66,7 +69,7 @@ class Timedtext extends MY_Controller { #CI_Controller {
         $this->_error('Caption file not found.', 404);
       }
       #var_dump($result->info);
-      $this->_error('Caption request problem.', $result->info['http_code']);
+      $this->_error('Caption request problem.', $result->http_code);
     }
 
 

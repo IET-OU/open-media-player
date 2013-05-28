@@ -83,6 +83,7 @@ class Http {
       'ua' => $ua,
       'debug' => FALSE,
       'auth' => NULL, #'[domain\]user:password'
+      'ssl_verify' => TRUE,
     );
 
     return $result;
@@ -108,6 +109,11 @@ class Http {
 		header('X-Proxy-Cookie: '.$options['cookie']);
     }
 
+    if (! $options['ssl_verify']) {
+      curl_setopt($h_curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+      curl_setopt($h_curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+    }
+
     curl_setopt($h_curl, CURLOPT_AUTOREFERER, TRUE);
     curl_setopt($h_curl, CURLOPT_MAXREDIRS, $options['max_redirects']);
     curl_setopt($h_curl, CURLOPT_FOLLOWLOCATION, TRUE);
@@ -122,6 +128,7 @@ class Http {
     if ($options['auth']) {
       //TODO: http://unitstep.net/blog/2009/05/05/using-curl-in-php-to-access-https-ssltls-protected-sites/
       curl_setopt($h_curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+      curl_setopt($h_curl, CURLOPT_SSL_VERIFYHOST, FALSE);
 
       curl_setopt($h_curl, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);
       curl_setopt($h_curl, CURLOPT_USERPWD, $options['auth']);
@@ -134,6 +141,7 @@ class Http {
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
 
     $result->data = curl_exec($h_curl);
+    $result->http_code = FALSE;
 
     $result->_headers = NULL;
     // Fragile: rely on cURL always putting 'Content-Length' last..
@@ -145,10 +153,16 @@ class Http {
       //Error. Quietly log?
       $this->CI->_log('error', "cURL $errno, ".curl_error($h_curl)." GET $url");
       #$this->CI->firephp->fb("cURL $errno", "cURL error", "ERROR");
+      $result->http_code = "500." . $errno;
+      $result->curl_errno = $errno;
+      $result->curl_error = curl_error($h_curl);
+      $result->success = FALSE;
     }
     $result->info = curl_getinfo($h_curl);
-    $result->http_code = $result->info['http_code'];
-    $result->success = ($result->info['http_code'] < 300);
+    if (!$result->http_code) {
+      $result->success = ($result->info['http_code'] < 300);
+      $result->http_code = $result->info['http_code'];
+    }
 
     curl_close($h_curl);
 
