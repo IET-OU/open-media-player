@@ -50,6 +50,7 @@ define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
 define('OUP_CONTACT_URL', 'mailto:IET-Webmaster+@+open.ac.uk?subject=OU+player');
 
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
+define('OUP_FLASH_URL', 'http://adobe.com/go/getflashplayer');
 
 // ('//' is deliberate - HTTPS/SSL.)
 define('OUP_NOEMBED_STYLE_URL', '//noembed.com/noembed.css');

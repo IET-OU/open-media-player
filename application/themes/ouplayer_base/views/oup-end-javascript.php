@@ -124,6 +124,15 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 
     $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));
     $.log($.ouplayer.options);
+
+    // Detect Flash disabled/not installed.
+    if ($('.mejs-poster.mejs-layer').css('height') == undefined) {
+      $('body').addClass('no-flash');
+      $('#oup-noscript').hide();
+      $('#oup-noflash').show().removeClass('hide');
+      $.log("MEP/OUP: Flash disabled/not installed.");
+    }
+
   }, 200); //Was 400.
 
 <?php //if ('jquery' == $this->theme->jslib): ?>

@@ -81,19 +81,32 @@ h1 {
 .ua-ie7 .mejs-container, ._ua-ie7 video{ position:fixed; width:100% !important; height:100%; }
 */
 
-#oup-noscript	{
-	position:absolute; 
-	background:#f8f8f8;
-	color:#222;
-	padding:5px; 
-	top:0; 
-	border:1px solid #a11;
-	}
-#oup-noscript{ z-index:999; }  /* << Put z-index on its own - easier search & compare. */
 
-#oup-noscript.hide	{
+/* Error handling.
+*/
+#oup-noscript, .error {
+	position:absolute; 
+	background:#f4f4f4;
+	color:#222;
+	padding:5px;
+	top:0;
+	border:1px solid #a11;
+	font-size:.96em;
+	}
+.error p{ margin:.7em 0; }
+.mtype-audio .error p{ margin:0; }
+.mtype-audio.ctx-Vle_player .error{ padding:0 5px; font-size:.75em; }
+.mtype-video #oup-noflash a{ display:block; }
+#oup-noscript, #oup-noflash, .error{ z-index:999; }  /* << Put z-index on its own - easier search & compare. */
+.mtype-video.ua-moz #oup-noflash{ right:0; }  /* << Leave space for "This plugin is vulnerable..." message - Firefox. */
+@media (max-width:50em) {
+    .mtype-video.ua-moz #oup-noflash{ width:15.5em; }
+    }
+#oup-noscript.hide, .error.hide {
 	display:none;
 	}
+.oup.--no-flash .mejs-controls, .--no-flash .mejs-title-panel{ display:none; }
+
 
 .mejs-container button	{
 	padding:0;

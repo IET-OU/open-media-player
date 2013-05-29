@@ -11,7 +11,7 @@ Flowplayer:  <body role="application" id="ouplayer" class=
   "oup mtype-video width-640 theme-ouice-light hide-tscript hide-captions hide-settings oup-paused lang-en -webkit ctx-Podcast_player mode-embed no-debug has-poster has-captions has-tscript has-rel-link not-private -no-docmode use-flash js"
   style="cursor: default">*/ ?>
 
-<div id="oup-noscript">
+<div id="oup-noscript" class="error">
   <p class="msg"><?php echo t('Sorry, your browser appears to have Javascript disabled, or there has been an error.') ?>
   <a href="<?php echo $params->media_url ?>"><?php
   echo 'video'==$params->media_type ? t('Download video file') : t('Download audio file') ?></a>
@@ -19,6 +19,11 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 <?php if ($params->poster_url): ?>
   <img alt="" src="<?php echo $params->poster_url ?>" />
 <?php endif; ?>
+</div>
+
+<div id="oup-noflash" class="error hide">
+  <p class="msg"><?php echo t('Sorry, your browser does not have Shockwave Flash installed or it has been disabled.') ?>
+  <a href="<?php echo OUP_FLASH_URL ?>"><?php echo t('Get Shockwave Flash') ?>.</a>
 </div>
 
 
