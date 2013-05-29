@@ -2,7 +2,8 @@
 <!--Body classes - player flags. -->
 <body role="application" id="ouplayer" class="oup mtype-<?php echo $params->media_type ?> mode-<?php echo $mode ?> ctx-<?php echo get_class($params) ?> hide-tscript lang-<?php
   echo $this->lang->lang_code() ?> theme <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> bg-<?php echo $this->theme->background ?> ua-<?php echo $this->agent->browser_code()
-  ?> p-<?php echo $this->agent->platform_code() ?> <?php if($this->agent->is_mobile()): ?>is<?php else: ?>not<?php endif; ?>-mobile jslib-<?php echo $this->theme->jslib ?>">
+  ?> br-<?php echo $this->agent->browser() ?> p-<?php echo $this->agent->platform_code() ?> <?php
+  if($this->agent->is_mobile()): ?>is<?php else: ?>not<?php endif; ?>-mobile jslib-<?php echo $this->theme->jslib ?>">
 
 <?php /* Body classes:
 Mediaelement: "oup-mode-video tscript-hide lang-en oup_light ouvle-default-blue ua-webkit p-win jslib-jquery width-large"

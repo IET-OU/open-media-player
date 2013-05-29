@@ -176,9 +176,12 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	top:4px;
 }
 .ua-webkit .mejs-controls .oup-volume-widget {
+    top:4px;
+}
+/*.ua-webkit*/ .br-Safari .mejs-controls .oup-volume-widget {
 	top:-6px;
 }
-.ua-webkit .mejs-controls .oup-volume-widget .oup-display {
+/*.ua-webkit*/ .br-Safari .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
 	top:11px;
 }
