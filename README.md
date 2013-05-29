@@ -66,7 +66,7 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
-### v0.95-beta-29-g75d2448
+### v0.95-beta-30-gcfe9c2d
 Release: 20 May/ Live: approx: 23 May 2013
 
 #### OU Player features:

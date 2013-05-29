@@ -6,6 +6,23 @@
 </IfModule>
 
 
+# Cross-domain client access to captions/subtitle files.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(vtt|srt|ttml|xml)">
+        Header set Access-Control-Allow-Origin "*"
+        AddDefaultCharset UTF-8
+    </FilesMatch>
+</IfModule>
+
+#<Files *.vtt>
+#    ForceType "text/vtt; charset=utf-8"
+#</Files>
+
+<IfModule mod_mime.c>
+    AddType text/vtt  vtt
+</IfModule>
+
+
 # Deny OR Allow Folder Indexes.
 # Since we disable access to PHP files you
 # can leave this on without worries.
