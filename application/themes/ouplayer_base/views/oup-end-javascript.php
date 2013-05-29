@@ -133,7 +133,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
       $.log("MEP/OUP: Flash disabled/not installed.");
     }
 
-  }, 200); //Was 400.
+  }, 400); //Was 200~400 ms.
 
 <?php //if ('jquery' == $this->theme->jslib): ?>
 });

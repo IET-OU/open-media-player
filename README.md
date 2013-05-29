@@ -129,6 +129,7 @@ Release: 10 December/ Live: 13 December 2012
 
 * <http://embed.open.ac.uk> | <http://mediaplayer.open.ac.uk>
 * Bugs/ Issues:  [IET-IT-bugs: project/issues/ouplayer][bugs]
+* Also: [LtsRedmine: projects/ouplayer/issues][lts-bugs]
 
 
 ## Credits
@@ -147,6 +148,7 @@ For full credits and licenses see [docs/CREDITS.txt][credit]
 [allchange]: http://intasoft.net/our-products/allchange/
 [install]: https://docs.google.com/document/d/1tg1mrPqniUp6evs0odfs7wughuMLY4r82-kFylVWQXE/edit#heading=h.1esjm0y5y8se
 [bugs]: http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
+[lts-bugs]: http://ltsredmine.open.ac.uk/projects/ouplayer/issues
 [#:*]: http://iet-it-bugs.open.ac.uk/node/
 [credit_g]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.txt
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
