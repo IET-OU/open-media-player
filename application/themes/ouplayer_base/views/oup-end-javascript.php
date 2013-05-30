@@ -25,6 +25,8 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   mode: 'shim',
 <?php endif;*/ ?>
 
+  can_play_maybe:<?php echo 'Chrome' == $this->agent->browser() ? 'false' : 'true' ?>,
+
 <?php if ($popup_url): ?>
   popoutUrl:'<?php echo $popup_url ?>',
 <?php endif; ?>

@@ -1,0 +1,37 @@
+commit 0877fb54e701f79316d3a6a381b08be94543213a
+Author: Nick Freear <nfreear@yahoo.co.uk>
+Date:   Fri Jan 25 16:59:59 2013 +0000
+
+    Bug #1416, //ou-specific follow-up to MediaElement.js me-shim Javascript
+
+    * Use 'options.can_play_maybe' -- default to /no|maybe/
+    * "treat 'maybe' as 'no', mainly to get Chrome to cooperate with MP4 files
+    * http://iet-it-bugs.open.ac.uk/node/1416
+
+commit 15862cca106a5815642092ef27be3d8b69842ac5
+Author: Nick Freear <nfreear@yahoo.co.uk>
+Date:   Mon Dec 10 15:27:44 2012 +0000
+
+    Bug #1368, Latest MediaElement.js, 2.9.5-32-g98263df (2.10.0)
+
+    * Author: johndyer, 2012-11-23 "2.10 release notes"
+    * https://github.com/johndyer/mediaelement/commit/98263df340747b33
+    * http://iet-it-bugs.open.ac.uk/node/1368
+
+
+
+
+@@ -272,9 +272,11 @@ mejs.HtmlMediaElementShim = {
+       for (i=0; i<mediaFiles.length; i++) {
+         // normal check
+ //ou-specific [iet-it-bugs:1416]
+-        if (htmlMediaElement.canPlayType(mediaFiles[i].type).replace(/no|maybe/, '') !== '' 
++        var _can_play_re = options.can_play_maybe ? /no/ : /no|maybe/;
++        if($.log) $.log('can_play_hack', options.can_play_maybe, _can_play_re);
++        if (htmlMediaElement.canPlayType(mediaFiles[i].type).replace(_can_play_re, '') !== '' 
+           // special case for Mac/Safari 5.0.3 which answers '' to canPlayType('audio/mp3') but 'maybe' to canPlayType('audio/mpeg')
+-          || htmlMediaElement.canPlayType(mediaFiles[i].type.replace(/mp3/,'mpeg')).replace(/no|maybe/, '') !== '') {
++          || htmlMediaElement.canPlayType(mediaFiles[i].type.replace(/mp3/,'mpeg')).replace(_can_play_re, '') !== '') {
+ //ou-specific ends.
+           result.method = 'native';
+           result.url = mediaFiles[i].url;
