@@ -56,6 +56,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
     $this->javascripts = array(
       $oups_base.'mep-header-cl.js',
+      $oups_base.'mep-oup-log.js',
     # Mediaelement libraries.
       $meps_base.'me-namespace.js',
       $meps_base.'me-utility.js',

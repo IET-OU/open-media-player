@@ -5,7 +5,7 @@
 */
 (function($) {
 
-	$.log = function (s) {if (typeof console === 'object' && $.oup_debug) {console.log(arguments.length <= 1 ? s : arguments); } }
+	/*$.log = function (s) {if (typeof console === 'object' && $.oup_debug) {console.log(arguments.length <= 1 ? s : arguments); } }*/
 
 	/** Fire/dispatch cross-browser native events.
 	* (jQuery trigger/ ender emit/ bean fire aren't sufficient.)
