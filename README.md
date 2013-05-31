@@ -66,6 +66,13 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
+### v0.95-beta-39-g584d305
+Release: 31 May/ Live: approx: 21 June 2013
+
+#### Player fixes following [LTS-tech-testing][lts-bugs]:
+
+* List - todo - [iet-it-bugs: #1477][#:1477]
+
 ### v0.95-beta-30-gcfe9c2d
 Release: 20 May/ Live: approx: 23 May 2013
 

@@ -17,12 +17,15 @@
 			var
 				t = this,
 				op = t.options,
+				cl_show = 'mejs-show',
+				cl_hide = 'mejs-hide',
 				track = null,
-				btn_cc = controls.find('.mejs-captions-button button');
+				btn_cc = controls.find('.mejs-captions-button button'),
+				wrap_cc = btn_cc.parent();
 
 			$.log('Tracks..');
 			$.log(player.tracks[0]);
-			$.log(btn_cc);
+			//$.log(btn_cc);
 
 			if (typeof player.tracks[0] !== 'undefined') {
 				track = player.tracks[0];
@@ -35,14 +38,16 @@
 					player.selectedTrack = track; //player.tracks[0];
 					player.captions.attr('lang', track.srclang);
 					player.displayCaptions();
-					
+
 					btn_cc.attr('title', op.hidetracksText);
+					wrap_cc.removeClass(cl_show).addClass(cl_hide);
 				} else {
 					player.captions.hide();
 					track = player.selectedTrack;
 					player.selectedTrack = null;
 
 					btn_cc.attr('title', op.showtracksText);
+					wrap_cc.removeClass(cl_hide).addClass(cl_show);
 				}
 			});
 			}
