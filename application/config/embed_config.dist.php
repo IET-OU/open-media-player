@@ -98,6 +98,10 @@ $config['player_embed_code'] = NULL;
 //$config['jslib'] = NULL;
 
 
+// 200 ~ 500 milliseconds.
+$config['js_timeout'] = 500;
+
+
 /*
 |--------------------------------------------------------------------------
 | OU-embed configuration.

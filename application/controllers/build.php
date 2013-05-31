@@ -71,7 +71,8 @@ EOF;
 
 ?>
 <!doctype html><title>*Closure compiler script | OU Player</title>
-<a href="http://closure-compiler.appspot.com/home">closure-compiler.appspot.com/home</a>
+<a href="http://closure-compiler.appspot.com/home">Closure-compiler.appspot.com</a>
+ | <?php echo anchor('demo/info', 'OU Player admin info') ?>
 
 <p>Theme name: <?php echo $this->theme->getDisplayname() ?> [<span id=theme><?php echo $this->theme->getName() ?></span>]
 

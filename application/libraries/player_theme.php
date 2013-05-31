@@ -71,5 +71,13 @@ abstract class Player_Theme {
       die('Error, not a valid player object, '.__CLASS__);
     }
   }
+
+
+  /** Get a configuration item, set a default if it doesn't exist.
+  */
+  public function config_option($name, $default = NULL) {
+    $cfg = $this->CI->config;
+    return $cfg->item($name) ? $cfg->item($name) : $default;
+  }
 }
 

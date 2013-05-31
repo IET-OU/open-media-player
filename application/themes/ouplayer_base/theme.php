@@ -19,6 +19,8 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $background = 'black';
 
   public $js_xdr;
+  public $js_timeout;
+  public $can_play_maybe;
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
   public $player_embed_code = NULL;
 
@@ -123,5 +125,24 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $this->features = str_replace(array(',tracks', ',oup_tracks_shim'), '', $this->features);
     }
 
+    $this->can_play_maybe = $this->canPlayMaybe();
+    $this->js_timeout = $this->config_option('js_timeout', 500);
   }
+
+
+  /**
+  * Grr, need to use Flash in MSIE 9/ 10 :((.
+  * @link http://caniuse.com/fullscreen
+  */
+  protected function canPlayMaybe() {
+    $ua = $this->CI->agent;
+    #var_dump($ua->is_browser('MSIE'), $ua->browser(), $ua->version(), (int) $ua->version() < 11);
+    if ($ua->is_browser('Chrome')
+        || ($ua->is_browser('MSIE') && $ua->version() < 11)) {
+      return 'false';
+    } else {
+      return 'true';
+    }
+  }
+
 }

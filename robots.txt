@@ -26,3 +26,4 @@ Disallow: /services
 Disallow: /svg
 Disallow: /timedtext
 Disallow: /uptime
+Disallow: /2012

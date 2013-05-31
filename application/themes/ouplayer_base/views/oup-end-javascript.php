@@ -25,7 +25,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   mode: 'shim',
 <?php endif;*/ ?>
 
-  can_play_maybe:<?php echo 'Chrome' == $this->agent->browser() ? 'false' : 'true' ?>,
+  can_play_maybe:<?php echo $this->theme->can_play_maybe ?>,
 
 <?php if ($popup_url): ?>
   popoutUrl:'<?php echo $popup_url ?>',
@@ -135,7 +135,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
       $.log("MEP/OUP: Flash disabled/not installed.");
     }
 
-  }, 400); //Was 200~400 ms.
+  }, <?php echo $this->theme->js_timeout ?>); //200~500 ms.
 
 <?php //if ('jquery' == $this->theme->jslib): ?>
 });
