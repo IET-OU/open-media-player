@@ -12,6 +12,8 @@
 		muteoffText: 'Unmute',
 		quieterText: 'Quieter',
 		louderText: 'Louder',
+		quieterKey: '',  //"["
+		louderKey:  '',  //"]"
 		volumeText: 'Volume'
 		//hideVolumeOnTouchDevices: true
 	});
@@ -51,6 +53,9 @@
 				display.html(vol);
 				display.attr('title', op.volumeText+': '+vol);
 			};
+
+			btn_quieter.attr('accesskey', op.quieterKey);
+			btn_louder.attr('accesskey', op.louderKey);
 
 /*volumeSlider functionality..
 			volumeSlider = mute.find('.mejs-volume-slider'),
