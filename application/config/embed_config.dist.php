@@ -102,6 +102,12 @@ $config['player_embed_code'] = NULL;
 $config['js_timeout'] = 500;
 
 
+// Volume keyboard shortcuts - iet-it-bugs:1477 / LTSredmine:6994.
+$config['player_js_config'] = array(
+  'quieterKey'=>'[', 'louderKey'=>']'
+);
+
+
 /*
 |--------------------------------------------------------------------------
 | OU-embed configuration.

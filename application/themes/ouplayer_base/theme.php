@@ -127,6 +127,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
     $this->can_play_maybe = $this->canPlayMaybe();
     $this->js_timeout = $this->config_option('js_timeout', 500);
+    $this->config = $this->config_option('player_js_config', array('z'=>0));
   }
 
 
