@@ -131,7 +131,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     $this->js_timeout = $this->config_option('js_timeout', 500);
     $this->config = $this->config_option('player_js_config', array('z'=>0));
 
-    // Subtitles not showing, LTSredmine:6937 ('Vle_player')
+    // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937] ('Vle_player')
     if (!$player->is_player('podcast') && $player->caption_url) {
       $this->with_credentials = true;
     }
