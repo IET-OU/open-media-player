@@ -8,8 +8,16 @@
 
 # Cross-domain client access to captions/subtitle files.
 <IfModule mod_headers.c>
-    <FilesMatch "\.(vtt|srt|ttml|xml)">
-        Header set Access-Control-Allow-Origin "*"
+    <FilesMatch "\.(vtt|srt|ttml|xml|md)">
+        # This doesn't work with credentials!
+        ##Header set Access-Control-Allow-Origin "*"
+
+        # http://www.cameronstokes.com/2010/12/26/cross-origin-resource-sharing-and-apache-httpd/
+        SetEnvIf Origin "https?://(.*\.open\.ac\.uk|.*\.open\.edu)$" AccessControlAllowOrigin=$0
+        Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+
+        Header set Access-Control-Allow-Credentials "true"
+
         AddDefaultCharset UTF-8
     </FilesMatch>
 </IfModule>

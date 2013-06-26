@@ -23,6 +23,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   public $can_play_maybe;
   public $origin;    // TODO: move! For postMessage security (https://developers.google.com/youtube/player_parameters#origin)
   public $player_embed_code = NULL;
+  public $with_credentials = false;  // TODO: move? Goes with $js_xdr.
 
   //iPadUseNativeControls etc.
   public $mobile_native_controls = true;
@@ -129,6 +130,11 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     $this->can_play_maybe = $this->canPlayMaybe();
     $this->js_timeout = $this->config_option('js_timeout', 500);
     $this->config = $this->config_option('player_js_config', array('z'=>0));
+
+    // Subtitles not showing, LTSredmine:6937 ('Vle_player')
+    if (!$player->is_player('podcast') && $player->caption_url) {
+      $this->with_credentials = true;
+    }
   }
 
 

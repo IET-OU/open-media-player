@@ -1,4 +1,12 @@
 <script>
+<?php if ($this->theme->with_credentials): ?>
+$.ajaxSetup({
+  xhrFields: {
+    withCredentials: true
+  }
+});
+
+<?php endif; ?>
 <?php if ('jquery' == $this->theme->jslib): ?>
 $(document).ready(function ouplayer_launch($){
 <?php else: ?>
