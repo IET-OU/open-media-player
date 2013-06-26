@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * OU Media Player library.
+ * OU Media Player library - player meta-data classes.
  *
  * @copyright Copyright 2011 The Open University.
  * @author N.D.Freear, 2011-04-07.
@@ -129,6 +129,10 @@ abstract class Base_player {
     }
   }
 
+  public function is_player($str_variant) {
+    $player = strtolower(str_replace('_player', '', get_class($this)));
+    return $player == strtolower($str_variant);
+  }
 
   public function is_private_podcast() {
     return TRUE;
