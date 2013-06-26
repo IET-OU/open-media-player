@@ -136,6 +136,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
       $('#oup-noflash').show().removeClass('hide');
       $.log("MEP/OUP: Flash disabled/not installed.");
     }
+    $.log("Flash?", $('.mejs-controls').children().length, $('.mejs-poster.mejs-layer').css('height'));
 
   }, <?php echo $this->theme->js_timeout ?>); //200~500 ms.
 

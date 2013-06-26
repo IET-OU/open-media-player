@@ -48,6 +48,7 @@ class Mejs_Default_Theme extends Player_Theme {
       $meps_base.'me-featuredetection.js',
       $meps_base.'me-mediaelements.js',
       $meps_base.'me-shim.js',
+      $meps_base.'me-i18n.js',
     # Mediaelement player libraries.
       $meps_base.'mep-header.js',
       $meps_base.'mep-library.js',

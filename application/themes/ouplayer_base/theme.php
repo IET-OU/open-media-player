@@ -66,6 +66,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $meps_base.'me-featuredetection.js',
       $meps_base.'me-mediaelements.js',
       $meps_base.'me-shim.js',
+      $meps_base.'me-i18n.js',
     # Mediaelement player libraries.
       $meps_base.'mep-library.js',
       $oups_base.'mep-player.js',  # Ender.js fix: 1-line change, NDF 2012-04-17.
