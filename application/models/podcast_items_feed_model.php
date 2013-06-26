@@ -35,7 +35,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 			$this->_error("Invalid host in $locate", 503.2);
 		}
 		if (FALSE === strpos($url_pattern, self::COLLECTION_ID)) {
-			$this->_error("Missing {self::COLLECTION_ID} in $locate", 503.3);
+			$this->_error("Missing {". self::COLLECTION_ID. "} in $locate", 503.3);
 		}
 		$pu = parse_url($url_pattern);
 		if (!isset($pu['scheme']) || !isset($pu['host']) || !isset($pu['path'])) {
