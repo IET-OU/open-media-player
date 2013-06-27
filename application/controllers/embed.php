@@ -144,7 +144,7 @@ class Embed extends MY_Controller {
     // Maybe tighten back up for production (Was: '/learn.open.ac.uk../')?
     $media_url_regex = $this->config->item('media_url_regex');
     if (! $media_url_regex) {
-      $media_url_regex = '@:\/\/[\w-]+\.open\.(ac\.uk|edu)(\:\d+)?\/.*\.(mp4|m4v|flv|mp3)[\/\?]?@'; //No '$' at the end.
+      $media_url_regex = '@:\/\/[\w-\.]+\.open\.(ac\.uk|edu)(\:\d+)?\/.*\.(mp4|m4v|flv|mp3)[\/\?]?@'; //No '$' at the end.
     }
     $this->_debug($media_url_regex);
 
