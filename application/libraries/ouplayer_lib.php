@@ -50,6 +50,7 @@ abstract class Base_player {
 
 
   /** Get a list of sizes, suitable for the Services controller.
+  * @return array
   */
   public function get_sizes() {
 	$sizes = self::$video_sizes;
@@ -129,20 +130,39 @@ abstract class Base_player {
     }
   }
 
+
+  /** Which variant of the player is this?
+   * @param string Variant, currently 'podcast', 'vle', 'openlearn' (case-insensitive).
+   * @return bool
+   */
   public function is_player($str_variant) {
     $player = strtolower(str_replace('_player', '', get_class($this)));
     return $player == strtolower($str_variant);
   }
+
+  /** Are we going to play video or audio?
+   * @return bool
+   */
+  public function is_video() {
+    return 'video' == $this->media_type;
+  }
+
 
   public function is_private_podcast() {
     return TRUE;
   }
 }
 
+
+/** Player for The Open University's learning environment.
+ * @link http://learn.open.ac.uk
+ */
 class Vle_player extends Base_player {}
 
+
 /** Player for OpenLearn-learningspace.
-*/
+ * @link http://www.open.edu/openlearn
+ */
 class Openlearn_player extends Base_player {
   public $_related_url;
   public $_related_text;
@@ -155,6 +175,10 @@ class Openlearn_player extends Base_player {
   }
 }
 
+
+/** Player for OU Podcasts embedded in OU sites.
+ * @link http://podcast.open.ac.uk
+ */
 class Podcast_player extends Openlearn_player {
   public $url;
   public $_short_url;

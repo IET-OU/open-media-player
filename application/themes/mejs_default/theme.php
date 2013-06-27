@@ -97,4 +97,12 @@ class Mejs_Default_Theme extends Player_Theme {
       $this->jslib = 'ender';
     }
   }
+
+
+  /** Which Javascript library are we using?
+   * @return bool
+   */
+  public function is_jquery() {
+    return 'jquery' == $this->jslib;
+  }
 }
