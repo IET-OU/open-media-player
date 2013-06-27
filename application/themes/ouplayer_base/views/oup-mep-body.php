@@ -23,8 +23,8 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 </div>
 
 <div id="oup-noflash" class="error hide">
-  <p class="msg"><?php echo t('Sorry, your browser does not have Shockwave Flash installed or it has been disabled.') ?>
-  <a href="<?php echo OUP_FLASH_URL ?>"><?php echo t('Get Shockwave Flash') ?>.</a>
+  <p class="msg"><?php echo t('Sorry, your browser does not have Adobe Flash Player installed or it has been disabled.') ?>
+  <a href="<?php echo OUP_FLASH_URL ?>" target="_blank" title="<?php echo t('Opens in new window') ?>"><?php echo t('Get Adobe Flash') ?>.</a>
 </div>
 
 
