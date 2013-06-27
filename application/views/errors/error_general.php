@@ -14,7 +14,7 @@ if(!function_exists('base_url')) {
 if (!defined('OUP_JS_CDN_ENDER_MIN')) define('OUP_JS_CDN_ENDER_MIN', '//__NO__js_cdn_ender');
 
 
-$base_url = 'http://podcast.open.ac.uk';
+$base_url = '//www.open.ac.uk';   //Was: 'http://podcast.open.ac.uk';
 $target = ' target="_blank" title="'.t('Opens in new window').'"';
 $x_target = '';
 
