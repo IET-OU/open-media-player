@@ -16,6 +16,10 @@ $config['debug'] = OUP_DEBUG_MIN;
 $config['robots'] = FALSE;
 
 
+/** NOT IN PRODUCTION **/
+##$config['jsconsole_id'] = 'XX-YY-ZZ';
+
+
 /*
 |--------------------------------------------------------------------------
 | Web proxy. (Not for IT-EUD, yes for IET-dmz.)

@@ -174,8 +174,11 @@ if ($("video").get(0).currentSrc.match(/\.flv/)) {
 </script>
 <?php endif; ?>
 
-</body></html>
+
+<?php $this->load->view('debug/jsconsole.php') ?>
+
 <!--
 <?php echo basename(__FILE__) ?>
 
 -->
+</body></html>
