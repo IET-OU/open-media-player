@@ -240,6 +240,7 @@ h1 {
     top:-8px; /*-26px*/ height:10px; /*17px*/ border-color:#999; /*display:none !important*/
 }
 .mtype-audio.ctx-Vle_player .mejs-controls .mejs-time-rail .mejs-time-float-current{ margin:0 2px; }
+.mtype-audio.ctx-Vle_player .mejs-controls .mejs-time-rail .mejs-time-float-corner{ display:none; }
 
 .mejs-controls { 
 	/*color:rgb(40,41,42);/* 190312 - PETER*/
