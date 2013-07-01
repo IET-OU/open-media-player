@@ -236,6 +236,10 @@ h1 {
 .mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-3px; height:10px; background:#fff; border:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
 
 .mejs-controls .mejs-time-rail .mejs-time-handle, .mejs-controls .mejs-time-rail .mejs-time-float{ z-index:40; }
+.mtype-audio.ctx-Vle_player .mejs-controls .mejs-time-rail .mejs-time-float{
+    top:-8px; /*-26px*/ height:10px; /*17px*/ border-color:#999; /*display:none !important*/
+}
+.mtype-audio.ctx-Vle_player .mejs-controls .mejs-time-rail .mejs-time-float-current{ margin:0 2px; }
 
 .mejs-controls { 
 	/*color:rgb(40,41,42);/* 190312 - PETER*/
