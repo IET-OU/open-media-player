@@ -9,7 +9,17 @@
 		popoutText: 'Pop out player',
 		popoutlabelText: 'Pop out player, opens in new window',
 		popoutTarget: '_blank', //(valid browsing context name|_blank|_top)
-		popoutUrl: '#'
+		popoutUrl: '#',
+		popoutParams: [
+			'height=' + screen.height,
+			'width=' + screen.width,
+			'fullscreen=1',
+			'resizable=1',
+			'location=1',
+			'toolbar=0',
+			'menubar=0',
+			'status=1'
+		]
 	});
 
 	// Popout LINK
@@ -33,7 +43,7 @@
 				'</div>')
 				.appendTo(controls.group())
 				.click(function(e) {
-					//e.preventDefault();
+					e.preventDefault();
 
 					if('#'===op.popoutUrl) {
 
@@ -56,9 +66,13 @@
 					//http://www.mattcutts.com/blog/link-to-youtube-minute-second/
 					var time = mejs.Utility.secondsToTimeCode(media.currentTime),
 					  hash = '#t='+time.replace(':', 'm')+'s' + (autoplay ? '&play=1' : ''),
+					  params = op.popoutParams.join(','),
 					// 3. Append timestamp to 'href' attribute..
-					  pop_win = window.open(op.popoutUrl + hash, op.popoutTarget, 'toolbar=0,menubar=0,status=1');
-					$.log('Popout open: '+ hash);
+					  pop_win = window.open(op.popoutUrl + hash, op.popoutTarget, params);
+					pop_win.moveTo(0, 0);
+					//pop_win.resizeTo(screen.width, screen.height);
+
+					$.log('Popout open: '+ hash, op.popoutParams);
 
 
 				//TODO: catch the '#t=..' on the popout side..
