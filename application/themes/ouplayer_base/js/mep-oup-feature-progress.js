@@ -75,7 +75,7 @@
 				mouseIsOver = false;
 
 //ou-specific
-				handleKeyMove = function(sec, e) {
+				var handleKeyMove = function(sec, e) {
 					if (-1 == sec) {
 						media.pause();
 						media.setCurrentTime(media.duration - 2);
@@ -88,7 +88,7 @@
 					timefloatcurrent.html(mejs.Utility.secondsToTimeCode(c) );
 					timefloat.show();
 					*/
-				};
+				},
 
 				updateSlider = function(e) {
 					var sec = media.currentTime,
@@ -110,6 +110,12 @@
 					//$.log('Slider: '+ handle.attr('aria-valuetext'));
 				};
 
+				//http://stackoverflow.com/questions/4915462/how-should-i-do-floating-point-comparison
+				function float_greater(a, b) {
+					var epsilon = 0.000001;
+					return (a - b > epsilon) && (Math.abs(a - b) > epsilon);
+				};
+
 			// handle keyboard - accessibility.
 			handle.bind('keydown', function(e) {
 				$.log(e);
@@ -128,11 +134,23 @@
 					} else {
 					switch (e.keyCode) {
 					    case 37: // left
-							handleKeyMove(c - op.seekSeconds, e);
+							if (!isNaN(media.duration) && media.duration > 0) {
+								// 5%
+								//var newTime = Math.max(c - op.defaultSeekBackwardInterval(media), 0);
+								var newTime = Math.max(c - op.seekSeconds, 0);
+								media.setCurrentTime(newTime);
+							}
+							//handleKeyMove(c - op.seekSeconds, e);
 					    break;
 
 						case 39: // right
-							handleKeyMove(c + op.seekSeconds, e);
+							if (!isNaN(media.duration) && media.duration > 0) {
+								// 5%
+								//var newTime = Math.min(c + op.defaultSeekForwardInterval(media), (media.duration - 2));
+								var newTime = Math.min(c + op.seekSeconds, (media.duration - 2));
+								media.setCurrentTime(newTime);
+							}
+							//handleKeyMove(c + op.seekSeconds, e);
 						break;
 
 						case 36: // home (windows)
