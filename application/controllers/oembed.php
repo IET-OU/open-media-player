@@ -58,7 +58,6 @@ EOF;
 
     //Get 'width', 'height'.
     $req = new StdClass;
-    $this->CI->oembed_request = $req;
 
     $req->url = $this->input->get('url');
     if (!$req->url) {
