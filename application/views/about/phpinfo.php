@@ -30,11 +30,13 @@ $phpinfo = preg_replace('#<!DOCTYPE.*?>#', '', $page);
 <ul class="app config">
 <?php
     foreach ($app_config as $item => $val):
-      if (is_string($val)) {
+      if (is_scalar($val)) {
         // Security - escape HTML in `version.json::message` etc.
         $val = preg_replace('@<(\/?h\d)>@i', '[[$1]]', $val);
         $val = htmlentities($val);
         $val = preg_replace('@\[\[(\/?h\d)\]\]@i', '<$1>', $val);
+      } else {
+        $val = '<pre>'. preg_replace('/Array\s+\(/ms', '@(', print_r($val, $ret=TRUE)) .'</pre>';
       } ?>
     <li><?php echo $item ?> = <span class="val"><?php echo $val ?></span>
 <?php endforeach; ?>
