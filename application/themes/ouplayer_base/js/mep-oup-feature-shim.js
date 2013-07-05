@@ -68,6 +68,19 @@
 				var t = this;
 				return typeof t.oup_group==='undefined' ? t : t.oup_group;
 			}
+
+
+			// Reset current time at 'ended', http://ltsredmine.open.ac.uk/issues/6987
+			media.addEventListener('loadedmetadata', function (e) {
+				$.log(">>> loadedmetadata", e);
+
+				if (typeof e.ended !== 'undefined' && e.ended) {
+					// Is this a fix for Flash?
+					t.media.currentTime = 0;
+					t.updateCurrent();
+				}
+
+			}, false);
 		}
 	});
 
