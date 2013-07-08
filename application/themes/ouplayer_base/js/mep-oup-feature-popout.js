@@ -13,7 +13,7 @@
 		popoutParams: [
 			'height=' + screen.height,
 			'width=' + screen.width,
-			'fullscreen=1',
+			//NO msie9: 'fullscreen=1',
 			'resizable=1',
 			'location=1',
 			'toolbar=0',
