@@ -6,28 +6,33 @@
 </IfModule>
 
 
+# https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
 # Cross-domain client access to captions/subtitle files.
 <IfModule mod_headers.c>
     <FilesMatch "\.(vtt|srt|ttml|xml|md)">
-        # This doesn't work with credentials!
-        ##Header set Access-Control-Allow-Origin "*"
 
         # http://www.cameronstokes.com/2010/12/26/cross-origin-resource-sharing-and-apache-httpd/
         SetEnvIf Origin "https?://(.*\.open\.ac\.uk|.*\.open\.edu)$" AccessControlAllowOrigin=$0
         Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+        # This doesn't work with credentials!
+        Header set Access-Control-Allow-Origin * env=!AccessControlAllowOrigin
 
-        Header set Access-Control-Allow-Credentials "true"
+        Header set Access-Control-Allow-Credentials "true" env=AccessControlAllowOrigin
+        ##Header set Content-Type "text/vtt; charset=utf-8"
 
         AddDefaultCharset UTF-8
     </FilesMatch>
 </IfModule>
 
-#<Files *.vtt>
+#<FilesMatch ".*\.(vtt|srt)$">
 #    ForceType "text/vtt; charset=utf-8"
-#</Files>
+#</FilesMatch>
 
 <IfModule mod_mime.c>
     AddType text/vtt  vtt
+    AddType text/vtt  srt
+    AddCharset utf-8  vtt
+    AddCharset utf-8  srt
 </IfModule>
 
 
