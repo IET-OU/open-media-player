@@ -108,8 +108,8 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 
   if ($this->agent->is_mobile() && $params->is_video()) {
     /*( $size_attr = 'width="480" height="360"'; )*/
-    $size_attr = 'width="320" height="235"';
-    $size_style= ''; #'style="width:100%;height:100%;"';
+    $size_attr = ''; #'width="320" height="235"';
+    $size_style= 'style="width:100%;height:100%;"';
   }
 ?>
 
@@ -158,6 +158,8 @@ $(document).ready(function($){
     enableKeyboard:false,
 
     alwaysShowControls: true,
+
+    can_play_maybe:true, //[iet-it-bugs:1416]
 
     // path to Flash and Silverlight plugins
     pluginPath: '<?php player_res_url($this->theme->plugin_path, $ver = false) ?>'

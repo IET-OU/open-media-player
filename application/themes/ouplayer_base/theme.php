@@ -141,12 +141,13 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   /**
   * Grr, need to use Flash in MSIE 9/ 10 :((.
   * @link http://caniuse.com/fullscreen
+  * [iet-it-bugs:1416]
   */
   protected function canPlayMaybe() {
     $ua = $this->CI->agent;
     #var_dump($ua->is_browser('MSIE'), $ua->browser(), $ua->version(), (int) $ua->version() < 11);
-    if ($ua->is_browser('Chrome')
-        || ($ua->is_browser('MSIE') && $ua->version() < 11)) {
+    if (/* $ua->is_browser('Chrome')
+        || */ ($ua->is_browser('MSIE') && $ua->version() < 11)) {
       return 'false';
     } else {
       return 'true';
