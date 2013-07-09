@@ -16,6 +16,8 @@
 			var 
 				t = this,
 				op = t.options,
+				cl_off = 'mejs-off',
+				cl_on = 'mejs-on',
 				opts_menu = $('#'+op.optionsId),
 				opts_visible = false,
 				btn_options =
@@ -27,6 +29,8 @@
 				.click(function(e) {
 					return toggleOptionsMenu(e);
 				})
+                , btn = btn_options.find('button')
+                , wrap = btn.parent()
 				, btn_xo = $('#'+op.optionsId+' button')
 				/*.bind('mouseover', function(e) { //mouseenter.
 					opts_visible = false;
@@ -41,8 +45,10 @@
 
 					if (opts_visible) {
 						opts_menu.addClass('hide').removeClass('show');
+						wrap.removeClass(cl_on).addClass(cl_off);
 					} else {
 						opts_menu.removeClass('hide').addClass('show');
+						wrap.removeClass(cl_off).addClass(cl_on);
 					}
 					opts_visible = !opts_visible;
 

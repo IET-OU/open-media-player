@@ -18,6 +18,8 @@
 			var 
 				t = this,
 				op = t.options,
+				cl_off = 'mejs-off',
+				cl_on = 'mejs-on',
 				tscript = $('#'+op.transcriptId);
 
 			// Return early if no transcript is flagged.
@@ -31,7 +33,7 @@
 				ts_visible = false,
 				btn_script =
 				// Is aria-controls appropriate for this secondary button?
-				$('<div class="oup-mejs-button mejs-transcript-button mejs-show-ts" >' +
+				$('<div class="oup-mejs-button mejs-transcript-button">' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.showscriptText + '"></button>' +
 				'</div>')
 				.appendTo(controls.group())
@@ -39,6 +41,7 @@
 					return toggleScript(e);
 				}),
 				btn = btn_script.find('button'),
+                wrap = btn.parent(),
 				btn_x = $('#'+op.transcriptId+' button'),
 				toggleScript = function(e) {
 					//if (e)
@@ -46,12 +49,14 @@
 
 					if (ts_visible) {
 						body.addClass('tscript-hide').removeClass('tscript-show');
+						wrap.removeClass(cl_on).addClass(cl_off);
 						btn.attr('title', op.showscriptText);
 
 						$.oup_fire(media, 'transcript_hide');
 						//$(media).emit('transcript_hide', ['Custom','event']);
 					} else {
 						body.removeClass('tscript-hide').addClass('tscript-show');
+						wrap.removeClass(cl_off).addClass(cl_on);
 						btn.attr('title', op.hidescriptText);
 
 						// Focus & scroll

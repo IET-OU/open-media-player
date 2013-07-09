@@ -17,11 +17,11 @@
 			var
 				t = this,
 				op = t.options,
-				cl_show = 'mejs-show',
-				cl_hide = 'mejs-hide',
+				cl_off = 'mejs-off', //Was: 'mejs-show'
+				cl_on = 'mejs-on',   //Was: 'mejs-hide
 				track = null,
 				btn_cc = controls.find('.mejs-captions-button button'),
-				wrap_cc = btn_cc.parent();
+				wrap = btn_cc.parent();
 
 			$.log('Tracks..');
 			$.log(player.tracks[0]);
@@ -40,16 +40,17 @@
 					player.displayCaptions();
 
 					btn_cc.attr('title', op.hidetracksText);
-					wrap_cc.removeClass(cl_show).addClass(cl_hide);
+					wrap.removeClass(cl_off).addClass(cl_on);
 				} else {
 					player.captions.hide();
 					track = player.selectedTrack;
 					player.selectedTrack = null;
 
 					btn_cc.attr('title', op.showtracksText);
-					wrap_cc.removeClass(cl_hide).addClass(cl_show);
+					wrap.removeClass(cl_on).addClass(cl_off);
 				}
 			});
+			wrap.removeClass(cl_off).addClass(cl_on);
 			}
 		}
 	});

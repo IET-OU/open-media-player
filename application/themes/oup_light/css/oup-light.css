@@ -229,14 +229,17 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 /* Captions button: US/internat. English 'CC' - NO-bug: background should be white. */
 .mejs-controls .mejs-captions-button button { background-position:-780px 0;   /*background-color:#fff !important;*/ }
+.ouvle-default-blue  .mejs-controls .mejs-captions-button.mejs-on button,
 .mejs-controls .mejs-captions-button  :hover { background-position:-846px 0; } /*:hover == -button-off */
 
 /* Captions button: UK English 'S' */
 .lang-en-gb  .mejs-controls .mejs-captions-button button{ background-position:-978px 0; }
+.lang-en-gb.ouvle-default-blue  .mejs-controls .mejs-captions-button.mejs-on button,
 .lang-en-gb  .mejs-controls .mejs-captions-button  :hover{ background-position:-912px 0; }
 
 /* Transcript button. */
 .mejs-controls .mejs-transcript-button button { background-position:-648px 0; }
+.ouvle-default-blue .mejs-controls .mejs-transcript-button.mejs-on button,
 .mejs-controls .mejs-transcript-button  :hover { background-position:-714px 0; }
 
 /* High-definition button --? */
@@ -262,6 +265,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 /* Options/settings button. */
 .mejs-controls .mejs-options-button button{ background-position:-1110px 0; }
+.ouvle-default-blue  .mejs-controls .mejs-options-button.mejs-on button,
 .mejs-controls .mejs-options-button button:hover{ background-position:-1044px 0; }
 
 
@@ -272,6 +276,8 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 */
 
 /* Default blue */
+.ouvle-default-blue .mejs-button.mejs-on button, .ouvle-default-blue .oup-mejs-button.mejs-on button,
+
 .ouvle-default-blue .mejs-button button:hover, .ouvle-default-blue .oup-mejs-button button:hover, .ouvle-default-blue .oup-mejs-link :hover,
 .ouvle-default-blue .no-svg .mejs-playpause-button button, .ouvle-default-blue .mejs-playpause-button button, .ouvle-default-blue .oup-volume-widget button.oup-mute,
 .ouvle-default-blue .mejs-time-rail .mejs-time-loaded {
