@@ -1,33 +1,52 @@
-# ouplayer httpd config.
+##
+## ouplayer Apache/ httpd configuration.
+##
+## https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
+##
 
-
+# Disable OU-SAMS authentication.
 <IfModule mod_access_sams.c>
     DISABLE_SAMS
 </IfModule>
 
 
-# https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
-# Cross-domain client access to captions/subtitle files.
+# Cross-origin/-domain client access to captions/subtitle files.
 <IfModule mod_headers.c>
     <FilesMatch "\.(vtt|srt|ttml|xml|md)">
 
+        # CORS header(s) - privileged origin - live/production/test.
         # http://www.cameronstokes.com/2010/12/26/cross-origin-resource-sharing-and-apache-httpd/
         SetEnvIf Origin "https?://(.*\.open\.ac\.uk|.*\.open\.edu)$" AccessControlAllowOrigin=$0
+        # (CORS - development only.)
+        ##SetEnvIf Origin "https?://(.*\.open\.ac\.uk|.*\.open\.edu|dl\.dropbox(usercontent)?\.com)$" AccessControlAllowOrigin=$0
         Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
-        # This doesn't work with credentials!
+        # CORS wildcard - NON-privileged origin - this doesn't work with credentials!
         Header set Access-Control-Allow-Origin * env=!AccessControlAllowOrigin
 
         Header set Access-Control-Allow-Credentials "true" env=AccessControlAllowOrigin
         ##Header set Content-Type "text/vtt; charset=utf-8"
 
+        # Prevent ALL caching - to ensure CORS headers are sent :(.
+        Header set Cache-Control "no-cache, no-store"
+        <IfModule mod_expires.c>
+            ExpiresActive on
+            ExpiresDefault          "access plus 0 seconds"
+            ExpiresByType text/vtt  "access plus 0 seconds"
+        </IfModule>
+        ##Header set Expires "access plus 0 seconds"
+        ##Header unset Expires
+
         AddDefaultCharset UTF-8
     </FilesMatch>
 </IfModule>
+
 
 #<FilesMatch ".*\.(vtt|srt)$">
 #    ForceType "text/vtt; charset=utf-8"
 #</FilesMatch>
 
+
+# Set correct Content-Type for captions/subtitles.
 <IfModule mod_mime.c>
     AddType text/vtt  vtt
     AddType text/vtt  srt
