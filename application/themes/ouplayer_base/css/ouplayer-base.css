@@ -411,3 +411,17 @@ h1 {
 .mejs-controls .oup-quality-button button {
 	margin-left:1px; /* ?? */
 }
+
+#oup-pauser {
+  position:absolute;
+  z-index:2000;
+  top:0; bottom:43px; /*22 + 21px*/
+  left:0; right:0;
+  background:transparent;
+  display:none;
+
+  border:1px solid red;
+}
+.mejs-pause #oup-pauser{ display:block; }
+.mode-popup #oup-pauser{ bottom:63px; /*40 + 23px*/ }
+

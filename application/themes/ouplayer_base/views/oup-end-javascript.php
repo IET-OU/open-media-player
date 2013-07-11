@@ -96,12 +96,17 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 		});
 	}
 
+	$("#oup-pauser").click(function (e) {
+		media.pause();
+	});
+
 <?php #if (! $this->agent->is_browser('Opera')): ?>
 	$('#oup-noscript').addClass('hide');
     $.log("MEP/OUP: success, hiding #oup-noscript.");
 <?php #endif; ?>
 
     $.log("mejs.plugin-type: " + media.pluginType);
+    $('body').addClass('plugin-' + media.pluginType);
   },
   error: function(ex) {
     $.log("MEP/OUP: error");

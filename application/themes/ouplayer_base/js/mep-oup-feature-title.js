@@ -17,7 +17,8 @@
 				, op = t.options
 				, cl_play = 'mejs-play'
 				, cl_pause= 'mejs-pause'
-				, titlepanel = $('.'+ op.titleClass);
+				, titlepanel = $('.'+ op.titleClass)
+				, body = $('body')
 				;
 
 			// Return early if there is no title-text (expected for VLE player).
@@ -30,16 +31,20 @@
 
 			media.addEventListener('play',function() {
 				titlepanel.removeClass(cl_play).addClass(cl_pause);
+				body.removeClass(cl_play).addClass(cl_pause);
 			}, false);
 			media.addEventListener('playing',function() {
 				titlepanel.removeClass(cl_play).addClass(cl_pause);
+				body.removeClass(cl_play).addClass(cl_pause);
 			}, false);
 
             media.addEventListener('pause',function() {
 				titlepanel.removeClass(cl_pause).addClass(cl_play);
+				body.removeClass(cl_pause).addClass(cl_play);
 			}, false);
 			media.addEventListener('paused',function() {
 				titlepanel.removeClass(cl_pause).addClass(cl_play);
+				body.removeClass(cl_pause).addClass(cl_play);
 			}, false);
 		}
 	});

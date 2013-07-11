@@ -96,4 +96,5 @@ Flowplayer:  <body role="application" id="ouplayer" class=
 <?php endif; ?>
 
 
+<div id="oup-pauser"></div>
 </body>
