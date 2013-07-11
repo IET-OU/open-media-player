@@ -15,8 +15,25 @@ function json_encode_str($str) {
 
 /** JSON encode an object, removing the outer braces {}.
 */
-function json_encode_bare($obj) {
-  return str_replace("'", "\\'", trim(json_encode($obj), '{}'));
+function json_encode_bare($obj, $parse_function = FALSE) {
+  $json = str_replace("'", "\\'", trim(json_encode($obj), '{}'));
+
+  if ($parse_function) {
+    $json = preg_replace_callback('/"\s*
+        (?P<js_function>function\s*\(.+\})
+      \s*"/x',
+      function ($matches) {
+        return strtr($matches['js_function'], array(
+          '\r' => '',
+          '\n' => "\n\t",
+          '\t' => "\t",
+          ))
+          . "\n";
+      },
+      $json);
+  }
+
+  return $json;
 }
 
 

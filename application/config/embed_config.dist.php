@@ -108,7 +108,29 @@ $config['js_timeout'] = 500;
 
 // Volume keyboard shortcuts - iet-it-bugs:1477 / LTSredmine:6994.
 $config['player_js_config'] = array(
-  'quieterKey'=>'[', 'louderKey'=>']'
+  'quieterKey' => '[',
+  'louderKey'  => ']',
+
+  // Keyboard accessibility: disable (most) shortcuts?!
+  //: engines/mediaelement/js/mep-player.js#L63
+  'enableKeyboard' => true,
+
+  // array of keyboard actions such as play pause
+  'keyActions' => array( #[
+		array( #{
+			'keys' => array( #[
+				32, // SPACE
+				179 // GOOGLE play/pause button
+			), #],
+			'action' => 'function (player, media) {'."\n"
+			.'	if (media.paused || media.ended) {' ."\n"
+			.'		media.play();' ."\n"
+			.'	} else {' ."\n"
+			.'		media.pause();' ."\n"
+			.'	}' .PHP_EOL
+            .'}'
+		) #}
+	), #}
 );
 
 

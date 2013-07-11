@@ -26,10 +26,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   poster:'<?php echo $params->poster_url ?>',
 <?php endif; ?>
 
-  <?php echo json_encode_bare($this->theme->config) ?>,
-
-  // Keyboard accessibility: disable shortcuts!
-  enableKeyboard:false,
+  <?php echo json_encode_bare($this->theme->config, $function = TRUE) ?>,
 
 <?php /*if ($params->use_shim): ?>
   mode: 'shim',
