@@ -1,5 +1,6 @@
 /**
 * OU player: Show the Flash fullscreen button on mouseover the Flash movie (not just mouseover the controlbar FS button).
+* Internet Explorer only.
 * Copyright 2012 The Open University.
 
 Circa line (136) 198 - mep-feature-fullscreen.js
@@ -17,7 +18,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			if (!player.isVideo)
 				return;
 
-			if (! $(body).hasClass('ua-msie'))
+			if (!$('body').hasClass('ua-msie') && !$('body').hasClass('br-Internet'))
 				return;
 
 			if (typeof $.fn.jquery==='undefined' || /^1\.(0|1|2|3|4|5|6)/.test($.fn.jquery)) {
@@ -30,9 +31,6 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 				var hideTimeout = null,
 					flash = $('#me_flash_0');
-					// There may not always be a captions-layer, right?
-					//layer = layers.find('.mejs-captions-layer')[0],
-					//fullscreenBtn = controls.find('.mejs-fullscreen-button')[0];
 
 				//if (! flash) return;
 
@@ -52,7 +50,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 						media.positionFullscreenButton(
 							//buttonPos.left - containerPos.left, buttonPos.top - containerPos.top
-							$(flash).width() - 75, $(flash).height() - 30, true); //ev.offsetX..
+							$(flash).width() - 75, $(flash).height() - 35, true); //ev.offsetX..
 					}
 				});
 
@@ -69,7 +67,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 								
 						hideTimeout = setTimeout(function() {
 							media.hideFullscreenButton();
-						}, 1600); //1500
+						}, 300); //1600;
 					}
 				});
 			}, false);
