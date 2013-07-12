@@ -1,5 +1,5 @@
 /**
-* OU player: Title panel feature.
+* OU player: Title panel feature - DEPRECATED/ NOT in use/ NOT required!
 * Copyright 2012 The Open University.
 */
 (function($) {

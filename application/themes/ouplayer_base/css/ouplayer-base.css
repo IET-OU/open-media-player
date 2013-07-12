@@ -211,7 +211,7 @@ h1 {
 	}
 
 /* Title panel: a bit back to front! */
-.mtype-video .mejs-title-panel.mejs-pause{ display:none !important; }
+.mtype-video.mejs-pause .mejs-title-panel{ display:none /*!important;*/; }
 
 
 /* Title panel in narrow players.  @media (max-width: 451px) { }

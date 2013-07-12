@@ -30,7 +30,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
   // Order matters in the feature-list.
   public $features =
-'oup_shim,oup_titlepanel,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover,oup_tracks_shim';
+'oup_shim,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover,oup_tracks_shim';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
 
@@ -89,7 +89,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
       $oups_base.'mep-oup-feature-transcript.js',
       $oups_base.'mep-oup-feature-quality.js', # High-definition.
       $oups_base.'mep-oup-feature-options.js',
-      $oups_base.'mep-oup-feature-title.js',
+      //$oups_base.'mep-oup-feature-title.js', # NOT required!
 
       $oups_base.'mep-oup-feature-tooltip.js', #Experimental!
 	  $oups_base.'mep-oup-feature-group.js',
