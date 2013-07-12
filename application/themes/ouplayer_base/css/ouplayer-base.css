@@ -419,8 +419,6 @@ h1 {
   left:0; right:0;
   background:transparent;
   display:none;
-
-  border:1px solid red;
 }
 .mejs-pause #oup-pauser{ display:block; }
 .mode-popup #oup-pauser{ bottom:63px; /*40 + 23px*/ }
