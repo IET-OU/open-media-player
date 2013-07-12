@@ -15,6 +15,9 @@
 			var 
 				t = this,
 				op = t.options,
+				cl_play = 'mejs-play',
+				cl_pause= 'mejs-pause',
+				body = $('body'),
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.playText + '"></button>' +
@@ -32,25 +35,33 @@
 					return false;
 				}),
 				btn_play = play.find('button');
-			//console.log(btn);
+
+			function togglePlayPause(which) {
+				if ('play' == which) {
+					play.removeClass(cl_play).addClass(cl_pause);
+					body.removeClass(cl_play).addClass(cl_pause);
+					btn_play.attr('title', op.pauseText);
+				} else {
+					play.removeClass(cl_pause).addClass(cl_play);
+					body.removeClass(cl_pause).addClass(cl_play);
+					btn_play.attr('title', op.playText);
+				}
+			};
+
 
 			media.addEventListener('play',function() {
-				play.removeClass('mejs-play').addClass('mejs-pause');
-				btn_play.attr('title', op.pauseText);
+				togglePlayPause('play');
 			}, false);
 			media.addEventListener('playing',function() {
-				play.removeClass('mejs-play').addClass('mejs-pause');
-				btn_play.attr('title', op.pauseText);
+				togglePlayPause('play');
 			}, false);
 
 
 			media.addEventListener('pause',function() {
-				play.removeClass('mejs-pause').addClass('mejs-play');
-				btn_play.attr('title', op.playText);
+				togglePlayPause('pse');
 			}, false);
 			media.addEventListener('paused',function() {
-				play.removeClass('mejs-pause').addClass('mejs-play');
-				btn_play.attr('title', op.playText);
+				togglePlayPause('pse');
 			}, false);
 		}
 	});
