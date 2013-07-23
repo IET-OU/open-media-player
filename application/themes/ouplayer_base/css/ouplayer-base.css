@@ -81,6 +81,20 @@ h1 {
 .ua-ie7 .mejs-container, ._ua-ie7 video{ position:fixed; width:100% !important; height:100%; }
 */
 
+/* Video offset bug: [Ltsredmine:6932] */
+.oup .mejs-video .mejs-mediaelement {
+  height:auto;
+  bottom:22px;
+}
+.oup .mejs-video .me-plugin {
+  position:fixed;
+  height:auto;
+  top:-11px;
+}
+.oup.mode-popup .mejs-video .mejs-mediaelement {
+  bottom:40px;
+}
+
 
 /* Error handling.
 */

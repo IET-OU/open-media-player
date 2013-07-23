@@ -29,7 +29,7 @@
 <h3>Video player</h3>
 
 <p><iframe
- class="x ou video player embed-rsp" width="560" height="315" frameborder="0"
+ class="x ou video player embed-rsp" width="560" height="337" data-v_height="315" frameborder="0"
  allowfullscreen mozallowfullscreen webkitallowfullscreen
  src="<?php echo site_url('embed/pod/student-experiences/db6cc60d6b') ?>"
 ></iframe>

@@ -46,11 +46,10 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 							delete hideTimeout;
 						}
 
-						//var buttonPos = fullscreenBtn.offset(), containerPos = player.container.offset();
-
+						/* Video offset bug: [Ltsredmine:6932] */
 						media.positionFullscreenButton(
 							//buttonPos.left - containerPos.left, buttonPos.top - containerPos.top
-							$(flash).width() - 75, $(flash).height() - 35, true); //ev.offsetX..
+							$(flash).width() - 75, $(flash).height() - 17, true); //Was: -35, ev.offsetX..
 					}
 				});
 
@@ -67,7 +66,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 								
 						hideTimeout = setTimeout(function() {
 							media.hideFullscreenButton();
-						}, 300); //1600;
+						}, 2000); //Was: 300~1600;
 					}
 				});
 			}, false);
