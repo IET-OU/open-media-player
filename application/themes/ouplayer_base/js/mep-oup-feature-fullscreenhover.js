@@ -12,8 +12,16 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 (function($) {
 
+	$.extend(mejs.MepDefaults, {
+		fsHoverPosX: 75,
+		fsHoverPosY: 17,  //Was: -35
+		fsHoverTimeout: 2000 //Was: 300~1600;
+	});
+
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_fullscreenhover: function(player, controls, layers, media) {
+
+			var op = this.options;
 
 			if (!player.isVideo)
 				return;
@@ -49,7 +57,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 						/* Video offset bug: [Ltsredmine:6932] */
 						media.positionFullscreenButton(
 							//buttonPos.left - containerPos.left, buttonPos.top - containerPos.top
-							$(flash).width() - 75, $(flash).height() - 17, true); //Was: -35, ev.offsetX..
+							$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
 					}
 				});
 
@@ -66,7 +74,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 								
 						hideTimeout = setTimeout(function() {
 							media.hideFullscreenButton();
-						}, 2000); //Was: 300~1600;
+						}, op.fsHoverTimeout);
 					}
 				});
 			}, false);
