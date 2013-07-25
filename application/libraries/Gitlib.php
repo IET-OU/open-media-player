@@ -56,8 +56,9 @@ class Gitlib {
             }
         }
         // Describe "v0.86-usertest-95-g.."
+        // Semantic Versioning, http://semver.org
         $result['describe'] = trim($this->_exec('describe --tags --long'));
-        $result['version'] = preg_replace('/(\d)-(\w+)-(\d+)-g/', '\1.\3/\2-g', $result['describe']);
+        $result['version'] = preg_replace('/(\d)-(\w+\.?\d?)-(\d+)-g/', '\1.\3-\2+g', $result['describe']);
         // http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repo-was-originally-pulled-from
         $result['origin'] = rtrim($this->_exec('config --get remote.origin.url'), "\r\n");
         #$result['origin url'] = str_replace(array('git@', 'com:'), array('https://', 'com/'), $result['origin']);

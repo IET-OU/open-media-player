@@ -66,12 +66,19 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
-### v0.95-beta-39-g584d305
-Release: 31 May/ Live: approx: 21 June 2013
+### v1.0-rc.1-0-gd0bb0cb
+v0.95-beta-80-gd0bb0cb
+Release: 25 July/ Live: approx. 30 July 2013
 
 #### Player fixes following [LTS-tech-testing][lts-bugs]:
 
 * List - todo - [iet-it-bugs: #1477][#:1477]
+* Video offset bug [Ltsredmine: #6932][lts#:6932]
+* Playing on tablet device [Ltsredmine: #7182][lts#:7182]
+* ..
+
+### v0.95-beta-39-g584d305
+Release: 31 May/ Live: approx. 21 June 2013
 
 ### v0.95-beta-30-gcfe9c2d
 Release: 20 May/ Live: approx: 23 May 2013
@@ -157,6 +164,7 @@ For full credits and licenses see [docs/CREDITS.txt][credit]
 [bugs]: http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
 [lts-bugs]: http://ltsredmine.open.ac.uk/projects/ouplayer/issues
 [#:*]: http://iet-it-bugs.open.ac.uk/node/
+[lts#:*]: http://ltsredmine.open.ac.uk/issues/
 [credit_g]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.txt
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
 
