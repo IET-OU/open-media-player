@@ -17,8 +17,6 @@
 				op = t.options,
 				cl_play = 'mejs-play',
 				cl_pause= 'mejs-pause',
-				cl_progress = 'in-progress',
-				cl_nop  = 'no-progress',
 				body = $('body'),
 				play = 
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
@@ -51,18 +49,6 @@
 					btn_play.attr('title', op.playText);
 				}
 
-
-				// Also, set a flag to say if playback is in progress.
-				if (0 == sec || sec >= media.duration) {
-					body.removeClass(cl_progress).addClass(cl_nop);
-					setTimeout(function () {
-						if (media.currentTime > 0) {
-							body.removeClass(cl_nop).addClass(cl_progress);
-						}
-					}, 450);
-				} /*else {
-					body.removeClass(cl_nop).addClass(cl_progress);
-				}*/
 			};
 			togglePlayPause('pse');
 

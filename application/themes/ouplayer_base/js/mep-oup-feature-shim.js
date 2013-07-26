@@ -53,9 +53,12 @@
 			var
 				t = this,
 				op = t.options,
+				body = $('body'),
 				con = controls,
 				track = null,
 				at = 'aria-label',
+				cl_progress = 'in-progress',
+				cl_nop  = 'no-progress',
 				current = con.find('.mejs-currenttime'),
 				duration = con.find('.mejs-duration');
 
@@ -74,13 +77,20 @@
 			media.addEventListener('loadedmetadata', function (e) {
 				$.log(">>> loadedmetadata", e);
 
+				// Also, set a flag to say if playback is in progress [Ltsredmine:6912].
+				body.removeClass(cl_nop).addClass(cl_progress);
+
 				if (typeof e.ended !== 'undefined' && e.ended) {
 					// Is this a fix for Flash?
 					t.media.currentTime = 0;
 					t.updateCurrent();
+
+					body.removeClass(cl_progress).addClass(cl_nop);
 				}
 
 			}, false);
+
+			body.removeClass(cl_progress).addClass(cl_nop);
 		}
 	});
 
