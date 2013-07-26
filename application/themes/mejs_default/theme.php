@@ -21,6 +21,9 @@ class Mejs_Default_Theme extends Player_Theme {
   public $jslib;     // Name of the Javascript framework/ library, one of 'ender' or 'jquery' - see 'prepare_jslib()' below.
   public $features;  // Comma-separated list of Javascript features (or null for the default Mediaelement features).
 
+  protected $controls_height = 30;
+  protected $controls_overlap= true;
+
 
   public function __construct() {
     parent::__construct();

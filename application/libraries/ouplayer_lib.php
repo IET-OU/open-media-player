@@ -46,6 +46,7 @@ abstract class Base_player {
   public $caption_url;
   public $iframe_url; #Our <iframe> embed!!
 
+  public $_theme;
   public $_extend; #Odds and ends?
 
 
@@ -146,7 +147,6 @@ abstract class Base_player {
   public function is_video() {
     return 'video' == $this->media_type;
   }
-
 
   public function is_private_podcast() {
     return TRUE;

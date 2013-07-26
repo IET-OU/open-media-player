@@ -4,6 +4,8 @@
 * @copyright Copyright 2011 The Open University.
 * @author N.D.Freear, 17 March 2011.
 */
+  $embed_height = $meta->_theme->controls_overlap ? $meta->height : $meta->height + $meta->_theme->controls_height;
+
   $width = 608;
   $height= 362;
   $pod_base = 'http://podcast.open.ac.uk';  //Oupodcast_serv::POD_BASE;
@@ -23,7 +25,7 @@ if (isset($rdfa) && $rdfa):
   $html =<<<EOF
 <iframe class='ou player podcast embed-rsp $meta->media_type x-$theme size-$meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
- width='$meta->width' height='$meta->height' frameborder='0' x-scrolling='no' x-style='overflow:hidden;' $allowfullscreen
+ width='$meta->width' height='$embed_height' frameborder='0' x-scrolling='no' x-style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
 EOF;
   //src='{$base}embed/pod/$meta->_album_id/$meta->_track_md5?width=$meta->width&amp;height=$meta->height'
@@ -33,7 +35,7 @@ else:
 
   $html = <<<EOF
 <iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label' role='application' aria-label='$label'
- width='$meta->width' height='$meta->height' frameborder='0' $allowfullscreen
+ width='$meta->width' height='$embed_height' frameborder='0' $allowfullscreen
  src='$meta->iframe_url'></iframe>
 EOF;
 
@@ -61,13 +63,14 @@ EOF;
   $oembed = array(
         'version'=> '1.0',
         // 'audio' is a non-standard type!!
-        'type'   => 'video'==$meta->media_type ? 'video' : 'rich',
+        'type'   => $meta->is_video() ? 'video' : 'rich',
         'provider_name'=> t('Podcasts - The Open University'), #Was: 'OU Podcast'
         'provider_url' => $pod_base,
         'title'  => $meta->title,
         //'author_name'=>$meta->author, 'author_url' =>null,
         'width'  => $meta->width,
-        'height' => $meta->height,
+        'height' => $embed_height,
+        'video_height' => $meta->is_video() ? $meta->height : null,
         'html'   => $html, #'embed_type'=> 'application/x-shockwave-flash',
         'thumbnail_url'=> $meta->poster_url, #thumbnail or poster.
         '__duration'=>$meta->duration,
@@ -75,6 +78,7 @@ EOF;
         '__collection'  => $meta->_album_id, #(DB: custom_id)
         '__track_md5' =>$meta->_track_md5,
         '__access' => $meta->_access,
+        '__theme' => $meta->_theme,
         //'dc:extent'=>"$meta->_duration s",
         //'__meta' => $meta,
         'dc:copyright'=>$meta->_copyright,

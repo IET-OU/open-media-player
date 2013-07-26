@@ -24,6 +24,9 @@ abstract class Player_Theme {
   public $plugin_path; // Path to Flash/ Silverlight plugins.
   public $builder;  // File-path for a build script.
 
+  protected $controls_height;  // Pixels.
+  protected $controls_overlap; // Boolean.
+
   protected $CI;
 
 
@@ -62,6 +65,9 @@ abstract class Player_Theme {
   public function getParentView($view = NULL) {
     return 'themes/'. $this->parent .'/views/'. ($view ? $view : $this->view);
   }
+
+  public function getControlsHeight() { return (int) $this->controls_height; }
+  public function controlsOverlap() { return (bool) $this->controls_overlap; }
 
 
   /** Prepare: initialize features of the theme, given a player object (was abstract).

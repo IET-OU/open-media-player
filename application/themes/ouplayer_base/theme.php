@@ -28,6 +28,9 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   //iPadUseNativeControls etc.
   public $mobile_native_controls = true;
 
+  protected $controls_height = 22; // Pixels
+  protected $controls_overlap= false;
+
   // Order matters in the feature-list.
   public $features =
 'oup_shim,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover,oup_tracks_shim';

@@ -127,10 +127,19 @@ EOT;
 
 	$player->width = Podcast_player::DEF_WIDTH;
 	$player->height = Podcast_player::DEF_HEIGHT;
-	
+
     foreach ($result as $key => $value) {
 	  $player->{$key} = $value;
 	}
+
+    if (isset($this->CI->theme)) {
+      $theme = $this->CI->theme;
+      $player->_theme = (object) array(
+        'name' => str_replace('_', '-', $theme->getName()),
+        'controls_height' => $theme->getControlsHeight(),
+        'controls_overlap'=> $player->is_video() && $theme->controlsOverlap(),
+      );
+    }
 	return $player;
   }
 
