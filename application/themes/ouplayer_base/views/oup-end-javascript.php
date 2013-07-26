@@ -126,7 +126,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
     $.log('CDN fail: used local jslib.');
   }
   $.log('mejs.version: '+ mejs.version);
-  $.log('Browser: <?php echo $this->agent->browser_code() ?>'); //'+$('html').attr('class'));
+  $.log('Browser: <?php echo $this->agent->agent_code() ?>'); //'+$('html').attr('class'));
 
   setTimeout(function(){
 

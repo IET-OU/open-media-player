@@ -9,7 +9,7 @@ class MY_User_agent extends CI_User_agent {
 
   /** Return a short code, for the browser family/ rendering engine.
   */
-  public function browser_code() {
+  public function agent_code() {
     $ua  = $this->agent_string();
     $res = 'x'; # Unknown/ other.
     $codes = array(
@@ -31,6 +31,11 @@ class MY_User_agent extends CI_User_agent {
 
     return $res;
   }
+
+  public function browser_code() {
+    return str_replace('Internet Explorer', 'MSIE', $this->browser());
+  }
+
 
   /** Return a short code, indicating the platform/ operating system.
   * @return string 'win', 'osx', 'ios', 'android'..
