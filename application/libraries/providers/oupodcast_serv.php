@@ -137,7 +137,7 @@ EOT;
       $player->_theme = (object) array(
         'name' => str_replace('_', '-', $theme->getName()),
         'controls_height' => $theme->getControlsHeight(),
-        'controls_overlap'=> $player->is_video() && $theme->controlsOverlap(),
+        'controls_overlap'=> !$player->is_video() || $theme->controlsOverlap(),
       );
     }
 	return $player;
