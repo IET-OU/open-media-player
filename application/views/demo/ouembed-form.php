@@ -5,7 +5,8 @@
 ?>
 
 
-<p id=page-nav role="navigation"><a href="#examples">Example URLs</a> &darr; <a href="#preview">Preview</a> &darr; <a href="#show-sharing">Sharing options</a></p>
+<p id=page-nav role="navigation"><a href="#examples">Example URLs</a> &darr; <a href="#preview">Preview</a> &darr; <a href="#show-sharing">Sharing options</a>
+ &darr; <a href="#log">Log</a></p>
 
 
 <div class=ouembed-form>
@@ -82,7 +83,9 @@ $(document).ready(function() {
 
 <div id=log >
 <h2>Log</h2>
-
+<!--[if lt IE 9]>
+<p id=log-ie8 >Sorry, the AJAX log isn't fully functional in Internet Explorer 7/8. Try Chrome, Firefox or IE9+.
+<![endif]-->
 <pre id=ajax-log >[ Sorry, this URL is not supported by `jQuery-oEmbed` or a cross-domain request was made. ]</pre>
 </div>
 

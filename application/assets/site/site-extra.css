@@ -8,7 +8,7 @@ div#ou-region1{
 div#ou-page{ background-color:#fdfdfd; font-size:104%; }
 img{ display:inline-block; }
 hr { height:0; border-top:1px solid #ccc; margin:2em 0; }
-
+pre,textarea{ font:1.05em/1.2em "Lucida Console",Consolas,monospace; }
 #developed-by{ margin-top:2.8em; padding:2px; border-top:1px solid #e5e5e5; /*#bbd8e7*/ background:#f9f9f9; font-size:.86em; }
 
 /* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
@@ -55,7 +55,7 @@ input[type=submit]{ cursor:pointer; padding:.6em; }
 #examples li{ margin:3px 0; width:60%; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; /*#1388, truncate too-long titles..*/ }
 #X-oembed-out{ margin:1em auto; x-resize:both; x-overflow:auto; }
 textarea, #oembed-out, #share-link-fm, #ajax-log{ background:#f8f8f8; border:1px solid #ccc; padding:6px; }
-#ajax-log{ width:95%; max-height:9em; x-white-space:nowrap; overflow-x:hidden; overflow-y:auto; text-overflow:ellipsis; font-size:1.1em; }
+#ajax-log{ width:95%; max-height:9em; x-white-space:nowrap; overflow-x:hidden; overflow-y:scroll; text-overflow:ellipsis; }
 
 input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 #oembed-out:hover, textarea:hover, #share-link-fm:hover{ background:#fff; }
