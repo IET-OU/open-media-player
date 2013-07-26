@@ -437,3 +437,9 @@ h1 {
 .mejs-pause #oup-pauser{ display:block; }
 .mode-popup #oup-pauser{ bottom:63px; /*40 + 23px*/ }
 
+
+/* Changing volume before video is played [Ltsredmine:6912] [Ltsredmine:7672] */
+.oup.plugin-flash.no-progress .oup-mute{ background-color:gray; }
+.oup.plugin-flash.no-progress .oup-volume-widget .oup-display,
+.oup.plugin-flash.no-progress .oup-quieter,
+.oup.plugin-flash.no-progress .oup-louder{ display:none; }
