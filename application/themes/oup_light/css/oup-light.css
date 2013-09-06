@@ -269,6 +269,26 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .mejs-controls .mejs-options-button button:hover{ background-position:-1044px 0; }
 
 
+/* LtsRedmine:7911 */
+.fullscreen-alt-btn.plugin-native .mejs-controls .mejs-fullscreen-button button {
+    position: absolute;
+    top: -32px;
+    /*left:0;*/
+    right:0;
+
+    background: #222;
+    color: #fff;
+    border: 1px solid #555;
+    opacity: .8;
+    padding: 4px;
+    width: auto;
+    height:auto;
+    min-width: 2em;
+    line-height: 1.5em;
+    font: 1.1em sans-serif;
+    }
+.fullscreen-alt-btn.br-MSIE .mejs-controls .mejs-fullscreen-button{ display:none; }
+
 
 
 /*

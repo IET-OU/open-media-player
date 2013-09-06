@@ -14,8 +14,9 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 	$.extend(mejs.MepDefaults, {
 		fsHoverPosX: 75,
-		fsHoverPosY: 17,  //Was: -35
-		fsHoverTimeout: 2000 //Was: 300~1600;
+		fsHoverPosY: 35,  //Was: -35, +17,
+		fsHoverTimeout: 2000, //Was: 300~1600;
+		fsHoverAltButton: false
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
@@ -26,7 +27,13 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			if (!player.isVideo)
 				return;
 
-			if (!$('body').hasClass('ua-msie') && !$('body').hasClass('br-Internet'))
+			/* LtsRedmine:7911 */
+			if (op.fsHoverAltButton) {
+				$('body').addClass('fullscreen-alt-btn');
+			}
+
+
+			if (!$('body').hasClass('ua-msie') && !$('body').hasClass('br-MSIE'))
 				return;
 
 			if (typeof $.fn.jquery==='undefined' || /^1\.(0|1|2|3|4|5|6)/.test($.fn.jquery)) {
@@ -35,12 +42,21 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			}
 			$.log("Fullscreen shim loading.. "+ $.fn.jquery);
 
+
     		media.addEventListener('play', function() {
 
 				var hideTimeout = null,
 					flash = $('#me_flash_0');
 
 				//if (! flash) return;
+
+				/* LtsRedmine:7911 */
+				if (op.fsHoverAltButton) {
+					media.positionFullscreenButton(
+						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
+					return;
+				}
+
 
 				//on: jQuery 1.7+ required (.mejs-container)
 				$(player.container).on('mouseover', '.mejs-layer, .mejs-mediaelement', function(ev) {
@@ -65,7 +81,8 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 					//$.log("Layer mouseout.");
 
-					if (media.hideFullscreenButton) {
+					/* LtsRedmine:7911 */
+					if (media.hideFullscreenButton && !op.fsHoverAltButton) {
 
 						if (hideTimeout !== null) {
 							clearTimeout(hideTimeout);

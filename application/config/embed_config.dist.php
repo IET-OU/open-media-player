@@ -131,6 +131,9 @@ $config['player_js_config'] = array(
             .'}'
 		) #}
 	), #}
+
+  /* LtsRedmine:7911 */
+  'fsHoverAltButton' => true,
 );
 
 

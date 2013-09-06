@@ -96,6 +96,11 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 		});
 	}
 
+
+	/* LtsRedmine:7911 "Go Fullscreen" */
+	$(".mejs-fullscreen-button button").html("<span><?php echo t('Toggle Fullscreen') ?></span>");
+
+
 	$("#oup-pauser").click(function (e) {
 		media.pause();
 	});
