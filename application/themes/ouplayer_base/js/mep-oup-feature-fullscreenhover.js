@@ -15,7 +15,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 	$.extend(mejs.MepDefaults, {
 		fsHoverPosX: 75,
 		fsHoverPosY: 35,  //Was: -35, +17,
-		fsHoverTimeout: 2000, //Was: 300~1600;
+		fsHoverTimeout: 2500, //Was: 300~1600;
 		fsHoverAltButton: false
 	});
 
@@ -30,6 +30,13 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			/* LtsRedmine:7911 */
 			if (op.fsHoverAltButton) {
 				$('body').addClass('fullscreen-alt-btn');
+
+				setTimeout(function () {
+					var flash = $('#me_flash_0');
+
+					media.positionFullscreenButton(
+						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
+				}, 500);
 			}
 
 
@@ -52,8 +59,10 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 				/* LtsRedmine:7911 */
 				if (op.fsHoverAltButton) {
-					media.positionFullscreenButton(
-						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
+					hideTimeout = setTimeout(function () {
+						media.hideFullscreenButton();
+					}, op.fsHoverTimeout);
+
 					return;
 				}
 
@@ -81,19 +90,33 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 					//$.log("Layer mouseout.");
 
-					/* LtsRedmine:7911 */
+					/* (LtsRedmine:7911) */
 					if (media.hideFullscreenButton && !op.fsHoverAltButton) {
 
 						if (hideTimeout !== null) {
 							clearTimeout(hideTimeout);
 							delete hideTimeout;
 						}
-								
+
 						hideTimeout = setTimeout(function() {
 							media.hideFullscreenButton();
 						}, op.fsHoverTimeout);
 					}
 				});
+			}, false);
+
+
+
+			media.addEventListener('pause', function () {
+				var flash = $('#me_flash_0');
+
+				/* LtsRedmine:7911 */
+				if (op.fsHoverAltButton) {
+					media.positionFullscreenButton(
+						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
+					return;
+				}
+
 			}, false);
 		}
 	});

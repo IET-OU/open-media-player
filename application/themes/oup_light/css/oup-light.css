@@ -272,20 +272,36 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 /* LtsRedmine:7911 */
 .fullscreen-alt-btn.plugin-native .mejs-controls .mejs-fullscreen-button button {
     position: absolute;
-    top: -32px;
-    /*left:0;*/
-    right:0;
+    top: -30px;
+    right:1px;
+    /*float: none;
+    z-index: 10000;*/
 
     background: #222;
     color: #fff;
-    border: 1px solid #555;
+    border: 1px solid #666;
     opacity: .8;
-    padding: 4px;
+    padding: 3px;
     width: auto;
     height:auto;
     min-width: 2em;
     line-height: 1.5em;
     font: 1.1em sans-serif;
+    }
+.fullscreen-alt-btn.plugin-native.mode-popup .mejs-controls .mejs-fullscreen-button button {
+    top: -35px;
+    font-size: 1.2em;
+    padding: 5px;
+    }
+.fullscreen-alt-btn.plugin-native.mejs-pause .mejs-controls .mejs-fullscreen-button button {
+    opacity: 0;
+    transition: all .8s 2.5s; /*transition: <property> <duration> <timing-function> <delay>; */
+    }
+.fullscreen-alt-btn.plugin-native.mejs-pause .mejs-controls .mejs-fullscreen-button :hover,
+.fullscreen-alt-btn.plugin-native.mejs-pause .mejs-controls .mejs-fullscreen-button :focus {
+    opacity: 1;
+    border-color: #aaa;
+    transition: all .5s 0;
     }
 .fullscreen-alt-btn.br-MSIE .mejs-controls .mejs-fullscreen-button{ display:none; }
 
