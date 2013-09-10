@@ -1,7 +1,7 @@
 
-<h2>Beta demos</h2>
+<h2>Demonstrations</h2>
 
-<p>These are Beta demonstrations for the <abbr title="The Open University">OU</abbr> Media Player project.
+<p>These are demonstrations for the <abbr title="The Open University">OU</abbr> Media Player project.
 
 <?php if ($use_oembed): ?>
 
