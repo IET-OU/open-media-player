@@ -10,7 +10,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 							.mouseover(function() {
 */
 
-(function($) {
+(function ($) {
 
 	$.extend(mejs.MepDefaults, {
 		fsHoverPosX: 75,
@@ -20,7 +20,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 	});
 
 	$.extend(MediaElementPlayer.prototype, {
-		buildoup_fullscreenhover: function(player, controls, layers, media) {
+		buildoup_fullscreenhover: function (player, controls, layers, media) {
 
 			var op = this.options;
 
@@ -55,7 +55,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			}
 
 
-    		media.addEventListener('play', function() {
+			media.addEventListener('play', function () {
 
 				var hideTimeout = null,
 					flash = $('#me_flash_0');
@@ -73,7 +73,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 
 				//on: jQuery 1.7+ required (.mejs-container)
-				$(player.container).on('mouseover', '.mejs-layer, .mejs-mediaelement', function(ev) {
+				$(player.container).on('mouseover', '.mejs-layer, .mejs-mediaelement', function (ev) {
 
 					//$.log("Layer mouseover.");
 
@@ -91,7 +91,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 					}
 				});
 
-				$(player.container).on('mouseout', '.mejs-layer, .mejs-mediaelement', function(ev) {
+				$(player.container).on('mouseout', '.mejs-layer, .mejs-mediaelement', function (ev) {
 
 					//$.log("Layer mouseout.");
 
@@ -103,7 +103,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 							delete hideTimeout;
 						}
 
-						hideTimeout = setTimeout(function() {
+						hideTimeout = setTimeout(function () {
 							media.hideFullscreenButton();
 						}, op.fsHoverTimeout);
 					}

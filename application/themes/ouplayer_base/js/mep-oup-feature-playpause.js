@@ -2,7 +2,7 @@
 * OU player: MEP play/ pause feature, our version with dynamic 'title' attribute.
 * Copyright 2012 The Open University.
 */
-(function($) {
+(function ($) {
 
 	$.extend(mejs.MepDefaults, {
 		playText: 'Play',
@@ -11,7 +11,7 @@
 
 	// PLAY/pause BUTTON
 	$.extend(MediaElementPlayer.prototype, {
-		buildoup_playpause: function(player, controls, layers, media) {
+		buildoup_playpause: function (player, controls, layers, media) {
 			var 
 				t = this,
 				op = t.options,
@@ -23,7 +23,7 @@
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.playText + '"></button>' +
 				'</div>')
 				.appendTo(controls)
-				.click(function(e) {
+				.click(function (e) {
 					e.preventDefault();
 
 					if (media.paused) {
@@ -53,18 +53,18 @@
 			togglePlayPause('pse');
 
 
-			media.addEventListener('play',function() {
+			media.addEventListener('play', function () {
 				togglePlayPause('play');
 			}, false);
-			media.addEventListener('playing',function() {
+			media.addEventListener('playing', function () {
 				togglePlayPause('play');
 			}, false);
 
 
-			media.addEventListener('pause',function() {
+			media.addEventListener('pause', function () {
 				togglePlayPause('pse');
 			}, false);
-			media.addEventListener('paused',function() {
+			media.addEventListener('paused', function () {
 				togglePlayPause('pse');
 			}, false);
 		}

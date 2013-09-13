@@ -3,7 +3,7 @@
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
-(function($) {
+(function ($) {
 
 	/*$.log = function (s) {if (typeof console === 'object' && $.oup_debug) {console.log(arguments.length <= 1 ? s : arguments); } }*/
 
@@ -12,7 +12,7 @@
 	* http://stackoverflow.com/questions/2490825/how-to-trigger-event-in-javascript
 	* https://developer.mozilla.org/Creating_and_triggering_custom_events
 	*/
-	$.oup_fire = function(el, type) { //, data) {
+	$.oup_fire = function (el, type) { //, data) {
 		var event,
 			d=document;
 		if (d.createEvent) {
@@ -33,7 +33,7 @@
 	}
 
 
-	if (typeof $.ender==='undefined') {
+	if (typeof $.ender === 'undefined') {
 		$.log('Using jquery.');
 	} else {
 		$.log('Using ender.');
@@ -49,7 +49,7 @@
 
 	// Shims / fixes.
 	$.extend(MediaElementPlayer.prototype, {
-		buildoup_shim: function(player, controls, layers, media) {
+		buildoup_shim: function (player, controls, layers, media) {
 			var
 				t = this,
 				op = t.options,
@@ -68,7 +68,7 @@
 			duration.attr(at, op.durationText);
 
 			// Get a ref. to the grouping element in the controlbar.
-			controls.group = function(){
+			controls.group = function () {
 				var t = this;
 				return typeof t.oup_group==='undefined' ? t : t.oup_group;
 			}
@@ -123,13 +123,14 @@
 		}
 	});
 
-	$(document).ready(function(){
+	$(document).ready(function () {
 		// Set a flag for narrow/ standard/ wide players (POPUP = wide).
 		var body = $('body'),
 			small = 'width-small',
 			medium = 'width-medium',
 			large = 'width-large';
-		function oup_check_size(){
+
+		function oup_check_size() {
 			if (body.width() <= 450) {
 				body.addClass(small).removeClass(medium).removeClass(large);
 			} else if (body.width() >= 720) {
