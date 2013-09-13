@@ -28,6 +28,12 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 				return;
 
 
+			/* LtsRedmine:7911 */
+			if (op.fsHoverAltButton) {
+				$('body').addClass('fullscreen-alt-btn');
+			}
+
+
 			if (!$('body').hasClass('ua-msie') && !$('body').hasClass('br-MSIE'))
 				return;
 
@@ -40,8 +46,6 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 			/* LtsRedmine:7911 */
 			if (op.fsHoverAltButton) {
-				$('body').addClass('fullscreen-alt-btn');
-
 				setTimeout(function () {
 					var flash = $('#me_flash_0');
 
