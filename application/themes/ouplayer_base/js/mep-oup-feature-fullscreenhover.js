@@ -27,6 +27,17 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			if (!player.isVideo)
 				return;
 
+
+			if (!$('body').hasClass('ua-msie') && !$('body').hasClass('br-MSIE'))
+				return;
+
+			if (typeof $.fn.jquery==='undefined' || /^1\.(0|1|2|3|4|5|6)/.test($.fn.jquery)) {
+				$.log("Warning: MSIE fullscreen shim requires jQuery 1.7+ - upgrade needed.");
+				return;
+			}
+			$.log("Fullscreen shim loading.. "+ $.fn.jquery);
+
+
 			/* LtsRedmine:7911 */
 			if (op.fsHoverAltButton) {
 				$('body').addClass('fullscreen-alt-btn');
@@ -38,16 +49,6 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
 				}, 500);
 			}
-
-
-			if (!$('body').hasClass('ua-msie') && !$('body').hasClass('br-MSIE'))
-				return;
-
-			if (typeof $.fn.jquery==='undefined' || /^1\.(0|1|2|3|4|5|6)/.test($.fn.jquery)) {
-				$.log("Warning: MSIE fullscreen shim requires jQuery 1.7+ - upgrade needed.");
-				return;
-			}
-			$.log("Fullscreen shim loading.. "+ $.fn.jquery);
 
 
     		media.addEventListener('play', function() {
