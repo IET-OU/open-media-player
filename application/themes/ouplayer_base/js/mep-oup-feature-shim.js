@@ -56,6 +56,7 @@
 				body = $('body'),
 				con = controls,
 				track = null,
+				reset = 0,
 				at = 'aria-label',
 				cl_progress = 'in-progress',
 				cl_nop  = 'no-progress',
@@ -73,9 +74,9 @@
 			}
 
 
-			// Reset current time at 'ended', http://ltsredmine.open.ac.uk/issues/6987
+			// Reset current time at 'ended' - Video/ MSIE(8), http://ltsredmine.open.ac.uk/issues/6987
 			media.addEventListener('loadedmetadata', function (e) {
-				$.log(">>> loadedmetadata", e);
+				$.log(">> loadedmetadata", e);
 
 				// Also, set a flag to say if playback is in progress [Ltsredmine:6912].
 				body.removeClass(cl_nop).addClass(cl_progress);
@@ -86,7 +87,35 @@
 					t.updateCurrent();
 
 					body.removeClass(cl_progress).addClass(cl_nop);
+
+					reset++;
 				}
+
+			}, false);
+
+			media.addEventListener('play', function (e) {
+				reset++;
+
+				if (t.media.currentTime > 0 || reset < 2) {
+					return;
+				}
+
+				$.log(">> (re-)play", e);
+
+				// Set a flag to say if playback is in progress [Ltsredmine:6912].
+				body.removeClass(cl_nop).addClass(cl_progress);
+
+			}, false);
+
+			// Reset current time at 'ended' - Audio/ MSIE(8) [Ltsredmine:6987], http://ltsredmine.open.ac.uk/issues/6987
+			media.addEventListener('ended', function (e) {
+				$.log(">> ended", e);
+
+				// Is this a fix for Flash?
+				t.media.currentTime = reset = 0;
+				t.updateCurrent();
+
+				body.removeClass(cl_progress).addClass(cl_nop);
 
 			}, false);
 
