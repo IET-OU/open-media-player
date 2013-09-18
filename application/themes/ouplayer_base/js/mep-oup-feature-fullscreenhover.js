@@ -13,8 +13,8 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 (function ($) {
 
 	$.extend(mejs.MepDefaults, {
-		fsHoverPosX: 75,
-		fsHoverPosY: 35,  //Was: -35, +17,
+		fsHoverPosX: 85,  //Was: 75,
+		fsHoverPosY: 17,  //Popup:30; Embed:20; Was: -35, +17,
 		fsHoverTimeout: 2500, //Was: 300~1600;
 		fsHoverAltButton: false
 	});
@@ -51,6 +51,9 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 					media.positionFullscreenButton(
 						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
+
+					$.log("Gone fullscreen? " + media + $(flash).width());
+
 				}, 500);
 			}
 
@@ -68,7 +71,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 						media.hideFullscreenButton();
 					}, op.fsHoverTimeout);
 
-					return;
+					//Was: return;
 				}
 
 
@@ -96,7 +99,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 					//$.log("Layer mouseout.");
 
 					/* (LtsRedmine:7911) */
-					if (media.hideFullscreenButton && !op.fsHoverAltButton) {
+					if (media.hideFullscreenButton) { //Was: && !op.fsHoverAltButton) {
 
 						if (hideTimeout !== null) {
 							clearTimeout(hideTimeout);

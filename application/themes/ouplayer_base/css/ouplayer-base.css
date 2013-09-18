@@ -91,6 +91,9 @@ h1 {
   height:auto;
   top:-11px;
 }
+.oup.mode-popup .mejs-video .me-plugin {
+  top:-26px;
+}
 .oup.mode-popup .mejs-video .mejs-mediaelement {
   bottom:40px;
 }
