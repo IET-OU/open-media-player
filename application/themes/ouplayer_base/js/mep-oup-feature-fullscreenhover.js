@@ -22,7 +22,8 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_fullscreenhover: function (player, controls, layers, media) {
 
-			var op = this.options;
+			var op = this.options,
+				hideTimeout;
 
 			if (!player.isVideo)
 				return;
@@ -47,26 +48,20 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			/* LtsRedmine:7911 */
 			if (op.fsHoverAltButton) {
 				setTimeout(function () {
-					var flash = $('#me_flash_0');
-
-					media.positionFullscreenButton(
-						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
-
-					$.log("Gone fullscreen? " + media + $(flash).width());
-
+					myPositionFullscreenButton();
 				}, 500);
 			}
 
 
 			media.addEventListener('play', function () {
 
-				var hideTimeout = null,
-					flash = $('#me_flash_0');
-
 				//if (! flash) return;
 
 				/* LtsRedmine:7911 */
 				if (op.fsHoverAltButton) {
+
+					myClearTimeout();
+
 					hideTimeout = setTimeout(function () {
 						media.hideFullscreenButton();
 					}, op.fsHoverTimeout);
@@ -82,15 +77,10 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 					if (media.positionFullscreenButton) {
 
-						if (hideTimeout !== null) {
-							clearTimeout(hideTimeout);
-							delete hideTimeout;
-						}
+						myClearTimeout();
 
 						/* Video offset bug: [Ltsredmine:6932] */
-						media.positionFullscreenButton(
-							//buttonPos.left - containerPos.left, buttonPos.top - containerPos.top
-							$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
+						myPositionFullscreenButton();
 					}
 				});
 
@@ -101,10 +91,7 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 					/* (LtsRedmine:7911) */
 					if (media.hideFullscreenButton) { //Was: && !op.fsHoverAltButton) {
 
-						if (hideTimeout !== null) {
-							clearTimeout(hideTimeout);
-							delete hideTimeout;
-						}
+						myClearTimeout();
 
 						hideTimeout = setTimeout(function () {
 							media.hideFullscreenButton();
@@ -116,16 +103,33 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 
 			media.addEventListener('pause', function () {
-				var flash = $('#me_flash_0');
+
+				myClearTimeout();
 
 				/* LtsRedmine:7911 */
 				if (op.fsHoverAltButton) {
-					media.positionFullscreenButton(
-						$(flash).width() - op.fsHoverPosX, $(flash).height() - op.fsHoverPosY, true);
-					return;
+					myPositionFullscreenButton();
 				}
 
 			}, false);
+
+
+
+			function myPositionFullscreenButton() {
+				var flash = $('#me_flash_0');
+
+				/* Video offset bug: [Ltsredmine:6932] */
+				media.positionFullscreenButton(
+					//buttonPos.left - containerPos.left, buttonPos.top - containerPos.top
+					flash.width() - op.fsHoverPosX, flash.height() - op.fsHoverPosY, true);
+			}
+
+			function myClearTimeout() {
+				if (hideTimeout !== null) {
+					clearTimeout(hideTimeout);
+					delete hideTimeout;
+				}
+			}
 		}
 	});
 
