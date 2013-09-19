@@ -34,5 +34,6 @@ blog/*
 drupal/*
 _docs/*
 _data/*
+dev/*
 
 # *min.js

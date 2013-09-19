@@ -2,6 +2,9 @@
 <!--
   Flash cross-domain policy for OUVLE / OpenLearn / VLEDEV - fairly restrictive, initially for development!
 
+
+  Generic schema: view-source:http://www.adobe.com/xml/schemas/PolicyFile.xsd
+
   Deploy on live, test and dev servers:
         http://learn.open.ac.uk/crossdomain.xml
         http://learn2.open.ac.uk/crossdomain.xml
@@ -11,10 +14,12 @@
 
   See:  http://podcast.open.ac.uk/crossdomain.xml
         http://i1.ytimg.com/crossdomain.xml
-		http://adobe.com/devnet/articles/crossdomain_policy_file_spec.html
-		http://kb2.adobe.com/cps/142/tn_14213.html
+        http://adobe.com/devnet/articles/crossdomain_policy_file_spec.html
+        http://adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf
+        http://kb2.adobe.com/cps/142/tn_14213.html
+        http://tt.vledev2.open.ac.uk/crossdomain.xml
 -->
-<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
     <site-control permitted-cross-domain-policies="all"/>
 <!--
@@ -23,23 +28,29 @@
     <allow-access-from domain="*.open.ac.uk" secure="false" />
     <allow-access-from domain="*.open.edu" secure="false" />
 
+<!-- 'secure' attribute: permits override of default rule
+	     that HTTPS resources require HTTPS accessors -->
+
+
 <!--
   A more restrictive policy.
 
   Live servers:
 -->
     <allow-access-from domain="embed.open.ac.uk" secure="false" />
-    <allow-access-from domain="player.open.edu" secure="false" />
+    <allow-access-from domain="mediaplayer.open.edu" secure="false" />
+    <allow-access-from domain="mediaplayer.open.ac.uk" secure="false" />
     <allow-access-from domain="player.open.ac.uk" secure="false" />
-    <allow-access-from domain="vle-player.open.ac.uk" secure="false" />
-    <allow-access-from domain="podcast.open.ac.uk" secure="false" />
     <allow-access-from domain="podcast-api.open.ac.uk" secure="false" />
 
 <!--
   Development servers - Podcast's, Nick Freear's and the VLE team's:
 -->
     <allow-access-from domain="iet-embed-acct.open.ac.uk" secure="false" />
+    <allow-access-from domain="mediaplayer-acct.open.ac.uk" secure="false" />
+    <allow-access-from domain="mediaplayer-dev.open.ac.uk" secure="false" />
     <allow-access-from domain="media-podcast-dev.open.ac.uk" secure="false"/>
+    <allow-access-from domain="pcie247331.open.ac.uk" secure="false" />
     <allow-access-from domain="pcie663.open.ac.uk" secure="false" />
     <allow-access-from domain="*.vledev2.open.ac.uk" secure="false" />
     <allow-access-from domain="iet.open.ac.uk" secure="false" />
