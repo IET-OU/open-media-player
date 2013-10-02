@@ -414,7 +414,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	display:block;
 	position:fixed;
 	float:none;
-	background:#ffd;
+	background:#fcfcf5; /*#ffd; Yellow*/
 	color:#111;
 	border:1px solid #aaa;
 	border-radius:3px;
