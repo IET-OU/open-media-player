@@ -112,6 +112,19 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 
     $.log("mejs.plugin-type: " + media.pluginType);
     $('body').addClass('plugin-' + media.pluginType);
+
+
+<?php //QQ: Do we need a setTimeout()? ?>
+    // Detect Flash disabled/not installed.
+    setTimeout(function () {
+      if (media.pluginType !== 'native' && $('.mejs-poster.mejs-layer').css('height') === undefined) {
+        $('body').addClass('no-flash');
+        $('#oup-noscript').hide();
+        $('#oup-noflash').show().removeClass('hide');
+        $.log("MEP/OUP: Flash disabled/not installed.");
+      }
+    }, <?php echo $this->theme->js_timeout ?>);
+
   },
   error: function(ex) {
     $.log("MEP/OUP: error");
@@ -143,17 +156,8 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
     }
 <?php endif; ?>
 
-    $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));
+<?php /*    $.log('Media height px: '+ $('.mejs-poster.mejs-layer').css('height'));*/ ?>
     $.log($.ouplayer.options);
-
-    // Detect Flash disabled/not installed.
-    if ($('.mejs-poster.mejs-layer').css('height') == undefined) {
-      $('body').addClass('no-flash');
-      $('#oup-noscript').hide();
-      $('#oup-noflash').show().removeClass('hide');
-      $.log("MEP/OUP: Flash disabled/not installed.");
-    }
-    $.log("Flash?", $('.mejs-controls').children().length, $('.mejs-poster.mejs-layer').css('height'));
 
   }, <?php echo $this->theme->js_timeout ?>); //200~500 ms.
 
