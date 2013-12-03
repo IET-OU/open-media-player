@@ -21,6 +21,13 @@
 
 			var t= this, i, options = '';
 
+//ou-specific, Forward-port, #902: https://github.com/johndyer/mediaelement/commit/c753e35e2b8aaa7a
+                        if (t.domNode.textTracks) { // if browser will do native captions, prefer mejs captions, loop through tracks and hide
+                                for (var i = t.domNode.textTracks.length - 1; i >= 0; i--) {
+                                        t.domNode.textTracks[i].mode = "hidden";
+                                }
+                        }
+//ou-specific ends.
 			player.chapters = 
 					$('<div class="mejs-chapters mejs-layer"></div>')
 						.prependTo(layers).hide();
