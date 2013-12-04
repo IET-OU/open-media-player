@@ -189,16 +189,18 @@ h1 {
 
 .mejs-title-panel p, .mejs-title-panel h1 {
 	font-weight:normal;
-	font-size:1.2em; /*1.7em; Computed: 18.7px*/
+	font-size:1.02em; /*1.2em; Computed: 16px*/
+	letter-spacing:-0.01em;
 	/*padding:0em 0em 0em 3em;*/
 	color:rgb(20,20,20);
 	margin:9px 0 0 65px;
-	line-height:1.1em; /*1.2em*/
+	line-height:1.05em; /*1.2em*/
 	}
 
 .mejs-title-panel a	{
 	margin:9px 0 0 65px; /*.5em; Computed: 9.35px*/
-	font-size:1.15em; /*1.7em*/
+	font-size:.91em; /*1.15em; 1.7em*/
+	letter-spacing:-0.01em;
 	/*color:#1f536b; 							/*This is the standard linking colour please check before making theme sensitive, I suspect it should remain this colour always*/
 	display:block;
 	padding:0 0 11px; /*.6em*/
@@ -234,17 +236,27 @@ h1 {
 /* Title panel in narrow players.  @media (max-width: 451px) { }
 */
 .width-small .mejs-title-panel h1, .width-small .mejs-title-panel a {
-    font-size:1em; /*1.4em*/
-	letter-spacing:-0.01em;
+    font-size:.88em; /*1.4em*/
+	letter-spacing:-0.013em;
 	}
 .mtype-audio.mode-embed .mejs-title-panel a, .width-small .mejs-title-panel a {
-	font-size:.95em;
+	font-size:.92em;
 	}
 .width-small.mtype-video .mejs-title-panel h1 {
     font-weight:bold;
 	}
 .width-small /*.mejs-container .mejs-controls*/ .mejs-title-panel .logo {
 	background-position:0 -80px;
+	}
+
+/* Title panel in large players.
+*/
+.width-large .mejs-title-panel h1, .width-large .mejs-title-panel a {
+	font-size:1.4em;
+	letter-spacing:0;
+	}
+.width-large .mejs-title-panel a {
+	font-size:1.1em;
 	}
 
 
