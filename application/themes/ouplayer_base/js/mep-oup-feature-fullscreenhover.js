@@ -30,8 +30,11 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 
 
 			/* LtsRedmine:7911 */
-			if (op.fsHoverAltButton) {
+			if (op.fsHoverAltButton === true) {
 				$('body').addClass('fullscreen-alt-btn');
+			}
+			else if (typeof op.fsHoverAltButton === 'string') {
+				$('body').addClass('fullscreen-alt-btn-' + op.fsHoverAltButton);
 			}
 
 

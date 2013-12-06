@@ -132,8 +132,8 @@ $config['player_js_config'] = array(
 		) #}
 	), #}
 
-  /* LtsRedmine:7911 */
-  'fsHoverAltButton' => true,
+  /* LtsRedmine:7911 - true, false or "ie" */
+  'fsHoverAltButton' => 'ie',
 );
 
 

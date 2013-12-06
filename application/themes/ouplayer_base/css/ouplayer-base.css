@@ -440,6 +440,9 @@ h1 {
   top:5px;
   right:0;
 }
+.fullscreen-alt-btn.ua-webkit .mejs-container .mejs-controls .oup-group {
+  width: 142px;
+}
 .oup-group .mejs-button button, .oup-group .oup-mejs-button button, .oup-group .oup-mejs-link a {
 	margin:0 2px;
 }

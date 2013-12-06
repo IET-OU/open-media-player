@@ -270,28 +270,28 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 
 /* LtsRedmine:7911 */
-.fullscreen-alt-btn.plugin-native .mejs-controls .mejs-fullscreen-button button {
+.fullscreen-alt-btn.plugin-native .mejs-controls .mejs-fullscreen-button {
     position: absolute;
-    top: -30px;
+    top: -32px;
     right:1px;
     /*float: none;
     z-index: 10000;*/
-
+}
+.fullscreen-alt-btn.plugin-native .mejs-controls .mejs-fullscreen-button button {
     background: #222;
     color: #fff;
     border: 1px solid #666;
     opacity: .8;
-    padding: 3px;
+    padding: 3px 0;
     width: auto;
-    height:auto;
-    min-width: 2em;
+    height:27px;
+    min-width: 9em;
     line-height: 1.5em;
     font: 1.1em sans-serif;
     }
-.fullscreen-alt-btn.plugin-native.mode-popup .mejs-controls .mejs-fullscreen-button button {
-    top: -35px;
-    font-size: 1.2em;
-    padding: 5px;
+.fullscreen-alt-btn.plugin-native.mode-popup .mejs-controls .mejs-fullscreen-button /*button*/ {
+    top: -36px;
+    padding: 4px;
     }
 .fullscreen-alt-btn.plugin-native.mejs-pause .mejs-controls .mejs-fullscreen-button button {
     opacity: 0;
@@ -303,6 +303,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
     border-color: #aaa;
     transition: all .5s 0;
     }
+.fullscreen-alt-btn-ie.br-MSIE .mejs-controls .mejs-fullscreen-button,
 .fullscreen-alt-btn.br-MSIE .mejs-controls .mejs-fullscreen-button{ display:none; }
 
 
