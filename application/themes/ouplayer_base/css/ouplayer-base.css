@@ -75,6 +75,12 @@ h1 {
 	top:0;
 	bottom:22px;
 	}
+/* Full screen button, only top half works [LtsRedmine:8526] */
+.ua-webkit.plugin-flash embed, .ua-moz.plugin-flash embed {
+	position:fixed;
+	top:0;
+	bottom:0;
+	}
 
 /* #1417, MSIE 9/IE 9 compatibility bug *--/
 .ua-ie9 .mejs-container, ._ua-ie9 video,
