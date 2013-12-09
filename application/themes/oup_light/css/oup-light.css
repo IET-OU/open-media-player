@@ -139,7 +139,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 .mejs-container .mejs-controls .mejs-time {
 	position:absolute;
-	top:2px;
+	top:1px;
 	left:26px;
 	color:#222;
 	margin:0;
@@ -176,7 +176,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	top:4px;
 }
 .ua-webkit .mejs-controls .oup-volume-widget {
-    top:4px;
+    top:2px;
 }
 /*.ua-webkit*/ .br-Safari .mejs-controls .oup-volume-widget {
 	top:-6px;

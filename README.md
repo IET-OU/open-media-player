@@ -66,6 +66,14 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
+### v1.0-rc.1-29-g3cb90f7
+Release: ~10 Dec/ Live: ~12 Dec 2013
+
+* Fix: full screen button, only top half works - FLV [Ltsredmine: #8526][lts#:8526]
+* Fix: "no-Flash" message intermittently appearing (OpenLearn) [#9072]
+* Fix: I'm seeing subtitles twice - Chrome only [#9071]
+* Fix: full screen consistency, inc. follow up [#7911]
+
 ### v1.0-rc.1-0-gd0bb0cb
 v0.95-beta-80-gd0bb0cb
 Release: 25 July/ Live: approx. 30 July 2013
