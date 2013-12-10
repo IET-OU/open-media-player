@@ -139,13 +139,13 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 .mejs-container .mejs-controls .mejs-time {
 	position:absolute;
-	top:1px;
+	top:0;
 	left:26px;
 	color:#222;
 	margin:0;
 }
 .mejs-container .mejs-controls .mejs-time span {
-	color:#222;
+	color:#000;
 	/*font-size:1.2em;*/
 	font-size:12px;
 	/*font-size:0.845em;*/
@@ -155,6 +155,9 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	margin:0 2px;
 	width:auto;
 }
+.mejs-container .mejs-controls .mejs-time .sep, .mejs-container .mejs-controls .mejs-time .mejs-duration {
+	color:#888;
+}
 
 /* VOLUME */
 .mejs-container .mejs-controls .oup-volume-widget {
@@ -162,14 +165,14 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	height:16px;
 	margin-right:16px;
 	position:relative;
-	top:5px;
+	top:4px;
 }
 .mejs-controls .oup-volume-widget button {
 	width:12px; height:12px;
 }
 /*Browser sniffing - MSIE 8+ is well behaved! (was: ua-gecko) */
 .ua-moz .mejs-controls .oup-volume-widget {
-	top:0;
+	top:-1px;
 }
 .ua-moz .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
@@ -178,12 +181,24 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .ua-webkit .mejs-controls .oup-volume-widget {
     top:2px;
 }
-/*.ua-webkit*/ .br-Safari .mejs-controls .oup-volume-widget {
-	top:-6px;
+.ua-webkit .mejs-controls .oup-volume-widget .oup-display {
+	position:relative;
+	top:-1px;
 }
-/*.ua-webkit*/ .br-Safari .mejs-controls .oup-volume-widget .oup-display {
+.br-Safari.v-5 .mejs-controls .oup-volume-widget, .br-Safari.v-6 .mejs-controls .oup-volume-widget {
+	top:-8px;
+}
+.br-Safari.v-5 .mejs-controls .oup-volume-widget .oup-display, .br-Safari.v-6 .mejs-controls .oup-display {
 	position:relative;
 	top:11px;
+}
+.br-MSIE .mejs-controls .oup-volume-widget {
+	position:relative;
+	top:3px;
+}
+.br-MSIE .mejs-controls .oup-volume-widget .oup-display {
+	position:relative !important;
+	top:-2px !important;
 }
 .ua-ie7 .mejs-controls .oup-volume-widget .oup-display {
 	position:relative;
