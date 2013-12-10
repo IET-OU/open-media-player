@@ -104,10 +104,10 @@ class Http {
       curl_setopt($h_curl, CURLOPT_REFERER, base_url());
     }
 
-    if ($options['cookie']) {
+    /*if ($options['cookie']) {
 		curl_setopt($h_curl, CURLOPT_COOKIE, $options['cookie']);
 		header('X-Proxy-Cookie: '.$options['cookie']);
-    }
+    }*/
 
     if (! $options['ssl_verify']) {
       curl_setopt($h_curl, CURLOPT_SSL_VERIFYPEER, FALSE);
