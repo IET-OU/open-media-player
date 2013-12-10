@@ -37,6 +37,16 @@ class MY_User_agent extends CI_User_agent {
   }
 
 
+  public function version_code() {
+    if ($this->is_browser('Safari')) {
+      $version = preg_replace('/^.*Version\/(\d+)\.(\d+).*$/', '$1 $2', $this->agent_string());
+    } else {
+      $version = preg_replace('/(\d+)\.(\d+).*$/', '$1 $2', $this->version());
+    }
+    return $version;
+  }
+
+
   /** Return a short code, indicating the platform/ operating system.
   * @return string 'win', 'osx', 'ios', 'android'..
   */
