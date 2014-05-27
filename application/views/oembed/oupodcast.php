@@ -34,7 +34,7 @@ EOF;
 else:
 
   $html = <<<EOF
-<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label' role='application' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label' aria-label='$label'
  width='$meta->width' height='$embed_height' frameborder='0' $allowfullscreen
  src='$meta->iframe_url'></iframe>
 EOF;

@@ -13,7 +13,7 @@
   ob_start();
 
   ?>
-<div class='youtube embed-rsp'><iframe role='application' title='<?php echo t('YouTube video player') ?>' width='<?php echo $width ?>' height='<?php echo $height ?>'
+<div class='youtube embed-rsp'><iframe title='<?php echo t('YouTube video player') ?>' width='<?php echo $width ?>' height='<?php echo $height ?>'
  allowfullscreen webkitallowfullscreen mozallowfullscreen frameborder='0'
  src='http://www.youtube.com/embed/<?php echo $video_id ?>?fs=1&amp;cc_load_policy=1&amp;origin=<?php echo $this->input->server('HTTP_HOST'); ?>'><?php echo t('Your browser does not support frames.') ?>
 </iframe><div style="font-size:small"><img alt='' src='http://www.youtube.com/favicon.ico' style='padding-top:3px'/>

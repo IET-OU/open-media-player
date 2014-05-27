@@ -32,7 +32,7 @@ EOF;
 EOF;
   }
 ?>
-<!DOCTYPE html><html lang="en" role="application"><meta charset="utf-8" /><title><?php echo $meta->title ?> | OUVLE player</title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | OUVLE player</title>
 <!--[if lt IE 9]><?php /*http://diveintohtml5.org/semantics.html#new-elements*/ ?>
 
 <script>

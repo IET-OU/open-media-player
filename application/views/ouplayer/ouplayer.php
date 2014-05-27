@@ -59,7 +59,7 @@ $this->load->view('ouplayer/oup_analytics');
 
 $body_classes = $this->load->view('ouplayer/oup_bodyclass', '', true);
 ?>
-<body role="application" id="ouplayer" class="<?php echo $body_classes ?>">
+<body id="ouplayer" class="<?php echo $body_classes ?>">
 
 <div id="XX-ouplayer-outer">
 

@@ -84,7 +84,7 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
   $this->load->view('ouplayer/oup_analytics');
 ?>
 
-<body role="application" class="mode-<?php echo $mode ?>">
+<body class="mode-<?php echo $mode ?>">
 
 
 <div id="oup-no-flv" class="error hide" style="display:none">
