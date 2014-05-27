@@ -57,7 +57,7 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
   <li><a rel="help" class="help" href="<?php echo $about_url ? $about_url : $help_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Help and about') ?></span></a>
 <?php endif; ?>
   <li><a class="media-url" href="<?php echo $meta->media_url ?>" target="_blank" title="<?php echo t('New window') ?>"><span><?php echo t('Download media') ?></span></a>
-<?php if (isset($meta->transcript_url)): ?>
+<?php if (isset($meta->transcript_url) && $meta->transcript_url): ?>
   <li><a class="script-pdf" href="<?php echo $meta->transcript_url ?>" target="_blank" title="<?php echo t('New window: %s', t('PDF')) ?>"><span><?php echo t('Download transcript') ?></span></a>
 <?php endif; ?>
 <?php if (isset($meta->_short_url)): ?>
