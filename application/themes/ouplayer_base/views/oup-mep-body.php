@@ -14,11 +14,11 @@ Flowplayer:  <body id="ouplayer" class=
 
 <div id="oup-noscript" class="error">
   <p class="msg"><?php echo t('Sorry, your browser appears to have Javascript disabled, or there has been an error.') ?>
-  <a href="<?php echo $params->media_url ?>"><?php
+  <a href="<?php media_url($params->media_url) ?>"><?php
   echo 'video'==$params->media_type ? t('Download video file') : t('Download audio file') ?></a>
   <h1><?php echo $params->title ?></h1>
 <?php if ($params->poster_url): ?>
-  <img alt="" src="<?php echo $params->poster_url ?>" />
+  <img alt="" src="<?php media_url($params->poster_url) ?>" />
 <?php endif; ?>
 </div>
 
@@ -62,8 +62,8 @@ Flowplayer:  <body id="ouplayer" class=
  id="player1"
  x-class="mejs-player"
  <?php echo $size_attr ?> <?php echo $size_style ?>
- controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>>
- <source type="<?php echo $params->mime_type; #video/mp4 ?>" src="<?php echo $params->media_url ?>">
+ controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php media_url($params->poster_url) ?>"<?php endif; ?>>
+ <source type="<?php echo $params->mime_type; #video/mp4 ?>" src="<?php media_url($params->media_url) ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
   // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]

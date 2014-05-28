@@ -77,6 +77,21 @@ if ( ! function_exists('site_url'))
   }
 }
 
+
+/**
+ * Video/audio media and images stored on OU Podcasts.
+ * @return string
+ */
+function media_url($uri, $return = false) {
+  $CI =& get_instance();
+  $media_url_regex = $CI->config->item('https_media_url_regex');
+  $media_url = preg_replace($media_url_regex, '//$1', $uri);
+  if ($return) {
+    return $media_url;
+  }
+  echo $media_url;
+}
+
 /**
 * Output the URL for a Player-engine or theme resource.
 * Note, the URL is HTTPS/SSL-neutral (//host/path) and contains a hash/version ID.

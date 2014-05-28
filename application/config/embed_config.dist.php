@@ -62,6 +62,20 @@ $config['podcast_data_use_feed'] = true;
 $config['podcast_feed_url_pattern'] =
     "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
 
+// 
+/*
+  Yes : https://podcast.open.ac.uk/
+  Yes : https://media-podcast.open.ac.uk/
+  Yes : https://mediaplayer.open.ac.uk/
+  Maybe: https://learn.open.ac.uk/
+  Yes : https://learn2.open.ac.uk/
+  NO  : https://learn3.open.ac.uk/
+  NO  : https://learn4.open.ac.uk/
+  Yes : https://www.open.edu/openlearn/  (redirects)
+*/
+$config['https_media_url_regex'] =
+    '@https?:\/\/(podcast\.|media-podcast\.|mediaplayer\.|learn2\.|www\.open\.edu)@';
+
 
 /*
 |--------------------------------------------------------------------------
