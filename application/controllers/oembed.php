@@ -2,7 +2,7 @@
 /**
  * The oEmbed API controller. 
  *
- * @copyright Copyright 2011 The Open University.
+ * @copyright Copyright 2011 The Open University (IET).
  * @author N.D.Freear, 18 June 2010-4 July 2012.
  */
 
@@ -106,10 +106,9 @@ EOF;
       $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
     }
 
-
     // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
     $meta = NULL;
-    if ('podcast.open.ac.uk' === $host) { #Oupodcast_serv::POD_BASE
+    if ('Oupodcast_serv' == get_class($this->provider)) {  #Oupodcast_serv::POD_BASE #preg_match('@@', $host)
       $this->_player_init();
       // 'New' 2012 Mediaelement-based themes.
       if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {

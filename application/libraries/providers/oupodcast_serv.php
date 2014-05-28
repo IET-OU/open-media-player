@@ -2,7 +2,7 @@
 /**
  * OU Media Player/ OU Podcast oEmbed service provider.
  *
- * @copyright Copyright 2011 The Open University.
+ * @copyright Copyright 2011 The Open University (IET).
  * @author N.D.Freear, 3 March 2011.
  */
 require_once APPPATH.'libraries/ouplayer_lib.php';
@@ -24,7 +24,8 @@ EOT;
   public $_about_url = 'http://podcast.open.ac.uk/';
 
   # regex_real: 'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
-  public $_regex_real = ':\/\/podcast\.open\.ac\.uk\/.*\/([\w-]+)([\/#]+!?)(\w{10}|\w+\.m\w{2})$';
+  public $_regex_real = ':\/\/(media\-)?podcast\.open\.ac\.uk\/.*\/(P?<col>[\w-]+)(P?<sep>[\/#]+!?)(P?<sc>\w{10}|\w+\.m\w{2})$';
+  ///public $_regex_real = ':\/\/podcast\.open\.ac\.uk\/.*\/([\w-]+)([\/#]+!?)(\w{10}|\w+\.m\w{2})$';
   public $_examples = array(
     'Student views of the OU (video)'
         => 'http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b',
@@ -69,13 +70,14 @@ EOT;
   * Implementation of call() - used by oEmbed controller.
   */
   public function call($url, $matches) {
-      $basename = str_replace(array('podcast-','pod-'), '', $matches[1]);
-      $separator= $matches[2];
-      $fragment = $matches[3];
+      $basename = str_replace(array('podcast-','pod-'), '', $matches[ 'col' ]); #$matches[1]
+      $separator= $matches[ 'sep' ];  #$matches[2]
+      $fragment = $matches[ 'sc' ];   #$matches[3]
       $is_file  = FALSE!==strpos($fragment, '.');
 
-	  return $this->_inner_call($basename, $fragment);
+      return $this->_inner_call($basename, $fragment);
   }
+
 
   /** Used directly by embed controller.
   */

@@ -1,7 +1,7 @@
 <?php
 /** oEmbed OU podcast view - iframe-based.
 *
-* @copyright Copyright 2011 The Open University.
+* @copyright Copyright 2011 The Open University (IET).
 * @author N.D.Freear, 17 March 2011.
 */
   $embed_height = $meta->_theme->controls_overlap ? $meta->height : $meta->height + $meta->_theme->controls_height;
