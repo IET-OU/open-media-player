@@ -60,7 +60,7 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
 <?php if (isset($meta->transcript_url) && $meta->transcript_url): ?>
   <li><a class="script-pdf" href="<?php echo $meta->transcript_url ?>" target="_blank" title="<?php echo t('New window: %s', t('PDF')) ?>"><span><?php echo t('Download transcript') ?></span></a>
 <?php endif; ?>
-<?php if (isset($meta->_short_url)): ?>
+<?php if (isset($meta->_short_url) && isset($meta->private) && !$meta->private): ?>
   <li><a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echo t('New window: %s', t('perma-link')) ?>"><span><?php echo t('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 <?php if ($embed_code): ?>
