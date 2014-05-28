@@ -30,6 +30,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
 
   protected $controls_height = 22; // Pixels
   protected $controls_overlap= false;
+  protected $has_banner = false;
 
   // Order matters in the feature-list.
   public $features =
@@ -138,8 +139,25 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     if (!$player->is_player('podcast') && $player->caption_url) {
       $this->with_credentials = true;
     }
+
+
+    // Bug #1486, Should audio/video players have a title panel/ banner? [iet-it-bugs:1486] [ltsredmine:10744]
+    $this->has_banner = ('Podcast_player' == get_class($player));
+
+    $param_banner = $this->CI->input->get('banner');
+    $http_referer = $this->CI->input->server('HTTP_REFERER');
+    if ('0' === $param_banner OR preg_match('@:\/\/[^\/]+\.open\.(ac\.uk|edu)\/@', $http_referer)) {
+	  $this->has_banner = FALSE;
+	}
   }
 
+
+  /**
+  * @return bool
+  */
+  public function player_has_title_banner() {
+    return $this->has_banner;
+  }
 
   /**
   * Grr, need to use Flash in MSIE 9/ 10 :((.

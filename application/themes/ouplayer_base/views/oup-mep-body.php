@@ -28,7 +28,7 @@ Flowplayer:  <body id="ouplayer" class=
 </div>
 
 
-<?php if ('Podcast_player'==get_class($params)): ?>
+<?php if ($this->theme->player_has_title_banner()):  #('Podcast_player' == get_class($params)): ?>
 <div class="oup-mejs-panel mejs-title-panel mejs-play" <?php //id="mep_0-ttl-panel" ?>>
 <div class="logo"></div>
 <h1 title="<?php echo html_chars($params->title) ?>"><?php echo html_chars($params->title) ?></h1>
