@@ -103,6 +103,7 @@ EOF;
 
     if (! preg_match("@{$regex}$@", $req->url, $matches)) {
       $regex_display = $this->provider->regex;
+      $this->_debug(array( 'regex_real' => $regex ));
       $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
     }
 

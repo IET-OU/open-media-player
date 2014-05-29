@@ -24,7 +24,7 @@ EOT;
   public $_about_url = 'http://podcast.open.ac.uk/';
 
   # regex_real: 'podcast.open.ac.uk/(pod|\w+|feeds).*([\/#]\w|\.m4v|\.mp3)$',
-  public $_regex_real = ':\/\/(media\-)?podcast\.open\.ac\.uk\/.*\/(P?<col>[\w-]+)(P?<sep>[\/#]+!?)(P?<sc>\w{10}|\w+\.m\w{2})$';
+  public $_regex_real = ':\/\/(media\-)?podcast\.open\.ac\.uk\/.*\/(?P<col>[\w-]+)(?P<sep>[\/#]+!?)(?P<sc>\w{10}|\w+\.m\w{2})$';
   ///public $_regex_real = ':\/\/podcast\.open\.ac\.uk\/.*\/([\w-]+)([\/#]+!?)(\w{10}|\w+\.m\w{2})$';
   public $_examples = array(
     'Student views of the OU (video)'
