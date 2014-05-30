@@ -141,16 +141,26 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     }
 
 
-    // Bug #1486, Should audio/video players have a title panel/ banner? [iet-it-bugs:1486] [ltsredmine:10744]
+    $this->prepare_banner($player);
+  }
+
+
+  /**
+  * Should audio/video players have a title panel/ banner? [iet-it-bugs:1486] [ltsredmine:10744]
+  */
+  public function prepare_banner($player) {
     $this->has_banner = ('Podcast_player' == get_class($player));
 
     $param_banner = $this->CI->input->get('banner');
     $http_referer = $this->CI->input->server('HTTP_REFERER');
-    if ('0' === $param_banner OR preg_match('@:\/\/[^\/]+\.open\.(ac\.uk|edu)\/@', $http_referer)) {
-	  $this->has_banner = FALSE;
-	}
+	$REGEX = '@:\/\/[^\/]+\.open\.(ac\.uk|edu)\/@';
+    if ('0' === $param_banner OR preg_match($REGEX, $http_referer)) {
+      $this->has_banner = FALSE;
+    }
+    if ('1' === $param_banner OR 'Popup' == get_class(get_instance())) {
+      $this->has_banner = TRUE;
+    }
   }
-
 
   /**
   * @return bool

@@ -5,6 +5,8 @@
 * @author N.D.Freear, 17 March 2011.
 */
   $embed_height = $meta->_theme->controls_overlap ? $meta->height : $meta->height + $meta->_theme->controls_height;
+  $embed_height = 'audio' == $meta->media_type && !$meta->_theme->banner ? $meta->_theme->controls_height : $embed_height;
+
 
   $width = 608;
   $height= 362;
@@ -14,6 +16,7 @@
   $noframes = t('Your browser does not support frames.');
 
   $theme = 'theme-'. (isset($this->theme->name) ? $this->theme->name : 'legacy');
+  $banner_class = $meta->_theme->banner ? 'yes-banner' : 'no-banner';
 
   $allowfullscreen = 'video'==$meta->media_type ?
       'allowfullscreen webkitallowfullscreen mozallowfullscreen' : '';
@@ -23,7 +26,7 @@ if (isset($rdfa) && $rdfa):
 
   //scrolling='no' - ?
   $html =<<<EOF
-<iframe class='ou player podcast embed-rsp $meta->media_type x-$theme size-$meta->size_label' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type x-$theme size-$meta->size_label $banner_class' id='pod-$meta->_album_id-$meta->_track_md5' aria-label='$label'
  about='$meta->_short_url' xmlns:dct='http://purl.org/dc/terms/' property='dct:title' content='$meta->title'
  width='$meta->width' height='$embed_height' frameborder='0' x-scrolling='no' x-style='overflow:hidden;' $allowfullscreen
  src='$meta->iframe_url'>$noframes</iframe>
@@ -34,7 +37,7 @@ EOF;
 else:
 
   $html = <<<EOF
-<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label $banner_class' aria-label='$label'
  width='$meta->width' height='$embed_height' frameborder='0' $allowfullscreen
  src='$meta->iframe_url'></iframe>
 EOF;
