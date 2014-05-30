@@ -62,7 +62,8 @@ $config['podcast_data_use_feed'] = true;
 $config['podcast_feed_url_pattern'] =
     "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
 
-// 
+
+// SSL/ HTTPS regular expression for `media_url()` helper function - OU Media Player.
 /*
   Yes : https://podcast.open.ac.uk/
   Yes : https://media-podcast.open.ac.uk/

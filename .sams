@@ -1,7 +1,24 @@
 # ouplayer httpd config.
 
 
-DISABLE_SAMS
+# Disable OU-SAMS authentication.
+<IfModule mod_access_sams.c>
+    DISABLE_SAMS
+</IfModule>
+
+
+# Cross-domain client access to captions/subtitle files.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(vtt|srt|ttml|xml)">
+        Header set Access-Control-Allow-Origin "*"
+        AddDefaultCharset UTF-8
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+    AddType text/vtt  vtt
+</IfModule>
+
 
 
 <IfModule mod_rewrite.c>
