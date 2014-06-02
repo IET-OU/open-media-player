@@ -73,6 +73,7 @@ $config['providers'] = array(
 // Google Analytics.
 $config['provider_google_analytics_ids'] = array(
   'oupodcast' => 'UA-24005173-2',
+  'openlearn' => 'UA-24005173-2',
   'lams'  => 'UA-24005173-3',
   'prezi' => 'UA-24005173-4',
 );

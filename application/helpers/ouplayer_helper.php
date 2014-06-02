@@ -131,6 +131,17 @@ function site_res_url($uri = '') {
   return $site_url;
 }
 
+/**
+* Get a Google Analytics ID, if available.
+* @return string
+*/
+function google_analytics_id($key) {
+  $CI =& get_instance();
+  $CI->config->load('providers');
+  $ga_analytics_ids = $CI->config->item('provider_google_analytics_ids');
+  return isset($ga_analytics_ids[$key]) ? $ga_analytics_ids[$key] : NULL;
+}
+
 // ====================================================================
 
 

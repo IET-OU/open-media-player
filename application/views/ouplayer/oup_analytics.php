@@ -4,7 +4,8 @@
  */
 
 //VLE/ OpenLearn player??
-if ('Podcast_player'==get_class($meta)): ?>
+#if ('Podcast_player'==get_class($meta)):
+if (!$meta->is_player('vle')): ?>
 
 <?php // ComScore/ StreamSense/ Nedstat.
 if ($this->config->item('player_analytics_comscore')):
@@ -43,11 +44,18 @@ sitestat("//ouan.open.ac.uk/ou/<?php echo $ns_sitename ?>/s?name=<?php echo $ns_
 <?php endif; ?>
 
 
-<?php // Google analytics.
 
+<?php // Google analytics.
 if (isset($google_analytics) && $google_analytics):
   $ga_title= substr(str_replace(array(' ', '\'', ':'), array('-', "\'", ''), $meta->title), 0, 40);
-  $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5#!" . rtrim($ga_title, '-');
+
+  if ($meta->is_player('podcast')) {
+    $ga_path = "/$mode/pod/$meta->_album_id/$meta->_track_md5#!" . rtrim($ga_title, '-');
+  } else {
+    // OpenLearn.
+    $ga_media_url = str_replace('://', '-//', $meta->media_url);
+    $ga_path = "/$mode/openlearn/$ga_media_url#!" . rtrim($ga_title, '-');
+  }
 
   // Bug #1464, Encode the "embedder" in the "path".
   if (isset($this->theme->origin) && $this->theme->origin) {

@@ -166,6 +166,12 @@ class Embed extends MY_Controller {
 
 	$player->calc_size($player->width, $player->height, (bool)$player->poster_url);
 
+	$google_analytics_id = NULL;
+	if ($player->is_player('openlearn')) {
+	  #$dummy_provider = new Oembed_Provider();
+	  #$this->load->library('Dummy_Provider', 'openlearn');
+	}
+
     $view_data = array(
         'meta' => $player,
         'theme'=> $this->_theme,
@@ -174,6 +180,7 @@ class Embed extends MY_Controller {
         // Auto-generate 'embed' or 'popup'.
         'mode' => strtolower(get_class($this)),
         'req'  => $this->_request,
+        'google_analytics' => $player->is_player('openlearn') ? google_analytics_id('openlearn') : NULL,
       //TODO: needs more work!
         'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
         // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]

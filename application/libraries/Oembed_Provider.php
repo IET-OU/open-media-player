@@ -66,11 +66,12 @@ abstract class Oembed_Provider implements iService {
     $this->name = strtolower(preg_replace('#_serv$#i', '', get_class($this)));
 
     // Get the Google Analytics ID, if available.
-    $this->CI->config->load('providers');
+    /*$this->CI->config->load('providers');
     $ga_analytics_ids = $this->CI->config->item('provider_google_analytics_ids');
     if (isset($ga_analytics_ids[$this->name])) {
       $this->_google_analytics = $ga_analytics_ids[$this->name];
-    }
+    }*/
+    $this->_google_analytics = google_analytics_id($this->name);
   }
 
 
@@ -247,4 +248,16 @@ abstract class External_Oembed_Provider extends Oembed_Provider {
   public function call($url, $matches) {
     $this->_error('sorry the endpoint is: '. $this->_endpoint_url, 400.9);
   }
+}
+
+
+/**
+ */
+class Dummy_Provider extends Oembed_Provider {
+
+  public function __construct($name = NULL) {
+    $this->name = $name;
+  }
+
+  public function call($url, $regex_matches) {}
 }
