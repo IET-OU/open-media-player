@@ -79,7 +79,7 @@ if ( ! function_exists('site_url'))
 
 
 /**
- * Video/audio media and images stored on OU Podcasts.
+ * Video/audio media and images stored on OU Podcasts [iet-it-bugs:1486]
  * @return string
  */
 function media_url($uri, $return = false) {
@@ -121,7 +121,7 @@ function player_res_url($uri = '', $hash = true, $return = false) {
 }
 
 /**
-* Output URL for a site resource - HTTPS/SSL-neutral (iet-it-bugs:1329)
+* Output URL for a site resource - HTTPS/SSL-neutral [iet-it-bugs:1329]
 * @return string
 */
 function site_res_url($uri = '') {
@@ -132,7 +132,7 @@ function site_res_url($uri = '') {
 }
 
 /**
-* Get a Google Analytics ID, if available.
+* Get a Google Analytics ID, if available [iet-it-bugs:1486]
 * @return string
 */
 function google_analytics_id($key) {

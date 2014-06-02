@@ -11,7 +11,7 @@ hr { height:0; border-top:1px solid #ccc; margin:2em 0; }
 pre,textarea{ font:1.05em/1.2em "Lucida Console",Consolas,monospace; }
 #developed-by{ margin-top:2.8em; padding:2px; border-top:1px solid #e5e5e5; /*#bbd8e7*/ background:#f9f9f9; font-size:.86em; }
 
-img.oup-logo { float: right; margin: 1em 0 .5em .5em; }
+img.oup-logo { float: right; margin: 1.3em 0 1.5em 1em; }
 
 /* Cf. http://www3.open.ac.uk/study/stylesheets/study-common.css: line ~201.
 */

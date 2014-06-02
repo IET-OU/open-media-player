@@ -254,9 +254,11 @@ $config['locales'] = array(
 
     'fr'   => array('name'=>'Français/ French'),
     'fr-ca'=> 'fr',
+    'fr-fr'=> 'fr',
 
     'zh-cn'=> array('name'=>'简体中文/ Chinese (Simplified)'),
     'cmn-hans'=>'zh-cn',
+    'zh'   => 'zh-cn',
 
     'sw'   => array('name'=>'Kiswahili/ Swahili'),
 
