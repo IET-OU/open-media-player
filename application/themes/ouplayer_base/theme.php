@@ -165,7 +165,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
   /**
   * @return bool
   */
-  public function player_has_title_banner() {
+  public function has_title_banner() {
     return $this->has_banner;
   }
 

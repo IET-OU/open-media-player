@@ -7,12 +7,14 @@
 */
 ?>
 
+<img class=oup-logo alt="" src="<?php echo site_url('assets/ouplayer/ou-media-player-logo.png') ?>" />
+
 <p>The OU Media Player is an online audio and video player, developed at <a href="http://www.open.ac.uk/">The Open University</a>
  and used in student, public and staff facing services. Here are <a href=
 "<?php echo OUP_BLOG_URL ?>" title="On Cloudworks">introductory blog posts</a>.
 
 
-<h2>Giving feedback</h2>
+<h2 id=giving-feedback >Giving feedback</h2>
 
 <p>If you are an Open University student please use your <a href="<?php echo OUP_HELP_URL ?>" title="Requires a University login" rel="nofollow">Student Help centre</a>
  to find answers, or the contact details for people who can help you.

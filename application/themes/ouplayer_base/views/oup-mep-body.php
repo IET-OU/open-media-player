@@ -3,7 +3,8 @@
 <body id="ouplayer" class="oup mtype-<?php echo $params->media_type ?> mode-<?php echo $mode ?> ctx-<?php echo get_class($params) ?> hide-tscript lang-<?php
   echo $this->lang->lang_code() ?> theme <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> bg-<?php echo $this->theme->background ?> ua-<?php echo $this->agent->agent_code()
   ?> br-<?php echo $this->agent->browser_code() ?> v-<?php echo $this->agent->version_code()?> p-<?php echo $this->agent->platform_code() ?> <?php
-  if($this->agent->is_mobile()): ?>is<?php else: ?>not<?php endif; ?>-mobile jslib-<?php echo $this->theme->jslib ?>">
+  if($this->agent->is_mobile()): ?>is<?php else: ?>not<?php endif; ?>-mobile jslib-<?php echo $this->theme->jslib ?> <?php
+  if($this->theme->has_title_banner()): ?>yes<?php else: ?>no<?php endif; ?>-banner ">
 
 <?php /* Body classes:
 Mediaelement: "oup-mode-video tscript-hide lang-en oup_light ouvle-default-blue ua-webkit p-win jslib-jquery width-large"
@@ -28,7 +29,7 @@ Flowplayer:  <body id="ouplayer" class=
 </div>
 
 
-<?php if ($this->theme->player_has_title_banner()):  #('Podcast_player' == get_class($params)): ?>
+<?php if ($this->theme->has_title_banner()):  #('Podcast_player' == get_class($params)): ?>
 <div class="oup-mejs-panel mejs-title-panel mejs-play" <?php //id="mep_0-ttl-panel" ?>>
 <div class="logo"></div>
 <h1 title="<?php echo html_chars($params->title) ?>"><?php echo html_chars($params->title) ?></h1>

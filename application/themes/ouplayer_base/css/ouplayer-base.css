@@ -157,6 +157,11 @@ h1 {
 	display:none;
 	}
 
+/* Hide unnecessary buttons, particularly in small audio players [iet-it-bugs:1486] */
+.no-banner.mtype-audio/*.mode-embed*/ .mejs-transcript-button,
+.no-banner.mtype-audio .mejs-options-button {
+	display:none;
+	}
 
 /* Title panel.
 */

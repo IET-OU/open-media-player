@@ -142,7 +142,7 @@ EOT;
         'name' => str_replace('_', '-', $theme->getName()),
         'controls_height' => $theme->getControlsHeight(),
         'controls_overlap'=> !$player->is_video() || $theme->controlsOverlap(),
-        'banner' => $theme->player_has_title_banner(),
+        'banner' => $theme->has_title_banner(),
       );
     }
 	return $player;

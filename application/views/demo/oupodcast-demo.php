@@ -22,9 +22,9 @@
 <h3>Audio player</h3>
 
 <p><iframe
- class="x ou audio player embed-rsp" width="360" height="80" frameborder="0"
+ class="x ou audio player embed-rsp" width="360" height="22" frameborder="0"
  src="<?php echo site_url('embed/pod/l314-spanish/fe481a4d1d') ?>"
-></iframe>
+></iframe><!--Was: height=80 (no-banner) [iet-it-bugs:1486]-->
 
 <h3>Video player</h3>
 
