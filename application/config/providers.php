@@ -61,8 +61,10 @@ $config['providers'] = array(
 	//'labspace.open.ac.uk' => 'Trackoer',
 
 	'ispot.org.uk' => 'Ispot',
-	'views.scraperwiki.com' => 'Scraperwiki',
+	'ispotnature.org' => 'Ispot',
+	//'trickytopic.juxtalearn.net' => 'Quiz',
 
+	'views.scraperwiki.com' => 'Scraperwiki',
 	'www.bibsonomy.org' => 'Bibsonomy',
 	'bibsonomy.org' => 'Bibsonomy',
 
@@ -112,7 +114,9 @@ $config['providers_other'] = array(
 	'wp.me' => array('name'=>'Wordpress', 'type'=>'rich', 'endpoint'=>'http://public-api.wordpress.com/oembed/1.0/?for=Embed.open.ac.uk'),
 
 	// iSpot (see 'providers')
-	///'ispot.org.uk' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispot.org.uk/oembed'),
+	///'ispotnature.org' => array('name'=>'iSpot', 'type'=>'rich', 'endpoint'=>'http://www.ispotnature.org/oembed'),
+	'juxtalearn.net' => array( 'name' => 'JuxtaLearn', 'type' => 'rich',
+		'endpoint' => 'http://trickytopic.juxtalearn.net/juxtalearn-oembed' ),
 );
 
 
