@@ -66,8 +66,20 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
+### v1.1-0-g0075a19
+v1.0-rc.1-45-g0075a19
+Release: ~2 Jun/ Live: ~10 Jun 2014
+
+* Hide the title panel/ banner for OUICE/OU-branded pages [iet-it-bugs: 1486](http://iet-it-bugs.open.ac.uk/node/1486) [LTS-redmine: 10744](http://ltsredmine.open.ac.uk/issues/10744),
+* Fix: broken transcript links,
+* Fix: Remove "View on Podcast site" link for private media,
+* Fix: Correctly handle secure HTTPS media URLs,
+* Fix: add support for "http://media-podcast.open.ac.uk" URLs,
+* Fix: remove "role=application" from Player embeds,
+* Add Google Analytics to OpenLearn player variant, add Player logo.
+
 ### v1.0-rc.1-32-gd251c7a
-Release: ~10 Dec/ Live: ~12 Dec 2013
+Release: ~10 Dec/ Live: 12 Dec 2013
 
 * Fix: full screen button, only top half works - FLV [Ltsredmine: #8526][lts#:8526]
 * Fix: "no-Flash" message intermittently appearing (OpenLearn) [#9072]
