@@ -66,11 +66,12 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
-### v1.1-0-g0075a19
-v1.0-rc.1-45-g0075a19
+### v1.1-4-XX
+<!-- v1.1-0-g0075a19 // v1.0-rc.1-45-g0075a19 -->
 Release: ~2 Jun/ Live: ~10 Jun 2014
 
 * Hide the title panel/ banner for OUICE/OU-branded pages [iet-it-bugs: 1486](http://iet-it-bugs.open.ac.uk/node/1486) [LTS-redmine: 10744](http://ltsredmine.open.ac.uk/issues/10744),
+* Fix: "In IE11 (Win8) we just see a black rectangle.." [iet-it-bugs: 1487](http://iet-it-bugs.open.ac.uk/node/1487)
 * Fix: broken transcript links,
 * Fix: Remove "View on Podcast site" link for private media,
 * Fix: Correctly handle secure HTTPS media URLs,

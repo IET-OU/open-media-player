@@ -60,7 +60,7 @@ $config['providers'] = array(
 	//'openlearn.open.ac.uk' => 'Trackoer',
 	//'labspace.open.ac.uk' => 'Trackoer',
 
-	'ispot.org.uk' => 'Ispot',
+	//'ispot.org.uk' => 'Ispot',
 	'ispotnature.org' => 'Ispot',
 	//'trickytopic.juxtalearn.net' => 'Quiz',
 
@@ -75,7 +75,7 @@ $config['providers'] = array(
 // Google Analytics.
 $config['provider_google_analytics_ids'] = array(
   'oupodcast' => 'UA-24005173-2',
-  'openlearn' => 'UA-24005173-2',
+  'openlearn' => 'UA-24005173-6',
   'lams'  => 'UA-24005173-3',
   'prezi' => 'UA-24005173-4',
 );
