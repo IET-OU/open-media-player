@@ -66,7 +66,7 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Releases {#releases}
 
-### v1.1-4-XX
+### v1.1-5-XX
 <!-- v1.1-0-g0075a19 // v1.0-rc.1-45-g0075a19 -->
 Release: ~2 Jun/ Live: ~10 Jun 2014
 

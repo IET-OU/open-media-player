@@ -271,6 +271,13 @@ h1 {
 	font-size:1.1em;
 	}
 
+body .mejs-container .mejs-controls .mejs-time {
+	padding: 0 3px;
+	position: absolute;
+	top: auto;
+	bottom: -2px;
+	height: 15px;
+	}
 
 /* Only show the progress-bar 'thumb' on keyboard focus. */
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
