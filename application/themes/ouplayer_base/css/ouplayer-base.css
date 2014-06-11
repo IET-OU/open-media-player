@@ -273,10 +273,8 @@ h1 {
 
 body .mejs-container .mejs-controls .mejs-time {
 	padding: 0 3px;
-	position: absolute;
-	top: auto;
-	bottom: -2px;
-	height: 15px;
+	margin: 8px 0 0;
+	height: 14px;
 	}
 
 /* Only show the progress-bar 'thumb' on keyboard focus. */

@@ -14,70 +14,21 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
    * mod_rewrite and `.htaccess` (`.sams`) (or access to `httpd.conf`)
 
 
-## Installation {#install}
-
-In brief, the steps for the installation of OU Media Player (non IT-EUD hosting) and OU-Embed are:
-
- 1. Get [the code][code], eg. `$ git clone https://[USER]@github.com/IET-OU/ouplayer.git`
- 2. Copy: application/config/embed_config.dist.php to application/config/embed_config.php
- 3. Set `$config['debug']`,
- 4. Set `$config['podcast_feed_url_pattern']`,
- 5. Check `$config['http_proxy']`,
- 6. Create a data directory with `logs/` and `oupodcast/` sub-directories, and set permissions (eg. `$ chown -R apache:apache` )
- 7. Set the data directory `$config['data_dir']` in application/config/embed_config.php,
- 8. Set `$config['log_path']` in application/config/config.php
-
-Details and notes:
-
-* Installation guide: [extended readme on Google][install]
-
-
-## Ignore files {#ignore}
-
-When importing to [_AllChange_][allchange] for [IT-EUD hosting][eud], please ensure that these files and directories are ignored/ deleted:
-
-    .git/*/*       -- ALL sub-directories/ files
-    .gitignore
-    _data/         -- To discuss(*)
-    _data/logs/*.php
-    _data/oupodcast/*.*
-    application/logs/*.php
-
-(*) We need to either ignore the whole `_data/` directory, or most of its contents, including `logs/*.php` and `oupodcast/*`. Then [re-create - see install](#install).
-
-## Include files {#include}
-
-When importing to _AllChange_, please ensure that these files and directories are included/ implemented:
-
-    _data/			-- See [ignore](#ignore)
-    application/*/*	-- ALL sub-directories/ files.. except for [ignored files](#ignore)
-    application/config/config.php		-- Including.. config.php
-    application/config/embed_config.php	-- Including.. embed_config.php
-    docs/*			-- ALL files
-    system/*/*		-- ALL sub-directories/ files
-    .htaccess
-    .sams
-    index.php
-    license-ci.txt
-    README.md
-    robots.txt
-    version.json
-
-
 ## Releases {#releases}
 
-### v1.1-5-XX
+### v1.1-7-XXX
 <!-- v1.1-0-g0075a19 // v1.0-rc.1-45-g0075a19 -->
-Release: ~2 Jun/ Live: ~10 Jun 2014
+Release: ~2 Jun/ Live: ~12 Jun 2014
 
 * Hide the title panel/ banner for OUICE/OU-branded pages [iet-it-bugs: 1486](http://iet-it-bugs.open.ac.uk/node/1486) [LTS-redmine: 10744](http://ltsredmine.open.ac.uk/issues/10744),
-* Fix: "In IE11 (Win8) we just see a black rectangle.." [iet-it-bugs: 1487](http://iet-it-bugs.open.ac.uk/node/1487)
+* Fix: "In IE11 (Win8) we just see a black rectangle.." [iet-it-bugs: 1487](http://iet-it-bugs.open.ac.uk/node/1487) (CSS)
 * Fix: broken transcript links,
 * Fix: Remove "View on Podcast site" link for private media,
 * Fix: Correctly handle secure HTTPS media URLs,
 * Fix: add support for "http://media-podcast.open.ac.uk" URLs,
-* Fix: remove "role=application" from Player embeds,
-* Add Google Analytics to OpenLearn player variant, add Player logo.
+* Fix: remove "role=application" from Player embeds (accessibility),
+* Fix: time-display widget overlaps progress-bar - prevents dragging (CSS),
+* Add Google Analytics to OpenLearn player variant, add Player logo to about page.
 
 ### v1.0-rc.1-32-gd251c7a
 Release: ~10 Dec/ Live: 12 Dec 2013
@@ -166,6 +117,56 @@ Release: 10 December/ Live: 13 December 2012
 * <http://embed.open.ac.uk> | <http://mediaplayer.open.ac.uk>
 * Bugs/ Issues:  [IET-IT-bugs: project/issues/ouplayer][bugs]
 * Also: [LtsRedmine: projects/ouplayer/issues][lts-bugs]
+
+
+## Installation {#install}
+
+In brief, the steps for the installation of OU Media Player (non IT-EUD hosting) and OU-Embed are:
+
+ 1. Get [the code][code], eg. `$ git clone https://[USER]@github.com/IET-OU/ouplayer.git`
+ 2. Copy: application/config/embed_config.dist.php to application/config/embed_config.php
+ 3. Set `$config['debug']`,
+ 4. Set `$config['podcast_feed_url_pattern']`,
+ 5. Check `$config['http_proxy']`,
+ 6. Create a data directory with `logs/` and `oupodcast/` sub-directories, and set permissions (eg. `$ chown -R apache:apache` )
+ 7. Set the data directory `$config['data_dir']` in application/config/embed_config.php,
+ 8. Set `$config['log_path']` in application/config/config.php
+
+Details and notes:
+
+* Installation guide: [extended readme on Google][install]
+
+
+## Ignore files {#ignore}
+
+When importing to [_AllChange_][allchange] for [IT-EUD hosting][eud], please ensure that these files and directories are ignored/ deleted:
+
+    .git/*/*       -- ALL sub-directories/ files
+    .gitignore
+    _data/         -- To discuss(*)
+    _data/logs/*.php
+    _data/oupodcast/*.*
+    application/logs/*.php
+
+(*) We need to either ignore the whole `_data/` directory, or most of its contents, including `logs/*.php` and `oupodcast/*`. Then [re-create - see install](#install).
+
+## Include files {#include}
+
+When importing to _AllChange_, please ensure that these files and directories are included/ implemented:
+
+    _data/			-- See [ignore](#ignore)
+    application/*/*	-- ALL sub-directories/ files.. except for [ignored files](#ignore)
+    application/config/config.php		-- Including.. config.php
+    application/config/embed_config.php	-- Including.. embed_config.php
+    docs/*			-- ALL files
+    system/*/*		-- ALL sub-directories/ files
+    .htaccess
+    .sams
+    index.php
+    license-ci.txt
+    README.md
+    robots.txt
+    version.json
 
 
 ## Credits
