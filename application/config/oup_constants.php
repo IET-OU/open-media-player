@@ -47,7 +47,7 @@ define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
 define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
 define('OUP_BLOG_RSS_URL', 'http://cloudworks.ac.uk/tag/rss/oEmbed');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
-define('OUP_CONTACT_URL', 'mailto:IET-Webmaster+@+open.ac.uk?subject=OU+player');
+define('OUP_CONTACT_URL', 'mailto:IET-Webmaster@open.ac.uk?subject=OU Player feedback:');
 
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
 define('OUP_FLASH_URL', 'http://adobe.com/go/getflashplayer');

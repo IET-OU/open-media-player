@@ -157,7 +157,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     if ('0' === $param_banner OR preg_match($REGEX, $http_referer)) {
       $this->has_banner = FALSE;
     }
-    if ('1' === $param_banner OR 'Popup' == get_class(get_instance())) {
+    if ('1' === $param_banner) {  //OR 'Popup' == get_class(get_instance())
       $this->has_banner = TRUE;
     }
   }

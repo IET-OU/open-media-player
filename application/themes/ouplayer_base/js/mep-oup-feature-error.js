@@ -31,8 +31,8 @@
 				'MEDIA_ERR_SRC_NOT_SUPPORTED'
 			];
 		if ('error' === e.type) {
-			code = e.target.error.code;
-			if (code <= errors.length) {
+			code = e.target && e.target.error && e.target.error.code;
+			if (code > 0 && code <= errors.length) {
 				error = errors[code - 1];
 				msg = op[error];
 			}

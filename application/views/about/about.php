@@ -34,7 +34,7 @@ Browser: <?php echo $this->input->server('HTTP_USER_AGENT') ?>
 </ul>
 
 <p>NOTE: some demos on this site use the <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>" rel="nofollow">jquery-oembed plugin</a>.
-<p>You can also report bugs and give feedback to <a href="<?php echo OUP_CONTACT_URL ?>">IET-Webmaster+@+open.ac.uk</a>.
+<p>You can also report bugs and give feedback to <a href="<?php echo OUP_CONTACT_URL ?>">IET-Webmaster@open.ac.uk</a>.
 
 
 <script>
