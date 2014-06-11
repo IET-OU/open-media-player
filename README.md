@@ -16,8 +16,8 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 ## Releases {#releases}
 
-### v1.1-8-XXX
-<!-- v1.1-0-g0075a19 // v1.0-rc.1-45-g0075a19 -->
+### v1.1-9-XXX
+<!-- v1.1-0-g0075a19 equiv. to v1.0-rc.1-45-g0075a19 // v1.1-8-g7cf9e8f -->
 Release: ~2 Jun/ Live: ~12 Jun 2014
 
 * Hide the title panel/ banner for OUICE/OU-branded pages [iet-it-bugs: 1486](http://iet-it-bugs.open.ac.uk/node/1486) [LTS-redmine: 10744](http://ltsredmine.open.ac.uk/issues/10744),
