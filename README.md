@@ -16,7 +16,7 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 ## Releases {#releases}
 
-### v1.1-7-XXX
+### v1.1-8-XXX
 <!-- v1.1-0-g0075a19 // v1.0-rc.1-45-g0075a19 -->
 Release: ~2 Jun/ Live: ~12 Jun 2014
 

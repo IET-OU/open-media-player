@@ -13,6 +13,23 @@ $(document).ready(function ouplayer_launch($){
 $.domReady(function ouplayer_launch(){
 <?php endif; ?>
 
+(function () {
+  // Horrible MSIE 11+ hacks :((.
+  var ua = navigator.userAgent,
+    tri_match = ua.match(/Trident\/([1789]\d?(\.\d)?)/),
+    rv_match = ua.match(/rv:(\d+(\.\d)?)/);
+  if (tri_match) {
+    $('body').addClass('trident-7-');
+    $('#oup-noscript').hide();
+    $.log('MSIE 11+ in IE 7 compat mode? Trident/' + tri_match[1]);
+  }
+  if (rv_match) {
+    $('body').addClass('ie-rv-' + rv_match[1]);
+    $('#oup-noscript').hide();
+    $.log('MSIE 11+ - rv:' + rv_match[1]);
+  }
+})();
+
 $.oup_debug = <?php echo json_encode((bool) $params->debug) ?>,
 $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementById('player1') ?>, {
 
