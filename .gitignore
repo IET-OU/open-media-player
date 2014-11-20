@@ -27,6 +27,8 @@ application/language/*.pot
 /*.patch
 *.diff
 * copy*
+*OLD*
+*ORIG*
 *.log
 *.mo
 

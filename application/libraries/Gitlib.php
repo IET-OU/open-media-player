@@ -10,6 +10,8 @@
 
 class Gitlib {
 
+    const GIT_DESCRIBE_REGEX = '/(?P<major>\d+)\.(?P<minor>\d+)(?P<id>-[\w\.]+)?-(?P<patch>\d+)-(?P<hash>g.+)/';
+
     protected $_hash;
     protected $CI;
 
@@ -58,14 +60,18 @@ class Gitlib {
         // Describe "v0.86-usertest-95-g.."
         // Semantic Versioning, http://semver.org
         $result['describe'] = trim($this->_exec('describe --tags --long'));
-        $result['version'] = preg_replace('/(\d)-(\w+\.?\d?)-(\d+)-g/', '\1.\3-\2+g', $result['describe']);
+        $result[ 'version' ] = $result[ 'describe' ];
+        if (preg_match( self::GIT_DESCRIBE_REGEX, $result[ 'describe' ], $m )) {
+            $result[ 'version' ] = $m['major'] .'.'. $m['minor'] .'.'. $m['patch'] . $m['id'] .'+'. $m['hash'];
+        }
         // http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repo-was-originally-pulled-from
         $result['origin'] = rtrim($this->_exec('config --get remote.origin.url'), "\r\n");
         #$result['origin url'] = str_replace(array('git@', 'com:'), array('https://', 'com/'), $result['origin']);
         #$result['agent'] = basename(__FILE__);
         #$result['git'] = rtrim($this->_exec('--version'), "\r\n ");
+        $result['file_date'] = date( 'c' );
 
-        $bytes = file_put_contents(self::$REVISION_FILE, json_encode($result));
+        $bytes = $this->put_json(self::$REVISION_FILE, $result);
 
         echo "File written, $bytes: ", self::$REVISION_FILE;
 
@@ -78,6 +84,10 @@ class Gitlib {
         return (object) json_decode(file_get_contents(self::$REVISION_FILE));
     }
 
+
+    protected function put_json( $filename, $data ) {
+        return file_put_contents( $filename, str_replace( '","', "\",\n\"", json_encode( $data )));
+    }
 
     /** Execute a Git command, if allowed.
     */
