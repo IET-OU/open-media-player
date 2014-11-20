@@ -62,7 +62,7 @@ class Http {
     }
 
 
-    $ua = 'OU Player/0.9 (PHP/cURL)';
+    $ua = 'OU Player/1.1.* (PHP/cURL)';
     if ($spoof) {
        // Updated, April 2012.
        $ua = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.142 Safari/535.19";
@@ -104,10 +104,11 @@ class Http {
       curl_setopt($h_curl, CURLOPT_REFERER, base_url());
     }
 
-    /*if ($options['cookie']) {
+    // Required for intranet-restricted content [Bug: #1]
+    if ($options['cookie']) {
 		curl_setopt($h_curl, CURLOPT_COOKIE, $options['cookie']);
 		header('X-Proxy-Cookie: '.$options['cookie']);
-    }*/
+    }
 
     if (! $options['ssl_verify']) {
       curl_setopt($h_curl, CURLOPT_SSL_VERIFYPEER, FALSE);

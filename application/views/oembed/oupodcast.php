@@ -17,6 +17,7 @@
 
   $theme = 'theme-'. (isset($this->theme->name) ? $this->theme->name : 'legacy');
   $banner_class = $meta->_theme->banner ? 'yes-banner' : 'no-banner';
+  $restricted_class = $meta->_access['intranet_only'] ? 'intranet-only http-code-401 like-401' : '';
 
   $allowfullscreen = 'video'==$meta->media_type ?
       'allowfullscreen webkitallowfullscreen mozallowfullscreen' : '';
@@ -37,7 +38,7 @@ EOF;
 else:
 
   $html = <<<EOF
-<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label $banner_class' aria-label='$label'
+<iframe class='ou player podcast embed-rsp $meta->media_type size-$meta->size_label $banner_class $restricted_class' aria-label='$label'
  width='$meta->width' height='$embed_height' frameborder='0' $allowfullscreen
  src='$meta->iframe_url'></iframe>
 EOF;
