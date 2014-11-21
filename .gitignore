@@ -32,10 +32,10 @@ application/language/*.pot
 *.log
 *.mo
 
-blog/*
-drupal/*
+/blog*
+/drupal*
 _docs/*
 _data/*
-dev/*
+/dev*
 
 # *min.js

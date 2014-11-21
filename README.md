@@ -16,6 +16,11 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 ## Releases {#releases}
 
+### v1.1-12-g1f75bbf
+Release: 21 Nov/ Live: approx. 26 Nov 2014
+
+* Fix OU Media Player for intranet-restricted content [Bug: #1][bug#:1]
+
 ### v1.1-9-g17ff3ce
 <!-- v1.1-0-g0075a19 equiv. to v1.0-rc.1-45-g0075a19 // v1.1-8-g7cf9e8f -->
 Release: ~2 Jun/ Live: 12 Jun 2014
@@ -54,7 +59,7 @@ Release: 25 July/ Live: approx. 30 July 2013
 Release: 31 May/ Live: approx. 21 June 2013
 
 ### v0.95-beta-30-gcfe9c2d
-Release: 20 May/ Live: approx: 23 May 2013
+Release: 20 May/ Live: approx. 23 May 2013
 
 #### OU Player features:
 
@@ -188,6 +193,7 @@ For full credits and licenses see [docs/CREDITS.txt][credit]
 [lts-bugs]: http://ltsredmine.open.ac.uk/projects/ouplayer/issues
 [#:*]: http://iet-it-bugs.open.ac.uk/node/
 [lts#:*]: http://ltsredmine.open.ac.uk/issues/
+[bug#:*]: https://github.com/IET-OU/ouplayer/issues/
 [credit_g]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.txt
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
 

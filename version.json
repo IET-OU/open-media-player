@@ -1,8 +1,8 @@
-{"commit":"1cfbfd67f327ca57d322b183d217760679e11246",
+{"commit":"1f75bbfb10f2116e4dd31c2f30f06bf12b3a81ca",
 "author":"Nick Freear <nfreear@yahoo.co.uk>",
-"date":"Thu Nov 20 12:44:44 2014 +0000",
-"message":"Bug #2269272\/ #1\/ #1486, Fix OU Media Player for intranet-restricted content",
-"describe":"v1.1-11-g1cfbfd6",
-"version":"1.1.11+g1cfbfd6",
+"date":"Thu Nov 20 16:36:15 2014 +0000",
+"message":"Bug #2\/ #2269272, Add GNU Makefile, tweaks to Gitlib.php",
+"describe":"v1.1-12-g1f75bbf",
+"version":"1.1.12+g1f75bbf",
 "origin":"git@github.com:IET-OU\/ouplayer.git",
-"file_date":"2014-11-20T16:32:21+00:00"}
+"file_date":"2014-11-21T12:25:38+00:00"}
