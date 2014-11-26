@@ -45,7 +45,8 @@ class Sams_Auth extends Privacy_Auth {
     //( Redirect to:  https://msds.open.ac.uk/signon/SAMSDefault/SAMS001_Default.aspx?URL= )
 
     // Ensure abbreviated URLs like "//example.org" resolve to "http://example.org" [Bug: #1]
-    return str_replace(array( '=%2F%2F', '=//' ), '=http://', 'https://msds.open.ac.uk/signon/?URL=' . urlencode( $url ));
+    // IMPORTANT: urlencode() breaks the SAMS sign-on re-direction! :(
+    return str_replace(array( '=%2F%2F', '=//' ), '=http://', 'https://msds.open.ac.uk/signon/?URL=' . $url );
   }
 
 
