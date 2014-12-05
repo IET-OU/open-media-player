@@ -110,7 +110,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme {
     parent::prepare($player);
 
     // OU Podcast only: options menu, google analytics..
-    if ('Podcast_player' == get_class($player)) {
+    if ($player->is_player( 'podcast' ) || $player->is_player( 'openlearn' )) {
 
       $this->features .= ',oup_options,googleanalytics';
     }
