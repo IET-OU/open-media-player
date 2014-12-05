@@ -55,6 +55,7 @@ class Http {
 
 
     // Bug #1334, Proxy mode to fix VLE caption redirects (Timedtext controller).
+    $options[ 'cookie' ] = NULL;
     if (isset($options['proxy_cookies'])) {
       $cookie_names =  $this->CI->config->item('httplib_proxy_cookies');
       if (! is_array($cookie_names)) {
@@ -66,6 +67,16 @@ class Http {
         $cookies .= "$cname=". $this->CI->input->cookie($cname) .'; ';
       }
       $options['cookie'] = rtrim($cookies, '; ');
+    }
+
+    // Bug #4, Optionally add cookies for every request to a host/ domain.
+    $cookie_r = $this->CI->config->item( 'http_cookie' );
+    if (is_array( $cookie_r )) {
+      foreach ($cookie_r as $domain => $cookie) {
+        if (FALSE !== strpos( $url, $domain )) {
+          $options[ 'cookie' ] .= $cookie;
+        }
+      }
     }
 
     $ua = 'OU Player/1.1.* (PHP/cURL)';
