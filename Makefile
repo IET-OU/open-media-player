@@ -6,7 +6,8 @@
 # @link https://gist.github.com/nfreear/4620953
 
 # Environment
-PHP=C:/Users/ndf42/xampp/php/php
+PHP=php
+#PHP=C:/Users/ndf42/xampp/php/php
 LOG=2>&1 > C:/Users/ndf42/git-pull-serv_crake.log
 
 
