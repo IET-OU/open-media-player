@@ -1,8 +1,0 @@
-{"commit":"0bc95d640230eef4b8c0c4b55b087383d8e6ffd1",
-"author":"Nick Freear <nfreear@yahoo.co.uk>",
-"date":"Wed Nov 26 11:50:00 2014 +0000",
-"message":"Bug #1\/ #2269272, Fix for intranet-only content - ensure abbreviated",
-"describe":"v1.1-14-g0bc95d6",
-"version":"1.1.14+g0bc95d6",
-"origin":"git@github.com:IET-OU\/ouplayer.git",
-"file_date":"2014-11-26T12:07:50+00:00"}

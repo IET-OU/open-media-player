@@ -2,6 +2,8 @@
 
 A unified, accessible online audio and video player solution for The Open University.
 
+* <https://mediaplayer.open.ac.uk>
+
 Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit]).
 
 
@@ -15,6 +17,13 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 
 ## Releases {#releases}
+
+### v1.1-21-gba86785
+Release: 5 Dec/ Live: approx. 11 Dec 2014
+
+* Fix to add "no-proxy" support to Http library - intranet-restricted [bug#:3]
+* Fix cookies for intranet-restricted transcripts [bug#:4]
+* Add analytics events to OpenLearn (legacy) player [bug#:5]
 
 ### v1.1-12-g1f75bbf
 Release: 21 Nov/ Live: approx. 26 Nov 2014

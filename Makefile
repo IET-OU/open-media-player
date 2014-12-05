@@ -17,7 +17,9 @@ help:
 	# Available targets:
 	@echo "		update describe pull cm build-theme version gettext"
 
-update: describe pull describe version
+update: describe pull describe version.json
+
+update-nick: describe pull-nick describe version.json
 
 describe:
 	@git describe --tags --long
@@ -35,7 +37,7 @@ cm:
 build-theme:
 	$(PHP) index.php build/theme
 
-version:
+version.json:
 	@$(PHP) index.php build/revision
 
 gettext:
