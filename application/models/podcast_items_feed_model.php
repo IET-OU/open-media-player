@@ -70,7 +70,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		$url = $this->_feed_url($basename, $shortcode);
 
 		// Set a cookie (intranet-restricted content), and don't spoof. [iet-it-bugs:1463][Bug: #1]
-		$result = $this->http->request($url, $spoof = FALSE, array('cookie' => 'pod.auth=PASSED'));
+		$result = $this->http->request($url, $spoof = FALSE /*, array('cookie' => 'pod.auth=PASSED')*/ );
 		if (! $result->success) {
 			//ERROR.
 			$_data = $result->data;

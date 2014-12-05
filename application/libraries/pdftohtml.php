@@ -178,7 +178,7 @@ class Pdftohtml {
   * @param int $return_var [out]
   * @return string Last line of result.
   */
-  protected function _exec($options, array &$output_r = NULL, &$return_var) {
+  protected function _exec($options, array &$output_r = NULL, &$return_var = NULL) {
     if (! file_exists(self::$cmd_path)) {
       //Error.
       if (isset($this->CI)) {

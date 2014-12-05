@@ -31,7 +31,7 @@ $docs = config_item('player_docs');
 $about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
 
 
-$base_url = base_url();
+$base_url = site_url();
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
