@@ -75,6 +75,7 @@ EOT;
       $fragment = $matches[ 'sc' ];   #$matches[3]
       $is_file  = FALSE!==strpos($fragment, '.');
 
+      $this->CI->embed_url = site_url("embed/pod/$basename/$fragment") . $this->CI->options_build_query();  //?theme=..&debug=..
       return $this->_inner_call($basename, $fragment);
   }
 
@@ -222,7 +223,7 @@ EOT;
   */
   protected function _post_process(&$player) {
     // Our <iframe> embed!!
-    $player->iframe_url = site_url("embed/pod/$player->_album_id/$player->_track_md5").$this->CI->options_build_query(); #?width=$width&amp;height=$height";
+    $player->iframe_url = $this->CI->embed_url;
 
     // Mediaelement.js doesn't seem to like 'x-m4v'.
     // And, Webkit HTML5 doesn't like 'video/m4v'.
@@ -289,13 +290,19 @@ EOT;
     $res = FALSE;
 
     $trans_n2_html = $this->CI->config->item('data_dir').'oupodcast/'.basename($player->transcript_html_url);
-	$trans_n2_html= str_replace(array('.html', '.htm'), '_trans_n2.html', $trans_n2_html);
+    $trans_n2_html= preg_replace( '/\.html?$/', '_trans_n2.html', $trans_n2_html);
+    //$trans_n2_html= str_replace(array('.html', '.htm'), '_trans_n2.html', $trans_n2_html);
 
 	if (! file_exists($trans_n2_html)) {
 	  $res = $this->_http_request_curl($player->transcript_html_url);
-      if (!$res->success) {
+      if ($res->success) {
+
+        $this->CI->_debug( "Success getting HTML transcript (N2-A), $player->transcript_html_url | " . $res->http_code );
+
+      } else {
         // Log error.
-        log_message('error', __CLASS__.". Error getting HTML transcript (N2), $player->transcript_html_url | ".$res->info['http_code']);
+        log_message('error', __CLASS__.". Error getting HTML transcript (N2), $player->transcript_html_url | " . $res->http_code);
+        $this->CI->_debug( "Error getting HTML transcript (N2-A), $player->transcript_html_url | " . $res->http_code );
       }
     }
 
@@ -320,6 +327,12 @@ EOT;
       $player->transcript_html = '<!--N2-->'. $this->CI->pdftohtml->filter(@file_get_contents($trans_n2_html));
       if (! $player->transcript_html) {
         $this->CI->_log('error', __CLASS__.". Error getting HTML transcript (N2).");
+        return FALSE;
+      }
+      if (preg_match( '/(\<\!DOCTYPE|Sign IN)/i', $player->transcript_html )) {
+        $this->CI->_log( 'error', __CLASS__ . '. Unexpected HTML transcript (N2) - A.' );
+        $this->CI->_debug( __CLASS__ . '. Unexpected HTML transcript (N2) - A.' );
+        $player->transcript_html = NULL;
         return FALSE;
       }
     }
