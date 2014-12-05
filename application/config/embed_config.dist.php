@@ -24,6 +24,13 @@ $config['robots'] = FALSE;
 |--------------------------------------------------------------------------
 | Web proxy. (Not for IT-EUD, yes for IET-dmz.)
 */
+$config[ 'http_proxy' ]    = 'wwwcache.open.ac.uk:80';
+$config[ 'http_no_proxy' ] = '*.open.ac.uk;localhost;jime.open.ac.uk';
+$config[ 'http_cookie' ]   = array(
+    '.open.ac.uk' => 'pod.auth=PASSED',
+);
+
+/** LEGACY **
 switch (strtolower(getenv('OUENV'))) {
   case 'live':
   case 'acct':  # IT-hosting - fall through.
@@ -36,8 +43,7 @@ switch (strtolower(getenv('OUENV'))) {
     $config['http_proxy'] = 'wwwcache.open.ac.uk:80';
 	break;
 }
-
-#$config['http_proxy'] = 'wwwcache.open.ac.uk:80';
+*/
 #$config['http_adv'] = TRUE;
 
 
@@ -104,6 +110,7 @@ $config['player_embed_code'] = NULL;
 // If used, must contain (ext1|ext2..) as the THIRD matching group.
 //$config['media_url_regex'] = '@:\/\/[\w-\.]+\.open\.(ac\.uk|edu)(\:\d+)?\/.*\.(mp4|m4v|flv|mp3)[\/\?]?@'; //No '$' at the end.
 
+/** LEGACY? **/
 // Required/VLE/experimental: array of names of session cookies to pass on for caption/subtitle proxy requests (Bug #1334).
 //$config['httplib_proxy_cookies'] = array('cookiename1', 'cookiename2', '..');
 

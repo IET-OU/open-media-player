@@ -7,6 +7,13 @@
  * @author N.D.Freear, 6 March 2012.
  */
 
+
+/* https://bugs.php.net/bug.php?id=53543
+   https://github.com/dtouzeau/1.6.x/blob/master/ressources/class.ccurl.inc#L5
+*/
+defined( 'CURLOPT_NOPROXY' ) ? NULL : define( 'CURLOPT_NOPROXY', 10177 );
+
+
 class Http {
 
   protected $CI;
@@ -60,7 +67,6 @@ class Http {
       }
       $options['cookie'] = rtrim($cookies, '; ');
     }
-
 
     $ua = 'OU Player/1.1.* (PHP/cURL)';
     if ($spoof) {
@@ -138,6 +144,7 @@ class Http {
 	$http_proxy = $this->CI->config->item('http_proxy');
 	if ($http_proxy) {
 	  curl_setopt($h_curl, CURLOPT_PROXY, $http_proxy);
+	  curl_setopt($h_curl, CURLOPT_NOPROXY, $this->CI->config->item( 'http_no_proxy' ));
 	}
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
 
