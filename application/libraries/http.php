@@ -89,6 +89,7 @@ class Http {
     // Merge the default options.
     $options += array(
       'proxy' => $this->CI->config->item('http_proxy'),
+      'no_proxy' => $this->CI->config->item( 'http_no_proxy' ),
       'headers' => array(),
       'method' => 'GET',
       'data' => NULL,
@@ -152,10 +153,9 @@ class Http {
       curl_setopt($h_curl, CURLOPT_USERPWD, $options['auth']);
     }
 
-	$http_proxy = $this->CI->config->item('http_proxy');
-	if ($http_proxy) {
-	  curl_setopt($h_curl, CURLOPT_PROXY, $http_proxy);
-	  curl_setopt($h_curl, CURLOPT_NOPROXY, $this->CI->config->item( 'http_no_proxy' ));
+	if ($options[ 'proxy' ]) {
+	  curl_setopt($h_curl, CURLOPT_PROXY, $options[ 'proxy' ]);
+	  curl_setopt($h_curl, CURLOPT_NOPROXY, $options[ 'no_proxy' ]);
 	}
     curl_setopt($h_curl, CURLOPT_RETURNTRANSFER, TRUE);
 
