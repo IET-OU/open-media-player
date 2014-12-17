@@ -12,10 +12,7 @@
  */
 #require_once APPPATH.'libraries/ouplayer_lib.php';
 
-#define('PROXY', 'wwwcache.open.ac.uk:80');
 define('TTML_NS', 'http://www.w3.org/2006/10/ttaf1');
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 
 class Timedtext extends MY_Controller { #CI_Controller {

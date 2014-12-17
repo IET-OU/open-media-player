@@ -11,6 +11,7 @@ $config['token'] = 0;  #'NDF/2012-12-04';
 |--------------------------------------------------------------------------
 | Debugging flag (integer, one of OUP_DEBUG_NONE, OUP_DEBUG_MIN, OUP_DEBUG_MAX).
 */
+// See also: 'ENVIRONMENT' defined in ../../index.php
 $config['debug'] = OUP_DEBUG_MIN;
 
 $config['robots'] = FALSE;

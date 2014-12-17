@@ -4,6 +4,11 @@
 ## https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
 ##
 
+
+# Set on IT-EUD hosting.
+##SetEnv  OUENV  iet-test
+
+
 # Disable OU-SAMS authentication.
 <IfModule mod_access_sams.c>
     DISABLE_SAMS

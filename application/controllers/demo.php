@@ -245,6 +245,7 @@ class Demo extends MY_Controller {
 
 	  $my_env = array(
 	    'OUENV' => getenv('OUENV'),
+	    'ENVIRONMENT' => ENVIRONMENT,
 	    'Server' => $this->_server_name(),
 	    'CodeIgniter version' => CI_VERSION,  #.' <small>(Not always up-to-date!)</small>',
 	    'Token' => $this->config->item('token'),

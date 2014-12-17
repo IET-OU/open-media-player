@@ -18,7 +18,10 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'development');
+	$_ouenv = getenv( 'OUENV' );
+	$_debug = isset($_GET[ 'debug' ]);
+	define( 'ENVIRONMENT', $_debug ? 'debug' : ( $_ouenv ? strtolower($_ouenv) : 'iet-dev' ));
+	//define('ENVIRONMENT', 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -33,12 +36,24 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'development':
+
+		case 'dev':   # IT-hosting - fall through.
+		case 'iet-dev':
+		case 'debug':
 			error_reporting(E_ALL);
+			ini_set('display_errors', 1);
 		break;
 	
 		case 'testing':
 		case 'production':
+
+		case 'live':   # IT-hosting - fall through.
+		case 'acct':
+		case 'test':
+		case 'iet-live':
+		case 'iet-test':
 			error_reporting(0);
+			ini_set('display_errors', 0);
 		break;
 
 		default:
