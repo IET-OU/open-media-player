@@ -40,6 +40,7 @@ EOT;
   );
   public $_access = 'public';
   protected $_comment = 'This endpoint will be deprecated in favour of http://mediaplayer.open.ac.uk [live]';
+  protected $embed_url;
 
   //NDF: const POD_BASE = 'http://podcast.open.ac.uk';
 
@@ -75,7 +76,7 @@ EOT;
       $fragment = $matches[ 'sc' ];   #$matches[3]
       $is_file  = FALSE!==strpos($fragment, '.');
 
-      $this->CI->embed_url = site_url("embed/pod/$basename/$fragment") . $this->CI->options_build_query();  //?theme=..&debug=..
+      $this->embed_url = site_url("embed/pod/$basename/$fragment") . $this->CI->options_build_query();  //?theme=..&debug=..
       return $this->_inner_call($basename, $fragment);
   }
 
@@ -223,7 +224,7 @@ EOT;
   */
   protected function _post_process(&$player) {
     // Our <iframe> embed!!
-    $player->iframe_url = $this->CI->embed_url;
+    $player->iframe_url = $this->embed_url;
 
     // Mediaelement.js doesn't seem to like 'x-m4v'.
     // And, Webkit HTML5 doesn't like 'video/m4v'.
