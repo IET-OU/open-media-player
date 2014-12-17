@@ -1,4 +1,6 @@
-<div class="error-php" data-msg=<?php echo json_encode("PHP $severity: $message")?> style="border:1px solid #990000;padding-left:20px;margin:0 0 5px 0;">
+<?php $_debug = isset($_GET[ 'debug' ]) ?>
+<div class="error-php" data-msg=<?php echo json_encode("PHP $severity: $message")?> style=
+ "border:1px solid #990000;padding-left:20px;margin:0 0 5px 0;<?php echo $_debug ? '':'display:none'?>">
 
 <h4>A PHP Error was encountered</h4>
 
@@ -7,5 +9,5 @@
 <div>Filename: <?php echo $filepath; ?></div>
 <div>Line Number: <?php echo $line; ?></div>
 
-<script>window.console && console.log(<?php echo json_encode("PHP $severity: '$message' .. (ouplayer)")?>)</script>
+<script>window.console && console.log(<?php echo json_encode("ERROR - PHP $severity: '$message' .. (ouplayer)")?>)</script>
 </div>

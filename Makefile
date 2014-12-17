@@ -16,7 +16,7 @@ help:
 	# OU Media Player/ OU embed installer.
 	@echo
 	# Available targets:
-	@echo "		update describe pull cm build-theme version gettext"
+	@echo "		update update-nick describe pull cm build-theme version.json gettext"
 
 update: describe pull describe version.json
 
@@ -45,6 +45,6 @@ gettext:
 	$(PHP) application/cli/xgettext.php
 
 
-.PHONY: help update describe pull cm build-theme version gettext
+.PHONY: help update describe pull cm build-theme version.json gettext
 
 #End.

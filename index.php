@@ -18,6 +18,7 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
+//ou-specific
 	$_ouenv = getenv( 'OUENV' );
 	$_debug = isset($_GET[ 'debug' ]);
 	define( 'ENVIRONMENT', $_debug ? 'debug' : ( $_ouenv ? strtolower($_ouenv) : 'iet-dev' ));
@@ -55,7 +56,7 @@ if (defined('ENVIRONMENT'))
 			error_reporting(0);
 			ini_set('display_errors', 0);
 		break;
-
+//ou-specific ends.
 		default:
 			exit('The application environment is not set correctly.');
 	}

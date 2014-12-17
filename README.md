@@ -18,17 +18,23 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 ## Releases {#releases}
 
-### v1.1-21-gba86785
-Release: 5 Dec/ Live: approx. 11 Dec 2014
+### v1.1-25-g535a7b7
+Release: 17 Dec/ Live: 17 Dec 2014 (or Jan 2015 - ?)
 
-* Fix to add "no-proxy" support to Http library - intranet-restricted [bug#:3]
-* Fix cookies for intranet-restricted transcripts [bug#:4]
-* Add analytics events to OpenLearn (legacy) player [bug#:5]
+* Fix PHP notice/ warning [Bug:7]
+* Fix PHP `error_reporting()`/ `display_errors` use [Bug:7]
+
+### v1.1-21-gba86785
+Release: 5 Dec/ Live: 11 Dec 2014
+
+* Fix to add "no-proxy" support to Http library - intranet-restricted [Bug:3]
+* Fix cookies for intranet-restricted transcripts [Bug:4]
+* Add analytics events to OpenLearn (legacy) player [Bug:5]
 
 ### v1.1-12-g1f75bbf
 Release: 21 Nov/ Live: approx. 26 Nov 2014
 
-* Fix OU Media Player for intranet-restricted content [Bug: #1][bug#:1]
+* Fix OU Media Player for intranet-restricted content [Bug:1]
 
 ### v1.1-9-g17ff3ce
 <!-- v1.1-0-g0075a19 equiv. to v1.0-rc.1-45-g0075a19 // v1.1-8-g7cf9e8f -->
@@ -203,6 +209,7 @@ For full credits and licenses see [docs/CREDITS.txt][credit]
 [#:*]: http://iet-it-bugs.open.ac.uk/node/
 [lts#:*]: http://ltsredmine.open.ac.uk/issues/
 [bug#:*]: https://github.com/IET-OU/ouplayer/issues/
+[Bug:*]:  https://github.com/IET-OU/ouplayer/issues/
 [credit_g]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.txt
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
 
