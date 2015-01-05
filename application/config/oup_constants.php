@@ -82,10 +82,12 @@ define('OUP_JS_CDN_ENDER',     '//dnmrmlfxy5gpj.cloudfront.net/jeesh.js');
 
 // Fallback: jQuery 1.7+ ('//' is deliberate - HTTPS/SSL support!)
 //WAS: 1.7.2 (1.9.1)
+// Fix jQuery XSS vulnerability (IT notify) [Bug: #8]
 define('OUP_JS_CDN_JQUERY_MIN',
-  '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
+    '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' );
 define('OUP_JS_CDN_JQUERY',
-  '//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js');
+    '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js' );
+
 
 
 // "Link to jQuery 1.7+ on a CDN - shared by jquery-oembed demos (and the Player depending on config[jslib])."

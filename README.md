@@ -18,8 +18,13 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 ## Releases {#releases}
 
+### v1.1-26-g731260f
+Release: 5 Jan/ Live: 14 Jan 2015
+
+* Fix jQuery XSS vulnerability [Bug:8]
+
 ### v1.1-25-g535a7b7
-Release: 17 Dec/ Live: 17 Dec 2014 (or Jan 2015 - ?)
+Release: 17 Dec/ Live: 18 Dec 2014
 
 * Fix PHP notice/ warning [Bug:7]
 * Fix PHP `error_reporting()`/ `display_errors` use [Bug:7]
