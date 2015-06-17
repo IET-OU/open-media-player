@@ -1,6 +1,10 @@
 
 version.json
 
+/composer.lock
+/vendor/*
+/application/engines/mediaelement-x
+
 /git*.php
 /git-pull*
 
@@ -31,6 +35,7 @@ application/language/*.pot
 * copy*
 *OLD*
 *ORIG*
+*BAK
 *.log
 *.mo
 

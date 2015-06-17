@@ -1,0 +1,112 @@
+{
+  "name": "iet-ou/open-media-player",
+  "description": "A unified, accessible online audio and video player service. Built on MediaElement.js, CodeIgniter & oEmbed. ©2015 The Open University, UK.",
+  "keywords": [ "ouplayer", "MediaPlayer", "audio", "video", "mediaelementjs", "oEmbed", "accessibility", "OpenUniversity", "IET-OU" ],
+  "homepage": "https://mediaplayer.open.ac.uk",
+  "type": "project",
+  "time": "2011-03-10",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "authors": [
+    { "name": "Nick Freear (@nfreear)", "role": "developer" },
+    { "name": "Peter Devine (@peterdevinegmd", "role": "designer", "homepage": "http://devine.co.uk/peter/" }
+  ],
+  "support": {
+    "email": "iet-webmaster@open.ac.uk",
+    "forum": "https://groups.google.com/forum/#!forum/ou-media-player",
+    "issues": "https://github.com/IET-OU/ouplayer/issues",
+    "source": "https://github.com/IET-OU/ouplayer"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "johndyer/mediaelement",
+        "version": "2.17.0",
+        "license": "MIT",
+        "dist": {
+          "url": "https://github.com/johndyer/mediaelement/archive/2.17.0.zip",
+          "type": "zip"
+        },
+        "// - source": {
+          "url": "https://github.com/johndyer/mediaelement.git",
+          "type": "git",
+          "reference": "2.17.0"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "mnsami/composer-custom-directory-installer": "1.0.*",
+    "johndyer/mediaelement": "2.17.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "~2.1.0",
+    "jakub-onderka/php-parallel-lint": "~0.8"
+  },
+  "suggest": {
+    "iet-ou/ou-media-player-base": "*; Base classes for themes, providers & extensions",
+    "iet-ou/ou-media-player-ou": "*; OU-only - theme, SAMS auth ...",
+    "iet-ou/ou-embed-providers": "*; oEmbed providers - Google Docs, Prezi ...",
+
+    "nfreear/ou-media-player-test": "*; Remote integration tests.",
+    "IET-OU/mediaelement-demo": "*; Demos for IET-OU enhancements & fixes to MediaElement.js",
+
+    "fancyguy/webroot-installer": "1.1.0",
+    "wikimedia/composer-merge-plugin": "v1.0.0",
+    "nfreear/composer-suggest": "^1.1"
+  },
+  "scripts": {
+    "test-psr2": [
+      "#echo $1",
+      "#export F=application/$1 ;",
+      "#composer validate #--no-interaction",
+      "#parallel-lint application/*",
+      "phpcs --standard=PSR2 -n --encoding=utf-8 --extensions=php application/core/MY_Co*"
+    ],
+    "test-oump": [
+      "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/core/MY_Co*"
+    ],
+
+    "test-v": [
+      "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/views/vle_d*"
+    ],
+
+    "fix-psr2": [
+      "phpcbf --standard=PSR2 -n -l  --encoding=utf-8 --extensions=php application/core/MY_Contr*"
+    ],
+    "fix-oump": [
+      "phpcbf --standard=./phpcs.xml -n -l --encoding=utf-8 --extensions=php application/core/MY_Co*"
+    ]
+  },
+  "config": {
+    "preferred-install": "source"
+  },
+  "extra": {
+
+    "webroot-dir": "application/engines/mediaelement-x",
+    "webroot-package": "johndyer/mediaelement",
+
+    "installer-paths": {
+      "./application/engines/mediaelement-x": [ "johndyer/mediaelement" ]
+    },
+
+    "merge-plugin": {
+      "include": [
+        "./shared/composer.json"
+      ]
+    },
+
+    "//": [
+      "http://mediaplayer.open.ac.uk/demo/info#php - 5.4.36",
+      "http://embed.open.ac.uk/demo/info#php - 5.3.3",
+      "https://github.com/IET-OU/ouplayer ../system/core/CodeIgniter.php#L36 - CI 2.1.3",
+      "http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt",
+
+      "TODO:  rm cache/ hooks/ logs/ migrations/ third_party/",
+
+      "https://gist.github.com/nfreear/57262e040d49b2f212ec"
+    ]
+  }
+}

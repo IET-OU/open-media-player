@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ruleset name="mediaplayer-open-ac-uk">
+  <description>OU Media Player coding standard - PSR2, almost!</description>
+  <!--
+    Stay as close to PSR-2 as possible, but account for CodeIgniter conventions.
+
+    https://github.com/squizlabs/PHP_CodeSniffer ./Standards/PSR2/ruleset.xml
+    https://github.com/cakephp/cakephp-codesniffer ./CakePHP/ruleset.xml
+    http://edorian.github.io/php-coding-standard-generator/#phpcs
+  -->
+
+  <exclude-pattern>\.git</exclude-pattern>
+  <exclude-pattern>/system/</exclude-pattern>
+  <exclude-pattern>/vendor/</exclude-pattern>
+  <exclude-pattern>*/*.html</exclude-pattern>
+
+  <rule ref="PSR2">
+    <exclude name="PSR2.Methods.MethodDeclaration"/>
+    <!--<exclude name="PSR2.Classes.PropertyDeclaration"/>-->
+  </rule>
+
+  <rule ref="PSR1">
+  <exclude name="PSR1.Methods.CamelCapsMethodName"/>
+  <!--<exclude name="PSR1.Classes.ClassDeclaration"/><!-|- namespace -->
+  <exclude name="PSR1.Files.SideEffects"/>
+  </rule>
+
+  <rule ref="Squiz.Classes">
+    <exclude name="Squiz.Classes.ValidClassName"/>
+  </rule>
+
+  <!--
+    Accept class names like "MY_Controller".
+  -->
+  <rule ref="PEAR.NamingConventions.ValidClassName"/>
+
+
+  <!--<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>-->
+
+  <!--<rule ref="Squiz.Classes.LowercaseClassKeywords"/>-->
+
+  <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+  <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+  <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+  <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+  <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+
+  <rule ref="Generic.Commenting.Todo"/>
+
+  <rule ref="Generic.Files.LineEndings"/>
+
+  <rule ref="Generic.PHP.DeprecatedFunctions"/>
+  <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
+  <rule ref="Squiz.PHP.Eval"/>
+  <rule ref="Generic.PHP.ForbiddenFunctions"/>
+  <rule ref="Squiz.PHP.NonExecutableCode"/>
+  <!--<rule ref="Generic.PHP.NoSilencedErrors"/>-->
+
+  <rule ref="Squiz.Scope.MemberVarScope"/>
+  <rule ref="Squiz.Scope.StaticThisUsage"/>
+
+  <rule ref="Squiz.WhiteSpace.CastSpacing"/>
+  <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+  <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+  <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+
+  <!-- All rules in ./Sniffs are included automatically -->
+</ruleset>
