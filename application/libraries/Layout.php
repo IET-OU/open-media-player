@@ -1,13 +1,12 @@
-<?php  
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 class Layout
 {
     
-    var $obj;
-    var $layout;
+    protected $obj;
+    protected $layout;
     
-    function Layout($layout = "layout_main")
+    public function Layout($layout = "layout_main")
     {
 #ou-specific bug fix
         if (is_array($layout)) {
@@ -18,25 +17,21 @@ class Layout
         $this->layout = $layout;
     }
 
-    function setLayout($layout)
+    public function setLayout($layout)
     {
-      $this->layout = $layout;
+        $this->layout = $layout;
     }
     
-    function view($view, $data=null, $return=false)
+    public function view($view, $data = null, $return = false)
     {
         $loadedData = array();
-        $loadedData['content_for_layout'] = $this->obj->load->view($view,$data,true);
+        $loadedData['content_for_layout'] = $this->obj->load->view($view, $data, true);
         
-        if($return)
-        {
+        if ($return) {
             $output = $this->obj->load->view($this->layout, $loadedData, true);
             return $output;
-        }
-        else
-        {
+        } else {
             $this->obj->load->view($this->layout, $loadedData, false);
         }
     }
 }
-?>
