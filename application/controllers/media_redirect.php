@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Media-redirect test controller.
  *
@@ -10,33 +10,35 @@
  */
 
 
-class Media_redirect extends MY_Controller {
+class Media_redirect extends MY_Controller
+{
 
-  protected $redirect_codes = array(
+    protected $redirect_codes = array(
     301 => 'Moved permanently',
     302 => 'Found', #'Moved Temporarily'
     303 => 'See Other',
-	307 => 'Temporary Redirect', # HTTP/1.1+
-  );
+    307 => 'Temporary Redirect', # HTTP/1.1+
+    );
 
 
-  public function pod($collection = NULL, $filename = NULL, $params = FALSE, $http_code = 302) {
-    if (! $collection || ! $filename) {
-      $this->_error('Missing {collection} or {filename}', 400);
+    public function pod($collection = null, $filename = null, $params = false, $http_code = 302)
+    {
+        if (! $collection || ! $filename) {
+            $this->_error('Missing {collection} or {filename}', 400);
+        }
+        if (! preg_match('/30[123]/', $http_code)) {
+            $this->_error('Invalid {http_code}', 400.2);
+        }
+
+        $url = "http://podcast.open.ac.uk/feeds/$collection/$filename";
+
+        $url .= ($params) ? '?random=' . rand(2, 99) : '';
+
+      #var_dump($url, $params, $http_code);
+
+        header('HTTP/1.1 '. $http_code);
+        header('Location: '. $url);
+
+      #redirect($url);
     }
-    if (! preg_match('/30[123]/', $http_code)) {
-      $this->_error('Invalid {http_code}', 400.2);
-    }
-
-    $url = "http://podcast.open.ac.uk/feeds/$collection/$filename";
-
-    $url .= ($params) ? '?random=' . rand(2, 99) : '';
-
-    #var_dump($url, $params, $http_code);
-
-    header('HTTP/1.1 '. $http_code);
-    header('Location: '. $url);
-
-    #redirect($url);
-  }
 }

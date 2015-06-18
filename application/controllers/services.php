@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * The oEmbed Services API controller.
  *
@@ -10,53 +10,55 @@
 ini_set('display_errors', true);
 
 
-class Services extends MY_Controller {
+class Services extends MY_Controller
+{
+
+    /** Output JSON/ JSON-P.
+    */
+    public function index($return = false)
+    {
+        @header('Content-Disposition: inline; filename=ouplayer-ou-embed-services.json');
+
+      // JSON-P callback: security. Only allow eg. 'Object.func_CB_1234'
+        $callback = $this->_jsonp_callback_check();
 
 
-  /** Output JSON/ JSON-P.
-  */
-  public function index($return = FALSE) {
-	@header('Content-Disposition: inline; filename=ouplayer-ou-embed-services.json');
+      // Get oEmbed service providers.
+        $providers = $this->_get_oembed_providers();
+        $services = array();
 
-    // JSON-P callback: security. Only allow eg. 'Object.func_CB_1234'
-    $callback = $this->_jsonp_callback_check();
+        foreach ($providers as $domain => $provider) {
+            if (! is_string($provider)) {
+                continue;
+            }
+
+          # New (#1356)
+            $this->load->oembed_provider($provider);
+            $name = $this->provider->getName();
+
+          // Use the 'name' to filter duplicates, then call 'array_values' below.
+            $services[$name] = $this->provider->getProperties();
+
+            if ('oupodcast' == $provider) {
+                require_once APPPATH .'libraries/ouplayer_lib.php';
+
+                $player = new Podcast_player();
+                $services[$name]->_sizes = $player->get_sizes();
+            }
+        }
+
+        if ($return) {
+            return $services;
+        }
 
 
-    // Get oEmbed service providers.
-    $providers = $this->_get_oembed_providers();
-    $services = array();
-
-    foreach ($providers as $domain => $provider) {
-
-      if (! is_string($provider)) continue;
-
-      # New (#1356)
-      $this->load->oembed_provider($provider);
-      $name = $this->provider->getName();
-
-      // Use the 'name' to filter duplicates, then call 'array_values' below.
-      $services[$name] = $this->provider->getProperties();
-
-      if ('oupodcast' == $provider) {
-        require_once APPPATH .'libraries/ouplayer_lib.php';
-
-        $player = new Podcast_player();
-        $services[$name]->_sizes = $player->get_sizes();
-      }
+      // Output.
+        $view_data = array(
+        'format' => 'json',
+        'callback' => $callback,
+        'oembed' => array_values($services), # A hack!
+        'not_oembed' => true,
+        );
+        $this->load->view('oembed/render', $view_data);
     }
-
-    if ($return) {
-      return $services;
-    }
-
-
-    // Output.
-    $view_data = array(
-      'format' => 'json',
-      'callback' => $callback,
-      'oembed' => array_values($services), # A hack!
-      'not_oembed' => true,
-    );
-    $this->load->view('oembed/render', $view_data);
-  }
 }

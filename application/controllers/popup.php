@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Pop-up/ pop-out player controller.
  * (Cf. http://youtube.com/watch_popup?v=um3s9IzMR4c)
@@ -9,11 +9,12 @@
 require_once APPPATH.'controllers/embed.php';
 
 
-class Popup extends Embed {
+class Popup extends Embed
+{
 
-  // Very similar to the embed controller!
+    // Very similar to the embed controller!
 
 
 
-  // get_class( $CI ) tells us whether we are in Embed or Popup mode.
+    // get_class( $CI ) tells us whether we are in Embed or Popup mode.
 }
