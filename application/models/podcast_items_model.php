@@ -7,17 +7,20 @@
 require_once 'podcast_items_abstract_model.php';
 
 
-class Podcast_items_model extends Podcast_items_abstract_model {
+class Podcast_items_model extends Podcast_items_abstract_model
+{
 
     protected $db_pod;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
-        $this->db_pod = $this->load->database('podcast', TRUE);
+        $this->db_pod = $this->load->database('podcast', true);
     }
 
-    public function get_item($basename, $shortcode=NULL, $captions=FALSE) {
+    public function get_item($basename, $shortcode = null, $captions = false)
+    {
 
     /* SELECT * FROM podcast_items
       JOIN podcasts ON podcasts.id=podcast_items.podcast_id
@@ -33,7 +36,7 @@ class Podcast_items_model extends Podcast_items_abstract_model {
 SQL;
         // This doesn't work!
         $where_podcast_items = 'podcast_items.shortcode';
-        if (FALSE !== strpos($shortcode, '.')) {
+        if (false !== strpos($shortcode, '.')) {
             $where_podcast_items = 'podcast_items.filename';
         }
         $sql_cc =<<<SQL
@@ -63,7 +66,8 @@ SQL;
             $this->db_pod->order_by('pim_type', 'desc');
         }
         $this->db_pod->where('podcasts.custom_id', $basename);      #'l314-spanish');
-        if (FALSE !== strpos($shortcode, '.')) { #(FALSE !== strpos($basename, '.m') && !$shortcode) {
+        if (false !== strpos($shortcode, '.')) {
+#(FALSE !== strpos($basename, '.m') && !$shortcode) {
             $this->db_pod->where('podcast_items.filename', $shortcode);  #'l314audio1.mp3');
         } else {
             $this->db_pod->where('podcast_items.shortcode', $shortcode);#'fe481a4d1d');
@@ -85,14 +89,14 @@ SQL;
             }
         }
         if ($result) {
-          return $result[0];
+            return $result[0];
         }
-        return FALSE;
+        return false;
     }
 
-    public function count() {
+    public function count()
+    {
         $this->db_pod->from('podcast_items');
-	    return $this->db_pod->count_all_results();
+        return $this->db_pod->count_all_results();
     }
-
 }

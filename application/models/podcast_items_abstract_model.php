@@ -6,19 +6,25 @@
  * @author N.D.Freear, 16 March 2012.
  */
 
-abstract class Podcast_items_abstract_model extends CI_Model {
+abstract class Podcast_items_abstract_model extends CI_Model
+{
 
-	protected $CI;
+    protected $CI;
 
-	public function __construct() {
-		parent::__construct();
-		$this->CI =& get_instance();
-	}
+    public function __construct()
+    {
+        parent::__construct();
+        $this->CI =& get_instance();
+    }
 
-	public function get_item($basename, $shortcode=NULL, $captions=FALSE) {}
+    public function get_item($basename, $shortcode = null, $captions = false)
+    {
+
+    }
 
 
-	protected function _error($message, $code=500, $from=null, $obj=null) {
-		$this->CI->_error($message, $code, $from, $obj);
-	}
+    protected function _error($message, $code = 500, $from = null, $obj = null)
+    {
+        $this->CI->_error($message, $code, $from, $obj);
+    }
 }
