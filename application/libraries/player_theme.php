@@ -30,6 +30,9 @@ abstract class Player_Theme
 
     protected $CI;
 
+    const ENGINE_PATH = 'engines/';
+    const THEME_PATH  = 'themes/';
+
 
     /** Constructor: auto-generate 'name' and 'parent' properties.
     */

@@ -13,10 +13,25 @@
   <exclude-pattern>/application/cli/</exclude-pattern>
   <exclude-pattern>/application/config/</exclude-pattern>
   <exclude-pattern>/application/engines/</exclude-pattern>
+  <exclude-pattern>/application/errors/</exclude-pattern>
+  <exclude-pattern>/application/language/</exclude-pattern>
   <exclude-pattern>/system/</exclude-pattern>
   <exclude-pattern>/vendor/</exclude-pattern>
   <exclude-pattern>*/*.html</exclude-pattern>
   <exclude-pattern>*/*BAK*</exclude-pattern>
+
+  <!-- Exclude third-party libraries. -->
+  <exclude-pattern>/application/libraries/FirePHPCore</exclude-pattern>
+  <exclude-pattern>/application/libraries/class.pdf2text.php</exclude-pattern>
+  <exclude-pattern>/application/libraries/POParser.php</exclude-pattern>
+
+  <!-- Why does `phpcbf` fail on http.php ?? -->
+  <exclude-pattern>/application/libraries/ht--tp.php</exclude-pattern>
+
+  <!-- Temporarily exclude all views and provider-libraries. -->
+  <exclude-pattern>*/views/*</exclude-pattern>
+  <exclude-pattern>/application/libraries/providers/</exclude-pattern>
+
 
   <rule ref="PSR2">
     <exclude name="PSR2.Methods.MethodDeclaration"/>
@@ -36,6 +51,14 @@
 
   <rule ref="Squiz.Classes">
     <exclude name="Squiz.Classes.ValidClassName"/>
+  </rule>
+
+  <!-- "%s name doesn't match filename; expected"-->
+  <rule ref="Squiz.Classes">
+    <exclude-pattern>/application/controllers/</exclude-pattern>
+
+    <exclude name="Squiz.Classes.ValidClassName"/>
+    <!--<exclude name="Squiz.Classes.ClassFileName"/>-->
   </rule>
 
   <!--
