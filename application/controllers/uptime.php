@@ -13,7 +13,7 @@
  * @package Uptime
  */
 
-class Uptime extends MY_Controller
+class Uptime extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     /** Uptime page, for both podcast and OU-embed data sources/DBs.

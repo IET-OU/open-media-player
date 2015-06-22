@@ -18,7 +18,7 @@
 * @author N.D.Freear, 17 April 2012, -04-25.
 */
 
-class Build extends MY_Controller
+class Build extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     protected $_closure_template = <<<EOF

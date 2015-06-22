@@ -8,7 +8,7 @@
  */
 
 
-class Obj_to_oup extends MY_Controller
+class Obj_to_oup extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     public function index()

@@ -10,7 +10,7 @@
  */
 
 
-class Media_redirect extends MY_Controller
+class Media_redirect extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     protected $redirect_codes = array(

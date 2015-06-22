@@ -7,7 +7,7 @@
 */
 
 
-class About extends MY_Controller
+class About extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     #const LAYOUT = 'ouice_2';

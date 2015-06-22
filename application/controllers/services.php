@@ -10,7 +10,7 @@
 ini_set('display_errors', true);
 
 
-class Services extends MY_Controller
+class Services extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     /** Output JSON/ JSON-P.

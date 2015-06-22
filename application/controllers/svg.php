@@ -9,7 +9,7 @@ Examples:
 *
 */
 
-class Svg extends MY_Controller
+class Svg extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     protected $_whitelist;

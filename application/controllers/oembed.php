@@ -7,7 +7,7 @@
  */
 
 
-class Oembed extends MY_Controller
+class Oembed extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     public function __construct()

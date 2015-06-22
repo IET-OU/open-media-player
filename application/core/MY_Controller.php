@@ -1,7 +1,6 @@
-<?php defined('BASEPATH') or exit('No direct script access allowed');
+<?php namespace IET_OU\Open_Media_Player;
 
-//  if (! defined('BASEPATH')) exit('No direct script access allowed');
-
+defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * OU Media Player.
  *
@@ -12,7 +11,7 @@
  */
 
 
-class MY_Controller extends CI_Controller
+class MY_Controller extends \CI_Controller
 {
 
     public $firephp;

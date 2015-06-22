@@ -10,7 +10,7 @@
 require_once APPPATH.'libraries/ouplayer_lib.php';
 
 
-class Embed extends MY_Controller
+class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     protected $_debug;

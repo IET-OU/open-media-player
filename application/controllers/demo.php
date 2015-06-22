@@ -7,7 +7,7 @@
  * @copyright Copyright 2011 The Open University.
  */
 
-class Demo extends MY_Controller
+class Demo extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     public function __construct()

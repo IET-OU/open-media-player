@@ -18,7 +18,7 @@
  */
 
 
-class Xml_namespace extends MY_Controller
+class Xml_namespace extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     // List of live/test/dev. servers for which we display the namespace page.

@@ -1,4 +1,4 @@
-<?php
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Captions/timed-text controller.
  *
@@ -15,7 +15,7 @@
 define('TTML_NS', 'http://www.w3.org/2006/10/ttaf1');
 
 
-class Timedtext extends MY_Controller
+class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
 {
  #CI_Controller {
 

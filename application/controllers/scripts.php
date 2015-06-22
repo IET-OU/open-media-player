@@ -10,7 +10,7 @@ http://stackoverflow.com/questions/1971721/how-to-use-http-cache-headers-with-ph
 http://www.mnot.net/cache_docs/
  */
 
-class Scripts extends MY_Controller
+class Scripts extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     public function __construct()

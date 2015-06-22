@@ -10,7 +10,7 @@
  *   http://embed.open.ac.uk/localize/po/zh-cn/download  -- Opens in poEdit if installed.
  */
 
-class Localize extends MY_Controller
+class Localize extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
     const TEMPLATE = 'ouplayer.pot';
