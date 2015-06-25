@@ -1,0 +1,42 @@
+{
+  "name": "iet-ou/open-media-player-shared",
+  "description": "Shared packages & repositories. ©2015 The Open University, UK.",
+  "license": "proprietary",
+
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "johndyer/mediaelement",
+        "version": "2.17.0",
+        "license": "MIT",
+        "dist": {
+          "url": "https://github.com/johndyer/mediaelement/archive/2.17.0.zip",
+          "type": "zip"
+        },
+        "// - source": {
+          "url": "https://github.com/johndyer/mediaelement.git",
+          "type": "git",
+          "reference": "2.17.0"
+        }
+      }
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/IET-OU/open-media-player-core"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/IET-OU/open-oembed-providers"
+    }
+  ],
+  "extra": {
+    "//": [
+      "http://mediaplayer.open.ac.uk/demo/info#php - 5.4.36",
+      "http://embed.open.ac.uk/demo/info#php - 5.3.3",
+      "https://github.com/IET-OU/ouplayer ../system/core/CodeIgniter.php#L36 - CI 2.1.3",
+      "http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt",
+      "https://gist.github.com/nfreear/57262e040d49b2f212ec"
+    ]
+  }
+}

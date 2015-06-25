@@ -1,4 +1,5 @@
 
+.env
 version.json
 
 /composer.lock
