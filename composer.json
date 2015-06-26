@@ -40,6 +40,8 @@
     "iet-ou/mediaelement-demo": "*; Demos for IET-OU enhancements & fixes to MediaElement.js"
   },
   "scripts": {
+    "dot-env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
+
     "test": [
       "composer validate --no-interaction",
       "composer validate --no-interaction --working-dir composer-shared",

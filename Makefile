@@ -8,6 +8,7 @@
 # Environment
 PHP=php
 #PHP=C:/Users/ndf42/xampp/php/php
+COMPOSER=../composer.phar
 LOG=2>&1 > C:/Users/ndf42/git-pull-serv_crake.log
 
 
@@ -16,7 +17,27 @@ help:
 	# OU Media Player/ OU embed installer.
 	@echo
 	# Available targets:
-	@echo "		update update-nick describe pull cm build-theme version.json gettext"
+	@echo "		install update update-nick describe pull cm build-theme version.json gettext"
+
+install: prepare clean
+	$(COMPOSER) install
+
+prepare:
+	$(COMPOSER) self-update
+	mv composer.json composer.json-TMP
+	$(COMPOSER) require  wikimedia/composer-merge-plugin:1.*
+	mv composer.json-TMP composer.json
+
+env:
+	$(COMPOSER) dot-env-suggest > .env
+
+clean:
+	rm -rf composer.lock
+
+diff:
+	git diff
+	cd vendor/iet-ou/open-media-player-core; git diff
+	cd vendor/iet-ou/open-oembed-providers; git diff
 
 update: describe pull describe version.json
 
