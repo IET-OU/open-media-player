@@ -19,7 +19,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
     {
         parent::__construct();
 
-        $this->load->library('Http');
+        $this->http = $this->load->library('\\IET_OU\\Open_Media_Player\\Http');
     }
 
     /** Test OU Podcast feed configuration and shortcode, and return the feed URL.

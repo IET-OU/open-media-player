@@ -1,4 +1,5 @@
-<?php
+<?php namespace IET_OU\Open_Media_Player;
+
 /**
  * OU Media Player base theme.
  * This theme extends the Mediaelement default theme, and adds Javascript features and views.
@@ -6,8 +7,9 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.
  */
-require_once dirname(__FILE__) .'/../mejs_default/theme.php';
+require_once __DIR__ .'/../mejs_default/theme.php';
 
+use \IET_OU\Open_Media_Player\Mejs_Default_Theme;
 
 class Ouplayer_Base_Theme extends Mejs_Default_Theme
 {

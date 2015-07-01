@@ -37,7 +37,8 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         $edge  = $this->input->get('edge');  #Deprecated.
         $audio_poster= $this->input->get('poster'); #Only for audio!
 
-        $this->load->oembed_provider('Oupodcast', 'oupodcast_serv');
+        $this->oupodcast_serv = $this->load->oembed_provider('\\IET_OU\\Open_Media_Player\\Oupodcast_Provider');
+        //$this->load->oembed_provider('Oupodcast', 'oupodcast_serv');
 
         $player = $this->oupodcast_serv->_inner_call($custom_id, $shortcode);
         $player = $this->oupodcast_serv->get_transcript($player);

@@ -6,7 +6,7 @@
 * @copyright Copyright 2011 The Open University.
 */
 // http://code.google.com/p/php-po-parser/
-require_once APPPATH.'/libraries/POParser.php';
+//require_once APPPATH.'/libraries/POParser.php';
 
 
 class MY_Lang extends CI_Lang
@@ -16,6 +16,7 @@ class MY_Lang extends CI_Lang
     protected $_meta;
     protected $_list;
     protected $_locales;
+
 
     public function __construct()
     {
@@ -30,6 +31,7 @@ class MY_Lang extends CI_Lang
     public function initialize()
     {
         $CI =& get_instance();
+        //$CI->load->library('POParser');
       #$lang = $CI->input->get('lang');
       #$lang = preg_match('/^[a-z]{2,3}([-_][a-zA-Z]{2,4})?$/', $lang) ? $lang : 'en';
       #$lang = str_replace('_', '-', $lang);

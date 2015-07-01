@@ -10,7 +10,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @author N.D.Freear, 23 May 2011.
  */
 
-
 class MY_Controller extends \CI_Controller
 {
 
@@ -28,8 +27,12 @@ class MY_Controller extends \CI_Controller
     {
         parent::__construct();
 
+        if ($this->use_composer()) {
+            //require_once __DIR__ .'/../../vendor/autoload.php';
+        }
+
         $this->_request = (object) array(
-        'debug' =>(bool)$this->input->get(OUP_PARAM_DEBUG),
+            'debug' =>(bool) $this->input->get(OUP_PARAM_DEBUG),
         );
 
         $this->_firephp_init();
@@ -56,6 +59,10 @@ class MY_Controller extends \CI_Controller
         log_message('debug', __CLASS__." Class Initialized");
     }
 
+    public function use_composer()
+    {
+        return true;
+    }
 
     /**
   * Determine if we are a Player-only install (IT-hosted), or an OU-embed install.
@@ -141,6 +148,13 @@ class MY_Controller extends \CI_Controller
     protected function _player_init()
     {
         $this->load->library('user_agent');
+
+        $sub = new \IET_OU\SubClasses\SubClasses();
+        $my_themes = $sub->get_player_themes();
+        $my_providers = $sub->get_oembed_providers();
+        var_dump( $my_themes, $my_providers );
+        //var_dump(get_declared_classes());
+
 
         // Support extended MY_Input::get.
         $this->_request->theme = $this->input->get(OUP_PARAM_THEME);

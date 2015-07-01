@@ -1,4 +1,4 @@
-<?php
+<?php namespace IET_OU\Open_Media_Player;
 /**
  * OU Player Light 2012 theme.
  *
@@ -8,8 +8,9 @@
  * @author Peter Devine/LTS 2012-03-08 (visuals, CSS)
  * @author Nick Freear 2012-03-30 (CSS, PHP)
  */
-require_once dirname(__FILE__) .'/../ouplayer_base/theme.php';
+require_once __DIR__ .'/../ouplayer_base/theme.php';
 
+use \IET_OU\Open_Media_Player\Ouplayer_Base_Theme;
 
 class Oup_Light_Theme extends Ouplayer_Base_Theme
 {

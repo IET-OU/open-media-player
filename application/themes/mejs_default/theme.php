@@ -1,4 +1,5 @@
-<?php
+<?php namespace IET_OU\Open_Media_Player;
+
 /**
  * Mediaelement.js default theme.
  *
@@ -8,10 +9,12 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.
  */
-require_once APPPATH .'/libraries/player_theme.php';
 
+//require_once APPPATH .'/libraries/player_theme.php';
 
-class Mejs_Default_Theme extends Player_Theme
+use \IET_OU\Open_Media_Player\Media_Player_Theme;
+
+class Mejs_Default_Theme extends Media_Player_Theme
 {
 
     public $display = 'Mediaelement.js default theme';
