@@ -35,9 +35,13 @@
     "iet-ou/open-media-player-theme-x": "*; OU-only - theme ...",
     "iet-ou/sams-auth": "*; OU-only - SAMS authentication",
     "iet-ou/open-oembed-providers": "*; oEmbed providers - Google Docs, Prezi ...",
-
     "nfreear/ou-media-player-test": "*; Remote integration tests.",
     "iet-ou/mediaelement-demo": "*; Demos for IET-OU enhancements & fixes to MediaElement.js"
+  },
+  "autoload": {
+    "psr-4": {
+      "IET_OU\\Open_Media_Player\\": [ "application/themes" ]
+    }
   },
   "scripts": {
     "dot-env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
@@ -48,17 +52,11 @@
       "#parallel-lint application/*",
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/*"
     ],
-    "test-psr2": [
-      "phpcs --standard=PSR2 -n --encoding=utf-8 --extensions=php application/core/*"
-    ],
 
     "test-v": [
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/views/vle_d*"
     ],
 
-    "fix-psr2": [
-      "phpcbf --standard=PSR2 -n -l  --encoding=utf-8 --extensions=php application/core/MY_Co*"
-    ],
     "fix-oump": [
       "phpcbf --standard=./phpcs.xml -n -l --encoding=utf-8 --extensions=php application/help*"
     ]
