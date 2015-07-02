@@ -32,6 +32,8 @@
     "jakub-onderka/php-parallel-lint": "~0.8"
   },
   "suggest": {
+    "tuupola/slim-basic-auth": "*; Basic Auth (Slim) (work in progress)",
+
     "iet-ou/open-media-player-theme-x": "*; OU-only - theme ...",
     "iet-ou/sams-auth": "*; OU-only - SAMS authentication",
     "iet-ou/open-oembed-providers": "*; oEmbed providers - Google Docs, Prezi ...",
@@ -52,11 +54,9 @@
       "#parallel-lint application/*",
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/*"
     ],
-
     "test-v": [
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/views/vle_d*"
     ],
-
     "fix-oump": [
       "phpcbf --standard=./phpcs.xml -n -l --encoding=utf-8 --extensions=php application/help*"
     ]

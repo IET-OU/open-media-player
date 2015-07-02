@@ -150,7 +150,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
     public function player_sizes($layout = self::LAYOUT)
     {
         $this->_load_layout($layout);
-      
+
         $this->layout->view('test/player-sizes');
     }
 
@@ -248,61 +248,6 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         'req' => $this->_request,
         );
         $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
-    }
-
-
-    /** SAMS protected (staff-only) call to phpinfo() - help with debugging.
-    * @todo - Improve content + styling, cf. http://cloudworks.ac.uk/admin/phpinfo
-    */
-    public function info($layout = self::LAYOUT, $what = INFO_ALL)
-    {
-        $this->_sams_check();
-        $this->_load_layout($layout);
-
-        $my_env = array(
-        'OUENV' => getenv('OUENV'),
-        'ENVIRONMENT' => ENVIRONMENT,
-        'Server' => $this->_server_name(),
-        'CodeIgniter version' => CI_VERSION,  #.' <small>(Not always up-to-date!)</small>',
-        'Token' => $this->config->item('token'),
-        #'Request' => $this->_request,
-        );
-
-      /*$vars = 'token data_dir log_path log_threshold debug podcast_feed_url_pattern http_proxy';
-	  foreach (explode(' ', $vars) as $key) {
-	    $my_env[ $key ] = $this->config->item($key);
-	  }*/
-
-        $this->load->library('Gitlib', null, 'git');
-        $my_env['<h3> version.json '] = '</h3>'; # Hack!
-        $my_env += (array) $this->git->get_revision();
-
-        $my_env['<h3> Configuration '] = '</h3>';
-        $my_env += $this->config->config;
-
-        $view_data = array(
-        'is_ouembed' => $this->_is_ouembed(),
-        'is_live' => $this->_is_live(),
-        'use_oembed' => false,
-        'req' => $this->_request,
-        'app_config' => $my_env,
-        'phpinfo_what' => $what,
-        );
-
-        $this->layout->view('about/phpinfo', $view_data);
-    }
-
-
-    /** Basic OU-SAMS authentication check and redirect.
-    */
-    protected function _sams_check()
-    {
-        $this->load->library('Sams_Auth', null, 'auth');
-        $this->auth->authenticate();
-
-        if (! $this->auth->is_staff()) {
-            $this->_error('Sorry, staff only (Forbidden)', 403);
-        }
     }
 }
 

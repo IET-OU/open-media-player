@@ -149,13 +149,6 @@ class MY_Controller extends \CI_Controller
     {
         $this->load->library('user_agent');
 
-        $sub = new \IET_OU\SubClasses\SubClasses();
-        $my_themes = $sub->get_player_themes();
-        $my_providers = $sub->get_oembed_providers();
-        var_dump( $my_themes, $my_providers );
-        //var_dump(get_declared_classes());
-
-
         // Support extended MY_Input::get.
         $this->_request->theme = $this->input->get(OUP_PARAM_THEME);
         $this->_request->hide_controls = (bool)$this->input->get('_hide_controls');
