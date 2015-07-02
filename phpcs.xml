@@ -15,14 +15,12 @@
   <exclude-pattern>*/*BAK*</exclude-pattern>
 
   <!-- Exclude third-party libraries. -->
-  <exclude-pattern>/application/libraries/FirePHPCore</exclude-pattern>
   <exclude-pattern>/application/libraries/class.pdf2text.php</exclude-pattern>
   <exclude-pattern>/application/libraries/POParser.php</exclude-pattern>
 
   <!-- Temporarily exclude all views and provider-libraries. -->
   <exclude-pattern>*/views/*</exclude-pattern>
-  <exclude-pattern>/application/libraries/providers/</exclude-pattern>
-  <exclude-pattern>/application/libraries/</exclude-pattern>
+  <!--<exclude-pattern>/application/libraries/</exclude-pattern>-->
 
 
   <rule ref="./vendor/iet-ou/open-media-player-core/phpcs.xml"/>

@@ -1,4 +1,5 @@
 <?php namespace IET_OU\Open_Media_Player;
+
 /**
  * OU Player Light 2012 theme.
  *

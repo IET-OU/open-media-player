@@ -47,13 +47,11 @@ class MY_Loader extends CI_Loader
     public function theme($theme_name)
     {
         if ($this->CI->use_composer()) {
-
             $sub = new \IET_OU\SubClasses\SubClasses();
             $themes = $sub->get_player_themes();
 
             $theme_name = str_replace('-', '_', $theme_name);
             if (isset($themes[ $theme_name ])) {
-
                 $this->CI->theme = new $themes[ $theme_name ] ();
             } else {
                 $this->CI->theme = new $themes[ $this->config->item('player_default_theme') ] ();
@@ -68,13 +66,13 @@ class MY_Loader extends CI_Loader
             require_once $theme_path;
 
             $this->CI->theme = new $classname();
-      }
+        }
 
       #$this->_ci_view_paths = array_merge($this->_ci_view_paths, array("../themes/$theme_name" => TRUE));
       #$this->add_package_path(APPPATH .'/themes/'. $theme_name);
       #$this->add_package_path(APPPATH .'/themes/'. $this->CI->theme->parent);
 
-      return $this->CI->theme;
+        return $this->CI->theme;
     }
 
     /** Load a view file from the theme or parent theme directory.
