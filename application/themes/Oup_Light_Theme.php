@@ -8,7 +8,6 @@
  * @author Peter Devine/LTS 2012-03-08 (visuals, CSS)
  * @author Nick Freear 2012-03-30 (CSS, PHP)
  */
-require_once __DIR__ .'/../ouplayer_base/theme.php';
 
 use \IET_OU\Open_Media_Player\Ouplayer_Base_Theme;
 

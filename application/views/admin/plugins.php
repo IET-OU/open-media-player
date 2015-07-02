@@ -1,14 +1,21 @@
-<?php
 
-foreach ($themes as $name => $class) {
-
-}
-?>
-
+<div id=themes >
 <h2> Themes </h2>
 
-<pre><?php print_r( $themes ) ?></pre>
+<table>
+<?php foreach ($themes as $name => $class): ?>
+    <tr><td class=k ><?php echo $name ?></td> <td class=v ><?php echo $class ?></td></tr>
+<?php endforeach; ?>
+</table>
+</div>
 
+
+<div id=providers >
 <h2> oEmbed Providers </h2>
 
-<pre><?php print_r( $providers ) ?></pre>
+<table>
+<?php foreach ($providers as $name => $class): ?>
+    <tr><td class=k ><?php echo $name ?></td> <td class=v ><?php echo $class ?></td></tr>
+<?php endforeach; ?>
+</table>
+</div>

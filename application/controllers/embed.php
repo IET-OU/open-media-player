@@ -7,7 +7,6 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 2011-03-22.
  */
-require_once APPPATH.'libraries/ouplayer_lib.php';
 
 
 class Embed extends \IET_OU\Open_Media_Player\MY_Controller
@@ -67,7 +66,8 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         // Access control - start simple!
 
         $restrict_image = $this->config->item('player_restricted_poster_url');
-        $this->load->library('Sams_Auth', null, 'auth');
+
+        $this->auth = new \IET_OU\Open_Media_Player\Sams_Auth();
 
         if ($this->auth->is_private_caller()
         && $player->is_restricted_podcast()) {
@@ -98,7 +98,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
             $view_data['params']->debug_score = $this->_is_debug(1, $score = true);
 
             $this->load->theme_view(null, $view_data);
-        } elseif ('basic'!=$this->_theme->name || $edge) {
+        } elseif ('basic' != $this->_theme->name || $edge) {
             // Legacy 2011 Flowplayer-based themes.
             // The themed player.
             $this->load->view('ouplayer/ouplayer', $view_data);

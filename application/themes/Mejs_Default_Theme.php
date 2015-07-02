@@ -10,8 +10,6 @@
  * @author N.D.Freear, 20 March 2012.
  */
 
-//require_once APPPATH .'/libraries/player_theme.php';
-
 use \IET_OU\Open_Media_Player\Media_Player_Theme;
 
 class Mejs_Default_Theme extends Media_Player_Theme

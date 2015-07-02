@@ -7,7 +7,6 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 20 March 2012.
  */
-require_once __DIR__ .'/../mejs_default/theme.php';
 
 use \IET_OU\Open_Media_Player\Mejs_Default_Theme;
 
@@ -50,7 +49,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         }
 
       // Hmm, $this->name won't be correct in child themes!
-        $theme_name = str_replace('_theme', '', strtolower(__CLASS__));
+        $theme_name = strtolower($this->shortClass('#_Theme#i', '', __CLASS__));
         $theme_path = self::THEME_PATH . $theme_name;
 
       // Add our OU Player base styles to the array.

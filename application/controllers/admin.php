@@ -37,7 +37,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
 
         $this->_load_layout($layout);
 
-        echo 'Hello world';
+        redirect('/admin/info');
     }
 
 
@@ -126,9 +126,10 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
         // TODO: can't get Slim basic-auth working :(!
         if ('\\Slim\\Middleware\\HttpBasicAuthentication' == $auth_class) {
             $app = new \Slim\Slim();
+            $opts = $this->config->item('auth_basicauth_opts');
 
-            $this->auth = new $auth_class ($this->config->item('auth_basicauth_opts'));
-            $this->_debug($this->auth->getRules());
+            $this->auth = new $auth_class ($opts);
+            $this->_debug($opts);
 
             $app->add($this->auth);
             $this->auth->call();

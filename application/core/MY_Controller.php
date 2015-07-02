@@ -35,7 +35,7 @@ class MY_Controller extends \CI_Controller
             'debug' =>(bool) $this->input->get(OUP_PARAM_DEBUG),
         );
 
-        $this->_firephp_init();
+        ///$this->_firephp_init();
         $this->_datadir_init();
 
         if (! $this->input->is_cli_request()) {
@@ -108,8 +108,11 @@ class MY_Controller extends \CI_Controller
     */
     protected function _get_oembed_providers()
     {
+        $sub = new \IET_OU\SubClasses\SubClasses();
+
         $this->config->load('providers');
-        $providers_all = $this->config->item('providers');
+        //$providers_all = $this->config->item('providers');
+        $providers_all = $sub->get_oembed_providers();
         if ($this->_is_ouembed()) {
             return $providers_all;
         }
@@ -264,7 +267,7 @@ class MY_Controller extends \CI_Controller
 
 
     /** Handle fatal errors.
-  */
+    */
     public function _error($message, $code = 500, $from = null, $obj = null)
     {
  #Was: protected.
@@ -302,12 +305,12 @@ class MY_Controller extends \CI_Controller
 
         $fp_level = 'error'==$level ? 'ERROR' : 'INFO';
         $fp_label = 'error'==$level ? 'Error log' : 'Log';
-        $this->firephp->fb($msg, $fp_label, $fp_level);
+        //$this->firephp->fb($msg, $fp_label, $fp_level);
     }
 
     /** Determine whether we're in an API controller/ context.
-  * @return bool
-  */
+    * @return bool
+    */
     protected function _is_api_call()
     {
         return in_array($this->uri->segment(1), self::$API_PATHS);

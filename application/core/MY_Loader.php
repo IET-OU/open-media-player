@@ -1,4 +1,4 @@
-<?php
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Extend the CI Loader class, so that it handles Player themes, and oEmbed providers.
  *
@@ -8,15 +8,15 @@
 
 class MY_Loader extends CI_Loader
 {
-    protected $my_ci;
+    protected $CI;
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->my_ci =& get_instance();
+        $this->CI =& get_instance();
 
-        if ($this->my_ci->use_composer()) {
+        if ($this->CI->use_composer()) {
             require_once __DIR__ .'/../../vendor/autoload.php';
         }
     }
@@ -46,32 +46,47 @@ class MY_Loader extends CI_Loader
     */
     public function theme($theme_name)
     {
-        $classname = $this->dev_ucwords($theme_name) . '_Theme';
-        $theme_path = str_replace('-', '_', $theme_name);
-        $theme_path = APPPATH . "/themes/$theme_path/theme.php";
+        if ($this->CI->use_composer()) {
 
-        var_dump($classname, $theme_path);
+            $sub = new \IET_OU\SubClasses\SubClasses();
+            $themes = $sub->get_player_themes();
 
-        //$this->file(APPPATH. "/themes/$theme_path/theme.php");
-        require_once $theme_path;
+            $theme_name = str_replace('-', '_', $theme_name);
+            if (isset($themes[ $theme_name ])) {
 
-        $this->my_ci->theme = new $classname();
+                $this->CI->theme = new $themes[ $theme_name ] ();
+            } else {
+                $this->CI->theme = new $themes[ $this->config->item('player_default_theme') ] ();
+            }
+
+        } else {
+            $classname = $this->dev_ucwords($theme_name) . '_Theme';
+            $theme_path = str_replace('-', '_', $theme_name);
+
+            $theme_path = APPPATH . "/themes/$theme_path/theme.php";
+
+            require_once $theme_path;
+
+            $this->CI->theme = new $classname();
+      }
 
       #$this->_ci_view_paths = array_merge($this->_ci_view_paths, array("../themes/$theme_name" => TRUE));
       #$this->add_package_path(APPPATH .'/themes/'. $theme_name);
-      #$this->add_package_path(APPPATH .'/themes/'. $this->my_ci->theme->parent);
+      #$this->add_package_path(APPPATH .'/themes/'. $this->CI->theme->parent);
+
+      return $this->CI->theme;
     }
 
     /** Load a view file from the theme or parent theme directory.
     */
     public function theme_view($view = null, $vars = array(), $return = false)
     {
-        $view_file = $this->my_ci->theme->getView($view);
+        $view_file = $this->CI->theme->getView($view);
 
         if (file_exists(APPPATH . $view_file .'.php')) {
             return $this->view('../'. $view_file, $vars, $return);
         }
-        return $this->view('../'. $this->my_ci->theme->getParentView($view), $vars, $return);
+        return $this->view('../'. $this->CI->theme->getParentView($view), $vars, $return);
     }
 
 
@@ -80,8 +95,8 @@ class MY_Loader extends CI_Loader
     */
     public function oembed_provider($provider_name, $object_name = 'provider')
     {
-        if (!$this->my_ci->use_composer() && !class_exists('Oembed_Provider')) {
-          // Require the base provider class file.
+        if (!$this->CI->use_composer() && !class_exists('Oembed_Provider')) {
+            // Require the base provider class file.
             $this->file(APPPATH .'/libraries/Oembed_Provider.php');
         }
 
@@ -89,7 +104,8 @@ class MY_Loader extends CI_Loader
 
 
         if ($this->has_namespace($provider_name)) {
-            return new $provider_name();
+            $this->CI->provider = new $provider_name ();
+            return $this->CI->provider;
         }
       // Simplify lines like, $regex = $this->{"{$name}_serv"}->regex;
         return $this->library("providers/{$provider_name}_serv", null, $object_name);
