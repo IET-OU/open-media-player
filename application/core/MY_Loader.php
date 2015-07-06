@@ -19,6 +19,18 @@ class MY_Loader extends CI_Loader
         if ($this->CI->use_composer()) {
             require_once __DIR__ .'/../../vendor/autoload.php';
         }
+
+        // Allow views to be loaded via absolute paths too - neat! [Bug: #21]
+        $this->_ci_view_paths[ '' ] = true;
+
+        log_message('debug', "MY_Loader Class Initialized");
+    }
+
+    /** Called within the oEmbed provider's view to render the response.
+    */
+    public function oembed_response($view_data)
+    {
+        return $this->load->view(\IET_OU\Open_Media_Player\Oembed_Provider::getRenderer(), $view_data);
     }
 
     /**
@@ -54,7 +66,7 @@ class MY_Loader extends CI_Loader
             if (isset($themes[ $theme_name ])) {
                 $this->CI->theme = new $themes[ $theme_name ] ();
             } else {
-                $this->CI->theme = new $themes[ $this->config->item('player_default_theme') ] ();
+                $this->CI->theme = new $themes[ $this->CI->config->item('player_default_theme') ] ();
             }
 
         } else {
