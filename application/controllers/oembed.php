@@ -115,9 +115,10 @@ EOF;
 
     // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
         $meta = null;
-        if ('Oupodcast_serv' == get_class($this->provider)) {
+        if ('IET_OU\\Open_Media_Player\\Oupodcast_Provider' == get_class($this->provider)) {
             #Oupodcast_serv::POD_BASE #preg_match('@@', $host)
             $this->_player_init();
+
             // 'New' 2012 Mediaelement-based themes.
             if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
                 $this->load->theme($this->_theme->name);
@@ -129,8 +130,7 @@ EOF;
         }
 
         // Should we load the library for the service?
-        if (($this->config->item('always_upstream') || !$meta)
-        && file_exists(APPPATH."/libraries/providers/{$name}_serv.php")) {
+        if ($this->config->item('always_upstream') || !$meta) {
             $this->load->oembed_provider($name);
 
             $meta = $this->provider->call($req->url, $matches);
@@ -146,7 +146,11 @@ EOF;
             'tracker'=>$this->_tracker(isset($this->provider) ? $this->provider : $provider, $host, $meta),
         );
 
-        if (file_exists(APPPATH."views/$oembed_view.php")) {
+        if (file_exists($oembed_view . '.php')) {
+            $html = $this->load->view($oembed_view, $view_data);
+        }
+        // LEGACY.
+        elseif (file_exists(APPPATH . "views/$oembed_view.php")) {
             $html = $this->load->view($oembed_view, $view_data);
 
         } else {

@@ -22,6 +22,22 @@
       }
     },
     {
+      "type": "package",
+      "package": {
+        "name": "iulian-ilea/php-po-parser",
+        "version": "2",
+        "license": "LGPL-3.0+",
+        "source": {
+          "url": "http://php-po-parser.googlecode.com/svn/",
+          "type": "svn",
+          "reference": "trunk"
+        },
+        "autoload": {
+          "classmap": [ "POParser.php" ]
+        }
+      }
+    },
+    {
       "type": "vcs",
       "url": "https://github.com/IET-OU/open-media-player-core"
     },
@@ -36,7 +52,8 @@
       "http://embed.open.ac.uk/demo/info#php - 5.3.3",
       "https://github.com/IET-OU/ouplayer ../system/core/CodeIgniter.php#L36 - CI 2.1.3",
       "http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt",
-      "https://gist.github.com/nfreear/57262e040d49b2f212ec"
+      "https://gist.github.com/nfreear/57262e040d49b2f212ec",
+      "https://github.com/search?q=POParser#maxakawizard/po-parser"
     ]
   }
 }

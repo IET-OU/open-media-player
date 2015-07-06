@@ -35,7 +35,7 @@ jquery-oembed: Copyright Richard Chamorro, Avanzis.
  * MIT License: <http://opensource.org/licenses/MIT>
  * Code: <http://code.google.com/p/jquery-oembed/#r20>
 
-Ender/jeesh: copyright 2012 Dustin Diaz & Jacob Thornton. 
+Ender/jeesh: copyright 2012 Dustin Diaz & Jacob Thornton.
  * License: MIT
  * Code: <http://ender.jit.su/#jeesh>
  * For the individual modules, see their respective licenses.
@@ -61,7 +61,7 @@ Fixed Tooltip script (ouplayer.tooltips.js): © Dynamic Drive (www.dynamicdrive.
  * Code: <http://dynamicdrive.com/dynamicindex5/fixedtooltip.htm>
 
 php-po-parser: Copyright (C) 2008, Iulian Ilea (http://iulian.net), all rights reserved.
- * License: <http://gnu.org/licenses/gpl.html> GNU GPL v3 onwards (code), or GNU Lesser GPL (project page)
+ * License: <http://gnu.org/licenses/gpl.html> GNU Lesser GPL v3 onwards
  * Code: <http://code.google.com/p/php-po-parser/>
 
 High contrast detection Javascript: based on work by John Snyders.

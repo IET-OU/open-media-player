@@ -39,6 +39,13 @@ diff:
 	cd vendor/iet-ou/open-media-player-core; git diff
 	cd vendor/iet-ou/open-oembed-providers; git diff
 
+st:
+	git status
+	@echo "";
+	cd vendor/iet-ou/open-media-player-core; git status
+	@echo "";
+	cd vendor/iet-ou/open-oembed-providers; git status
+
 update: describe pull describe version.json
 
 update-nick: describe pull-nick describe version.json

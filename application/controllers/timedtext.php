@@ -10,15 +10,12 @@
  * @author N.D.Freear, 27 April 2011/6 February 2012.
  * @copyright Copyright 2012 The Open University.
  */
-#require_once APPPATH.'libraries/ouplayer_lib.php';
 
 define('TTML_NS', 'http://www.w3.org/2006/10/ttaf1');
 
 
 class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
 {
- #CI_Controller {
-
 
   // Captions for Mediaelement-based players.
 
@@ -60,9 +57,9 @@ class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
             $options['debug'] = true;
         }
 
-        $this->load->library('http');
+        $http = new \IET_OU\Open_Media_Player\Http();
 
-        $result = $this->http->request($ttml_url, $spoof = false, $options);
+        $result = $http->request($ttml_url, $spoof = false, $options);
 
         if (! $result->success) {
             if (404 == $result->info['http_code']) {

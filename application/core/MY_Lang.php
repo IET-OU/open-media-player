@@ -6,7 +6,6 @@
 * @copyright Copyright 2011 The Open University.
 */
 // http://code.google.com/p/php-po-parser/
-//require_once APPPATH.'/libraries/POParser.php';
 
 
 class MY_Lang extends CI_Lang
