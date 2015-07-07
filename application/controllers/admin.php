@@ -123,17 +123,9 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_debug($auth_class);
         $this->_debug($auth_extra_call);
 
-        // TODO: can't get Slim basic-auth working :(!
-        if ('\\Slim\\Middleware\\HttpBasicAuthentication' == $auth_class) {
-            $app = new \Slim\Slim();
-            $opts = $this->config->item('auth_basicauth_opts');
+        $used_slim = $this->_slim_basic_authentication($auth_class);
 
-            $this->auth = new $auth_class ($opts);
-            $this->_debug($opts);
-
-            $app->add($this->auth);
-            $this->auth->call();
-        } else {
+        if (! $used_slim) {
             $this->auth = $this->load->library($auth_class);
             $this->auth->authenticate();
 
@@ -142,6 +134,35 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
                 $this->_error("Sorry, you don't have permission to access this page (Forbidden)", 403);
             }
         }
+    }
+
+    protected function _slim_basic_authentication($auth_class)
+    {
+        if ('\\Slim\\Middleware\\HttpBasicAuthentication' != $auth_class) {
+            return false;
+        }
+
+        $app = new \Slim\Slim();
+        $opts = $this->config->item('auth_basicauth_opts');
+
+        $opts[ 'path' ] = $opts[ 'callback' ] = null;
+        $opts[ 'realm' ] = 'Media Player admin pages';
+        $opts[ 'error' ] = function ($arguments) {
+            header('HTTP/1.1 401 Unauthorized');
+            header(sprintf('WWW-Authenticate: Basic realm="%s"', 'Media Player admin pages'));
+            echo "<title>Authentication required</title><style>body{font:1.1em sans-serif;margin:2em;color:#333}</style>WARNING.\n";
+            echo isset($arguments[ 'message' ]) ? $arguments[ 'message' ] : print_r($arguments);
+            exit;
+        };
+
+        $this->auth = new $auth_class ($opts);
+        $opts[ 'users' ]  = '{ *** }';
+        $this->_debug($opts);
+
+        $app->add($this->auth);
+        $this->auth->call();
+
+        return true;
     }
 }
 

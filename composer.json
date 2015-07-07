@@ -34,6 +34,7 @@
   "suggest": {
     "tuupola/slim-basic-auth": "*; Basic Auth (Slim) (work in progress)",
     "vlucas/phpdotenv": "^1.1; phpdotenv",
+    "totten/git-scan": "2014-01-14; git scan",
 
     "iet-ou/open-media-player-theme-x": "*; OU-only - theme ...",
     "iet-ou/sams-auth": "*; OU-only - SAMS authentication",
@@ -47,6 +48,10 @@
     }
   },
   "scripts": {
+    "post-update-cmd": [
+      "cp -u application/config/embed_config.dist.php application/config/embed_config.php",
+      "cp -u application/config/oup_site.dist.php application/config/oup_site.php"
+    ],
     "dot-env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
 
     "test": [
