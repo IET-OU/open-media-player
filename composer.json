@@ -25,7 +25,6 @@
     "wikimedia/composer-merge-plugin": "1.0.0",
     "nfreear/composer-suggest": "^1.1",
     "johndyer/mediaelement": "2.17.0",
-    "iulian-ilea/php-po-parser": "2",
     "iet-ou/open-media-player-core": "dev-master"
   },
   "require-dev": {

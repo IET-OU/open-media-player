@@ -1,1 +1,0 @@
-<?php// Simple view for oEmbed type = photo.  $view_data = array(      'url'   => $url,      'format'=> $format,      'callback'=>$callback,      'oembed' => (array) $meta,  );  $this->load->view('oembed/render', $view_data);

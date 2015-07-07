@@ -28,7 +28,7 @@ class MY_Loader extends CI_Loader
 
     /** Called within the oEmbed provider's view to render the response.
     */
-    public function oembed_response($view_data)
+    public function send_oembed_response($view_data)
     {
         return $this->load->view(\IET_OU\Open_Media_Player\Oembed_Provider::getRenderer(), $view_data);
     }

@@ -24,6 +24,7 @@
     {
       "type": "package",
       "package": {
+        "//": "Todo - delete. SVN dependency!",
         "name": "iulian-ilea/php-po-parser",
         "version": "2",
         "license": "LGPL-3.0+",
