@@ -30,7 +30,8 @@ class MY_Loader extends CI_Loader
     */
     public function send_oembed_response($view_data)
     {
-        return $this->load->view(\IET_OU\Open_Media_Player\Oembed_Provider::getRenderer(), $view_data);
+        return $this->view(\IET_OU\Open_Media_Player\Oembed_Provider::getRenderer(), $view_data);
+        //return $this->load->view(..);
     }
 
     /**

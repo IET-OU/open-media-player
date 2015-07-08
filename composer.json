@@ -48,9 +48,13 @@
     }
   },
   "scripts": {
+    "post-install-cmd": [
+      "php index.php build/revision"
+    ],
     "post-update-cmd": [
-      "cp -u application/config/embed_config.dist.php application/config/embed_config.php",
-      "cp -u application/config/oup_site.dist.php application/config/oup_site.php"
+      "php index.php build/revision",
+      "#cp -n application/config/embed_config.dist.php application/config/embed_config.php",
+      "#cp -n application/config/oup_site.dist.php application/config/oup_site.php"
     ],
     "dot-env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
 

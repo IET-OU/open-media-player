@@ -35,14 +35,14 @@ EOF;
 
 
     /** Build a 'revision' file (CLI).
-  */
-    public function revision()
+    */
+    public function revision($echo = false)
     {
         if ($this->input->is_cli_request()) {
-            $this->load->library('Gitlib', null, 'git');
 
-            $result = $this->git->put_revision();
+            $git = new \IET_OU\Open_Media_Player\Gitlib();
 
+            $result = $git->put_revision($echo);
         } else {
             $this->_error('The page you requested was not found.', 404);
         }
@@ -149,7 +149,7 @@ EOF;
     protected function _build($file_array, $output)
     {
         echo "Building... $output".PHP_EOL;
-  
+
         $app_path = dirname(__DIR__) .'/';
         $temp_file = $app_path. str_replace('.min', '', $output);
 

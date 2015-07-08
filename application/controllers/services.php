@@ -58,6 +58,6 @@ class Services extends \IET_OU\Open_Media_Player\MY_Controller
         'oembed' => array_values($services), # A hack!
         'not_oembed' => true,
         );
-        $this->load->view('oembed/render', $view_data);
+        $this->load->send_oembed_response($view_data);
     }
 }

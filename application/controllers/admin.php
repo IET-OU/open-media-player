@@ -63,9 +63,10 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
 	    $my_env[ $key ] = $this->config->item($key);
 	  }*/
 
-        $this->load->library('Gitlib', null, 'git');
+        $git = new \IET_OU\Open_Media_Player\Gitlib();
+
         $my_env['<h3> version.json '] = '</h3>'; # Hack!
-        $my_env += (array) $this->git->get_revision();
+        $my_env += (array) $git->get_revision();
 
         $my_env['<h3> Configuration '] = '</h3>';
         $my_env += $this->config->config;

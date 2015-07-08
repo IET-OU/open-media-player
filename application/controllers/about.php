@@ -16,9 +16,9 @@ class About extends \IET_OU\Open_Media_Player\MY_Controller
     {
         $this->_load_layout(self::LAYOUT);
 
-        $this->load->library('Gitlib');
+        $git = new \IET_OU\Open_Media_Player\Gitlib();
 
-        $rev = $this->gitlib->get_revision();
+        $rev = $git->get_revision();
 
         $view_data = array(
             'is_ouembed' => $this->_is_ouembed(),
