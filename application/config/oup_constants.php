@@ -1,9 +1,9 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
- * OU Player/ Embed constants.
- *
- * @copyright Copyright 2012 The Open University.
- */
+|--------------------------------------------------------------------------
+| Open Media Player - constants.
+|--------------------------------------------------------------------------
+*/
 // Prevent CI error.
 $config['oup_constants'] = 'dummy';
 
@@ -27,7 +27,6 @@ define('OUP_DEBUG_MAX',  2);
 */
 define('XMLNS_OU_OEMBED_EXTEND', 'http://embed.open.ac.uk/2012/extend#');
 define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
-
 
 
 /*
@@ -59,8 +58,8 @@ define('OUP_NOEMBED_END_URL', 'http://noembed.com/embed');
 // URL parameter names (eg. http://example.org/path?param=value)
 
 //Common parameter names, shared by oEmbed/ embed/ popup controllers.
-define('OUP_PARAM_DEBUG', 'debug'); #Was: _debug
-define('OUP_PARAM_THEME', 'theme'); #Was: _theme
+define('OUP_PARAM_DEBUG', 'debug');
+define('OUP_PARAM_THEME', 'theme');
 define('OUP_PARAM_LANG', 'lang');
 
 
@@ -89,11 +88,5 @@ define('OUP_JS_CDN_JQUERY',
     '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js' );
 
 
-
 // "Link to jQuery 1.7+ on a CDN - shared by jquery-oembed demos (and the Player depending on config[jslib])."
 // Note, the Player implements a JS fallback for the jQuery CDN.
-
-
-//header('Content-Type: text/plain;');
-//var_dump(get_defined_constants()); exit;
-

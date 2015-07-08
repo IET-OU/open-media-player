@@ -2,11 +2,11 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 /**
- * OU Media Player.
+ * Open Media Player.
  *
- * (Most) all controllers should extend this class.
+ * All controllers should extend this class.
  *
- * @copyright Copyright 2011 The Open University.
+ * @copyright Copyright 2011-2015 The Open University (IET-OU).
  * @author N.D.Freear, 23 May 2011.
  */
 
@@ -43,7 +43,6 @@ class MY_Controller extends \CI_Controller
         }
 
         @header('Content-Type: text/html; charset=UTF-8');
-        #$this->_debug('ouenv='. getenv('OUENV'));
         $this->_debug(array('ouenv'=>getenv('OUENV'), 'server'=>$this->_server_name(), 'token'=>$this->config->item('token')));
 
         if ($this->config->item('http_adv')) {
@@ -242,8 +241,8 @@ class MY_Controller extends \CI_Controller
     }
 
     /** Optionally output strings/objects in a debug HTTP header.
-  * @link https://gist.github.com/1712707
-  */
+    * @link https://gist.github.com/1712707
+    */
     public function _debug($exp)
     {
         static $where, $count = 0;
@@ -336,8 +335,8 @@ class MY_Controller extends \CI_Controller
     }
 
     /** Get the load-balanced server name.
-  * @return string
-  */
+    * @return string
+    */
     protected function _server_name()
     {
         ob_start();
@@ -352,8 +351,8 @@ class MY_Controller extends \CI_Controller
     }
 
     /**
-  * Create data/ logs sub-directories - reduce configuration.
-  */
+    * Create data/ logs sub-directories - reduce configuration.
+    */
     protected function _datadir_init()
     {
         $data_dir = $this->config->item('data_dir');
@@ -382,13 +381,12 @@ class MY_Controller extends \CI_Controller
             }
         }
         $this->_debug('Data-dirs OK');
-      #@header('X-ouplayer-accessible-alt: 1');
     }
 
 
     /**
-  * Fire PHP
-  */
+    * Fire PHP
+    */
     protected function _firephp_init()
     {
         $this->load->library('FirePHPCore/Firephp');

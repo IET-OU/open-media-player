@@ -5,21 +5,26 @@
 |--------------------------------------------------------------------------
 */
 
-$config[ 'site_layout' ] = 'ouice';
+// Site layout: 'bare' (or 'ouice' - ou-specific)
+$config[ 'site_layout' ] = 'bare';
 
-//$config[ 'auth_class' ] = '\\Slim\\Middleware\\HttpBasicAuthentication';
-$config[ 'auth_class' ] = '\\IET_OU\\Open_Media_Player\\Sams_Auth';
+// Authentication class for admin pages.
+$config[ 'auth_class' ] = '\\Slim\\Middleware\\HttpBasicAuthentication';
 
-$config[ 'auth_extra_call' ] = 'is_staff';
+// Authentication: ou-specific.
+#$config[ 'auth_class' ] = '\\IET_OU\\Open_Media_Player\\Sams_Auth';
+#$config[ 'auth_extra_call' ] = 'is_staff';
 
 $config[ 'auth_localhost_bypass' ] = true;
 
+// Slim basic authentication configuration.
 // See: https://github.com/tuupola/slim-basic-auth#usage
 // Note: no need to set 'path', 'realm' or 'error' callback.
 $config[ 'auth_basicauth_opts' ] = array(
     "relaxed" => array(),
     "secure" => false,
     "users" => [
+        // ** EDIT ME **
         "admin" => "passw0rd"
     ],
 );
