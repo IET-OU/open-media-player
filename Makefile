@@ -9,21 +9,31 @@
 PHP=php
 #PHP=C:/Users/ndf42/xampp/php/php
 COMPOSER=../composer.phar
-LOG=2>&1 > C:/Users/ndf42/git-pull-serv_crake.log
+CFG=./application/config/
 
 
 help:
-	@echo
-	# OU Media Player/ OU embed installer.
-	@echo
+	#
+	# Open Media Player installer.
+	#
 	# Available targets:
-	@echo "		install install-dev update update-nick pull cm build-theme version.json gettext"
+	@echo "	generic install install-dev update update-nick pull cm build-theme version.json gettext"
+
+generic:
+	# Setting up a generic (non-OU) environment...
+	@printf "#\n# .env: generic\n#\n" > .env
+	@echo 'NF_COMPOSER_SUGGEST="(providers|basic auth|dotenv)"' >> .env
+	@echo "" >> .env
+	@echo 'OUENV=generic' >> .env
+	@echo "" >> .env
 
 install: prepare clean
 	$(COMPOSER) install --no-dev --prefer-dist
+	make post-install
 
 install-dev: prepare clean
 	$(COMPOSER) install -v
+	make post-install
 
 prepare:
 	$(COMPOSER) self-update
@@ -31,11 +41,24 @@ prepare:
 	$(COMPOSER) require  wikimedia/composer-merge-plugin:1.*
 	mv composer.json-TMP composer.json
 
-env:
+post-install:
+	# Post-install steps...
+	@# Why doesn't msysgit/mingw32 cp have a "--no-clobber" option? :(
+	[ -f $(CFG)embed_config.php ] || cp $(CFG)embed_config.dist.php $(CFG)embed_config.php
+	[ -f $(CFG)oup_site.php ] || cp $(CFG)oup_site.dist.php $(CFG)oup_site.php
+	make version.json
+
+env-template:
 	$(COMPOSER) dot-env-suggest > .env
 
 clean:
 	rm -rf composer.lock
+
+clean-all: clean
+	$(COMPOSER) clear-cache -v
+	rm -rf vendor/
+	rm -f version.json
+	rm -f .env
 
 diff:
 	git diff
@@ -76,6 +99,6 @@ gettext:
 	$(PHP) application/cli/xgettext.php
 
 
-.PHONY: help install install-dev update describe pull cm build-theme version.json gettext
+.PHONY: help generic install install-dev update describe pull cm build-theme version.json gettext
 
 #End.

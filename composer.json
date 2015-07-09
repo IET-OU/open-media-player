@@ -21,7 +21,6 @@
     "php": ">=5.3.3",
     "ext-curl": "*",
     "ext-xml": "*",
-    "mnsami/composer-custom-directory-installer": "1.0.*",
     "wikimedia/composer-merge-plugin": "1.0.0",
     "nfreear/composer-suggest": "^1.1",
     "johndyer/mediaelement": "2.17.0",
@@ -32,7 +31,7 @@
     "jakub-onderka/php-parallel-lint": "~0.8"
   },
   "suggest": {
-    "tuupola/slim-basic-auth": "*; Basic Auth (Slim) (work in progress)",
+    "tuupola/slim-basic-auth": "*; Basic Auth (Slim)",
     "vlucas/phpdotenv": "^1.1; phpdotenv",
     "totten/git-scan": "2014-01-14; git scan",
 
@@ -48,9 +47,6 @@
     }
   },
   "scripts": {
-    "post-install-cmd": [
-      "php index.php build/revision"
-    ],
     "post-update-cmd": [
       "php index.php build/revision",
       "#cp -n application/config/embed_config.dist.php application/config/embed_config.php",
@@ -75,9 +71,6 @@
     "preferred-install": "source"
   },
   "extra": {
-    "installer-paths": {
-      "./application/engines/mediaelement-x": [ "johndyer/mediaelement" ]
-    },
     "merge-plugin": {
       "include": [
         "./composer-shared/composer.json"

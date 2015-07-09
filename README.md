@@ -1,6 +1,6 @@
-# Readme for the OU Media Player/ OU Embed project
+# OU Media Player
 
-A unified, accessible online audio and video player solution for The Open University.
+A unified, accessible online audio and video player solution from The Open University.
 
 * <https://mediaplayer.open.ac.uk>
 
@@ -9,10 +9,9 @@ Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit
 
 ## Requirements
 
- * Linux (Redhat RHEL 6) (ideally, or OS X/ Windows)
- * PHP 5.3+
-   * cURL, `json_encode`
- * Apache 2.2+
+* Linux, Mac OS X or Windows (tested on Redhat 6 & Windows 7)
+* PHP 5.3.3+ (cURL, `json_encode`)
+* Apache 2.2+
    * mod_rewrite and `.htaccess` (`.sams`) (or access to `httpd.conf`)
 
 
@@ -196,7 +195,7 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Credits
 
-OU player: Copyright © 2010-2013 The Open University. All rights reserved.
+OU player: Copyright © 2010-2015 The Open University. All rights reserved.
 
 * Not licensed as open-source (yet!)
 * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology, and many others.
