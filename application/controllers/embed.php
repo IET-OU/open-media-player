@@ -24,6 +24,32 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_debug = $this->input->get('_debug');
     }
 
+    /**
+    * http://localhost/ouplayer/embed/-/youtube.com/EQEy5_QE2tQ
+    */
+    public function extend($provider_domain = null, $id = null)
+    {
+        $expect = '<tt>/embed/-/{domain}/{id}</tt>';
+
+        $sub = new \IET_OU\SubClasses\SubClasses();
+        $providers = $sub->match('\\IET_OU\\Open_Media_Player\\Oembed_Local_Embed_Interface');
+
+        if (!$provider_domain) {
+            $this->_error('The URL segment {$provider_domain} is required. '. $expect, "400.A");
+        }
+        if (!$id) {
+            $this->_error('The URL segment {id} is required. ' . $expect, "400.B");
+        }
+        if (!isset($providers[ $provider_domain ])) {
+            $this->_error("Can't find a provider for the domain, $provider_domain. $expect", "404.C");
+        }
+
+        $provider_class = $providers[ $provider_domain ];
+
+        $provider = new $provider_class ();
+        $provider->local_embed($id);
+    }
+
     /** OU-podcast player embed.
     */
     public function pod($custom_id = null, $shortcode = null)
