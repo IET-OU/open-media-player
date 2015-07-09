@@ -17,10 +17,13 @@ help:
 	# OU Media Player/ OU embed installer.
 	@echo
 	# Available targets:
-	@echo "		install update update-nick describe pull cm build-theme version.json gettext"
+	@echo "		install install-dev update update-nick pull cm build-theme version.json gettext"
 
 install: prepare clean
-	$(COMPOSER) install
+	$(COMPOSER) install --no-dev --prefer-dist
+
+install-dev: prepare clean
+	$(COMPOSER) install -v
 
 prepare:
 	$(COMPOSER) self-update
@@ -39,7 +42,7 @@ diff:
 	cd vendor/iet-ou/open-media-player-core; git diff
 	cd vendor/iet-ou/open-oembed-providers; git diff
 
-st:
+st: describe
 	git status
 	@echo "";
 	cd vendor/iet-ou/open-media-player-core; git status
@@ -73,6 +76,6 @@ gettext:
 	$(PHP) application/cli/xgettext.php
 
 
-.PHONY: help update describe pull cm build-theme version.json gettext
+.PHONY: help install install-dev update describe pull cm build-theme version.json gettext
 
 #End.
