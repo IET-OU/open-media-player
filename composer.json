@@ -4,7 +4,6 @@
   "keywords": [ "ouplayer", "MediaPlayer", "audio", "video", "mediaelementjs", "oEmbed", "accessibility", "OpenUniversity", "IET-OU" ],
   "homepage": "https://mediaplayer.open.ac.uk",
   "type": "project",
-  "time": "2011-03-10",
   "license": "proprietary",
   "minimum-stability": "dev",
   "authors": [
@@ -21,7 +20,7 @@
     "php": ">=5.3.3",
     "ext-curl": "*",
     "ext-xml": "*",
-    "wikimedia/composer-merge-plugin": "1.0.0",
+    "wikimedia/composer-merge-plugin": "1.2.*",
     "nfreear/composer-suggest": "^1.1",
     "johndyer/mediaelement": "2.17.0",
     "iet-ou/open-media-player-core": "dev-master"
@@ -32,14 +31,7 @@
   },
   "suggest": {
     "tuupola/slim-basic-auth": "*; Basic Auth (Slim)",
-    "vlucas/phpdotenv": "^1.1; phpdotenv",
-    "totten/git-scan": "2014-01-14; git scan",
-
-    "iet-ou/open-media-player-theme-x": "*; OU-only - theme ...",
-    "iet-ou/sams-auth": "*; OU-only - SAMS authentication",
-    "iet-ou/open-oembed-providers": "*; oEmbed providers - Google Docs, Prezi ...",
-    "nfreear/ou-media-player-test": "*; Remote integration tests.",
-    "iet-ou/mediaelement-demo": "*; Demos for IET-OU enhancements & fixes to MediaElement.js"
+    "iet-ou/open-oembed-providers": "*; oEmbed providers - YouTube, Google Docs, Prezi ..."
   },
   "autoload": {
     "psr-4": {
@@ -47,13 +39,21 @@
     }
   },
   "scripts": {
-    "post-update-cmd": [
-      "php index.php build/revision",
-      "#cp -n application/config/embed_config.dist.php application/config/embed_config.php",
-      "#cp -n application/config/oup_site.dist.php application/config/oup_site.php"
+    "generic-env": [
+      "php application/bin/cpn application/config/.env-generic .env"
     ],
-    "dot-env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
-
+    "X--pre-install-cmd": [
+      "php application/bin/boot-comp-merge"
+    ],
+    "post-install-cmd": [
+      "php application/bin/cpn application/config embed_config.dist.php embed_config.php",
+      "php application/bin/cpn application/config oup_site.dist.php oup_site.php",
+      "php index.php build/revision"
+    ],
+    "post-update-cmd": [
+      "php index.php build/revision"
+    ],
+    "env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
     "test": [
       "composer validate --no-interaction",
       "composer validate --no-interaction --working-dir composer-shared",
