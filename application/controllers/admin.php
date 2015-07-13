@@ -1,10 +1,9 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-//if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * Demonstrations/tests controller.
+ * Admin pages controller.
  *
- * @copyright Copyright 2011 The Open University.
+ * @copyright Copyright 2015 The Open University.
  */
 
 class Admin extends \IET_OU\Open_Media_Player\MY_Controller
@@ -13,30 +12,17 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     public function __construct()
     {
         parent::__construct();
+
         header('Content-Type: text/html; charset=utf-8');
+
+        $this->_authenticate();
     }
 
     /**
      * Index Page for this controller.
-     *
-     * Maps to the following URL
-     *         http://example.com/index.php/welcome
-     *    - or -
-     *         http://example.com/index.php/welcome/index
-     *    - or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index($layout = self::LAYOUT, $use_oembed = false)
+    public function index($layout = self::LAYOUT)
     {
-        $this->_authenticate();
-
-        $this->_load_layout($layout);
-
         redirect('/admin/info');
     }
 
@@ -46,16 +32,15 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     */
     public function info($layout = self::LAYOUT)
     {
-        $this->_authenticate();
         $this->_load_layout($layout);
 
         $my_env = array(
-        'OUENV' => getenv('OUENV'),
-        'ENVIRONMENT' => ENVIRONMENT,
-        'Server' => $this->_server_name(),
-        'CodeIgniter version' => CI_VERSION,  #.' <small>(Not always up-to-date!)</small>',
-        'Token' => $this->config->item('token'),
-        #'Request' => $this->_request,
+            'OUENV' => getenv('OUENV'),
+            'ENVIRONMENT' => ENVIRONMENT,
+            'Server' => $this->_server_name(),
+            'CodeIgniter version' => CI_VERSION,  #.' <small>(Not always up-to-date!)</small>',
+            'Token' => $this->config->item('token'),
+            #'Request' => $this->_request,
         );
 
       /*$vars = 'token data_dir log_path log_threshold debug podcast_feed_url_pattern http_proxy';
@@ -72,11 +57,11 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
         $my_env += $this->config->config;
 
         $view_data = array(
-        'is_ouembed' => $this->_is_ouembed(),
-        'is_live' => $this->_is_live(),
-        'use_oembed' => false,
-        'req' => $this->_request,
-        'app_config' => $my_env,
+            'is_ouembed' => $this->_is_ouembed(),
+            'is_live' => $this->_is_live(),
+            'use_oembed' => false,
+            'req' => $this->_request,
+            'app_config' => $my_env,
         );
 
         $this->layout->view('admin/appinfo', $view_data);
@@ -84,7 +69,6 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
 
     public function phpinfo($layout = self::LAYOUT, $what = INFO_ALL)
     {
-        $this->_authenticate();
         $this->_load_layout($layout);
 
         $view_data = array('phpinfo_what' => $what);
@@ -94,7 +78,6 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
 
     public function plugins($layout = self::LAYOUT)
     {
-        $this->_authenticate();
         $this->_load_layout($layout);
 
         $sub = new \IET_OU\SubClasses\SubClasses();
@@ -117,22 +100,29 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
             return;
         }
 
-        // Eg. '\\IET_OU\\Open_Media_Player\\Sams_Auth'
+        // For example, '\\IET_OU\\Open_Media_Player\\Sams_Auth'
         $auth_class = $this->config->item('auth_class');
         $auth_extra_call = $this->config->item('auth_extra_call');
 
         $this->_debug($auth_class);
         $this->_debug($auth_extra_call);
 
+        if (! $auth_class) {
+            $this->_debug("Warning. No {auth_class} defined in 'config/oup_site' (403 forbidden)");
+            $this->_error('Page not found', '404.10');
+        }
+
         $used_slim = $this->_slim_basic_authentication($auth_class);
 
         if (! $used_slim) {
             $this->auth = $this->load->library($auth_class);
-            $this->auth->authenticate();
+            if (! $this->auth->authenticate()) {
+                $this->_error("Sorry, you don't have permission to access this page (Forbidden)", 403.1);
+            }
 
-            // Eg. in Sams_Auth, call `is_staff()`
+            // For example, in Sams_Auth, call `is_staff()`
             if (is_string($auth_extra_call) && ! $this->auth->{ $auth_extra_call }()) {
-                $this->_error("Sorry, you don't have permission to access this page (Forbidden)", 403);
+                $this->_error("Sorry, you don't have permission to access this page (Forbidden)", 403.2);
             }
         }
     }
@@ -148,7 +138,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
 
         $opts[ 'path' ] = $opts[ 'callback' ] = null;
         $opts[ 'realm' ] = 'Media Player admin pages';
-        $opts[ 'error' ] = function ($arguments) {
+        $opts[ 'error' ] = function ($arguments) use ($app) {
             header('HTTP/1.1 401 Unauthorized');
             header(sprintf('WWW-Authenticate: Basic realm="%s"', 'Media Player admin pages'));
             echo "<title>Authentication required</title><style>body{font:1.1em sans-serif;margin:2em;color:#333}</style>WARNING.\n";
@@ -167,5 +157,5 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     }
 }
 
-/* End of file demo.php */
-/* Location: ./application/controllers/demo.php */
+/* End of file admin.php */
+/* Location: ./application/controllers/admin.php */

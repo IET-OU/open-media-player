@@ -8,8 +8,10 @@
 // Site layout: 'bare' (or 'ouice' - ou-specific)
 $config[ 'site_layout' ] = 'bare';
 
-// Authentication class for admin pages.
-$config[ 'auth_class' ] = '\\Slim\\Middleware\\HttpBasicAuthentication';
+// Authentication - disabled by default, so the (optional) admin pages do not display.
+
+// HTTP Basic Authentication class for admin pages.
+#$config[ 'auth_class' ] = '\\Slim\\Middleware\\HttpBasicAuthentication';
 
 // Authentication: ou-specific.
 #$config[ 'auth_class' ] = '\\IET_OU\\Open_Media_Player\\Sams_Auth';

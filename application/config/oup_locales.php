@@ -1,8 +1,10 @@
 <?php
-/*
+/**
 |--------------------------------------------------------------------------
 | Localization/ internationalization, including 'aliases' (all)
+|--------------------------------------------------------------------------
 */
+
 $config['locales'] = array(
     # Keys must be lower-case, using '-'.
     # Order is significant - 'en'+aliases must be last.
