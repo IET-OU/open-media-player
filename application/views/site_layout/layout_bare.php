@@ -42,7 +42,7 @@
 </pre>
 
 <p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
-<p id="footer">&copy;2012 The Open University.</p>
+<p id="footer">&copy;2011-<span class="copy">2014</span> The Open University.</p>
 
 
 <script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
@@ -51,7 +51,10 @@
     $("a.embed").oembed(null, {'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>
 
 <?php /*$("[rel=embed]").oembed(); //Legacy.*/ ?>
+
+    $(".copy").text((new Date).getYear() + 1900);
+    //console.log("Year:", (new Date).getYear() + 1900);
   });
 </script>
 
-</html> 
+</html>

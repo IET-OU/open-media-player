@@ -10,11 +10,9 @@
 class About extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
-    #const LAYOUT = 'ouice_2';
-
     public function index()
     {
-        $this->_load_layout(self::LAYOUT);
+        $this->_load_layout();
 
         $git = new \IET_OU\Open_Media_Player\Gitlib();
 

@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 */
 
-// Site layout: 'bare' (or 'ouice' - ou-specific)
+// Site layout: 'bare' (or 'ouice_2' - ou-specific)
 $config[ 'site_layout' ] = 'bare';
 
 // Authentication - disabled by default, so the (optional) admin pages do not display.

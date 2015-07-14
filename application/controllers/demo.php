@@ -31,7 +31,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index($layout = self::LAYOUT, $use_oembed = false)
+    public function index($layout = null, $use_oembed = false)
     {
      /*if ($this->_is_ouembed() && $this->uri->segment(1) == 'demo') {
       redirect('demo/ouldi');
@@ -53,7 +53,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
     * @link http://track.olnet.org/oerform
     * @link http://noembed.com/demo
     */
-    public function ouldi($layout = self::LAYOUT)
+    public function ouldi($layout = null)
     {
         if (! $this->_is_ouembed()) {
             $this->_error('The page you requested was not found.', 404);
@@ -109,7 +109,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
 
     /** OULDI (and OLnet) tests (Was: 'ouldi')
     */
-    public function ouldi_gallery($layout = self::LAYOUT)
+    public function ouldi_gallery($layout = null)
     {
         if (! $this->_is_ouembed()) {
             $this->_error('The page you requested was not found.', 404);
@@ -128,7 +128,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
 
     /** OU Podcast samples - 1 video or 1 audio, in 'context'.
     */
-    public function podcast($page = 'video', $layout = self::LAYOUT)
+    public function podcast($page = 'video', $layout = null)
     {
         $this->_load_layout($layout);
 
@@ -147,7 +147,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
 
     /** OU player size tests.
     */
-    public function player_sizes($layout = self::LAYOUT)
+    public function player_sizes($layout = null)
     {
         $this->_load_layout($layout);
 
@@ -157,7 +157,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
 
     /** Player error handling tests.
     */
-    public function podcast_errors($layout = self::LAYOUT)
+    public function podcast_errors($layout = null)
     {
         $this->_load_layout($layout);
 

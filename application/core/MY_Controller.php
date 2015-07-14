@@ -122,9 +122,10 @@ class MY_Controller extends \CI_Controller
 
     /** Load the layout library with a 'bare' or OUICE template.
     */
-    protected function _load_layout($layout = self::LAYOUT)
+    protected function _load_layout($layout = null)
     {
-        $layout = 'bare'==$layout ? 'bare' : 'ouice_2';
+        $layout = $this->config->item('site_layout');
+        //$layout = $layout && preg_match('/^(bare|ouice)/', $layout) ? $layout : $cfg;
         $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
     }
 

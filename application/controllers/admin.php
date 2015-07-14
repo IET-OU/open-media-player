@@ -21,7 +21,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     /**
      * Index Page for this controller.
      */
-    public function index($layout = self::LAYOUT)
+    public function index()
     {
         redirect('/admin/info');
     }
@@ -30,7 +30,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     /** SAMS protected (staff-only) call to phpinfo() - help with debugging.
     * @todo - Improve content + styling, cf. http://cloudworks.ac.uk/admin/phpinfo
     */
-    public function info($layout = self::LAYOUT)
+    public function info($layout = null)
     {
         $this->_load_layout($layout);
 
@@ -67,7 +67,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
         $this->layout->view('admin/appinfo', $view_data);
     }
 
-    public function phpinfo($layout = self::LAYOUT, $what = INFO_ALL)
+    public function phpinfo($layout = null, $what = INFO_ALL)
     {
         $this->_load_layout($layout);
 
@@ -76,7 +76,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
         $this->layout->view('about/phpinfo', $view_data);
     }
 
-    public function plugins($layout = self::LAYOUT)
+    public function plugins($layout = null)
     {
         $this->_load_layout($layout);
 

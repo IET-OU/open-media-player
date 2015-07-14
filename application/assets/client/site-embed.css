@@ -14,11 +14,12 @@ body.oup-ice-test.pg-test-podcast_errors iframe{ min-width:auto; }
 /* Generic page styles.
 */
 .oup-jquery-test body{
-  font:.9em sans-serif;
-  background:#fbfbfb;
-  color:#222;
-  margin:2em;
+  font: .93em sans-serif;
+  background: #fdfdfd;
+  color: #333;
+  margin: 1em 3em;
 }
+.oup-jquery-test h1, .oup-jquery-test h2 { font-weight: normal; }
 a img{ border:none; }
 abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 .oup-jquery-test iframe {

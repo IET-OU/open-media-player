@@ -27,7 +27,7 @@ class Xml_namespace extends \IET_OU\Open_Media_Player\MY_Controller
 
     /** Method for our single namespace.
     */
-    public function ou_oembed_extend()
+    public function ou_oembed_extend($layout = null)
     {
 
         $host = $this->input->server('HTTP_HOST');
@@ -35,8 +35,7 @@ class Xml_namespace extends \IET_OU\Open_Media_Player\MY_Controller
             $this->_error('The page you requested was not found.', 404.9);
         }
 
-
-        $this->_load_layout(self::LAYOUT);
+        $this->_load_layout($layout);
 
         $view_data = array(
          'is_ouembed' => $this->_is_ouembed(),
