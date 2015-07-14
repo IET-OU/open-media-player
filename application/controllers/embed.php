@@ -77,6 +77,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         'standalone' => false,
         // Auto-generate 'embed' or 'popup'.
         'mode' => strtolower(get_class($this)),
+        'context' => $player->shortClass(),
         'req'  => $this->_request,
         'google_analytics' => $this->oupodcast_serv->getAnalyticsId(),  #$this->_get_analytics_id('podcast.open.ac.uk'),
         'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),

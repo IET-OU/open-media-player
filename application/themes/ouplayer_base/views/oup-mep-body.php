@@ -1,6 +1,6 @@
 
 <!--Body classes - player flags. -->
-<body id="ouplayer" class="oup mtype-<?php echo $params->media_type ?> mode-<?php echo $mode ?> ctx-<?php echo get_class($params) ?> hide-tscript lang-<?php
+<body id="ouplayer" class="oup mtype-<?php echo $params->media_type ?> mode-<?php echo $mode ?> ctx-<?php echo $context ?> hide-tscript lang-<?php
   echo $this->lang->lang_code() ?> theme <?php echo $this->theme->name ?> <?php echo $this->theme->rgb ?> bg-<?php echo $this->theme->background ?> ua-<?php echo $this->agent->agent_code()
   ?> br-<?php echo $this->agent->browser_code() ?> v-<?php echo $this->agent->version_code()?> p-<?php echo $this->agent->platform_code() ?> <?php
   if($this->agent->is_mobile()): ?>is<?php else: ?>not<?php endif; ?>-mobile jslib-<?php echo $this->theme->jslib ?> <?php
@@ -35,7 +35,7 @@ Flowplayer:  <body id="ouplayer" class=
 <h1 title="<?php echo html_chars($params->title) ?>"><?php echo html_chars($params->title) ?></h1>
   <?php if (isset($params->_related_url)): ?>
   <a href="<?php echo $params->_related_url ?>" target="_blank" title="<?php echo t('Related link opens in new window')
-  ?><?php if ('audio'==$params->media_type): ?>: 
+  ?><?php if ('audio'==$params->media_type): ?>:
 <?php echo html_chars($params->_related_text) ?><?php endif; ?>"
   ><?php echo html_chars($params->_related_text) ?></a>
   <?php endif; ?>
