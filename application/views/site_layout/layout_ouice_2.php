@@ -36,14 +36,14 @@
 <meta name="copyright" content="© 2011-2015 The Open University" />
 <link rel="publisher" href="https://plus.google.com/u/0/b/116885993308590908200/" title="The Open University" />
 
-<link rel="alternate" type="application/rss+xml" href="<?php echo OUP_BLOG_RSS_URL ?>" title="Project RSS feed" />
+<link rel="alternate" type="application/rss+xml" href="<?php echo OUP_BLOG_RSS_URL ?>" title="<?php echo site_name() ?> feed" />
 
 <!-- **********************************************************************************
     ***  OUICE 3
     ***  ou-head.html will load all necessary css for OUICE styles required on page....
     ***  ********************************************************************************** -->
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" media="screen, projection" />
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/screen.css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" media="screen" />
+<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/screen.css" media="screen" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/print.css" media="print" />
 
 <link rel="shortcut icon" href="<?php echo $resource_url ?>/favicon.ico" type="image/x-icon" />
@@ -58,9 +58,7 @@
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-device-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-width:640px)" />
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header-mob.css" media="only screen and (max-device-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header-mob.css" media="only screen and (max-width:640px)" />
 <?php /*
 <link rel="alternate stylesheet" href="/includes/ouice/3/mobile.css" title="ou-mobile" />
