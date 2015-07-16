@@ -1,7 +1,7 @@
 
 <h2>Demonstrations</h2>
 
-<p>These are demonstrations for the <abbr title="The Open University">OU</abbr> Media Player project.
+<p>These are demonstrations for the <?php echo site_name() ?> project.
 
 <?php if ($use_oembed): ?>
 

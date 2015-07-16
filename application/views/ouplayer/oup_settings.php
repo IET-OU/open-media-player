@@ -46,7 +46,7 @@ $("a.embed").oembed(null,{oupodcast:{{$param_theme}:"$theme->name"}});
 EOF;
   } else {
     $embed_method = t('Iframe-based embed');
-	$embed_label = t('OU player');
+	$embed_label = site_name();
     $embed_url = current_url().'?'.$this->input->server('QUERY_STRING');
     $embed_url = str_replace('/popup/', '/embed/', $embed_url);
     $embed_code = <<<EOF

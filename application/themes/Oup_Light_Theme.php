@@ -1,9 +1,9 @@
 <?php namespace IET_OU\Open_Media_Player;
 
 /**
- * OU Player Light 2012 theme.
+ * Open Media Player Light 2012 theme.
  *
- * This theme extends the OU Player base theme and adds the visuals, colours and so on.
+ * This theme extends the Open Media  Player base theme and adds the visuals, colours and so on.
  *
  * @copyright Copyright 2012 The Open University.
  * @author Peter Devine/LTS 2012-03-08 (visuals, CSS)
@@ -15,7 +15,7 @@ use \IET_OU\Open_Media_Player\Ouplayer_Base_Theme;
 class Oup_Light_Theme extends Ouplayer_Base_Theme
 {
 
-    public $display = 'OU Player light (2012)';
+    public $display = 'Open Media Player light (2012)';
     public $rgb  = 'ouvle-default-blue';
     public $background = 'black';
 

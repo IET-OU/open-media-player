@@ -1,10 +1,10 @@
 /*
- * OU Player UML diagrams.
+ * Open Media Player UML diagrams.
  * N.D.Freear, 18 April 2012.
  */
 
 
-// OU Player theme class hierarchy
+// Open Media Player theme class hierarchy
 [Abstract: Player_Theme]^-[Mejs_Default_Theme],
 [Mejs_Default_Theme]-[note: 2012 Mediaelementjs engine{bg:cornsilk}]
 [Mejs_Default_Theme]^-[Ouplayer_Base_Theme],

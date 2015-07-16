@@ -1,10 +1,10 @@
-# OU Media Player principles
+# Open Media Player principles
 
 In order to continue to develop the best possible Media Player for [The Open University], we lay down some guiding principles, and notes on how the current player seeks to meet those principles.
 
-The [OU Media Player] should:
+The [Open Media Player] should:
 
-1. Attain and exceed the highest standards for accessibility to those with disabilities. 
+1. Attain and exceed the highest standards for accessibility to those with disabilities.
 
     The current solution does this through:
     * Use of [the OU], [WCAG 2.0] and [WAI-ARIA] standards and guidelines (W3C),
@@ -21,7 +21,7 @@ The [OU Media Player] should:
     The current solution does this through:
     * LTS designs visual theme(s) for the Player that are both accessible and usable, and that fit in with The Open University's overall [brand] and [values];
 
-4. Be usable on mobiles and tablets. 
+4. Be usable on mobiles and tablets.
 
     The current solution does this through:
     * HTML5 player based on MediaElement.js;
@@ -37,13 +37,13 @@ The [OU Media Player] should:
     * Use of a service-based approach;
     * Use of platform-specific plugins, for example, the oEmbed plugin for Drupal;
 
-7. Be simple to deploy new features. 
+7. Be simple to deploy new features.
 
     The current solution does this through:
     * Platform specific themes and an update process which conforms to [IT] change request process.
     * Issues and changes logged and tracked via LTS Redmine
 
-8. Track usage patterns, to help improve the Player and inform other University activity. 
+8. Track usage patterns, to help improve the Player and inform other University activity.
 
     The current implementation:
     * Use of Google Analytics for the [Podcast] Player variant;

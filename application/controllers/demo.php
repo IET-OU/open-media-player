@@ -1,6 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-//if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
  * Demonstrations/tests controller.
  *
@@ -145,7 +144,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
     }
 
 
-    /** OU player size tests.
+    /** Open Media Player size tests.
     */
     public function player_sizes($layout = null)
     {

@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta charset="utf-8" /><title>*OU player/ OU embed - Beta Demonstrations</title>
+<meta charset="utf-8" /><title><?php echo site_name() ?></title>
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <meta name="ROBOTS" content="noindex,nofollow" />
@@ -34,7 +34,7 @@
 <?php endif; ?>
 
 
-<h1 class=hide>OU Media Player</h1>
+<h1 class=hide><?php echo site_name() ?></h1>
 <p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
 
 <?php echo $content_for_layout ?>

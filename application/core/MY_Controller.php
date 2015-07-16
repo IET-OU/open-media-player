@@ -115,7 +115,7 @@ class MY_Controller extends \CI_Controller
         if ($this->_is_ouembed()) {
             return $providers_all;
         }
-      // OU Player-only..
+      // Open Media Player-only..
         $providers[OUP_PLAYER_HOST] = $providers_all[OUP_PLAYER_HOST];
         return $providers;
     }
@@ -277,7 +277,7 @@ class MY_Controller extends \CI_Controller
 
         if (! $this->_is_api_call()) {
              $ex =& load_class('Exceptions', 'core');
-             echo $ex->show_error(t('OU Player error'), $message, 'error_general', $code);
+             echo $ex->show_error(t('%s error', site_name()), $message, 'error_general', $code);
              exit;
         } else {
             @header('Content-Type: text/plain; charset=utf-8');

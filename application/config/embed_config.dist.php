@@ -145,7 +145,7 @@ $config['flowplayer_version'] = '3.2.7';
 
 /*
 |--------------------------------------------------------------------------
-| OU Player user documentation.
+| Open Media Player user documentation.
 */
 //
 $player_docs_google = 'https://docs.google.com/document/pub?id=1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc';
@@ -158,7 +158,7 @@ $config['player_docs'] = array(
 
 /*
 |--------------------------------------------------------------------------
-| OU Player themes.
+| Open Media Player themes.
 */
 $config['player_default_theme'] = 'oup-light';
 $config['player_mobile_theme'] = 'mejs-default';

@@ -16,7 +16,7 @@ $body_classes .= $input->get('edge') ? ' oup-vle-edge' :'';
 <html  dir="ltr" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>*OUVLE 'many' players test | OU Player |   Learning Guide 1: Quality of life and wellbeing: Learning Guide 1 resources</title>
+    <title>*OUVLE 'many' players test | <?php echo site_name() ?> | Learning Guide 1: Quality of life and wellbeing: Learning Guide 1 resources</title>
     <link rel="shortcut icon" href="<?php echo $resource_url ?>/theme/image.php?theme=ou&amp;image=favicon&amp;rev=730&amp;component=theme" />
     <link rel="stylesheet" type="text/css" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $resource_url ?>/includes/studenthome-header-2012.css" />

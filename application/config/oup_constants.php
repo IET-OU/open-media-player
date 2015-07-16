@@ -23,7 +23,7 @@ define('OUP_DEBUG_MAX',  2);
 
 /*
 |--------------------------------------------------------------------------
-| XML Nampsaces - oEmbed extensions; OU Player data-feeds.
+| XML Nampsaces - oEmbed extensions; Open Media Player data-feeds.
 */
 define('XMLNS_OU_OEMBED_EXTEND', 'http://embed.open.ac.uk/2012/extend#');
 define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
@@ -46,7 +46,7 @@ define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
 define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
 define('OUP_BLOG_RSS_URL', 'http://cloudworks.ac.uk/tag/rss/oEmbed');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
-define('OUP_CONTACT_URL', 'mailto:IET-Webmaster@open.ac.uk?subject=OU Player feedback:');
+define('OUP_CONTACT_URL', 'mailto:IET-Webmaster@open.ac.uk?subject=Open Media Player feedback:');
 
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
 define('OUP_FLASH_URL', 'http://adobe.com/go/getflashplayer');

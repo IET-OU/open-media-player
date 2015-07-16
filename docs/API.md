@@ -1,15 +1,15 @@
-# OU Media Player #
+# Open Media Player #
 
-The OU Media Player is an online audio and video player that is designed to be simple to integrate into student, public and staff facing web sites at The Open University. It can be incorporated via an [`<iframe>`](#iframe) or an [oEmbed API][oembed].
+The Open Media Player is an online audio and video player that is designed to be simple to integrate into student, public and staff facing web sites at The Open University. It can be incorporated via an [`<iframe>`](#iframe) or an [oEmbed API][oembed].
 
-The OU Player has three _variants_:
+The Open Medua Player has three _variants_:
 
  1. OU Podcast player - audio and video hosted at [OU Podcasts][oupod]
  2. OUVLE player - audio/video hosted on the OU's VLE
  3. OpenLearn player - audio/video hosted on OpenLearn-LearningSpace/LabSpace
 
 
-A note on OU Player installations:
+A note on Open Player installations:
 
  1. The OU Player will be available at, http://mediaplayer.open.ac.uk and http://mediaplayer.open.edu
  2. There will be an acceptance test install at, http://mediaplayer-acct.open.ac.uk
@@ -82,7 +82,7 @@ The [jQuery-oEmbed plugin][ouplayer-jquery] (extended from [Chamorro's plugin][j
 A simple HTML example:
 
 	<a class=embed href="http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b">A video</a>
-	
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="http://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
 	<script>

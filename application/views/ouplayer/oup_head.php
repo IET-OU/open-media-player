@@ -5,7 +5,7 @@
   //<meta> below - try to ensure the most recent MSIE rendering engine
   //@header('X-UA-Compatible: IE=edge');
 ?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo t('OU player') ?></title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo site_name() ?></title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="copyright" value="&copy; 2011 The Open University" />
 
@@ -29,7 +29,7 @@ if (isset($theme->styles)):
       $n_themes++;
     }
 ?>
-<link rel="<?php echo $trel ?>stylesheet" href="<?php echo $base_url ?>assets/<?php echo $theme_r['styles'] ?>" title="<?php echo t('OU player') ?>: <?php echo t($theme_r['title']) ?>" />
+<link rel="<?php echo $trel ?>stylesheet" href="<?php echo $base_url ?>assets/<?php echo $theme_r['styles'] ?>" title="<?php echo site_name() ?>: <?php echo t($theme_r['title']) ?>" />
 <?php
   endforeach;
   if (!$n_themes): ?>

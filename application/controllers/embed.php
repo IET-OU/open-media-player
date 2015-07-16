@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
- * Iframe embed controller for OU Player.
+ * Iframe embed controller for Open Media Player.
  *
  * Note, this controller is also used for the 'popup' functionality (see Popup controller).
  *

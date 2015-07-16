@@ -1,6 +1,6 @@
 <?php
 /**
- * Controller to facilitate localization/ translation of OU player/ OU embed user-interface.
+ * Controller to facilitate localization/ translation of Open Media Player/ OU embed user-interface.
  *
  * @copyright Copyright 2011 The Open University.
  *

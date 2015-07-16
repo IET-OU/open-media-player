@@ -1,7 +1,8 @@
 <?php namespace IET_OU\Open_Media_Player;
 
 /**
- * OU Media Player base theme.
+ * Open Media Player base theme.
+ *
  * This theme extends the Mediaelement default theme, and adds Javascript features and views.
  *
  * @copyright Copyright 2012 The Open University.
@@ -13,7 +14,7 @@ use \IET_OU\Open_Media_Player\Mejs_Default_Theme;
 class Ouplayer_Base_Theme extends Mejs_Default_Theme
 {
 
-    public $display = 'OU Player base theme';
+    public $display = 'Open Media Player base theme';
     public $view = 'ou-me-player';
 
   // Note, set defaults for 'foreground' and background colours here (use & make them customizable in oup_light theme).
@@ -52,10 +53,10 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         $theme_name = strtolower($this->shortClass('#_Theme#i', '', __CLASS__));
         $theme_path = self::THEME_PATH . $theme_name;
 
-      // Add our OU Player base styles to the array.
+      // Add our Open Media Player base styles to the array.
         $this->styles[] = $theme_path . '/css/ouplayer-base.css';
 
-      // The minified OU Player+mediaelement Javascript/ CSS.
+      // The minified Open Media Player+mediaelement Javascript/ CSS.
         $this->js_min  = $theme_path . '/build/ouplayer-mediaelement.min.js';
         $this->css_min = str_replace('.js', '.css', $this->js_min);
 
@@ -84,7 +85,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $oups_base.'mep-feature-fullscreen.js', # Group: 1-line change, NDF 2012-03-30.
             $oups_base.'mep-feature-tracks.js',     # Group: 1-line change.
             $meps_base.'mep-feature-googleanalytics.js',
-        # OU Player extensions.
+        # Open Media Player extensions.
             $oups_base.'mep-oup-header.js',
             $oups_base.'mep-oup-feature-shim.js',
             $oups_base.'mep-oup-feature-error.js',

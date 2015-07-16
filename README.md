@@ -1,4 +1,4 @@
-# OU Media Player
+# Open Media Player
 
 A unified, accessible online audio and video player solution from The Open University.
 
