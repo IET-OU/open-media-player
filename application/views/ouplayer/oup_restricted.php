@@ -34,9 +34,9 @@ $about_url= isset($docs['about'])? $docs['about']: '#about/TODO';
 $base_url = site_url();
 
 ?>
-<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta charset="utf-8" /><title><?php #echo $meta->title .' | ' ?><?php echo $restrict_text ?> | Podcast | <?php echo site_name() ?></title>
-<meta name="copyright" value="&copy; 2011 The Open University" />
+<meta name="copyright" value="&copy; 2011-2015 The Open University" />
 
 <link rel="stylesheet" href="<?php echo $base_url ?>assets/ouplayer/ouplayer.core.css" />
 <?php #if (isset($theme->styles)): ?>

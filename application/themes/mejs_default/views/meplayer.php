@@ -9,7 +9,7 @@
   $base_url = base_url() . $engine_path;
 
 ?>
-<!doctype html><html lang="en" class="mejs-embed"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<!doctype html><html lang="en" class="mejs-embed"><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta charset="utf-8" /><title><?php echo $params->title ?> | <?php echo site_name() //MediaElement ?></title>
 <!--[if lt IE 9]>
 <script src="//html5shim.googlecode.com/svn/trunk/html5-els.js"></script>

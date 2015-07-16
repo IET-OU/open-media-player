@@ -23,7 +23,7 @@
   <?php echo isset($dim['note']) ?  $dim['note'] :'' ?>
 
   <p><iframe
-   class="ouplayer video" frameborder="0" allowfullscreen webkitallowfullscreen
+   class="ouplayer video" frameborder="0" allowfullscreen
    width="<?php echo $dim['width'] ?>" height="<?php echo $dim['height'] ?>"
    src="<?php echo site_url('embed/pod/student-experiences/db6cc60d6b') ?>"
   ></iframe>

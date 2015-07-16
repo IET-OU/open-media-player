@@ -24,7 +24,7 @@
 
 
 ?>
-<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta charset="utf-8" /><title><?php echo $page_title ?> - The Open University</title>
 <?php if (!$robots): ?>
 <meta name="ROBOTS" content="noindex,nofollow" />
@@ -76,7 +76,7 @@
 <link rel="stylesheet" href="<?php echo $local_res_url ?>ou-embed.css" title="OU Embed styles" />
 <?php if ($is_ouembed): ?>
 <link rel="stylesheet" href="<?php echo OUP_NOEMBED_STYLE_URL ?>" title="Noembed embed styles" />
-<link rel="EX-stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" />
+<?php //<link rel="stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" /> ?>
 <?php endif; ?>
 
 

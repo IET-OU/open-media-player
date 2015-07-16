@@ -7,10 +7,10 @@
   $body_classes .= $input->get('edge') ? ' oup-edge' :'';
   $body_classes .= $input->get('size') ? ' oup-'.$input->get('size') :'';
 
-  #header('X-UA-Compatible: IE=edge,chrome=1');
+  #header('X-UA-Compatible: IE=edge');
 
 ?>
-<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta charset="utf-8" /><title><?php echo site_name() ?></title>
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
@@ -43,8 +43,6 @@
 </ul>
 
 <?php echo $content_for_layout ?>
-
-</pre>
 
 <p id="footer">&copy; 2011-<span class="copy">2014</span> The Open University.</p>
 

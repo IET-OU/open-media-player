@@ -212,7 +212,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $view_data = array(
             'req' => $this->_request,
             'audio_height'=> $audio_height,
-            'iframe_param'=> 'allowfullscreen webkitallowfullscreen',
+            'iframe_param'=> 'allowfullscreen',
             'player_param'=> $player_param,
             'player_url'  => $player_url,
             'player_url_unenc' => $player_url_unenc,
