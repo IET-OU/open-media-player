@@ -73,7 +73,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
 
         $view_data = array('phpinfo_what' => $what);
 
-        $this->layout->view('about/phpinfo', $view_data);
+        $this->layout->view('admin/phpinfo', $view_data);
     }
 
     public function plugins($layout = null)

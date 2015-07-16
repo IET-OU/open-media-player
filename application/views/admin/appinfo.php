@@ -4,8 +4,9 @@
 */
 ?>
 
-<p><a href="#app">Player application config</a> &bull; <a href="?name=value" title=
-  "Add a GET parameter">[get]</a> &bull; <a href="#php">PHP info</a>
+<p><a href="<?php echo site_url('admin/info') ?>">Player application config</a>
+  &bull; <a href="<?php echo site_url('admin/plugins') ?>">Plugins</a>
+  &bull; <a href="<?php echo site_url('admin/phpinfo') ?>">PHP info</a>
 </p>
 
 
