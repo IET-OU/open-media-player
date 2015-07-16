@@ -47,7 +47,7 @@ $config['podcast_feed_url_pattern'] =
 
 // SSL/ HTTPS regular expression for `media_url()` helper function - OU Media Player.
 $config['https_media_url_regex'] =
-    '@https?:\/\/(sub_domain_A|sub_domain_B)\.example\.org)@';
+    '@https?:\/\/((sub_domain_A|sub_domain_B)\.example\.org)@';
 
 
 /*
