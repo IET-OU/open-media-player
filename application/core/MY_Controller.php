@@ -56,6 +56,13 @@ class MY_Controller extends \CI_Controller
             }
         }
 
+        // Test configured regex!!
+        $test_media_url_regex = $this->config->item('https_media_url_regex');
+        $guard = \RegexGuard\Factory::getGuard();
+        if (! $guard->isRegexValid($test_media_url_regex)) {
+            exit("Error. The regexp 'https_media_url_regex' defined in 'config/embed_config.php' is invalid.");
+        }
+
         log_message('debug', __CLASS__." Class Initialized");
     }
 

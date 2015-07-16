@@ -49,11 +49,13 @@
 <p id="footer">&copy; 2011-<span class="copy">2014</span> The Open University.</p>
 
 
+<?php //if ($is_demo_page && $use_oembed): ?>
+
 <script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
 <script>
   $(document).ready(function() {
 
-    $.fn.embed && $("a.embed").oembed(null, {
+    $.fn.oembed && $("a.embed").oembed(null, {
       'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}
     });<?php /*null, { embedMethod: "replace" });*/ ?>
 
@@ -63,5 +65,8 @@
     $(".copy").text((new Date).getYear() + 1900);
   });
 </script>
+
+<script>$.oup_site_debug = <?php echo json_encode(isset($req) ? $req->debug : NULL) ?>;</script>
+<script src="<?php echo site_url('assets/site/site-behaviour.js') ?>"></script>
 
 </html>
