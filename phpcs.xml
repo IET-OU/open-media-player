@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="mediaplayer-open-ac-uk">
-  <description>OU Media Player coding standard - PSR2, almost!</description>
+  <description>Open Media Player coding standard - PSR2, almost!</description>
 
   <exclude-pattern>\.git</exclude-pattern>
   <exclude-pattern>/application/assets/</exclude-pattern>

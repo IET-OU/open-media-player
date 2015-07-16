@@ -1,5 +1,5 @@
 /**
-* OU player: MEP progress bar feature - with keyboard accessibility & WAI-ARIA properties.
+* Open Media Player: MEP progress bar feature - with keyboard accessibility & WAI-ARIA properties.
 * Copyright 2012 The Open University.
 * Author: Nick Freear, 11 April 2012.
 */

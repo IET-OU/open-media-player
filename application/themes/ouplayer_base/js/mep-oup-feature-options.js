@@ -1,5 +1,5 @@
 /**
-* OU player: Player options menu feature.
+* Open Media Player: Player options menu feature.
 * Copyright 2012 The Open University.
 */
 (function($) {

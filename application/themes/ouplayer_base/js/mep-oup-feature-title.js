@@ -1,5 +1,5 @@
 /**
-* OU player: Title panel feature - DEPRECATED/ NOT in use/ NOT required!
+* Open Media Player: title panel feature - DEPRECATED/ NOT in use/ NOT required!
 * Copyright 2012 The Open University.
 */
 (function($) {
@@ -12,7 +12,7 @@
 	// OUP title panel
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_titlepanel: function(player, controls, layers, media) {
-			var 
+			var
 				t = this
 				, op = t.options
 				, cl_play = 'mejs-play'
@@ -43,5 +43,5 @@
 			}, false);
 		}
 	});
-	
+
 })(mejs.$);

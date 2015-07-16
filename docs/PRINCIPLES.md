@@ -1,8 +1,8 @@
 # Open Media Player principles
 
-In order to continue to develop the best possible Media Player for [The Open University], we lay down some guiding principles, and notes on how the current player seeks to meet those principles.
+In order to continue to develop the best possible Media Player for [The Open University][], we lay down some guiding principles, and notes on how the current player seeks to meet those principles.
 
-The [Open Media Player] should:
+The [Open Media Player][] should:
 
 1. Attain and exceed the highest standards for accessibility to those with disabilities.
 
@@ -54,7 +54,7 @@ The [Open Media Player] should:
 Source: [OUMPSG-6-1 OU-Media-player-principles-Jan-2014.docx], by Nick Freear & Will Woods, 15 January 2014.
 
 [The Open University]: http://www.open.ac.uk/
-[OU Media Player]: http://mediaplayer.open.ac.uk/
+[Open Media Player]: http://mediaplayer.open.ac.uk/
 [OUMPSG-6-1 OU-Media-player-principles-Jan-2014.docx]: https://docs.google.com/document/d/1LAdmCS4FtyNBAUQOI8wjfohi01z8pVsXS6cRAdNrUfQ/edit#
 [gist]: https://gist.github.com/nfreear/db9048dcb7cd666b07df
 [the OU]: http://www.open.ac.uk/about/web-standards/standards/accessibility "Open University accessibility standard"

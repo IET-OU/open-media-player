@@ -1,5 +1,5 @@
 /*!
- * OU Player behaviours.
+ * Open Media Player behaviours.
  * ©2011 The Open University.
  */
 //(N.D.Freear, 2011-04-08/-04-27/-05-18)

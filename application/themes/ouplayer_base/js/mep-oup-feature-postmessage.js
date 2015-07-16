@@ -1,5 +1,5 @@
 /**
-* OU player: MEP postmessage feature - experimental!
+* Open Media Player: MEP postmessage feature - experimental!
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */

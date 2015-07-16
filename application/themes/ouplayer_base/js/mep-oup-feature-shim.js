@@ -1,5 +1,5 @@
 /**
-* OU player: various shims and fixes.
+* Open Media Player: various shims and fixes.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */

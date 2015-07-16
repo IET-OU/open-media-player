@@ -1,4 +1,4 @@
-# robots.txt for OU Media Player
+# robots.txt for Open Media Player
 # Mostly don't publicise - except the home/about pages.
 # (See http://youtube.com/robots.txt)
 # http://archive.org/details/archive.org_bot

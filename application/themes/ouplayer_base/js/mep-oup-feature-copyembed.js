@@ -1,5 +1,5 @@
 /**
-* OU player: Select/ copy embed code feature.
+* Open Media Player: select/ copy embed code feature.
 * Copyright 2012 The Open University.
 * Author: Nick Freear, 2012-04-22.
 */
@@ -38,5 +38,5 @@
 			});
 		}
 	});
-	
+
 })(mejs.$);

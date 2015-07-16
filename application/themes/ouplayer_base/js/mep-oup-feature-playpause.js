@@ -1,5 +1,5 @@
 /*
-* OU player: MEP play/ pause feature, our version with dynamic 'title' attribute.
+* Open Media Player: MEP play/ pause feature, our version with dynamic 'title' attribute.
 * Copyright 2012 The Open University.
 */
 (function ($) {

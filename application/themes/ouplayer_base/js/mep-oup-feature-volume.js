@@ -1,5 +1,5 @@
 /*
-* OU player: MEP volume feature - replace volume slider with buttons etc. TODO:complete.
+* Open Media Player: MEP volume feature - replace volume slider with buttons etc. TODO:complete.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
