@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
- * OU Media Player helper functions.
+ * Open Media Player helper functions.
  *
  * @copyright Copyright 2011 The Open University.
  * @author N.D.Freear.
@@ -66,6 +66,14 @@ function html_chars($str, $flags = null, $encoding = 'UTF-8', $double_encode = f
 function contains($haystack, $needle)
 {
     return false !== strpos($haystack, $needle);
+}
+
+
+/** The application or site name.
+*/
+function site_name()
+{
+    return 'Open Media Player';
 }
 
 
