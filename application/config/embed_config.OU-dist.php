@@ -4,6 +4,10 @@
 | Open Media Player / OU-embed - OU-specific main configuration file.
 |--------------------------------------------------------------------------
 */
+
+putenv('OUENV=iet-live');
+
+
 $config['token'] = 0;  #'NDF/2012-12-04';
 
 
@@ -13,8 +17,6 @@ $config['token'] = 0;  #'NDF/2012-12-04';
 */
 // See also: 'ENVIRONMENT' defined in ../../index.php
 $config['debug'] = OUP_DEBUG_MIN;
-
-$config['robots'] = FALSE;
 
 
 /** NOT IN PRODUCTION **/
@@ -172,9 +174,6 @@ $config['cache_minutes'] = false; //10;
 
 // Experimental.
 $config['player_scripts_compress'] = false;
-
-
-#$config['google_analytics'] = 'UA-24005173-1';
 
 
 // NEW! OU Sharepoint NTLM (LDAP) account.

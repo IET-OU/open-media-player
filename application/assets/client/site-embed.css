@@ -20,6 +20,9 @@ body.oup-ice-test.pg-test-podcast_errors iframe{ min-width:auto; }
   margin: 1em 3em;
 }
 .oup-jquery-test h1, .oup-jquery-test h2 { font-weight: normal; }
+.oup-jquery-test [role = navigation] { padding: 0; }
+.oup-jquery-test [role = navigation] li { display: inline-block; margin: 1em 2em 2em 0; text-indent: 0; }
+.oup-jquery-test #footer { border-top: 1px solid #bbb; padding: .5em 0; margin: 3em 0; }
 a img{ border:none; }
 abbr{ cursor:help; border-bottom:1px dotted #bbb; }
 .oup-jquery-test iframe {

@@ -35,25 +35,32 @@
 
 
 <h1 class=hide><?php echo site_name() ?></h1>
-<p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
+
+<ul role="navigation">
+    <li><a href="<?php echo base_url() ?>">Home</a>
+    <li><a href="<?php echo base_url() ?>about">About</a>
+    <li><a href="<?php echo base_url() ?>demo/ouldi">OU/OULDI embeds</a>
+</ul>
 
 <?php echo $content_for_layout ?>
 
 </pre>
 
-<p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
-<p id="footer">&copy;2011-<span class="copy">2014</span> The Open University.</p>
+<p id="footer">&copy; 2011-<span class="copy">2014</span> The Open University.</p>
 
 
 <script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
 <script>
   $(document).ready(function() {
-    $("a.embed").oembed(null, {'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>
+
+    $.fn.embed && $("a.embed").oembed(null, {
+      'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}
+    });<?php /*null, { embedMethod: "replace" });*/ ?>
 
 <?php /*$("[rel=embed]").oembed(); //Legacy.*/ ?>
 
+
     $(".copy").text((new Date).getYear() + 1900);
-    //console.log("Year:", (new Date).getYear() + 1900);
   });
 </script>
 

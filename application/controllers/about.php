@@ -22,6 +22,7 @@ class About extends \IET_OU\Open_Media_Player\MY_Controller
             'is_ouembed' => $this->_is_ouembed(),
             'is_live' => $this->_is_live(),
             'is_demo_page' => false,
+            'layout_name' => $this->layout_name,
             'use_oembed' => false,
             'app_revision' => $rev,
         );
@@ -34,7 +35,7 @@ class About extends \IET_OU\Open_Media_Player\MY_Controller
     */
     public function providers()
     {
-        $this->_load_layout(self::LAYOUT);
+        $this->_load_layout();
 
         $this->load->library('../controllers/services');
         $services = $this->services->index($return = true);

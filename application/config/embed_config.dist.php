@@ -5,6 +5,7 @@
 |--------------------------------------------------------------------------
 */
 
+putenv('OUENV=generic');
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,6 @@
 // See also: 'ENVIRONMENT' defined in ../../index.php
 $config['debug'] = OUP_DEBUG_MIN;
 
-// Allow search engine robots to index?
-$config['robots'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,9 +116,6 @@ $config['cache_minutes'] = false;
 
 // Experimental.
 $config['player_scripts_compress'] = false;
-
-
-#$config['google_analytics'] = 'UA-24005173-1';
 
 
 // NEW! OU Sharepoint NTLM (LDAP) account.

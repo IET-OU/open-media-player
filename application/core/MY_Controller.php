@@ -16,6 +16,7 @@ class MY_Controller extends \CI_Controller
     public $firephp;
     protected $_request;
     protected $_theme;
+    protected $layout_name;
 
     // Default layout/template (was: 'bare')
     const LAYOUT = 'ouice';
@@ -84,7 +85,8 @@ class MY_Controller extends \CI_Controller
     }
 
     /**
-  * Determine if we are a live server.
+  * Determine if we are a live server - values should match those in `../../index.php`
+  *
   * @link http://intranet4.open.ac.uk/wikis/sysdevdoc/Environment_variables
   * @return bool
   */
@@ -93,11 +95,12 @@ class MY_Controller extends \CI_Controller
         switch (strtolower(getenv('OUENV'))) {
             case 'live':
             case 'acct':    # Fall through.
-            case 'ietlive':
+            case 'iet-live':
+            case 'generic':
                 return true;
             case 'test':
             case 'dev':
-            case 'ietdev':
+            case 'iet-dev':
             default:
                 return false;
         }
@@ -127,6 +130,8 @@ class MY_Controller extends \CI_Controller
         $layout = $this->config->item('site_layout');
         //$layout = $layout && preg_match('/^(bare|ouice)/', $layout) ? $layout : $cfg;
         $this->load->library('Layout', array('layout'=>"site_layout/layout_$layout"));
+
+        $this->layout_name = $layout;
     }
 
     /** Check a JSON-P callback parameter for security etc.

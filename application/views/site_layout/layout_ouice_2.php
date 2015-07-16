@@ -33,7 +33,7 @@
 <meta name="description" content=
 "<?php echo site_name() ?> is an online audio and video player, developed at The Open University, and used in student and public facing services. The Open University; open to people, places, methods and ideas." />
 <meta name="keywords" content="ouplayer, oembed, open university, distance, learning, study, employee development, research, course, qualification, uni" />
-<meta name="copyright" content="© 2013 The Open University" />
+<meta name="copyright" content="© 2011-2015 The Open University" />
 <link rel="publisher" href="https://plus.google.com/u/0/b/116885993308590908200/" title="The Open University" />
 
 <link rel="alternate" type="application/rss+xml" href="<?php echo OUP_BLOG_RSS_URL ?>" title="Project RSS feed" />
