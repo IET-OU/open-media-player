@@ -47,6 +47,7 @@
   ],
   "scripts": {
     "generic-env": [
+      "mkdir _data",
       "php application/bin/cpn application/config/.env-generic .env"
     ],
     "X--pre-install-cmd": [

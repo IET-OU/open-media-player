@@ -69,7 +69,7 @@ $config['podcast_data_use_feed'] = true;
 
 // Required/Podcast. Required for feed access model - the default.
 $config['podcast_feed_url_pattern'] =
-    "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
+    "http://podcast.open.ac.uk/feeds/__COLLECTION_ID__/player.xml";
 
 
 // SSL/ HTTPS regular expression for `media_url()` helper function - OU Media Player.

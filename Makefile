@@ -8,7 +8,7 @@
 # Environment
 PHP=php
 #PHP=C:/Users/ndf42/xampp/php/php
-COMPOSER=../composer.phar
+COMPOSER=composer
 CFG=./application/config/
 
 
