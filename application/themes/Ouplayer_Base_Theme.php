@@ -105,6 +105,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
             $oups_base.'mep-oup-feature-copyembed.js',   #Experimental.
             $oups_base.'mep-oup-feature-ignore-color.js',    # High contrast/ignore colour accessibility fix.
+            $oups_base.'mep-oup-feature-stream.js',  # Experimental, youtube, 2015!
         );
     }
 
@@ -144,6 +145,10 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $this->with_credentials = true;
         }
 
+        # Experimental, youtube, 2015!
+        if ($player->is_player('youtube') && $player->is_stream) {
+            $this->features = str_replace('duration,', 'duration,oup_stream,', $this->features);
+        }
 
         $this->prepare_banner($player);
     }

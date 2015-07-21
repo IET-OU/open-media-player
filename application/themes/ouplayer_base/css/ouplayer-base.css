@@ -10,7 +10,7 @@
  * Generic stuff.
  */
 body	{
-	margin:0; 
+	margin:0;
 	font:1em Tahoma,"Lucida Grande",Arial,Helvetica,sans-serif;
 	background:#000; /*Was #222. */
 	color:#eee;
@@ -38,7 +38,7 @@ h1 {
 	}
 
 
-.mejs-container { 
+.mejs-container {
 	position:fixed; /*Not absolute. */
 	top:0;
 	bottom:0;
@@ -109,7 +109,7 @@ h1 {
 /* Error handling.
 */
 #oup-noscript, .error {
-	position:absolute; 
+	position:absolute;
 	background:#f4f4f4;
 	color:#222;
 	padding:5px;
@@ -142,10 +142,10 @@ h1 {
 	width:auto;
 	}
 
-.oup-mejs-button button, .oup-mejs-link a	{ 
-	display:block;  
-	width:16px; 
-	height:16px; 
+.oup-mejs-button button, .oup-mejs-link a	{
+	display:block;
+	width:16px;
+	height:16px;
 	}
 
 .mejs-container button:focus, .oup-mejs-link a:focus	{
@@ -277,6 +277,26 @@ body .mejs-container .mejs-controls .mejs-time {
 	height: 14px;
 	}
 
+.mejs-container .mejs-controls .oup-mejs-stream {
+	display: inline-block;
+	position: relative;
+	top: 9px;
+	left: 48px;
+	font-size: 12.5px;
+	font-size: .78135rem; /* http://pxtoem.com */
+}
+body[class *= trident] .mejs-container .mejs-controls .oup-mejs-stream {
+	font-size: .62rem;
+}
+.mejs-container .oup-mejs-stream i {
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	border-radius: 3px;
+	margin: 2px;
+  background: red;
+}
+
 /* Only show the progress-bar 'thumb' on keyboard focus. */
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
 .mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-3px; height:10px; background:#fff; border:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
@@ -288,7 +308,7 @@ body .mejs-container .mejs-controls .mejs-time {
 .mtype-audio.ctx-Vle_player .mejs-controls .mejs-time-rail .mejs-time-float-current{ margin:0 2px; }
 .mtype-audio.ctx-Vle_player .mejs-controls .mejs-time-rail .mejs-time-float-corner{ display:none; }
 
-.mejs-controls { 
+.mejs-controls {
 	/*color:rgb(40,41,42);/* 190312 - PETER*/
 	/*margin: 0 5px 0 2px;/* 190312 - PETER*/
 	}
@@ -298,7 +318,7 @@ body .mejs-container .mejs-controls .mejs-time {
 }
 
 .oup-volume-widget .oup-display	{
-	display:inline-block; 
+	display:inline-block;
 	padding:0 4px 0 0px;
 	width:14px;
 	text-align:right;
@@ -306,9 +326,9 @@ body .mejs-container .mejs-controls .mejs-time {
 	}
 
 .oup-volume-widget button	{
-	width:12px; 
-	height:12px; 
-	border-radius:0; 
+	width:12px;
+	height:12px;
+	border-radius:0;
 	}/* 190312 - PETER*/
 
 .mejs-captions-text{ font-size:1.4em; }
@@ -413,7 +433,7 @@ body .mejs-container .mejs-controls .mejs-time {
 	float:right;
 	width:16px;
 	height:16px;
-	border:0;	
+	border:0;
 	}
 
 #oup-tscript button:hover, #oup-options button:hover	{
@@ -422,7 +442,7 @@ body .mejs-container .mejs-controls .mejs-time {
 	background-color: rgb(41,110,143);
 	width:16px;
 	height:16px;
-	border:0;	
+	border:0;
 	}
 
 /*#oup-tscript .span	{

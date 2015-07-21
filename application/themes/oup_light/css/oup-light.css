@@ -108,7 +108,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	/*background: #333;/* - Peter: 080312 COLOUR*/
 	background: rgb(204, 204, 203); /* - Peter: 080312 COLOUR*/
 	/*..
-	background: linear-gradient(rgba(30,30,30,0.8), rgba(60,60,60,0.8)); 	
+	background: linear-gradient(rgba(30,30,30,0.8), rgba(60,60,60,0.8));
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#1E1E1E,endColorstr=#3C3C3C);*/ /* - Peter: 080312*/
 	-webkit-border-radius:0;
 	border-radius:0;
@@ -124,7 +124,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 	width: 0;
 	/*background-image: url(../oup/images/oump_preroll.png);*/
 	/*..
-	background: linear-gradient(rgba(44,124,145,0.8), rgba(78,183,212,0.8)); 	
+	background: linear-gradient(rgba(44,124,145,0.8), rgba(78,183,212,0.8));
 	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr=#2C7C91,endColorstr=#4EB7D4);/* - Peter: 190312*/
 	}
 
@@ -157,6 +157,10 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 }
 .mejs-container .mejs-controls .mejs-time .sep, .mejs-container .mejs-controls .mejs-time .mejs-duration {
 	color:#888;
+}
+
+.mejs-container .oup-mejs-stream i {
+  background: #296e8f;
 }
 
 /* VOLUME */
@@ -212,7 +216,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 
 .mejs-controls  .oup-quieter:hover {
 	background-position: -330px 0;
-	}	
+	}
 
 .mejs-controls  button.oup-louder {
 	background-position: -392px 0;
@@ -258,7 +262,7 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .mejs-controls .mejs-transcript-button  :hover { background-position:-714px 0; }
 
 /* High-definition button --? */
-.mejs-controls .mejs-quality-button button{ background-position:-1460px 0; } 
+.mejs-controls .mejs-quality-button button{ background-position:-1460px 0; }
 .mejs-controls .mejs-quality-button button:hover{ background-position:-1526px 0; }
 
 /* Popout/new-window button. */
@@ -457,4 +461,3 @@ body.bg-pale-blue{ background:#EBF4FB; color:#1A1A1A; }
 .mejs-container .mejs-controls div.mejs-playpause-button {
   margin:0;
 }
-
