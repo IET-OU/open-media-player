@@ -73,7 +73,7 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme
         }
 
         // Specific override for embedded VLE audio player.
-        if ('Vle_player' == get_class($player)
+        if ($player->is_player('vle')
         && 'audio' == $player->media_type
         && 'Embed' == $mode) {
             $this->background = 'transparent';

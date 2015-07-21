@@ -31,7 +31,7 @@ Flowplayer:  <body id="ouplayer" class=
 </div>
 
 
-<?php if ($this->theme->has_title_banner()):  #('Podcast_player' == get_class($params)): ?>
+<?php if ($this->theme->has_title_banner()): ?>
 <div class="oup-mejs-panel mejs-title-panel mejs-play" <?php //id="mep_0-ttl-panel" ?>>
 <div class="logo"></div>
 <h1 title="<?php echo html_chars($params->title) ?>"><?php echo html_chars($params->title) ?></h1>
@@ -80,7 +80,7 @@ Flowplayer:  <body id="ouplayer" class=
 <?php endif; ?>
 
 
-<?php if ('Podcast_player' == get_class($params)): ?>
+<?php if ($params->is_player('podcast')): ?>
 <div id="oup-options" class="oup-options hide" role="menu" aria-label="<?php echo t('Player options') ?>">
   <button title="<?php echo t('Close options menu') ?>"><span>X</span></button>
 <?php $this->load->theme_view('oup-options-menu') ?>

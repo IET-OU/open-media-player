@@ -100,12 +100,12 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $oups_base.'mep-oup-feature-options.js',
             //$oups_base.'mep-oup-feature-title.js', # NOT required!
 
-            $oups_base.'mep-oup-feature-tooltip.js', #Experimental!
+            $oups_base.'mep-oup-feature-tooltip.js',
             $oups_base.'mep-oup-feature-group.js',
-            $oups_base.'mep-oup-feature-fullscreenhover.js', #Experimental!
-            $oups_base.'mep-oup-feature-copyembed.js',   #Experimental.
-            $oups_base.'mep-oup-feature-ignore-color.js',    # High contrast/ignore colour accessibility fix.
-            $oups_base.'mep-oup-feature-stream.js',  # Experimental, youtube, 2015!
+            $oups_base.'mep-oup-feature-fullscreenhover.js',
+            $oups_base.'mep-oup-feature-copyembed.js',
+            $oups_base.'mep-oup-feature-ignore-color.js',  # High contrast/ignore colour accessibility fix.
+            $oups_base.'mep-oup-feature-stream.js',  # Experimental [Bug: #34]
         );
     }
 
@@ -123,7 +123,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
 
       // Embed code - uses jQuery-oEmbed plugin or Iframe.
       // http://support.google.com/youtube/bin/answer.py?hl=en&answer=171780&expand=UseHTTPS#HTTPS
-        if ('Vle_player' != get_class($player)) {
+        if (! $player->is_player('vle')) {
             $this->player_embed_code = $this->CI->config->item('player_embed_code');
         }
         if ($this->player_embed_code) {
@@ -145,7 +145,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $this->with_credentials = true;
         }
 
-        # Experimental, youtube, 2015!
+        // Experimental [Bug: #34]
         if ($player->is_player('youtube') && $player->is_stream) {
             $this->features = str_replace('duration,', 'duration,oup_stream,', $this->features);
         }
@@ -155,11 +155,11 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
 
 
     /**
-  * Should audio/video players have a title panel/ banner? [iet-it-bugs:1486] [ltsredmine:10744]
-  */
+    * Should audio/video players have a title panel/ banner? [iet-it-bugs:1486] [ltsredmine:10744]
+    */
     public function prepare_banner($player)
     {
-        $this->has_banner = ('Podcast_player' == get_class($player));
+        $this->has_banner = $player->is_player('podcast') || $player->is_player('youtube');
 
         $param_banner = $this->CI->input->get('banner');
         $http_referer = $this->CI->input->server('HTTP_REFERER');
@@ -168,7 +168,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $this->has_banner = false;
         }
         if ('1' === $param_banner) {
-  //OR 'Popup' == get_class(get_instance())
+        //OR $this->CI->_is_popup()
             $this->has_banner = true;
         }
     }

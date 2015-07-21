@@ -84,7 +84,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
         '_caption_url' => site_url('timedtext/webvtt') .'?url='. $player->caption_url,
         );
-        if ('Popup' == get_class($this)) {
+        if ($this->_is_popup()) {
             // We don't want a "Pop up" button in the "popup" view.
             $view_data['popup_url'] = null;
         }
@@ -101,14 +101,14 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
             $this->auth->authenticate();
         } elseif ($restrict_image
         && $player->is_restricted_podcast()
-        && 'Embed' == get_class($this)) {
+        && ! $this->_is_popup()) {
             $view_data['meta']->poster_url = $restrict_image;
             #..pixastic/podcast-pix-emboss-grey-220-strength-3.0-blend-opacity-0.25.png;
             $this->load->view('ouplayer/oup_restricted', $view_data);
 
             return;
         } elseif ($player->is_restricted_podcast()
-        && 'Popup' == get_class($this)) {
+        && $this->_is_popup()) {
             // Private podcast, public site, 'popup' view - authenticate.
 
             $this->auth->authenticate();
@@ -148,6 +148,10 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
     {
         $options = array('width', 'height', 'image_url', 'caption_url', 'lang', 'theme', 'debug', 'transcript_url', 'related_url');
         return $this->_player('Openlearn_player', $options);
+    }
+
+    public function _is_popup() {
+        return 'Popup' == get_class($this);
     }
 
     protected function _player($class, $options)
@@ -214,7 +218,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
         '_caption_url' => $player->caption_url .'?r='. mt_rand(1, 1000),
         );
-        if ('Popup' == get_class($this)) {
+        if ($this->_is_popup()) {
             // We don't want a "Pop up" button in the "popup" view.
             $view_data['popup_url'] = null;
         } else {

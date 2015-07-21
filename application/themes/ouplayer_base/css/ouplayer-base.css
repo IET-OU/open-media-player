@@ -277,6 +277,7 @@ body .mejs-container .mejs-controls .mejs-time {
 	height: 14px;
 	}
 
+/* Bug: #34 */
 .mejs-container .mejs-controls .oup-mejs-stream {
 	display: inline-block;
 	position: relative;

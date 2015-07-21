@@ -25,7 +25,7 @@
 <?php
 // Embed code - uses jQuery-oEmbed plugin or Iframe.
 $embed_code=null;
-if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
+if (! $meta->is_player('vle')):
   $em_title = substr_replace($meta->title, '…', 36);
   ///Translators: Player options (settings) menus or panels.
   $copy_text = t('Copy and paste');
@@ -136,5 +136,3 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
   <a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echo t('New window: %s', t('perma-link')) ?>"><span><?php echo t('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 </div>
-
-
