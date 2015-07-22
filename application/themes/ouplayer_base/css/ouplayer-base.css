@@ -282,7 +282,7 @@ body .mejs-container .mejs-controls .mejs-time {
 	display: inline-block;
 	position: relative;
 	top: 9px;
-	left: 48px;
+	left: 62px;  /*Space for: "04:43:19"; was: 48px*/
 	font-size: 12.5px;
 	font-size: .78135rem; /* http://pxtoem.com */
 }
@@ -331,6 +331,10 @@ body[class *= trident] .mejs-container .mejs-controls .oup-mejs-stream {
 	height:12px;
 	border-radius:0;
 	}/* 190312 - PETER*/
+
+.ctx-Youtube_Player .mejs-controls .oup-display { display: none; }
+.ctx-Youtube_Player .mejs-controls .oup-mute { margin-right: 5px; }
+
 
 .mejs-captions-text{ font-size:1.4em; }
 .oup.width-small .mejs-captions-text{ font-size:1.1em; padding:1px 3px; }

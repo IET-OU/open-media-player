@@ -74,9 +74,10 @@
 			}
 
 
-			// Reset current time at 'ended' - Video/ MSIE(8), http://ltsredmine.open.ac.uk/issues/6987
-			media.addEventListener('loadedmetadata', function (e) {
-				$.log(">> loadedmetadata", e);
+			// Reset current time at 'ended' - Video/ MSIE(8), [Ltsredmine:6987]
+			// Was: "loadedmetadata" [Bug: #33]
+			media.addEventListener('playing', function (e) {
+				$.log(">> " + e.type, e);
 
 				// Also, set a flag to say if playback is in progress [Ltsredmine:6912].
 				body.removeClass(cl_nop).addClass(cl_progress);
