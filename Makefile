@@ -61,9 +61,9 @@ clean-all: clean
 	rm -f .env
 
 diff:
-	git diff
-	cd vendor/iet-ou/open-media-player-core; git diff
-	cd vendor/iet-ou/open-oembed-providers; git diff
+	-git diff --exit-code
+	-cd vendor/iet-ou/open-media-player-core; git diff --exit-code
+	-cd vendor/iet-ou/open-oembed-providers; git diff --exit-code
 
 st: describe
 	git status
