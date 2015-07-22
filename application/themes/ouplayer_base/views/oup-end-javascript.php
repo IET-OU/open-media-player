@@ -43,7 +43,8 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   poster:'<?php echo $params->poster_url ?>',
 <?php endif; ?>
 
-  timeAndDurationSeparator: ' <span class="sep"> / </span> ',
+  timeAndDurationSeparator:'<span class="sep"> / </span>', <?php // Whitespace outside span causes JS error! [Bug: #40] ?>
+
 
   <?php echo json_encode_bare($this->theme->config, $function = TRUE) ?>,
 
