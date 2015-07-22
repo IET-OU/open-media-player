@@ -8,13 +8,14 @@
   "minimum-stability": "dev",
   "authors": [
     { "name": "Nick Freear (@nfreear)", "role": "developer" },
-    { "name": "Peter Devine (@peterdevinegmd", "role": "designer", "homepage": "http://devine.co.uk/peter/" }
+    { "name": "Peter Devine (@peterdevinegmd)", "role": "designer", "homepage": "http://devine.co.uk/peter/" },
+    { "name": "& many others", "homepage": "https://github.com/IET-OU/open-media-player/blob/2.x/docs/CREDITS.txt" }
   ],
   "support": {
     "email": "iet-webmaster@open.ac.uk",
-    "forum": "https://groups.google.com/forum/#!forum/ou-media-player",
-    "issues": "https://github.com/IET-OU/ouplayer/issues",
-    "source": "https://github.com/IET-OU/ouplayer"
+    "forum": "https://groups.google.com/forum/#!forum/open-media-player",
+    "issues": "https://github.com/IET-OU/open-media-player/issues",
+    "source": "https://github.com/IET-OU/open-media-player"
   },
   "require": {
     "php": ">=5.3.3",
@@ -50,9 +51,6 @@
       "mkdir _data",
       "php application/bin/cpn application/config/.env-generic .env"
     ],
-    "X--pre-install-cmd": [
-      "php application/bin/boot-comp-merge"
-    ],
     "post-install-cmd": [
       "php application/bin/cpn application/config embed_config.dist.php embed_config.php",
       "php application/bin/cpn application/config oup_site.dist.php oup_site.php",
@@ -63,13 +61,17 @@
     ],
     "env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
     "test": [
+      "php index.php build/revision",
       "composer validate --no-interaction",
       "composer validate --no-interaction --working-dir composer-shared",
       "#parallel-lint application/*",
+      "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/core/*"
+    ],
+    "test-cs": [
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/*"
     ],
     "test-v": [
-      "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/views/vle_d*"
+      "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/views/*"
     ],
     "fix-oump": [
       "phpcbf --standard=./phpcs.xml -n -l --encoding=utf-8 --extensions=php application/help*"
@@ -77,12 +79,5 @@
   },
   "config": {
     "preferred-install": "source"
-  },
-  "extra": {
-    "X--merge-plugin": {
-      "include": [
-        "./composer-shared/composer.json"
-      ]
-    }
   }
 }

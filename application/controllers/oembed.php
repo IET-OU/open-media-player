@@ -148,8 +148,7 @@ EOF;
 
         if (file_exists($oembed_view . '.php')) {
             $html = $this->load->view($oembed_view, $view_data);
-        }
-        // LEGACY.
+        } // LEGACY.
         elseif (file_exists(APPPATH . "views/$oembed_view.php")) {
             $html = $this->load->view($oembed_view, $view_data);
 
