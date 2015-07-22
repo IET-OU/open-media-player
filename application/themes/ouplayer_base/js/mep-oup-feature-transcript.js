@@ -36,7 +36,7 @@
 				$('<div class="oup-mejs-button mejs-transcript-button">' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.showscriptText + '"></button>' +
 				'</div>')
-				.appendTo(controls.group())
+				.appendTo(controls)
 				.click(function(e) {
 					return toggleScript(e);
 				}),

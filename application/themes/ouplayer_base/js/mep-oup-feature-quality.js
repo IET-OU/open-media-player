@@ -26,7 +26,7 @@
 				$('<div class="oup-mejs-button mejs-quality-button mejs-high-res" >' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.qualityhighText + '"></button>' +
 				'</div>')
-				.appendTo(controls.group())
+				.appendTo(controls)
 				.click(function(e) {
 					e.preventDefault();
 

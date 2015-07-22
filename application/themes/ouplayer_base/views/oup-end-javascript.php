@@ -80,6 +80,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 '<?php echo $this->theme->features ?>'
 .split(','),
 <?php endif; ?>
+  groupMoveControls: <?php echo json_encode($this->theme->group_controls) ?>,
 
 <?php
   require_once 'oup-mep-international.php';

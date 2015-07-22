@@ -37,9 +37,12 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
 
     // Order matters in the feature-list.
     public $features =
-    'oup_shim,oup_playpause,oup_progress,current,duration,oup_group,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover,oup_tracks_shim';
+    'oup_shim,oup_playpause,oup_progress,current,duration,oup_volume,tracks,oup_transcript,oup_quality,oup_popout,fullscreen,oup_fullscreenhover,oup_tracks_shim';
 # 'oup_shim,oup_playpause,oup_progress,oup_group,fullscreen'; // Minimal.
 
+    // Comma-separated ordered list of controls to put in a "group" [Vol CC TR Pop FS Opt] [Bug: #38]
+    public $group_controls =
+    '.oup-volume-widget, .mejs-captions-button, .mejs-transcript-button, .mejs-popout-link, .mejs-fullscreen-button, .mejs-options-button';
 
     public function __construct()
     {
@@ -66,6 +69,8 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         $meps_base = $this->js_path; #From parent.
         $oups_base = $theme_path . '/js/';
 
+        $switch_base = $meps_base;
+
         $this->javascripts = array(
             $oups_base.'mep-header-cl.js',
             $oups_base.'mep-oup-log.js',
@@ -79,11 +84,11 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
             $meps_base.'me-i18n.js',
         # Mediaelement player libraries.
             $meps_base.'mep-library.js',
-            $oups_base.'mep-player.js',  # Ender.js fix: 1-line change, NDF 2012-04-17.
+            $switch_base . 'mep-player.js',  # Ender.js fix: 1-line change, NDF 2012-04-17.
             $meps_base.'mep-feature-time.js',
             //$meps_base.'mep-feature-volume.js',
-            $oups_base.'mep-feature-fullscreen.js', # Group: 1-line change, NDF 2012-03-30.
-            $oups_base.'mep-feature-tracks.js',     # Group: 1-line change.
+            $switch_base . 'mep-feature-fullscreen.js', # Group: 1-line change, NDF 2012-03-30.
+            $switch_base . 'mep-feature-tracks.js',     # Group: 1-line change.
             $meps_base.'mep-feature-googleanalytics.js',
         # Open Media Player extensions.
             $oups_base.'mep-oup-header.js',
@@ -149,6 +154,9 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         if ($player->is_player('youtube') && $player->is_stream) {
             $this->features = str_replace('duration,', 'duration,oup_stream,', $this->features);
         }
+
+        // 'Group' must be last! [Bug: #38]
+        $this->features .= ',oup_group';
 
         $this->prepare_banner($player);
     }

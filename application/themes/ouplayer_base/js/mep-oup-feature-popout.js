@@ -38,10 +38,10 @@
 			var
 				pop_ctl =
 				$('<div class="oup-mejs-link mejs-popout-link">'+
-					'<a role="button" href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' + 
+					'<a role="button" href="'+ op.popoutUrl +'" target="'+ op.popoutTarget + '" aria-controls="' + t.id + '" title="' +
 					op.popoutText + '" aria-label="'+ op.popoutlabelText +'"></a>' +
 				'</div>')
-				.appendTo(controls.group())
+				.appendTo(controls)
 				.click(function(e) {
 					e.preventDefault();
 
@@ -82,5 +82,5 @@
 
 		}
 	});
-	
+
 })(mejs.$);

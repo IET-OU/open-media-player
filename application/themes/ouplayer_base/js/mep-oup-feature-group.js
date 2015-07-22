@@ -5,21 +5,31 @@
 */
 (function($) {
 
-	/*$.extend(mejs.MepDefaults, {
-		groupId: 'oup-group'
-	});*/
+	$.extend(mejs.MepDefaults, {
+		// Comma-separated ordered list of controls to put in the group [Bug: #38]
+		groupMoveControls: null
+		//groupId: 'oup-group'
+	});
 
-	//
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_group: function(player, controls, layers, media) {
 			var
-				//t = this,
-				group = $('<div class="oup-group">'+'</div>')
+				t = this,
+				op = t.options;
+
+      if (!op.groupMoveControls) {
+				return;
+			}
+
+			var group = $('<div class="oup-group"></div>')
 				.appendTo(controls);
 
 			controls.oup_group = group;
 
-			$.log('Init. controls group');
+			// Move the selected controls
+			$(op.groupMoveControls).appendTo(group);
+
+			$.log('Init controls group', op.groupMoveControls);
 		}
 	});
 
