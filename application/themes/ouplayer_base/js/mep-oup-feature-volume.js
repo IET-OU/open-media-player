@@ -42,7 +42,7 @@
 					'<button type="button" aria-controls="' + t.id + '" title="' +
 					op.louderText + '" class="oup-louder"></button>'+
 				'</div>')
-				.appendTo(controls.group()),
+				.appendTo(controls),
 			btn_mute = volume.find('.oup-mute'),
 			btn_quieter = volume.find('.oup-quieter'),
 			btn_louder = volume.find('.oup-louder'),

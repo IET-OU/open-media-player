@@ -13,7 +13,7 @@
 	// Options BUTTON
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_options: function(player, controls, layers, media) {
-			var 
+			var
 				t = this,
 				op = t.options,
 				cl_off = 'mejs-off',
@@ -25,7 +25,7 @@
 				$('<div class="oup-mejs-button mejs-options-button">' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.optionsText + '"></button>' +
 				'</div>')
-				.appendTo(controls.group())
+				.appendTo(controls)
 				.click(function(e) {
 					return toggleOptionsMenu(e);
 				})
@@ -58,5 +58,5 @@
 				btn_xo.click(toggleOptionsMenu);
 		}
 	});
-	
+
 })(mejs.$);
