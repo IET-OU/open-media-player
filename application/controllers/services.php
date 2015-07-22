@@ -40,7 +40,6 @@ class Services extends \IET_OU\Open_Media_Player\MY_Controller
             $services[ $name ] = $this->provider->getProperties();
 
             if ('\\IET_OU\\Open_Media_Player\\Oupodcast_Provider' == $provider) {
-
                 $player = new \IET_OU\Open_Media_Player\Podcast_Player();
                 $services[$name]->_sizes = $player->get_sizes();
             }

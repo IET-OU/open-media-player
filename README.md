@@ -1,19 +1,18 @@
 # Open Media Player
 
-A unified, accessible online audio and video player solution from The Open University.
+A unified, accessible online audio and video player solution from [The Open University][ou].
 
 * <https://mediaplayer.open.ac.uk>
 
-Built on [MediaElement.js][], Flowplayer, CodeIgniter and oEmbed ([all included][credit]).
+Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 
 
 ## Requirements
 
-* Linux, Mac OS X or Windows (tested on Redhat 6 & Windows 7)
-* PHP 5.3.3+ (cURL, `json_encode`)
-* [Composer][]
-* Apache 2.2+
-   * mod_rewrite and `.htaccess` (`.sams`) (or access to `httpd.conf`)
+* Linux, Mac OS X or Windows
+* PHP 5.3.3+ (cURL, SimpleXML)
+    * [Composer][]
+* Apache 2.2+ (mod_rewrite)
 
 
 ## Releases
@@ -25,6 +24,8 @@ Built on [MediaElement.js][], Flowplayer, CodeIgniter and oEmbed ([all included]
 * GitHub: [IET-OU/open-media-player-core][]
 * GitHub: [IET-OU/open-oembed-providers][]
 
+--
+
 * <http://embed.open.ac.uk>
 * <https://mediaplayer.open.ac.uk>
 
@@ -35,21 +36,27 @@ Built on [MediaElement.js][], Flowplayer, CodeIgniter and oEmbed ([all included]
 
 ## Credits
 
-Open Media Player: Copyright © 2010-2015 The Open University.
+Open Media Player: Copyright © 2015 The Open University.
 
-* Not licensed as open-source (yet!)
-* Author: Nick Freear <n.d.freear+@+open.ac.uk> / [Institute of Educational Technology][iet], and many others.
+* Author: Nick Freear / [Institute of Educational Technology][iet], & many others.
 
 For full credits and licenses see [docs/CREDITS.txt](docs/CREDITS.txt)
 
+---
+License:  `to be confirmed.`
+
+© 2011-2015 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
+
 
 [code]: https://github.com/IET-OU/open-media-player
-[IET-OU/open-media-player-core]: /IET-OU/open-media-player-core
-[IET-OU/open-oembed-providers]:  /IET-OU/open-oembed-providers
-[install]: /IET-OU/open-media-player-core/wiki/Install
+[IET-OU/open-media-player-core]: https://github.com/IET-OU/open-media-player-core
+[IET-OU/open-oembed-providers]:  https://github.com/IET-OU/open-oembed-providers
+[install]: https://github.com/IET-OU/open-media-player-core/wiki/Install
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
 [Composer]: https://getcomposer.org/
 [MediaElement.js]: http://mediaelementjs.com/
+[oEmbed]: http://oembed.com/
 [iet]: http://iet.open.ac.uk/
+[ou]: http://www.open.ac.uk/
 
 [End]: http://example

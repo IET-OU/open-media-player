@@ -39,7 +39,6 @@ EOF;
     public function revision($echo = false)
     {
         if ($this->input->is_cli_request()) {
-
             $git = new \IET_OU\Open_Media_Player\Gitlib();
 
             $result = $git->put_revision($echo);

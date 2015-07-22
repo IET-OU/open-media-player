@@ -150,7 +150,8 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         return $this->_player('Openlearn_player', $options);
     }
 
-    public function _is_popup() {
+    public function _is_popup()
+    {
         return 'Popup' == get_class($this);
     }
 
