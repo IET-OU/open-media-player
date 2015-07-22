@@ -1,4 +1,4 @@
-# GNU Make file for OU Media Player (2014-07-15).
+# GNU Make file for Open Media Player (2014-07-15).
 # Requires cygwin64 on Windows.
 
 # Based on: git-pull-serv.php - Run git-pull on a Linux/Unix server, and log the before and after state.
@@ -8,7 +8,7 @@
 # Environment
 PHP=php
 #PHP=C:/Users/ndf42/xampp/php/php
-COMPOSER=../composer.phar
+COMPOSER=composer
 CFG=./application/config/
 
 

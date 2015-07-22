@@ -36,6 +36,7 @@ if (defined('ENVIRONMENT'))
 {
 	switch (ENVIRONMENT)
 	{
+		// Values should match those in `app../core/MY_controller::_is_live()`
 		case 'development':
 
 		case 'dev':   # IT-hosting - fall through.
@@ -44,7 +45,8 @@ if (defined('ENVIRONMENT'))
 			error_reporting(E_ALL);
 			ini_set('display_errors', 1);
 		break;
-	
+
+		case 'generic':
 		case 'testing':
 		case 'production':
 

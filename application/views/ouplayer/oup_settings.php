@@ -25,7 +25,7 @@
 <?php
 // Embed code - uses jQuery-oEmbed plugin or Iframe.
 $embed_code=null;
-if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
+if (! $meta->is_player('vle')):
   $em_title = substr_replace($meta->title, '…', 36);
   ///Translators: Player options (settings) menus or panels.
   $copy_text = t('Copy and paste');
@@ -46,7 +46,7 @@ $("a.embed").oembed(null,{oupodcast:{{$param_theme}:"$theme->name"}});
 EOF;
   } else {
     $embed_method = t('Iframe-based embed');
-	$embed_label = t('OU player');
+	$embed_label = site_name();
     $embed_url = current_url().'?'.$this->input->server('QUERY_STRING');
     $embed_url = str_replace('/popup/', '/embed/', $embed_url);
     $embed_code = <<<EOF
@@ -136,5 +136,3 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
   <a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echo t('New window: %s', t('perma-link')) ?>"><span><?php echo t('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 </div>
-
-

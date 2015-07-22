@@ -23,10 +23,10 @@ class MY_Exceptions extends CI_Exceptions
         }
         $ex = array('severity'=>$severity, 'message'=>$message, 'filepath'=>$my_filepath, 'line'=>$line);
         $label = ($filepath) ? 'PHP error' : $label;
-        $CI =& get_instance();
+        /*$CI =& get_instance();
         if ($CI->firephp) {
             $CI->firephp->fb($ex, $label, 'ERROR');
-        }
+        }*/
 
         return parent::log_exception($severity, $message, $filepath, $line);
     }
@@ -39,7 +39,7 @@ class MY_Exceptions extends CI_Exceptions
     protected function __show_php_error($severity, $message, $filepath, $line)
     {
       #$this->log_exception($severity, $message, $filepath, $line, 'PHP error');
-    
+
         return parent::show_php_error($severity, $message, $filepath, $line);
     }
 

@@ -4,17 +4,17 @@
 
 /**
 * @preserve|
-*| OU Media Player
-*| Copyright 2011-2013 The Open University.
-*| (NOT released open-source, yet!)
+*| Open Media Player
+*| Copyright 2011-2015 The Open University.
+*|
 *| Author: Nick Freear.
 *|
 */
 
 /*!
-* OU Media Player
-* Copyright 2011-2013 The Open University.
-* (NOT released open-source, yet!)
+* Open Media Player
+* Copyright 2011-2015 The Open University.
+*
 * Author: Nick Freear.
 *
 */

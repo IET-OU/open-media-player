@@ -7,11 +7,11 @@
   $body_classes .= $input->get('edge') ? ' oup-edge' :'';
   $body_classes .= $input->get('size') ? ' oup-'.$input->get('size') :'';
 
-  #header('X-UA-Compatible: IE=edge,chrome=1');
+  #header('X-UA-Compatible: IE=edge');
 
 ?>
-<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta charset="utf-8" /><title>*OU player/ OU embed - Beta Demonstrations</title>
+<!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" /><title><?php echo site_name() ?></title>
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <meta name="ROBOTS" content="noindex,nofollow" />
@@ -34,27 +34,37 @@
 <?php endif; ?>
 
 
-<h1 class=hide>OU Media Player</h1>
-<p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
+<h1 class=hide><?php echo site_name() ?></h1>
+
+<ul role="navigation">
+    <li><a href="<?php echo base_url() ?>">Home</a>
+    <li><a href="<?php echo base_url() ?>about">About</a>
+    <li><a href="<?php echo base_url() ?>demo/ouldi">OU/OULDI embeds</a>
+</ul>
 
 <?php echo $content_for_layout ?>
 
-</pre>
+<p id="footer">&copy; 2011-<span class="copy">2014</span> The Open University.</p>
 
-<p class="home-link"><a href="<?php echo base_url() ?>">&larr; Player home</a></p>
-<p id="footer">&copy;2011-<span class="copy">2014</span> The Open University.</p>
 
+<?php //if ($is_demo_page && $use_oembed): ?>
 
 <script src="<?php echo site_url('scripts/jquery.oembed.js') ?>"></script>
 <script>
   $(document).ready(function() {
-    $("a.embed").oembed(null, {'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}});<?php /*null, { embedMethod: "replace" });*/ ?>
+
+    $.fn.oembed && $("a.embed").oembed(null, {
+      'oupodcast':{'<?php echo OUP_PARAM_THEME ?>':'<?php echo isset($req->theme) ? $req->theme :'' ?>'}
+    });<?php /*null, { embedMethod: "replace" });*/ ?>
 
 <?php /*$("[rel=embed]").oembed(); //Legacy.*/ ?>
 
+
     $(".copy").text((new Date).getYear() + 1900);
-    //console.log("Year:", (new Date).getYear() + 1900);
   });
 </script>
+
+<script>$.oup_site_debug = <?php echo json_encode(isset($req) ? $req->debug : NULL) ?>;</script>
+<script src="<?php echo site_url('assets/site/site-behaviour.js') ?>"></script>
 
 </html>

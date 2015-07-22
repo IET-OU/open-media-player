@@ -1,6 +1,13 @@
 
+<p role="navigation" aria-label="Admin">
+  <a href="<?php echo site_url('admin/info') ?>">Player application config</a>
+  &bull; <a href="<?php echo site_url('admin/plugins') ?>">Plugins</a>
+  &bull; <a href="<?php echo site_url('admin/phpinfo') ?>">PHP info</a>
+</p>
+
+
 <div id=themes >
-<h2> Themes </h2>
+<h2> Player Themes </h2>
 
 <table>
 <?php foreach ($themes as $name => $class): ?>

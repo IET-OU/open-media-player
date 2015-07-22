@@ -1,11 +1,11 @@
 /**
-* OU player: shim for the Mediaelement tracks (captions/ subtitles) feature.
+* Open Media Player: shim for the Mediaelement tracks (captions/ subtitles) feature.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
 (function($) {
 
-	// add extra default options 
+	// add extra default options
 	$.extend(mejs.MepDefaults, {
 		showtracksText: 'Show captions',
 		hidetracksText: 'Hide captions'

@@ -4,6 +4,10 @@
 | Open Media Player / OU-embed - OU-specific main configuration file.
 |--------------------------------------------------------------------------
 */
+
+putenv('OUENV=iet-live');
+
+
 $config['token'] = 0;  #'NDF/2012-12-04';
 
 
@@ -13,8 +17,6 @@ $config['token'] = 0;  #'NDF/2012-12-04';
 */
 // See also: 'ENVIRONMENT' defined in ../../index.php
 $config['debug'] = OUP_DEBUG_MIN;
-
-$config['robots'] = FALSE;
 
 
 /** NOT IN PRODUCTION **/
@@ -67,7 +69,7 @@ $config['podcast_data_use_feed'] = true;
 
 // Required/Podcast. Required for feed access model - the default.
 $config['podcast_feed_url_pattern'] =
-    "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
+    "http://podcast.open.ac.uk/feeds/__COLLECTION_ID__/player.xml";
 
 
 // SSL/ HTTPS regular expression for `media_url()` helper function - OU Media Player.
@@ -118,7 +120,7 @@ $config['player_embed_code'] = NULL;
 
 /*
 |--------------------------------------------------------------------------
-| General OU Player configuration
+| General Open Media Player configuration
 */
 // Either NULL, 'ender' (maybe for OUVLE?) or 'jquery' (maybe for Podcast?)
 // NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
@@ -174,9 +176,6 @@ $config['cache_minutes'] = false; //10;
 $config['player_scripts_compress'] = false;
 
 
-#$config['google_analytics'] = 'UA-24005173-1';
-
-
 // NEW! OU Sharepoint NTLM (LDAP) account.
 #$config['http_sharepoint_userpwd'] = 'open-university\[UNIT]-cluster:[PASSWORD]';
 
@@ -203,7 +202,7 @@ $config['flowplayer_version'] = '3.2.7';
 
 /*
 |--------------------------------------------------------------------------
-| OU Player user documentation.
+| Open Media Player user documentation.
 */
 //
 $player_docs_google = 'https://docs.google.com/document/pub?id=1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc';
@@ -216,7 +215,7 @@ $config['player_docs'] = array(
 
 /*
 |--------------------------------------------------------------------------
-| OU Player themes.
+| Open Media Player themes.
 */
 $config['player_default_theme'] = 'oup-light';
 $config['player_mobile_theme'] = 'mejs-default';

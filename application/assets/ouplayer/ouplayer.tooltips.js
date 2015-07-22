@@ -1,5 +1,5 @@
 /*!
- * OU player 'Fixed ToolTip script'.
+ * Open Media Player 'Fixed ToolTip script'.
  * ©Dynamic Drive (www.dynamicdrive.com)
  * Modifications, ©2011 The Open University.
  */

@@ -5,6 +5,7 @@
 |--------------------------------------------------------------------------
 */
 
+putenv('OUENV=generic');
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,6 @@
 // See also: 'ENVIRONMENT' defined in ../../index.php
 $config['debug'] = OUP_DEBUG_MIN;
 
-// Allow search engine robots to index?
-$config['robots'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +27,7 @@ $config[ 'http_cookie' ]   = array();
 |--------------------------------------------------------------------------
 | Data directory (required/all).
 */
-$config['data_dir'] = __DIR__ .'/../../_data/';
+$config['data_dir'] = __DIR__ .'/../../_data/';  /*** EDIT ME ***/
 
 #$config['data_dir'] = '/var/www/_ouplayer_data/';
 #$config['data_dir'] = 'C:/Users/[NAME]/workspace/_ouplayer_data/';
@@ -41,9 +40,9 @@ $config['data_dir'] = __DIR__ .'/../../_data/';
 // If TRUE (default), use the feed model, otherwise, use the database model (requires a config/database.php file).
 $config['podcast_data_use_feed'] = true;
 
-// Required/Podcast. Required for feed access model - the default.
+// Required/Podcast. Required for feed access model - the default. /*** EDIT ME ***/
 $config['podcast_feed_url_pattern'] =
-    "http://podcast.example.org/feeds/__COLLECTION_ID__/rss2-extended.xml";
+    "http://podcast.open.ac.uk/feeds/__COLLECTION_ID__/player.xml";
 
 
 // SSL/ HTTPS regular expression for `media_url()` helper function - OU Media Player.
@@ -119,9 +118,6 @@ $config['cache_minutes'] = false;
 $config['player_scripts_compress'] = false;
 
 
-#$config['google_analytics'] = 'UA-24005173-1';
-
-
 // NEW! OU Sharepoint NTLM (LDAP) account.
 #$config['http_sharepoint_userpwd'] = '[auth-domain]\[auth-ID]:[PASSWORD]';
 
@@ -145,7 +141,7 @@ $config['flowplayer_version'] = '3.2.7';
 
 /*
 |--------------------------------------------------------------------------
-| OU Player user documentation.
+| Open Media Player user documentation.
 */
 //
 $player_docs_google = 'https://docs.google.com/document/pub?id=1gcxecBs7n4snPKmQnguBytVZpGdkcjl2GqfGUz-pCOc';
@@ -158,7 +154,7 @@ $config['player_docs'] = array(
 
 /*
 |--------------------------------------------------------------------------
-| OU Player themes.
+| Open Media Player themes.
 */
 $config['player_default_theme'] = 'oup-light';
 $config['player_mobile_theme'] = 'mejs-default';
@@ -183,7 +179,7 @@ $config['player_themes'] = array(
 |--------------------------------------------------------------------------
 | YouTube - create you server API key at, https://console.developers.google.com
 */
-$config[ 'youtube_api_key' ]= ' ** EDIT ME **';
+$config[ 'youtube_api_key' ]= '*** EDIT ME ***';
 
 
 #End.

@@ -1,5 +1,5 @@
 /**
-* OU player: Detect high contrast/ ignore colours browser/OS modes - accessibility.
+* Open Media Player: detect high contrast/ ignore colours browser/OS modes - accessibility.
 * Copyright 2012 The Open University.
 * Author: Nick Freear, 2012-04-17
 * Author: John Snyder, 2009-11-04
@@ -16,7 +16,7 @@ function oup_detect_ignore_color(){
   /*
     The following code detects high contrast mode.
     It works because in high contrast mode the reported background color will not
-    be the same as it was explicitly set. 
+    be the same as it was explicitly set.
   */
   var body = $("body")
   , hcmclass = "no-ignore-color"

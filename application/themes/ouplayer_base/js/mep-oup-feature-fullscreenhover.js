@@ -1,5 +1,5 @@
 /**
-* OU player: Show the Flash fullscreen button on mouseover the Flash movie (not just mouseover the controlbar FS button).
+* Open Media Player: show the Flash fullscreen button on mouseover the Flash movie (not just mouseover the controlbar FS button).
 * Internet Explorer only.
 * Copyright 2012 The Open University.
 

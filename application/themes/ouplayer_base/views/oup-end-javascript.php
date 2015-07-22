@@ -39,7 +39,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 <?php endif; ?>
 
 <?php if ($params->poster_url): ?>
-  // url to poster (to fix iOS 3.x) 
+  // url to poster (to fix iOS 3.x)
   poster:'<?php echo $params->poster_url ?>',
 <?php endif; ?>
 
@@ -57,7 +57,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   popoutUrl:'<?php echo $popup_url ?>',
 <?php endif; ?>
 
-<?php if ('Podcast_player'==get_class($params)): ?>
+<?php if ($params->is_player('podcast')): ?>
   tooltipOffsetX:9, tooltipOffsetY:9,
 <?php endif; ?>
 
@@ -85,7 +85,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   require_once 'oup-mep-international.php';
 ?>
 
-<?php /*if ('Podcast_player'==get_class($params)): ?>
+<?php /*if ($params->is_player('podcast')): ?>
   titleText:
 "<div class='logo'></div><h1><?php echo json_encode_str($params->title) ?></h1>"
 <?php if (isset($params->_related_url)): ?>+" <a href='<?php echo $params->_related_url ?>' target='_blank' title='<?php echo t('Related link') ?> <?php echo t('opens in new window') ?>'><?php echo json_encode_str($params->_related_text) ?></a>"<?php endif ?>,

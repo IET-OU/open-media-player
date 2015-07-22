@@ -14,7 +14,7 @@
 <![endif]-->
 
 <meta name="robots" content="noindex,nofollow" />
-<meta name="generator" content="OU Player by IET" />
+<meta name="generator" content="<?php echo site_name() ?> by IET" />
 <link rel="license" title="©2012 The Open University" href="http://www.open.ac.uk/copyright" />
 
 <!--

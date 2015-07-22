@@ -9,18 +9,22 @@
 
 <img class=oup-logo alt="" src="<?php echo site_url('assets/ouplayer/ou-media-player-logo.png') ?>" />
 
-<p>The OU Media Player is an online audio and video player, developed at <a href="http://www.open.ac.uk/">The Open University</a>
+<p>The <?php echo site_name() ?> is an online audio and video player, developed at <a href="http://www.open.ac.uk/">The Open University</a>
  and used in student, public and staff facing services. Here are <a href=
-"<?php echo OUP_BLOG_URL ?>" title="On Cloudworks">introductory blog posts</a>.
+"<?php echo OUP_BLOG_URL ?>" title="On Cloudworks">introductory blog posts</a>.</p>
 
+<?php if ('ouice_2' == $layout_name): ?>
 
 <h2 id=giving-feedback >Giving feedback</h2>
 
 <p>If you are an Open University student please use your <a href="<?php echo OUP_HELP_URL ?>" title="Requires a University login" rel="nofollow">Student Help centre</a>
  to find answers, or the contact details for people who can help you.
+
+<?php endif; ?>
+
  <label for="app-info">When you report a problem, please copy and paste the following information:</label>
 <p><textarea readonly id="app-info" class="copy-fm" rows="3" cols="90">
-OU Player version: <?php echo $app_revision->version ?>
+Open Media Player version: <?php echo $app_revision->version ?>
 
 Browser: <?php echo $this->input->server('HTTP_USER_AGENT') ?>
 </textarea>
@@ -42,7 +46,7 @@ var jq = jQuery.noConflict();
 </script>
 <script src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
 
-<script src="<?php echo base_url() ?>/engines/mediaelement/build/mediaelement-and-player.min.js"></script>
+<script src="<?php echo base_url() ?>engines/mediaelement/build/mediaelement-and-player.min.js"></script>
 <script>
 jQuery(document).ready(function() {
 

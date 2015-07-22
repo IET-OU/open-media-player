@@ -10,7 +10,7 @@
 $site_url = $resource_url = OUP_OU_RESOURCE_URL;
 
 
-?><!doctype html><html lang="en-GB"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+?><!doctype html><html lang="en-GB"><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
   <meta charset="utf-8" /><title>*Study Explained | Open University</title>
 
   <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
@@ -18,7 +18,7 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
 
   <!-- link to ou webstandards OUICE -->
 <link href="<?php echo $resource_url ?>/includes/header.css" rel="stylesheet" media="all" />
-<link href="<?php echo $resource_url ?>/includes/ouice/screen.css" rel="stylesheet" media="screen, projection" />
+<link href="<?php echo $resource_url ?>/includes/ouice/screen.css" rel="stylesheet" media="screen" />
 <link href="<?php echo $resource_url ?>/includes/ouice/print.css" rel="stylesheet" media="print" />
 <link href="<?php echo $resource_url ?>/includes/headers-footers/header-public-centre-gradient.css" rel="stylesheet" media="all" />
 <!--[if lt IE 9]>
@@ -101,7 +101,7 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
 			<li class="current"><a href="http://www.open.ac.uk/study/">Study at the OU</a></li>
 			<li><a href="http://www.open.ac.uk/research/">Research at the OU</a></li>
 			<li><a href="http://www.open.ac.uk/community/">OU Community</a></li>
-			<li><a href="http://www.open.ac.uk/about/">About the OU</a></li>			
+			<li><a href="http://www.open.ac.uk/about/">About the OU</a></li>
 		</ul>
 	</div>
 </div>
@@ -128,7 +128,7 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
                                     	<div id="search_box">
                                             </div>
                                             <div class="ou-content" id="ou-content"></div>
-                                                        
+
                                     <?php /*<h1>Study explained</h1>                                                                                                                <!-- start OU External Standard v2 node.tpl.php -->
 		<div id="node-320" class="node ">*/ ?>
 
@@ -182,7 +182,7 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
 			</div>
 		</div>
 	</div>
-</div></div>   
+</div></div>
 <script>//<![CDATA[
 ou_init();
 //]]></script>

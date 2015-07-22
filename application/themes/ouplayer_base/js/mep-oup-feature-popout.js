@@ -1,5 +1,5 @@
 /**
-* OU player: Pop out player feature.
+* Open Media Player: Pop out player feature.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */

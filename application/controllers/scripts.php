@@ -88,7 +88,7 @@ class Scripts extends \IET_OU\Open_Media_Player\MY_Controller
         echo $out;
     }
 
-  /**Get/generate minified/concatenated Javascript for embedded/popup OU player / LEGACY 2011 themes.
+  /**Get/generate minified/concatenated Javascript for embedded/popup Open Media Player / LEGACY 2011 themes.
    *   jsbin/embed-ouplayer.{mtime}.js
    */
     public function embed_ouplayer_js($mtime = null)

@@ -1,6 +1,6 @@
 <?php
 /**
-* Open Media Player Javascript/ CSS builder.
+* Open Media Player javascript/ CSS builder.
 *
 * In Web mode creates a Closure Compiler build script.
 * (In cli mode builds using YUI Compressor - WIP).
@@ -51,7 +51,7 @@ EOF;
 
 
     /** Build a theme (Web/CLI).
-  */
+    */
     public function theme($theme_name = 'oup-light', $optimizations = 'simple', $output = 'ouplayer.min')
     {
         $theme_name = strtolower(str_replace('-', '_', $theme_name));
@@ -70,14 +70,14 @@ EOF;
     }
 
     /** Print all theme Closure scripts in a Web page.
-  */
+    */
     protected function _web_closure($optimizations)
     {
 
     ?>
-  <!doctype html><title>*Closure compiler script | Open Media Player</title>
+  <!doctype html><title>*Closure compiler script | <?php echo site_name() ?></title>
   <a href="http://closure-compiler.appspot.com/home">Closure-compiler.appspot.com</a>
-   | <?php echo anchor('demo/info', 'OU Player admin info') ?>
+   | <?php echo anchor('admin/info', site_name() .' admin info') ?>
 
 <p>Theme name: <?php echo $this->theme->getDisplayname() ?> [<span id=theme><?php echo $this->theme->getName() ?></span>]
 
@@ -107,7 +107,7 @@ EOF;
 
 
     /** Return a Closure build script for a given file array.
-  */
+    */
     protected function _closure($file_array, $output, $comp_level = 'simple')
     {
 
@@ -137,7 +137,7 @@ EOF;
     }
 
     /** Build the theme CSS & Javascript at the commandline.
-  */
+    */
     protected function _cli_builder()
     {
 

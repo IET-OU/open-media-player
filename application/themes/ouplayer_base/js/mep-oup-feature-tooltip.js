@@ -1,5 +1,5 @@
 /**
-* OU player: Tooltip feature - only for keyboard ('title' attribute for mouse users) - experimental!
+* Open Media Player: tooltip feature - only for keyboard ('title' attribute for mouse users) - experimental!
 * Copyright 2012 The Open University.
 * Author: Nick Freear, 12 march,16 april 2012.
 */
@@ -15,12 +15,12 @@
 
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_tooltip: function(player, controls, layers, media) {
-			var 
+			var
 				t = this,
 				op = t.options,
 				is_mouse = false,
 				tip_visible = false,
-				tip = 
+				tip =
 				$('<div class="oup-tooltip hide" role="tooltip">TIP</div>')
 				//.appendTo(controls),
 				.appendTo($('body')),
@@ -76,7 +76,7 @@
 			$('button,.oup-mejs-link a').mouseout( function(e){
 				is_mouse = false;
 			});
-			
+
 		}
 	});
 

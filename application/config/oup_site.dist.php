@@ -8,6 +8,12 @@
 // Site layout: 'bare' (or 'ouice_2' - ou-specific)
 $config[ 'site_layout' ] = 'bare';
 
+// Site Google analytics (separate from Player analytics).
+$config[ 'google_analytics' ] = 'UA-24005173-1';
+
+// Allow search engine robots to index the site?
+$config[ 'robots' ] = FALSE;
+
 // Authentication - disabled by default, so the (optional) admin pages do not display.
 
 // HTTP Basic Authentication class for admin pages.

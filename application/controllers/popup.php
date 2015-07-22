@@ -6,7 +6,7 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear 2012-04-18, 2011-05-23.
  */
-require_once APPPATH.'controllers/embed.php';
+require_once __DIR__ . '/embed.php';
 
 
 class Popup extends Embed
@@ -15,6 +15,5 @@ class Popup extends Embed
     // Very similar to the embed controller!
 
 
-
-    // get_class( $CI ) tells us whether we are in Embed or Popup mode.
+    // `_is_popup()` tells us whether we are in Embed or Popup mode.
 }

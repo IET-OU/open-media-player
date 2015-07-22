@@ -1,5 +1,5 @@
 /**
-* OU player: Transcript feature.
+* Open Media Player: transcript feature.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
@@ -15,7 +15,7 @@
 	// Transcript BUTTON
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_transcript: function(player, controls, layers, media) {
-			var 
+			var
 				t = this,
 				op = t.options,
 				cl_off = 'mejs-off',
@@ -79,5 +79,5 @@
 			btn_x.click(toggleScript );
 		}
 	});
-	
+
 })(mejs.$);

@@ -15,7 +15,7 @@
   $player_url = isset($player_url) ? $player_url : site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
   $is_player_site = TRUE;
-  $page_title = isset($page_title) ? $page_title : t('OU Media Player');
+  $page_title = isset($page_title) ? $page_title : site_name(); //t('Open Media Player');
 
   $body_classes = 'ou-ia-community ou-sections oup-ice-test ';
 
@@ -24,26 +24,26 @@
 
 
 ?>
-<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+<!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta charset="utf-8" /><title><?php echo $page_title ?> - The Open University</title>
 <?php if (!$robots): ?>
 <meta name="ROBOTS" content="noindex,nofollow" />
 <?php endif ?>
 
 <meta name="description" content=
-"OU Media Player is an online audio and video player, developed at The Open University, and used in student and public facing services. The Open University; open to people, places, methods and ideas." />
+"<?php echo site_name() ?> is an online audio and video player, developed at The Open University, and used in student and public facing services. The Open University; open to people, places, methods and ideas." />
 <meta name="keywords" content="ouplayer, oembed, open university, distance, learning, study, employee development, research, course, qualification, uni" />
-<meta name="copyright" content="© 2013 The Open University" />
+<meta name="copyright" content="© 2011-2015 The Open University" />
 <link rel="publisher" href="https://plus.google.com/u/0/b/116885993308590908200/" title="The Open University" />
 
-<link rel="alternate" type="application/rss+xml" href="<?php echo OUP_BLOG_RSS_URL ?>" title="Project RSS feed" />
+<link rel="alternate" type="application/rss+xml" href="<?php echo OUP_BLOG_RSS_URL ?>" title="<?php echo site_name() ?> feed" />
 
 <!-- **********************************************************************************
     ***  OUICE 3
     ***  ou-head.html will load all necessary css for OUICE styles required on page....
     ***  ********************************************************************************** -->
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" media="screen, projection" />
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/screen.css" media="screen, projection" />
+<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header.css" media="screen" />
+<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/screen.css" media="screen" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/print.css" media="print" />
 
 <link rel="shortcut icon" href="<?php echo $resource_url ?>/favicon.ico" type="image/x-icon" />
@@ -58,9 +58,7 @@
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-device-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/mobile.css" media="only screen and (max-width:640px)" />
-<link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header-mob.css" media="only screen and (max-device-width:640px)" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/headers-footers/ou-header-mob.css" media="only screen and (max-width:640px)" />
 <?php /*
 <link rel="alternate stylesheet" href="/includes/ouice/3/mobile.css" title="ou-mobile" />
@@ -76,7 +74,7 @@
 <link rel="stylesheet" href="<?php echo $local_res_url ?>ou-embed.css" title="OU Embed styles" />
 <?php if ($is_ouembed): ?>
 <link rel="stylesheet" href="<?php echo OUP_NOEMBED_STYLE_URL ?>" title="Noembed embed styles" />
-<link rel="EX-stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" />
+<?php //<link rel="stylesheet" href="http://www.ispot.org.uk/sites/all/modules/custom/ispot_oembed/assets/ispot-embed.css" title="iSpot embed styles" /> ?>
 <?php endif; ?>
 
 
@@ -84,7 +82,7 @@
 <?php /*<link href="<?php echo $resource_url ?>/study/stylesheets/study-common.css" rel="stylesheet" media="all" />*/ ?>
 <?php /*
 <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-    <link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />  
+    <link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />
     <script src="<?php echo $resource_url ?>/study/includes/jquery-scripts/jquery-1.7.1.min.js"></script>
     <style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>
 */ ?>
@@ -140,9 +138,9 @@
         <div id="ou-site">
 
             <div id="ou-site-header">
-               
-               <!-- Standard Navigation    -->   
-               
+
+               <!-- Standard Navigation    -->
+
 <ul class="ou-sections" role="navigation">
 <?php if ($is_player_site): ?>
     <li class="first tm-player-home tm-demo"><a href="<?php echo $base_url ?>">Player home</a>
@@ -173,11 +171,11 @@
 <?php endif; ?>
 </ul>
 
-                
+
             </div>
 
             <div id="ou-site-body">
-                
+
                 <div>
                     <!-- Content Page is loaded here -->
 
@@ -208,7 +206,7 @@ div.teasers ul li:last-child a {border-right:none;}
 
 <?php if ($is_ouembed): ?>
 <div id=warn class=oup-test-warning role="status">
-	<p>Note, OU Media Player is now live at its final home &ndash; <a rel=bookmark href="http://mediaplayer.open.edu/"
+	<p>Note, <?php echo site_name() ?> is now live at its final home &ndash; <a rel=bookmark href="http://mediaplayer.open.edu/"
 		title='And "mediaplayer.open.ac.uk"' >MediaPlayer.open.edu</a>.
 	<p>(<a rel=bookmark href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/ OULDI-embed services.)</p>
 </div>
@@ -229,7 +227,7 @@ div.teasers ul li:last-child a {border-right:none;}
             </div>
 
             <div class="teasers">
-                  
+
                 <div class="ou-feature-block" style="float:left;width:93%;">
                     <div class="teaser" id="teaser-explore" >
                       <img class="ou-go1" style="padding-top:15px;" src="/study/images/AF008744crop.jpg" alt="Explore the prospectus" />
@@ -241,7 +239,7 @@ div.teasers ul li:last-child a {border-right:none;}
                       </ul>
                     </div>
                 </div>
-                      
+
                 <!--... -->
            </div>    <!-- DIV teasers  -->
 
@@ -250,7 +248,7 @@ div.teasers ul li:last-child a {border-right:none;}
 
     <div id="ou-region2">
         <!-- ou-region2-components -->
-        
+
         <!-- **********************************************************************************
         ***  Borrowed from OUICE 3
         ***  ********************************************************************************** -->
@@ -259,43 +257,43 @@ div.teasers ul li:last-child a {border-right:none;}
 </style>
 
 <div class="ou-box" id="sign-post" style="float:left;margin-top:3px;">
-	
+
 	<span class="ou-title">Are you already an OU student ?</span>
 	<a class="ou-action" href="https://msds.open.ac.uk/students/next-module.aspx">
 	<span class="ou-desc">Go to StudentHome for information on choosing your next module.</span>
 	</a>
-	
+
 </div>
-            
-        
+
+
         <div class="ou-feature-block" style="clear:both;margin-top:0em;">
             <h3><a href="/study/undergraduate/index.htm">Undergraduate</a></h3>
             <ul>
                 <li><a href="/study/undergraduate/qualification/arts-and-humanities/index.htm">Arts and Humanities</a></li>
                 <li><a href="/study/undergraduate/qualification/business-and-management/index.htm">..</a></li>
-                
+
                 <li><a href="/study/undergraduate/qualification/social-sciences/index.htm">Social Sciences</a></li>
             </ul>
             <h3><a href="/study/postgraduate/index.htm">See Postgraduate</a></h3>
             <br />
         </div>
 
-        
+
 <div id="how-to-register-banner" >
 
     <div class="ou-box" style="background:transparent url(/study/images/four-simple-steps.gif) no-repeat scroll 100% 0%;min-height:153px;max-width:235px;padding-top:8px;">
         <div class="banner-text">
-            
+
                 <img class="ou-go1" src="/study/images/block-quote-open.gif" alt="opening quotes"/>
                 <span class="line">4 easy steps to</span>
                 <span class="line">becoming an</span>
                 <span class="line">OU undergraduate</span>
-                
+
                 <span class="line" style="display:inline;">student<img src="/study/images/block-quote-close.gif" alt="opening quotes" style="padding:0px 0px 0px 5px;display:inline;"/>
                 </span>
-            
+
         </div>
-        
+
         <div style="margin-top:30px;">
         <!--<ul style="list-style:none;display:block;padding:0px;margin:0px;">
         <li style="margin:0px;padding:0px;display:inline;">-->
@@ -303,8 +301,8 @@ div.teasers ul li:last-child a {border-right:none;}
         <!--</li>
         </ul>-->
         </div>
-        
-    </div>    
+
+    </div>
 </div>
 
 
@@ -333,9 +331,9 @@ div.teasers ul li:last-child a {border-right:none;}
 
 
                 </div>
-                
+
             </div>  <!-- ou-site-body -->
- 
+
             <div id="ou-site-footer">
                 <a class="ou-to-top" href="#ou-content">Back to top</a>
             </div>
@@ -398,13 +396,13 @@ div.teasers ul li:last-child a {border-right:none;}
   </div>
   <div class="ou-c4of4"><!-- reserved --></div>
   </div>
-    
+
 </div>
 
 <script>if (typeof window.ou_init=='function')ou_init();</script>
 
     </div>  <!-- ou-org -->
-    
+
 <script src="<?php echo $resource_url ?>/includes/ouice/3/scripts.js"></script>
 
 <!-- site specific scripts -->

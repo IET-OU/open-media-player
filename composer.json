@@ -22,6 +22,7 @@
     "ext-xml": "*",
     "nfreear/composer-suggest": "^1.1",
     "johndyer/mediaelement": "2.17.0",
+    "regex-guard/regex-guard": "~1.0",
     "iet-ou/open-media-player-core": "dev-master"
   },
   "require-dev": {
@@ -46,6 +47,7 @@
   ],
   "scripts": {
     "generic-env": [
+      "mkdir _data",
       "php application/bin/cpn application/config/.env-generic .env"
     ],
     "X--pre-install-cmd": [

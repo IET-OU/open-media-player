@@ -1,7 +1,7 @@
 
 <h2>Demonstrations</h2>
 
-<p>These are demonstrations for the <abbr title="The Open University">OU</abbr> Media Player project.
+<p>These are demonstrations for the <?php echo site_name() ?> project.
 
 <?php if ($use_oembed): ?>
 
@@ -30,7 +30,7 @@
 
 <p><iframe
  class="x ou video player embed-rsp" width="560" height="337" data-v_height="315" frameborder="0"
- allowfullscreen mozallowfullscreen webkitallowfullscreen
+ allowfullscreen
  src="<?php echo site_url('embed/pod/student-experiences/db6cc60d6b') ?>"
 ></iframe>
 

@@ -1,7 +1,7 @@
-Credits/ licenses for OU Player project.
+Credits/ licenses for Open Media Player project.
 
 
-OU player: Copyright © 2010-2012 The Open University. All rights reserved.
+Open Media player: Copyright © 2010-2012 The Open University. All rights reserved.
  * Not licensed as open-source (yet!)
  * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology.
 
@@ -17,7 +17,7 @@ OUICE-Bold theme: Copyright 2011 The Open University. All rights reserved.
 OUICE-Light theme: Copyright 2011 The Open University. All rights reserved.
  * Author: David Winter <d.j.winter+@+open.ac.uk> / LTS.
 
-OU player/OU embed translations.
+Open Media Player/OU embed translations.
  * Kiswahili/ Swahili: Pauline Nngimwa, Christian Msoffe.
  * Chinese Simplified: Guangyu Yang Freear.
 

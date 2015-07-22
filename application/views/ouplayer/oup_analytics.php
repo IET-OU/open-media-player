@@ -4,7 +4,6 @@
  */
 
 //VLE/ OpenLearn player??
-#if ('Podcast_player'==get_class($meta)):
 if (!$meta->is_player('vle')): ?>
 
 <?php // ComScore/ StreamSense/ Nedstat.
@@ -78,4 +77,3 @@ if (isset($google_analytics) && $google_analytics):
 <?php endif; ?>
 
 <?php endif; ?>
-

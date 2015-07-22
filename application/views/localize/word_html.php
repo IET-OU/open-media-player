@@ -11,7 +11,7 @@
 <meta name=Originator content="Microsoft Word 2008">
 <meta name=ROBOTS content="noindex, nofollow">
 <?php /*<link rel=File-List href="ouplayer-lang_files/filelist.xml">*/ ?>
-<title>OU player/OU embed language file: HTML for MS Word</title>
+<title><?php echo site_name() ?>/OU embed language file: HTML for MS Word</title>
 <style>
 <!--
  /* Font Definitions */
@@ -82,7 +82,7 @@ table.MsoNormalTable
 
 <div class=Section1>
 
-<h1>OU Player language file</h1>
+<h1><?php echo site_name() ?> language file</h1>
 
 <ul id="help">
   <li>You probably want to save me with a <tt>.mhtml</tt> or <tt>.html</tt> file extension.</li>

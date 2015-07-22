@@ -8,7 +8,7 @@ $flowplayer_config = array( );
 
 if ($standalone):
 ?>
-<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo t('OU player') ?></title>
+<!DOCTYPE html><html lang="en"><meta charset="utf-8" /><title><?php echo $meta->title ?> | <?php echo site_name() ?></title>
 <meta name="copyright" value="&copy; 2011 The Open University" />
 <style>body{margin:0; background:#eee; color:#222; min-width:300px; min-height:200px;} object{position:fixed; top:0; bottom:0; width:100%; height:100%} #oup-fallback_links{display:none;}</style>
 

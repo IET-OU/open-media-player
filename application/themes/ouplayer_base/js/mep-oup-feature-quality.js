@@ -1,5 +1,5 @@
 /**
-* OU player: Quality/ resolution/ high-definition selection feature.
+* Open Media Player: quality/ resolution/ high-definition selection feature.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
@@ -19,10 +19,10 @@
 			if (!player.isVideo || mejs.MediaFeatures.hasTouch)
 				return;
 
-			var 
+			var
 				t = this,
 				op = t.options,
-				transcript = 
+				transcript =
 				$('<div class="oup-mejs-button mejs-quality-button mejs-high-res" >' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.qualityhighText + '"></button>' +
 				'</div>')
@@ -37,5 +37,5 @@
 
 		}
 	});
-	
+
 })(mejs.$);

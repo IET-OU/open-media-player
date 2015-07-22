@@ -1,6 +1,6 @@
 <?php
 /**
- * Legacy OU Player iframe content - for 2011 Flowplayer-based players.
+ * Legacy Open Media Player iframe content - for 2011 Flowplayer-based players.
  *
  * (For 'new' Mediaelement-based players see, 'applications/themes/ouplayer-base/views'.)
  *

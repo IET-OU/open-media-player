@@ -1,5 +1,5 @@
 /**
-* OU player: error handler.
+* Open Media Player: error handler.
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
