@@ -1,4 +1,4 @@
-Credits/ licenses for Open Media Player project.
+# Credits/ licenses for Open Media Player project.
 
 
 Open Media player: Copyright © 2010-2015 The Open University.
@@ -64,8 +64,14 @@ php-po-parser: Copyright (C) 2008, Iulian Ilea (http://iulian.net), all rights r
  * Code: <http://code.google.com/p/php-po-parser/>
 
 High contrast detection Javascript: based on work by John Snyders.
+ * Use: mep-oup-feature-ignore-color.js
  * License: public domain.
- * Code: <http://hardlikesoftware.com/weblog/2009/11/04/css-sprites-vs-high-contrast-mode>
+ * Blog: <http://hardlikesoftware.com/weblog/2009/11/04/css-sprites-vs-high-contrast-mode>
+ * Code: <http://hardlikesoftware.com/projects/HCMtest.html>
+
+> John Snyders
+> [This] sample including the JavaScript code is in the Public Domain.
+> NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 
 Fire PHP: Copyright (c) 2006-2009, Christoph Dorn.
  * License: <http://opensource.org/licenses/BSD-3-Clause> New BSD

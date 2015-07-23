@@ -5,7 +5,7 @@
 * Author: John Snyder, 2009-11-04
 */
 /*
-Based on John Snyder's work.
+Based on John Snyder's work (License: public domain)
 http://stackoverflow.com/questions/1921047/how-to-check-if-user-is-in-high-contrast-mode-via-javascript-or-css
 http://hardlikesoftware.com/weblog/2009/11/04/css-sprites-vs-high-contrast-mode/
 http://hardlikesoftware.com/projects/HCMtest.html
