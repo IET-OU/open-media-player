@@ -10,6 +10,12 @@
 class About extends \IET_OU\Open_Media_Player\MY_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->page_title = t('About');
+    }
+
     public function index()
     {
         $this->_load_layout();

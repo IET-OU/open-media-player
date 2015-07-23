@@ -12,7 +12,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
     public function __construct()
     {
         parent::__construct();
-        header('Content-Type: text/html; charset=utf-8');
+        $this->page_title = t('Demonstrations');
     }
 
     /**
@@ -39,10 +39,11 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_load_layout($layout);
 
         $view_data = array(
-        'is_ouembed' => $this->_is_ouembed(),
-        'is_live' => $this->_is_live(),
-        'use_oembed' => $use_oembed || $this->config->item('home_use_oembed') || $this->input->get('oembed'),
-        'req' => $this->_request,
+            'is_ouembed' => $this->_is_ouembed(),
+            'is_live' => $this->_is_live(),
+            'use_oembed' => $use_oembed || $this->config->item('home_use_oembed') || $this->input->get('oembed'),
+            'req' => $this->_request,
+            'page_title' => 'bare' == $this->layout_name ? t('Home') : site_name(),
         );
         $this->layout->view('demo/oupodcast-demo', $view_data);
     }
@@ -154,8 +155,10 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
 
         $this->_load_layout($layout);
 
+        $is_stream = false;
         if ($youtube_stream_vid && !$youtube_vid) {
             $youtube_vid = $youtube_stream_vid;
+            $is_stream = true;
         }
         elseif (!$youtube_vid) {
             $youtube_vid = $youtube_demo_vid;
@@ -165,7 +168,8 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
             'youtube_vid' => $youtube_vid,
             'youtube_url' => site_url('embed/-/youtube.com/' . $youtube_vid),
             'youtube_title' => $this->config->item('youtube_demo_title'),
-            'is_stream' => (bool) $youtube_stream_vid,
+            'is_stream' => $is_stream,
+            'page_title' => $is_stream ? t('YouTube streaming') : t('YouTube example'),
         );
         $this->layout->view('demo/youtube', $view_data);
     }

@@ -13,6 +13,8 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     {
         parent::__construct();
 
+        $this->page_title = t('Admin');
+
         header('Content-Type: text/html; charset=utf-8');
 
         $this->_authenticate();

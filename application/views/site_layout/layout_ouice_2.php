@@ -15,7 +15,6 @@
   $player_url = isset($player_url) ? $player_url : site_url();
   $is_demo_page = !isset($is_demo_page) ? TRUE : $is_demo_page;
   $is_player_site = TRUE;
-  $page_title = isset($page_title) ? $page_title : site_name(); //t('Open Media Player');
 
   $body_classes = 'ou-ia-community ou-sections oup-ice-test ';
 
@@ -25,7 +24,7 @@
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta charset="utf-8" /><title><?php echo $page_title ?> - The Open University</title>
+<meta charset="utf-8" /><title><?php echo $page_title ?> – The Open University</title>
 <?php if (!$robots): ?>
 <meta name="ROBOTS" content="noindex,nofollow" />
 <?php endif ?>

@@ -1,9 +1,5 @@
 
-<?php if ($is_stream): ?>
-	<h2> YouTube stream example </h2>
-<?php else: ?>
-	<h2> YouTube example </h2>
-<?php endif; ?>
+<h2> <?php echo $page_title ?> </h2>
 
 <iframe
 	src="<?php echo $youtube_url ?>"

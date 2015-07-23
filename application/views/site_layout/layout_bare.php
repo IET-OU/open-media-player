@@ -11,7 +11,7 @@
 
 ?>
 <!doctype html><html lang="en" class="<?php echo $body_classes ?>"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta charset="utf-8" /><title><?php echo site_name() ?></title>
+<meta charset="utf-8" /><title><?php echo $page_title ?> – <?php echo site_name() ?></title>
 
 <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=0.8" />
 <meta name="ROBOTS" content="noindex,nofollow" />

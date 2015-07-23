@@ -17,9 +17,7 @@ class MY_Controller extends \CI_Controller
     protected $_request;
     protected $_theme;
     protected $layout_name;
-
-    // Default layout/template (was: 'bare')
-    const LAYOUT = 'ouice';
+    protected $page_title;
 
     protected static $API_PATHS = array('oembed', 'timedtext', 'uptime', 'scripts');
 
@@ -27,6 +25,10 @@ class MY_Controller extends \CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        if (! $this->page_title) {
+            $this->page_title = site_name();
+        }
 
         if ($this->use_composer()) {
             //require_once __DIR__ .'/../../vendor/autoload.php';
@@ -66,9 +68,16 @@ class MY_Controller extends \CI_Controller
         log_message('debug', __CLASS__." Class Initialized");
     }
 
+
     public function use_composer()
     {
         return true;
+    }
+
+
+    public function _page_title()
+    {
+        return $this->page_title;
     }
 
     /**

@@ -20,6 +20,7 @@
 
 class Build extends \IET_OU\Open_Media_Player\MY_Controller
 {
+    protected $page_title = 'Build';
 
     protected $_closure_template = <<<EOF
 <h2>__OUTPUT__</h2>
