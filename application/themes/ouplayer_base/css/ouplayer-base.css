@@ -298,6 +298,9 @@ body[class *= trident] .mejs-container .mejs-controls .oup-mejs-stream {
   background: red;
 }
 
+.is-stream .mejs-container .mejs-controls .mejs-time .mejs-duration,
+.is-stream .mejs-controls .mejs-time .sep { display: none; }
+
 /* Only show the progress-bar 'thumb' on keyboard focus. */
 .mejs-controls .mejs-time-rail .mejs-time-handle{ display:block; border:none; background:transparent }
 .mejs-controls .mejs-time-rail .mejs-time-handle:focus, .mejs-controls .mejs-time-rail:hover .mejs-time-handle[role]{ top:-3px; height:10px; background:#fff; border:1px solid #dd7b00; /*#ff8c00; /*DarkOrange*/ }
