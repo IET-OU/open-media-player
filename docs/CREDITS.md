@@ -1,4 +1,5 @@
-# Credits/ licenses for Open Media Player project.
+# Open Media Player
+## Credits and licenses
 
 
 Open Media player: Copyright © 2010-2015 The Open University.
@@ -87,4 +88,4 @@ yUML.me: Copyright Tobin Harris/ Engineroom.
  * Tool: <http://yuml.me>
 
 
-[End.]
+[End]: http://end

@@ -40,7 +40,7 @@ Open Media Player: Copyright © 2015 The Open University.
 
 * Author: Nick Freear / [Institute of Educational Technology][iet], & many others.
 
-For full credits and licenses see [docs/CREDITS.txt](docs/CREDITS.txt)
+For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
 
 ---
 License:  `to be confirmed.`
@@ -52,7 +52,7 @@ License:  `to be confirmed.`
 [IET-OU/open-media-player-core]: https://github.com/IET-OU/open-media-player-core
 [IET-OU/open-oembed-providers]:  https://github.com/IET-OU/open-oembed-providers
 [install]: https://github.com/IET-OU/open-media-player-core/wiki/Install
-[credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
+[credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.md "Credits and licenses"
 [Composer]: https://getcomposer.org/
 [MediaElement.js]: http://mediaelementjs.com/
 [oEmbed]: http://oembed.com/
