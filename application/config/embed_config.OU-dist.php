@@ -280,6 +280,24 @@ $config['locales'] = array(
 );
 
 
+
+/*
+|--------------------------------------------------------------------------
+| YouTube - create you server API key at, https://console.developers.google.com
+*/
+$config[ 'youtube_api_key' ]= '*** EDIT ME ***';
+
+$config[ 'youtube_default_theme' ] = 'oup-light';
+
+$config[ '__youtube_stream_vid' ]= 'fVxpUvCjl-g';
+$config[ '__youtube_demo_title' ] = 'Research at The Open University (7/7) [cc]';
+$config[ '__youtube_demo_vid' ] = 'uaGZze74tTo';
+
+$config[ 'youtube_demo_title' ] =
+'Make Technology Work for Everyone: introducing digital accessibility, by Fix the Web';
+$config[ 'youtube_demo_vid' ] = '8Ik_LHmZx8Y';
+
+
 /* File: config.php
 ..
 $config['log_path'] = '/var/www/_ouplayer_data/logs/';

@@ -143,6 +143,32 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $this->layout->view("demo/podcast-one-$view", $view_data);
     }
 
+    public function youtube($youtube_vid = false)
+    {
+        $youtube_stream_vid = $this->config->item('youtube_stream_vid');
+        $youtube_demo_vid = $this->config->item('youtube_demo_vid');
+
+        if (!$this->config->item('youtube_api_key') || !$youtube_demo_vid) {
+            $this->_error("Page not found", 404);
+        }
+
+        $this->_load_layout($layout);
+
+        if ($youtube_stream_vid && !$youtube_vid) {
+            $youtube_vid = $youtube_stream_vid;
+        }
+        elseif (!$youtube_vid) {
+            $youtube_vid = $youtube_demo_vid;
+        }
+
+        $view_data = array(
+            'youtube_vid' => $youtube_vid,
+            'youtube_url' => site_url('embed/-/youtube.com/' . $youtube_vid),
+            'youtube_title' => $this->config->item('youtube_demo_title'),
+            'is_stream' => (bool) $youtube_stream_vid,
+        );
+        $this->layout->view('demo/youtube', $view_data);
+    }
 
     /** Open Media Player size tests.
     */
