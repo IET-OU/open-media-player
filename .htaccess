@@ -132,7 +132,8 @@ DirectoryIndex index.php index.html index.htm
 
 #ou-specific. For images, styles, scripts, SWFs.
 
-    RewriteRule ^(assets|engines|themes)(/.*)$ application/$1$2 [QSA,L]
+    RewriteRule ^(assets|engines|XX-themes)(/.*)$ application/$1$2 [QSA,L]
+    RewriteRule  ^(themes/.*)$  vendor/iet-ou/open-media-player-themes/$1  [QSA,L]
     RewriteRule ^swf/(.*)$  application/assets/flowplayer/$1 [QSA,L]
 
 	##RewriteRule (crossdomain.xml)  application/assets/$1 [QSA,L]

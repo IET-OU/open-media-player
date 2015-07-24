@@ -35,11 +35,6 @@
     "wikimedia/composer-merge-plugin": "1.2.*; Composer merge plugin",
     "iet-ou/open-oembed-providers": "*; oEmbed providers - YouTube, Google Docs, Prezi ..."
   },
-  "autoload": {
-    "psr-4": {
-      "IET_OU\\Open_Media_Player\\": [ "application/themes" ]
-    }
-  },
   "repositories": [
     {
       "type": "composer",
