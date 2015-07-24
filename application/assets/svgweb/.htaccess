@@ -1,6 +1,0 @@
-#htaccess
-
-AddType  text/x-component htc
-AddType  application/x-shockwave-flash swf
-AddType  image/svg+xml    svg
-
