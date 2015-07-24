@@ -1,5 +1,13 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
+ * Part of Open Media Player.
+ *
+ * @license   http://gnu.org/licenses/gpl.html GPL-3.0+
+ * @copyright Copyright 2011-2015 The Open University (IET) and contributors.
+ * @link      http://iet-ou.github.io/open-media-player
+ */
+
+/**
  * Iframe embed controller for Open Media Player.
  *
  * Note, this controller is also used for the 'popup' functionality (see Popup controller).
@@ -7,7 +15,6 @@
  * @copyright Copyright 2012 The Open University.
  * @author N.D.Freear, 2011-03-22.
  */
-
 
 class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 {

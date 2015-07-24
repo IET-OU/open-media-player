@@ -1,11 +1,18 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
+ * Part of Open Media Player.
+ *
+ * @license   http://gnu.org/licenses/gpl.html GPL-3.0+
+ * @copyright Copyright 2011-2015 The Open University (IET) and contributors.
+ * @link      http://iet-ou.github.io/open-media-player
+ */
+
+/**
  * The oEmbed API controller.
  *
  * @copyright Copyright 2011 The Open University (IET).
  * @author N.D.Freear, 18 June 2010-4 July 2012.
  */
-
 
 class Oembed extends \IET_OU\Open_Media_Player\MY_Controller
 {

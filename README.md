@@ -2,7 +2,7 @@
 
 A unified, accessible online audio and video player solution from [The Open University][ou].
 
-* <https://mediaplayer.open.ac.uk>
+* <http://embed.open.ac.uk>
 
 Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 
@@ -43,13 +43,16 @@ Open Media Player: Copyright © 2015 The Open University.
 For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
 
 ---
-License:  `to be confirmed.`
+License:  [GPL version 3 onwards][gpl]
 
 © 2011-2015 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 
 
+[gpl-ext]: LICENSE.txt "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"
+[gpl-ext]: http://gnu.org/licenses/gpl.html "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"
 [code]: https://github.com/IET-OU/open-media-player
-[IET-OU/open-media-player-core]: https://github.com/IET-OU/open-media-player-core
+[IET-OU/open-media-player-core]: https://github.com/IET-OU/open-media-player-core "License: GPL-3.0+"
+[IET-OU/open-media-player-themes]:  https://github.com/IET-OU/open-media-player-themes "License: MIT"
 [IET-OU/open-oembed-providers]:  https://github.com/IET-OU/open-oembed-providers
 [install]: https://github.com/IET-OU/open-media-player-core/wiki/Install
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.md "Credits and licenses"

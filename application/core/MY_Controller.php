@@ -1,9 +1,33 @@
 <?php namespace IET_OU\Open_Media_Player;
 
 defined('BASEPATH') or exit('No direct script access allowed');
+
 /**
- * Open Media Player.
+ * Part of Open Media Player.
  *
+ * @license   http://gnu.org/licenses/gpl.html GPL-3.0+
+ * @copyright Copyright 2011-2015 The Open University (IET) and contributors.
+ * @link      http://iet-ou.github.io/open-media-player
+ */
+
+ /*
+      This file is part of Open Media Player.
+
+      Open Media Player is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.
+
+      Open Media Player is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+
+      You should have received a copy of the GNU General Public License
+      along with Open Media Player.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/**
  * All controllers should extend this class.
  *
  * @copyright Copyright 2011-2015 The Open University (IET-OU).

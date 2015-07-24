@@ -1,12 +1,19 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
+ * Part of Open Media Player.
+ *
+ * @license   http://gnu.org/licenses/gpl.html GPL-3.0+
+ * @copyright Copyright 2011-2015 The Open University (IET) and contributors.
+ * @link      http://iet-ou.github.io/open-media-player
+ */
+
+/**
 * Internationalization/ Localization library.
 *   Based on GNU Gettext.
 *
 * @copyright Copyright 2011 The Open University.
 */
 // http://code.google.com/p/php-po-parser/
-
 
 class MY_Lang extends CI_Lang
 {

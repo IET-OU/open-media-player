@@ -1,11 +1,18 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 /**
+ * Part of Open Media Player.
+ *
+ * @license   http://gnu.org/licenses/gpl.html GPL-3.0+
+ * @copyright Copyright 2011-2015 The Open University (IET) and contributors.
+ * @link      http://iet-ou.github.io/open-media-player
+ */
+
+/**
 * Help and about page controller.
 *
 * @copyright 2012 The Open University.
 * @author N.D.Freear, 30 July 2012.
 */
-
 
 class About extends \IET_OU\Open_Media_Player\MY_Controller
 {

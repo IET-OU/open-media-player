@@ -2,9 +2,9 @@
   "name": "iet-ou/open-media-player",
   "description": "A unified, accessible online audio and video player service. Built on MediaElement.js, CodeIgniter & oEmbed. ©2015 The Open University, UK.",
   "keywords": [ "ouplayer", "MediaPlayer", "audio", "video", "mediaelementjs", "oEmbed", "accessibility", "OpenUniversity", "IET-OU" ],
-  "homepage": "https://mediaplayer.open.ac.uk",
+  "homepage": "https://embed.open.ac.uk",
   "type": "project",
-  "license": "proprietary",
+  "license": "GPL-3.0+",
   "minimum-stability": "dev",
   "authors": [
     { "name": "Nick Freear (@nfreear)", "role": "developer" },

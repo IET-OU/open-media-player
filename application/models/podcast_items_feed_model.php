@@ -1,5 +1,13 @@
 <?php
 /**
+ * Part of Open Media Player.
+ *
+ * @license   http://gnu.org/licenses/gpl.html GPL-3.0+
+ * @copyright Copyright 2011-2015 The Open University (IET) and contributors.
+ * @link      http://iet-ou.github.io/open-media-player
+ */
+
+/**
  * A model to get item meta-data from a podcast RSS feed.
  *
  * @copyright Copyright 2011 The Open University.
@@ -203,7 +211,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
         return (object) $vars;
     }
 
-    
+
 
     /** Safely get an element or attribute value for SimpleXML.
     * @return string
@@ -474,20 +482,20 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
                             $rssdesc=$rssitem['description'];
                             $rssduration=$rssitem['itunes:duration'];
                             $rsspubdate=$rssitem['pubDate'];
-    
+
                             $rssmediafilename=explode('/', $rssitem['guid']);
                             $rssmediafilename=end($rssmediafilename);
                             if (!$this->url_exists($pod_base."/feeds/$basename/$rssmediafilename")) {
                                 echo "<p>Sorry this video is currently unavailable. <!--$rssmediafilename does not exist, it may still be transcoding --></p>";
                                 die();
                             }
-    
+
                             $rssitemimage=explode('/', $rssitem['media:thumbnail_attr']['url']);
                             $rssitemimage=end($rssitemimage);  // poster image
                             if (!$this->url_exists($pod_base."/feeds/$basename/$rssitemimage")) {
                              // Media Thumbnail doesn't seem to exist so fall back to use the podcast thumb, if that exists
                                 $rsspodcastimage=end(explode('/', $rawrssdata['rss']['channel']['image']['url']));
-    
+
                                 if ($this->url_exists($pod_base."/feeds/$basename/".$rsspodcastimage)) {
                                  // we found a podcast level thumkbnail so use that oiver the default.
                                     $rssitemimage=$rsspodcastimage;
@@ -495,7 +503,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
                                  // There is no podcast thumbnail either so we have to use the default thumb image.
                                     $rssitemimage="../default-project-thumbnail.png";
                                 }
-    
+
                             }
                         }
                     }
