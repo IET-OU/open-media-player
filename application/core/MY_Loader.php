@@ -93,11 +93,20 @@ class MY_Loader extends CI_Loader
     public function theme_view($view = null, $vars = array(), $return = false)
     {
         $view_file = $this->CI->theme->getView($view);
+        $parent_view = $this->CI->theme->getParentView($view);
 
-        if (file_exists(APPPATH . $view_file .'.php')) {
+        // Try absolute paths first.
+        if (file_exists($view_file . '.php')) {
+            return $this->view($view_file, $vars, $return);
+        }
+        elseif (file_exists($parent_view . '.php')) {
+            return $this->view($parent_view, $vars, $return);
+        }
+        // .. Then (legacy) relative paths.
+        elseif (file_exists(APPPATH . $view_file .'.php')) {
             return $this->view('../'. $view_file, $vars, $return);
         }
-        return $this->view('../'. $this->CI->theme->getParentView($view), $vars, $return);
+        return $this->view('../'. $parent_view, $vars, $return);
     }
 
 
