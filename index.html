@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Version 25  Edited by Nick Freear ( PCD2**1 )  17/7/2015 4:21 PM  5.69 KB -->
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,19 +11,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
+    <!--<link rel="shortcut icon" href="http://www.open.ac.uk/favicon.ico" type="image/vnd.microsoft.icon" />-->
 
-    <title>Open Media Player</title>
+    <title>Open Media Player &ndash; Accessible to all, mainstream, embeddable</title>
 
     <!-- Bootstrap core CSS -->
     <!--<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
+    <!--<link href="jumbotron.css" rel="stylesheet">-->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -35,18 +35,32 @@
 
 
     <style>
-        .x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 50em; }
+    .x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 20em; }
 
-    .jumbotron > .container { padding: 14%; /*15%*/ }
+    .jumbotron > .container { padding: 10%; /*15%*/ }
 
-        .navbar-inverse .navbar-nav > li > a,
-        .navbar-inverse .navbar-brand {
-            color: #eee;  /*Was: #9d9d9d*/
-        }
+    .navbar-inverse .navbar-nav > li > a,
+    .navbar-inverse .navbar-brand {
+        color: #eee;  /*Was: #9d9d9d*/
+    }
+    a.btn { margin-top: .9em; }
+
+    p, .jumbotron p { margin: .5em 0; }
+    hr { border-top: 1px solid #ccc; }
+
+    footer .logos { float: right; position: relative; top: -20px; }
+    footer .logos a { display: inline-block; margin-right: 18px; }
+    footer .logos a.last { margin: 0; }
+    footer .XX-iet-logo img { width: 85px; height: 85px; }
+    /* ou-logo: 83 x 56px */
+    footer .player-logo img { width: 143px; height: 50px; }  /* 300 x 105px */
+
+    @media (max-width: 768px) {
+        .X-player-logo { display: none; }
+    }
     </style>
 
   </head>
-
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -63,7 +77,7 @@
         <div id="navbar" class="navbar-collapse collapse" role="navigation">
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Features</a>
+                <li><a href="#features">Features</a>
                 <li><a href="#">Documentation</a>
                 <li><a href="#">Contact</a>
                 <li><a href="#">...</a>
@@ -88,35 +102,63 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Open Media Player</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>Accessible to all, mainstream, embeddable&hellip;
+        <!--<p>Host once, innovate in one place, embed many&hellip;-->
+        <p>
+            <em>Open Media Player</em> puts accessibility to those with disabilities front and centre.
+            It is also a mainstream audio and video player, that puts the emphasis on ease of use for end-users and authors.
+        </p>
+        <p><em>And its open source!</em></p>
+        <p><a class="btn btn-primary btn-lg" href="#features" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <div class="col-md-4" id="features">
+          <h2>Features</h2>
+
+          <p><em>Open Media Player</em> is built on the widely used <a href="http://mediaelementjs.com/">MediaElement.js</a> library, with custom extensions.</p>
+          <p>
+              It is embeddable via <a href="http://oembed.com/">oEmbed</a> and <tt>iframe</tt> on lots of platforms, including
+              <a href="https://drupal.org/">Drupal</a>, <a href="https://wordpress.org/">WordPress</a>, and <a href="http://jquery.com/">jQuery</a>.
+          </p>
+          <p>And, it's themable and extendable.</p>
+          <p><a class="btn x-btn-default btn-primary" href="https://github.com/IET-OU/open-media-player-core/wiki/What%3F-Why%3F-Who%3F" data-role="button" title="View a full feature-list on the Wiki"
+              >More features<span class="sr-only"> are listed on the Wiki</span><!--View<span class="sr-only"> features on the Wiki</span> details--> &raquo;</a></p>
         </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>See it in action</h2>
+
+          <p>Watch a <a href="http://embed.open.ac.uk/demo/youtube">demonstration built on YouTube</a>.
+          <p>Explore <a href="http://www.open.edu/openlearn/body-mind/health/health-sciences/the-joy-stats-the-lady-data-visualisation">video on OpenLearn</a>.
+          </p>
+          <p><a class="btn x-btn-default btn-primary" href="http://embed.open.ac.uk/demo/youtube" data-role="button">View demonstrations &raquo;</a></p>
        </div>
         <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>Get the code</h2>
+
+          <p>The code is on <a href="https://github.com/IET-OU/open-media-player">GitHub</a>.</p>
+          <p>It is free/open source, and available under a GNU GPL 3 license.</p>
+          <p>Get involved!</p>
+          <p><a class="btn x-btn-default btn-primary" href="https://github.com/IET-OU/open-media-player" data-role="button" title="Get the code on GitHub"
+              >Get the code<span class="sr-only"> on GitHub</span><!--View<span class="sr-only"> the code</span> details--> &raquo;</a></p>
         </div>
       </div>
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <span>&copy; 2015 <a href="http://www.open.ac.uk/">The Open University</a> and contributors. (<a href="http://iet.open.ac.uk">Institute of Educational Technology</a>.)</span>
+
+        <span class="logos">
+            <a class="player-logo" href="#"><img alt="Open Media Player" src="http://embed.open.ac.uk/assets/ouplayer/ou-media-player-logo.png"></a>
+            <a class="iet-logo" href="http://iet.open.ac.uk/"><img alt="Institute of Educational Technology" src="http://www.gravatar.com/avatar/94fd203f6c3a056cf590a76ea2f03387?t=IET&s=82"></a>
+            <!--<a class="iet-logo SVG" href="http://iet.open.ac.uk/"><img alt="Institute of Educational Technology" src="http://evidence.laceproject.eu/wp-content/plugins/wp-iet-generic-plugins/images/iet-ou-logo-400px.svg"></a>-->
+            <a class="ou-logo last" href="http://www.open.ac.uk/"><img alt="The Open University" src="http://www3.open.ac.uk/includes/headers-footers/oulogo-56.jpg"></a>
+        </span>
+
       </footer>
     </div> <!-- /container -->
 
