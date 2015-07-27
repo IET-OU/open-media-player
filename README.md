@@ -22,6 +22,8 @@ Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 ## Links
 
 * GitHub: [IET-OU/open-media-player-core][]
+* GitHub: [IET-OU/open-media-player-themes][]
+* GitHub: [IET-OU/open-media-player-extend][]
 * GitHub: [IET-OU/open-oembed-providers][]
 
 --
@@ -31,7 +33,7 @@ Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 
 ## Installation
 
-* See [the installation guide on the Wiki][install].
+* See the [installation guide on the Wiki][install].
 
 
 ## Credits
@@ -48,17 +50,17 @@ License:  [GPL version 3 onwards][gpl]
 © 2011-2015 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 
 
-[gpl-ext]: LICENSE.txt "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"
-[gpl-ext]: http://gnu.org/licenses/gpl.html "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"
+[gpl]: LICENSE.txt "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"
+[gpl-ext]: http://gnu.org/licenses/gpl.html "GPL-3.0+"
 [code]: https://github.com/IET-OU/open-media-player
 [IET-OU/open-media-player-core]: https://github.com/IET-OU/open-media-player-core "License: GPL-3.0+"
 [IET-OU/open-media-player-themes]:  https://github.com/IET-OU/open-media-player-themes "License: MIT"
+[IET-OU/open-media-player-extend]: https://github.com/IET-OU/open-media-player-extend
 [IET-OU/open-oembed-providers]:  https://github.com/IET-OU/open-oembed-providers
-[install]: https://github.com/IET-OU/open-media-player-core/wiki/Install
-[credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.md "Credits and licenses"
+[install]: https://github.com/IET-OU/open-media-player/wiki/Install
 [Composer]: https://getcomposer.org/
 [MediaElement.js]: http://mediaelementjs.com/
-[oEmbed]: http://oembed.com/
+[oEmbed]: http://oembed.com/ "oEmbed API specification"
 [iet]: http://iet.open.ac.uk/
 [ou]: http://www.open.ac.uk/
 
