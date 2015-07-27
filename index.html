@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!--<base href="http://getbootstrap.com/examples/jumbotron/">-->
-
     <meta name="description" content="">
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="http://www.open.ac.uk/favicon.ico" type="image/vnd.microsoft.icon" />-->
@@ -15,14 +13,12 @@
     <title>Open Media Player &ndash; Accessible to all, mainstream, embeddable</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    <link href="assets/bootstrap/jumbotron.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
+    <link href="assets/styles.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -41,47 +37,6 @@
     <meta property="twitter:title" content="Open Media Player">
     <meta property="twitter:description" content="Accessible to all, mainstream, embeddable… Open Media Player puts accessibility to those with disabilities front and centre. It is also a mainstream audio and video player, that puts the emphasis on ease of use for end-users and authors. And its open source!">
     <meta property="twitter:image" content="http://embed.open.ac.uk/assets/ouplayer/ou-media-player-logo.png">
-
-
-    <style>
-    .x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 20em; }
-
-    .jumbotron > .container { padding: 10%; /*15%*/ }
-
-    .navbar-inverse .navbar-nav > li > a,
-    .navbar-inverse .navbar-brand {
-        color: #eee;  /*Was: #9d9d9d*/
-    }
-    a.btn { margin-top: .9em; }
-
-    p, .jumbotron p { margin: .5em 0; }
-    hr { border-top: 1px solid #ccc; }
-
-    footer .logos { float: right; position: relative; top: -20px; }
-    footer .logos a { display: inline-block; margin-right: 18px; }
-    footer .logos a.last { margin: 0; }
-    footer .XX-iet-logo img { width: 85px; height: 85px; }
-    /* ou-logo: 83 x 56px */
-    footer .player-logo img { width: 143px; height: 50px; }  /* 300 x 105px */
-
-    @media (max-width: 768px) {
-        .X-player-logo { display: none; }
-    }
-    </style>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      var L = window.location;
-
-      ga('create', 'UA-24005173-1', 'auto');
-      ga('send', 'pageview', '/iet-ou.github.io' + L.pathname + L.search);
-
-      //console.log('pageview', '/iet-ou.github.io' + L.pathname + L.search);
-    </script>
 
   </head>
   <body>
@@ -139,8 +94,10 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4" id="features">
+        <div class="col-md-4 col-omp-features" id="features">
           <h2>Features</h2>
+
+          <span class="icons"></span>
 
           <p><em>Open Media Player</em> is built on the widely used <a href="http://mediaelementjs.com/">MediaElement.js</a> library, with custom extensions.</p>
           <p>
@@ -151,16 +108,20 @@
           <p><a class="btn x-btn-default btn-primary" href="https://github.com/IET-OU/open-media-player/wiki/What%3F-Why%3F-Who%3F" data-role="button" title="View a full feature-list on the Wiki"
               >More features<span class="sr-only"> are listed on the Wiki</span> &raquo;</a></p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-omp-action">
           <h2>See it in action</h2>
+
+          <span class="icons"></span>
 
           <p>Watch a <a href="http://embed.open.ac.uk/demo/youtube">demonstration built on YouTube</a>.
           <p>Explore <a href="http://www.open.edu/openlearn/body-mind/health/health-sciences/the-joy-stats-the-lady-data-visualisation">video on OpenLearn</a>.
           </p>
           <p><a class="btn btn-primary" href="http://embed.open.ac.uk/demo/youtube">View demonstrations &raquo;</a></p>
        </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-omp-code">
           <h2>Get the code</h2>
+
+          <span class="icons"></span>
 
           <p>The code is on <a href="https://github.com/IET-OU/open-media-player">GitHub</a>.</p>
           <p>It is free/open source, and available under a <abbr title="GNU General Public License version 3 onwards">GNU GPL 3</abbr> license.</p>
@@ -191,6 +152,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="assets/bootstrap/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="assets/scripts.js"></script>
   </body>
 </html>
