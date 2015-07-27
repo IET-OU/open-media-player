@@ -8,6 +8,15 @@
 class MY_User_agent extends CI_User_agent
 {
 
+    public function body_classes()
+    {
+        $s = $this;
+        return sprintf(
+            'ua-%s br-%s v-%s p-%s',
+            $s->agent_code(), $s->browser_code(), $s->version_code(), $s->platform_code()
+        );
+    }
+
     /** Return a short code, for the browser family/ rendering engine.
     */
     public function agent_code()
