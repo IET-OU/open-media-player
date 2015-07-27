@@ -11,7 +11,10 @@
 */
 
 $platforms = array (
-//ou-specific
+//ou-specific:
+// https://github.com/bcit-ci/CodeIgniter/blob/develop/application/config/user_agents.php
+					'windows nt 10.0'	=> 'Windows 10',
+					'windows nt 6.3'	=> 'Windows 8.1',
 					'windows nt 6.2'	=> 'Windows 8',
 					'windows nt 6.1'	=> 'Windows 7',
 					'windows nt 6.0'	=> 'Windows Vista',
@@ -64,10 +67,14 @@ $browsers = array(
 					'OPR'                        => 'Opera',
 //ou-specific ends.
 					'Flock'				=> 'Flock',
+					'Edge'				=> 'Spartan',
 					'Chrome'			=> 'Chrome',
+					// Opera 10+ always reports Opera/9.80 and appends Version/<real version> to the user agent string
+					'Opera.*?Version'	=> 'Opera',
 					'Opera'				=> 'Opera',
 					'MSIE'				=> 'Internet Explorer',
 					'Internet Explorer'	=> 'Internet Explorer',
+					'Trident.* rv'	=> 'Internet Explorer',
 					'Shiira'			=> 'Shiira',
 					'Firefox'			=> 'Firefox',
 					'Chimera'			=> 'Chimera',
@@ -85,6 +92,8 @@ $browsers = array(
 					'hotjava'			=> 'HotJava',
 					'amaya'				=> 'Amaya',
 					'IBrowse'			=> 'IBrowse'
+					'Maxthon'			=> 'Maxthon',
+					'Ubuntu'			=> 'Ubuntu Web Browser'
 				);
 
 $mobiles = array(
