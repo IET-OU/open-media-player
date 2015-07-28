@@ -91,9 +91,9 @@ $browsers = array(
 					'Links'				=> 'Links',
 					'hotjava'			=> 'HotJava',
 					'amaya'				=> 'Amaya',
-					'IBrowse'			=> 'IBrowse'
+					'IBrowse'			=> 'IBrowse',
 					'Maxthon'			=> 'Maxthon',
-					'Ubuntu'			=> 'Ubuntu Web Browser'
+					'Ubuntu'			=> 'Ubuntu Web Browser',
 				);
 
 $mobiles = array(
