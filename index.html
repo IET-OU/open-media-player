@@ -41,7 +41,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -50,7 +50,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Open Media Player</a>
+          <a class="navbar-brand" href="#features"><i class=sr-only >Open Media Player</i></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" role="navigation">
 
@@ -76,24 +76,27 @@
       </div>
     </nav>
 
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Open Media Player</h1>
-        <p>Accessible to all, mainstream, embeddable&hellip;
+        <h1>Open Media Player <span>Accessible to all</span></h1>
+        <!--<p class=hide >Accessible to all, mainstream, embeddable&hellip;-->
         <!--<p>Host once, innovate in one place, embed many&hellip;-->
+        <p class="main-banner-splash"><img alt="" src="assets/images/main-banner-splash.png"></p>
         <p>
-            <em>Open Media Player</em> puts accessibility to those with disabilities front and centre.
-            It is also a mainstream audio and video player, that puts the emphasis on ease of use for end-users and authors.
+            <em>Open Media Player</em> is a mainstream audio and video player that puts accessibility <!--to those with disabilities-->front and centre.
+            We put the emphasis on ease of use for end-users and authors.
         </p>
-        <p><em>And its open source!</em></p>
+        <p><em>Oh, and it&rsquo;s open source too!</em></p>
         <p><a class="btn btn-primary btn-lg" href="#features" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
 
+
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
+      <div class="row row-omp">
         <div class="col-md-4 col-omp-features" id="features">
           <h2>Features</h2>
 
@@ -131,10 +134,11 @@
         </div>
       </div>
 
+
       <hr>
 
-      <footer>
-        <span>&copy; 2015 <a href="http://www.open.ac.uk/">The Open University</a> and contributors. (<a href="http://iet.open.ac.uk">Institute of Educational Technology</a>.)</span>
+      <footer role="contentinfo">
+        <span>&copy; <i class="copyright-year">2014</i> <a href="http://www.open.ac.uk/">The Open University</a> and contributors. (<a href="http://iet.open.ac.uk">Institute of Educational Technology</a>.)</span>
 
         <span class="logos">
             <a class="player-logo" href="#"><img alt="Open Media Player" src="http://embed.open.ac.uk/assets/ouplayer/ou-media-player-logo.png"></a>

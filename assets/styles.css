@@ -1,19 +1,92 @@
 /*!
   Based on Jumbotron, http://getbootstrap.com/examples/jumbotron/
+
+  Copyright 2015 The Open University (IET-OU).
 */
 
-.x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 20em; }
 
-.jumbotron > .container { padding: 10%; /*15%*/ }
+/* https://gist.github.com/nfreear/c471ce46783525f9a9eb */
+html { font-size: 80%; /* Was: 10px */ }
+body { font-size: 1.1em; /* 14px */ }
+
+
+/* Top navigation.
+*/
 
 .navbar-inverse .navbar-nav > li > a,
 .navbar-inverse .navbar-brand {
     color: #eee;  /*Was: #9d9d9d*/
 }
+
+.navbar-brand {
+  margin-top: 9px;
+  width: 85px; height: 34px;
+  background: url(images/omp-logo-white.png) no-repeat;
+}
+
+
 a.btn { margin-top: .9em; }
 
-p, .jumbotron p { margin: .5em 0; }
-hr { border-top: 1px solid #ccc; }
+
+/* Jumbotron.
+*/
+
+.x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 20em; }
+
+.jumbotron > .container { padding: 4% 10%; /*15%*/ text-align: center; }
+
+p, .jumbotron p { margin: .5em auto; max-width: 33em; }
+p em, i { font-style: normal; }
+
+.jumbotron h1 { font-size: 50px; x-text-align: center; font-weight: normal; }
+.jumbotron h1 span { margin-left: .5em; color: #fdc52f; }
+
+.jumbotron .main-banner-splash { margin: 2.5em 0; }
+.X-main-banner-splash {
+  width: 961px; height: 44px;
+  background: url(images/main-banner-splash.png) no-repeat;
+}
+
+@media (max-width: 1200px) {
+  .jumbotron .main-banner-splash img {
+    width: 640.7px; height: 29.3px;
+  }
+}
+@media (max-width: 768px) {
+  .jumbotron .main-banner-splash img {
+    width: 480px; height: 22px; /* 961 x 44 px */
+  }
+}
+
+
+/* Row: features, demo, download.
+*/
+
+.row-omp h2 { color: #1e4b9b; }
+.row-omp a { color: #ed1c24; }
+.row-omp .btn-primary, .btn-primary { background: #1e4b9b; color: #fff; }
+
+.row-omp .icons {
+  display: inline-block;
+  width: 99%; height: 41px;
+
+  background-repeat: no-repeat;
+}
+.col-omp-features .icons {
+  background-image: url(images/icons-features.png);
+}
+.col-omp-action .icons {
+  background-image: url(images/icons-see-it-in-action.png);
+}
+.col-omp-code .icons {
+  background-image: url(images/icons-get-the-code.png);
+}
+
+
+/* Footer.
+*/
+
+hr { border-top: 1px solid #ccc; margin-top: 40px; }
 
 footer .logos { float: right; position: relative; top: -20px; }
 footer .logos a { display: inline-block; margin-right: 18px; }
@@ -23,5 +96,20 @@ footer .XX-iet-logo img { width: 85px; height: 85px; }
 footer .player-logo img { width: 143px; height: 50px; }  /* 300 x 105px */
 
 @media (max-width: 768px) {
-    .X-player-logo { display: none; }
+  .X-player-logo { display: none; }
+}
+
+
+/* Jumbotron gradient: http://www.cssmatic.com/gradient-generator#
+*/
+.jumbotron {
+  color: #fff;
+  background: rgba(0,0,0,1);
+  background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(30,76,155,1)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
+  background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
+  background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1e4c9b', GradientType=0 );
 }
