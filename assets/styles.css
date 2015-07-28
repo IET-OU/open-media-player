@@ -33,15 +33,15 @@ a.btn { margin-top: .9em; }
 
 .x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 20em; }
 
-.jumbotron > .container { padding: 4% 10%; /*15%*/ text-align: center; }
+.jumbotron > .container { padding: 4% 7%; /*15%*/ text-align: center; }
 
 p, .jumbotron p { margin: .5em auto; max-width: 33em; }
 p em, i { font-style: normal; }
 
-.jumbotron h1 { font-size: 50px; x-text-align: center; font-weight: normal; }
-.jumbotron h1 span { margin-left: .5em; color: #fdc52f; }
+.jumbotron h1 { font-size: 48px; font-weight: normal; }
+.jumbotron h1 span { margin-left: .2em; color: #fdc52f; }
 
-.jumbotron .main-banner-splash { margin: 2.5em 0; }
+.jumbotron .main-banner-splash { margin: 2.5em 0; width: 100%; max-width: 100%; }
 .X-main-banner-splash {
   width: 961px; height: 44px;
   background: url(images/main-banner-splash.png) no-repeat;
