@@ -63,12 +63,15 @@ clean-all: clean
 diff:
 	-git diff --exit-code
 	-cd vendor/iet-ou/open-media-player-core; git diff --exit-code
+	-cd vendor/iet-ou/open-media-player-themes; git diff --exit-code
 	-cd vendor/iet-ou/open-oembed-providers; git diff --exit-code
 
 st: describe
 	git status
 	@echo "";
 	cd vendor/iet-ou/open-media-player-core; git status
+	@echo "";
+	cd vendor/iet-ou/open-media-player-themes; git status
 	@echo "";
 	cd vendor/iet-ou/open-oembed-providers; git status
 

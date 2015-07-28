@@ -1,6 +1,7 @@
 # Open Media Player
 
-A unified, accessible online audio and video player solution from [The Open University][ou].
+A mainstream audio and video player service that puts accessibility front and centre.
+We put the emphasis on ease of use for end-users and authors. From the [The Open University][ou].
 
 * <http://embed.open.ac.uk>
 
