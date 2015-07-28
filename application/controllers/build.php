@@ -1,9 +1,9 @@
 <?php
 /**
-* Open Media Player javascript/ CSS builder.
+* Open Media Player Javascript/ CSS builder.
 *
 * In Web mode creates a Closure Compiler build script.
-* In cli mode builds using YUI Compressor.
+* (In cli mode builds using YUI Compressor - WIP).
 *
 *     Usage: $ \xampp\php\php index.php build/revision
 *
@@ -28,6 +28,7 @@ class Build extends \IET_OU\Open_Media_Player\MY_Controller
 // ==ClosureCompiler==
 // @output_file_name __OUTPUT__
 // @compilation_level __LEVEL__
+// @formatting print_input_delimiter
 //__URLS__// ==/ClosureCompiler==
 
 </pre>
@@ -59,8 +60,8 @@ EOF;
         $this->load->theme($theme_name);
 
         if ($this->input->is_cli_request()) {
-            $this->load->library('Gitlib', null, 'git');
-            $result = $this->git->put_revision();
+            $git = new \IET_OU\Open_Media_Player\Gitlib();
+            $result = $git->put_revision();
 
             $this->_cli_builder();
         } else {
@@ -110,7 +111,7 @@ EOF;
     protected function _closure($file_array, $output, $comp_level = 'simple')
     {
 
-        $base_url = base_url() .APPPATH;
+        $base_url = base_url();  //. APPPATH;
         $rand = rand(0, 100);
 
         $levels = array(
