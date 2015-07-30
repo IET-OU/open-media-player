@@ -105,11 +105,15 @@ iframe.embed-rsp, .embed-rsp iframe, .oup-ice-test iframe {
 */
 .oup-test-warning/*.ouvle#warn*/ {
   text-align:center;
-  border:1px solid #c11;
-  background:#f2f2f2;
+  border:1px solid #b55;
+  border-radius:5px;
+  background:#f9f9f9;
   margin:20px 0;
-  padding:5px;
-  font-size:1.2em;
+  padding:5px 10px;
+  font-size:1.1em;
+}
+.oup-test-warning p {
+  margin: .7em 0;
 }
 .oup-test-warning h1 {
   font-weight:normal;
