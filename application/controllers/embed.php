@@ -143,18 +143,26 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         }
     }
 
+    /** A generic iframe player embed.
+    */
+    public function player()
+    {
+        $options = array('width', 'height', 'image_url', 'caption_url', 'lang', 'theme', 'debug', 'transcript_url', 'related_url');
+        return $this->_player('\\IET_OU\\Open_Media_Player\\Generic_Player', $options);
+    }
+
     /** OUVLE player embed.
-  */
+    */
     public function vle()
     {
         $options = array('width', 'height', 'image_url', 'caption_url', 'lang', 'theme', 'debug');
-        return $this->_player('Vle_player', $options);
+        return $this->_player('\\IET_OU\\Open_Media_Player\\Vle_Player', $options);
     }
 
     public function openlearn()
     {
         $options = array('width', 'height', 'image_url', 'caption_url', 'lang', 'theme', 'debug', 'transcript_url', 'related_url');
-        return $this->_player('Openlearn_player', $options);
+        return $this->_player('\\IET_OU\\Open_Media_Player\\Openlearn_Player', $options);
     }
 
     public function _is_popup()
@@ -219,8 +227,10 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         'standalone' => false,
         // Auto-generate 'embed' or 'popup'.
         'mode' => strtolower(get_class($this)),
+        'context' => $player->shortClass(),
         'req'  => $this->_request,
-        'google_analytics' => $player->is_player('openlearn') ? google_analytics_id('openlearn') : null,
+        'google_analytics' => $player->is_player('openlearn') || $player->is_player('generic')
+            ? google_analytics_id('openlearn') : null,
         //TODO: needs more work!
         'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
         // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
