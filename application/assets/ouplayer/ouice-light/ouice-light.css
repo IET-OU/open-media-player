@@ -1,5 +1,7 @@
 @charset "utf-8";
-/** OUICE-light theme for OU player.
+/**
+* Legacy OUICE-light theme for Open Media Player.
+*
 * @copyright 2011 The Open University.
 * @author D.J.Winter (visuals)
 * @author N.D.Freear (CSS, 2011-07-20)
@@ -134,7 +136,7 @@ body,input{text-shadow:1px 1px 0 #fff; color:#183843; /*D. tourquoise*/}
 
 /*.oup-controls .seek-bar, .oupc .buffer, .oupc .progress, .oupc .playhead{
   border:1px solid transparent;
-  border-radius:4px;  
+  border-radius:4px;
 }*/
 
 .oup .tscript-close, .oup .more-close{

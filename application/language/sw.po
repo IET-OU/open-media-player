@@ -1,7 +1,7 @@
 # Kiswahili/ Swahili language pack.
 # Lang: sw
 # Copyright (C) 2011 The Open University. All rights reserved.
-# This file is distributed under the same license as the ouplayer package.
+# This file is distributed under the same license as the Open Media Player package.
 # Nick Freear <N.D.Freear+@+open.ac.uk>, 2010.
 #
 msgid ""
@@ -416,4 +416,3 @@ msgstr ""
 #, possible-php-format
 msgid "Download %s"
 msgstr ""
-

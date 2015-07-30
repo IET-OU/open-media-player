@@ -1,7 +1,7 @@
-# OU player/ OU embed language pack.
+# Open Media Player / OU embed language pack.
 # Lang: fr
 # Copyright (C) 2011 The Open University. All rights reserved.
-# This file is distributed under the same license as the ouplayer package.
+# This file is distributed under the same license as the Open Media Player package.
 # Nick Freear <N.D.Freear+@+open.ac.uk>, 2010.
 #
 #, fuzzy
@@ -85,4 +85,3 @@ msgstr ""
 #: views/ouplayer/oup_controls.php:49
 msgid "Captions"
 msgstr ""
-

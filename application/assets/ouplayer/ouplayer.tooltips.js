@@ -3,7 +3,7 @@
  * ©Dynamic Drive (www.dynamicdrive.com)
  * Modifications, ©2011 The Open University.
  */
-//The OU player object. (N.D.Freear, 2011-04-08)
+//The Open Media Player object. (N.D.Freear, 2011-04-08)
 var OUP = OUP || {};
 (function(){
 /***********************************************
