@@ -202,12 +202,12 @@ div.teasers ul li:last-child a {border-right:none;}
     <div id="ou-region1">
         <div id="ou-content" class="ou-content" role="main">
 
-
-<?php if ($is_ouembed): ?>
+<!-- site_message ? -->
+<?php /*if ($is_ouembed):*/
+$message = $this->config->item('site_message');
+if ($message): ?>
 <div id=warn class=oup-test-warning role="status">
-	<p>Note, <?php echo site_name() ?> is now live at its final home &ndash; <a rel=bookmark href="http://mediaplayer.open.edu/"
-		title='And "mediaplayer.open.ac.uk"' >MediaPlayer.open.edu</a>.
-	<p>(<a rel=bookmark href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is the home of the OU/ OULDI-embed services.)</p>
+    <?php echo $message ?>
 </div>
 <?php endif; ?>
 

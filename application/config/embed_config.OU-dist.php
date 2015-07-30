@@ -298,6 +298,22 @@ $config[ 'youtube_demo_title' ] =
 $config[ 'youtube_demo_vid' ] = '8Ik_LHmZx8Y';
 
 
+/*
+|--------------------------------------------------------------------------
+| oup_site.php
+*/
+$config[ 'site_message' ] = <<<EOM
+
+<p class="big" style="font-size: 1.1em;">Open Media Player is now open source!
+<p>Visit: <a rel=bookmark href="http://iet-ou.github.io/open-media-player/">iet-ou.github.io/open-media-player</a>
+<hr style="margin: 1em 0;">
+<p>Note, the Open University's official Open Media Player installation is at &ndash; <a rel=bookmark href="http://mediaplayer.open.edu/"
+    title='And "mediaplayer.open.ac.uk"' >MediaPlayer.open.edu</a>.
+<p><a rel=bookmark href="http://embed.open.ac.uk/">Embed.open.ac.uk</a> is IET's bleeding edge installation.</p>
+
+EOM;
+
+
 /* File: config.php
 ..
 $config['log_path'] = '/var/www/_ouplayer_data/logs/';

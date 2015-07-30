@@ -34,6 +34,15 @@
 <?php endif; ?>
 
 
+<?php
+$message = $this->config->item('site_message');
+if ($message): ?>
+<div id=warn class=oup-test-warning role="status">
+    <?php echo $message ?>
+</div>
+<?php endif; ?>
+
+
 <h1 class=hide><?php echo site_name() ?></h1>
 
 <ul role="navigation">
