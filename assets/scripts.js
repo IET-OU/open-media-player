@@ -8,14 +8,12 @@
 $(function () {
 
     var W = window
-      , L = window.location
-      , d = new Date()
+      , L = W.location
       ;
 
     ga('create', 'UA-24005173-1', 'auto');
     ga('send', 'pageview', '/iet-ou.github.io' + L.pathname + L.search);
 
-    //console.log('pageview', '/iet-ou.github.io' + L.pathname + L.search);
 
     // Event tracking: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
     $("a").on("click", function (ev) {
@@ -26,12 +24,12 @@ $(function () {
         // External URL.
         ga('send', 'event', 'link', 'click', text +' '+ url);
 
-        console.log("Track extern link click:", text, url);
+        W.console && console.log("Track extern link click:", text, url);
       }
 
       //ev.preventDefault();
     });
 
     // Copyright year
-    $("footer .copyright-year").html(d.getYear() + 1900);
+    $("footer .copyright-year").html((new Date()).getFullYear());
 });
