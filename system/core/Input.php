@@ -633,7 +633,17 @@ class CI_Input {
 
 			foreach ($_COOKIE as $key => $val)
 			{
-				$_COOKIE[$this->_clean_input_keys($key)] = $this->_clean_input_data($val);
+//ou-specific: forward-port [Bug: #22]
+				// https://github.com/bcit-ci/CodeIgniter/blob/develop/system/core/Input.php#L636
+				if (($cookie_key = $this->_clean_input_keys($key)) !== FALSE)
+				{
+					$_COOKIE[$cookie_key] = $this->_clean_input_data($val);
+				}
+				else
+				{
+					unset($_COOKIE[$key]);
+				}
+//ou-specific ends.
 			}
 		}
 
@@ -713,32 +723,44 @@ class CI_Input {
 
 	// --------------------------------------------------------------------
 
+//ou-specific: forward-port [Bug: #22]
+	// https://github.com/bcit-ci/CodeIgniter/blob/develop/system/core/Input.php#L725-L748
 	/**
-	* Clean Keys
-	*
-	* This is a helper function. To prevent malicious users
-	* from trying to exploit keys we make sure that keys are
-	* only named with alpha-numeric text and a few other items.
-	*
-	* @access	private
-	* @param	string
-	* @return	string
-	*/
-	function _clean_input_keys($str)
+	 * Clean Keys
+	 *
+	 * Internal method that helps to prevent malicious users
+	 * from trying to exploit keys we make sure that keys are
+	 * only named with alpha-numeric text and a few other items.
+	 *
+	 * @param	string	$str	Input string
+	 * @param	bool	$fatal	Whether to terminate script exection
+	 *				or to return FALSE if an invalid
+	 *				key is encountered
+	 * @return	string|bool
+	 */
+	protected function _clean_input_keys($str, $fatal = TRUE)
 	{
-		if ( ! preg_match("/^[a-z0-9:_\/-]+$/i", $str))
+		if ( ! preg_match('/^[a-z0-9:_\/|-]+$/i', $str))
 		{
-			exit('Disallowed Key Characters.');
+			if ($fatal === TRUE)
+			{
+				return FALSE;
+			}
+			else
+			{
+				set_status_header(503);
+				echo 'Disallowed Key Characters.';
+				exit(7); // EXIT_USER_INPUT
+			}
 		}
-
 		// Clean UTF-8 if supported
 		if (UTF8_ENABLED === TRUE)
 		{
-			$str = $this->uni->clean_string($str);
+			return $this->uni->clean_string($str);
 		}
-
 		return $str;
 	}
+//ou-specific ends.
 
 	// --------------------------------------------------------------------
 
