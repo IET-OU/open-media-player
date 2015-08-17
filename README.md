@@ -1,22 +1,29 @@
-# Readme for the OU Media Player/ OU Embed project
+# Open Media Player
 
-A unified, accessible online audio and video player solution for The Open University.
+A mainstream audio and video player service that puts accessibility front and centre.
+We put the emphasis on ease of use for end-users and authors. From the [The Open University][ou].
 
-* <https://mediaplayer.open.ac.uk>
+* <http://embed.open.ac.uk>
 
-Built on Mediaelement, Flowplayer, CodeIgniter and oEmbed ([all included][credit]).
+Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
+
+
+See the [open source project](http://iet-ou.github.io/open-media-player/).
 
 
 ## Requirements
 
- * Linux (Redhat RHEL 6) (ideally, or OS X/ Windows)
- * PHP 5.3+
-   * cURL, `json_encode`
- * Apache 2.2+
-   * mod_rewrite and `.htaccess` (`.sams`) (or access to `httpd.conf`)
+* Linux, Mac OS X or Windows
+* PHP 5.3.3+ (cURL, SimpleXML)
+* Apache 2.2+ (mod_rewrite)
 
 
-## Releases {#releases}
+## Releases
+
+### v1.2-1-gb9f13ac
+Release 17 Aug/ Live: approx. 25 Aug 2015
+
+* Fix 'disallowed key characters' bug [Bug:22]
 
 ### v1.1-26-g731260f
 Release: 5 Jan/ Live: 14 Jan 2015
@@ -140,15 +147,14 @@ Release: 10 December/ Live: 13 December 2012
 ## Links
 
 * <http://embed.open.ac.uk> | <http://mediaplayer.open.ac.uk>
-* Bugs/ Issues:  [IET-IT-bugs: project/issues/ouplayer][bugs]
-* Also: [LtsRedmine: projects/ouplayer/issues][lts-bugs]
+* Bugs/ Issues:  [IET-OU/open-media-player][bugs]
 
 
-## Installation {#install}
+## Installation
 
 In brief, the steps for the installation of OU Media Player (non IT-EUD hosting) and OU-Embed are:
 
- 1. Get [the code][code], eg. `$ git clone https://[USER]@github.com/IET-OU/ouplayer.git`
+ 1. Get [the code][code], eg. `$ git clone https://github.com/IET-OU/open-media-player.git`
  2. Copy: application/config/embed_config.dist.php to application/config/embed_config.php
  3. Set `$config['debug']`,
  4. Set `$config['podcast_feed_url_pattern']`,
@@ -162,7 +168,7 @@ Details and notes:
 * Installation guide: [extended readme on Google][install]
 
 
-## Ignore files {#ignore}
+## Ignore files
 
 When importing to [_AllChange_][allchange] for [IT-EUD hosting][eud], please ensure that these files and directories are ignored/ deleted:
 
@@ -175,7 +181,7 @@ When importing to [_AllChange_][allchange] for [IT-EUD hosting][eud], please ens
 
 (*) We need to either ignore the whole `_data/` directory, or most of its contents, including `logs/*.php` and `oupodcast/*`. Then [re-create - see install](#install).
 
-## Include files {#include}
+## Include files
 
 When importing to _AllChange_, please ensure that these files and directories are included/ implemented:
 
@@ -196,26 +202,32 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Credits
 
-OU player: Copyright © 2010-2013 The Open University. All rights reserved.
+Open Media Player: Copyright © 2010-2015 The Open University.
 
-* Not licensed as open-source (yet!)
-* Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology, and many others.
+* Author: Nick Freear / Institute of Educational Technology, and many others.
 
-For full credits and licenses see [docs/CREDITS.txt][credit]
-
+For full credits and licenses see [docs/CREDITS.txt](docs/CREDITS.txt)
 
 
-[code]: https://github.com/IET-OU/ouplayer
+
+[code]: https://github.com/IET-OU/open-media-player
 [eud]: http://intranet4.open.ac.uk/wikis/sysdevdoc/EUD_Hosting_Process "End User Development hosting, IT-OU"
 [allchange]: http://intasoft.net/our-products/allchange/
 [install]: https://docs.google.com/document/d/1tg1mrPqniUp6evs0odfs7wughuMLY4r82-kFylVWQXE/edit#heading=h.1esjm0y5y8se
-[bugs]: http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
+[bugs_o]: http://iet-it-bugs.open.ac.uk/project/issues/ouplayer
+[bugs]: https://github.com/IET-OU/open-media-player/issues/
 [lts-bugs]: http://ltsredmine.open.ac.uk/projects/ouplayer/issues
 [#:*]: http://iet-it-bugs.open.ac.uk/node/
 [lts#:*]: http://ltsredmine.open.ac.uk/issues/
-[bug#:*]: https://github.com/IET-OU/ouplayer/issues/
-[Bug:*]:  https://github.com/IET-OU/ouplayer/issues/
-[credit_g]: https://github.com/IET-OU/ouplayer/tree/master/docs/CREDITS.txt
-[credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.txt "Credits and licenses"
+[bug#:*]: https://github.com/IET-OU/open-media-player/issues/
+[Bug:*]:  https://github.com/IET-OU/open-media-player/issues/
+[Bug:22]: https://github.com/IET-OU/open-media-player/issues/22
+[credit_g]: https://github.com/IET-OU/open-media-player/tree/master/docs/CREDITS.txt
+[credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.md "Credits and licenses"
+
+[MediaElement.js]: http://mediaelementjs.com/
+[oEmbed]: http://oembed.com/ "oEmbed API specification"
+[iet]: http://iet.open.ac.uk/
+[ou]: http://www.open.ac.uk/
 
 [End]: http://example
