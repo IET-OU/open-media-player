@@ -57,6 +57,12 @@ p em, i { font-style: normal; }
     width: 480px; height: 22px; /* 961 x 44 px */
   }
 }
+/* Temparary - hide! */
+@media (max-width: 535px) {
+  .jumbotron .main-banner-splash img {
+    display: none;
+  }
+}
 
 
 /* Row: features, demo, download.
