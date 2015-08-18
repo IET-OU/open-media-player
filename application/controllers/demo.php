@@ -148,6 +148,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
     {
         $youtube_stream_vid = $this->config->item('youtube_stream_vid');
         $youtube_demo_vid = $this->config->item('youtube_demo_vid');
+        $youtube_demo_list = $this->config->item('youtube_demo_list');
 
         if (!$this->config->item('youtube_api_key') || !$youtube_demo_vid) {
             $this->_error("Page not found", 404);
@@ -169,7 +170,10 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
             'youtube_url' => site_url('embed/-/youtube.com/' . $youtube_vid),
             'youtube_title' => $this->config->item('youtube_demo_title'),
             'is_stream' => $is_stream,
+            'youtube_list' => $youtube_demo_list,
             'page_title' => $is_stream ? t('YouTube streaming') : t('YouTube example'),
+            'is_ouembed' => $this->_is_ouembed(),
+            'is_live' => $this->_is_live(),
         );
         $this->layout->view('demo/youtube', $view_data);
     }

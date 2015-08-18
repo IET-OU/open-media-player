@@ -54,7 +54,9 @@ input#url{ background:#f8f8f8; border-right-width:0 }
 input[type=submit]{ cursor:pointer; padding:.6em; }
 .X-ouembed-form .reset:before { position:relative; top:35px; left:-3em; }
 .ouembed-form input[type=submit]:hover{ background:#e8e8e8; }
-#examples li{ margin:3px 0; width:60%; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; /*#1388, truncate too-long titles..*/ }
+#examples { font-size: 1.03em; }
+.XX-body[ class *= '-youtube-' ] #examples { color: red; }
+#examples li{ margin:5px 0; width:60%; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; /*#1388, truncate too-long titles..*/ }
 #X-oembed-out{ margin:1em auto; x-resize:both; x-overflow:auto; }
 textarea, #oembed-out, #share-link-fm, #ajax-log{ background:#f8f8f8; border:1px solid #ccc; padding:6px; }
 #ajax-log{ width:95%; max-height:9em; x-white-space:nowrap; overflow-x:hidden; overflow-y:scroll; text-overflow:ellipsis; }
@@ -69,4 +71,3 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 
 
 .app.config pre{ font:small Consolas,monospace; }
-

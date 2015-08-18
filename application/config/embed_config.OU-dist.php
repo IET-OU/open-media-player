@@ -289,13 +289,19 @@ $config[ 'youtube_api_key' ]= '*** EDIT ME ***';
 
 $config[ 'youtube_default_theme' ] = 'oup-light';
 
-$config[ '__youtube_stream_vid' ]= 'fVxpUvCjl-g';
-$config[ '__youtube_demo_title' ] = 'Research at The Open University (7/7) [cc]';
-$config[ '__youtube_demo_vid' ] = 'uaGZze74tTo';
+$config[ '__youtube_stream_vid' ] = 'fVxpUvCjl-g';
 
-$config[ 'youtube_demo_title' ] =
-'Make Technology Work for Everyone: introducing digital accessibility, by Fix the Web';
-$config[ 'youtube_demo_vid' ] = '8Ik_LHmZx8Y';
+$config[ 'youtube_demo_title' ] = 'Research at The Open University (7/7) [cc]';
+$config[ 'youtube_demo_vid'  ] = 'uaGZze74tTo';
+$config[ 'youtube_demo_list' ] = array(
+    'uaGZze74tTo' => 'Research at The Open University (7/7) [cc]',
+    'BZysu9QcceM' => 'Interactive art with wooden mirrors - The wooden mirror (1/4), by ouLearn [cc]',
+    'atTcZ1B6WGY' => 'Folding bike re-invented - People-centred designing (7/10), by ouLearn [cc]',
+    '8Ik_LHmZx8Y' => 'Make Technology Work for Everyone: introducing digital accessibility, by Fix the Web',
+    'ashLaclKCik' => 'Spectre Official Teaser Trailer #1 (2015)',
+    'iZns7BSsGtc' => 'Adding an observation to iSpot',
+    'JrnlD322QaM' => 'The Atom - Spiders, by JuxtaLearn',
+);
 
 
 /*
