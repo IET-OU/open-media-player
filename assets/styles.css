@@ -5,7 +5,18 @@
 */
 
 
-/* https://gist.github.com/nfreear/c471ce46783525f9a9eb */
+/* Start: bootstrap/jumbotron.css */
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+/* End: bootstrap/jumbotron.css */
+
+
+
+/* Accessibility: https://gist.github.com/nfreear/c471ce46783525f9a9eb
+*/
 html { font-size: 80%; /* Was: 10px */ }
 body { font-size: 1.1em; /* 14px */ }
 
@@ -94,12 +105,12 @@ p em, i { font-style: normal; }
 
 hr { border-top: 1px solid #ccc; margin-top: 40px; }
 
-footer .logos { float: right; position: relative; top: -20px; }
-footer .logos a { display: inline-block; margin-right: 18px; }
+footer .logos { float: right; position: relative; /*top: -20px;*/ }
+footer .logos a { display: inline-block; margin-right: 32px; /*18px*/ }
 footer .logos a.last { margin: 0; }
 footer .XX-iet-logo img { width: 85px; height: 85px; }
 /* ou-logo: 83 x 56px */
-footer .player-logo img { width: 143px; height: 50px; }  /* 300 x 105px */
+footer .XX-player-logo img { width: 143px; height: 50px; }  /* 300 x 105px */
 
 @media (max-width: 768px) {
   .X-player-logo { display: none; }
