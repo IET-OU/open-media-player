@@ -153,6 +153,7 @@
     <li class="tm-test-error"><a href="<?php echo $base_url ?>test/podcast_errors" rel="nofollow">Error tests</a>
     <li class="tm-demo-vle"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Virtual learning environment: &#10;Requires a University login" rel="nofollow">[VLE demo]</a>
 <?php endif; ?>
+    <li class="tm-extern omp"><a href="http://iet-ou.github.io/open-media-player/" title="<?php echo site_name() ?> – the open source project">Project</a>
 <?php if ($is_ouembed): ?>
     <li class="tm-extern blog"><a href="<?php echo OUP_BLOG_URL ?>" rel="bookmark" title="Project blog and demos on Cloudworks">Blog</a>
 <?php endif; ?>
@@ -319,7 +320,7 @@ if ($message): ?>
 
 <?php if ($is_ouembed): ?>
   <p id="developed-by">Developed by the <a href="http://iet.open.ac.uk/">Institute of Educational Technology</a>
-    and others at <a href="http://www.open.ac.uk/">The Open University</a>.</p>
+    and others<!-- at <a href="http://www.open.ac.uk/">The Open University</a>-->.</p>
 <?php endif; ?>
 
 
