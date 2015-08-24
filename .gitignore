@@ -7,6 +7,8 @@ version.json
 /vendor/*
 /application/engines/mediaelement-x
 
+phpcs-*.xml
+
 /git*.php
 /git-pull*
 
@@ -38,7 +40,7 @@ application/language/*.pot
 * copy*
 *OLD*
 *ORIG*
-*BAK
+*BAK*
 *.log
 *.mo
 

@@ -160,8 +160,8 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         if ($youtube_stream_vid && !$youtube_vid) {
             $youtube_vid = $youtube_stream_vid;
             $is_stream = true;
-        }
-        elseif (!$youtube_vid) {
+
+        } elseif (!$youtube_vid) {
             $youtube_vid = $youtube_demo_vid;
         }
 

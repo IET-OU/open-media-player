@@ -106,12 +106,12 @@ class MY_Loader extends CI_Loader
         // Try absolute paths first.
         if (file_exists($view_file . '.php')) {
             return $this->view($view_file, $vars, $return);
-        }
-        elseif (file_exists($parent_view . '.php')) {
+
+        } elseif (file_exists($parent_view . '.php')) {
             return $this->view($parent_view, $vars, $return);
-        }
-        // .. Then (legacy) relative paths.
-        elseif (file_exists(APPPATH . $view_file .'.php')) {
+
+        } elseif (file_exists(APPPATH . $view_file .'.php')) {
+            // .. Then (legacy) relative paths.
             return $this->view('../'. $view_file, $vars, $return);
         }
         return $this->view('../'. $parent_view, $vars, $return);
