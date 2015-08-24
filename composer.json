@@ -13,7 +13,7 @@
   ],
   "support": {
     "email": "iet-webmaster@open.ac.uk",
-    "forum": "https://groups.google.com/forum/#!forum/open-media-player",
+    "forum": "https://groups.google.com/group/open-media-player",
     "issues": "https://github.com/IET-OU/open-media-player/issues",
     "source": "https://github.com/IET-OU/open-media-player"
   },
@@ -31,8 +31,8 @@
     "jakub-onderka/php-parallel-lint": "~0.8"
   },
   "suggest": {
+    "johndyer/mediaelement": "2.18.1; MEJS edge",
     "tuupola/slim-basic-auth": "*; Slim Basic Auth",
-    "wikimedia/composer-merge-plugin": "1.2.*; Composer merge plugin",
     "iet-ou/open-oembed-providers": "*; oEmbed providers - YouTube, Google Docs, Prezi ..."
   },
   "repositories": [
