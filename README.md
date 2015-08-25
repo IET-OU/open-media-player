@@ -1,3 +1,8 @@
+
+[![Build status][travis-icon]][travis]  <!--[![Code Climate][climate-icon]][climate]-->
+[![Latest Stable Version][packagist-icon]][packagist]  [![License: GPL][license-icon]][gpl]
+
+
 # Open Media Player
 
 A mainstream audio and video player service that puts accessibility front and centre.
@@ -36,6 +41,11 @@ Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 
 * See the [installation guide on the Wiki][install].
 
+In brief, using [Composer][]:
+
+```
+composer create-project iet-ou/open-media-player --no-dev -sdev --prefer-dist
+```
 
 ## Credits
 
@@ -46,7 +56,7 @@ Open Media Player: Copyright © 2015 The Open University.
 For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
 
 ---
-License:  [GPL version 3 onwards][gpl]
+License:  [GPL version 3 onwards][gpl].
 
 © 2011-2015 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 
@@ -64,5 +74,14 @@ License:  [GPL version 3 onwards][gpl]
 [oEmbed]: http://oembed.com/ "oEmbed API specification"
 [iet]: http://iet.open.ac.uk/
 [ou]: http://www.open.ac.uk/
+
+[packagist]: https://packagist.org/packages/IET-OU/open-media-player "Packagist"
+[packagist-icon]: https://img.shields.io/packagist/v/IET-OU/open-media-player.svg?style=flat
+[license-icon]: https://img.shields.io/packagist/l/IET-OU/open-media-player.svg?style=flat
+[travis]:  https://travis-ci.org/IET-OU/open-media-player
+[travis-icon]: https://api.travis-ci.org/IET-OU/open-media-player.svg?branch=2.x "Build status"
+[climate]: https://codeclimate.com/github/IET-OU/open-media-player
+[climate-icon]: https://codeclimate.com/github/IET-OU/open-media-player/badges/gpa.svg
+[reposs]: https://reposs.herokuapp.com/?path=IET-OU/open-media-player "Repo size"
 
 [End]: http://example
