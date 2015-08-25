@@ -34,7 +34,7 @@ $files_from = win_dir(str_replace('.php', '', __FILE__).".txt", $quote = false);
 $sys_dir = dirname(dirname(dirname(__FILE__)));
 $out_dir = win_dir("$sys_dir/application/language/"); #_templates_/");
 
-var_dump($files_from, $sys_dir, $out_dir);
+echo "OK, $files_from, $sys_dir, $out_dir" . PHP_EOL;
 
 
 $domains = array('application/');

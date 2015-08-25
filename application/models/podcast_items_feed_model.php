@@ -48,8 +48,8 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
         if (false === strpos($url_pattern, self::COLLECTION_ID)) {
             $this->_error("Missing {". self::COLLECTION_ID. "} in $locate", 503.3);
         }
-        $pu = parse_url($url_pattern);
-        if (!isset($pu['scheme']) || !isset($pu['host']) || !isset($pu['path'])) {
+        $purl = parse_url($url_pattern);
+        if (!isset($purl['scheme']) || !isset($purl['host']) || !isset($purl['path'])) {
             $this->_error("Invalid URL in $locate", 503.4);
         }
 
@@ -272,10 +272,10 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
             $url = array($url, "/");
         }
 
-        $fh = fsockopen($url[0], 80);
-        if ($fh) {
-            fputs($fh, "GET ".$url[1]." HTTP/1.1\nHost:".$url[0]."\n\n");
-            if (fread($fh, 22) == "HTTP/1.1 404 Not Found") {
+        $fhand = fsockopen($url[0], 80);
+        if ($fhand) {
+            fputs($fhand, "GET ".$url[1]." HTTP/1.1\nHost:".$url[0]."\n\n");
+            if (fread($fhand, 22) == "HTTP/1.1 404 Not Found") {
                 return false;
             } else {
                 return true;
@@ -342,7 +342,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
             }
 
             // Set the attributes too.
-            if (isset($attributes) and $get_attributes) {
+            if (isset($attributes) && $get_attributes) {
                 foreach ($attributes as $attr => $val) {
                     if ($priority == 'tag') {
                         $attributes_data[$attr] = $val;
@@ -356,7 +356,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
             if ($type == "open") {
                 // The starting of the tag '<tag>'
                 $parent[$level-1] = &$current;
-                if (!is_array($current) or (!in_array($tag, array_keys($current)))) {
+                if (!is_array($current) || (!in_array($tag, array_keys($current)))) {
                     // Insert New tag
                     $current[$tag] = $result;
                     if ($attributes_data) {
@@ -396,19 +396,19 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
                     // New Key
                     $current[$tag] = $result;
                     $repeated_tag_index[$tag.'_'.$level] = 1;
-                    if ($priority == 'tag' and $attributes_data) {
+                    if ($priority == 'tag' && $attributes_data) {
                         $current[$tag. '_attr'] = $attributes_data;
                     }
 
                 } else {
                     // If taken, put all things inside a list(array)
-                    if (isset($current[$tag][0]) and is_array($current[$tag])) {
+                    if (isset($current[$tag][0]) && is_array($current[$tag])) {
                         // If it is already an array...
 
                         // ...push the new element into that array.
                         $current[$tag][$repeated_tag_index[$tag.'_'.$level]] = $result;
 
-                        if ($priority == 'tag' and $get_attributes and $attributes_data) {
+                        if ($priority == 'tag' && $get_attributes && $attributes_data) {
                             $current[$tag][$repeated_tag_index[$tag.'_'.$level] . '_attr'] = $attributes_data;
                         }
                         $repeated_tag_index[$tag.'_'.$level]++;
@@ -417,7 +417,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model
                         // If it is not an array...
                         $current[$tag] = array($current[$tag],$result); //...Make it an array using using the existing value and the new value
                         $repeated_tag_index[$tag.'_'.$level] = 1;
-                        if ($priority == 'tag' and $get_attributes) {
+                        if ($priority == 'tag' && $get_attributes) {
                             if (isset($current[$tag.'_attr'])) {
                   //The attribute of the last(0th) tag must be moved as well
 

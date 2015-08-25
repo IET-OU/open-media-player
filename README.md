@@ -1,5 +1,5 @@
 
-[![Build status][travis-icon]][travis]  <!--[![Code Climate][climate-icon]][climate]-->
+[![Build status][travis-icon]][travis]  [![Code Climate][climate-icon]][climate]
 [![Latest Stable Version][packagist-icon]][packagist]  [![License: GPL][license-icon]][gpl]
 
 

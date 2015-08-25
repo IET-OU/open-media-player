@@ -7,7 +7,6 @@
  *
  * @link http://api.embed.ly/1/services?callback=_FN
  */
-ini_set('display_errors', true);
 
 
 class Services extends \IET_OU\Open_Media_Player\MY_Controller

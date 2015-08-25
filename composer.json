@@ -52,6 +52,8 @@
       "php index.php build/revision"
     ],
     "post-update-cmd": [
+      "php application/bin/cpn application/config embed_config.dist.php embed_config.php",
+      "php application/bin/cpn application/config oup_site.dist.php oup_site.php",
       "php index.php build/revision"
     ],
     "env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",

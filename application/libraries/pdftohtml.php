@@ -93,7 +93,7 @@ class Pdftohtml {
 
     $xo = $this->pdftoxml($pdf_file, $xml_file);
 
-    //<-?xml version="1.0" ?-> 
+    //<-?xml version="1.0" ?->
     $out = '<!DOCTYPE html><meta charset="utf-8"/><div class="TR"><style>b,em{display:block}</style>'.PHP_EOL;
     foreach ($xo->page as $page) {
       $out .= '<div class="pg">'.PHP_EOL;
@@ -118,7 +118,11 @@ class Pdftohtml {
           $out .= " <span>$str</span>".PHP_EOL;
         } else {
           //Error?
-          var_dump($text);
+          if (function_exists('log_message')) {
+            log_message('error', __METHOD__ .' '. $text);
+          } else {
+            echo "Error. $text\n";
+          }
         }
       }
       $out .= '</div>'.PHP_EOL;
