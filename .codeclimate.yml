@@ -6,7 +6,5 @@ languages:
 exclude_paths:
 - "application/assets/*"
 - "application/config/*"
-- "application/libraries/class.pdf2text.php"
-- "application/libraries/POParser.php"
 - "docs/*"
 - "system/*"
