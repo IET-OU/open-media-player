@@ -4,7 +4,7 @@
  *  Create PO(T) translation template files.
  *
  * <code>
- *   $ php application/cli/xgettext.php
+ *   $ php application/bin/xgettext.php
  * </code>
  *
  * @link http://gnu.org/software/gettext GNU Gettext
@@ -16,10 +16,14 @@ http://translate.google.com/#en|fr|Player+controls.+Play.+Pause.+Rewind.+Fast+fo
 if ('cli'!=php_sapi_name()) {
     die(basename(__FILE__).": Must run as cli."); #Security.
 }
+
+$domains = array('application/', 'vendor/iet-ou/');
+
 $xgettext = array(
     'mac' => "/Applications/Poedit.app/Contents/MacOS/xgettext",
     'win' => "C:/apps/GnuWin32/bin/xgettext.exe",
     'win' => "C:/Program Files/Poedit/bin/xgettext.exe",
+    'win' => "C:/Program Files (x86)/Poedit/GettextTools/bin/xgettext.exe",
 );
 $OS = null;
 foreach ($xgettext as $label => $path) {
@@ -30,22 +34,23 @@ foreach ($xgettext as $label => $path) {
         break;
     }
 }
-$files_from = win_dir(str_replace('.php', '', __FILE__).".txt", $quote = false);
+if (! $OS) {
+    fprintf(STDERR, "Error. xgettext binary not found. Exiting.");
+    exit(1);
+}
+$files_from = win_dir(str_replace('.php', '', __FILE__), $quote = false);
 $sys_dir = dirname(dirname(dirname(__FILE__)));
 $out_dir = win_dir("$sys_dir/application/language/"); #_templates_/");
 
 echo "OK, $files_from, $sys_dir, $out_dir" . PHP_EOL;
 
-
-$domains = array('application/');
-
 foreach ($domains as $path) {
     $domain = basename($path);
     $directory = win_dir("$sys_dir/$path");
 
-    $exclude = ".|..|.svn|.po|.DS_Store|cli|about|config|Zend|phpmailer|index.html|- Copy.";
+    $exclude = ".|..|.git|.svn|.po|.htaccess|.DS_Store|cli|about|config|Zend|phpmailer|index.html|- Copy.";
     $files = file_array($directory, $directory, $exclude);
-    $bytes = file_put_contents($files_from, $files); #implode(PHP_EOL, $files));
+    $bytes = file_put_contents($files_from . "-$domain.txt", $files); #implode(PHP_EOL, $files));
 
   /*@todo --keyword=plural' doesn't work :( --keyword=t:1, plural:1,2  --flag=plural:1:pass-c-format */
     $command = <<<EOF
@@ -65,6 +70,8 @@ foreach ($domains as $path) {
  --force-po
  --debug
 EOF;
+
+    echo $command . PHP_EOL;
 
     if ('win' != $OS) {
       # The Windows builds don't have these options :(

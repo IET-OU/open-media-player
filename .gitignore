@@ -33,7 +33,11 @@ application/cli/*.txt
 application/engines/mediael*/demo/*.html
 
 application/language/*.pot
+application/language/appli*.po
+application/language/iet-ou.po
 !application/language/ouplayer.pot.po
+
+application/bin/*.txt
 
 /*.patch
 *.diff
