@@ -144,7 +144,7 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
             header('HTTP/1.1 401 Unauthorized');
             header(sprintf('WWW-Authenticate: Basic realm="%s"', 'Media Player admin pages'));
             echo "<title>Authentication required</title><style>body{font:1.1em sans-serif;margin:2em;color:#333}</style>WARNING.\n";
-            echo isset($arguments[ 'message' ]) ? $arguments[ 'message' ] : print_r($arguments);
+            echo isset($arguments[ 'message' ]) ? $arguments[ 'message' ] : my_print_r($arguments);
             exit;
         };
 

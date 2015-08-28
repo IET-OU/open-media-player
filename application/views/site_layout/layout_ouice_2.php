@@ -45,7 +45,7 @@
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/screen.css" media="screen" />
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/print.css" media="print" />
 
-<link rel="shortcut icon" href="<?php echo $resource_url ?>/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo site_url('favicon.ico') ?>" type="image/x-icon" />
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="<?php echo $resource_url ?>/includes/ouice/3/ie.css" />

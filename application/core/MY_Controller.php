@@ -315,7 +315,7 @@ class MY_Controller extends \CI_Controller
     */
     public function _error($message, $code = 500, $from = null, $obj = null)
     {
- #Was: protected.
+    #Was: protected.
       #$this->firephp->fb("$code: $message", $from, 'ERROR');
         $this->_log('error', "$from: $code, $message");
         @header('HTTP/1.1 '. (integer) $code);
@@ -329,8 +329,8 @@ class MY_Controller extends \CI_Controller
         // For now, just output plain text.
             echo "$code. Error, $message".PHP_EOL;
             if ($obj) {
-      // ??
-                print_r($obj);
+                // ??
+                my_print_r($obj);
             }
             exit;
         }

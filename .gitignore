@@ -13,7 +13,6 @@ phpcs-*.xml
 /git-pull*
 
 Thumbs.db
-.DS_Store
 .project
 .settings
 _scratch

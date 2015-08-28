@@ -66,7 +66,7 @@ $autoload['libraries'] = array(/*'database',*/ 'lang');
 */
 
 // `ouplayer_helper` takes precedence - HTTPS/SSL support (iet-it-bugs:1329)
-$autoload['helper'] = array('ouplayer', 'url');
+$autoload['helper'] = array('ouplayer', 'oup_language', 'url');
 
 
 /*

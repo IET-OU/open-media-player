@@ -7,6 +7,13 @@
  */
 
 
+/** [Bug #59]
+*/
+function my_print_r($expression, $return = false)
+{
+    return print_r($expression, $return);
+}
+
 /** JSON encode a string, removing the outer quotes (").
 */
 function json_encode_str($str)

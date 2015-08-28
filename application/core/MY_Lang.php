@@ -169,32 +169,7 @@ class MY_Lang extends CI_Lang
     }
 }
 
-/* Translate text function, uses sprintf/vsprintf.
- * See: cloudengine/libs./MY_Language; Drupal.
- *
- * @param $msgid string Text to translate, with optional printf-style placeholders, eg. %s.
- * @param $args  mixed  Optional. A value or array of values to substitute.
- * @return string
- */
-//if (!function_exists('t')) {
-function t($msgid, $args = null)
-{
-    $CI =& get_instance();
-    $s = $CI->lang->gettext($msgid);
-    $s = str_replace(array('<s>', '</s>'), array('<span>', '</span>'), $s);
-    if (is_array($args)) {
-        $s = vsprintf($s, $args);
-    } // Important: accept empty string!
-    elseif ($args || ''==$args) {
-#is_string() #func_num_args() > 1){
-        $s = sprintf($s, $args); #array_shift(func_get_args()));
-    }
-    return /*Debug: '^'.*/$s;
-}
-//}
-if (!function_exists('_')) {
-    function _($s)
-    {
-        return $s;
-    }
-}
+
+/*
+  Functions: 't' and '_' - see `helpers/lang_helper.php`
+*/
