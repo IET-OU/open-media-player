@@ -183,7 +183,7 @@ if (OUP.supports_flash()) {
     gatracker: {
       url:"<?php echo _flowplayer_plugin('analytics', '3.2.2') ?>",
 
-<?php // track all possible events. By default only Start and Stop 
+<?php // track all possible events. By default only Start and Stop
       // are tracked with their corresponding playhead time. ?>
       events:{ all:true, finish:'Finish' },
       //debug: true,
