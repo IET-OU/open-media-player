@@ -220,6 +220,8 @@ $config['player_docs'] = array(
 $config['player_default_theme'] = 'oup-light';
 $config['player_mobile_theme'] = 'mejs-default';
 
+$config[ 'player_default_theme_rgb' ] = 'ouvle-default-blue';
+
 $config['player_themes'] = array(
   // 'New' 2012 Mediaelement-based themes.
   'mejs-default' => true,
