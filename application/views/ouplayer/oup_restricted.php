@@ -64,7 +64,7 @@ $this->load->view('ouplayer/oup_analytics');
   <li class="restrict-text"><?php echo $restrict_text #t('Staff/student access only') ?></li>
   <?php #endif; ?>
 
-  <li><a target="_blank" href="<?php echo Sams_Auth::login_link($popup_url) ?>"
+  <li><a target="_blank" href="<?php echo $login_url ?>"
 	class="login popout" ><?php echo t('Log in and launch the player in a new window') ?></a></li>
 
   <?php /*<li>  <?php if(isset($meta->_related_url) && $meta->_related_url){

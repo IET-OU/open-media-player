@@ -77,6 +77,9 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 
         $player->calc_size($width, $height, $audio_poster);
 
+        $popup_url = site_url("popup/pod/$player->_album_id/$player->_track_md5")
+            . $this->options_build_query();
+
         $view_data = array(
         'meta' => $player,
         'theme'=> $this->_theme,
@@ -87,7 +90,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         'context' => $player->shortClass(),
         'req'  => $this->_request,
         'google_analytics' => $this->oupodcast_serv->getAnalyticsId(),  #$this->_get_analytics_id('podcast.open.ac.uk'),
-        'popup_url' => site_url("popup/pod/$player->_album_id/$player->_track_md5").$this->options_build_query(),
+        'popup_url' => $popup_url,
         // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
         '_caption_url' => site_url('timedtext/webvtt') .'?url='. $player->caption_url,
         );
@@ -109,6 +112,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         } elseif ($restrict_image
         && $player->is_restricted_podcast()
         && ! $this->_is_popup()) {
+            $view_data[ 'login_url' ] = \IET_OU\Open_Media_Player\Sams_Auth::login_link($popup_url);
             $view_data['meta']->poster_url = $restrict_image;
             #..pixastic/podcast-pix-emboss-grey-220-strength-3.0-blend-opacity-0.25.png;
             $this->load->view('ouplayer/oup_restricted', $view_data);
