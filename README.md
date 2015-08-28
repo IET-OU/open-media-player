@@ -1,5 +1,6 @@
 
 [![Build status][travis-icon]][travis]  [![Code Climate][climate-icon]][climate]
+[![Remote test status][rtest-icon]][rtest]
 [![Latest Stable Version][packagist-icon]][packagist]  [![License: GPL][license-icon]][gpl]
 
 
@@ -83,5 +84,7 @@ License:  [GPL version 3 onwards][gpl].
 [climate]: https://codeclimate.com/github/IET-OU/open-media-player
 [climate-icon]: https://codeclimate.com/github/IET-OU/open-media-player/badges/gpa.svg
 [reposs]: https://reposs.herokuapp.com/?path=IET-OU/open-media-player "Repo size"
+[rtest]: http://iet-embed-acct.open.ac.uk/dev/ou-media-player-test/report/ "Remote test status"
+[rtest-icon]: http://iet-embed-acct.open.ac.uk/dev/ou-media-player-test/report/svg/
 
 [End]: http://example
