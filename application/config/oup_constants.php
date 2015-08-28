@@ -4,7 +4,11 @@
 | Open Media Player - constants.
 |--------------------------------------------------------------------------
 */
-// Prevent CI error.
+
+/* NOTE: for now we use the legacy prefix `OUP_`. */
+
+
+// Prevent CodeIgniter error.
 $config['oup_constants'] = 'dummy';
 
 
@@ -43,11 +47,15 @@ define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
 | http://freear.org.uk/content/ou-media-player-project | http://freear.org.uk/content/ou-embed-proposal
 | mailto:N.D.Freear+@+open.ac.uk?subject=OU+player
 */
-define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
-define('OUP_BLOG_RSS_URL', 'http://cloudworks.ac.uk/tag/rss/oEmbed');
+define('OUP_PROJECT_URL', 'http://iet-ou.github.io/open-media-player/');
+define('OUP_BLOG_URL', 'http://www.open.ac.uk/blogs/LTT_IET/?cat=39#!-Open-Media-Player');
+define('OUP_BLOG_RSS_URL', 'http://www.open.ac.uk/blogs/LTT_IET/?feed=rss2&cat=39');
+define('OUP_CODE_URL', 'https://github.com/IET-OU/open-media-player');
+define('OUP_BUG_URL', 'https://github.com/IET-OU/open-media-player/issues');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
 define('OUP_CONTACT_URL', 'mailto:IET-Webmaster@open.ac.uk?subject=Open Media Player feedback:');
 
+define('OUP_CLOUD_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
 define('OUP_FLASH_URL', 'http://adobe.com/go/getflashplayer');
 

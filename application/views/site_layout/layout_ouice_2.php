@@ -155,7 +155,7 @@
 <?php endif; ?>
     <li class="tm-extern omp"><a href="http://iet-ou.github.io/open-media-player/" title="<?php echo site_name() ?> – the open source project">Project</a>
 <?php if ($is_ouembed): ?>
-    <li class="tm-extern blog"><a href="<?php echo OUP_BLOG_URL ?>" rel="bookmark" title="Project blog and demos on Cloudworks">Blog</a>
+    <li class="tm-extern blog"><a href="<?php echo OUP_BLOG_URL ?>" rel="bookmark" title="Project blog and demos (LTT_IET)">Blog</a>
 <?php endif; ?>
     <!--<li class="tm-extern iet"><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology - external" rel="external">IET</a>-->
     <li class="tm-extern dis"><a href="http://www.open.ac.uk/disability/" title="Services for disabled students - external OU" rel="external">Disabled services</a>
@@ -320,7 +320,9 @@ if ($message): ?>
 
 <?php if ($is_ouembed): ?>
   <p id="developed-by">Developed by the <a href="http://iet.open.ac.uk/">Institute of Educational Technology</a>
-    and others<!-- at <a href="http://www.open.ac.uk/">The Open University</a>-->.</p>
+    and others<!-- at <a href="http://www.open.ac.uk/">The Open University</a>-->.
+    <a href="<?php echo OUP_CODE_URL ?>" title="<?php echo site_name() ?> code on GitHub">(code)</a>
+  </p>
 <?php endif; ?>
 
 

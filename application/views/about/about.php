@@ -7,19 +7,19 @@
 */
 ?>
 
-<a href="http://iet-ou.github.io/open-media-player/"><img class=oup-logo
+<a href="<?php echo OUP_PROJECT_URL ?>"><img class=oup-logo
   alt="<?php echo site_name() ?>" title="<?php echo site_name() ?> – the open source project" src="<?php echo site_url('assets/ouplayer/omp-logo-w274.png') ?>" /></a>
 
 <p><?php echo site_name() ?> is an open-source, online audio and video player, developed at <a href="http://www.open.ac.uk/">The Open University</a>
  and used in student, public and staff facing services. Here are <a href=
-"<?php echo OUP_BLOG_URL ?>" title="On Cloudworks">introductory blog posts</a>.</p>
+"<?php echo OUP_BLOG_URL ?>">introductory blog posts</a>.</p>
 
 
 <h2 id=giving-feedback >Giving feedback</h2>
 
 <?php if ('ouice_2' == $layout_name): ?>
 
-<p>If you are a general user, please give <a href="https://github.com/IET-OU/open-media-player/issues"
+<p>If you are a general user, please give <a href="<?php echo OUP_BUG_URL ?>"
  >feedback and raise issues on GitHub</a>.
 
 <p>If you are an Open University student please use your <a href="<?php echo OUP_HELP_URL ?>" title="Requires a University login" rel="nofollow">Student Help centre</a>
@@ -27,7 +27,7 @@
 
 <?php else: ?>
 
-<p>Please give <a href="https://github.com/IET-OU/open-media-player/issues"
+<p>Please give <a href="<?php echo OUP_BUG_URL ?>"
  >feedback and raise issues on GitHub</a>.</p>
 
 <?php endif; ?>

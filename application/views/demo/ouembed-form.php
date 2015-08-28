@@ -46,7 +46,7 @@ You have three options to share this content: <ol>
 <li id=share-link >
 <p><label for=share-link-fm >Use this <a class=orig href="<?php echo $drupal_safe_url ?>" title="Original URL">URL</a>
   to embed content in <a href="<?php echo OUP_DRUPAL_URL ?>" title="Drupal 7 at the OU">OU Drupal</a>,
-  <a href="<?php echo OUP_BLOG_URL ?>">Cloudworks</a> <em>(&ldquo;Add embedded content&rdquo;)</em>,
+  <a href="<?php echo OUP_CLOUD_URL ?>">Cloudworks</a> <em>(&ldquo;Add embedded content&rdquo;)</em>,
   <a href="http://codex.wordpress.org/Embeds">Wordpress</a> and in emails:</label>
 <p><input id=share-link-fm class=copy-fm value="<?php echo $drupal_safe_url ?>" size=85 readonly />
 </li>
