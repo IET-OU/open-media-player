@@ -1,7 +1,7 @@
 
-[![Build status][travis-icon]][travis]  [![Code Climate][climate-icon]][climate]
-[![Remote test status][rtest-icon]][rtest]
-[![Latest Stable Version][packagist-icon]][packagist]  [![License: GPL][license-icon]][gpl]
+[![Build status – Travis-CI][travis-icon]][travis]  [![Code Climate][climate-icon]][climate]
+[![SensioLabs Insight][sensio-icon]][sensio] [![Remote test status][rtest-icon]][rtest]
+[![Packagist][packagist-icon-x]][packagist]  [![License: GPL][license-icon]][gpl]
 
 
 # Open Media Player
@@ -76,13 +76,17 @@ License:  [GPL version 3 onwards][gpl].
 [iet]: http://iet.open.ac.uk/
 [ou]: http://www.open.ac.uk/
 
-[packagist]: https://packagist.org/packages/IET-OU/open-media-player "Packagist"
-[packagist-icon]: https://img.shields.io/packagist/v/IET-OU/open-media-player.svg?style=flat
+[packagist]: https://packagist.org/packages/IET-OU/open-media-player
+[packagist-icon]: https://img.shields.io/packagist/v/IET-OU/open-media-player.svg#!v2.x-dev
+[packagist-icon-x]: https://img.shields.io/badge/packagist-2.0--beta*-671c37.svg#!dark-red
+[packagist-icon-p]: https://img.shields.io/badge/packagist-2.0--beta*-e3046b.svg#!pink
 [license-icon]: https://img.shields.io/packagist/l/IET-OU/open-media-player.svg?style=flat
 [travis]:  https://travis-ci.org/IET-OU/open-media-player
-[travis-icon]: https://api.travis-ci.org/IET-OU/open-media-player.svg?branch=2.x "Build status"
+[travis-icon]: https://api.travis-ci.org/IET-OU/open-media-player.svg?branch=2.x "Build status – Travis-CI"
 [climate]: https://codeclimate.com/github/IET-OU/open-media-player
 [climate-icon]: https://codeclimate.com/github/IET-OU/open-media-player/badges/gpa.svg
+[sensio]: https://insight.sensiolabs.com/projects/18d6d958-4571-4529-8c0c-5a70fa29be65 "SensioLabs Insight"
+[sensio-icon]: https://insight.sensiolabs.com/projects/18d6d958-4571-4529-8c0c-5a70fa29be65/mini.png
 [reposs]: https://reposs.herokuapp.com/?path=IET-OU/open-media-player "Repo size"
 [rtest]: http://iet-embed-acct.open.ac.uk/dev/ou-media-player-test/report/ "Remote test status"
 [rtest-icon]: http://iet-embed-acct.open.ac.uk/dev/ou-media-player-test/report/svg/

@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 namespace IET_OU\Open_Media_Player_Tools;
+
 /**
  * A cross-platform "copy-no-clobber" utility (equivalent to Linux "cp -n")
  *

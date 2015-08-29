@@ -171,9 +171,9 @@ $config['player_themes'] = array(
   // Experimental: 'menu' flag - make themes appear in Opera/Firefox Page/'View' > Style menu.
   'basic' => array('styles'=>null, 'view'=>'ouplayer/player_noscript'),
   'core'  => array('styles'=>null),
-  'ouice-dark'=>array('title'=>_('OUICE Dark'), 'styles'=>'ouplayer/ouice-dark/ouice-dark.css', '--menu'=>1),
-  'ouice-bold'=>array('title'=>_('OUICE Bold'), 'styles'=>'ouplayer/ouice-bold/ouice-bold.css'),
-  'ouice-light'=>array('title'=>_('OUICE Light'), 'styles'=>'ouplayer/ouice-light/ouice-light.css', '--menu'=>1),
+  'ouice-dark' => array('title'=>'OUICE Dark', 'styles'=>'ouplayer/ouice-dark/ouice-dark.css', '--menu'=>1),
+  'ouice-bold' => array('title'=>'OUICE Bold', 'styles'=>'ouplayer/ouice-bold/ouice-bold.css'),
+  'ouice-light'=> array('title'=>'OUICE Light', 'styles'=>'ouplayer/ouice-light/ouice-light.css', '--menu'=>1),
 );
 
 

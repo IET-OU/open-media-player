@@ -169,7 +169,6 @@ class MY_Lang extends CI_Lang
     }
 }
 
-
 /*
   Functions: 't' and '_' - see `helpers/lang_helper.php`
 */

@@ -1,6 +1,7 @@
 #!/usr/bin/env php
 <?php
 namespace IET_OU\Open_Media_Player_Tools;
+
 /**
  * Commandline script. Run xgettext to extract translatable strings from directories (defined below).
  *  Create PO(T) translation template files.

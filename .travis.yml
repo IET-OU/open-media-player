@@ -16,4 +16,7 @@ install:
 script:
   - composer test
 
+notifications:
+  - iet-webmaster@open.ac.uk
+
 #End.

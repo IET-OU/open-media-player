@@ -76,6 +76,6 @@
     ]
   },
   "config": {
-    "preferred-install": "source"
+    "x--preferred-install": "source"
   }
 }
