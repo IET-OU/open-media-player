@@ -68,8 +68,8 @@ class MY_Loader extends CI_Loader
     public function theme($theme_name)
     {
         if ($this->CI->use_composer()) {
-            $sub = new \IET_OU\SubClasses\SubClasses();
-            $themes = $sub->get_player_themes();
+            $plugins = new \IET_OU\Open_Media_Player\Plugin_Finder();
+            $themes = $plugins->get_player_themes();
 
             $theme_name = str_replace('-', '_', $theme_name);
             if (isset($themes[ $theme_name ])) {

@@ -42,6 +42,7 @@ class MY_Controller extends \CI_Controller
     protected $_theme;
     protected $layout_name;
     protected $page_title;
+    protected $plugins;
 
     protected static $API_PATHS = array('oembed', 'timedtext', 'uptime', 'scripts');
 
@@ -49,6 +50,8 @@ class MY_Controller extends \CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        $this->plugins = new \IET_OU\Open_Media_Player\Plugin_Finder();
 
         if (! $this->page_title) {
             $this->page_title = site_name();
@@ -150,11 +153,9 @@ class MY_Controller extends \CI_Controller
     */
     protected function _get_oembed_providers()
     {
-        $sub = new \IET_OU\SubClasses\SubClasses();
-
         $this->config->load('providers');
         //$providers_all = $this->config->item('providers');
-        $providers_all = $sub->get_oembed_providers();
+        $providers_all = $this->plugins->get_oembed_providers();
         if ($this->_is_ouembed()) {
             return $providers_all;
         }

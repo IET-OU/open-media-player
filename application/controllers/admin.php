@@ -82,11 +82,9 @@ class Admin extends \IET_OU\Open_Media_Player\MY_Controller
     {
         $this->_load_layout($layout);
 
-        $sub = new \IET_OU\SubClasses\SubClasses();
-
         $view_data = array(
-            'themes' => $sub->get_player_themes(),
-            'providers' => $sub->get_oembed_providers(),
+            'themes' => $this->plugins->get_player_themes(),
+            'providers' => $this->plugins->get_oembed_providers(),
         );
         $this->layout->view('admin/plugins', $view_data);
     }

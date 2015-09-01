@@ -38,8 +38,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
     {
         $expect = '<tt>/embed/-/{domain}/{id}</tt>';
 
-        $sub = new \IET_OU\SubClasses\SubClasses();
-        $providers = $sub->match('\\IET_OU\\Open_Media_Player\\Oembed_Local_Embed_Interface');
+        $providers = $this->plugins->get_local_embed_providers();
 
         if (!$provider_domain) {
             $this->_error('The URL segment {$provider_domain} is required. '. $expect, "400.A");
