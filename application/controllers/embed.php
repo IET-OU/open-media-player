@@ -77,7 +77,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         $player->calc_size($width, $height, $audio_poster);
 
         $popup_url = site_url("popup/pod/$player->_album_id/$player->_track_md5")
-            . $this->options_build_query();
+            . $this->_options_build_query();
 
         $view_data = array(
         'meta' => $player,

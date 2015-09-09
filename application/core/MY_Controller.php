@@ -191,6 +191,15 @@ class MY_Controller extends \CI_Controller
         return $callback;
     }
 
+    public function _request_init()
+    {
+        // Support extended MY_Input::get.
+        $this->_request->theme = $this->input->get(OUP_PARAM_THEME);
+        $this->_request->rgb = $this->input->get('rgb');
+        $this->_request->hide_controls = (bool)$this->input->get('_hide_controls');
+        $this->_request->site_access = $this->input->get('site_access');
+        $this->_request->lang = $this->input->get(OUP_PARAM_LANG);
+    }
 
     /** Initialize the player, including the theme (Embed and Popup controllers).
     */
@@ -198,12 +207,7 @@ class MY_Controller extends \CI_Controller
     {
         $this->load->library('user_agent');
 
-        // Support extended MY_Input::get.
-        $this->_request->theme = $this->input->get(OUP_PARAM_THEME);
-        $this->_request->hide_controls = (bool)$this->input->get('_hide_controls');
-        $this->_request->site_access = $this->input->get('site_access');
-        $this->_request->lang = $this->input->get(OUP_PARAM_LANG);
-
+        $this->_request_init();
 
         $themes = $this->config->item('player_themes');
         if ($this->_request->theme && isset($themes[$this->_request->theme])) {
@@ -251,25 +255,26 @@ class MY_Controller extends \CI_Controller
 
     /** Get optional parameters for iframe URL (http_build_query)
     */
-    public function options_build_query()
+    public function _options_build_query($defaults = array(), $arg_separator = null)
     {
         if (! isset($this->_request->theme)) {
-            return null;
+            //return null;
         }
 
-        $params = '?';
-        $keys = explode('|', 'theme|debug|lang|hide_controls|site_access');
+        $params = array();
+        $keys = explode('|', 'theme|rgb|debug|lang|hide_controls|site_access');
         foreach ($keys as $key) {
-            if ($this->_request->{$key}) {
-                $params .= '&'. $key .'='. $this->_request->{$key};
+            if (isset($this->_request->{ $key }) && $this->_request->{ $key }) {
+                $params[ $key ] = $this->_request->{ $key };
             }
         }
 
-        if ('?' == $params) {
+        $query_data = array_merge($defaults, $params);
+
+        if (! count($query_data)) {
             return '';
         }
-
-        return str_replace('?&', '?', $params);
+        return '?' . http_build_query($query_data); //, '', $arg_separator);
     }
 
     /** Are debug config and HTTP params set?
