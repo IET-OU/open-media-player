@@ -51,6 +51,7 @@ if ($message): ?>
     <li><a href="<?php echo base_url() ?>demo/ouldi">OU/OULDI embeds</a>
     <li class="tm-extern omp"><a href="http://iet-ou.github.io/open-media-player/"
      title="<?php echo site_name() ?> – the open source project">Project</a>
+    <li class="tm-extern blog"><a href="<?php echo OUP_BLOG_URL ?>">Blog</a>
 </ul>
 
 <?php echo $content_for_layout ?>

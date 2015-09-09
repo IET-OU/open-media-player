@@ -48,8 +48,9 @@ define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
 | mailto:N.D.Freear+@+open.ac.uk?subject=OU+player
 */
 define('OUP_PROJECT_URL', 'http://iet-ou.github.io/open-media-player/');
-define('OUP_BLOG_URL', 'http://www.open.ac.uk/blogs/LTT_IET/?cat=39#!-Open-Media-Player');
-define('OUP_BLOG_RSS_URL', 'http://www.open.ac.uk/blogs/LTT_IET/?feed=rss2&cat=39');
+define('OUP_BLOG_URL', 'http://www.open.ac.uk/blogs/LTT_IET/category/open-media-player/');
+define('OUP_BLOG_RSS_URL',
+    'http://www.open.ac.uk/blogs/LTT_IET/category/open-media-player/feed/');
 define('OUP_CODE_URL', 'https://github.com/IET-OU/open-media-player');
 define('OUP_BUG_URL', 'https://github.com/IET-OU/open-media-player/issues');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
