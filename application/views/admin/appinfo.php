@@ -4,7 +4,8 @@
 */
 ?>
 
-<p><a href="<?php echo site_url('admin/info') ?>">Player application config</a>
+<p role="navigation" aria-label="Admin">
+  <a href="<?php echo site_url('admin/info') ?>">Player application config</a>
   &bull; <a href="<?php echo site_url('admin/plugins') ?>">Plugins</a>
   &bull; <a href="<?php echo site_url('admin/phpinfo') ?>">PHP info</a>
 </p>

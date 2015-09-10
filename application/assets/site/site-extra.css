@@ -71,3 +71,10 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 
 
 .app.config pre{ font:small Consolas,monospace; }
+
+.pg-admin-phpinfo .center table {
+  width: 99.5%;
+}
+.pg-admin-phpinfo td, .pg-admin-phpinfo th {
+  font-size: 85%;
+}
