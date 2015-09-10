@@ -234,8 +234,8 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         'req'  => $this->_request,
         'google_analytics' => $player->is_player('openlearn') || $player->is_player('generic')
             ? google_analytics_id('openlearn') : null,
-        //TODO: needs more work!
-        'popup_url' => site_url("popup/vle?media_url=").urlencode($player->media_url).'&title='.urlencode($player->title).'&'.$this->options_build_query(),
+        'popup_url' => site_url("popup/vle?media_url=") . $this->options_build_query(array(
+                'title' => $player->title, 'media_url' => $player->media_url)),
         // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
         '_caption_url' => $player->caption_url .'?r='. mt_rand(1, 1000),
         );
