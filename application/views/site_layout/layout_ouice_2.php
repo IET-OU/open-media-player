@@ -321,7 +321,10 @@ if ($message): ?>
 <?php if ($is_ouembed): ?>
   <p id="developed-by">Developed by the <a href="http://iet.open.ac.uk/">Institute of Educational Technology</a>
     and others<!-- at <a href="http://www.open.ac.uk/">The Open University</a>-->.
-    <a href="<?php echo OUP_CODE_URL ?>" title="<?php echo site_name() ?> code on GitHub">(code)</a>
+    <span class="code-links">
+    <a href="<?php echo OUP_CODE_URL ?>" title="<?php echo site_name() ?> source code on GitHub">Code</a> &bull;
+    <a href="<?php echo OUP_PACK_URL ?>" title="<?php echo site_name() ?> on Packagist">Packagist</a>
+    </span>
   </p>
 <?php endif; ?>
 
