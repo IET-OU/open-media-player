@@ -22,7 +22,15 @@
 .orig .o { fill: #53A2DA; }
 .orig .m { fill: #AAA71C; }
 .orig .p { fill: #E3046B; }
+
+/* white on black; black on white ..
+*/
+svg.wb > rect { background: #000; width: 100%; height: 100%; }
+.wb .btn, .wb .o, .wb .m, .wb .p { fill: #fff; }
+.bw .btn, .bw .o, .bw .m, .bw .p { fill: #000; }
+.gw .btn, .gw .o, .gw .m, .gw .p { fill: #222; }
 </style>
+<rect width="0" height="0"></rect>
 <g>
 	<title>Open Media Player</title>
 
@@ -134,7 +142,7 @@ setTimeout(function () {
 	  , D = W.document
 	  , Q = D.location.search
 	  , g = D.getElementById("Layer_1")
-	  , m = Q.match(/\?c=(orig|n1|wb)/);
+	  , m = Q.match(/\?c=(orig|n1|wb|bw|gw)/);
 
 	if (m) {
 	    g.setAttribute("class", m[ 1 ]);
@@ -142,6 +150,6 @@ setTimeout(function () {
 
 	W.console &amp;&amp; W.console.log("SVG:", g, m);
 
-}, 200);
+}, 25);
 </script>
 </svg>
