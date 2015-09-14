@@ -3,10 +3,25 @@
 <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 960 560" enable-background="new 0 0 960 560" xml:space="preserve">
 <style>
+/* Contrast tool: http://webaim.org/resources/contrastchecker/
+*/
+
+/* Peter, 2015-09-14
+*/
 .btn, /* play button */
-.o { fill: #53A2DA; } /* "open" blue */
-.m { fill: #AAA71C; } /* "media" olive */
-.p { fill: #E3046B; } /* "player" pink */
+.o { fill: #4474D1; } /* "open" blue */
+.m { fill: #7F7617; } /* "media" olive */
+.p { fill: #BF0058; } /* "player" pink */
+
+.n1 .btn,
+.n1 .o { fill: #2a84c5; }
+.n1 .m { fill: #929018; }
+.n1 .p { fill: #e3046b; }
+
+.orig .btn,
+.orig .o { fill: #53A2DA; }
+.orig .m { fill: #AAA71C; }
+.orig .p { fill: #E3046B; }
 </style>
 <g>
 	<title>Open Media Player</title>
@@ -112,4 +127,21 @@
 			c1.7,2.7,2.9,5.7,3.7,9.1c0.7,3.4,1.1,6.9,1.1,10.4C627.3,145,627,148.4,626.3,151.8z"/>
 	</g>
 </g>
+<script>
+setTimeout(function () {
+
+	var W = window
+	  , D = W.document
+	  , Q = D.location.search
+	  , g = D.getElementById("Layer_1")
+	  , m = Q.match(/\?c=(orig|n1|wb)/);
+
+	if (m) {
+	    g.setAttribute("class", m[ 1 ]);
+	}
+
+	W.console &amp;&amp; W.console.log("SVG:", g, m);
+
+}, 200);
+</script>
 </svg>
