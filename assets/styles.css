@@ -18,7 +18,7 @@ body {
 /* Accessibility: https://gist.github.com/nfreear/c471ce46783525f9a9eb
 */
 html { font-size: 80%; /* Was: 10px */ }
-body { font-size: 1.1em; /* 14px */ }
+body { font-size: 1.1em; /* 14px */ background: #fefefe; }
 
 
 /* Top navigation.
@@ -80,7 +80,7 @@ p em, i { font-style: normal; }
 */
 
 .row-omp h2 { color: #1e4b9b; }
-.row-omp a { color: #ed1c24; }
+.row-omp a, .heart { color: #ed1c24; }
 .row-omp .btn-primary, .btn-primary { background: #1e4b9b; color: #fff; }
 
 .row-omp .icons {
@@ -99,6 +99,10 @@ p em, i { font-style: normal; }
   background-image: url(images/icons-get-the-code.png);
 }
 
+.col-omp-code .heart {
+  font-size: 1.4em;
+}
+
 
 /* Footer.
 */
@@ -106,7 +110,7 @@ p em, i { font-style: normal; }
 hr { border-top: 1px solid #ccc; margin-top: 40px; }
 
 footer .logos { float: right; position: relative; /*top: -20px;*/ }
-footer .logos a { display: inline-block; margin-right: 32px; /*18px*/ }
+footer .logos a, .logos .btn-group { display: inline-block; margin-right: 28px; /*18px*/ }
 footer .logos a.last { margin: 0; }
 footer .XX-iet-logo img { width: 85px; height: 85px; }
 /* ou-logo: 83 x 56px */
@@ -129,4 +133,25 @@ footer .XX-player-logo img { width: 143px; height: 50px; }  /* 300 x 105px */
   background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
   background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(30,76,155,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1e4c9b', GradientType=0 );
+}
+
+
+/* Sharing badge.
+*/
+div.dropdown-menu {
+  padding: 0 8px;
+  background: #fdfdfd;
+  min-width: 350px; /* Was 286px */
+}
+.dropdown-menu textarea {
+  width: 100%;
+}
+.X-btn-sm.dropdown-toggle {
+  padding: 4px 8px;
+}
+.dropdown-menu .btn-close {
+  float: right;
+  padding: 0 6px 1px;
+  margin-top: 6px;
+  background-color: #e6e6e6;
 }

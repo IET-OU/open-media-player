@@ -30,6 +30,27 @@ $(function () {
       //ev.preventDefault();
     });
 
+
+    // OMP widget/ badge.
+    var $widget = $(".omp-widget")
+      , $area = $("#copy-area")
+      , html = $widget[0].outerHTML
+      , U = W.location.href.replace(/#.*/, '')
+      ;
+
+    $area.val(html.replace(/\.\//g, U));
+
+    //TODO: ? http://stackoverflow.com/questions/5797539/jquery-select-all-text-from-a-textarea
+
+    setTimeout(function () {
+      if ("#share" === W.location.hash) {
+        $("#share > button").trigger("click");
+      }
+    }, 100);
+
+
+    $('[ data-toggle = tooltip ]').tooltip();
+
     // Copyright year
     $("footer .copyright-year").html((new Date()).getFullYear());
 });
