@@ -18,7 +18,7 @@ body {
 /* Accessibility: https://gist.github.com/nfreear/c471ce46783525f9a9eb
 */
 html { font-size: 80%; /* Was: 10px */ }
-body { font-size: 1.1em; /* 14px */ background: #fefefe; }
+body { font-size: 1.1em; /* 14px */ background-color: #fefefe; }
 
 
 /* Top navigation.
@@ -166,3 +166,11 @@ div.dropdown-menu {
   margin-top: 6px;
   background-color: #e6e6e6;
 }
+
+
+.anti-glare {
+  background-color: #f6f6f6;
+}
+
+
+/*End */

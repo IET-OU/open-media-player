@@ -49,6 +49,11 @@ $(function () {
     }, 100);
 
 
+    if (L.search.match(/\?anti.glare=1/)) {
+      $("body").addClass("anti-glare");
+    }
+
+
     $('[ data-toggle = tooltip ]').tooltip();
 
     // Copyright year
