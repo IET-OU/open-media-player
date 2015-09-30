@@ -110,21 +110,4 @@
 			c1.7,2.7,2.9,5.7,3.7,9.1c0.7,3.4,1.1,6.9,1.1,10.4C627.3,145,627,148.4,626.3,151.8z"/>
 	</g>
 </g>
-<script>
-setTimeout(function () {
-
-	var W = window
-	  , D = W.document
-	  , Q = D.location.search
-	  , g = D.getElementById("Layer_1")
-	  , m = Q.match(/\?c=(orig|n1|wb|bw|gw)/);
-
-	if (m) {
-	    g.setAttribute("class", m[ 1 ]);
-	}
-
-	W.console &amp;&amp; W.console.log("SVG:", g, m);
-
-}, 25);
-</script>
 </svg>

@@ -21,6 +21,10 @@ html { font-size: 80%; /* Was: 10px */ }
 body { font-size: 1.1em; /* 14px */ background-color: #fefefe; }
 
 
+/* SVG / PNG switch (MSIE 8) */
+.svg    .logos img[ src $= ".png" ] { display: none; }
+.no-svg .logos img[ src $= ".svg" ] { display: none; }
+
 /* Top navigation.
 */
 
@@ -29,15 +33,16 @@ body { font-size: 1.1em; /* 14px */ background-color: #fefefe; }
     color: #eee;  /*Was: #9d9d9d*/
 }
 
-.X-PNG-navbar-brand {
-  margin-top: 9px;
-  width: 85px; height: 34px;
-  background: url(images/omp-logo-white.png) no-repeat;
-}
 .navbar-brand {
   margin-top: 0;
   width: 136px; height: 54.4px;
   background: url(images/omp-logo-wb.svg) no-repeat;
+}
+.no-svg .navbar-brand {
+  margin-top: 9px;
+  width: 85px; height: 34px;
+  background: url(images/omp-logo-white.png) no-repeat;
+  margin-left: 5px;
 }
 
 
