@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="400.000000pt" height="400.000000pt" viewBox="0 0 400.000000 400.000000"
- preserveAspectRatio="xMidYMid meet">
-<title>IET logo</title>
+ preserveAspectRatio="xMidYMid meet" id="Layer_1">
 <desc>
+(IET logo)
 Institute of Educational Technology at The Open University (http://iet.open.ac.uk)
 </desc>
 <metadata>
@@ -12,10 +12,16 @@ Created by potrace 1.11, written by Peter Selinger 2001-2013
 http://en.gravatar.com/ietwebmaster
 </metadata>
 <style>
+.pink { fill: #e52771; }
 .navy { fill: #1e4b9b; }
+.bw { fill: #000; }
+.wb { fill: #fff; }
+svg.wb > rect { fill: #000; width: 100%; height: 100%; }
 </style>
+<rect width="0" height="0"></rect>
 <g transform="translate(0.000000,400.000000) scale(0.100000,-0.100000)"
-class="navy" stroke="none">
+ stroke="none">
+<title>Institute of Educational Technology</title>
 <path class="i dot" d="M614 3256 c-75 -38 -116 -83 -147 -164 -49 -125 18 -286 146 -345 74
 -35 122 -40 191 -22 87 23 149 73 187 150 28 58 31 71 27 137 -8 158 -113 265
 -268 275 -59 4 -71 2 -136 -31z"/>
@@ -38,4 +44,21 @@ class="navy" stroke="none">
 -28 -261 21 -15 25 -17 63 -17 418 l0 390 153 3 152 3 -2 187 -3 187 -413 3
 -413 2 3 -672z"/>
 </g>
+<script>
+setTimeout(function () {
+
+	var W = window
+	  , D = W.document
+	  , Q = D.location.search
+	  , g = D.getElementById("Layer_1")
+	  , m = Q.match(/\?c=(pink|navy|wb|bw)/);
+
+	if (m) {
+	    g.setAttribute("class", m[ 1 ]);
+	}
+
+	W.console &amp;&amp; W.console.log("SVG:", g, m);
+
+}, 25);
+</script>
 </svg>

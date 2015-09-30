@@ -49,7 +49,7 @@ $(function () {
     }, 100);
 
 
-    if (L.search.match(/\?anti.glare=1/)) {
+    if (L.search.match(/[\?&]anti.?glare=\w/)) {
       $("body").addClass("anti-glare");
     }
 
