@@ -11,6 +11,11 @@ $(function () {
       , L = W.location
       ;
 
+
+    //$("iframe.omp-player").attr("src", $("meta[ name = omp-embed-url ]").first().attr("content"));
+
+
+    // Analytics.
     ga('create', 'UA-24005173-1', 'auto');
     ga('send', 'pageview', '/iet-ou.github.io' + L.pathname + L.search);
 
@@ -54,7 +59,18 @@ $(function () {
     }
 
 
-    $('[ data-toggle = tooltip ]').tooltip();
+    // Accessibility: trigger tooltips on keyboard focus too!
+    $(".navbar a[ title ], .dropup [ title ]").data("placement", "bottom");
+
+    $("a[ title ], button[ title ], iframe.XX")
+    ///$('[ data-toggle = tooltip ]')
+      .on("focus", function() {
+        $(this).tooltip();
+      })
+      .tooltip();
+
+
+
 
     // Copyright year
     $("footer .copyright-year").html((new Date()).getFullYear());

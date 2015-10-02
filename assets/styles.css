@@ -14,6 +14,8 @@ body {
 /* End: bootstrap/jumbotron.css */
 
 
+noscript, .browserupgrade { font-size: 1.3rem; text-align: center; display: block; margin: 5px; }
+
 
 /* Accessibility: https://gist.github.com/nfreear/c471ce46783525f9a9eb
 */
@@ -21,9 +23,20 @@ html { font-size: 80%; /* Was: 10px */ }
 body { font-size: 1.1em; /* 14px */ background-color: #fefefe; }
 
 
+html body [ role = tooltip ].tooltip {
+  font-size: .75em;
+  font-size: 1.2rem;
+}
+.XX.navbar [ role = tooltip ].tooltip,  {
+  font-size: .95em;
+}
+
+
+
 /* SVG / PNG switch (MSIE 8) */
 .svg    .logos img[ src $= ".png" ] { display: none; }
 .no-svg .logos img[ src $= ".svg" ] { display: none; }
+
 
 /* Top navigation.
 */
@@ -51,6 +64,9 @@ a.btn { margin-top: .9em; }
 
 /* Jumbotron.
 */
+
+.jumbotron a { color: #f2f2f2; text-decoration: underline; }
+.jumbotron a:hover { color: #fff; }
 
 .x-html, .x-body, .jumbotron { /*height: 100%;*/ min-height: 20em; }
 
@@ -170,6 +186,45 @@ div.dropdown-menu {
   padding: 0 6px 1px;
   margin-top: 6px;
   background-color: #e6e6e6;
+}
+
+
+/* Jisc-vote widget.
+*/
+.row-vote, .row-demo {
+  font-size: 1.4em;
+  text-align: center;
+  margin: 1.4em auto;
+}
+
+a.jisc-vote { display: block; height: 48px; }
+
+.jisc-vote.xl img[ src *= "shields.io" ] {
+  width: 184px; height: 46px; /* x 2.3 */
+}
+.jisc-vote.lg img[ src *= "shields.io" ] {
+  width: 160px; height: 40px; /* x 2 */
+}
+.jumbotron img[ src *= "shields.io" ],
+.jisc-vote.md img[ src *= "shields.io" ]  {
+  width: 120px; height: 30px; /* x 1.5 */
+}
+
+
+/* OMP player demo.
+*/
+iframe {
+  background: #eee url(http://throbber.net/loader-large.gif) no-repeat center;
+  /* http://preloaders.net/en/circular */
+}
+iframe.omp-player {
+  display: inline-block;
+  border: 8px solid #ddd;
+  border-radius: 5px;
+}
+iframe.omp-player:hover, iframe.player:focus {
+  border-color: #ff6d00;  /* darkorange */
+  transition: .7s;
 }
 
 

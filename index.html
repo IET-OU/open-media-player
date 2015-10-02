@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!--<link rel="shortcut icon" href="http://www.open.ac.uk/favicon.ico" type="image/vnd.microsoft.icon" />-->
+
+    <!--<meta name="omp-embed-url" content="http://embed.open.ac.uk/embed/-/youtube.com/BZysu9QcceM">-->
+
 
     <title>Open Media Player &ndash; Accessible to all, mainstream, embeddable (ouplayer)</title>
+
+    <!--<link rel="shortcut icon" href="http://www.open.ac.uk/favicon.ico" type="image/vnd.microsoft.icon" />-->
 
     <!-- Bootstrap core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +51,6 @@
       <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -57,7 +60,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#features"><i class=sr-only >Open Media Player</i></a>
+          <a class="navbar-brand" href="#features" title="Explore features"><i class=sr-only >Open Media Player</i></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" role="navigation">
 
@@ -66,6 +69,9 @@
                 <li><a href="https://github.com/IET-OU/open-media-player/wiki" title="The Wiki">Documentation</a>
                 <li><a href="https://github.com/IET-OU/open-media-player/releases">Download</a>
                 <!--<li><a href="#">Contact ? ...</a>-->
+                <li><a href="https://elevator.jisc.ac.uk/e/accessiblebydesign/open-media-player"
+                  data-toggle="tooltip" data-placement="bottom" title="Vote for us in the Jisc Accessible by Design challenge"
+                  ><img alt="Vote!" src="https://img.shields.io/badge/Jisc-vote_%E2%9C%93-ff6d00.svg"></a>
             </ul>
           <!--
           <form class="navbar-form navbar-right">
@@ -96,6 +102,7 @@
             We put the emphasis on ease of use for end-users and authors.
         </p>
         <p><em>Oh, and it&rsquo;s open source too!</em></p>
+
         <p><a class="btn btn-primary btn-lg" href="#features" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
@@ -123,10 +130,10 @@
 
           <span class="icons"></span>
 
-          <p>Watch a <a href="http://embed.open.ac.uk/demo/youtube">demonstration built on YouTube</a>.
+          <p>Watch <a href="http://embed.open.ac.uk/demo/youtube">demonstrations built on YouTube</a>.
           <p>Explore <a href="http://www.open.edu/openlearn/body-mind/health/health-sciences/the-joy-stats-the-lady-data-visualisation">video on OpenLearn</a>.
           </p>
-          <p><a class="btn btn-primary" href="http://embed.open.ac.uk/demo/youtube">View demonstrations &raquo;</a></p>
+          <p><a class="btn btn-primary" href="http://embed.open.ac.uk/demo/youtube" title="View YouTube demos">View demonstrations &raquo;</a></p>
        </div>
         <div class="col-md-4 col-omp-code">
           <h2>Get the code</h2>
@@ -145,6 +152,29 @@
 
       <hr>
 
+
+      <div class="container-fluid">
+        <!-- Example row of columns -->
+        <div class="row row-demo" id="demo">
+          <noscript> Javascript is required. </noscript>
+          <iframe src="http://embed.open.ac.uk/embed/-/youtube.com/BZysu9QcceM"
+            aria-label="YouTube player" class="x youtube omp-player embed-rsp" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+
+        <div class="row row-vote" id="vote">
+          <p> Vote for Open Media Player in the Jisc Accessible by Design challenge. </p>
+
+          <a class="jisc-vote lg" href="https://elevator.jisc.ac.uk/e/accessiblebydesign/open-media-player"
+            data-toggle="tooltip" title="Vote for us in the Jisc Accessible by Design challenge"><img alt="Vote!"
+            src="https://img.shields.io/badge/Jisc-vote_%E2%9C%93-ff6d00.svg"
+          ></a>
+
+        </div>
+      </div>
+
+      <hr>
+
       <footer role="contentinfo">
         <span>&copy; <i class="copyright-year">2014</i> <a href="http://www.open.ac.uk/">The Open University</a> and contributors. (<a href="http://iet.open.ac.uk">Institute of Educational Technology</a>.)</span>
 
@@ -157,7 +187,7 @@
                   Share <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu">
-                  <button class="btn btn-close" title="Close" aria-label="Close">&times;</button>
+                  <button class="btn btn-close" title="Close widget" aria-label="Close">&times;</button>
 
 <!-- widget start -->
 <a class="omp-widget" style="display:inline-block; width:240px; height:140px;"
