@@ -25,7 +25,7 @@ body { font-size: 1.1em; /* 14px */ background-color: #fefefe; }
 
 html body [ role = tooltip ].tooltip {
   font-size: .75em;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
 }
 .XX.navbar [ role = tooltip ].tooltip,  {
   font-size: .95em;
@@ -194,7 +194,7 @@ div.dropdown-menu {
 .row-vote, .row-demo {
   font-size: 1.4em;
   text-align: center;
-  margin: 1.4em auto;
+  margin: 1.3em auto;
 }
 
 a.jisc-vote { display: block; height: 48px; }
@@ -211,6 +211,13 @@ a.jisc-vote { display: block; height: 48px; }
 }
 
 
+img[ src *= "elevator.jisc.ac.uk" ] {
+  border: 1px solid #aaa;
+  border-radius: 12px;
+}
+
+
+
 /* OMP player demo.
 */
 iframe {
@@ -222,7 +229,7 @@ iframe.omp-player {
   border: 8px solid #ddd;
   border-radius: 5px;
 }
-iframe.omp-player:hover, iframe.player:focus {
+iframe.omp-player:hover, iframe.omp-player:focus {
   border-color: #ff6d00;  /* darkorange */
   transition: .7s;
 }
