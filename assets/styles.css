@@ -14,7 +14,9 @@ body {
 /* End: bootstrap/jumbotron.css */
 
 
-noscript, .browserupgrade { font-size: 1.3rem; text-align: center; display: block; margin: 5px; }
+noscript, .browserupgrade {
+  font-size: 1.3rem; text-align: center; display: block; margin: 5px;
+}
 
 
 /* Accessibility: https://gist.github.com/nfreear/c471ce46783525f9a9eb
@@ -32,8 +34,18 @@ html body [ role = tooltip ].tooltip {
 }
 
 
+a:hover img, a.btn:hover, .navbar-header a:hover, .dropdown-toggle:hover {
+  outline: 1px solid darkorange;
+  outline-offset: 3px;
+  transition: .4s;
+}
+a.ou-logo img {
+  outline-offset: 12px;
+}
 
-/* SVG / PNG switch (MSIE 8) */
+
+/* SVG / PNG switch (MSIE 8).
+*/
 .svg    .logos img[ src $= ".png" ] { display: none; }
 .no-svg .logos img[ src $= ".svg" ] { display: none; }
 
@@ -226,12 +238,12 @@ iframe {
 }
 iframe.omp-player {
   display: inline-block;
-  border: 8px solid #ddd;
+  border: 5px solid #ddd;
   border-radius: 5px;
 }
 iframe.omp-player:hover, iframe.omp-player:focus {
   border-color: #ff6d00;  /* darkorange */
-  transition: .7s;
+  transition: .6s;
 }
 
 
