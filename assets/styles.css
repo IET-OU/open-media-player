@@ -34,13 +34,27 @@ html body [ role = tooltip ].tooltip {
 }
 
 
-a:hover img, a.btn:hover, .navbar-header a:hover, .dropdown-toggle:hover {
+a:hover img, a.btn:hover, .navbar-header a:hover,
+.navbar-inverse .navbar-toggle:hover, .dropdown-toggle:hover {
   outline: 1px solid darkorange;
   outline-offset: 3px;
   transition: .4s;
 }
 a.ou-logo img {
   outline-offset: 12px;
+}
+
+/* Accessibility: colour contrast. */
+.navbar-inverse .navbar-toggle {
+  border-color: #888;
+  color: #eee;
+  padding: 2px 9px 8px;
+}
+.navbar-inverse .navbar-toggle i {
+  display: inline-block;
+  position: relative;
+  top: -3px;
+  font-size: .85em;
 }
 
 
@@ -232,6 +246,10 @@ img[ src *= "elevator.jisc.ac.uk" ] {
 
 /* OMP player demo.
 */
+.embed-responsive {
+  max-width: 840px;
+  margin: 0 auto;
+}
 iframe {
   background: #eee url(http://throbber.net/loader-large.gif) no-repeat center;
   /* http://preloaders.net/en/circular */
@@ -244,6 +262,11 @@ iframe.omp-player {
 iframe.omp-player:hover, iframe.omp-player:focus {
   border-color: #ff6d00;  /* darkorange */
   transition: .6s;
+}
+@media screen and (max-width: 600px) {
+  iframe.omp-player {
+    border-width: 1px;
+  }
 }
 
 

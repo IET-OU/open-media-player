@@ -1,37 +1,12 @@
 
+*.html
+!index.html
 
-.env
-version.json
-
-/composer.lock
-/vendor/*
-/application/engines/mediaelement-x
-
-/git*.php
-/git-pull*
 
 Thumbs.db
 .DS_Store
 .project
 .settings
-_scratch
-
-application/config/database.php
-application/config/embed_config.php
-application/config/oup_site.php
-
-application/cache/*
-!application/cache/index.html
-!application/cache/.htaccess
-
-application/logs/*.php
-# !application/logs/index.html
-
-application/cli/*.txt
-application/engines/mediael*/demo/*.html
-
-application/language/*.pot
-!application/language/ouplayer.pot.po
 
 /*.patch
 *.diff
@@ -39,13 +14,3 @@ application/language/*.pot
 *OLD*
 *ORIG*
 *BAK
-*.log
-*.mo
-
-/blog*
-/drupal*
-_docs/*
-_data/*
-/dev*
-
-# *min.js

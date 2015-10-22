@@ -60,7 +60,9 @@ $(function () {
 
 
     // Accessibility: trigger tooltips on keyboard focus too!
-    $(".navbar a[ title ], .dropup [ title ]").data("placement", "bottom");
+    $(".navbar a[ title ], .navbar-toggle[ title ], .dropup [ title ]")
+      .data("placement", "bottom");
+
 
     $("a[ title ], button[ title ], iframe.XX")
     ///$('[ data-toggle = tooltip ]')
@@ -68,8 +70,6 @@ $(function () {
         $(this).tooltip();
       })
       .tooltip();
-
-
 
 
     // Copyright year
