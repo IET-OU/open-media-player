@@ -1,53 +1,144 @@
-# Kiswahili/ Swahili language pack.
-# Lang: sw
-# Copyright (C) 2011 The Open University. All rights reserved.
-# This file is distributed under the same license as the Open Media Player package.
-# Nick Freear <N.D.Freear+@+open.ac.uk>, 2010.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: ouplayer-application 1.0\n"
-"Report-Msgid-Bugs-To: N.D.Freear+@+open.ac.uk\n"
+"Report-Msgid-Bugs-To: iet-webmaster@open.ac.uk\n"
 "POT-Creation-Date: 2011-07-29 14:06+0100\n"
 "PO-Revision-Date: 2011-12-16 16:05+0100\n"
-"Last-Translator: Pauline Ngimwa/IET <p.g.ngimwa+@+open.ac.uk>\n"
-"Language-Team: PGN + Christian Msoffe <chrismsoffe+@+yahoo.com>\n"
+"Language: sw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Language-Name: Kiswahili/ Swahili\n"
 
-#: libraries\oupodcast_serv.php:124
-#, possible-php-format
-msgid "%s, in Study at The Open University"
+#. /Translators: 'title by author on web-site'
+#: views\oembed\prezi.php:31
+#, php-format
+msgid "%s by %s on %s"
 msgstr ""
 
 #: libraries\oupodcast_serv.php:127
-#, possible-php-format
+#, php-format
 msgid "%s, at The Open University"
 msgstr ""
 
-#: libraries\oupodcast_serv.php:129
-#, possible-php-format
-msgid "Related link: %s"
+#: libraries\oupodcast_serv.php:124
+#, php-format
+msgid "%s, in Study at The Open University"
 msgstr ""
 
-#: views\oembed\gglspread.php:5
-msgid "Google Docs form"
-msgstr "Fomu ya Google Docs"
+#: views\ouplayer\oup_settings.php:73
+msgid "About"
+msgstr "Kuhusu"
 
-#: views\oembed\gglspread.php:6
-#: views\oembed\oupodcast.php:13
-#: views\oembed\youtube.php:18
-msgid "Your browser does not support frames."
+#: views\ouplayer\oup_restricted.php:72 views\ouplayer\oup_settings.php:109
+msgid "About the player"
+msgstr "Kuhusu endesha"
+
+#: views\oembed\gglspread.php:8
+msgid "Access the document on Google"
 msgstr ""
 
 #: views\oembed\gglspread.php:7
 msgid "Access the form on Google"
 msgstr ""
 
-#: views\oembed\gglspread.php:8
-msgid "Access the document on Google"
+#: views\oembed\lams.php:35
+#, php-format
+msgid "By: %s"
+msgstr ""
+
+#. /Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English).
+#: views\ouplayer\oup_controls.php:58
+msgid "Captions"
+msgstr "Maelezo mafupi"
+
+#: views\ouplayer\oup_settings.php:76
+msgid "Choose the theme"
+msgstr "Chagua manthari"
+
+#: views\ouplayer\oup_settings.php:107
+msgid "Close options menu"
+msgstr "Menyu ya machagua ya kufunga"
+
+#: views\ouplayer\ouplayer.php:131 views\ouplayer\ouplayer.php:136
+msgid "Close script"
+msgstr ""
+
+#. /Translators: Player options (settings) menus or panels.
+#: views\ouplayer\oup_settings.php:31
+msgid "Copy and paste"
+msgstr "Nakili na kubandika"
+
+#: views\oembed\lams.php:41
+msgid "Creative Commons License"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:19
+msgid "Current time"
+msgstr "Wakati uliopo"
+
+# Futa – delete present tense
+# Futwa – deleted past tense
+#: views\ouplayer\oup_restricted.php:12
+msgid "Deleted"
+msgstr "Futwa"
+
+#: views\ouplayer\ouplayer.php:157
+#, php-format
+msgid "Download %s"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:93 views\ouplayer\oup_settings.php:115
+msgid "Download media"
+msgstr "Pakua media"
+
+#: views\ouplayer\oup_settings.php:95 views\ouplayer\oup_settings.php:117
+#: views\ouplayer\ouplayer.php:132
+msgid "Download transcript"
+msgstr "Pakua manukuu"
+
+#: views\ouplayer\oup_settings.php:84 views\ouplayer\oup_settings.php:111
+msgid "Embed code"
+msgstr ""
+
+#. /Translators: software/programming/HTML code to allow further embedding of this player.
+#: views\ouplayer\oup_settings.php:84
+msgid "Embed on other sites"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:17
+msgid "Fast forward"
+msgstr "Mbele haraka"
+
+#: views\oembed\lams.php:58
+msgid "Full Info<s>, new window"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:71
+msgid "Full screen"
+msgstr "Skrini nzima"
+
+#: views\oembed\gglspread.php:5
+msgid "Google Docs form"
+msgstr "Fomu ya Google Docs"
+
+#: views\ouplayer\oup_controls.php:59
+msgid "Hide captions"
+msgstr "Ficha maelezo mafupi"
+
+# Hati ni maneno au words
+#: views\ouplayer\oup_controls.php:64
+msgid "Hide script"
+msgstr "Ficha hati"
+
+#: views\ouplayer\oup_settings.php:48
+msgid "Iframe-based embed"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:35
+msgid "Javascript-based embed (oEmbed)"
+msgstr ""
+
+#: views\oembed\youtube.php:20
+msgid "Join YouTube's HTML5 trial"
 msgstr ""
 
 #. /Translators: LAMS, Learning Activity Management System.
@@ -55,119 +146,10 @@ msgstr ""
 msgid "LAMS community"
 msgstr ""
 
-#: views\oembed\lams.php:35
-#, possible-php-format
-msgid "By: %s"
-msgstr ""
-
-#: views\oembed\lams.php:38
-#: views\oembed\lams.php:48
-#: views\oembed\lams.php:51
-#: views\oembed\lams.php:52
-#: views\oembed\lams.php:57
-msgid "Open in new window"
-msgstr "Fungua kwa dirisha mpya"
-
 #: views\oembed\lams.php:39
-#, possible-php-format
+#, php-format
 msgid "License: %s"
 msgstr ""
-
-#: views\oembed\lams.php:41
-msgid "Creative Commons License"
-msgstr ""
-
-#: views\oembed\lams.php:44
-msgid "The LAMS sequence."
-msgstr ""
-
-#: views\oembed\lams.php:48
-msgid "Zoom<s>, new window"
-msgstr ""
-
-#: views\oembed\lams.php:51
-msgid "Preview<s>, new window"
-msgstr ""
-
-#: views\oembed\lams.php:53
-msgid "Open in Lesson LAMS<s>, new window"
-msgstr ""
-
-#: views\oembed\lams.php:58
-msgid "Full Info<s>, new window"
-msgstr ""
-
-#: views\oembed\lams.php:59
-msgid "Scalable Vector Graphic"
-msgstr ""
-
-#: views\oembed\oupodcast.php:12
-#: views\ouplayer\oup_restricted.php:37
-#: views\ouplayer\oup_settings.php:49
-#: views\ouplayer\ouplayer.php:75
-#: views\ouplayer\player_noscript.php:11
-msgid "OU player"
-msgstr ""
-
-#: views\oembed\oupodcast.php:47
-msgid "Podcasts - The Open University"
-msgstr ""
-
-#: views\oembed\prezi.php:21
-msgid "Prezi presentation"
-msgstr ""
-
-#: views\oembed\prezi.php:28
-msgid "Your browser needs Flash enabled to view this presentation."
-msgstr ""
-
-#. /Translators: 'title by author on web-site'
-#: views\oembed\prezi.php:31
-#, possible-php-format
-msgid "%s by %s on %s"
-msgstr ""
-
-#: views\oembed\youtube.php:17
-msgid "YouTube video player"
-msgstr ""
-
-#: views\oembed\youtube.php:19
-msgid "Watch video on YouTube"
-msgstr ""
-
-#: views\oembed\youtube.php:20
-msgid "Join YouTube's HTML5 trial"
-msgstr ""
-
-#: views\oembed\youtube.php:20
-msgid "Opt-in to HTML5"
-msgstr ""
-
-#. /Translators: Multimedia (audio/video) player controls.
-#: views\ouplayer\oup_controls.php:10
-msgid "Player controls"
-msgstr "Vidhibiti kucheza"
-
-#: views\ouplayer\oup_controls.php:12
-#: views\ouplayer\oup_controls.php:13
-msgid "Play"
-msgstr "Cheza"
-
-#: views\ouplayer\oup_controls.php:13
-msgid "Pause"
-msgstr "Pauzi"
-
-#: views\ouplayer\oup_controls.php:16
-msgid "Rewind"
-msgstr "Rudia"
-
-#: views\ouplayer\oup_controls.php:17
-msgid "Fast forward"
-msgstr "Mbele haraka"
-
-#: views\ouplayer\oup_controls.php:19
-msgid "Current time"
-msgstr "Wakati uliopo"
 
 #: views\ouplayer\oup_controls.php:25
 msgid "Loaded"
@@ -177,70 +159,219 @@ msgstr "Jazwa"
 msgid "Loading, please wait"
 msgstr "Inapakia, tafadhali subiri"
 
-#: views\ouplayer\oup_controls.php:26
-msgid "Seek bar"
-msgstr "Mwambaa wa kutafuta"
-
-#: views\ouplayer\oup_controls.php:30
-msgid "Total time"
-msgstr "Jumla ya muda"
-
-#: views\ouplayer\oup_controls.php:37
-msgid "Mute"
-msgstr "Kimya"
-
-#: views\ouplayer\oup_controls.php:37
-msgid "Unmute"
-msgstr ""
-
-#: views\ouplayer\oup_controls.php:38
-msgid "Volume"
-msgstr "Ujazo"
-
-#: views\ouplayer\oup_controls.php:41
-msgid "Quieter"
-msgstr "Sauti ndogo"
+#: views\ouplayer\oup_restricted.php:67
+msgid "Log in and launch the player in a new window"
+msgstr "Ingia  na zindua endesha kwenye dirisha jipya"
 
 #: views\ouplayer\oup_controls.php:42
 msgid "Louder"
 msgstr "Sauti kubwa"
 
+#: views\ouplayer\oup_settings.php:113
+msgid "More embed options"
+msgstr "Machaguo mengine ya kufuta"
+
+#: views\ouplayer\oup_settings.php:86
+msgid "More embeds…"
+msgstr ""
+
+#. /Translators: More options - that is, help, embed code, downloads.
+#: views\ouplayer\oup_controls.php:74
+msgid "More options…"
+msgstr "Machaguo zaidi"
+
+#: views\ouplayer\oup_controls.php:37
+msgid "Mute"
+msgstr "Kimya"
+
+#: views\ouplayer\oup_restricted.php:70 views\ouplayer\oup_restricted.php:72
+#: views\ouplayer\oup_settings.php:20 views\ouplayer\oup_settings.php:72
+#: views\ouplayer\oup_settings.php:73 views\ouplayer\oup_settings.php:86
+#: views\ouplayer\oup_settings.php:93 views\ouplayer\oup_settings.php:108
+#: views\ouplayer\oup_settings.php:109 views\ouplayer\oup_settings.php:113
+#: views\ouplayer\oup_settings.php:115
+msgid "New window"
+msgstr "Dirisha jipya"
+
 #. /Translators: 'Permanent link' - view on OU Podcasts web site.
-#: views\ouplayer\oup_controls.php:54
-#: views\ouplayer\oup_controls.php:67
-#: views\ouplayer\oup_controls.php:68
-#: views\ouplayer\oup_settings.php:95
-#: views\ouplayer\oup_settings.php:99
-#: views\ouplayer\oup_settings.php:117
-#: views\ouplayer\oup_settings.php:120
-#: views\ouplayer\ouplayer.php:132
-#, possible-php-format
+#: views\ouplayer\oup_controls.php:54 views\ouplayer\oup_controls.php:67
+#: views\ouplayer\oup_controls.php:68 views\ouplayer\oup_settings.php:95
+#: views\ouplayer\oup_settings.php:99 views\ouplayer\oup_settings.php:117
+#: views\ouplayer\oup_settings.php:120 views\ouplayer\ouplayer.php:132
+#, php-format
 msgid "New window: %s"
 msgstr "Dirisha jipya: %s"
 
-#. /Translators: Captions - timed-text for the deaf/hard of hearing (sometimes known as Subtitles in British English).
-#: views\ouplayer\oup_controls.php:58
-msgid "Captions"
-msgstr "Maelezo mafupi"
+#: views\oembed\oupodcast.php:12 views\ouplayer\oup_restricted.php:37
+#: views\ouplayer\oup_settings.php:49 views\ouplayer\ouplayer.php:75
+#: views\ouplayer\player_noscript.php:11
+msgid "OU player"
+msgstr ""
 
-#: views\ouplayer\oup_controls.php:59
-msgid "Hide captions"
-msgstr "Ficha maelezo mafupi"
+#: views\oembed\lams.php:53
+msgid "Open in Lesson LAMS<s>, new window"
+msgstr ""
+
+#: views\oembed\lams.php:38 views\oembed\lams.php:48 views\oembed\lams.php:51
+#: views\oembed\lams.php:52 views\oembed\lams.php:57
+msgid "Open in new window"
+msgstr "Fungua kwa dirisha mpya"
+
+#: views\oembed\youtube.php:20
+msgid "Opt-in to HTML5"
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:95 views\ouplayer\oup_settings.php:117
+#: views\ouplayer\ouplayer.php:132
+msgid "PDF"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:13
+msgid "Pause"
+msgstr "Pauzi"
+
+#: views\ouplayer\oup_controls.php:12 views\ouplayer\oup_controls.php:13
+msgid "Play"
+msgstr "Cheza"
+
+#. /Translators: Multimedia (audio/video) player controls.
+#: views\ouplayer\oup_controls.php:10
+msgid "Player controls"
+msgstr "Vidhibiti kucheza"
+
+#: views\ouplayer\oup_settings.php:72 views\ouplayer\oup_settings.php:108
+msgid "Player help"
+msgstr "Saidizi ya endesha"
+
+#: views\ouplayer\oup_settings.php:70 views\ouplayer\oup_settings.php:106
+msgid "Player options"
+msgstr ""
+
+#: views\oembed\oupodcast.php:47
+msgid "Podcasts - The Open University"
+msgstr ""
+
+#: views\oembed\lams.php:51
+msgid "Preview<s>, new window"
+msgstr ""
+
+#: views\oembed\prezi.php:21
+msgid "Prezi presentation"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:16
+msgid "Private access only"
+msgstr "Fikio binafsi tu"
+
+#. /Translators: access control.
+#: views\ouplayer\oup_restricted.php:8
+msgid "Public access"
+msgstr "Fikio huria"
+
+#: views\ouplayer\oup_controls.php:41
+msgid "Quieter"
+msgstr "Sauti ndogo"
+
+#: libraries\oupodcast_serv.php:129
+#, php-format
+msgid "Related link: %s"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:16
+msgid "Rewind"
+msgstr "Rudia"
+
+#: views\oembed\lams.php:59
+msgid "Scalable Vector Graphic"
+msgstr ""
+
+#: views\ouplayer\oup_controls.php:26
+msgid "Seek bar"
+msgstr "Mwambaa wa kutafuta"
 
 #: views\ouplayer\oup_controls.php:59
 msgid "Show captions"
 msgstr "Onyesha maelezo mafupi"
 
 #. /Translators: Script or text transcript.
-#: views\ouplayer\oup_controls.php:63
-#: views\ouplayer\oup_controls.php:64
+#: views\ouplayer\oup_controls.php:63 views\ouplayer\oup_controls.php:64
 msgid "Show script"
 msgstr "Onyesha hati"
 
-# Hati ni maneno au words
-#: views\ouplayer\oup_controls.php:64
-msgid "Hide script"
-msgstr "Ficha hati"
+#: views\ouplayer\oup_restricted.php:20 views\ouplayer\oup_restricted.php:63
+#: views\ouplayer\oup_settings.php:15
+msgid "Staff/student access only"
+msgstr "Fikio la waajiriwa na wanafunzi tu"
+
+#: views\oembed\lams.php:44
+msgid "The LAMS sequence."
+msgstr ""
+
+#: views\ouplayer\oup_settings.php:11
+msgid "The Open University"
+msgstr "Chuo kikuu huria"
+
+#: views\ouplayer\oup_settings.php:76
+msgid "Theme"
+msgstr "Manthari"
+
+#: views\ouplayer\oup_controls.php:30
+msgid "Total time"
+msgstr "Jumla ya muda"
+
+#: views\ouplayer\oup_controls.php:37
+msgid "Unmute"
+msgstr ""
+
+#: views\ouplayer\oup_restricted.php:24
+msgid "Unpublished"
+msgstr "Haijachapishwa"
+
+#: views\ouplayer\oup_settings.php:99
+msgid "View on Podcasts"
+msgstr "Angalia kwenye Podcasts"
+
+#: views\ouplayer\oup_settings.php:120
+msgid "View on Podcasts site"
+msgstr "Tazama kwenye tovuti ya Podcasts"
+
+#: views\ouplayer\oup_controls.php:38
+msgid "Volume"
+msgstr "Ujazo"
+
+#: views\oembed\youtube.php:19
+msgid "Watch video on YouTube"
+msgstr ""
+
+#: views\oembed\youtube.php:17
+msgid "YouTube video player"
+msgstr ""
+
+#: views\oembed\gglspread.php:6 views\oembed\oupodcast.php:13
+#: views\oembed\youtube.php:18
+msgid "Your browser does not support frames."
+msgstr ""
+
+#: views\ouplayer\ouplayer.php:64
+msgid "Your browser does not support the \"audio\" element."
+msgstr "Kivinjari chako hakitegemezi sehemu ya kusikiliza"
+
+#: views\ouplayer\ouplayer.php:48
+msgid "Your browser does not support the \"video\" element."
+msgstr "Kivinjari chako hakitegemezi sehemu ya video"
+
+#: views\oembed\prezi.php:28
+msgid "Your browser needs Flash enabled to view this presentation."
+msgstr ""
+
+#: views\oembed\lams.php:48
+msgid "Zoom<s>, new window"
+msgstr ""
+
+#. /Translators: 'Permanent link' - view on OU Podcasts web site.
+#: views\ouplayer\oup_settings.php:99 views\ouplayer\oup_settings.php:120
+msgid "perma-link"
+msgstr ""
 
 #: views\ouplayer\oup_controls.php:67
 msgid "pop out player"
@@ -249,170 +380,3 @@ msgstr "Kidukiza cha kuendesha (cheza)"
 #: views\ouplayer\oup_controls.php:68
 msgid "pop out player with script"
 msgstr "Kidukiza  cha Kuendesha (Cheza) na hati (maneno)"
-
-#: views\ouplayer\oup_controls.php:71
-msgid "Full screen"
-msgstr "Skrini nzima"
-
-#. /Translators: More options - that is, help, embed code, downloads.
-#: views\ouplayer\oup_controls.php:74
-msgid "More options…"
-msgstr "Machaguo zaidi"
-
-#. /Translators: access control.
-#: views\ouplayer\oup_restricted.php:8
-msgid "Public access"
-msgstr "Fikio huria"
-
-# Futa – delete present tense
-# Futwa – deleted past tense
-#: views\ouplayer\oup_restricted.php:12
-msgid "Deleted"
-msgstr "Futwa"
-
-#: views\ouplayer\oup_restricted.php:16
-msgid "Private access only"
-msgstr "Fikio binafsi tu"
-
-#: views\ouplayer\oup_restricted.php:20
-#: views\ouplayer\oup_restricted.php:63
-#: views\ouplayer\oup_settings.php:15
-msgid "Staff/student access only"
-msgstr "Fikio la waajiriwa na wanafunzi tu"
-
-#: views\ouplayer\oup_restricted.php:24
-msgid "Unpublished"
-msgstr "Haijachapishwa"
-
-#: views\ouplayer\oup_restricted.php:67
-msgid "Log in and launch the player in a new window"
-msgstr "Ingia  na zindua endesha kwenye dirisha jipya"
-
-#: views\ouplayer\oup_restricted.php:70
-#: views\ouplayer\oup_restricted.php:72
-#: views\ouplayer\oup_settings.php:20
-#: views\ouplayer\oup_settings.php:72
-#: views\ouplayer\oup_settings.php:73
-#: views\ouplayer\oup_settings.php:86
-#: views\ouplayer\oup_settings.php:93
-#: views\ouplayer\oup_settings.php:108
-#: views\ouplayer\oup_settings.php:109
-#: views\ouplayer\oup_settings.php:113
-#: views\ouplayer\oup_settings.php:115
-msgid "New window"
-msgstr "Dirisha jipya"
-
-#: views\ouplayer\oup_restricted.php:72
-#: views\ouplayer\oup_settings.php:109
-msgid "About the player"
-msgstr "Kuhusu endesha"
-
-#: views\ouplayer\oup_settings.php:11
-msgid "The Open University"
-msgstr "Chuo kikuu huria"
-
-#. /Translators: Player options (settings) menus or panels.
-#: views\ouplayer\oup_settings.php:31
-msgid "Copy and paste"
-msgstr "Nakili na kubandika"
-
-#: views\ouplayer\oup_settings.php:35
-msgid "Javascript-based embed (oEmbed)"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:48
-msgid "Iframe-based embed"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:70
-#: views\ouplayer\oup_settings.php:106
-msgid "Player options"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:72
-#: views\ouplayer\oup_settings.php:108
-msgid "Player help"
-msgstr "Saidizi ya endesha"
-
-#: views\ouplayer\oup_settings.php:73
-msgid "About"
-msgstr "Kuhusu"
-
-#: views\ouplayer\oup_settings.php:76
-msgid "Choose the theme"
-msgstr "Chagua manthari"
-
-#: views\ouplayer\oup_settings.php:76
-msgid "Theme"
-msgstr "Manthari"
-
-#: views\ouplayer\oup_settings.php:84
-#: views\ouplayer\oup_settings.php:111
-msgid "Embed code"
-msgstr ""
-
-#. /Translators: software/programming/HTML code to allow further embedding of this player.
-#: views\ouplayer\oup_settings.php:84
-msgid "Embed on other sites"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:86
-msgid "More embeds…"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:93
-#: views\ouplayer\oup_settings.php:115
-msgid "Download media"
-msgstr "Pakua media"
-
-#: views\ouplayer\oup_settings.php:95
-#: views\ouplayer\oup_settings.php:117
-#: views\ouplayer\ouplayer.php:132
-msgid "Download transcript"
-msgstr "Pakua manukuu"
-
-#: views\ouplayer\oup_settings.php:95
-#: views\ouplayer\oup_settings.php:117
-#: views\ouplayer\ouplayer.php:132
-msgid "PDF"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:99
-msgid "View on Podcasts"
-msgstr "Angalia kwenye Podcasts"
-
-#. /Translators: 'Permanent link' - view on OU Podcasts web site.
-#: views\ouplayer\oup_settings.php:99
-#: views\ouplayer\oup_settings.php:120
-msgid "perma-link"
-msgstr ""
-
-#: views\ouplayer\oup_settings.php:107
-msgid "Close options menu"
-msgstr "Menyu ya machagua ya kufunga"
-
-#: views\ouplayer\oup_settings.php:113
-msgid "More embed options"
-msgstr "Machaguo mengine ya kufuta"
-
-#: views\ouplayer\oup_settings.php:120
-msgid "View on Podcasts site"
-msgstr "Tazama kwenye tovuti ya Podcasts"
-
-#: views\ouplayer\ouplayer.php:48
-msgid "Your browser does not support the \"video\" element."
-msgstr "Kivinjari chako hakitegemezi sehemu ya video"
-
-#: views\ouplayer\ouplayer.php:64
-msgid "Your browser does not support the \"audio\" element."
-msgstr "Kivinjari chako hakitegemezi sehemu ya kusikiliza"
-
-#: views\ouplayer\ouplayer.php:131
-#: views\ouplayer\ouplayer.php:136
-msgid "Close script"
-msgstr ""
-
-#: views\ouplayer\ouplayer.php:157
-#, possible-php-format
-msgid "Download %s"
-msgstr ""
