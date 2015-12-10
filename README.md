@@ -1,7 +1,10 @@
 
+<!--[![Vote! Jisc][jisc-icon]][jisc]-->
+
 [![Build status – Travis-CI][travis-icon]][travis]  [![Code Climate][climate-icon]][climate]
 [![SensioLabs Insight][sensio-icon]][sensio] [![Remote test status][rtest-icon]][rtest]
 [![Packagist][packagist-icon-x]][packagist]  [![License: GPL][license-icon]][gpl]
+[![Translation][trans-icon]][trans]
 
 
 # Open Media Player
@@ -90,5 +93,10 @@ License:  [GPL version 3 onwards][gpl].
 [reposs]: https://reposs.herokuapp.com/?path=IET-OU/open-media-player "Repo size"
 [rtest]: http://iet-embed-acct.open.ac.uk/dev/ou-media-player-test/report/ "Remote test status"
 [rtest-icon]: http://iet-embed-acct.open.ac.uk/dev/ou-media-player-test/report/svg/
+[jisc]: https://elevator.jisc.ac.uk/e/accessiblebydesign/#!/idea/open-media-player
+[jisc-icon]: https://img.shields.io/badge/Jisc-vote_%E2%9C%93-ff6d00.svg "Vote for us in the Jisc Accessible by Design challenge"
+
+[trans]: http://weblate.iet.open.ac.uk/projects/open-media-player/core "Translation status"
+[trans-icon]: http://weblate.iet.open.ac.uk/widgets/open-media-player/-/shields-badge.svg?utm_source=widget
 
 [End]: http://example
