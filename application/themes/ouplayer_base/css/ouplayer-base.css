@@ -70,6 +70,16 @@ h1 {
 	width:100%;
 	height:100% !important; /*Unfortunate, but necessary given the Ender.js problem with '100%' - see ../views/..body.php */
 	}
+
+/*
+  Make sure that the poster that Media Element JS adds is centered if it is not as 
+  wide as the player (and also is in the same place as any poster added via the video 
+  element)
+*/
+.mejs-poster img {
+  margin: 0 auto;
+}
+
 .mejs-overlay-play, .mejs-layer {
 	position:fixed;
 	height:auto !important;
