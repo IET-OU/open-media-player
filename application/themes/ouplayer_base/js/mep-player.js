@@ -832,7 +832,10 @@
 			}
 
 			media.addEventListener('play',function() {
-				poster.hide();
+				if (player.$media[0].tagName != 'AUDIO') {
+					poster.hide();
+				}
+
 			}, false);
 		},
 		
