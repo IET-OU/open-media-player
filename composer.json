@@ -60,16 +60,12 @@
     "test": [
       "php index.php build/revision",
       "composer validate --no-interaction",
-      "#composer validate --no-interaction --working-dir composer-shared",
-      "#parallel-lint application/*",
+      "./vendor/bin/parallel-lint application/*",
       "php vendor/bin/dyn-phpcs-xml.php --no-ns --cfn vendor/iet-ou/open-media-player-core/phpcs.xml > phpcs-1.xml",
       "phpcs --standard=./phpcs-1.xml -n --encoding=utf-8 --extensions=php application/*"
     ],
     "test-cs": [
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/*"
-    ],
-    "test-v": [
-      "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/views/*"
     ],
     "fix-oump": [
       "phpcbf --standard=./phpcs.xml -n -l --encoding=utf-8 --extensions=php application/help*"

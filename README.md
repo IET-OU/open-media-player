@@ -53,7 +53,7 @@ composer create-project iet-ou/open-media-player --no-dev -sdev --prefer-dist
 
 ## Credits
 
-Open Media Player: Copyright © 2015 The Open University.
+Open Media Player: Copyright © 2016 The Open University.
 
 * Author: Nick Freear / [Institute of Educational Technology][iet], & many others.
 
@@ -62,7 +62,7 @@ For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
 ---
 License:  [GPL version 3 onwards][gpl].
 
-© 2011-2015 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
+© 2011-2016 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 
 
 [gpl]: LICENSE.txt "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"

@@ -1,5 +1,16 @@
 # see http://about.travis-ci.org/docs/user/languages/php/
 language: php
+
+# blacklist
+branches:
+  except:
+    - master
+    - legacy
+    - 1.x
+
+git:
+  depth: 3
+
 php:
   - 5.4
   - 5.5
@@ -17,6 +28,10 @@ script:
   - composer test
 
 notifications:
-  - iet-webmaster@open.ac.uk
+  email:
+    recipients:
+      - iet-webmaster@open.ac.uk
+    #on_success: always
 
 #End.
+
