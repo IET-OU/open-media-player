@@ -20,6 +20,8 @@ php:
 
 before_install:
   - composer self-update
+  - composer config secure-http false
+  - composer config --list
 
 install:
   - composer install --prefer-source
