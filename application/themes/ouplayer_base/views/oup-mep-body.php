@@ -63,7 +63,7 @@ Flowplayer:  <body id="ouplayer" class=
  id="player1"
  x-class="mejs-player"
  <?php echo $size_attr ?> <?php echo $size_style ?>
- controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php media_url($params->poster_url) ?>"<?php endif; ?>>
+ controls="controls" preload="none" poster="<?php media_url($params->poster_url) ?>">
  <source type="<?php echo $params->mime_type; #video/mp4 ?>" src="<?php media_url($params->media_url) ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
