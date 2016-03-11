@@ -20,6 +20,14 @@ See the [open source project](http://iet-ou.github.io/open-media-player/).
 
 ## Releases
 
+### Version 1.3 
+Release 11 March 2016 / : Live approx: 25 March 2016
+
+* Fixed issue with poster image stretching
+* Fixed issues with display of poster image for audio files
+* Added https:// to poster images
+* Added extra code for testing purposes in /test_area
+
 ### v1.2-1-gb9f13ac
 Release 17 Aug/ Live: approx. 25 Aug 2015
 
