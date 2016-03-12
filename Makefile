@@ -9,6 +9,7 @@
 PHP=php
 #PHP=C:/Users/ndf42/xampp/php/php
 LOG=2>&1 > C:/Users/ndf42/git-pull-serv_crake.log
+CFG=application/config
 
 
 help:
@@ -44,6 +45,21 @@ version.json:
 gettext:
 	$(PHP) application/cli/xgettext.php
 
+config:
+	cp -n ${CFG}/embed_config.dist.php ${CFG}/embed_config.php
+
+app-config: config
+	# Google App Engine: copy configuration.
+	cp -n ${CFG}/app.DIST.yaml app.yaml
+	cp -n ${CFG}/php.DIST.ini php.ini
+
+app-serve:
+	# App Engine: serving http://localhost:8080 ...
+	/usr/local/bin/dev_appserver.py --log_level=debug .
+
+app-deploy:
+	# App Engine: deploy
+	/usr/local/bin/appcfg.py -A ou-embed update .
 
 .PHONY: help update describe pull cm build-theme version.json gettext
 

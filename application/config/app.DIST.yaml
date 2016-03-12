@@ -1,0 +1,76 @@
+#
+# Google App Engine configuration template.
+#
+# Branch:  master (1.x)
+#
+application: ou-embed
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: false
+
+handlers:
+#- url: /favicon\.ico
+#  static_files: favicon.ico
+#  upload: favicon\.ico
+
+- url: /version.json
+  static_files: version.json
+  upload: version.json
+
+- url: /ou-embed.css
+  static_files: application/assets/client/site-embed.css
+  upload: application/assets/client/site-embed.css
+
+- url: /_data/*
+  static_dir: application/_data
+  application_readable: true
+
+- url: /x-scripts/(jquery\.oembed\.js)
+  static_files: application/assets/client/\1
+  upload: application/assets/client/jquery.oembed.js
+  application_readable: true
+
+- url: /assets/*
+  static_dir: application/assets
+
+- url: /themes/*
+  static_dir: application/themes
+  application_readable: true
+
+- url: /engines/mediaelement/*
+  static_dir: application/engines/mediaelement
+
+- url: /
+  script: index.php
+
+- url: /(.+)
+  script: index.php
+  ##script: test.php
+
+
+# Ignore files.
+skip_files:
+  - ^(.*/)?#.*#$
+  - ^(.*/)?.*~$
+  - ^(.*/)?.*\.py[co]$
+  - ^(.*/)?.*/RCS/.*$
+  - ^(.*/)?\..*$
+  - .*(Makefile|README|LICENSE)
+  - .*\.md
+  - composer\.(json|lock)
+  - .*(BAK|bak).*
+  - .*\.(TEMPLATE|dist).*
+  - vendor/.*/(php-parallel-lint|php_codesniffer)/.*
+  # ???
+  - .*\.(csproj|user|xaml|sln|htc|as|fla|swc|py|patch|diff)
+  - ^.*\.cs$
+  - application/assets/(svgweb|flowplayer.*)/.*
+  - application/(cli|hooks|migrations|third_party)/.*
+
+env_variables:
+  APP_DEBUG: true
+  OUENV: gae
+  #OUENV: iet-dev
+
+#End.

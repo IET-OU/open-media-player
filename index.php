@@ -44,7 +44,7 @@ if (defined('ENVIRONMENT'))
 			error_reporting(E_ALL);
 			ini_set('display_errors', 1);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 
@@ -53,6 +53,7 @@ if (defined('ENVIRONMENT'))
 		case 'test':
 		case 'iet-live':
 		case 'iet-test':
+		case 'gae':
 			error_reporting(0);
 			ini_set('display_errors', 0);
 		break;

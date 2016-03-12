@@ -22,6 +22,10 @@
   $path = str_replace('/', '-', $this->uri->uri_string());
   $body_classes .= '-'==$path ? 'pg-player-home' : 'pg-'. $path;
 
+  $use_ouembed= isset($use_ouembed) ? $use_ouembed : false;
+  $is_ouembed = isset($is_ouembed) ? $is_ouembed : false;
+  $is_live    = isset($is_live) ? $is_live : false;
+
 
 ?>
 <!doctype html><html lang="en"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
@@ -84,7 +88,7 @@
 <?php /*<link href="<?php echo $resource_url ?>/study/stylesheets/study-common.css" rel="stylesheet" media="all" />*/ ?>
 <?php /*
 <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
-    <link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />  
+    <link rel="stylesheet" href="<?php echo $resource_url ?>/study/stylesheets/themes/base/jquery.ui.all.css" />
     <script src="<?php echo $resource_url ?>/study/includes/jquery-scripts/jquery-1.7.1.min.js"></script>
     <style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>
 */ ?>
@@ -140,9 +144,9 @@
         <div id="ou-site">
 
             <div id="ou-site-header">
-               
-               <!-- Standard Navigation    -->   
-               
+
+               <!-- Standard Navigation    -->
+
 <ul class="ou-sections" role="navigation">
 <?php if ($is_player_site): ?>
     <li class="first tm-player-home tm-demo"><a href="<?php echo $base_url ?>">Player home</a>
@@ -173,11 +177,11 @@
 <?php endif; ?>
 </ul>
 
-                
+
             </div>
 
             <div id="ou-site-body">
-                
+
                 <div>
                     <!-- Content Page is loaded here -->
 
@@ -229,7 +233,7 @@ div.teasers ul li:last-child a {border-right:none;}
             </div>
 
             <div class="teasers">
-                  
+
                 <div class="ou-feature-block" style="float:left;width:93%;">
                     <div class="teaser" id="teaser-explore" >
                       <img class="ou-go1" style="padding-top:15px;" src="/study/images/AF008744crop.jpg" alt="Explore the prospectus" />
@@ -241,7 +245,7 @@ div.teasers ul li:last-child a {border-right:none;}
                       </ul>
                     </div>
                 </div>
-                      
+
                 <!--... -->
            </div>    <!-- DIV teasers  -->
 
@@ -250,7 +254,7 @@ div.teasers ul li:last-child a {border-right:none;}
 
     <div id="ou-region2">
         <!-- ou-region2-components -->
-        
+
         <!-- **********************************************************************************
         ***  Borrowed from OUICE 3
         ***  ********************************************************************************** -->
@@ -259,43 +263,43 @@ div.teasers ul li:last-child a {border-right:none;}
 </style>
 
 <div class="ou-box" id="sign-post" style="float:left;margin-top:3px;">
-	
+
 	<span class="ou-title">Are you already an OU student ?</span>
 	<a class="ou-action" href="https://msds.open.ac.uk/students/next-module.aspx">
 	<span class="ou-desc">Go to StudentHome for information on choosing your next module.</span>
 	</a>
-	
+
 </div>
-            
-        
+
+
         <div class="ou-feature-block" style="clear:both;margin-top:0em;">
             <h3><a href="/study/undergraduate/index.htm">Undergraduate</a></h3>
             <ul>
                 <li><a href="/study/undergraduate/qualification/arts-and-humanities/index.htm">Arts and Humanities</a></li>
                 <li><a href="/study/undergraduate/qualification/business-and-management/index.htm">..</a></li>
-                
+
                 <li><a href="/study/undergraduate/qualification/social-sciences/index.htm">Social Sciences</a></li>
             </ul>
             <h3><a href="/study/postgraduate/index.htm">See Postgraduate</a></h3>
             <br />
         </div>
 
-        
+
 <div id="how-to-register-banner" >
 
     <div class="ou-box" style="background:transparent url(/study/images/four-simple-steps.gif) no-repeat scroll 100% 0%;min-height:153px;max-width:235px;padding-top:8px;">
         <div class="banner-text">
-            
+
                 <img class="ou-go1" src="/study/images/block-quote-open.gif" alt="opening quotes"/>
                 <span class="line">4 easy steps to</span>
                 <span class="line">becoming an</span>
                 <span class="line">OU undergraduate</span>
-                
+
                 <span class="line" style="display:inline;">student<img src="/study/images/block-quote-close.gif" alt="opening quotes" style="padding:0px 0px 0px 5px;display:inline;"/>
                 </span>
-            
+
         </div>
-        
+
         <div style="margin-top:30px;">
         <!--<ul style="list-style:none;display:block;padding:0px;margin:0px;">
         <li style="margin:0px;padding:0px;display:inline;">-->
@@ -303,8 +307,8 @@ div.teasers ul li:last-child a {border-right:none;}
         <!--</li>
         </ul>-->
         </div>
-        
-    </div>    
+
+    </div>
 </div>
 
 
@@ -333,9 +337,9 @@ div.teasers ul li:last-child a {border-right:none;}
 
 
                 </div>
-                
+
             </div>  <!-- ou-site-body -->
- 
+
             <div id="ou-site-footer">
                 <a class="ou-to-top" href="#ou-content">Back to top</a>
             </div>
@@ -398,13 +402,13 @@ div.teasers ul li:last-child a {border-right:none;}
   </div>
   <div class="ou-c4of4"><!-- reserved --></div>
   </div>
-    
+
 </div>
 
 <script>if (typeof window.ou_init=='function')ou_init();</script>
 
     </div>  <!-- ou-org -->
-    
+
 <script src="<?php echo $resource_url ?>/includes/ouice/3/scripts.js"></script>
 
 <!-- site specific scripts -->

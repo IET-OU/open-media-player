@@ -202,6 +202,12 @@ switch (strtolower(getenv('OUENV'))) {
 
 #$config['log_threshold'] = 2;  #1;
 
+// An important App Engine fix! [gae]
+if ('gae' === getenv('OUENV')) {
+  $config['log_threshold'] = 0;
+}
+
+
 /*
 |--------------------------------------------------------------------------
 | Error Logging Directory Path
