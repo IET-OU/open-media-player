@@ -8,8 +8,8 @@
 // Site layout: 'bare' (or 'ouice_2' - ou-specific)
 $config[ 'site_layout' ] = 'bare';
 
-// For when the site is behind a forward proxy.
-$config[ 'site_proxy_path' ] = '/approval/';
+// For when the site is behind a forward proxy (eg. '/approval/')
+$config[ 'site_proxy_path' ] = '';
 
 // Site Google analytics (separate from Player analytics).
 $config[ 'google_analytics' ] = 'UA-24005173-1';

@@ -30,8 +30,8 @@ function json_encode_bare($obj, $parse_function = false)
     if ($parse_function) {
         $json = preg_replace_callback(
             '/"\s*
-        (?P<js_function>function\s*\(.+\})
-      \s*"/x',
+             (?P<js_function>function\s*\(.+\})
+             \s*"/x',
             function ($matches) {
                 return strtr($matches['js_function'], array(
                 '\r' => '',
@@ -133,9 +133,10 @@ function player_res_url($uri = '', $hash = true, $return = false)
 {
     static $base_url;
     if (! $base_url) {
-      //Was: $base_url = preg_replace('@https?:\/\/@', '//', base_url());
+        $CI =& get_instance();
+        //Was: $base_url = preg_replace('@https?:\/\/@', '//', base_url());
         $p = parse_url(base_url());
-        $base_url = $p['path'];
+        $base_url = $p[ 'path' ] . $CI->config->item('site_proxy_path');
     }
 
     if ($hash) {
