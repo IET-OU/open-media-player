@@ -10,9 +10,12 @@ User-agent: archive.org_bot
 Disallow:
 
 User-agent: *
+Disallow: /approval/
+Disallow: /db/
+Disallow: /dev/
+Disallow: /iet-satis/
 Disallow: /assets/
 Disallow: /blog/
-Disallow: /dev/
 Disallow: /docs/
 Disallow: /drupal/
 Disallow: /build

@@ -12,7 +12,7 @@
 A mainstream audio and video player service that puts accessibility front and centre.
 We put the emphasis on ease of use for end-users and authors. From the [The Open University][ou].
 
-* <http://embed.open.ac.uk>
+* <https://embed.open.ac.uk>
 
 Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 

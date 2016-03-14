@@ -1,6 +1,8 @@
 
 
 .env
+app.yaml
+php.ini
 version.json
 
 /composer.lock

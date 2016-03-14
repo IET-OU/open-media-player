@@ -20,7 +20,7 @@ php:
 
 before_install:
   - composer self-update
-  - composer config secure-http false
+  #- composer config secure-http false
   - composer config --list
 
 install:
@@ -36,4 +36,3 @@ notifications:
     #on_success: always
 
 #End.
-
