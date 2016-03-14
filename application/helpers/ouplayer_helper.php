@@ -94,7 +94,13 @@ if (! function_exists('site_url')) {
     function site_url($uri = '')
     {
         $CI =& get_instance();
-        $site_url = $CI->config->site_url($uri);
+        $forwarded_host = filter_input(INPUT_SERVER, 'HTTP_X_FORWARDED_HOST', FILTER_SANITIZE_URL);
+
+        if ($forwarded_host) {
+            $site_url = 'http://' . $forwarded_host . $CI->config->item('site_proxy_path') . $uri;
+        } else {
+            $site_url = $CI->config->site_url($uri);
+        }
         return preg_replace('@https?:\/\/@', '//', $site_url);
     }
 }
