@@ -125,18 +125,17 @@ function media_url($uri, $return = false)
 * Output the URL for a Player-engine or theme resource.
 * Note, the URL is HTTPS/SSL-neutral (//host/path) and contains a hash/version ID.
 * @link http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml#Protocol
-  @param string $uri Path
-  @param bool $hash Whether to use a hash/version ID in the URL.
+* @param string $uri Path
+* @param bool $hash Whether to use a hash/version ID in the URL.
 * @return string
 */
 function player_res_url($uri = '', $hash = true, $return = false)
 {
     static $base_url;
     if (! $base_url) {
-        $CI =& get_instance();
         //Was: $base_url = preg_replace('@https?:\/\/@', '//', base_url());
-        $p = parse_url(base_url());
-        $base_url = $p[ 'path' ] . $CI->config->item('site_proxy_path');
+        $p = parse_url(site_url());
+        $base_url = $p[ 'path' ];
     }
 
     if ($hash) {
@@ -146,9 +145,9 @@ function player_res_url($uri = '', $hash = true, $return = false)
     }
 
     if ($return) {
-        return $base_url. $uri . $hash;
+        return $base_url . $uri . $hash;
     }
-    echo $base_url. $uri . $hash;
+    echo $base_url . $uri . $hash;
 }
 
 /**
