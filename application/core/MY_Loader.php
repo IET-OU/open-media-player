@@ -142,7 +142,7 @@ class MY_Loader extends CI_Loader
 
     protected function dev_ucwords($str)
     {
-        $result = preg_replace_callback('/([\-_])([a-z])/', function($m) {
+        $result = preg_replace_callback('/([\-_])([a-z])/', function ($m) {
             return strtoupper($m[ 1 ] . $m[ 2 ]);
         }, $str);
         return ucwords(str_replace('-', '_', $result));
