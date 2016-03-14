@@ -5,7 +5,7 @@
   "homepage": "http://iet-ou.github.io/open-media-player/",
   "type": "project",
   "license": "GPL-3.0+",
-  "minimum-stability": "dev",
+  "minimum-stability": "alpha",
   "authors": [
     { "name": "Nick Freear (@nfreear)", "role": "developer", "homepage": "http://twitter.com/nfreear" },
     { "name": "Peter Devine (@peterdevinegmd)", "role": "designer", "homepage": "http://devine.co.uk/peter/" },
@@ -22,18 +22,18 @@
     "ext-curl": "*",
     "ext-xml": "*",
     "nfreear/composer-suggest": "^1.1",
-    "johndyer/mediaelement": "2.17.0",
+    "johndyer/mediaelement": "2.18.1",
     "regex-guard/regex-guard": "~1.0",
-    "iet-ou/open-media-player-core": "dev-master"
+    "iet-ou/open-media-player-core": "^2.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "~2.1.0",
-    "jakub-onderka/php-parallel-lint": "~0.8"
+    "squizlabs/php_codesniffer": "^2.5",
+    "jakub-onderka/php-parallel-lint": "^0.9.2"
   },
   "suggest": {
-    "johndyer/mediaelement": "2.18.1; MEJS edge",
-    "tuupola/slim-basic-auth": "*; Slim Basic Auth",
-    "iet-ou/open-oembed-providers": "*; oEmbed providers - YouTube, Google Docs, Prezi ..."
+    "johndyer/mediaelement": "2.20.1; MEJS edge",
+    "tuupola/slim-basic-auth": "^2.0; Slim Basic Auth",
+    "iet-ou/open-oembed-providers": "^2.0; oEmbed providers - YouTube, Google Docs, Prezi ..."
   },
   "repositories": [
     {
@@ -61,6 +61,7 @@
       "php index.php build/revision",
       "composer validate --no-interaction",
       "./vendor/bin/parallel-lint application/*",
+      "./vendor/bin/parallel-lint index.php",
       "php vendor/bin/dyn-phpcs-xml.php --no-ns --cfn vendor/iet-ou/open-media-player-core/phpcs.xml > phpcs-1.xml",
       "phpcs --standard=./phpcs-1.xml -n --encoding=utf-8 --extensions=php application/*"
     ],
@@ -72,6 +73,7 @@
     ]
   },
   "config": {
+    "x--secure-http": false,
     "x--preferred-install": "source"
   }
 }
