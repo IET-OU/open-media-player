@@ -1,4 +1,5 @@
 
+.gitattributes
 version.json
 
 /git*.php
@@ -37,7 +38,19 @@ application/language/*.pot
 /blog*
 /drupal*
 _docs/*
-_data/*
 /dev*
 
 # *min.js
+
+
+# New for 2016 (gae)
+
+application/_data
+composer.json
+composer.lock
+/vendor
+app.yaml
+php.ini
+
+
+#End.

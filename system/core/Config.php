@@ -66,7 +66,10 @@ class CI_Config {
 		// Set the base_url automatically if none was provided
 		if ($this->config['base_url'] == '')
 		{
-			if (isset($_SERVER['HTTP_HOST']))
+//ou-specific (gae)
+			if (isset($_SERVER['HTTP_HOST']) && isset($_SERVER['SCRIPT_NAME']))
+			//Was: if (isset($_SERVER['HTTP_HOST']))
+//ou-specific ends.
 			{
 				$base_url = isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off' ? 'https' : 'http';
 				$base_url .= '://'. $_SERVER['HTTP_HOST'];

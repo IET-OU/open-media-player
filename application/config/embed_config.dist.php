@@ -52,7 +52,7 @@ switch (strtolower(getenv('OUENV'))) {
 |--------------------------------------------------------------------------
 | Data directory (required/all).
 */
-$config['data_dir'] = dirname(__FILE__) .'/../../_data/';
+$config['data_dir'] = dirname(__FILE__) .'/../_data/';
 
 #$config['data_dir'] = '/var/www/_ouplayer_data/';
 #$config['data_dir'] = 'C:/Users/[NAME]/workspace/_ouplayer_data/';
@@ -67,7 +67,7 @@ $config['podcast_data_use_feed'] = true;
 
 // Required/Podcast. Required for feed access model - the default.
 $config['podcast_feed_url_pattern'] =
-    "http://example-podcast.open.ac.uk/feeds/__COLLECTION_ID__/rss2-extended.xml";
+    'http://podcast.open.ac.uk/feeds/__COLLECTION_ID__/player.xml';
 
 
 // SSL/ HTTPS regular expression for `media_url()` helper function - OU Media Player.
@@ -122,7 +122,7 @@ $config['player_embed_code'] = NULL;
 */
 // Either NULL, 'ender' (maybe for OUVLE?) or 'jquery' (maybe for Podcast?)
 // NULL is preferred - it lets Mejs_Default_Theme::prepare_jslib() decide.
-//$config['jslib'] = NULL;
+$config['jslib'] = 'jquery';
 
 
 // 200 ~ 500 milliseconds.

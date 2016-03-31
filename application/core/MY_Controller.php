@@ -66,7 +66,8 @@ class MY_Controller extends CI_Controller {
       case 'dev':
         return FALSE;
       case 'ouembed': # Fall through.
-      case 'iet': 
+      case 'iet':
+      case 'gae':
       default:
         return TRUE;
     }
@@ -82,6 +83,7 @@ class MY_Controller extends CI_Controller {
       case 'live':
       case 'acct':    # Fall through.
       case 'ietlive':
+      case 'gae':
         return TRUE;
       case 'test':
       case 'dev':

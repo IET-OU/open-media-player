@@ -64,6 +64,7 @@ class Gitlib {
         if (preg_match( self::GIT_DESCRIBE_REGEX, $result[ 'describe' ], $m )) {
             $result[ 'version' ] = $m['major'] .'.'. $m['minor'] .'.'. $m['patch'] . $m['id'] .'+'. $m['hash'];
         }
+        $result[ 'branch' ] = trim($this->_exec('symbolic-ref --short HEAD'));
         // http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repo-was-originally-pulled-from
         $result['origin'] = rtrim($this->_exec('config --get remote.origin.url'), "\r\n");
         #$result['origin url'] = str_replace(array('git@', 'com:'), array('https://', 'com/'), $result['origin']);
