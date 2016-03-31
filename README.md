@@ -20,8 +20,17 @@ See the [open source project](http://iet-ou.github.io/open-media-player/).
 
 ## Releases
 
-### Version 1.3 
-Release 11 March 2016 / : Live approx: 25 March 2016
+
+
+### Version 1.3.1
+Release 31 March 2016 /
+
+* Automated javascript build process using grunt
+* Switched from closure compiler to uglify for javascript build, issue with
+display of full screen and caption icons appears to be fixed. 
+
+### Version 1.3
+Release 11 March 2016 / :
 
 * Fixed issue with poster image stretching
 * Fixed issues with display of poster image for audio files
