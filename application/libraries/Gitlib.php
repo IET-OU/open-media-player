@@ -10,7 +10,8 @@
 
 class Gitlib {
 
-    const GIT_DESCRIBE_REGEX = '/(?P<major>\d+)\.(?P<minor>\d+)(?P<id>-[\w\.]+)?-(?P<patch>\d+)-(?P<hash>g.+)/';
+    const GIT_DESCRIBE_REGEX = '/v?(?P<major>\d+)\.(?P<minor>\d+)(?P<patch>\.\d+)(?P<id>-[\w\.]+)?-(?P<build>\d+)-(?P<hash>g.+)/';
+    const VERSION = '%s.%s%s.%s%s+%s';
 
     protected $_hash;
     protected $CI;
@@ -62,7 +63,9 @@ class Gitlib {
         $result['describe'] = trim($this->_exec('describe --tags --long'));
         $result[ 'version' ] = $result[ 'describe' ];
         if (preg_match( self::GIT_DESCRIBE_REGEX, $result[ 'describe' ], $m )) {
-            $result[ 'version' ] = $m['major'] .'.'. $m['minor'] .'.'. $m['patch'] . $m['id'] .'+'. $m['hash'];
+            $v = (object) $m;
+            //Was: $result[ 'version' ] = $m['major'] .'.'. $m['minor'] . $m['patch'] .'.'. $m['build'] . $m['id'] .'+'. $m['hash'];
+            $result[ 'version' ] = sprintf(self::VERSION, $v->major, $v->minor, $v->patch, $v->build, $v->id, $v->hash);
         }
         $result[ 'branch' ] = trim($this->_exec('symbolic-ref --short HEAD'));
         // http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repo-was-originally-pulled-from
