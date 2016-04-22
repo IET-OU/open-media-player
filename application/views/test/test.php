@@ -6,5 +6,5 @@
 	<li><a href="/test_area/video_open2_net">Video and Audio - open2.net</a></li>
 	<li><a href="/test/player_sizes/bare">Size Tests</a></li>
 	<li><a href="/test/podcast_errors">Error Tests</a></li>
-	<li><a href="demo/vle_fewer">VLE Demo</a></li>
+
 </ul>
