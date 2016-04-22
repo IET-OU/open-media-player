@@ -27,6 +27,8 @@ application/engines/mediael*/demo/*.html
 application/language/*.pot
 !application/language/ouplayer.pot.po
 
+node_modules/*
+
 /*.patch
 *.diff
 * copy*
