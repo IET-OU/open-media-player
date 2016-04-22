@@ -38,7 +38,7 @@ if(typeof jQuery=='undefined'){
   else:
 ?>
 <script src="<?php player_res_url($this->theme->js_min) ?>"></script>
-<?php endif; ?>	
+<?php endif; ?>
 
 <?php if ($this->config->item('debug') > OUP_DEBUG_MIN): ?>
 <link rel="stylesheet" href="<?php player_res_url($engine_path . 'src/css/mediaelementplayer.css') ?>" />
@@ -120,7 +120,8 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 <?php endif; ?>
  id="player1" <?php echo $size_attr ?> <?php echo $size_style ?>
  src="<?php echo $params->media_url ?>" type="<?php echo $params->mime_type; #video/mp4 ?>"
- controls="controls" preload="none" <?php if ('video'==$params->media_type): ?>poster="<?php echo $params->poster_url ?>"<?php endif; ?>
+ controls="controls" preload="none" data-poster="<?php echo $params->poster_url ?>"
+
 >
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
@@ -135,8 +136,8 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 
 <?php /*
 <!-- simple single file method -->
-<video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4" 
-	id="player1" poster="../media/echo-hereweare.jpg" 
+<video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4"
+	id="player1" poster="../media/echo-hereweare.jpg"
 	controls="controls" preload="none"></video>
 */ ?>
 

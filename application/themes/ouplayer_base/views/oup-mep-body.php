@@ -35,7 +35,7 @@ Flowplayer:  <body id="ouplayer" class=
 <h1 title="<?php echo html_chars($params->title) ?>"><?php echo html_chars($params->title) ?></h1>
   <?php if (isset($params->_related_url)): ?>
   <a href="<?php echo $params->_related_url ?>" target="_blank" title="<?php echo t('Related link opens in new window')
-  ?><?php if ('audio'==$params->media_type): ?>: 
+  ?><?php if ('audio'==$params->media_type): ?>:
 <?php echo html_chars($params->_related_text) ?><?php endif; ?>"
   ><?php echo html_chars($params->_related_text) ?></a>
   <?php endif; ?>
@@ -63,7 +63,7 @@ Flowplayer:  <body id="ouplayer" class=
  id="player1"
  x-class="mejs-player"
  <?php echo $size_attr ?> <?php echo $size_style ?>
- controls="controls" preload="none" poster="<?php media_url($params->poster_url) ?>">
+ controls="controls" preload="none" data-poster="<?php media_url($params->poster_url) ?>">
  <source type="<?php echo $params->mime_type; #video/mp4 ?>" src="<?php media_url($params->media_url) ?>">
 <?php if ($params->caption_url): ?>
 <track kind="subtitles" srclang="en" type="text/vtt" src="<?php
