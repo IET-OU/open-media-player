@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     uglify: {
       my_target: {
         files: {
@@ -38,9 +39,42 @@ module.exports = function(grunt) {
           'application/themes/ouplayer_base/js/mep-oup-feature-ignore-color.js']
         }
       }
-    }
+    },
+    gitinfo: {},
+    'git-describe': {
+      me: {}
+    },
+
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify'); // load the given tasks
-  grunt.registerTask('default', ['uglify']); // Default grunt tasks maps to grunt
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-gitinfo');
+  grunt.loadNpmTasks('grunt-git-describe');
+
+  // Default task builds the js
+  grunt.registerTask('default', ['uglify']);
+
+  // Save information from git to the version.json file
+  grunt.registerTask('store-revision', function() {
+    grunt.event.once('git-describe', function (rev) {
+      grunt.option('gitRevision', rev);
+      grunt.task.requires('git-describe');
+      grunt.task.requires('gitinfo');
+      grunt.file.write('version.json', JSON.stringify({
+        commit: grunt.config('gitinfo.local.branch.current.SHA'),
+        author:grunt.config('gitinfo.local.branch.current.lastCommitAuthor'),
+        date:grunt.config('gitinfo.local.branch.current.lastCommitTime'),
+        message:grunt.config('gitinfo.local.branch.current.lastCommitMessage'),
+        version:grunt.option('gitRevision').tag+'-'+
+                grunt.option('gitRevision').since+'-g'+grunt.option('gitRevision').object,
+        branch:grunt.config('gitinfo.local.branch.current.name'),
+        origin:grunt.config('gitinfo.remote.origin.url'),
+        file_date:grunt.template.today(),
+        test:"Test",
+      }, null, 4));
+    });
+    grunt.task.run('git-describe');
+  });
+
+  grunt.registerTask('version', ['gitinfo', 'store-revision']);
 };
