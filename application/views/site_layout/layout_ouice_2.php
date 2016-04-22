@@ -151,23 +151,17 @@
 <?php if ($is_player_site): ?>
     <li class="first tm-player-home tm-demo"><a href="<?php echo $base_url ?>">Player home</a>
     <li class="tm-about"><a href="<?php echo $base_url ?>about">About</a>
-    <!--<li class="menu-"><a href="<?php echo $base_url ?>about/help" rel="nofollow">Player Help</a>-->
-<?php if ($is_ouembed): ?>
+    <?php if ($is_ouembed): ?>
     <li class="tm-demo-ouldi"><a href="<?php echo $base_url ?>demo/ouldi" rel="nofollow">OU/OULDI embeds</a>
 <?php endif; ?>
 <?php if (! $is_live): ?>
-    <li class="tm-test-size"><a href="<?php echo $base_url ?>test/player_sizes/bare" rel="nofollow" title="'Bare' template">Size tests</a>
-    <li class="tm-test-error"><a href="<?php echo $base_url ?>test/podcast_errors" rel="nofollow">Error tests</a>
-    <li class="tm-demo-vle"><a href="<?php echo $base_url ?>demo/vle_fewer" title="Virtual learning environment: &#10;Requires a University login" rel="nofollow">[VLE demo]</a>
+    <li><a href="<?php echo $base_url ?>test_area" rel="nofollow">Test Area</a>
 <?php endif; ?>
 <?php if ($is_ouembed): ?>
     <li class="tm-extern blog"><a href="<?php echo OUP_BLOG_URL ?>" rel="bookmark" title="Project blog and demos on Cloudworks">Blog</a>
 <?php endif; ?>
-    <!--<li class="tm-extern iet"><a href="http://iet.open.ac.uk/" title="Institute of Educational Technology - external" rel="external">IET</a>-->
-    <li class="tm-extern dis"><a href="http://www.open.ac.uk/disability/" title="Services for disabled students - external OU" rel="external">Disabled services</a>
-    <li class="tm-extern pod"><a href="http://podcast.open.ac.uk/" title="Open University Podcasts - external OU" rel="external">OU Podcasts</a>
-    <li class="last tm-extern itu"><a href="http://www.open.edu/itunes/" title="The Open University on iTunes U - external OU" rel="external">iTunes U</a>
-<?php else: // 'Study' ?>
+    <li><a href="<?php echo $base_url ?>about/links" title="Useful Links">Useful Links</a>
+    <?php else: // 'Study' ?>
     <li id="tm-study-home"><a href="<?php echo $site_url ?>/study/">Study at the OU</a></li>
     <li id="tm-undergraduate"><a href="<?php echo $site_url ?>/study/undergraduate/index.htm">Undergraduate</a></li>
     <li id="tm-postgraduate"><a href="<?php echo $site_url ?>/study/postgraduate/index.htm">Postgraduate</a></li>
