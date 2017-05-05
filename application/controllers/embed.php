@@ -201,7 +201,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 
         if (preg_match($media_url_regex, $player->media_url, $ext)) {
           // Codecs? http://wiki.whatwg.org/wiki/Video_type_parameters
-            $opts = array('mp4'=>'video/mp4', 'm4v'=>'video/mp4', 'flv'=>'video/flv', 'mp3'=>'audio/mpeg');
+            $opts = array('mp4'=>'video/mp4', 'm4v'=>'video/mp4', 'flv'=>'video/flv', 'mp3'=>'audio/mpeg', 'f4v'=>'video/mp4');
             $player->mime_type = $opts[$ext[3]];
             $player->media_type = substr($player->mime_type, 0, 5);
             $player->media_html5 = ('flv' != $ext[3]);
