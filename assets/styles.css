@@ -247,7 +247,7 @@ img[ src *= "elevator.jisc.ac.uk" ] {
 /* OMP player demo.
 */
 .embed-responsive {
-  max-width: 840px;
+  max-width: 1050px; /*840px;*/
   margin: 0 auto;
 }
 iframe {
