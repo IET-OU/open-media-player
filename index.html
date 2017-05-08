@@ -143,7 +143,7 @@
 
           <p><em>Open Media Player</em> is built on the widely used <a href="http://mediaelementjs.com/">MediaElement.js</a> library, with custom extensions.</p>
           <p>
-              It is embeddable via <a href="http://oembed.com/">oEmbed</a> and <tt>iframe</tt> on lots of platforms, including
+              It is embeddable via <a href="http://oembed.com/">oEmbed</a> and <code>iframe</code> on lots of platforms, including
               <a href="https://drupal.org/">Drupal</a>, <a href="https://wordpress.org/">WordPress</a>, and <a href="http://jquery.com/">jQuery</a>.
           </p>
           <p><a
@@ -160,7 +160,7 @@
           <span class="icons"></span>
 
           <p>Watch <a href="https://embed.open.ac.uk/demo/youtube">demonstrations built on YouTube</a>.
-          <p>Explore <a href="https://www.open.edu/openlearn/body-mind/health/health-sciences/the-joy-stats-the-lady-data-visualisation">video on OpenLearn</a>.
+          <p>Explore <a href="http://www.open.edu/openlearn/body-mind/health/health-sciences/the-joy-stats-the-lady-data-visualisation">video on OpenLearn</a>.
           </p>
           <p><a class="btn btn-primary" href="https://embed.open.ac.uk/demo/youtube" title="View YouTube demos">View demonstrations &raquo;</a></p>
        </div>
@@ -187,11 +187,12 @@
         <div class="row row-demo embed-responsive embed-responsive-16by9" id="demo">
           <noscript> Javascript is required. </noscript>
           <iframe
+            data-loading-text="Loading ..."
             src="https://embed.open.ac.uk/embed/pod/2647_designbehindthebike/c99f5595c7?rgb=omp-orange#-History"
-            data-src="https://embed.open.ac.uk/embed/pod/2647_designbehindthebike/0932ffdd6a?rgb=omp-orange#-Aesthetics"
-            data-src="https://embed.open.ac.uk/embed/pod/thoughtexperiments-01/0a399e2b9b?rgb=omp-orange"
+            data-1-src="https://embed.open.ac.uk/embed/pod/2647_designbehindthebike/0932ffdd6a?rgb=omp-orange#-Aesthetics"
+            data-2-src="https://embed.open.ac.uk/embed/pod/thoughtexperiments-01/0a399e2b9b?rgb=omp-orange"
             data-YT-src="https://embed.open.ac.uk/embed/-/youtube.com/0rj_td9wwbI?rgb=omp-orange#-OMP-talk"
-            aria-label="Video player" class="x youtube omp-player embed-rsp" data-width="560" data-height="315" frameborder="0" allowfullscreen></iframe>
+            aria-label="Video player" class="x youtube omp-player embed-rsp" data-width="560" data-height="315" allowfullscreen ></iframe>
         </div>
 
 
@@ -215,7 +216,7 @@
       <footer role="contentinfo">
         <span>&copy; <i class="copyright-year">2014</i> <a href="https://www.open.ac.uk/">The Open University</a> and contributors. (<a href="http://iet.open.ac.uk">Institute of Educational Technology</a>.)</span>
 
-        <span class="logos">
+        <div class="logos">
 
 
               <!-- Single button -->
@@ -256,7 +257,7 @@
                 alt="Institute of Educational Technology" src="assets/images/iet-logo-blue.png"></a>
             <a class="ou-logo last" href="https://www.open.ac.uk/"><img
                 alt="The Open University" title="The Open University" data-PNG-src="assets/images/ou-logo.png" src="https://www.open.ac.uk/includes/headers-footers/oulogo-56.jpg"></a>
-        </span>
+        </div><!-- /logos -->
 
       </footer>
     </div> <!-- /container -->
@@ -265,7 +266,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/ie10-viewport-bug-workaround.js"></script>
 

@@ -161,7 +161,7 @@ p em, i { font-style: normal; }
 
 hr { border-top: 1px solid #ccc; margin-top: 40px; }
 
-footer .logos { float: right; position: relative; /*top: -20px;*/ }
+footer .logos { float: right; position: relative; display: inline-block; /*top: -20px;*/ }
 footer .logos a, .logos .btn-group { display: inline-block; margin-right: 28px; /*18px*/ }
 footer .logos a.last { margin: 0; }
 footer .X-PNG-iet-logo img { width: 35px; height: 41px; }
