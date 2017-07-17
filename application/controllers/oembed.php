@@ -78,7 +78,7 @@ EOF;
         }
 
         $req->format = $this->input->get('format') ? $this->input->get('format') : 'json';
-        if ('json'!=$req->format && 'xml'!=$req->format) {
+        if ('json' !== $req->format && 'xml' !== $req->format) {
             $this->_error("the output format '$req->format' is not recognised.", "400.5");
         }
 
@@ -92,16 +92,16 @@ EOF;
         if (preg_match('@^urn:(\w{2,}):.*@', $req->url, $matches)) {
             $p[ 'host' ] = $matches[ 1 ];
             $this->_debug([ "'url' parameter of type 'URN' found.", $p ]);
-        } else if (!isset($p['host'])) {
+        } else if (! isset($p[ 'host' ])) {
             $this->_error("the parameter 'url' is invalid - missing host.", 400);
         }
-        $host = $req->host = str_replace('www.', '', strtolower($p['host']));
+        $host = $req->host = str_replace('www.', '', strtolower($p[ 'host' ]));
 
-        if (!isset($providers[$host])) {
+        if (! isset($providers[ $host ])) {
             $this->_error("unsupported provider 'http://$req->host'.", 400);
         }
 
-        $provider = $providers[$host];
+        $provider = $providers[ $host ];
         if (is_string($provider)) {
             # New (#1356)
             $name = $provider;
@@ -120,7 +120,7 @@ EOF;
 
         if (! preg_match("@{$regex}$@", $req->url, $matches)) {
             $regex_display = $this->provider->regex;
-            $this->_debug(array( 'regex_real' => $regex ));
+            $this->_debug([ 'regex_real' => $regex ]);
             $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
         }
 

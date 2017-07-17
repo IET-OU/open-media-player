@@ -25,6 +25,13 @@ class MY_Loader extends CI_Loader
         $this->CI =& get_instance();
 
         if ($this->CI->use_composer()) {
+            if (! file_exists(__DIR__ . '/../../vendor/autoload.php')) {
+                @header('HTTP/1.1 500');
+                ?><title>500 Internal Server Error</title> <p>Error. Missing 'vendor' directory.
+            <?php
+                exit(1);
+                // OR: $this->CI->_error("Missing 'vendor' directory.", 500);
+            }
             require_once __DIR__ .'/../../vendor/autoload.php';
         }
 
