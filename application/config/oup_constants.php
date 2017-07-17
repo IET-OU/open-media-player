@@ -90,8 +90,8 @@ define('OUP_JS_CDN_ENDER_MIN', '//dnmrmlfxy5gpj.cloudfront.net/jeesh.min.js');
 define('OUP_JS_CDN_ENDER',     '//dnmrmlfxy5gpj.cloudfront.net/jeesh.js');
 
 // Fallback: jQuery 1.7+ ('//' is deliberate - HTTPS/SSL support!)
-//WAS: 1.7.2 (1.9.1)
 // Fix jQuery XSS vulnerability (IT notify) [Bug: #8]
+define('jQuery_version', '1.9.1');
 define('OUP_JS_CDN_JQUERY_MIN',
     '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' );
 define('OUP_JS_CDN_JQUERY',

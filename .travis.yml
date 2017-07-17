@@ -29,6 +29,7 @@ install:
 
 script:
   - composer test
+  - composer validate --no-interaction
 
 notifications:
   email:

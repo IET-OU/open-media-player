@@ -20,9 +20,9 @@ Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 ## Requirements
 
 * Linux, Mac OS X or Windows
-* PHP 5.3.3+ (cURL, SimpleXML)
+* PHP 5.5.9+ (cURL, SimpleXML)
     * [Composer][]
-* Apache 2.2+ (mod_rewrite)
+* Apache 2.2+ (mod_rewrite) or Nginx
 
 
 ## Releases
@@ -62,7 +62,7 @@ For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
 ---
 License:  [GPL version 3 onwards][gpl].
 
-© 2011-2016 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
+© 2011-2017 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 
 
 [gpl]: LICENSE.txt "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"

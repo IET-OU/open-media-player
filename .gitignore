@@ -55,5 +55,12 @@ todo*.*
 _docs/*
 _data/*
 /dev*
+/gh-pages
+/iamcal*
+/ouplayer*
+
+/assets
+/engines
+/themes
 
 # *min.js
