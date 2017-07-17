@@ -88,7 +88,11 @@ EOF;
         $providers = $this->_get_oembed_providers();
 
         $p = parse_url($req->url);
-        if (!isset($p['host'])) {
+        // Bug #89, add support for 'url' parameters of type 'URN'.
+        if (preg_match('@^urn:(\w{2,}):.*@', $req->url, $matches)) {
+            $p[ 'host' ] = $matches[ 1 ];
+            $this->_debug([ "'url' parameter of type 'URN' found.", $p ]);
+        } else if (!isset($p['host'])) {
             $this->_error("the parameter 'url' is invalid - missing host.", 400);
         }
         $host = $req->host = str_replace('www.', '', strtolower($p['host']));
