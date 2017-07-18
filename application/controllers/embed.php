@@ -80,22 +80,22 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
             . $this->_options_build_query();
 
         $view_data = array(
-        'meta' => $player,
-        'theme'=> $this->_theme,
-        'debug'=> $this->_debug,
-        'standalone' => false,
-        // Auto-generate 'embed' or 'popup'.
-        'mode' => strtolower(get_class($this)),
-        'context' => $player->shortClass(),
-        'req'  => $this->_request,
-        'google_analytics' => $this->oupodcast_serv->getAnalyticsId(),  #$this->_get_analytics_id('podcast.open.ac.uk'),
-        'popup_url' => $popup_url,
-        // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
-        '_caption_url' => site_url('timedtext/webvtt') .'?url='. $player->caption_url,
+            'meta' => $player,
+            'theme'=> $this->_theme,
+            'debug'=> $this->_debug,
+            'standalone' => false,
+            // Auto-generate 'embed' or 'popup'.
+            'mode' => strtolower(get_class($this)),
+            'context' => $player->shortClass(),
+            'req'  => $this->_request,
+            'google_analytics' => $this->oupodcast_serv->getAnalyticsId(),  #$this->_get_analytics_id('podcast.open.ac.uk'),
+            'popup_url' => $popup_url,
+            // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
+            '_caption_url' => site_url('timedtext/webvtt') .'?url='. $player->caption_url,
         );
         if ($this->_is_popup()) {
             // We don't want a "Pop up" button in the "popup" view.
-            $view_data['popup_url'] = null;
+            $view_data[ 'popup_url' ] = null;
         }
 
 
@@ -106,11 +106,11 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         $this->auth = new \IET_OU\Open_Media_Player\Sams_Auth();
 
         if ($this->auth->is_private_caller()
-        && $player->is_restricted_podcast()) {
+            && $player->is_restricted_podcast()) {
             $this->auth->authenticate();
         } elseif ($restrict_image
-        && $player->is_restricted_podcast()
-        && ! $this->_is_popup()) {
+            && $player->is_restricted_podcast()
+            && ! $this->_is_popup()) {
             $view_data[ 'login_url' ] = \IET_OU\Open_Media_Player\Sams_Auth::login_link($popup_url);
             $view_data['meta']->poster_url = $restrict_image;
             #..pixastic/podcast-pix-emboss-grey-220-strength-3.0-blend-opacity-0.25.png;
@@ -118,7 +118,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 
             return;
         } elseif ($player->is_restricted_podcast()
-        && $this->_is_popup()) {
+            && $this->_is_popup()) {
             // Private podcast, public site, 'popup' view - authenticate.
 
             $this->auth->authenticate();
@@ -140,9 +140,9 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
             // The themed player.
             $this->load->view('ouplayer/ouplayer', $view_data);
         } else {
-                // Basic/ un-themed ('no-script') player.
-                $view_data['standalone'] = true;
-                $this->load->view('ouplayer/player_noscript', $view_data);
+            // Basic/ un-themed ('no-script') player.
+            $view_data['standalone'] = true;
+            $this->load->view('ouplayer/player_noscript', $view_data);
         }
     }
 
@@ -170,7 +170,7 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 
     public function _is_popup()
     {
-        return 'Popup' == get_class($this);
+        return 'Popup' === get_class($this);
     }
 
     protected function _player($class, $options)
@@ -224,29 +224,28 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
         }
 
         $view_data = array(
-        'meta' => $player,
-        'theme'=> $this->_theme,
-        'debug'=> $this->_debug,
-        'standalone' => false,
-        // Auto-generate 'embed' or 'popup'.
-        'mode' => strtolower(get_class($this)),
-        'context' => $player->shortClass(),
-        'req'  => $this->_request,
-        'google_analytics' => $player->is_player('openlearn') || $player->is_player('generic')
-            ? google_analytics_id('openlearn') : null,
-        'popup_url' => site_url("popup/vle?media_url=") . $this->_options_build_query(array(
-                'title' => $player->title, 'media_url' => $player->media_url)),
-        // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
-        '_caption_url' => $player->caption_url .'?r='. mt_rand(1, 1000),
+            'meta' => $player,
+            'theme'=> $this->_theme,
+            'debug'=> $this->_debug,
+            'standalone' => false,
+            // Auto-generate 'embed' or 'popup'.
+            'mode' => strtolower(get_class($this)),
+            'context' => $player->shortClass(),
+            'req'  => $this->_request,
+            'google_analytics' => $player->is_player('openlearn') || $player->is_player('generic')
+                ? google_analytics_id('openlearn') : null,
+            'popup_url' => site_url("popup/vle?media_url=") . $this->_options_build_query([
+                'title' => $player->title, 'media_url' => $player->media_url ]),
+            // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937]
+            '_caption_url' => $player->caption_url .'?r='. mt_rand(1, 1000),
         );
         if ($this->_is_popup()) {
             // We don't want a "Pop up" button in the "popup" view.
-            $view_data['popup_url'] = null;
+            $view_data[ 'popup_url' ] = null;
         } else {
-            //Hack.
-            $view_data['popup_url'] = str_replace('&?', '&', $view_data['popup_url']);
+            // Hack.
+            $view_data[ 'popup_url' ] = str_replace('&?', '&', $view_data[ 'popup_url' ]);
         }
-
 
         // 'New' 2012 Mediaelement-based themes.
         if (preg_match('/oup-light|ouplayer-base|mejs-default/', $this->_theme->name)) {
@@ -254,19 +253,19 @@ class Embed extends \IET_OU\Open_Media_Player\MY_Controller
 
             $this->theme->prepare($player);
 
-            $view_data['params'] = $view_data['meta'];
-            $view_data['params']->debug = $this->_is_debug(OUP_DEBUG_MAX);  #$this->_debug;
-            $view_data['params']->debug_score = $this->_is_debug(1, $score = true);
+            $view_data[ 'params' ] = $view_data[ 'meta' ];
+            $view_data[ 'params' ]->debug = $this->_is_debug(OUP_DEBUG_MAX);  #$this->_debug;
+            $view_data[ 'params' ]->debug_score = $this->_is_debug(1, $score = true);
 
             $this->load->theme_view(null, $view_data);
-        } elseif ('basic'!=$this->_theme->name) {
+        } elseif ('basic' !== $this->_theme->name) {
             // Legacy 2011 Flowplayer-based themes.
             $this->load->view('ouplayer/ouplayer', $view_data);
         } else {
-                $view_data['standalone'] = true;
-                $this->load->view('ouplayer/player_noscript', $view_data);
-                // For now load vle_player - but, SWF is SAMS-protected!
-                #$this->load->view('vle_player', $view_data);
+            $view_data[ 'standalone' ] = true;
+            $this->load->view('ouplayer/player_noscript', $view_data);
+            // For now load vle_player - but, SWF is SAMS-protected!
+            #$this->load->view('vle_player', $view_data);
         }
     }
 }

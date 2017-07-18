@@ -33,8 +33,8 @@ class Oembed extends \IET_OU\Open_Media_Player\MY_Controller
         if (isset($provider->_google_analytics)) {
             $id = $provider->_google_analytics;
             $path = isset($meta->provider_mid) ? $meta->provider_mid : 'p';
-             $image_url = site_url()."track/i/$id/$host/$path/".str_replace(' ', '-', $meta->title).'?title='.urlencode($meta->title);
-             return <<<EOF
+            $image_url = site_url()."track/i/$id/$host/$path/".str_replace(' ', '-', $meta->title).'?title='.urlencode($meta->title);
+            return <<<EOF
 <img class="oup-b" alt="" src="$image_url" />
 EOF;
         }
@@ -124,7 +124,7 @@ EOF;
             $this->_error("the format of the URL for provider '$host' is incorrect. Expecting '$regex_display'.", 400);
         }
 
-    // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
+        // #1319, only try the embed cache DB connection if we absolutely need to! (iet-it-bugs 1319)
         $meta = null;
         if ('IET_OU\\Open_Media_Player\\Oupodcast_Provider' == get_class($this->provider)) {
             #Oupodcast_serv::POD_BASE #preg_match('@@', $host)

@@ -140,9 +140,7 @@ EOF;
     */
     protected function _cli_builder()
     {
-
         $this->_build($this->theme->styles, $this->theme->css_min);
-
     }
 
     /** Build (join) and minify a given array of files.

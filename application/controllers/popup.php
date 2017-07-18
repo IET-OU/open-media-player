@@ -11,7 +11,6 @@ require_once __DIR__ . '/embed.php';
 
 class Popup extends Embed
 {
-
     // Very similar to the embed controller!
 
 

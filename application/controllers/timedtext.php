@@ -32,7 +32,7 @@ class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
     {
 
         $ttml_url = $this->input->get('url');
-      #'http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml';
+        #'http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml';
         $debug = $this->input->get('debug');
 
         if (! $ttml_url) {
@@ -42,7 +42,7 @@ class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
         $p = parse_url($ttml_url);
 
 
-      // A naive check for SRT captions, from VLE etc.
+        // A naive check for SRT captions, from VLE etc.
         $is_srt = 'srt' == pathinfo($p['path'], PATHINFO_EXTENSION);
 
 
@@ -135,16 +135,15 @@ class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
             .$para['begin'].' --> '.$para['end'].PHP_EOL
             .$text .PHP_EOL.PHP_EOL;
         }
-
     }
 
 
 
-  // Captions for Flowplayer-based players.
+    // Captions for Flowplayer-based players.
 
     /**
-  *  OU-podcast player captions - TTML format.
-  */
+    *  OU-podcast player captions - TTML format.
+    */
     public function pod_captions($custom_id, $shortcode, $captions_file = null)
     {
 
@@ -161,11 +160,11 @@ class Timedtext extends \IET_OU\Open_Media_Player\MY_Controller
              #header('Accept-Ranges: bytes');
                 echo file_get_contents($cc_path);
             } else {
-              //Error 404.
+                //Error 404.
                 die('404.1');
             }
         } else {
-      //Error 404.
+            //Error 404.
             die('404.2');
         }
     }

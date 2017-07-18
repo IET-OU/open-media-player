@@ -29,19 +29,18 @@ class Xml_namespace extends \IET_OU\Open_Media_Player\MY_Controller
     */
     public function ou_oembed_extend($layout = null)
     {
-
         $host = $this->input->server('HTTP_HOST');
-        if ($host && false===strpos(self::NS_HOSTS, $host)) {
+        if ($host && false === strpos(self::NS_HOSTS, $host)) {
             $this->_error('The page you requested was not found.', 404.9);
         }
 
         $this->_load_layout($layout);
 
         $view_data = array(
-         'is_ouembed' => $this->_is_ouembed(),
-         'is_live' => $this->_is_live(),
-         'is_demo_page' => false,
-         'is_namespace' => true,
+            'is_ouembed' => $this->_is_ouembed(),
+            'is_live' => $this->_is_live(),
+            'is_demo_page' => false,
+            'is_namespace' => true,
         );
 
         #echo 'XML Namespace for oEmbed extensions: http://embed.open.ac.uk/2012/extend#';

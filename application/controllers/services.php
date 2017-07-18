@@ -48,13 +48,12 @@ class Services extends \IET_OU\Open_Media_Player\MY_Controller
             return $services;
         }
 
-
       // Output.
         $view_data = array(
-        'format' => 'json',
-        'callback' => $callback,
-        'oembed' => array_values($services), # A hack!
-        'not_oembed' => true,
+            'format' => 'json',
+            'callback' => $callback,
+            'oembed' => array_values($services), # A hack!
+            'not_oembed' => true,
         );
         $this->load->send_oembed_response($view_data);
     }

@@ -29,7 +29,7 @@ class Localize extends \IET_OU\Open_Media_Player\MY_Controller
 
         $name = "$lang.po";
         $path = APPPATH ."/language/$name";
-   // MIME: text/x-po
+        // MIME: text/x-po
         if ($download) {
             header('Content-Type: text/x-po; charset=utf-8');
         } else {
@@ -39,9 +39,9 @@ class Localize extends \IET_OU\Open_Media_Player\MY_Controller
             @header("Content-Disposition: inline; filename=$name");
             echo file_get_contents($path);
         } /*elseif (file_exists($path.'t')) { //Template.
-    @header("Content-Disposition: inline; filename=$name".'t');
-    echo file_get_contents($path.'t');
-   }*/
+        @header("Content-Disposition: inline; filename=$name".'t');
+        echo file_get_contents($path.'t');
+        }*/
         else {
             $this->_error("Language pack not found: $lang ($name)", 404);
         }

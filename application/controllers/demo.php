@@ -61,7 +61,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_load_layout($layout);
 
         $player_url = $this->input->get('player_url');
-      //Todo: ou-specific REGEX in config?
+        //Todo: ou-specific REGEX in config?
         if ($player_url && !preg_match('@^http:\/\/mediaplayer\.open\.(ac.uk|edu)$@', $player_url)) {
           // Error - quietly fallback.
             $this->_debug('Warning, invalid {player_url}.');
@@ -195,9 +195,9 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_load_layout($layout);
 
         $view_data = array(
-        'is_ouembed' => $this->_is_ouembed(),
-        'is_live' => $this->_is_live(),
-        'use_oembed' => false,
+            'is_ouembed' => $this->_is_ouembed(),
+            'is_live' => $this->_is_live(),
+            'use_oembed' => false,
         );
         $this->layout->view('test/player-error-test', $view_data);
     }
@@ -266,7 +266,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_sams_check();
 
         $view_data = array(
-        'req' => $this->_request,
+            'req' => $this->_request,
         );
         $this->load->view('vle_demo/learn3-mod-oucontent-many.php', $view_data);
     }
@@ -278,7 +278,7 @@ class Demo extends \IET_OU\Open_Media_Player\MY_Controller
         $this->_sams_check();
 
         $view_data = array(
-        'req' => $this->_request,
+            'req' => $this->_request,
         );
         $this->load->view('vle_demo/learn3-mod-oucontent-fewer.php', $view_data);
     }

@@ -41,6 +41,7 @@ application/language/iet-ou.po
 application/bin/*.txt
 
 todo*.*
+/*.html
 /*.patch
 *.diff
 * copy*

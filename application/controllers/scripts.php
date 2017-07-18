@@ -16,7 +16,6 @@ class Scripts extends \IET_OU\Open_Media_Player\MY_Controller
     public function __construct()
     {
         parent::__construct();
-
     }
 
     /** oEmbed jQuery plugin, scripts/jquery.oembed.js
