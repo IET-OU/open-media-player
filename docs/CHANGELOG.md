@@ -1,7 +1,10 @@
 # Open Media Player
 
-
 ## Version history
+
+Versions 1.2+ and 2.x. Please see:
+
+* <https://github.com/IET-OU/open-media-player/releases>
 
 ### v1.1-26-g731260f
 Release: 5 Jan/ Live: 14 Jan 2015

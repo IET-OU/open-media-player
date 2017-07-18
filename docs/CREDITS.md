@@ -2,7 +2,7 @@
 ## Credits and licenses
 
 
-Open Media player: Copyright © 2010-2015 The Open University.
+Open Media player: Copyright © 2010-2017 The Open University.
  * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology.
 
 OUP-Light theme: Copyright 2012 The Open University.
@@ -22,7 +22,8 @@ Open Media Player/OU embed translations.
  * Chinese Simplified: Guangyu Yang Freear.
 
 Based on CodeIgniter 2.1.3, (2.1.3-0-g05e8c03) (2012-10-08)
- * Code: <https://github.com/EllisLab/CodeIgniter/commit/05e8c03b6742033c>
+ * Code: <https://github.com/bcit-ci/CodeIgniter/commit/05e8c03b6742033c>
+ * Legacy: <https://github.com/EllisLab/CodeIgniter/commit/05e8c03b6742033c>
 
 CodeIgniter: Copyright (c) 2008 - 2011, EllisLab, Inc.
  * License: <http://codeigniter.com/user_guide/license.html>

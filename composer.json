@@ -1,6 +1,6 @@
 {
   "name": "iet-ou/open-media-player",
-  "description": "A mainstream audio and video player service that puts accessibility front and centre. Built on MediaElement.js, CodeIgniter & oEmbed. From The Open University.",
+  "description": "A mainstream audio and video player service that puts accessibility front and centre. Built on MediaElement.js and oEmbed. From The Open University.",
   "keywords": [ "ouplayer", "MediaPlayer", "audio", "video", "mediaelementjs", "oEmbed", "accessibility", "OpenUniversity", "IET-OU" ],
   "homepage": "https://iet-ou.github.io/open-media-player/",
   "type": "project",
@@ -60,7 +60,7 @@
     "env-suggest": "Nfreear\\Composer\\Suggest::dotEnvTemplate",
     "test": [
       "php index.php build/revision",
-      "parallel-lint --exclude vendor .",
+      "parallel-lint --exclude vendor --exclude BAK .",
       "php vendor/bin/dyn-phpcs-xml.php --no-ns --cfn vendor/iet-ou/open-media-player-core/phpcs.xml > phpcs-1.xml",
       "phpcs --standard=./phpcs-1.xml -n --encoding=utf-8 --extensions=php application/*"
     ],
