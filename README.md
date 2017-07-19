@@ -38,17 +38,19 @@ Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 
 --
 
-* <http://embed.open.ac.uk>
+* <https://embed.open.ac.uk>
 * <https://mediaplayer.open.ac.uk>
 
-## Installation
+## Install ... Test
 
 * See the [installation guide on the Wiki][install].
 
 In brief, using [Composer][]:
 
-```
+```sh
 composer create-project iet-ou/open-media-player --no-dev -sdev --prefer-dist
+composer npm-install
+composer test
 ```
 
 ## Credits
@@ -99,4 +101,4 @@ License:  [GPL version 3 onwards][gpl].
 [trans]: http://weblate.iet.open.ac.uk/projects/open-media-player/core "Translation status"
 [trans-icon]: http://weblate.iet.open.ac.uk/widgets/open-media-player/-/shields-badge.svg?utm_source=widget
 
-[End]: http://example
+[End]: //

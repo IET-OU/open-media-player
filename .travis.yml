@@ -17,13 +17,15 @@ php:
   #- hhvm
 
 before_install:
-  - composer self-update
-  #- composer config secure-http false
+  - nvm install v4.4
+  - npm install npm -g
+  - npm --version
   - composer config --list
 
 install:
   - composer generic-env
-  - composer install --prefer-source
+  - composer install
+  - composer npm-install
 
 script:
   - composer test
