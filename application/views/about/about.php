@@ -54,17 +54,17 @@ Browser: <?php echo $this->input->server('HTTP_USER_AGENT') ?>
 <script>
 var jq = jQuery.noConflict();
 </script>
-<script src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
+<script data-X-src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
 
 <script src="<?php echo base_url() ?>engines/mediaelement/build/mediaelement-and-player.min.js"></script>
 <script>
-jQuery(document).ready(function() {
+jQuery(function ($) {
 
 	$('#mejs-version').html( mejs.version );
-	//$('#jeesh-version').html( ender );
+	// $('#jeesh-version').html( ender );
 	$('#jquery-version').html( jQuery.fn.jquery );
-	//$('#ua').html( navigator.userAgent );
+	// $('#ua').html( navigator.userAgent );
 
-	//console.log( $._VERSION );
+	// console.log( $._VERSION );
 });
 </script>

@@ -65,8 +65,8 @@ You have three options to share this content: <ol>
 <script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script src="<?php echo $player_url .'scripts/jquery.oembed.js' ?>"></script>
 <script>
-$(document).ready(function() {
-&nbsp; $("a.embed").oembed(<?php #null, { "maxwidth": 800 } ?>);
+jQuery(function ($) {
+&nbsp; $('a.embed').oembed(<?php // null, { 'maxwidth': 800 } ?>);
 });
 </script><?php
     $jquery_oembed = ob_get_clean();

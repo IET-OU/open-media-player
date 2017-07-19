@@ -48,7 +48,7 @@ There is also a longer form and the two can be freely interchanged in the oEmbed
 
 The endpoint for the oEmbed API is,
 
- * Endpoint: [`http://mediaplayer-dev.open.ac.uk/oembed`][ouplayer-api]
+ * Endpoint: [`https://mediaplayer.open.ac.uk/oembed`][ouplayer-api]
  * Example: <https://mediaplayer.open.ac.uk/oembed?url=http%3A//podcast.open.ac.uk/pod/student-experiences%23!db6cc60d6b>
 
 ### GET parameters ####
@@ -94,9 +94,9 @@ A simple HTML example:
 <script src="https://unpkg.co/jquery@3.2.1/dist/jquery.min.js"></script>
 <script src="https://embed.open.ac.uk/scripts/jquery.oembed.js"></script>
 <script>
-	jQuery(function ($) {
-	  $('a.embed').oembed();
-	});
+  jQuery(function ($) {
+    $('a.embed').oembed();
+  });
 </script>
 ```
 
@@ -104,13 +104,13 @@ An example with a custom parameter (`theme: oup-light`):
 
 ```html
 <script>
-	jQuery(function ($) {
-	  $('a.embed').oembed(null, {
-	      oupodcast: {
-		    theme: 'oup-light'
-		  }
-	  });
-	});
+  jQuery(function ($) {
+    $('a.embed').oembed(null, {
+      oupodcast: {
+        theme: 'oup-light'
+      }
+    });
+  });
 </script>
 ```
 
@@ -121,11 +121,11 @@ This is the suggested syntax for a direct embed using a HTML5 `<iframe>`
 
 ```html
 <iframe
-	width="560"
-	height="315"
-	frameborder="0"
-	src="https://mediaplayer.open.ac.uk/embed/pod/student-experiences/db6cc60d6b"
-	allowfullscreen
+  width="560"
+  height="315"
+  frameborder="0"
+  src="https://mediaplayer.open.ac.uk/embed/pod/student-experiences/db6cc60d6b"
+  allowfullscreen
 >
 </iframe>
 ```
@@ -134,12 +134,12 @@ This is the suggested syntax for a direct embed using a HTML5 `<iframe>`
 
  1. `width="100%"` is useful, it appears to be widely supported in browsers, but it is not valid [HTML5][html5-iframe] ("_...valid non-negative integers_"),
  2. `frameborder="0"` is not valid HTML5. However, it is easier to override in stylesheets and more backwards-compatible than `style="border:none"`,
- 3. `allowfullscreen` and the vendor specific `(moz|webkit)allowfullscreen` are not currently part of the [HTML5 specification][html5-iframe], but are needed to make fullscreen work ([`allowfullscreen` is in a separate document][w3c-fullscreen], [Mozilla page][moz-allowfull] and [bug tracker][w3c-bug-full]).
- 4. See also, [Embedding a YouTube player][youtube-how].
+ 3. `allowfullscreen` was not part of the [HTML5 specification][html5-iframe]. It is needed to make fullscreen work ([`allowfullscreen` is in a separate document][w3c-fullscreen], [Mozilla page][moz-allowfull] and [bug tracker][w3c-bug-full]).
+ 4. See also, [embedding a YouTube player][youtube-how].
 
 
 [html5-iframe]: http://whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-iframe-element "4.8.2 The iframe element, HTML5 Living Standard —"
-[w3c-bug-full]: https://www.w3.org/Bugs/Public/buglist.cgi?quicksearch=allowfullscreen "Bug 18840 - Fullscreen changes"
+[w3c-bug-full]: https://w3.org/Bugs/Public/buglist.cgi?quicksearch=allowfullscreen "Bug 18840 - Fullscreen changes"
 [w3c-fullscreen]: http://w3.org/TR/2012/WD-fullscreen-20120703/#security-and-privacy-considerations "Fullscreen; W3C Working Draft 03 July 2012"
 [moz-allowfull]: https://developer.mozilla.org/en-US/docs/HTML/Element/iframe#attr-mozallowfullscreen "(moz|webkit)allowfullscreen attributes; Mozilla"
 [oembed]: http://oembed.com/ "oEmbed specification. ~2009, Cal Henderson & contributors."
