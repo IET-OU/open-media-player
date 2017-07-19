@@ -84,7 +84,7 @@ $(document).ready(function () {
     panel.append('AJAX call completed. Status: ' + req.statusText + '\n * <a href="' + op.url + '">' + op.url + '</a>\n');
     if (req.status === 200) {
       var json = jsonPrettyPrint(req.responseText);
-      panel.append(' * oEmbed response:' + json.replace('<', '&lt;'));
+      panel.append(' * oEmbed response:' + json.replace(/</g, '&lt;'));
     }
   });
 
