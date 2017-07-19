@@ -68,7 +68,10 @@ window.jQuery(function ($) {
   });
 });
 
-window.jQuery(function ($) {
+// NOT: 'window.jQuery(function () {..})' ~ otherwise 'ajaxStart' is too late!!
+(function ($) {
+  'use strict';
+
   var panel = $('#ajax-log');
 
   if (typeof $(document).ajaxStart !== 'function') {
@@ -77,8 +80,8 @@ window.jQuery(function ($) {
 
   $(document).ajaxStart(function (ev) {
     $.oup_site_debug = true;
-
     $.log('Ajax start handler.', ev);
+
     panel.text('AJAX call started.\n'); // Note, .text() here, .append() below.
     $.oup_timestamp = ev.timeStamp;
   });
@@ -114,4 +117,4 @@ window.jQuery(function ($) {
   }
 
   // .
-});
+})(window.jQuery);
