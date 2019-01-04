@@ -1,4 +1,4 @@
-# see http://about.travis-ci.org/docs/user/languages/php/
+# see https://docs.travis-ci.com/user/languages/php/
 language: php
 
 # blacklist
@@ -17,8 +17,8 @@ php:
   #- hhvm
 
 before_install:
-  - nvm install v4.4
-  - npm install npm -g
+  - nvm install v8
+  #- npm install npm -g
   - npm --version
   - composer config --list
 

@@ -75,7 +75,7 @@ class Scripts extends \IET_OU\Open_Media_Player\MY_Controller
      #$script = str_replace(': "http://oohembed.com/oohembed/"', ': "http://api.embed.ly/v1/api/oembed"', $script);
         $script = str_replace(': "oohembed"', ': "embed.ly"', $script);
         $out = '/*auto-generated: '.date('c').' */'.PHP_EOL
-          .str_replace('/*__PROVIDERS__*/', $script_prov, $script);
+          .str_replace('/* __PROVIDERS__ */', $script_prov, $script);
 
         $this->_cache_save($cache_key, $out);
 

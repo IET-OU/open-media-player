@@ -4,21 +4,21 @@
   "keywords": [ "ouplayer", "MediaPlayer", "audio", "video", "mediaelementjs", "oEmbed", "accessibility", "OpenUniversity", "IET-OU" ],
   "homepage": "https://iet-ou.github.io/open-media-player/",
   "type": "project",
-  "license": "GPL-3.0+",
+  "license": "GPL-3.0-or-later",
   "minimum-stability": "dev",
   "authors": [
-    { "name": "Nick Freear (@nfreear)", "role": "developer", "homepage": "https://twitter.com/nfreear" },
-    { "name": "Peter Devine (@peterdevinegmd)", "role": "designer", "homepage": "http://devine.co.uk/peter/" },
+    { "name": "Nick Freear (@nfreear)", "role": "developer", "homepage": "https://nick.freear.org.uk/" },
+    { "name": "Peter Devine (@peterdevinegmd)", "role": "designer", "homepage": "https://devine.co.uk/peter/" },
     { "name": "& many others", "homepage": "https://github.com/IET-OU/open-media-player/blob/2.x/docs/CREDITS.md" }
   ],
   "support": {
-    "email": "iet-webmaster@open.ac.uk",
+    "email": "iet-ltt-support@open.ac.uk",
     "forum": "https://groups.google.com/group/open-media-player",
     "issues": "https://github.com/IET-OU/open-media-player/issues",
     "source": "https://github.com/IET-OU/open-media-player"
   },
   "require": {
-    "php": ">=5.5.9",
+    "php": ">= 5.6",
     "ext-curl": "*",
     "ext-xml": "*",
     "nfreear/composer-suggest": "^1.2",
@@ -44,7 +44,7 @@
     }
   ],
   "scripts": {
-    "npm-install": "npm i semistandard",
+    "npm-install": "npm i semistandard@^13",
     "generic-env": [
       "mkdir _data",
       "php application/bin/cpn application/config/.env-generic .env"
@@ -67,6 +67,8 @@
       "phpcs --standard=./phpcs-1.xml -n --encoding=utf-8 --extensions=php application/*",
       "node_modules/.bin/semistandard  application/assets/site/**/*.js"
     ],
+    "semi": "node_modules/.bin/semistandard application/assets/client/*.js",
+    "sfix": "node_modules/.bin/semistandard application/assets/client/*.js --fix",
     "test-vend": "parallel-lint vendor/iet-ou",
     "test-cs": [
       "phpcs --standard=./phpcs.xml -n --encoding=utf-8 --extensions=php application/*"
