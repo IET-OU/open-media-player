@@ -20,7 +20,7 @@ Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 ## Requirements
 
 * Linux, Mac OS X or Windows
-* PHP 5.5.9+ (cURL, SimpleXML)
+* PHP 5.6+ (cURL, SimpleXML)
     * [Composer][]
 * Apache 2.2+ (mod_rewrite) or Nginx
 
@@ -53,22 +53,21 @@ composer npm-install
 composer test
 ```
 
+## GDPR
+
+Details of GDPR / privacy actions can be found in [Bug #92][].
+
 ## Credits
 
-Open Media Player: Copyright © 2016 The Open University.
+ * Author: Nick Freear / [Institute of Educational Technology][iet], & many others.
+ * For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
+ * License:  [GPL version 3 onwards][gpl].
 
-* Author: Nick Freear / [Institute of Educational Technology][iet], & many others.
-
-For full credits and licenses see [docs/CREDITS.md](docs/CREDITS.md)
-
----
-License:  [GPL version 3 onwards][gpl].
-
-© 2011-2017 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
+_Open Media Player_: © 2011-2017 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 
 
 [gpl]: LICENSE.txt "GNU General Public License 3.0 or (at your option) any later version / GPL-3.0+"
-[gpl-ext]: http://gnu.org/licenses/gpl.html "GPL-3.0+"
+[gpl-ext]: https://gnu.org/licenses/gpl.html "GPL-3.0+"
 [code]: https://github.com/IET-OU/open-media-player
 [IET-OU/open-media-player-core]: https://github.com/IET-OU/open-media-player-core "License: GPL-3.0+"
 [IET-OU/open-media-player-themes]:  https://github.com/IET-OU/open-media-player-themes "License: MIT"
@@ -76,10 +75,10 @@ License:  [GPL version 3 onwards][gpl].
 [IET-OU/open-oembed-providers]:  https://github.com/IET-OU/open-oembed-providers
 [install]: https://github.com/IET-OU/open-media-player/wiki/Install
 [Composer]: https://getcomposer.org/
-[MediaElement.js]: http://mediaelementjs.com/
-[oEmbed]: http://oembed.com/ "oEmbed API specification"
-[iet]: http://iet.open.ac.uk/
-[ou]: http://www.open.ac.uk/
+[MediaElement.js]: https://mediaelementjs.com/
+[oEmbed]: https://oembed.com/ "oEmbed API specification"
+[iet]: https://iet.open.ac.uk/
+[ou]: https://www.open.ac.uk/
 
 [packagist]: https://packagist.org/packages/IET-OU/open-media-player
 [packagist-icon]: https://img.shields.io/packagist/v/IET-OU/open-media-player.svg#!v2.x-dev
@@ -100,5 +99,6 @@ License:  [GPL version 3 onwards][gpl].
 
 [trans]: http://weblate.iet.open.ac.uk/projects/open-media-player/core "Translation status"
 [trans-icon]: http://weblate.iet.open.ac.uk/widgets/open-media-player/-/shields-badge.svg?utm_source=widget
+[bug #92]: https://github.com/IET-OU/open-media-player/issues/92 "GDPR/privacy"
 
 [End]: //
