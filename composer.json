@@ -65,7 +65,7 @@
       "parallel-lint --exclude vendor --exclude BAK .",
       "php vendor/bin/dyn-phpcs-xml.php --no-ns --cfn vendor/iet-ou/open-media-player-core/phpcs.xml > phpcs-1.xml",
       "phpcs --standard=./phpcs-1.xml -n --encoding=utf-8 --extensions=php application/*",
-      "node_modules/.bin/semistandard  application/assets/site/**/*.js"
+      "node_modules/.bin/semistandard application/assets/client/**/*.js"
     ],
     "semi": "node_modules/.bin/semistandard application/assets/client/*.js",
     "sfix": "node_modules/.bin/semistandard application/assets/client/*.js --fix",

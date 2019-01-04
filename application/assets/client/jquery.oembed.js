@@ -13,6 +13,9 @@
 
 // Revision #23 on Google Code (was #20).
 
+/* eslint no-useless-escape: "off" */
+/* global getOEmbedProvider */
+
 (function ($) {
   $.fn.oembed = function (url, options, embedAction) {
     settings = $.extend(true, $.fn.oembed.defaults, options);
