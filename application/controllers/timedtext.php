@@ -39,6 +39,12 @@ class Timedtext extends MY_Controller { #CI_Controller {
       $this->_error("Error, 'url' is a required parameter.", 400);
     }
 
+    // Security.
+    if (! preg_match('@^https?:\/\/podcast.open.ac.uk\/@', $ttml_url)) {
+      $this->_error("Error, bad 'url' parameter.", 400);
+      return;
+    }
+
     $p = parse_url($ttml_url);
 
 
