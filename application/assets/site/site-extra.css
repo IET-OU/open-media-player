@@ -38,9 +38,9 @@ li.tm-extern a:focus,
 li [ rel = external ]:hover,
 li [ rel = external ]:focus {
   background-image: url(https://www.open.ac.uk/includes/icons/16x16px/02weblink16.gif);
-  background-image:url(icons/external_link_16.png);
-  background-repeat:no-repeat;
-  background-position:bottom right;
+  x-background-image: url(icons/external_link_16.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
 
 li.X-tm-demo-vle a:hover {

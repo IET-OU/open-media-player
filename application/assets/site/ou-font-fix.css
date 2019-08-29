@@ -12,23 +12,37 @@
   --x-easter: 'Hello World!';
 }
 
-.int-icon {
+.X-int-icon {
   font-family: 'PT Sans', 'Open Sans', sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
 }
 
-.int-icon-chevron-up:before {
+.X-int-icon-chevron-up:before {
   content: '\2191'; /* '^'; Was: "\f077"; */
-
-  x-display: inline-block;
-  x-position: relative;
-  x-top: .5rem;
 }
 
-.int-icon-arrow-circle-down:before {
+.X-int-icon-arrow-circle-down:before {
   content: '\2193'; /* ↓ &darr; Was: "\f0ab"; */
 }
+
+
+/*!
+ * Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@font-face {
+  font-family: FontAwesome;
+  src: url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.2.0);
+  src: url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0) format('embedded-opentype'),
+       url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.2.0) format('woff'),
+       url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.2.0) format('truetype'),
+       url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular) format('svg');
+  font-weight: 400;
+  font-style: normal
+}
+
 
 /* End. */
 
