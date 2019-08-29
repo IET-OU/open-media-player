@@ -57,9 +57,9 @@ define('OUP_BUG_URL', 'https://github.com/IET-OU/open-media-player/issues');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
 define('OUP_CONTACT_URL', 'mailto:IET-Webmaster@open.ac.uk?subject=Open Media Player feedback:');
 
-define('OUP_CLOUD_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
+define('OUP_CLOUD_URL', 'https://cloudworks.ac.uk/tag/view/oEmbed'); // Was: 'view/ouplayer'
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
-define('OUP_FLASH_URL', 'http://adobe.com/go/getflashplayer');
+define('OUP_FLASH_URL', 'https://get.adobe.com/flashplayer/');
 
 // ('//' is deliberate - HTTPS/SSL.)
 define('OUP_NOEMBED_STYLE_URL', '//noembed.com/noembed.css');
@@ -91,8 +91,8 @@ define('OUP_JS_CDN_ENDER',     '//dnmrmlfxy5gpj.cloudfront.net/jeesh.js');
 
 // Fix jQuery XSS vulnerability (IT notify) [Bug: #8]
 define( 'jQuery_version', '3.2.1' );
-define( 'OUP_JS_CDN_JQUERY_MIN', 'https://unpkg.co/jquery@3.2.1/dist/jquery.min.js' );
-define( 'OUP_JS_CDN_JQUERY', 'https://unpkg.co/jquery@3.2.1/dist/jquery.js' );
+define( 'OUP_JS_CDN_JQUERY_MIN', 'https://unpkg.com/jquery@3.4.1/dist/jquery.min.js' );
+define( 'OUP_JS_CDN_JQUERY', 'https://unpkg.com/jquery@3.4.1/dist/jquery.js' );
 
 
 // "Link to jQuery 1.7+ on a CDN - shared by jquery-oembed demos (and the Player depending on config[jslib])."
