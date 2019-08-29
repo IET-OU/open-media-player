@@ -5,7 +5,7 @@
 |--------------------------------------------------------------------------
 */
 
-// Site layout: 'bare' (or 'ouice_2' - ou-specific)
+// Site layout: 'bare' (or 'oueep_2019', or 'ouice_2' - ou-specific)
 $config[ 'site_layout' ] = 'bare';
 
 // For when the site is behind a forward proxy (eg. '/approval/')

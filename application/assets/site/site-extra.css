@@ -21,18 +21,29 @@ body.pg-player-home li.tm-player-home a, .pg-demo li.tm-demo a, .pg-about li.tm-
     background-image:none;
 }
 
-/* Icons: http://www.open.ac.uk/blogs/icons/?s=lock /?s=external
+
+/*
+  ---------------------------------------------------------------------
+  OU Icons ~  http://www.open.ac.uk/blogs/icons/?s=lock /?s=external
 */
-ul.ou-sections li.tm-extern a, ul.ou-sections li.X-tm-demo-vle a{
-  padding-right:15px;
+
+li a[ rel = external ],
+ul.ou-sections li.tm-extern a,
+ul.ou-sections li.X-tm-demo-vle a {
+  padding-right: 15px;
 }
-li.tm-extern a:hover, li.tm-extern a:focus, li [rel=external]:focus{
-  background-image:url(http://www.open.ac.uk/includes/icons/16x16px/02weblink16.gif);
+
+li.tm-extern a:hover,
+li.tm-extern a:focus,
+li [ rel = external ]:hover,
+li [ rel = external ]:focus {
+  background-image: url(https://www.open.ac.uk/includes/icons/16x16px/02weblink16.gif);
   background-image:url(icons/external_link_16.png);
   background-repeat:no-repeat;
   background-position:bottom right;
 }
-li.X-tm-demo-vle a:hover{
+
+li.X-tm-demo-vle a:hover {
   background-image:url(/ouplayer/assets/site/icons/lock_16.png);
   background-repeat:no-repeat;
   background-position:bottom right;
@@ -78,3 +89,48 @@ input#url:focus, textarea:focus{ box-shadow:0 0 25px #c0c0c0; background:#fff; }
 .pg-admin-phpinfo td, .pg-admin-phpinfo th {
   font-size: 85%;
 }
+
+
+/*
+  ---------------------------------------------------------------------
+  Bootstrap alerts ~ https://getbootstrap.com/docs/4.3/components/alerts/
+*/
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-warning .alert-link {
+    color: #533f03;
+}
+
+.alert-link {
+    font-weight: 700;
+}
+
+.alert-warning hr {
+    border: 0px solid transparent;
+    x-background-color: transparent;
+    border-top: 3px solid #ffeeba;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.x-oup-test-warning {
+    margin-top: .8rem;
+}
+
+/* End. */
+

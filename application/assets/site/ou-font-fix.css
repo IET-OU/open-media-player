@@ -1,0 +1,34 @@
+/*!
+  CSS style fixes, etc. -- inject FontAwesome fonts from the Bootstrap CDN.
+
+  See :~ https://www.open.ac.uk/oudigital/v4/eep/css/screen.css#line=2&search=fontawesome
+*/
+
+/* https://stackoverflow.com/questions/38336341/css-variables-and-string-concatenation */
+
+:root {
+  --OU-font-fix--FA-cdn: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/';
+  --x-lorem-ipsum-line-height: 2;
+  --x-easter: 'Hello World!';
+}
+
+.int-icon {
+  font-family: 'PT Sans', 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.int-icon-chevron-up:before {
+  content: '\2191'; /* '^'; Was: "\f077"; */
+
+  x-display: inline-block;
+  x-position: relative;
+  x-top: .5rem;
+}
+
+.int-icon-arrow-circle-down:before {
+  content: '\2193'; /* ↓ &darr; Was: "\f0ab"; */
+}
+
+/* End. */
+
