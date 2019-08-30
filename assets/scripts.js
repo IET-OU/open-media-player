@@ -5,15 +5,13 @@
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 
-$(function () {
+window.jQuery(function ($) {
 
-    var W = window
-      , L = W.location
-      ;
+    const WIN = window;
+    const LOC = WIN.location;
+    const ga = WIN.ga;
 
-
-    //$("iframe.omp-player").attr("src", $("meta[ name = omp-embed-url ]").first().attr("content"));
-
+    // $("iframe.omp-player").attr("src", $("meta[ name = omp-embed-url ]").first().attr("content"));
 
     // Analytics.
     ga('create', 'UA-24005173-1', 'auto');
@@ -29,7 +27,7 @@ $(function () {
         // External URL.
         ga('send', 'event', 'link', 'click', text +' '+ url);
 
-        W.console && console.log("Track extern link click:", text, url);
+        console.warn("Track extern link click:", text, url);
       }
 
       //ev.preventDefault();
@@ -40,21 +38,21 @@ $(function () {
     var $widget = $(".omp-widget")
       , $area = $("#copy-area")
       , html = $widget[0].outerHTML
-      , U = W.location.href.replace(/#.*/, '')
+      , U = LOC.href.replace(/#.*/, '')
       ;
 
     $area.val(html.replace(/\.\//g, U));
 
     //TODO: ? http://stackoverflow.com/questions/5797539/jquery-select-all-text-from-a-textarea
 
-    setTimeout(function () {
-      if ("#share" === W.location.hash) {
+    WIN.setTimeout(function () {
+      if ("#share" === LOC.hash) {
         $("#share > button").trigger("click");
       }
     }, 100);
 
 
-    if (L.search.match(/[\?&]anti.?glare=\w/)) {
+    if (LOC.search.match(/[\?&]anti.?glare=\w/)) {
       $("body").addClass("anti-glare");
     }
 
