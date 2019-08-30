@@ -250,10 +250,12 @@ img[ src *= "elevator.jisc.ac.uk" ] {
   max-width: 1050px; /*840px;*/
   margin: 0 auto;
 }
+
 iframe {
-  background: #eee url(http://throbber.net/loader-large.gif) no-repeat center;
+  background: #eee url(images/loader.svg) no-repeat center; /* Was: url(http://throbber.net/loader-large.gif) */
   /* http://preloaders.net/en/circular */
 }
+
 iframe.omp-player {
   display: inline-block;
   border: 5px solid #ddd;

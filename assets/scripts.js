@@ -15,7 +15,7 @@ window.jQuery(function ($) {
 
     // Analytics.
     ga('create', 'UA-24005173-1', 'auto');
-    ga('send', 'pageview', '/iet-ou.github.io' + L.pathname + L.search);
+    ga('send', 'pageview', '/iet-ou.github.io' + LOC.pathname + LOC.search);
 
 
     // Event tracking: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
