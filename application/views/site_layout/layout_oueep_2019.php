@@ -235,15 +235,21 @@
 <?php if ($is_ouembed): ?>
 	<li class='all ou-nav-inactive'><a href="<?= $base_url ?>demo/ouldi"><span>OU/OULDI embeds</spam></a></li>
 <?php endif; ?>
-	<li class='all ou-nav-inactive'><a href="https://iet-ou.github.io/open-media-player/" title="<?= site_name() ?> –  the open source project" rel="external"><span>Project</spam></a></li>
+<?php if (! $is_live): ?>
+        <li class='all ou-nav-inactive'><a href="<?= $base_url ?>test_area" rel="nofollow"><span> Test Area </span></a>
+<?php endif; ?>
+        <li class='all ou-nav-inactive'><a href="<?= $base_url ?>about/links" title="Useful Links"><span> Useful Links </span></a>
 <?php /*
+	<li class='all ou-nav-inactive'><a href="https://iet-ou.github.io/open-media-player/" title="<?= site_name() ?> –  the open source project" rel="external"><span>Project</spam></a></li>
+<!--
     - https://web.archive.org/web/20170301223130/http://www.open.ac.uk/blogs/LTT_IET/category/open-media-player/
     - https://nick.freear.org.uk/2015/08/20/introducing-open-media-player.html
   <li class='all ou-nav-inactive'><a href="<?= OUP_BLOG_URL ?>"><span>Blog</spam></a></li>
-*/ ?>
+-->
 	<li class='all ou-nav-inactive'><a href="https://www.open.ac.uk/disability/" title="Services for disabled students – external OU" rel="external"><span>Disabled serices</spam></a></li>
 	<li class='all ou-nav-inactive'><a href="https://podcast.open.ac.uk/"  title="Open University Podcasts – external OU" rel="external"><span>OU Podcasts</spam></a></li>
 	<li class='all ou-nav-inactive'><a href="https://www.open.edu/itunes/" title="The Open University on iTunes U – external OU" rel="external"><span>iTunes U</spam></a></li>
+*/ ?>
 </ul>
 </div>
 

@@ -9,7 +9,7 @@
 
 class About extends MY_Controller {
 
-  #const LAYOUT = 'ouice_2';
+  // const LAYOUT = 'ouice_2';
 
 
   public function index() {
@@ -38,6 +38,7 @@ class About extends MY_Controller {
      	$rev = $this->gitlib->get_revision();
 
      	$view_data = array(
+                'page_title' => 'Useful links',
      		'is_ouembed' => $this->_is_ouembed(),
      		'is_live' => $this->_is_live(),
      		'is_demo_page' => FALSE,

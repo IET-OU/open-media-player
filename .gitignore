@@ -34,6 +34,7 @@ node_modules/*
 * copy*
 *OLD*
 *ORIG*
+*BAK*
 *.log
 *.mo
 
@@ -44,7 +45,6 @@ _docs/*
 
 # *min.js
 
-
 # New for 2016 (gae)
 
 application/_data
@@ -54,5 +54,4 @@ composer.lock
 app.yaml
 php.ini
 
-
-#End.
+# End.
