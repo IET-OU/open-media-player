@@ -6,8 +6,9 @@ class Layout
     
     var $obj;
     var $layout;
-    
-    function Layout($layout = "layout_main")
+
+    public function __construct($layout = 'layout_main')
+    // Was: function Layout($layout = "layout_main")
     {
 #ou-specific bug fix
         if (is_array($layout)) {

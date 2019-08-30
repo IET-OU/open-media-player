@@ -1,4 +1,7 @@
 <?php
+
+/** -- DEPRECATED! -- Use 'layout_oueep_2019.php' -- **/
+
 /**
  * OUICE 3 site template/layout: "Study at the OU"  (Drupal)
  *

@@ -36,21 +36,22 @@ Browser: <?php echo $this->input->server('HTTP_USER_AGENT') ?>
 <p>NOTE: some demos on this site use the <a href="<?php echo site_url('scripts/jquery.oembed.js') ?>" rel="nofollow">jquery-oembed plugin</a>.
 <p>You can also report bugs and give feedback to <a href="<?php echo OUP_CONTACT_URL ?>">IET-Webmaster@open.ac.uk</a>.
 
-
-<script>
-var jq = jQuery.noConflict();
-</script>
-<script src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
+<!--
+  <script>
+  var jq = jQuery.noConflict();
+  </script>
+  <script src="<?php echo OUP_JS_CDN_ENDER_MIN ?>"></script>
+-->
 
 <script src="<?php echo base_url() ?>/engines/mediaelement/build/mediaelement-and-player.min.js"></script>
 <script>
-jQuery(document).ready(function() {
+jQuery(function () {
 
 	$('#mejs-version').html( mejs.version );
-	//$('#jeesh-version').html( ender );
+	// $('#jeesh-version').html( ender );
 	$('#jquery-version').html( jQuery.fn.jquery );
-	//$('#ua').html( navigator.userAgent );
+	// $('#ua').html( navigator.userAgent );
 
-	//console.log( $._VERSION );
+	// console.log( $._VERSION );
 });
 </script>

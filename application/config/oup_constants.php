@@ -20,6 +20,9 @@ define('OUP_DEBUG_MIN',  1);
 define('OUP_DEBUG_MAX',  2);
 
 
+// Website layout ~ Was: 'ouice_2'.
+
+define('OUP_SITE_LAYOUT', 'oueep_2019');
 
 /*
 |--------------------------------------------------------------------------
@@ -29,13 +32,12 @@ define('XMLNS_OU_OEMBED_EXTEND', 'http://embed.open.ac.uk/2012/extend#');
 define('XMLNS_OU_RSS_PLAYER', 'http://podcast.open.ac.uk/2012');
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Resource URL - Stylesheet/JS base URL for OUICE layout/template view (Was: www8).
 | ('//' is deliberate - HTTPS/SSL - 'www3..' is available via HTTPS/SSL.)
 */
-define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
+define('OUP_OU_RESOURCE_URL', 'https://www3.open.ac.uk');
 
 
 /*
@@ -44,17 +46,17 @@ define('OUP_OU_RESOURCE_URL', '//www3.open.ac.uk');
 | http://freear.org.uk/content/ou-media-player-project | http://freear.org.uk/content/ou-embed-proposal
 | mailto:N.D.Freear+@+open.ac.uk?subject=OU+player
 */
-define('OUP_BLOG_URL', 'http://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
-define('OUP_BLOG_RSS_URL', 'http://cloudworks.ac.uk/tag/rss/oEmbed');
+define('OUP_BLOG_URL', 'https://cloudworks.ac.uk/tag/view/oEmbed'); #Was: 'view/ouplayer'
+define('OUP_BLOG_RSS_URL', 'https://cloudworks.ac.uk/tag/rss/oEmbed');
 define('OUP_HELP_URL', 'https://msds.open.ac.uk/students/help.aspx');
 define('OUP_CONTACT_URL', 'mailto:IET-Webmaster@open.ac.uk?subject=OU Player feedback:');
 
 define('OUP_DRUPAL_URL', 'http://www.open.ac.uk/wikis/drupal/');
-define('OUP_FLASH_URL', 'http://adobe.com/go/getflashplayer');
+define('OUP_FLASH_URL', 'https://get.adobe.com/flashplayer/');
 
 // ('//' is deliberate - HTTPS/SSL.)
-define('OUP_NOEMBED_STYLE_URL', '//noembed.com/noembed.css');
-define('OUP_NOEMBED_END_URL', 'http://noembed.com/embed');
+define('OUP_NOEMBED_STYLE_URL', 'https://noembed.com/noembed.css');
+define('OUP_NOEMBED_END_URL', 'https://noembed.com/embed');
 
 // URL parameter names (eg. http://example.org/path?param=value)
 
@@ -84,16 +86,13 @@ define('OUP_JS_CDN_ENDER',     '//dnmrmlfxy5gpj.cloudfront.net/jeesh.js');
 //WAS: 1.7.2 (1.9.1)
 // Fix jQuery XSS vulnerability (IT notify) [Bug: #8]
 define('OUP_JS_CDN_JQUERY_MIN',
-    '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' );
+    'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' );
 define('OUP_JS_CDN_JQUERY',
-    '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js' );
-
+    'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js' );
 
 
 // "Link to jQuery 1.7+ on a CDN - shared by jquery-oembed demos (and the Player depending on config[jslib])."
 // Note, the Player implements a JS fallback for the jQuery CDN.
 
-
-//header('Content-Type: text/plain;');
-//var_dump(get_defined_constants()); exit;
+// End.
 

@@ -7,6 +7,12 @@
  */
 
 
+/** 2.x Compatibility
+*/
+function site_name() {
+  return 'Open Media Player';
+}
+
 /** JSON encode a string, removing the outer quotes (").
 */
 function json_encode_str($str) {
