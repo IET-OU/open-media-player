@@ -1,0 +1,32 @@
+/*!
+  CSS style fixes, etc. -- inject FontAwesome fonts from the Bootstrap CDN.
+
+  See :~ https://www.open.ac.uk/oudigital/v4/eep/css/screen.css#line=2&search=fontawesome
+*/
+
+/* https://stackoverflow.com/questions/38336341/css-variables-and-string-concatenation */
+
+:root {
+  --OU-font-fix--FA-cdn: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/';
+}
+
+
+/*!
+ * Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@font-face {
+  font-family: FontAwesome;
+  src: url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.2.0);
+  src: url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0) format('embedded-opentype'),
+       url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.2.0) format('woff'),
+       url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.2.0) format('truetype'),
+       url(https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular) format('svg');
+  font-weight: 400;
+  font-style: normal
+}
+
+
+/* End. */
+
