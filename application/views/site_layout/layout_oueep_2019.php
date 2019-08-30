@@ -8,9 +8,6 @@
  * Replaces :~ https://github.com/IET-OU/open-media-player/blob/2.x/application/views/site_layout/layout_ouice_2.php
  */
 
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-
   $page_title = isset( $page_title ) ? $page_title : 'Home';
 
   $robots = $this->config->item('robots');
@@ -54,16 +51,10 @@
   <meta name="keywords" content="ouplayer, oembed, open university, distance, learning, study, employee development, research, course, qualification, uni" />
 
 <?php /*
-  <link href="/courses/CMSPages/GetResource.ashx?stylesheetname=Courses" rel="stylesheet"/>
-
   <script src="/oudigital/v4/eep/js/vendor/modernizr-2.6.2.min.js"></script>
 */ ?>
 
     <link rel="stylesheet" href="<?= $resource_url ?>/oudigital/v4/eep/css/screen.css?v=1.0.1.45">
-
-<?php /*
-    <link rel="stylesheet" data-X-href="/oudigital/v4/eep/css/kentico-custom-styles.css">
-*/ ?>
 
     <!--[if lt IE 9]>
             <link rel="stylesheet" href="<?= $resource_url ?>/oudigital/v4/eep/css/ie8.css">
@@ -72,10 +63,6 @@
 <?php /*
       <!--[if lt IE 8]>
             <link rel="stylesheet" href="/oudigital/v4/eep/css/ie.css">
-      <![endif]-->
-
-      <!--[if IE 7]>
-            <link rel="stylesheet" href="/oudigital/v4/eep/fonts/fontawesome/css/font-awesome-ie7.css">
       <![endif]-->
 */ ?>
 
@@ -91,23 +78,14 @@
 
     <link rel="stylesheet" href="<?= $resource_url ?>/oudigital/v4/eep/css/secondary-nav.css" media="screen, projection">
 
-<?php /*
-    <link rel="stylesheet" href="/courses/CMSScripts/Custom/Modules/ui_refresh/ui_refresh.css">
-
-<link href="/courses/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
-<link href="/courses/favicon.ico" type="image/x-icon" rel="icon"/>
-
-<link data-X-href="/courses/CMSPages/GetResource.ashx?stylesheetfile=/courses/CMSScripts/jquery/jqueryui/jquery-ui.css" rel="stylesheet"/>
-*/ ?>
-
 <meta property="og:title" content="<?= $page_title ?> | Open University" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content=" [ xxx ] " />
-<meta property="og:site_name" content="The Open University" />
-<meta property="og:url" content="http://www.open.ac.uk/courses/" />
-<meta property="og:image" content="http://www.open.ac.uk/courses/Courses/media/Courses/High%20level%20pages/Courses/MEOUWCARD-104-OG.jpg" />
+<meta property="og:description" content="?= site_name() ?> is an online audio and video player. The Open University offers flexible part-time study, supported distance and open learning for undergraduate and postgraduate courses and qualifications." />
+<meta property="og:site_name" content="Open Media Player" />
+<meta property="og:url" content="https://mediaplayer.open.ac.uk/" />
+<meta property="og:image" content="https://iet-ou.github.io/open-media-player/badge.svg" />
 
-<link rel='canonical' href='http://www.open.ac.uk/courses/' />
+<link rel='canonical' href='https://mediaplayer.open.ac.uk/' />
 
 <!-- ou-head v1.1.1.69 -->
 <?php if ($optimizely_etc): ?>
@@ -266,33 +244,6 @@
 	<li class='all ou-nav-inactive'><a href="https://www.open.ac.uk/disability/" title="Services for disabled students – external OU" rel="external"><span>Disabled serices</spam></a></li>
 	<li class='all ou-nav-inactive'><a href="https://podcast.open.ac.uk/"  title="Open University Podcasts – external OU" rel="external"><span>OU Podcasts</spam></a></li>
 	<li class='all ou-nav-inactive'><a href="https://www.open.edu/itunes/" title="The Open University on iTunes U – external OU" rel="external"><span>iTunes U</spam></a></li>
-
-<?php /*
-  <li class='all'><a href='/courses/'><span class='L2_Courses_UGCoursesH_0'>Courses</span></a></li>
-	<li class='all'><a href='/courses/atoz'><span class='L2_Courses_UGAtoZ_1'>A to Z of subjects</span></a></li>
-	<li class='all'><a href='/courses/types'><span class='L2_Courses_UGTypes_2'>Course types</span></a>
-		<ul>
-			<li class='all'><a href='/courses/degrees'><span class='L3_Courses_TYPHonours_2'>Honours degrees</span></a></li>
-			<li class='all'><a href='/courses/integrated-masters'><span class='L3_Courses_TYPMasters_2'>Integrated masters degrees</span></a></li>
-			<!-- ... -->
-		</ul>
-	</li>
-	<li class='all'><a href='/courses/careers'><span class='L2_Courses_UGCareers_3'>Careers</span></a>
-		<ul>
-			<li class='all'><a href='/courses/careers/accountancy'><span class='L3_Courses_TYPAccount_3'>Accountancy</span></a></li>
-			<li class='all'><a href='/courses/careers/counselling'><span class='L3_Courses_UGCouncel_3'>Counselling</span></a></li>
-			<!--
-			...
-		  -->
-		</ul>
-	</li>
-	  <li class='all'><a href='/courses/apply'><span class='L2_Courses_UGApply_7'>How to apply</span></a>
-		<ul>
-			<li class='all'><a href='/courses/apply/credit-transfer'><span class='L3_Courses_UGTransfer_7'>Transferring your study</span></a></li>
-		</ul>
-	</li>
-*/ ?>
-
 </ul>
 </div>
 
@@ -308,12 +259,7 @@
           <?= $message ?>
           </div>
 	<?php endif; ?>
-
-<?php /*
-				<div class="alert alert-warning" role="alert">
-				  A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-				</div>
-*/ ?>
+  
 
           <h1><?= $page_title ?></h1>
 
@@ -389,30 +335,19 @@
 		<script src="<?= $resource_url ?>/oudigital/v4/eep/js/ou.menu.nav.js?"></script>
 
 <?php /*
-    <script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/OU_Nav_Selection.js?"></script>
-    <script src="/oudigital/v4/eep/js/ou.menu.nav.js?"></script>
-    <script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/ou_search.js?"></script>
--->
 
   <!--Vantage files-->
     <script src="/oudigital/v4/core/js/vendor/spin.js?"></script>
     <script src="/oudigital/v4/core/js/ou.widgets.js?"></script>
   <!--end of Vantage files-->
 
-<!--
  <script src="/oudigital/v4/eep/js/vendor/min/jquery-ui-1.10.4.custom.min.js?"></script>
     <script src="/oudigital/v4/core/js/vendor/jquery.actual.js?"></script>
     <script src="/oudigital/v4/eep/js/vendor/jquery.placeholder.js?"></script>
     <script src="/oudigital/v4/eep/js/vendor/jquery.smartresize.js?"></script>
--->
+
     <script src="/oudigital/v4/eep/js/vendor/cookies.js?"></script>
     <script data-X-src="/oudigital/v4/eep/js/ou.eep.js?"></script>
-
-<!--
-<script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/ou-product-qualification.js?"></script>
-<script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/ou_Tracking.js?"></script>
-<script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/Tracking/OU_Tracking_CountryModalDialogProvider.js?"></script>
--->
 */ ?>
     <!--[if lt IE 9]>
     <script src="<?= $resource_url ?>/oudigital/v4/eep/js/vendor/respond.js"></script>
@@ -424,9 +359,6 @@
     <!-- DJS Research scripts...-->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/jquery-ui.min.js">
     <script src="/oudigital/v4/eep/js/vendor/jquery-cookie.js?"></script>
-
-    <script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/feedbackpopupUG.js"></script>
-    <script src="/courses/CMSScripts/Custom/OUJavaScriptFiles/MinOverlayUG.js"></script>
 */ ?>
     <script>
       $("link[ href *= 'jquery-ui.css' ]").remove();
