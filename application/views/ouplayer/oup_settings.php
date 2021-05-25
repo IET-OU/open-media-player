@@ -36,7 +36,7 @@ if ('Vle_player'!=get_class($meta)): #('podcast'==$context)
     $embed_code = <<<EOF
 <!--$copy_text--><a class="embed" href="$meta->_short_url">$em_title</a>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
 <script src="$jq_plugin_url"></script>
 <script>
 $(document).ready(function(){
@@ -136,5 +136,3 @@ $about_url= str_replace('__SITE__/', site_url(), $about_url);
   <a class="short-url" rel="bookmark" href="<?php echo $meta->_short_url ?>" target="_blank" title="<?php echo t('New window: %s', t('perma-link')) ?>"><span><?php echo t('View on Podcasts site') ?></span></a>
 <?php endif; ?>
 </div>
-
-

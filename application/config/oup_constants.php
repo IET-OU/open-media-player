@@ -87,6 +87,8 @@ define('OUP_JS_CDN_ENDER',     '//dnmrmlfxy5gpj.cloudfront.net/jeesh.js');
 // Fix jQuery XSS vulnerability (IT notify) [Bug: #8]
 define('OUP_JS_CDN_JQUERY_MIN',
     'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' );
+define('OUP_JS_CDN_JQUERY_INTEGRITY',
+    'sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ' );
 define('OUP_JS_CDN_JQUERY',
     'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js' );
 
@@ -95,4 +97,3 @@ define('OUP_JS_CDN_JQUERY',
 // Note, the Player implements a JS fallback for the jQuery CDN.
 
 // End.
-

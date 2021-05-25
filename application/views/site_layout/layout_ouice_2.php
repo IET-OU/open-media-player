@@ -96,7 +96,8 @@
     <style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>
 */ ?>
 
-<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
+<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"
+  integrity="<?php echo OUP_JS_CDN_JQUERY_INTEGRITY ?>" crossorigin="anonymous"></script>
 
 
 <?php if($google_analytics): ?>

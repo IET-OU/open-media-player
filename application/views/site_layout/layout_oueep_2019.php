@@ -99,7 +99,8 @@
 <!-- End Google Tag Manager Generic Data Layer -->
 
 
-<script src="<?= $resource_url ?>/ouheaders/js/headerfooter.min.js?1.1.1.69"></script>
+<script src="<?= $resource_url ?>/ouheaders/js/headerfooter.min.js?1.1.1.69"
+  integrity="sha384-UR7J1ENs7E5+aTmwFaH4NtZDUEe5wLPs5DURUl0vP4xoO00z8ovUsarKDLtorbVQ" crossorigin="anonymous"></script>
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="<?= $resource_url ?>/ouheaders/gui/headerfooter.css?1.1.1.69" media="screen, projection" />
@@ -118,7 +119,8 @@
     ** -->
 <link rel="stylesheet" href="<?php echo $local_res_url ?>ou-embed.css" title="OU Embed styles" />
 
-<script src="<?= OUP_JS_CDN_JQUERY_MIN ?>"></script>
+<script src="<?= OUP_JS_CDN_JQUERY_MIN ?>"
+  integrity="<?= OUP_JS_CDN_JQUERY_INTEGRITY ?>" crossorigin="anonymous"></script>
 
 <?php if($google_analytics): ?>
 <!-- Google Analytics -->
@@ -265,7 +267,7 @@
           <?= $message ?>
           </div>
 	<?php endif; ?>
-  
+
 
           <h1><?= $page_title ?></h1>
 
@@ -338,7 +340,8 @@
 <?php /*
     <script src="<?= $resource_url ?>/oudigital/v4/eep/js/vendor/jquery-1.10.2.min.js"></script>
 */ ?>
-		<script src="<?= $resource_url ?>/oudigital/v4/eep/js/ou.menu.nav.js?"></script>
+	<script src="<?= $resource_url ?>/oudigital/v4/eep/js/ou.menu.nav.js?"
+      integrity="sha384-5s3TXPFIwMGLRfawO3atWlK2mPsL3vwETDUSdqZnMoCypIhjU8L7v8t3g9f7FVqg" crossorigin="anonymous"></script>
 
 <?php /*
 
@@ -376,4 +379,3 @@
 
 </body>
 </html>
-

@@ -17,7 +17,8 @@
 <meta name="ROBOTS" content="noindex,nofollow" />
 
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/client/site-embed.css" />
-<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
+<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"
+  integrity="<?php echo OUP_JS_CDN_JQUERY_INTEGRITY ?>" crossorigin="anonymous"></script>
 
 <?php if($google_analytics): ?>
 <script>
@@ -54,4 +55,4 @@
   });
 </script>
 
-</html> 
+</html>
