@@ -6,6 +6,12 @@
     DISABLE_SAMS
 </IfModule>
 
+#Content-Security-Policy Added 26/05/2021 Gurv
+####
+<IfModule mod_headers.c>
+Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' https://*.open.ac.uk http://*.open.ac.uk  https://*.google-analytics.com http://*.google-analytics.com ; font-src 'self' https://*.open.ac.uk https://*.bootstrapcdn.com ; frame-ancestors 'self' https://*.open.ac.uk http://*.open.ac.uk https://*.open.edu ; script-src 'self' 'unsafe-inline' https://*.open.ac.uk https://*.googleapis.com https://*.google-analytics.com http://*.google-analytics.com ;"
+</IfModule>
+#####
 
 # Cross-domain client access to captions/subtitle files.
 <IfModule mod_headers.c>
@@ -41,7 +47,7 @@
     RewriteRule ^(assets|engines|themes)(/.*)$ application/$1$2 [QSA,L]
     RewriteRule ^swf/(.*)$  application/assets/flowplayer/$1 [QSA,L]
 
-	##RewriteRule (crossdomain.xml)  application/assets/$1 [QSA,L]
+        ##RewriteRule (crossdomain.xml)  application/assets/$1 [QSA,L]
 
     RewriteRule ^scripts/jquery.oembed.js(.*) index.php/scripts/jquery_oembed$1 [QSA,L]
     #RewriteRule ^scripts/(jquery.oembed.js)$ application/assets/client/$1 [QSA,L]
