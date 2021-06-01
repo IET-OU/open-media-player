@@ -3,12 +3,12 @@
 A mainstream audio and video player service that puts accessibility front and centre.
 We put the emphasis on ease of use for end-users and authors. From the [The Open University][ou].
 
-* <http://embed.open.ac.uk>
+* <https://embed.open.ac.uk>
 
 Built on [MediaElement.js][], CodeIgniter and [oEmbed][].
 
 
-See the [open source project](http://iet-ou.github.io/open-media-player/).
+See the [open source project](https://iet-ou.github.io/open-media-player/).
 
 
 ## Requirements
@@ -223,7 +223,7 @@ When importing to _AllChange_, please ensure that these files and directories ar
 
 ## Credits
 
-Open Media Player: Copyright © 2010-2015 The Open University.
+Open Media Player: Copyright © 2010-2021 [The Open University][ou] ([IET][]).
 
 * Author: Nick Freear / Institute of Educational Technology, and many others.
 
@@ -246,9 +246,9 @@ For full credits and licenses see [docs/CREDITS.txt](docs/CREDITS.txt)
 [credit_g]: https://github.com/IET-OU/open-media-player/tree/master/docs/CREDITS.txt
 [credit]: http://iet-embed-acct.open.ac.uk/docs/CREDITS.md "Credits and licenses"
 
-[MediaElement.js]: http://mediaelementjs.com/
-[oEmbed]: http://oembed.com/ "oEmbed API specification"
-[iet]: http://iet.open.ac.uk/
+[MediaElement.js]: https://mediaelementjs.com/
+[oEmbed]: https://oembed.com/ "oEmbed API specification"
+[iet]: https://iet.open.ac.uk/ "Institute of Educational Technology"
 [ou]: http://www.open.ac.uk/
 
 [End]: http://example

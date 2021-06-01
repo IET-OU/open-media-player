@@ -1,7 +1,7 @@
 Credits/ licenses for OU Player project.
 
 
-OU player: Copyright © 2010-2012 The Open University. All rights reserved.
+OU player: Copyright © 2010-2021 The Open University. All rights reserved.
  * Not licensed as open-source (yet!)
  * Author: Nick Freear <n.d.freear+@+open.ac.uk> / Institute of Educational Technology.
 
@@ -35,7 +35,7 @@ jquery-oembed: Copyright Richard Chamorro, Avanzis.
  * MIT License: <http://opensource.org/licenses/MIT>
  * Code: <http://code.google.com/p/jquery-oembed/#r20>
 
-Ender/jeesh: copyright 2012 Dustin Diaz & Jacob Thornton. 
+Ender/jeesh: copyright 2012 Dustin Diaz & Jacob Thornton.
  * License: MIT
  * Code: <http://ender.jit.su/#jeesh>
  * For the individual modules, see their respective licenses.
