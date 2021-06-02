@@ -14,7 +14,7 @@ See the [open source project](https://iet-ou.github.io/open-media-player/).
 ## Requirements
 
 * Linux, Mac OS X or Windows
-* PHP 5.3.3+ (cURL, SimpleXML)
+* PHP 7.2+ (cURL, SimpleXML)
 * Apache 2.2+ (mod_rewrite)
 
 

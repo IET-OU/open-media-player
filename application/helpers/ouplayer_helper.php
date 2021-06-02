@@ -91,7 +91,7 @@ if ( ! function_exists('site_url'))
 function media_url($uri, $return = false) {
   $CI =& get_instance();
   $media_url_regex = $CI->config->item('https_media_url_regex');
-  $media_url = preg_replace($media_url_regex, '//$1', $uri);
+  $media_url = preg_replace($media_url_regex, 'https://$1', $uri);
   if ($return) {
     return $media_url;
   }
@@ -197,7 +197,7 @@ function cache_time($key) {
   $CI =& get_instance();
   $CI->load->driver('cache', array('adapter'=>'file'));
   $stat = $CI->cache->get_metadata($key);
-  
+
 #var_dump($stat);
   return $stat['mtime'];
 }

@@ -10,7 +10,7 @@
 #Content-Security-Policy Edited 01/06/2021 N.Freear
 ####
 <IfModule mod_headers.c>
-Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' https://*.open.ac.uk https://*.google-analytics.com ; font-src 'self' https://*.open.ac.uk https://*.bootstrapcdn.com ; frame-ancestors 'self' https://*.open.ac.uk http://*.open.ac.uk https://*.open.edu https://*.openartsarchive.org ; object-src 'none' ; script-src 'self' 'unsafe-inline' https://*.open.ac.uk https://*.google-analytics.com 'sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ' ;"
+Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' https://*.open.ac.uk https://*.google-analytics.com ; font-src 'self' https://*.open.ac.uk https://*.bootstrapcdn.com ; frame-ancestors 'self' https://*.open.ac.uk http://*.open.ac.uk https://*.open.edu https://*.openartsarchive.org ; object-src 'none' ; script-src 'self' 'unsafe-inline' https://*.open.ac.uk https://*.googleapis.com https://*.google-analytics.com ;"
 </IfModule>
 #####
 
