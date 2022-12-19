@@ -71,7 +71,7 @@ EOT;
   $author= trim($title[1]);
   $title = trim($title[2]);
 
-  $image = (string) $image[0]['src']; #[1].
+  $image = (string) $image[0]['src'];
   preg_match("#tex=.displaystyle (.*)#", $image, $matches); #\\?
   $tex = urldecode($matches[1]);
 

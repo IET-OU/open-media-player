@@ -265,11 +265,11 @@ class MY_Controller extends CI_Controller {
     $_CI = $this;
     $_CI->load->library('user_agent');
     $ip = $_SERVER['REMOTE_ADDR'];
-    $ref= $_CI->agent->referrer();    #['HTTP_REFERER']
-    $ua = $_CI->agent->agent_string();#['HTTP_USER_AGENT']
+    $ref= $_CI->agent->referrer();
+    $ua = $_CI->agent->agent_string();
     $request = $_CI->uri->uri_string().'?'.$_SERVER['QUERY_STRING'];
     $msg = "$message, $request -- $ip, $ref, $ua";
-    log_message($level, $msg);  #, $php_error);
+    log_message($level, $msg);
 
 
     $fp_level = 'error'==$level ? 'ERROR' : 'INFO';

@@ -139,12 +139,12 @@ $config['player_js_config'] = array(
   'enableKeyboard' => true,
 
   // array of keyboard actions such as play pause
-  'keyActions' => array( #[
-		array( #{
-			'keys' => array( #[
+  'keyActions' => array(
+		array(
+			'keys' => array(
 				32, // SPACE
 				179 // GOOGLE play/pause button
-			), #],
+			),
 			'action' => 'function (player, media) {'."\n"
 			.'	if (media.paused || media.ended) {' ."\n"
 			.'		media.play();' ."\n"
@@ -152,8 +152,8 @@ $config['player_js_config'] = array(
 			.'		media.pause();' ."\n"
 			.'	}' .PHP_EOL
             .'}'
-		) #}
-	), #}
+		)
+	),
 
   /* LtsRedmine:7911 - true, false or "ie" */
   'fsHoverAltButton' => 'ie',

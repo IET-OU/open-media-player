@@ -166,7 +166,7 @@ class Podcast_items_feed_model extends Podcast_items_abstract_model {
 		  'target_text' => $this->_xpath_val($xpath_item .'/atom:link[@rel="related"]', 'title'),
 
 		  '_itunes_url' => $this->_xpath_val('//atom:link[@rel="oup:ituneslink"]', 'href'), #oup:rel-itunes-url
-		  '_youtube_url' => $this->_xpath_val($xpath_item .'/atom:content[contains(@src, "youtube.com")]', 'src'), #'), #[@type="application/x-shockwave-flash"]
+		  '_youtube_url' => $this->_xpath_val($xpath_item .'/atom:content[contains(@src, "youtube.com")]', 'src'),
 		  'duration_orig' => $this->_xpath_val($xpath_item .'/itunes:duration'),
 		  'duration' => 0,
 		  'aspect_ratio' => $this->_xpath_val($xpath_item .'/oup:aspect_ratio'),

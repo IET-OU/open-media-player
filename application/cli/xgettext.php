@@ -105,9 +105,9 @@ function file_array($path, $rel, $exclude = ".|..|.svn|.DS_Store", $recursive = 
         if(!in_array(strtolower($filename), $exclude_array)) {
             if(is_dir($path . $filename . "/")) {
                     // Need to include full "path" or it's an infinite loop
-                if($recursive) $result .= file_array($path . $filename . "/", $rel, $exclude, true); #[].
+                if($recursive) $result .= file_array($path . $filename . "/", $rel, $exclude, true);
             } else {
-                $result .= win_dir(str_replace($rel,'', $path).$filename.PHP_EOL);  #[], $path.
+                $result .= win_dir(str_replace($rel,'', $path).$filename.PHP_EOL);
             }
         }
     }

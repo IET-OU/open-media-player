@@ -31,7 +31,7 @@ EOF;
 	return null;
   }
 
-  public function _error($message, $code=500) {
+  public function _error($message, $code=500, $from=null, $obj=null) {
     return parent::_error($message, $code, __CLASS__);
   }
 

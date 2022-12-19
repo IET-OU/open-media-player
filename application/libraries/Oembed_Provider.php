@@ -141,7 +141,7 @@ abstract class Oembed_Provider implements iService {
     return $this->CI->_error($message, $code, $from, $obj);
   }
 
-  protected function _log($level='error', $message, $php_error=FALSE) {
+  protected function _log($level, $message, $php_error=FALSE) {
     return $this->CI->_log($level, $message, $php_error);
   }
 
