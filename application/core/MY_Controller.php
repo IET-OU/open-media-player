@@ -261,7 +261,7 @@ class MY_Controller extends CI_Controller {
     }
   }
 
-  public function _log($level='error', $message, $php_error=FALSE) {
+  public function _log($level, $message, $php_error=FALSE) {
     $_CI = $this;
     $_CI->load->library('user_agent');
     $ip = $_SERVER['REMOTE_ADDR'];
