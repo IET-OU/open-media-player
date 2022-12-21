@@ -20,6 +20,10 @@ See the [open source project](https://iet-ou.github.io/open-media-player/).
 
 ## Releases
 
+### Version 1.6.3
+
+* Patched (some) CodeIgniter files for compatibility with PHP 8
+
 ### Version 1.3.2
 Release 22 April 2016 /
 
