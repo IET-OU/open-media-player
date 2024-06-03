@@ -231,11 +231,11 @@
 <div role='navigation' class='ou-secondary-nav ou-nav-open'>
 <ul class='ou-container'>
 
-	<li class='all ou-nav-active'><a href="<?= $base_url ?>"><span>Player home</spam></a></li>
+	<li class='all ou-nav-active'><a href="<?= $base_url ?>"><span>Player home</span></a></li>
 
-	<li class='all ou-nav-inactive'><a href="<?= $base_url ?>about"><span>About</spam></a></li>
+	<li class='all ou-nav-inactive'><a href="<?= $base_url ?>about"><span>About</span></a></li>
 <?php if ($is_ouembed): ?>
-	<li class='all ou-nav-inactive'><a href="<?= $base_url ?>demo/ouldi"><span>OU/OULDI embeds</spam></a></li>
+	<li class='all ou-nav-inactive'><a href="<?= $base_url ?>demo/ouldi"><span>OU/OULDI embeds</span></a></li>
 <?php endif; ?>
 <?php if (! $is_live): ?>
         <li class='all ou-nav-inactive'><a href="<?= $base_url ?>test_area" rel="nofollow"><span> Test Area </span></a>
