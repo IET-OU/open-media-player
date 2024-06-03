@@ -96,8 +96,7 @@
     <style media="screen">@import "/study/stylesheets/student-services-phone.css";</style>
 */ ?>
 
-<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"
-  integrity="<?php echo OUP_JS_CDN_JQUERY_INTEGRITY ?>" crossorigin="anonymous"></script>
+<script src="/jquery-3.7.1.min.js"></script>
 
 
 <?php if($google_analytics): ?>
@@ -412,7 +411,7 @@ div.teasers ul li:last-child a {border-right:none;}
 <!-- site specific scripts -->
 
 <?php if ($is_demo_page && $use_oembed): ?>
-<?php /*<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>*/ ?>
+<?php /*<script src="/jquery-3.7.1.min.js"></script>*/ ?>
 
 <script src="<?php echo $player_url . 'scripts/jquery.oembed.js' ?>"></script>
 <script>

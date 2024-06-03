@@ -119,8 +119,7 @@
     ** -->
 <link rel="stylesheet" href="<?php echo $local_res_url ?>ou-embed.css" title="OU Embed styles" />
 
-<script src="<?= OUP_JS_CDN_JQUERY_MIN ?>"
-  integrity="<?= OUP_JS_CDN_JQUERY_INTEGRITY ?>" crossorigin="anonymous"></script>
+<script src="/jquery-3.7.1.min.js"></script>
 
 <?php if($google_analytics): ?>
 <!-- Google Analytics -->

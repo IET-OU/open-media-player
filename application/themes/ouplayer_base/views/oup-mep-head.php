@@ -27,8 +27,7 @@
        http://stackoverflow.com/questions/1014203/best-way-to-use-googles-hosted-jquery-but-fall-back-to-my- ..
     */
 ?>
-<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"
-  integrity="<?php echo OUP_JS_CDN_JQUERY_INTEGRITY ?>" crossorigin="anonymous"></script>
+<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
 <script>
 if(typeof jQuery=='undefined'){
   document.write(unescape("%3Cscript src='<?php player_res_url($this->theme->plugin_path .'jquery.js') ?>' %3E%3C/script%3E"));

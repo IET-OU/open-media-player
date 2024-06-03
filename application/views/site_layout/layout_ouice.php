@@ -104,7 +104,7 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
 			<li class="current"><a href="http://www.open.ac.uk/study/">Study at the OU</a></li>
 			<li><a href="http://www.open.ac.uk/research/">Research at the OU</a></li>
 			<li><a href="http://www.open.ac.uk/community/">OU Community</a></li>
-			<li><a href="http://www.open.ac.uk/about/">About the OU</a></li>			
+			<li><a href="http://www.open.ac.uk/about/">About the OU</a></li>
 		</ul>
 	</div>
 </div>
@@ -131,7 +131,7 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
                                     	<div id="search_box">
                                             </div>
                                             <div class="ou-content" id="ou-content"></div>
-                                                        
+
                                     <?php /*<h1>Study explained</h1>                                                                                                                <!-- start OU External Standard v2 node.tpl.php -->
 		<div id="node-320" class="node ">*/ ?>
 
@@ -185,13 +185,13 @@ $site_url = $resource_url = OUP_OU_RESOURCE_URL;
 			</div>
 		</div>
 	</div>
-</div></div>   
+</div></div>
 <script>//<![CDATA[
 ou_init();
 //]]></script>
 </div>
 
-<script src="<?php echo OUP_JS_CDN_JQUERY_MIN ?>"></script>
+<script src="/jquery-3.7.1.min.js"></script>
 
 <?php /*<script src="/study/explained/misc/jquery.js?u"></script>*/ ?>
 <script src="<?php echo $resource_url ?>/study/explained/misc/drupal.js?u"></script>
